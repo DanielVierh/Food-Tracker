@@ -1,0 +1,76 @@
+----------------------
+Funktionen
+----------------------
+NavBar Buttons.
+    NEU--> Springe zu Neues Lebensmittel erfassen
+    Planer
+    Statistik
+    Einstellungen
+
+
+-Tag Abschließen -- Speichern
+
+-Kcal Bedarf berechnen
+
+-Kcal Ziel berechnen
+
+----------------------
+Arrays
+----------------------
+
+    today_eaten             --  Hier werden die Lebensmittel gespeichert, die heute gegessen wurden
+    array_Food_DB           --  Array aller Lebensmittel. Wird zu Begin vom JSON File befüllt. Erst dann Lebensmittel hinzufügbar
+    array_Meal_Planner      --  Array für den Planer
+    my_Settings             --  Für alle Einstellungen wie Kcal-Ziel, Farbschema, Keto J/N etc. 
+    my_Statistics           --  Speichert die letzten 7 abgeschlossenen Tage um diese mit Balkendiagrammen darzustellen
+    my_History              --  Speichert alle Werte aus abgeschlossenen Tage für immer. Soll dann per Mail verschickbar sein.
+
+----------------------
+Variablen
+----------------------
+    today_Steps         --  Schritte von Heute
+    today_Burned_Kcal   --  Heute verbrannte Kcal
+    total_Kcal_Intake   --  Heute gegessene Kcal
+    total_Sugar         --  Heute gegessen Zucker
+    total_Carbs         --  Heute gegessen Kohlenhydrate
+    total_Amound_gramm  --  Heute gegessen Gramm
+    total_Fat           --  Heute gegessen Fett
+    total_Fiber         --  Heute gegessen Ballaststoffe
+    total_Salt          --  Heute gegessen Salz
+    total_Protein       --  Heute gegessen Eiweiß
+    kcal_Goal           --  Heutiges Kcal Ziel 
+    kcal_Requirement    --  Kaloriebbedarf (Erfolgt aus Berechnung)
+
+    limit_Carbs         -- Grenzwert für Kohlenhydrate
+    limit_Sugar         -- Grenzwert für Zucker
+    limit_Fat           -- Grenzwert für Fett
+    limit_Salt          -- Grenzwert für Salz
+
+
+
+----------------------
+Bugs
+----------------------
+
+
+
+
+Schlachtplan:
+    1. Bei Document Load checken ob Food Array belegt ist bzw. den persistenten Speicher checken
+        Wenn ja, Tabelle laden
+
+        Wenn Nein, FoodDB File automatisch laden und Tabelle laden 
+    
+    2. Wenn man auf Food + klickt, wird man zur Tabelle mit allen Lebensmitteln geführt.
+        -Suchfeld für unscharfe Suche.
+        -Wenn Lebensmittel angeklickt, taucht Input Feld mit Mengenangabe auf
+         Nach Eingabe und Klick auf speichern, verschwindet es wieder. Das Produkt
+         wird in Array Heute gegessen eingetragen und man wird zur Liste Heute gegessen 
+         geleitet.
+
+    3. Man hat einen immer da Button für Schritte. Popup Fenster mit markierten letzten Schritten
+       öffnet sich und man kann die Zahl überschreiben oder abbrechen.
+       Kcal werden dann berechnet und man wird nach oben geleitet zur Übersicht
+
+
+

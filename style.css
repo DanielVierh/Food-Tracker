@@ -1,0 +1,423 @@
+body{
+    margin: auto 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.zone {
+    color:#FFF;
+    font-size:2em;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+/* Navigation */
+.main-nav{
+    display: flex;
+    list-style: none;
+    font-size: 0.7em;
+    margin: 0;
+}
+
+.fullCell{
+    font-size: 2.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-nav {
+        font-size: 0.5em;
+        padding: 0;
+    }
+}
+
+.push{
+    /* Um Contacts nacht rechts zu setzen */
+    margin-left: auto;
+}
+
+li{
+    padding: 20px;
+    background-color: #a5c956;
+    margin: 30px;
+    border-radius: 12px;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Cover */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+h1{
+    text-align: left;
+    margin: 70px 70px 70px 70px;
+}
+
+/* Projects */
+.grid-wrapper{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.box > img{
+    width: 100%;
+}
+
+.box{
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(112, 112, 114);
+    text-align: center;
+    font-size: 54px;
+}
+
+box2{
+    width: 100%;
+    background-color: rgb(41, 41, 129);
+}
+
+
+/* FOOTER */
+footer{
+    text-align: center;
+}
+
+/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
+/***********************************************************************
+ *  Green Background
+ **********************************************************************/
+.green{
+    background: #56B870; /* Old browsers */
+    background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
+    background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Red Background
+ **********************************************************************/
+.red{
+    background: #C655BE; /* Old browsers */
+    background: -moz-linear-gradient(top, #C655BE 0%, #cf0404 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C655BE), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
+    background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Yellow Background
+ **********************************************************************/
+.yellow{
+    background: #F3AAAA; /* Old browsers */
+    background: -moz-linear-gradient(top, #F3AAAA 0%, #febf04 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3AAAA), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
+    background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Blue Background
+ **********************************************************************/
+.blue{
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+    background: linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+}
+
+
+.cover{
+    width: 30rem;
+}
+
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 44px;
+}
+
+.bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.212); /* Black w/opacity/see-through */
+    color: rgb(27, 206, 27);
+    font-weight: bold;
+    font-size: 60px;
+    border: 10px solid #dddada57;
+    position: fixed; /* Stay fixed */
+    top: 90%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 90px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+  }
+
+  .bg-text2{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.212); /* Black w/opacity/see-through */
+    color: rgb(27, 206, 27);
+    font-weight: bold;
+    font-size: 60px;
+    border: 10px solid #dddada57;
+    position: fixed; /* Stay fixed */
+    top: 90%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 90px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+  }
+
+  .bg-text3{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.527); /* Black w/opacity/see-through */
+    color: rgb(27, 206, 27);
+    font-weight: bold;
+    font-size: 60px;
+    border: 10px solid #dddada1a;
+    position: fixed; /* Stay fixed */
+    top: 12%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 350px;
+    padding: 20px;
+    border-radius: 90px;
+    backdrop-filter: blur(20px);
+    text-align: center; 
+  }
+
+
+.mittelForm{
+    background-color: #222121;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    font-weight: bold;
+    font-size: 2.7em;
+}
+
+  .form1{
+      
+      text-align: right;
+      padding: 50px;
+  }
+
+  .inpBox1{
+      margin-left: 50px;
+      width: 500px;
+      height: 80px;
+      font-size: 34px;
+      text-align: center;
+  }
+
+  .inpBox2{
+    margin-left: 50px;
+    width: 200px;
+    height: 80px;
+    font-size: 34px;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  .ButtonSpeichern{
+      background-color: green;
+      color: white;
+      width: 300px;
+      height: 80px;
+      font-size: 44px;
+      border-radius: 20px;
+  }
+
+  .button_TagAbschl{
+    background-color: red;
+    color: white;
+    width: 100px;
+    height: 100px;
+    font-size: 74px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 80px 0px 80px 300px;
+  }
+
+
+
+  #t01 tr:nth-child(even) {
+    background-color: rgb(169, 199, 243);
+    color: black;
+    width: 500px;
+    text-align: center;
+  }
+  #t01 tr:nth-child(odd) {
+   background-color: #fff;
+   color: black;
+   width: 500px;
+   text-align: center;
+  }
+  #t01 th {
+    background-color: black;
+    color: rgb(245, 240, 240);
+    width: 500px;
+    text-align: center;
+  }
+
+  .advise{
+      color: tomato;
+  }
+
+/* ============================================================================== */
+  /* Popup Screen */
+  .modal_Steps{
+      /* Damit das Fenster beim scrollen folgt */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+
+      transition: 200ms ease-in-out;
+      border: 1px solid black;
+      border-radius: 12px;
+      z-index: 10;
+      background-color: gray;
+      width: 50%;
+      max-width: 80%;
+      height: 20%;
+  }
+
+  .modal_Steps.active{
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+
+  .modal-header{
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid black;
+  }
+
+  .modal-header ,title{
+      font-size: 3.25rem;
+      font-weight: bold;
+      color: greenyellow;
+  }
+
+  .modal-header .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 3.25rem;
+    font-weight: bold;
+  }
+
+  .modal-body{
+      padding: 10px 15px ;
+      font-size: 3.25rem;
+  }
+
+
+  #overlay{
+      position: fixed;
+      opacity: 0;
+      transition: 200ms ease-in-out;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      pointer-events: none;
+      backdrop-filter: blur(15px);
+      z-index: 9;
+  }
+
+  #overlay.active{
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .inpSteps{
+      width: 90%;
+    font-size: 3.25rem;
+  }
+
+  #btn_SaveSteps{
+      width: 150px;
+      height: 60px;
+      background-color: darkgreen;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 50px;
+      border-radius: 15px;
+  }
+
+
+/* ================================================ */
+  /* Food Datenbank */
+
+  #containerTabelle{
+    overflow-y: auto;
+    max-height: 45vh;
+    border: 5px solid black;
+}
+
+
+table { border-collapse: collapse; }
+table tr td {
+  border: 1px solid #000;
+  padding: 10px;
+}
+table tr:nth-child(odd) { background: #60a4e4; }
+
+
+#selectedFoodAnzeige{
+    color: cadetblue;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+#selectedFoodMakros{
+    color: darkgoldenrod;
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin: 5px;
+}
+
+
+.inpSteps{
+    background-color: black;
+    color: chartreuse;
+    font-weight: bolder;
+}

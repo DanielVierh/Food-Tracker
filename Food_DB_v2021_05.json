@@ -1,0 +1,14745 @@
+[
+{
+
+    "productName": "Thunfisch Salat Mexicana Rio Mare",
+
+    "kcal": "200",
+
+    "fat": "13",
+
+    "carbs": "9.5",
+
+    "sugar": "2.5",
+
+    "protein": "10",
+
+    "salt": "1.5",
+
+    "fiber": "2.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Römersalat",
+
+    "kcal": "16",
+
+    "fat": "0.2",
+
+    "carbs": "1.7",
+
+    "sugar": "0.8",
+
+    "protein": "1.6",
+
+    "salt": "0",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Hafercookies Vollmilch Schoko Aldi",
+
+    "kcal": "504",
+
+    "fat": "25.7",
+
+    "carbs": "58.8",
+
+    "sugar": "32.8",
+
+    "protein": "7.1",
+
+    "salt": "0.61",
+
+    "fiber": "1",
+
+    "quantityUnit": "12,5 g"
+
+},
+{
+
+    "productName": "Baby Bells Light",
+
+    "kcal": "208",
+
+    "fat": "12",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "25",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Makrelen Filets Sonnenblumen Netto",
+
+    "kcal": "253",
+
+    "fat": "18.6",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "21.4",
+
+    "salt": "0.73",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Vegane Mühlen Burger",
+
+    "kcal": "169",
+
+    "fat": "10",
+
+    "carbs": "3.3",
+
+    "sugar": "1.2",
+
+    "protein": "14",
+
+    "salt": "1.9",
+
+    "fiber": "5.1",
+
+    "quantityUnit": "180 g"
+
+},
+{
+
+    "productName": "Bauern Brötchen Penny",
+
+    "kcal": "244",
+
+    "fat": "1.2",
+
+    "carbs": "47",
+
+    "sugar": "1.8",
+
+    "protein": "9",
+
+    "salt": "2.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Käsekuchen",
+
+    "kcal": "321",
+
+    "fat": "23",
+
+    "carbs": "26",
+
+    "sugar": "22",
+
+    "protein": "6",
+
+    "salt": "0.8",
+
+    "fiber": "0.4",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Kohlrabi ",
+
+    "kcal": "28",
+
+    "fat": "0.2",
+
+    "carbs": "3.7",
+
+    "sugar": "0",
+
+    "protein": "1.9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Erbseneintopf Aldi",
+
+    "kcal": "125",
+
+    "fat": "6.3",
+
+    "carbs": "8.8",
+
+    "sugar": "0.6",
+
+    "protein": "6.5",
+
+    "salt": "0.75",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "800 g"
+
+},
+{
+
+    "productName": "Softeis",
+
+    "kcal": "129",
+
+    "fat": "2.2",
+
+    "carbs": "24.8",
+
+    "sugar": "24.8",
+
+    "protein": "2.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "90 g"
+
+},
+{
+
+    "productName": "Protein Riegel SchokoBanane",
+
+    "kcal": "343",
+
+    "fat": "9.1",
+
+    "carbs": "24.5",
+
+    "sugar": "1.4",
+
+    "protein": "45.5",
+
+    "salt": "1.1",
+
+    "fiber": "6.9",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Belgischer Bauernkäse",
+
+    "kcal": "357",
+
+    "fat": "29",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "24",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Süß-Sauer ohne Zuckerzusatz Uncle Bens",
+
+    "kcal": "28",
+
+    "fat": "0.1",
+
+    "carbs": "5.5",
+
+    "sugar": "2",
+
+    "protein": "0.4",
+
+    "salt": "0.42",
+
+    "fiber": "0.8",
+
+    "quantityUnit": "395 g"
+
+},
+{
+
+    "productName": "Gaffel Kölsch ",
+
+    "kcal": "40",
+
+    "fat": "0",
+
+    "carbs": "2.5",
+
+    "sugar": "0",
+
+    "protein": "0.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Kernige Rosen Brötchen Harry",
+
+    "kcal": "270",
+
+    "fat": "6",
+
+    "carbs": "42",
+
+    "sugar": "4.1",
+
+    "protein": "8.9",
+
+    "salt": "1",
+
+    "fiber": "6.2",
+
+    "quantityUnit": "85 g"
+
+},
+{
+
+    "productName": "Brot Dinkel -VollkornLieken Urkorn",
+
+    "kcal": "239",
+
+    "fat": "5.5",
+
+    "carbs": "35",
+
+    "sugar": "3",
+
+    "protein": "9",
+
+    "salt": "1.1",
+
+    "fiber": "6.7",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Milchbrötchen mit Schokostück Aldi",
+
+    "kcal": "347",
+
+    "fat": "11",
+
+    "carbs": "52",
+
+    "sugar": "19",
+
+    "protein": "8.5",
+
+    "salt": "0.93",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 = 35g"
+
+},
+{
+
+    "productName": "High Protein Salami Böklunder",
+
+    "kcal": "216",
+
+    "fat": "8",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "35",
+
+    "salt": "4.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Paprika TK",
+
+    "kcal": "24",
+
+    "fat": "0.1",
+
+    "carbs": "2.7",
+
+    "sugar": "1.6",
+
+    "protein": "2.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Camembert Geramont Rot ",
+
+    "kcal": "356",
+
+    "fat": "32",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "17",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Löffelbiskuite Savoiardi Edeka",
+
+    "kcal": "368",
+
+    "fat": "3.1",
+
+    "carbs": "77",
+
+    "sugar": "51.4",
+
+    "protein": "6.8",
+
+    "salt": "0.12",
+
+    "fiber": "0",
+
+    "quantityUnit": "9 g "
+
+},
+{
+
+    "productName": "Schokolade Zart Herb 50% Choceur",
+
+    "kcal": "542",
+
+    "fat": "33",
+
+    "carbs": "51.6",
+
+    "sugar": "48",
+
+    "protein": "6.2",
+
+    "salt": "0.01",
+
+    "fiber": "0",
+
+    "quantityUnit": "40g "
+
+},
+{
+
+    "productName": "Salat Linsen Hähnchen",
+
+    "kcal": "129",
+
+    "fat": "6.1",
+
+    "carbs": "12",
+
+    "sugar": "2.8",
+
+    "protein": "6.1",
+
+    "salt": "0.47",
+
+    "fiber": "2",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Eiswaffel Hörnchen",
+
+    "kcal": "455",
+
+    "fat": "20.6",
+
+    "carbs": "60.6",
+
+    "sugar": "40",
+
+    "protein": "6.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Nuss-Variation ",
+
+    "kcal": "630",
+
+    "fat": "50",
+
+    "carbs": "18",
+
+    "sugar": "5.4",
+
+    "protein": "19",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Skyr Style Mango",
+
+    "kcal": "83",
+
+    "fat": "3",
+
+    "carbs": "8.3",
+
+    "sugar": "8.1",
+
+    "protein": "5.2",
+
+    "salt": "0.26",
+
+    "fiber": "1.2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kürbiskerne",
+
+    "kcal": "615",
+
+    "fat": "50",
+
+    "carbs": "4",
+
+    "sugar": "1",
+
+    "protein": "35",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eis Cookie Dough",
+
+    "kcal": "226",
+
+    "fat": "13.1",
+
+    "carbs": "23.7",
+
+    "sugar": "21.3",
+
+    "protein": "3.1",
+
+    "salt": "0.16",
+
+    "fiber": "0",
+
+    "quantityUnit": "84 g"
+
+},
+{
+
+    "productName": "Sate Tüte",
+
+    "kcal": "413",
+
+    "fat": "9.8",
+
+    "carbs": "70",
+
+    "sugar": "54",
+
+    "protein": "9.3",
+
+    "salt": "7.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Schwarzwälder Schinken",
+
+    "kcal": "243",
+
+    "fat": "15",
+
+    "carbs": "1",
+
+    "sugar": "0.2",
+
+    "protein": "26",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eiweiß Toastbrötchen Mestemacher",
+
+    "kcal": "276",
+
+    "fat": "12",
+
+    "carbs": "11.4",
+
+    "sugar": "1.1",
+
+    "protein": "25",
+
+    "salt": "1.3",
+
+    "fiber": "11",
+
+    "quantityUnit": "65 g"
+
+},
+{
+
+    "productName": "Tomatenmark ",
+
+    "kcal": "126",
+
+    "fat": "1.2",
+
+    "carbs": "20.6",
+
+    "sugar": "18.5",
+
+    "protein": "6.2",
+
+    "salt": "0.14",
+
+    "fiber": "2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gemüsepfanne mediteran Aldi",
+
+    "kcal": "43",
+
+    "fat": "2.2",
+
+    "carbs": "3.2",
+
+    "sugar": "3.1",
+
+    "protein": "1.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Erdnüsse Trockengeröstet Pfeffer Aldi",
+
+    "kcal": "585",
+
+    "fat": "45",
+
+    "carbs": "17",
+
+    "sugar": "5.5",
+
+    "protein": "25",
+
+    "salt": "1.9",
+
+    "fiber": "1.9",
+
+    "quantityUnit": "150/Tüte"
+
+},
+{
+
+    "productName": "Schokolade 100% Cacao Lindt",
+
+    "kcal": "618",
+
+    "fat": "55",
+
+    "carbs": "8.8",
+
+    "sugar": "1.2",
+
+    "protein": "12.1",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": "50 g / Tafel"
+
+},
+{
+
+    "productName": "Tofu Classic Edeka",
+
+    "kcal": "124",
+
+    "fat": "7",
+
+    "carbs": "1.6",
+
+    "sugar": "0.5",
+
+    "protein": "14.2",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": "2 x 200 g"
+
+},
+{
+
+    "productName": "Feta Bio Netto ",
+
+    "kcal": "276",
+
+    "fat": "23",
+
+    "carbs": "0.7",
+
+    "sugar": "0.7",
+
+    "protein": "16.5",
+
+    "salt": "0.15",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Skyr Natur Arla",
+
+    "kcal": "63",
+
+    "fat": "0.2",
+
+    "carbs": "4",
+
+    "sugar": "4",
+
+    "protein": "11",
+
+    "salt": "0.14",
+
+    "fiber": "0",
+
+    "quantityUnit": "450 g"
+
+},
+{
+
+    "productName": "Schweinebauch",
+
+    "kcal": "287",
+
+    "fat": "25",
+
+    "carbs": "0.6",
+
+    "sugar": "0.6",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "ESN - Iso-Whey Hardcore Vanille",
+
+    "kcal": "359",
+
+    "fat": "0.7",
+
+    "carbs": "3.2",
+
+    "sugar": "3.2",
+
+    "protein": "85",
+
+    "salt": "0.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "30 g"
+
+},
+{
+
+    "productName": "Eis aus Orange Aldi",
+
+    "kcal": "156",
+
+    "fat": "2.5",
+
+    "carbs": "31",
+
+    "sugar": "27",
+
+    "protein": "2",
+
+    "salt": "0.11",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Teewurst Aldi",
+
+    "kcal": "406",
+
+    "fat": "39",
+
+    "carbs": "0.5",
+
+    "sugar": "0.1",
+
+    "protein": "13",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eiweiß Toastbrötchen",
+
+    "kcal": "274",
+
+    "fat": "11.3",
+
+    "carbs": "12.9",
+
+    "sugar": "1.5",
+
+    "protein": "24.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mexikanisches Gemüse Edeka",
+
+    "kcal": "80",
+
+    "fat": "1.7",
+
+    "carbs": "9.8",
+
+    "sugar": "3.5",
+
+    "protein": "3.9",
+
+    "salt": "0.36",
+
+    "fiber": "4.7",
+
+    "quantityUnit": "280 g"
+
+},
+{
+
+    "productName": "RäucherlachsAldi",
+
+    "kcal": "206",
+
+    "fat": "13.5",
+
+    "carbs": "0.6",
+
+    "sugar": "0.4",
+
+    "protein": "20.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Garnelen NaturBerida Penny ",
+
+    "kcal": "73",
+
+    "fat": "0.6",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "16.9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Popcorn Penny",
+
+    "kcal": "415",
+
+    "fat": "6.2",
+
+    "carbs": "83.9",
+
+    "sugar": "57.3",
+
+    "protein": "3.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Alpro Kokosnuss",
+
+    "kcal": "84",
+
+    "fat": "6.1",
+
+    "carbs": "6",
+
+    "sugar": "0.6",
+
+    "protein": "0.6",
+
+    "salt": "0.07",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Schwein Minutenschnitzel",
+
+    "kcal": "119",
+
+    "fat": "3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kaisergemüse",
+
+    "kcal": "33",
+
+    "fat": "0.7",
+
+    "carbs": "3",
+
+    "sugar": "3",
+
+    "protein": "2.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Mango",
+
+    "kcal": "61",
+
+    "fat": "2",
+
+    "carbs": "5.8",
+
+    "sugar": "5.6",
+
+    "protein": "3.7",
+
+    "salt": "0",
+
+    "fiber": "1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Golden Toast Protein",
+
+    "kcal": "281",
+
+    "fat": "9",
+
+    "carbs": "23",
+
+    "sugar": "3",
+
+    "protein": "25",
+
+    "salt": "1.3",
+
+    "fiber": "3.8",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Lasagne Italiener",
+
+    "kcal": "208",
+
+    "fat": "12.95",
+
+    "carbs": "10.49",
+
+    "sugar": "0.67",
+
+    "protein": "10.94",
+
+    "salt": "0.38",
+
+    "fiber": "0.45",
+
+    "quantityUnit": "ca. 400g"
+
+},
+{
+
+    "productName": "Almzeit Bergader Weichkäse Penny",
+
+    "kcal": "372",
+
+    "fat": "34",
+
+    "carbs": "0.1",
+
+    "sugar": "0.1",
+
+    "protein": "16.4",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "55 g / Portion"
+
+},
+{
+
+    "productName": "Eiweißriegel Müller 50% Erdbee",
+
+    "kcal": "354",
+
+    "fat": "9.9",
+
+    "carbs": "24",
+
+    "sugar": "4",
+
+    "protein": "50",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Tofu geräuchert Penny",
+
+    "kcal": "169",
+
+    "fat": "9.5",
+
+    "carbs": "2",
+
+    "sugar": "0.4",
+
+    "protein": "18",
+
+    "salt": "1.04",
+
+    "fiber": "0",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Schokoladencreme Karamell Aldi",
+
+    "kcal": "588",
+
+    "fat": "40",
+
+    "carbs": "52",
+
+    "sugar": "52",
+
+    "protein": "4.5",
+
+    "salt": "0.28",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Sauerbraten mit Soße",
+
+    "kcal": "104",
+
+    "fat": "2.5",
+
+    "carbs": "12",
+
+    "sugar": "6",
+
+    "protein": "7.5",
+
+    "salt": "1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Ehrmann High Protein Quark ",
+
+    "kcal": "53",
+
+    "fat": "0.1",
+
+    "carbs": "3.6",
+
+    "sugar": "3.6",
+
+    "protein": "9.3",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "MüsMix",
+
+    "kcal": "440",
+
+    "fat": "14.7",
+
+    "carbs": "45.1",
+
+    "sugar": "12.7",
+
+    "protein": "24.7",
+
+    "salt": "0.2",
+
+    "fiber": "11",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Bratkartoffeln pfanny BauernFr",
+
+    "kcal": "174",
+
+    "fat": "13",
+
+    "carbs": "11",
+
+    "sugar": "0.6",
+
+    "protein": "3.2",
+
+    "salt": "0",
+
+    "fiber": "1.7",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Moser Delice 70% Schokolade ",
+
+    "kcal": "636",
+
+    "fat": "51",
+
+    "carbs": "34",
+
+    "sugar": "31",
+
+    "protein": "7",
+
+    "salt": "0.09",
+
+    "fiber": "0",
+
+    "quantityUnit": "11 g"
+
+},
+{
+
+    "productName": "Winegums Automat",
+
+    "kcal": "334",
+
+    "fat": "0.2",
+
+    "carbs": "78",
+
+    "sugar": "51",
+
+    "protein": "5.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Erdnüsse Pikant Netto",
+
+    "kcal": "589",
+
+    "fat": "45.8",
+
+    "carbs": "12.3",
+
+    "sugar": "7",
+
+    "protein": "27.6",
+
+    "salt": "0.94",
+
+    "fiber": "8.5",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eiweißriegel Peanut Caramel Maxi",
+
+    "kcal": "435",
+
+    "fat": "19",
+
+    "carbs": "35",
+
+    "sugar": "27",
+
+    "protein": "30",
+
+    "salt": "0.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Pizza Thunfisch Wagner Backfrische",
+
+    "kcal": "229",
+
+    "fat": "8.4",
+
+    "carbs": "26.4",
+
+    "sugar": "3.1",
+
+    "protein": "11",
+
+    "salt": "1.3",
+
+    "fiber": "2.1",
+
+    "quantityUnit": "340 g"
+
+},
+{
+
+    "productName": "| Bio Finn- Toasties",
+
+    "kcal": "232",
+
+    "fat": "1.4",
+
+    "carbs": "43",
+
+    "sugar": "2.9",
+
+    "protein": "7.4",
+
+    "salt": "1.2",
+
+    "fiber": "2",
+
+    "quantityUnit": "65 g"
+
+},
+{
+
+    "productName": "Bifi Roll",
+
+    "kcal": "459",
+
+    "fat": "31",
+
+    "carbs": "31",
+
+    "sugar": "3.6",
+
+    "protein": "14",
+
+    "salt": "2.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Veganes Hack Mühlen",
+
+    "kcal": "162",
+
+    "fat": "9.5",
+
+    "carbs": "2.4",
+
+    "sugar": "0.4",
+
+    "protein": "14",
+
+    "salt": "1.3",
+
+    "fiber": "5.2",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Love&Care Mix Fruchtgummi",
+
+    "kcal": "344",
+
+    "fat": "0.2",
+
+    "carbs": "84",
+
+    "sugar": "58",
+
+    "protein": "0.3",
+
+    "salt": "0.04",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Whey Eiweis Müller",
+
+    "kcal": "377",
+
+    "fat": "5.9",
+
+    "carbs": "9.4",
+
+    "sugar": "7.2",
+
+    "protein": "71.8",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pizzabrötchen",
+
+    "kcal": "252",
+
+    "fat": "4.6",
+
+    "carbs": "44",
+
+    "sugar": "3.5",
+
+    "protein": "7.5",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Bami Scheiben",
+
+    "kcal": "171",
+
+    "fat": "2.1",
+
+    "carbs": "31.5",
+
+    "sugar": "3.1",
+
+    "protein": "6.3",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Blattsalat Mix Netto",
+
+    "kcal": "21",
+
+    "fat": "0.4",
+
+    "carbs": "1.8",
+
+    "sugar": "0.8",
+
+    "protein": "1.5",
+
+    "salt": "0.05",
+
+    "fiber": "2",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Wasabi Erdnüsse GardenGreen Aldi",
+
+    "kcal": "511",
+
+    "fat": "32",
+
+    "carbs": "41",
+
+    "sugar": "8.5",
+
+    "protein": "14",
+
+    "salt": "2.5",
+
+    "fiber": "2",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Eiweiß Proteinriegel Berry Maxi Aldi",
+
+    "kcal": "409",
+
+    "fat": "15",
+
+    "carbs": "38",
+
+    "sugar": "27",
+
+    "protein": "30",
+
+    "salt": "0.28",
+
+    "fiber": "0",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Backfisch",
+
+    "kcal": "249",
+
+    "fat": "13",
+
+    "carbs": "21",
+
+    "sugar": "2.5",
+
+    "protein": "11",
+
+    "salt": "0.7",
+
+    "fiber": "1.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chio Chips Apollo Creed L.A Burger Style",
+
+    "kcal": "532",
+
+    "fat": "2.9",
+
+    "carbs": "51",
+
+    "sugar": "3.4",
+
+    "protein": "5.5",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "150 g / Tüte"
+
+},
+{
+
+    "productName": "Korntaler lidl",
+
+    "kcal": "239",
+
+    "fat": "8.7",
+
+    "carbs": "30",
+
+    "sugar": "0.8",
+
+    "protein": "5.6",
+
+    "salt": "0",
+
+    "fiber": "9.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Supreme Salted Caramel Aldi",
+
+    "kcal": "272",
+
+    "fat": "16",
+
+    "carbs": "29",
+
+    "sugar": "28",
+
+    "protein": "3.8",
+
+    "salt": "0.25",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eis Cookie Dough Edeka",
+
+    "kcal": "284",
+
+    "fat": "15.7",
+
+    "carbs": "31.8",
+
+    "sugar": "27.7",
+
+    "protein": "3.6",
+
+    "salt": "0.16",
+
+    "fiber": "0",
+
+    "quantityUnit": "417 g"
+
+},
+{
+
+    "productName": "Tekka Maki Sushi",
+
+    "kcal": "184",
+
+    "fat": "2",
+
+    "carbs": "27",
+
+    "sugar": "0",
+
+    "protein": "22",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "20 g"
+
+},
+{
+
+    "productName": "Mandarinen Dose ",
+
+    "kcal": "72",
+
+    "fat": "0.3",
+
+    "carbs": "15.5",
+
+    "sugar": "13.7",
+
+    "protein": "0.7",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Nüsse Nordic Deluxe Kern",
+
+    "kcal": "670",
+
+    "fat": "61.1",
+
+    "carbs": "12.2",
+
+    "sugar": "4.7",
+
+    "protein": "16.4",
+
+    "salt": "0.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Dijon Senf Edeka",
+
+    "kcal": "186",
+
+    "fat": "13.2",
+
+    "carbs": "2.5",
+
+    "sugar": "2.5",
+
+    "protein": "8.4",
+
+    "salt": "5.1",
+
+    "fiber": "7.9",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Salat Combo Kartoffeln u Chicken Penny",
+
+    "kcal": "116",
+
+    "fat": "7",
+
+    "carbs": "9.7",
+
+    "sugar": "3.4",
+
+    "protein": "3",
+
+    "salt": "0.61",
+
+    "fiber": "2",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Rapsöl",
+
+    "kcal": "828",
+
+    "fat": "92",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "0.41",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kräuterbutter fddb",
+
+    "kcal": "574",
+
+    "fat": "62",
+
+    "carbs": "3",
+
+    "sugar": "3",
+
+    "protein": "0.9",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Vivera Vegane Nuggets Aldi",
+
+    "kcal": "232",
+
+    "fat": "9.3",
+
+    "carbs": "22",
+
+    "sugar": "2.6",
+
+    "protein": "13",
+
+    "salt": "1.5",
+
+    "fiber": "3.7",
+
+    "quantityUnit": "200g"
+
+},
+{
+
+    "productName": "Maredo DIP Edeka ",
+
+    "kcal": "601",
+
+    "fat": "62.7",
+
+    "carbs": "10.2",
+
+    "sugar": "8.4",
+
+    "protein": "0.9",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Puddingteilchen ",
+
+    "kcal": "342",
+
+    "fat": "19.5",
+
+    "carbs": "36.8",
+
+    "sugar": "13.5",
+
+    "protein": "4.1",
+
+    "salt": "0.53",
+
+    "fiber": "1.2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schokolade 72% Sarotti",
+
+    "kcal": "551",
+
+    "fat": "41",
+
+    "carbs": "30",
+
+    "sugar": "25",
+
+    "protein": "9",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": "10g"
+
+},
+{
+
+    "productName": "Pizza Teig Edeka Pizzabox",
+
+    "kcal": "280",
+
+    "fat": "5",
+
+    "carbs": "40",
+
+    "sugar": "3.1",
+
+    "protein": "7.9",
+
+    "salt": "1.9",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Hamburger Buns Gut&Günstig",
+
+    "kcal": "290",
+
+    "fat": "5",
+
+    "carbs": "50.1",
+
+    "sugar": "8.1",
+
+    "protein": "9.5",
+
+    "salt": "1.2",
+
+    "fiber": "3.1",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Bockwurst Penny Mühlenhof",
+
+    "kcal": "289",
+
+    "fat": "26.1",
+
+    "carbs": "1",
+
+    "sugar": "0.5",
+
+    "protein": "12.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Apfel",
+
+    "kcal": "52",
+
+    "fat": "0",
+
+    "carbs": "11",
+
+    "sugar": "10.3",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Leffe Bruin",
+
+    "kcal": "57",
+
+    "fat": "0",
+
+    "carbs": "5.4",
+
+    "sugar": "0.7",
+
+    "protein": "0.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "330g"
+
+},
+{
+
+    "productName": "Sahne",
+
+    "kcal": "293",
+
+    "fat": "30",
+
+    "carbs": "3.2",
+
+    "sugar": "3.2",
+
+    "protein": "2.5",
+
+    "salt": "2.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pizza Soße Edeka Pizzabox",
+
+    "kcal": "43",
+
+    "fat": "1",
+
+    "carbs": "5.7",
+
+    "sugar": "5.2",
+
+    "protein": "1.3",
+
+    "salt": "0.88",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Garnelen",
+
+    "kcal": "102",
+
+    "fat": "1.7",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "20.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Weltmeister Brötchen Glutenfrei Netto",
+
+    "kcal": "277",
+
+    "fat": "7.5",
+
+    "carbs": "45.6",
+
+    "sugar": "3.8",
+
+    "protein": "5.1",
+
+    "salt": "1.1",
+
+    "fiber": "3.4",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Gute Laune Brötchen Edeka",
+
+    "kcal": "244",
+
+    "fat": "1.2",
+
+    "carbs": "47",
+
+    "sugar": "1.8",
+
+    "protein": "9",
+
+    "salt": "1",
+
+    "fiber": "4.8",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Popcorn Toffee Kakao& Karamell",
+
+    "kcal": "503",
+
+    "fat": "23",
+
+    "carbs": "71",
+
+    "sugar": "55",
+
+    "protein": "2.7",
+
+    "salt": "0.51",
+
+    "fiber": "2",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Rote Linsen",
+
+    "kcal": "337",
+
+    "fat": "1.4",
+
+    "carbs": "49",
+
+    "sugar": "1.2",
+
+    "protein": "26",
+
+    "salt": "0",
+
+    "fiber": "12",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Heidelbeere",
+
+    "kcal": "70",
+
+    "fat": "2.2",
+
+    "carbs": "8.2",
+
+    "sugar": "7.9",
+
+    "protein": "3.7",
+
+    "salt": "0.15",
+
+    "fiber": "1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Penny Burger Vegan Bio BBQ ",
+
+    "kcal": "274",
+
+    "fat": "12.6",
+
+    "carbs": "29.7",
+
+    "sugar": "5.9",
+
+    "protein": "9.3",
+
+    "salt": "1.87",
+
+    "fiber": "0",
+
+    "quantityUnit": "225 g"
+
+},
+{
+
+    "productName": "Schokolade 85% Lindt",
+
+    "kcal": "603",
+
+    "fat": "55",
+
+    "carbs": "19",
+
+    "sugar": "14",
+
+    "protein": "8.9",
+
+    "salt": "0.08",
+
+    "fiber": "0",
+
+    "quantityUnit": "10 g"
+
+},
+{
+
+    "productName": "Kölsch ",
+
+    "kcal": "53",
+
+    "fat": "0",
+
+    "carbs": "4",
+
+    "sugar": "0.3",
+
+    "protein": "0.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Tortellini Cappelletti Tofu Aldi",
+
+    "kcal": "302",
+
+    "fat": "4.3",
+
+    "carbs": "54",
+
+    "sugar": "1.8",
+
+    "protein": "10",
+
+    "salt": "0.63",
+
+    "fiber": "2.4",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Ei ",
+
+    "kcal": "154",
+
+    "fat": "11",
+
+    "carbs": "0.6",
+
+    "sugar": "0",
+
+    "protein": "13",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gouda 12 Monate Gutes Land ",
+
+    "kcal": "427",
+
+    "fat": "35",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "26.9",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "34 g"
+
+},
+{
+
+    "productName": "Möhre",
+
+    "kcal": "39",
+
+    "fat": "0.2",
+
+    "carbs": "6.8",
+
+    "sugar": "4",
+
+    "protein": "0.8",
+
+    "salt": "0",
+
+    "fiber": "3.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Erdnüsse Wasabi Style Edeka",
+
+    "kcal": "458",
+
+    "fat": "19.3",
+
+    "carbs": "59.6",
+
+    "sugar": "23.4",
+
+    "protein": "10",
+
+    "salt": "1",
+
+    "fiber": "2",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Magnesium Citrat DM",
+
+    "kcal": "252",
+
+    "fat": "0",
+
+    "carbs": "14",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "1.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eiweißriegel DM",
+
+    "kcal": "359",
+
+    "fat": "10.5",
+
+    "carbs": "23",
+
+    "sugar": "0.9",
+
+    "protein": "50",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Maxi Queen Aldi",
+
+    "kcal": "459",
+
+    "fat": "29",
+
+    "carbs": "43",
+
+    "sugar": "38",
+
+    "protein": "5.2",
+
+    "salt": "0.35",
+
+    "fiber": "0",
+
+    "quantityUnit": "35 g"
+
+},
+{
+
+    "productName": "Barilla Pesti ",
+
+    "kcal": "325",
+
+    "fat": "29",
+
+    "carbs": "12.2",
+
+    "sugar": "6",
+
+    "protein": "3",
+
+    "salt": "0",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Cherrytomaten",
+
+    "kcal": "15",
+
+    "fat": "0.1",
+
+    "carbs": "3.7",
+
+    "sugar": "2.5",
+
+    "protein": "0.8",
+
+    "salt": "0",
+
+    "fiber": "1",
+
+    "quantityUnit": "Mittelgroß = 20 g"
+
+},
+{
+
+    "productName": "McCafe Blaubeer Muffin",
+
+    "kcal": "398",
+
+    "fat": "23",
+
+    "carbs": "44",
+
+    "sugar": "21",
+
+    "protein": "5",
+
+    "salt": "0.53",
+
+    "fiber": "1.2",
+
+    "quantityUnit": "130 g"
+
+},
+{
+
+    "productName": "Pfefferwürstchen Netto",
+
+    "kcal": "351",
+
+    "fat": "30",
+
+    "carbs": "1",
+
+    "sugar": "0.5",
+
+    "protein": "19",
+
+    "salt": "3.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "50g"
+
+},
+{
+
+    "productName": "Hirtenkäse Aldi",
+
+    "kcal": "254",
+
+    "fat": "20",
+
+    "carbs": "0.6",
+
+    "sugar": "0.6",
+
+    "protein": "17",
+
+    "salt": "2.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Alpro Natur",
+
+    "kcal": "50",
+
+    "fat": "2.3",
+
+    "carbs": "2.1",
+
+    "sugar": "2.1",
+
+    "protein": "4",
+
+    "salt": "0",
+
+    "fiber": "1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Jackfruit Mr.Jack Edeka",
+
+    "kcal": "32",
+
+    "fat": "0.1",
+
+    "carbs": "5.9",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "0.49",
+
+    "fiber": "0",
+
+    "quantityUnit": "280 g"
+
+},
+{
+
+    "productName": "Pizzabrötchen mit Schinken Käse",
+
+    "kcal": "353",
+
+    "fat": "16.4",
+
+    "carbs": "33",
+
+    "sugar": "16",
+
+    "protein": "18.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Falafel Tasche",
+
+    "kcal": "140",
+
+    "fat": "2.8",
+
+    "carbs": "21.2",
+
+    "sugar": "1.8",
+
+    "protein": "5.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Lebkuchen Herzchen",
+
+    "kcal": "381",
+
+    "fat": "9.6",
+
+    "carbs": "66",
+
+    "sugar": "43",
+
+    "protein": "5.5",
+
+    "salt": "0.28",
+
+    "fiber": "0",
+
+    "quantityUnit": "15 g"
+
+},
+{
+
+    "productName": "Konjak Nudeln Fettuccine",
+
+    "kcal": "8",
+
+    "fat": "0.2",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "0.1",
+
+    "fiber": "2.7",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Whey Eiweiß nu3",
+
+    "kcal": "367",
+
+    "fat": "1.2",
+
+    "carbs": "5.1",
+
+    "sugar": "1.9",
+
+    "protein": "82.6",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Curry Ketchup light ",
+
+    "kcal": "80",
+
+    "fat": "0.3",
+
+    "carbs": "16.8",
+
+    "sugar": "15",
+
+    "protein": "0.8",
+
+    "salt": "0.97",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Haferkraft Blaubeere Corny",
+
+    "kcal": "439",
+
+    "fat": "14.5",
+
+    "carbs": "66.7",
+
+    "sugar": "28.8",
+
+    "protein": "7.2",
+
+    "salt": "0.16",
+
+    "fiber": "4",
+
+    "quantityUnit": "65 g"
+
+},
+{
+
+    "productName": "Berner Würstchen Netto ",
+
+    "kcal": "296",
+
+    "fat": "26",
+
+    "carbs": "1",
+
+    "sugar": "0.5",
+
+    "protein": "14",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Hafer Kochcreme Berief Edeka",
+
+    "kcal": "94",
+
+    "fat": "7.7",
+
+    "carbs": "5.6",
+
+    "sugar": "4.8",
+
+    "protein": "0.3",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Blattspinat frisch",
+
+    "kcal": "26",
+
+    "fat": "0.6",
+
+    "carbs": "0.9",
+
+    "sugar": "0",
+
+    "protein": "3.2",
+
+    "salt": "0",
+
+    "fiber": "2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chicken Mc Nuggets",
+
+    "kcal": "243",
+
+    "fat": "12",
+
+    "carbs": "19",
+
+    "sugar": "0.7",
+
+    "protein": "15",
+
+    "salt": "1.1",
+
+    "fiber": "0.9",
+
+    "quantityUnit": "18.17 g / 6= 110g"
+
+},
+{
+
+    "productName": "Calippo Cola Eis",
+
+    "kcal": "85",
+
+    "fat": "0",
+
+    "carbs": "21",
+
+    "sugar": "20",
+
+    "protein": "0",
+
+    "salt": "0.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schweinehack",
+
+    "kcal": "234",
+
+    "fat": "18",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mandelmehl",
+
+    "kcal": "380",
+
+    "fat": "12",
+
+    "carbs": "7",
+
+    "sugar": "7",
+
+    "protein": "53",
+
+    "salt": "0.8",
+
+    "fiber": "16",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eiweißriegel DM 60%",
+
+    "kcal": "383",
+
+    "fat": "10.6",
+
+    "carbs": "18",
+
+    "sugar": "1.1",
+
+    "protein": "60",
+
+    "salt": "2",
+
+    "fiber": "0.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Coca Cola",
+
+    "kcal": "41",
+
+    "fat": "0",
+
+    "carbs": "11",
+
+    "sugar": "11",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eiweißriegel 50%",
+
+    "kcal": "370",
+
+    "fat": "13",
+
+    "carbs": "21",
+
+    "sugar": "1.5",
+
+    "protein": "50",
+
+    "salt": "1.15",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Flutschfinger",
+
+    "kcal": "80",
+
+    "fat": "0.5",
+
+    "carbs": "20",
+
+    "sugar": "20",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "65g"
+
+},
+{
+
+    "productName": "Paprika gelb",
+
+    "kcal": "36",
+
+    "fat": "0.5",
+
+    "carbs": "5",
+
+    "sugar": "5",
+
+    "protein": "1",
+
+    "salt": "0",
+
+    "fiber": "3.6",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kürbis Quinoa Iglo",
+
+    "kcal": "88",
+
+    "fat": "2",
+
+    "carbs": "12",
+
+    "sugar": "2.3",
+
+    "protein": "3.9",
+
+    "salt": "0.68",
+
+    "fiber": "3",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Leinsamen",
+
+    "kcal": "379",
+
+    "fat": "31.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "24.8",
+
+    "salt": "0",
+
+    "fiber": "33.8",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sensational Burger Pflanzlich Garden Goutmet",
+
+    "kcal": "198",
+
+    "fat": "13.3",
+
+    "carbs": "3.2",
+
+    "sugar": "1.1",
+
+    "protein": "14.4",
+
+    "salt": "0.78",
+
+    "fiber": "3.9",
+
+    "quantityUnit": "2 x 113g"
+
+},
+{
+
+    "productName": "Heringsfilet in Tomatensoße Aldi",
+
+    "kcal": "181",
+
+    "fat": "11.5",
+
+    "carbs": "6.7",
+
+    "sugar": "4.9",
+
+    "protein": "12",
+
+    "salt": "1.37",
+
+    "fiber": "0",
+
+    "quantityUnit": "200g"
+
+},
+{
+
+    "productName": "Mettwürste Aldi",
+
+    "kcal": "280",
+
+    "fat": "21.5",
+
+    "carbs": "0.7",
+
+    "sugar": "0.6",
+
+    "protein": "20.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Limette Zitrone",
+
+    "kcal": "77",
+
+    "fat": "2",
+
+    "carbs": "10",
+
+    "sugar": "9.7",
+
+    "protein": "3.6",
+
+    "salt": "0.21",
+
+    "fiber": "0.6",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Rotkohl",
+
+    "kcal": "27",
+
+    "fat": "0.2",
+
+    "carbs": "3.5",
+
+    "sugar": "1",
+
+    "protein": "1.5",
+
+    "salt": "0.2",
+
+    "fiber": "2",
+
+    "quantityUnit": "70 g / Tasse"
+
+},
+{
+
+    "productName": "Franzbrötchen",
+
+    "kcal": "414",
+
+    "fat": "24",
+
+    "carbs": "44",
+
+    "sugar": "15",
+
+    "protein": "5",
+
+    "salt": "0.72",
+
+    "fiber": "1.7",
+
+    "quantityUnit": "100g"
+
+},
+{
+
+    "productName": "Salat Aldi mit Rotebeete",
+
+    "kcal": "172",
+
+    "fat": "9.1",
+
+    "carbs": "16.6",
+
+    "sugar": "8.1",
+
+    "protein": "5.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gouda Edeka ",
+
+    "kcal": "381",
+
+    "fat": "31.3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "24.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eigelb",
+
+    "kcal": "348",
+
+    "fat": "31.9",
+
+    "carbs": "0.3",
+
+    "sugar": "0",
+
+    "protein": "16.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eis Crunchy Almond Netto",
+
+    "kcal": "226",
+
+    "fat": "12.3",
+
+    "carbs": "25",
+
+    "sugar": "23.8",
+
+    "protein": "3.5",
+
+    "salt": "0.14",
+
+    "fiber": "0",
+
+    "quantityUnit": "84 g"
+
+},
+{
+
+    "productName": "Wilde Erdbeeren Red Band",
+
+    "kcal": "359",
+
+    "fat": "0",
+
+    "carbs": "90",
+
+    "sugar": "68",
+
+    "protein": "0",
+
+    "salt": "0.19",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 = 9 g"
+
+},
+{
+
+    "productName": "Bandnudeln Albhof Netto",
+
+    "kcal": "365",
+
+    "fat": "2.6",
+
+    "carbs": "70",
+
+    "sugar": "3.3",
+
+    "protein": "14",
+
+    "salt": "0.03",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Marmelade",
+
+    "kcal": "216",
+
+    "fat": "0.3",
+
+    "carbs": "50.7",
+
+    "sugar": "49.9",
+
+    "protein": "0.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein Eiweißbrötchen Sinnack",
+
+    "kcal": "229",
+
+    "fat": "6.8",
+
+    "carbs": "18",
+
+    "sugar": "1.1",
+
+    "protein": "19",
+
+    "salt": "1.2",
+
+    "fiber": "10",
+
+    "quantityUnit": "70 g"
+
+},
+{
+
+    "productName": "5 Kalorien Nudeln Aldi",
+
+    "kcal": "5",
+
+    "fat": "0.4",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "0.4",
+
+    "salt": "0.77",
+
+    "fiber": "0",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Clever Pasta Kurkuma Kichererbsen ",
+
+    "kcal": "352",
+
+    "fat": "5.6",
+
+    "carbs": "48",
+
+    "sugar": "2.4",
+
+    "protein": "20",
+
+    "salt": "0.01",
+
+    "fiber": "15",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Creme Fraiche Kräuter Netto",
+
+    "kcal": "270",
+
+    "fat": "27.3",
+
+    "carbs": "3.1",
+
+    "sugar": "2.8",
+
+    "protein": "2.3",
+
+    "salt": "1.21",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Currywurst ",
+
+    "kcal": "245",
+
+    "fat": "19.5",
+
+    "carbs": "4.9",
+
+    "sugar": "3",
+
+    "protein": "13",
+
+    "salt": "4",
+
+    "fiber": "1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Lachgummi Milch Party",
+
+    "kcal": "332",
+
+    "fat": "0.2",
+
+    "carbs": "79.3",
+
+    "sugar": "52.8",
+
+    "protein": "2.4",
+
+    "salt": "0.14",
+
+    "fiber": "0",
+
+    "quantityUnit": "300 g"
+
+},
+{
+
+    "productName": "Lachsforellenfilet",
+
+    "kcal": "155",
+
+    "fat": "9.3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "18",
+
+    "salt": "0.07",
+
+    "fiber": "0",
+
+    "quantityUnit": "180 g "
+
+},
+{
+
+    "productName": "Dunkle Creme Mövenpick",
+
+    "kcal": "531",
+
+    "fat": "31",
+
+    "carbs": "55",
+
+    "sugar": "54",
+
+    "protein": "5.8",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Paprika rot",
+
+    "kcal": "43",
+
+    "fat": "0.5",
+
+    "carbs": "6.4",
+
+    "sugar": "6.4",
+
+    "protein": "1.3",
+
+    "salt": "0",
+
+    "fiber": "3.6",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Whey Coconut Maxi Aldi",
+
+    "kcal": "388",
+
+    "fat": "6.7",
+
+    "carbs": "3.6",
+
+    "sugar": "3.1",
+
+    "protein": "77",
+
+    "salt": "0.54",
+
+    "fiber": "0",
+
+    "quantityUnit": "30 g"
+
+},
+{
+
+    "productName": "Tomaten Sahne Sauce Aldi",
+
+    "kcal": "118",
+
+    "fat": "7.4",
+
+    "carbs": "10",
+
+    "sugar": "7.9",
+
+    "protein": "1.7",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "300 g"
+
+},
+{
+
+    "productName": "Streuselter Kamps",
+
+    "kcal": "443",
+
+    "fat": "15",
+
+    "carbs": "70",
+
+    "sugar": "32",
+
+    "protein": "5.5",
+
+    "salt": "0.55",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "IronMaxx Whey Cookies & Cream",
+
+    "kcal": "389",
+
+    "fat": "6.8",
+
+    "carbs": "7.4",
+
+    "sugar": "6.5",
+
+    "protein": "74",
+
+    "salt": "0.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Biolachs Aldi",
+
+    "kcal": "201",
+
+    "fat": "14",
+
+    "carbs": "0.6",
+
+    "sugar": "0.1",
+
+    "protein": "18.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein Wraps Aldi",
+
+    "kcal": "316",
+
+    "fat": "8.4",
+
+    "carbs": "35",
+
+    "sugar": "1.7",
+
+    "protein": "22",
+
+    "salt": "0",
+
+    "fiber": "6.2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "MCT Öl",
+
+    "kcal": "849",
+
+    "fat": "94.3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 TL = 3g"
+
+},
+{
+
+    "productName": "Mikrowellen Popcorn Süß Chio",
+
+    "kcal": "372",
+
+    "fat": "15",
+
+    "carbs": "51",
+
+    "sugar": "20",
+
+    "protein": "5.7",
+
+    "salt": "0.01",
+
+    "fiber": "1",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Brechbohnen Dose Netto",
+
+    "kcal": "23",
+
+    "fat": "0.1",
+
+    "carbs": "2.6",
+
+    "sugar": "0.7",
+
+    "protein": "1.5",
+
+    "salt": "0.5",
+
+    "fiber": "2",
+
+    "quantityUnit": "455g"
+
+},
+{
+
+    "productName": "Limetten Direktsaft",
+
+    "kcal": "44",
+
+    "fat": "0.1",
+
+    "carbs": "6.2",
+
+    "sugar": "1.6",
+
+    "protein": "0.7",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "10 g"
+
+},
+{
+
+    "productName": "Eis Less & Tasty Cookie & Dough Aldi",
+
+    "kcal": "125",
+
+    "fat": "4.1",
+
+    "carbs": "14",
+
+    "sugar": "6.3",
+
+    "protein": "3",
+
+    "salt": "0.11",
+
+    "fiber": "0",
+
+    "quantityUnit": "285 g"
+
+},
+{
+
+    "productName": "IronMaxx Whey Choclate Coco",
+
+    "kcal": "411",
+
+    "fat": "7.6",
+
+    "carbs": "13.7",
+
+    "sugar": "5.6",
+
+    "protein": "69",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Leberkäse Netto",
+
+    "kcal": "270",
+
+    "fat": "24",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "12.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Flohsamen",
+
+    "kcal": "271",
+
+    "fat": "7",
+
+    "carbs": "3.5",
+
+    "sugar": "0.4",
+
+    "protein": "16",
+
+    "salt": "0.09",
+
+    "fiber": "65",
+
+    "quantityUnit": "1 Tl = 5g"
+
+},
+{
+
+    "productName": "Arla Skyr Himbeere",
+
+    "kcal": "75",
+
+    "fat": "0.2",
+
+    "carbs": "8.1",
+
+    "sugar": "7.6",
+
+    "protein": "9.2",
+
+    "salt": "0.13",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eiweißriegel DM 50%",
+
+    "kcal": "368",
+
+    "fat": "10.9",
+
+    "carbs": "26.3",
+
+    "sugar": "2.7",
+
+    "protein": "50.1",
+
+    "salt": "0.41",
+
+    "fiber": "0.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Salat Ceaser Netto",
+
+    "kcal": "126",
+
+    "fat": "7.1",
+
+    "carbs": "9.9",
+
+    "sugar": "4.6",
+
+    "protein": "4.9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Choco und Kekse Aldi",
+
+    "kcal": "535",
+
+    "fat": "30",
+
+    "carbs": "57.8",
+
+    "sugar": "49.4",
+
+    "protein": "7.6",
+
+    "salt": "0.39",
+
+    "fiber": "0",
+
+    "quantityUnit": "33,3 g"
+
+},
+{
+
+    "productName": "Nik Nacs",
+
+    "kcal": "547",
+
+    "fat": "36",
+
+    "carbs": "37",
+
+    "sugar": "6.4",
+
+    "protein": "16",
+
+    "salt": "0.8",
+
+    "fiber": "5.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sardinen mit Chilli Aldi",
+
+    "kcal": "331",
+
+    "fat": "28",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "20",
+
+    "salt": "0.9",
+
+    "fiber": "0",
+
+    "quantityUnit": "125g"
+
+},
+{
+
+    "productName": "Salz",
+
+    "kcal": "0",
+
+    "fat": "0",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "100",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 Tl = 6 g"
+
+},
+{
+
+    "productName": "Mozzarella Classico Aldi",
+
+    "kcal": "247",
+
+    "fat": "19",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "18",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "125g"
+
+},
+{
+
+    "productName": "Lauch TK Edeka ",
+
+    "kcal": "21",
+
+    "fat": "0",
+
+    "carbs": "3.1",
+
+    "sugar": "3.1",
+
+    "protein": "1.3",
+
+    "salt": "0",
+
+    "fiber": "2.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Emmentaler Alpenmark Aldi",
+
+    "kcal": "388",
+
+    "fat": "29.5",
+
+    "carbs": "0.1",
+
+    "sugar": "0",
+
+    "protein": "30.5",
+
+    "salt": "0.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Asia Sauce Maggi",
+
+    "kcal": "123",
+
+    "fat": "0.1",
+
+    "carbs": "29",
+
+    "sugar": "24",
+
+    "protein": "0.2",
+
+    "salt": "2.2",
+
+    "fiber": "0.5",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Leberkäse",
+
+    "kcal": "292",
+
+    "fat": "28",
+
+    "carbs": "0.3",
+
+    "sugar": "0.2",
+
+    "protein": "12",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Skyr Erdbeere Arla",
+
+    "kcal": "72",
+
+    "fat": "0.2",
+
+    "carbs": "7.4",
+
+    "sugar": "6.9",
+
+    "protein": "9.3",
+
+    "salt": "0.13",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "The Royal Burger Rind Netto",
+
+    "kcal": "277",
+
+    "fat": "12",
+
+    "carbs": "29.7",
+
+    "sugar": "7.1",
+
+    "protein": "11.5",
+
+    "salt": "1.9",
+
+    "fiber": "0",
+
+    "quantityUnit": "225 g"
+
+},
+{
+
+    "productName": "Pizza Funghi Pizz‘Ah Aldi",
+
+    "kcal": "211",
+
+    "fat": "8.8",
+
+    "carbs": "23",
+
+    "sugar": "3.5",
+
+    "protein": "8.8",
+
+    "salt": "0.93",
+
+    "fiber": "0",
+
+    "quantityUnit": "365 g"
+
+},
+{
+
+    "productName": "Chicken Tikka Youcook",
+
+    "kcal": "129",
+
+    "fat": "5.4",
+
+    "carbs": "12.5",
+
+    "sugar": "1.8",
+
+    "protein": "6.9",
+
+    "salt": "0.78",
+
+    "fiber": "1.2",
+
+    "quantityUnit": "420 g"
+
+},
+{
+
+    "productName": "Cheddar-Würfel",
+
+    "kcal": "392",
+
+    "fat": "32",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "26",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Pfirsich",
+
+    "kcal": "69",
+
+    "fat": "2.1",
+
+    "carbs": "8.3",
+
+    "sugar": "8.2",
+
+    "protein": "3.6",
+
+    "salt": "0.25",
+
+    "fiber": "0.9",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Käse Le Gruyère Aldi",
+
+    "kcal": "396",
+
+    "fat": "32",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "27",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "19 g"
+
+},
+{
+
+    "productName": "Belgischer Vintagekäse",
+
+    "kcal": "357",
+
+    "fat": "29",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "24",
+
+    "salt": "1.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "18 g"
+
+},
+{
+
+    "productName": "Bohnen Prinzess",
+
+    "kcal": "34",
+
+    "fat": "0.1",
+
+    "carbs": "4.4",
+
+    "sugar": "2.1",
+
+    "protein": "1.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "GrünkohlTK Edeka",
+
+    "kcal": "46",
+
+    "fat": "1",
+
+    "carbs": "4",
+
+    "sugar": "0",
+
+    "protein": "4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Heumilch Bergkäse Aldi",
+
+    "kcal": "427",
+
+    "fat": "35",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "28",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "90 g"
+
+},
+{
+
+    "productName": "Vegetarische Streichwurst",
+
+    "kcal": "312",
+
+    "fat": "30",
+
+    "carbs": "3.5",
+
+    "sugar": "3",
+
+    "protein": "4.5",
+
+    "salt": "1.7",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Vollmilchschokolade",
+
+    "kcal": "541",
+
+    "fat": "33.2",
+
+    "carbs": "51.8",
+
+    "sugar": "51.8",
+
+    "protein": "7.3",
+
+    "salt": "0.2",
+
+    "fiber": "3.4",
+
+    "quantityUnit": "20g"
+
+},
+{
+
+    "productName": "Burgerpatties Just Burger NoMeat",
+
+    "kcal": "186",
+
+    "fat": "9.5",
+
+    "carbs": "13.4",
+
+    "sugar": "0.6",
+
+    "protein": "11.6",
+
+    "salt": "1",
+
+    "fiber": "1",
+
+    "quantityUnit": "2 x 115 g"
+
+},
+{
+
+    "productName": "Rinderhackfleisch ",
+
+    "kcal": "234",
+
+    "fat": "18",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Eweißbrötchen Edeka",
+
+    "kcal": "276",
+
+    "fat": "12",
+
+    "carbs": "11.4",
+
+    "sugar": "1.1",
+
+    "protein": "25",
+
+    "salt": "0",
+
+    "fiber": "11",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kichererbsen Bonduelle",
+
+    "kcal": "120",
+
+    "fat": "2.2",
+
+    "carbs": "15",
+
+    "sugar": "0.4",
+
+    "protein": "6.4",
+
+    "salt": "0.3",
+
+    "fiber": "7.7",
+
+    "quantityUnit": "265 g"
+
+},
+{
+
+    "productName": "Creme Fraiche 30%",
+
+    "kcal": "293",
+
+    "fat": "30",
+
+    "carbs": "3",
+
+    "sugar": "3",
+
+    "protein": "2.4",
+
+    "salt": "0.08",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Creme Fraiche",
+
+    "kcal": "293",
+
+    "fat": "30",
+
+    "carbs": "2.5",
+
+    "sugar": "2.5",
+
+    "protein": "2.2",
+
+    "salt": "1.84",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Nic Nak‘s Big",
+
+    "kcal": "527",
+
+    "fat": "33",
+
+    "carbs": "42",
+
+    "sugar": "5.5",
+
+    "protein": "13",
+
+    "salt": "2.3",
+
+    "fiber": "5.2",
+
+    "quantityUnit": "110 g"
+
+},
+{
+
+    "productName": "Knusper Rösti Ecken Aldi",
+
+    "kcal": "179",
+
+    "fat": "7.9",
+
+    "carbs": "24",
+
+    "sugar": "1",
+
+    "protein": "2.1",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Buttergemüse",
+
+    "kcal": "69",
+
+    "fat": "0.6",
+
+    "carbs": "10.1",
+
+    "sugar": "2.4",
+
+    "protein": "3.5",
+
+    "salt": "0",
+
+    "fiber": "4.7",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Käse Laugenstange Bäcker",
+
+    "kcal": "299",
+
+    "fat": "8.4",
+
+    "carbs": "44",
+
+    "sugar": "4",
+
+    "protein": "11",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "120 g"
+
+},
+{
+
+    "productName": "Bratkartoffeln Speck Zwiebeln Netto",
+
+    "kcal": "97",
+
+    "fat": "2.6",
+
+    "carbs": "15",
+
+    "sugar": "0.5",
+
+    "protein": "2.4",
+
+    "salt": "1",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Vollkornbrot -Das Pure - Aerzener",
+
+    "kcal": "269",
+
+    "fat": "13.4",
+
+    "carbs": "22.5",
+
+    "sugar": "3",
+
+    "protein": "11.1",
+
+    "salt": "1.5",
+
+    "fiber": "9.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pizza Spinat-Feta GutBio",
+
+    "kcal": "221",
+
+    "fat": "8.5",
+
+    "carbs": "25",
+
+    "sugar": "2.4",
+
+    "protein": "9.7",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "460 g"
+
+},
+{
+
+    "productName": "Cocktail Eis Mojito Aldi",
+
+    "kcal": "105",
+
+    "fat": "0.4",
+
+    "carbs": "20",
+
+    "sugar": "19",
+
+    "protein": "0.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "117 g"
+
+},
+{
+
+    "productName": "Eiweißriegel Nut Bar Maxi Aldi",
+
+    "kcal": "408",
+
+    "fat": "20",
+
+    "carbs": "32",
+
+    "sugar": "4.2",
+
+    "protein": "33",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "45g"
+
+},
+{
+
+    "productName": "Salat Quinoa Ziegenkäse Aldi",
+
+    "kcal": "176",
+
+    "fat": "9.2",
+
+    "carbs": "17",
+
+    "sugar": "7",
+
+    "protein": "5.5",
+
+    "salt": "0.96",
+
+    "fiber": "1",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Gyrosteller",
+
+    "kcal": "187",
+
+    "fat": "8.9",
+
+    "carbs": "13.1",
+
+    "sugar": "0.2",
+
+    "protein": "12",
+
+    "salt": "1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eis mango Cassis Aldi",
+
+    "kcal": "148",
+
+    "fat": "0.7",
+
+    "carbs": "35",
+
+    "sugar": "30",
+
+    "protein": "0.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "360 g"
+
+},
+{
+
+    "productName": "Eis Vanilla & Cookie Aldi ",
+
+    "kcal": "270",
+
+    "fat": "19",
+
+    "carbs": "28",
+
+    "sugar": "23",
+
+    "protein": "3.2",
+
+    "salt": "0.16",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Cordon Bleu",
+
+    "kcal": "204",
+
+    "fat": "10.8",
+
+    "carbs": "11.8",
+
+    "sugar": "3",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Röstzwiebeln Kühne",
+
+    "kcal": "610",
+
+    "fat": "46",
+
+    "carbs": "44",
+
+    "sugar": "15",
+
+    "protein": "6",
+
+    "salt": "1.1",
+
+    "fiber": "4",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Pizza stuffed Crust Salami Aldi",
+
+    "kcal": "229",
+
+    "fat": "8.1",
+
+    "carbs": "28",
+
+    "sugar": "4.1",
+
+    "protein": "10",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "461 g"
+
+},
+{
+
+    "productName": "Big Caeser Chicken Salat",
+
+    "kcal": "154",
+
+    "fat": "9.2",
+
+    "carbs": "8.9",
+
+    "sugar": "1",
+
+    "protein": "8.4",
+
+    "salt": "0.59",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "307 g"
+
+},
+{
+
+    "productName": "Thunfisch Olivenöl Edeka",
+
+    "kcal": "189",
+
+    "fat": "9",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "27",
+
+    "salt": "0.92",
+
+    "fiber": "0",
+
+    "quantityUnit": "185g"
+
+},
+{
+
+    "productName": "Toastis Mehrkorn netto",
+
+    "kcal": "236",
+
+    "fat": "2.3",
+
+    "carbs": "41",
+
+    "sugar": "2.2",
+
+    "protein": "9.4",
+
+    "salt": "1",
+
+    "fiber": "6.7",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mozzarella Gut bio Aldi",
+
+    "kcal": "247",
+
+    "fat": "19",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "18",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Erdnuss Asia Style Edeka",
+
+    "kcal": "552",
+
+    "fat": "39.4",
+
+    "carbs": "26.7",
+
+    "sugar": "7.8",
+
+    "protein": "19.4",
+
+    "salt": "1.5",
+
+    "fiber": "6.5",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Erdnüsse im Teigmantel Aldi",
+
+    "kcal": "531",
+
+    "fat": "33",
+
+    "carbs": "40",
+
+    "sugar": "9.2",
+
+    "protein": "16",
+
+    "salt": "2.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "Tüte = 170g"
+
+},
+{
+
+    "productName": "Störtebeker Atlantik-Ale",
+
+    "kcal": "60",
+
+    "fat": "0",
+
+    "carbs": "24",
+
+    "sugar": "7",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "500 g"
+
+},
+{
+
+    "productName": "Peperoni Creme",
+
+    "kcal": "144",
+
+    "fat": "9.8",
+
+    "carbs": "8.4",
+
+    "sugar": "0.2",
+
+    "protein": "5.6",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Cookies Nougatelli Aldi",
+
+    "kcal": "517",
+
+    "fat": "28",
+
+    "carbs": "60",
+
+    "sugar": "40",
+
+    "protein": "5.8",
+
+    "salt": "0.62",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Leberkäse mit Käse Aldi",
+
+    "kcal": "298",
+
+    "fat": "26",
+
+    "carbs": "2",
+
+    "sugar": "0.8",
+
+    "protein": "13.5",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Frische Ministeaks Aldi",
+
+    "kcal": "119",
+
+    "fat": "3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "23",
+
+    "salt": "0.15",
+
+    "fiber": "0",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Delikatessbohnen Aldi",
+
+    "kcal": "34",
+
+    "fat": "0.1",
+
+    "carbs": "4.4",
+
+    "sugar": "2.1",
+
+    "protein": "1.8",
+
+    "salt": "0.02",
+
+    "fiber": "2",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Fitness Bowl Bulgur Quinoa",
+
+    "kcal": "98",
+
+    "fat": "3.8",
+
+    "carbs": "8.2",
+
+    "sugar": "2.5",
+
+    "protein": "5.9",
+
+    "salt": "0.33",
+
+    "fiber": "5",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Buko India",
+
+    "kcal": "207",
+
+    "fat": "16",
+
+    "carbs": "8.3",
+
+    "sugar": "7.7",
+
+    "protein": "6.9",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Gebratene Nudeln mit Huhn",
+
+    "kcal": "138",
+
+    "fat": "5",
+
+    "carbs": "19",
+
+    "sugar": "4.2",
+
+    "protein": "7.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein-Eiweißriegel White Peanut Maxi",
+
+    "kcal": "408",
+
+    "fat": "20",
+
+    "carbs": "32",
+
+    "sugar": "4.2",
+
+    "protein": "33",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "45 g"
+
+},
+{
+
+    "productName": "Wunderbar",
+
+    "kcal": "509",
+
+    "fat": "28",
+
+    "carbs": "53",
+
+    "sugar": "44",
+
+    "protein": "10",
+
+    "salt": "0.17",
+
+    "fiber": "2.7",
+
+    "quantityUnit": "49 g"
+
+},
+{
+
+    "productName": "Käse -30% milbona Lidl",
+
+    "kcal": "267",
+
+    "fat": "17",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "28",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Satesauce Edeka Remia",
+
+    "kcal": "259",
+
+    "fat": "14",
+
+    "carbs": "24",
+
+    "sugar": "19",
+
+    "protein": "8.5",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "265 g"
+
+},
+{
+
+    "productName": "Sonnenblumenkern Brezel Ditsch",
+
+    "kcal": "395",
+
+    "fat": "14.2",
+
+    "carbs": "54.6",
+
+    "sugar": "2.5",
+
+    "protein": "10.2",
+
+    "salt": "1.77",
+
+    "fiber": "4.2",
+
+    "quantityUnit": "100g"
+
+},
+{
+
+    "productName": "Clever Pasta Rote Linsen",
+
+    "kcal": "337",
+
+    "fat": "1.4",
+
+    "carbs": "49",
+
+    "sugar": "1.2",
+
+    "protein": "26",
+
+    "salt": "0.01",
+
+    "fiber": "12",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Harzer Minis Edelschimmel Edeka",
+
+    "kcal": "121",
+
+    "fat": "0.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "29",
+
+    "salt": "2.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "20 g"
+
+},
+{
+
+    "productName": "Pomdöner",
+
+    "kcal": "198",
+
+    "fat": "6.6",
+
+    "carbs": "24.4",
+
+    "sugar": "4",
+
+    "protein": "9.8",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "440 g"
+
+},
+{
+
+    "productName": "Champions Glas",
+
+    "kcal": "21",
+
+    "fat": "0.5",
+
+    "carbs": "0.6",
+
+    "sugar": "0",
+
+    "protein": "2.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Burgerpettis Wonder Burger Aldi",
+
+    "kcal": "178",
+
+    "fat": "9.5",
+
+    "carbs": "6",
+
+    "sugar": "1",
+
+    "protein": "15",
+
+    "salt": "1.9",
+
+    "fiber": "1",
+
+    "quantityUnit": "227 g"
+
+},
+{
+
+    "productName": "Salami Sticks Netto",
+
+    "kcal": "507",
+
+    "fat": "41",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "33",
+
+    "salt": "4",
+
+    "fiber": "0",
+
+    "quantityUnit": "10g"
+
+},
+{
+
+    "productName": "Schoko Wuppi Kamps",
+
+    "kcal": "331",
+
+    "fat": "8.7",
+
+    "carbs": "54",
+
+    "sugar": "21",
+
+    "protein": "7.8",
+
+    "salt": "1.8",
+
+    "fiber": "2.6",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Less & Tasty Salted Caramel Aldi",
+
+    "kcal": "123",
+
+    "fat": "3.8",
+
+    "carbs": "11",
+
+    "sugar": "5.6",
+
+    "protein": "2.7",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "285 g / Becher "
+
+},
+{
+
+    "productName": "Frischkäse Netto",
+
+    "kcal": "252",
+
+    "fat": "24.5",
+
+    "carbs": "3",
+
+    "sugar": "3",
+
+    "protein": "4.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Curry Ketchup ",
+
+    "kcal": "135",
+
+    "fat": "0.3",
+
+    "carbs": "30.6",
+
+    "sugar": "29.2",
+
+    "protein": "0.8",
+
+    "salt": "0.01",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Breyers Eis Penny",
+
+    "kcal": "131",
+
+    "fat": "3.5",
+
+    "carbs": "21",
+
+    "sugar": "10",
+
+    "protein": "7.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Leberkäse Penny",
+
+    "kcal": "285",
+
+    "fat": "26",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "12",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Reis-fit Natur Reis",
+
+    "kcal": "360",
+
+    "fat": "2.5",
+
+    "carbs": "75",
+
+    "sugar": "0.2",
+
+    "protein": "7.5",
+
+    "salt": "0",
+
+    "fiber": "3.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Käsebrötchen Kamps",
+
+    "kcal": "188",
+
+    "fat": "2.7",
+
+    "carbs": "38",
+
+    "sugar": "3",
+
+    "protein": "5.5",
+
+    "salt": "1.5",
+
+    "fiber": "1.7",
+
+    "quantityUnit": "70 g"
+
+},
+{
+
+    "productName": "Lachsforelle Rewe",
+
+    "kcal": "156",
+
+    "fat": "8",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "20.9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Red Band Zoet Fris",
+
+    "kcal": "340",
+
+    "fat": "0.2",
+
+    "carbs": "80",
+
+    "sugar": "58",
+
+    "protein": "5.2",
+
+    "salt": "0.01",
+
+    "fiber": "0",
+
+    "quantityUnit": "5=25g"
+
+},
+{
+
+    "productName": "Black Soy Sauce Sojasauce süss",
+
+    "kcal": "298",
+
+    "fat": "0.6",
+
+    "carbs": "73",
+
+    "sugar": "59",
+
+    "protein": "0.3",
+
+    "salt": "4.17",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Gouda Alt gutes land ",
+
+    "kcal": "414",
+
+    "fat": "34",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "26",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Edle Tropfen weiße Spezialitäten ",
+
+    "kcal": "465",
+
+    "fat": "22",
+
+    "carbs": "55",
+
+    "sugar": "55",
+
+    "protein": "4.2",
+
+    "salt": "0.08",
+
+    "fiber": "0",
+
+    "quantityUnit": "13 g"
+
+},
+{
+
+    "productName": "Bifi",
+
+    "kcal": "509",
+
+    "fat": "45",
+
+    "carbs": "1",
+
+    "sugar": "0.9",
+
+    "protein": "25",
+
+    "salt": "4.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Brötchen hell Edeka",
+
+    "kcal": "246",
+
+    "fat": "1.5",
+
+    "carbs": "48.2",
+
+    "sugar": "3.3",
+
+    "protein": "8.3",
+
+    "salt": "1.2",
+
+    "fiber": "3.1",
+
+    "quantityUnit": "1 = 70g"
+
+},
+{
+
+    "productName": "Proteiriegeln kokosmandel",
+
+    "kcal": "363",
+
+    "fat": "11.4",
+
+    "carbs": "22.5",
+
+    "sugar": "18.8",
+
+    "protein": "45.4",
+
+    "salt": "0",
+
+    "fiber": "7.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Heidelbeeren frisch",
+
+    "kcal": "46",
+
+    "fat": "0.6",
+
+    "carbs": "6.1",
+
+    "sugar": "6",
+
+    "protein": "0.6",
+
+    "salt": "0",
+
+    "fiber": "4.9",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Bergkäse BioBio Netto",
+
+    "kcal": "373",
+
+    "fat": "28.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "29",
+
+    "salt": "1",
+
+    "fiber": "0",
+
+    "quantityUnit": "22 g"
+
+},
+{
+
+    "productName": "Süßer Senf",
+
+    "kcal": "89",
+
+    "fat": "4",
+
+    "carbs": "6.2",
+
+    "sugar": "4.1",
+
+    "protein": "6",
+
+    "salt": "3.2",
+
+    "fiber": "1",
+
+    "quantityUnit": "30 g"
+
+},
+{
+
+    "productName": "Mini Tortillas Knoblauch Aldi",
+
+    "kcal": "308",
+
+    "fat": "6.6",
+
+    "carbs": "51",
+
+    "sugar": "3.2",
+
+    "protein": "9.2",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 = 27.5g"
+
+},
+{
+
+    "productName": "Kokosblütenzucker GutBio Aldi",
+
+    "kcal": "390",
+
+    "fat": "0.4",
+
+    "carbs": "95",
+
+    "sugar": "83",
+
+    "protein": "1.4",
+
+    "salt": "0.29",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Rote Linsen Strozzapreti Aldi",
+
+    "kcal": "342",
+
+    "fat": "1.6",
+
+    "carbs": "53",
+
+    "sugar": "1.7",
+
+    "protein": "26",
+
+    "salt": "0.01",
+
+    "fiber": "6",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Leberkäse Ponnath Edeka",
+
+    "kcal": "296",
+
+    "fat": "27",
+
+    "carbs": "1",
+
+    "sugar": "0.8",
+
+    "protein": "12",
+
+    "salt": "2.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "133 g / Stk"
+
+},
+{
+
+    "productName": "Hackfleisch",
+
+    "kcal": "236",
+
+    "fat": "18",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "17.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kidneybohnen",
+
+    "kcal": "111",
+
+    "fat": "0.4",
+
+    "carbs": "16",
+
+    "sugar": "2.8",
+
+    "protein": "7.4",
+
+    "salt": "0",
+
+    "fiber": "7",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Ben & Jerry's Eis Chocolate Fudge Brownie ",
+
+    "kcal": "249",
+
+    "fat": "13",
+
+    "carbs": "29",
+
+    "sugar": "27",
+
+    "protein": "4.3",
+
+    "salt": "0.23",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Lauchzwiebeln",
+
+    "kcal": "44",
+
+    "fat": "0.4",
+
+    "carbs": "7",
+
+    "sugar": "2.2",
+
+    "protein": "1.9",
+
+    "salt": "0",
+
+    "fiber": "2.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Haselnuss Mandel Blätterteig Aldi",
+
+    "kcal": "538",
+
+    "fat": "34",
+
+    "carbs": "49",
+
+    "sugar": "24",
+
+    "protein": "7.4",
+
+    "salt": "0.51",
+
+    "fiber": "0",
+
+    "quantityUnit": "40 g"
+
+},
+{
+
+    "productName": "Hack 50%",
+
+    "kcal": "157",
+
+    "fat": "9",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "19",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Prinzessbohnen Hak Glas",
+
+    "kcal": "19",
+
+    "fat": "0.3",
+
+    "carbs": "1.4",
+
+    "sugar": "1.1",
+
+    "protein": "1.4",
+
+    "salt": "0.63",
+
+    "fiber": "2.5",
+
+    "quantityUnit": "180 g"
+
+},
+{
+
+    "productName": "Maoam Kracher",
+
+    "kcal": "408",
+
+    "fat": "5.1",
+
+    "carbs": "90",
+
+    "sugar": "70",
+
+    "protein": "0.7",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Erdnussbutter Bio",
+
+    "kcal": "564",
+
+    "fat": "44.9",
+
+    "carbs": "11.3",
+
+    "sugar": "3.1",
+
+    "protein": "28.9",
+
+    "salt": "0",
+
+    "fiber": "9.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Obazda",
+
+    "kcal": "341",
+
+    "fat": "31",
+
+    "carbs": "2",
+
+    "sugar": "1.5",
+
+    "protein": "13",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Quark 20% ",
+
+    "kcal": "97",
+
+    "fat": "4.4",
+
+    "carbs": "3.6",
+
+    "sugar": "3.6",
+
+    "protein": "10.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gitterkartoffeln McDonalds",
+
+    "kcal": "312",
+
+    "fat": "17",
+
+    "carbs": "34",
+
+    "sugar": "0.4",
+
+    "protein": "3",
+
+    "salt": "1.6",
+
+    "fiber": "4",
+
+    "quantityUnit": "130 g"
+
+},
+{
+
+    "productName": "Schoko Croissant ",
+
+    "kcal": "460",
+
+    "fat": "30",
+
+    "carbs": "40",
+
+    "sugar": "25",
+
+    "protein": "6",
+
+    "salt": "0.4",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Penne Alnatura",
+
+    "kcal": "350",
+
+    "fat": "1.2",
+
+    "carbs": "71",
+
+    "sugar": "3.2",
+
+    "protein": "12",
+
+    "salt": "0",
+
+    "fiber": "3.5",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Datteln",
+
+    "kcal": "294",
+
+    "fat": "0.4",
+
+    "carbs": "66",
+
+    "sugar": "64",
+
+    "protein": "2.2",
+
+    "salt": "0",
+
+    "fiber": "8.7",
+
+    "quantityUnit": "ca 7g"
+
+},
+{
+
+    "productName": "Kochschinken",
+
+    "kcal": "107",
+
+    "fat": "3",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "19",
+
+    "salt": "2.45",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein Toastbrötchen Netto",
+
+    "kcal": "229",
+
+    "fat": "6.8",
+
+    "carbs": "18",
+
+    "sugar": "1.1",
+
+    "protein": "19",
+
+    "salt": "1.2",
+
+    "fiber": "10",
+
+    "quantityUnit": "70 g"
+
+},
+{
+
+    "productName": "Mozzarella Classico Minis Aldi",
+
+    "kcal": "249",
+
+    "fat": "19",
+
+    "carbs": "1.5",
+
+    "sugar": "1.5",
+
+    "protein": "18",
+
+    "salt": "0.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Pfannengemüse Italien MeinMenü",
+
+    "kcal": "53",
+
+    "fat": "2.9",
+
+    "carbs": "4.4",
+
+    "sugar": "2.9",
+
+    "protein": "1.3",
+
+    "salt": "0.69",
+
+    "fiber": "2",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Heumilch Emmentaler Aldi",
+
+    "kcal": "386",
+
+    "fat": "30",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "29",
+
+    "salt": "0.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "90 g"
+
+},
+{
+
+    "productName": "Schmelzkäse Sahne Edeka",
+
+    "kcal": "276",
+
+    "fat": "23.4",
+
+    "carbs": "7",
+
+    "sugar": "7",
+
+    "protein": "9.4",
+
+    "salt": "2.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "200g"
+
+},
+{
+
+    "productName": "Cocktail Eis Strawberry Daiquiri Aldi",
+
+    "kcal": "117",
+
+    "fat": "0.4",
+
+    "carbs": "23",
+
+    "sugar": "22",
+
+    "protein": "0.4",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": "117 g"
+
+},
+{
+
+    "productName": "Gyros Netto",
+
+    "kcal": "149",
+
+    "fat": "8",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pizza Spinaci e Ricotta Gustavo Gusto",
+
+    "kcal": "214,7",
+
+    "fat": "8.1",
+
+    "carbs": "24.8",
+
+    "sugar": "4.2",
+
+    "protein": "9.5",
+
+    "salt": "2.5",
+
+    "fiber": "1.9",
+
+    "quantityUnit": "480 g"
+
+},
+{
+
+    "productName": "Schlemmerfilet Italiano Aldi",
+
+    "kcal": "88",
+
+    "fat": "3.3",
+
+    "carbs": "4.8",
+
+    "sugar": "1.6",
+
+    "protein": "9.5",
+
+    "salt": "0.93",
+
+    "fiber": "0",
+
+    "quantityUnit": "400g"
+
+},
+{
+
+    "productName": "Beck‘s",
+
+    "kcal": "38",
+
+    "fat": "0",
+
+    "carbs": "2.2",
+
+    "sugar": "0.1",
+
+    "protein": "0.37",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Kokosmilch Chaokoh",
+
+    "kcal": "171",
+
+    "fat": "18",
+
+    "carbs": "2.7",
+
+    "sugar": "1.4",
+
+    "protein": "1.7",
+
+    "salt": "0.86",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein Kekse",
+
+    "kcal": "399",
+
+    "fat": "12.8",
+
+    "carbs": "25.4",
+
+    "sugar": "2.3",
+
+    "protein": "53.6",
+
+    "salt": "0.04",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Brötchen Hell Bäcker",
+
+    "kcal": "291",
+
+    "fat": "1.8",
+
+    "carbs": "55.9",
+
+    "sugar": "3.1",
+
+    "protein": "10.1",
+
+    "salt": "1.8",
+
+    "fiber": "3.6",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Grilltaler",
+
+    "kcal": "323",
+
+    "fat": "24.4",
+
+    "carbs": "4",
+
+    "sugar": "0.4",
+
+    "protein": "21.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Taveners Winegums Edeka",
+
+    "kcal": "333",
+
+    "fat": "0.3",
+
+    "carbs": "78.3",
+
+    "sugar": "51.8",
+
+    "protein": "3.4",
+
+    "salt": "0.04",
+
+    "fiber": "0.4",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eiweißbrot",
+
+    "kcal": "247",
+
+    "fat": "9.4",
+
+    "carbs": "14",
+
+    "sugar": "3.5",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "7.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein Pancakes",
+
+    "kcal": "385",
+
+    "fat": "7",
+
+    "carbs": "50",
+
+    "sugar": "2",
+
+    "protein": "31",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Satesauce Suzi Wan Holland",
+
+    "kcal": "184",
+
+    "fat": "11",
+
+    "carbs": "14",
+
+    "sugar": "11",
+
+    "protein": "5.6",
+
+    "salt": "1",
+
+    "fiber": "1.7",
+
+    "quantityUnit": "380g"
+
+},
+{
+
+    "productName": "Rinder Minutensteaks Aldi",
+
+    "kcal": "115",
+
+    "fat": "3",
+
+    "carbs": "1",
+
+    "sugar": "0.5",
+
+    "protein": "21",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Queens Oliven Dittmann",
+
+    "kcal": "192",
+
+    "fat": "18.4",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "3.8",
+
+    "salt": "3.75",
+
+    "fiber": "2.4",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Frischkäse Kräuter Aldi",
+
+    "kcal": "241",
+
+    "fat": "23",
+
+    "carbs": "3.5",
+
+    "sugar": "3",
+
+    "protein": "4.5",
+
+    "salt": "0.95",
+
+    "fiber": "0",
+
+    "quantityUnit": "300 g"
+
+},
+{
+
+    "productName": "Rotes Thai Curry Youcook",
+
+    "kcal": "102",
+
+    "fat": "3.1",
+
+    "carbs": "12.2",
+
+    "sugar": "1.6",
+
+    "protein": "5.7",
+
+    "salt": "0.6",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "420 g"
+
+},
+{
+
+    "productName": "Alpro Hafer + Heidelbeere",
+
+    "kcal": "62",
+
+    "fat": "1.9",
+
+    "carbs": "5",
+
+    "sugar": "4.7",
+
+    "protein": "3.7",
+
+    "salt": "0.25",
+
+    "fiber": "2.5",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Kebab Pfanne Aldi",
+
+    "kcal": "218",
+
+    "fat": "16",
+
+    "carbs": "0.5",
+
+    "sugar": "0.5",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Frühstücksbacon Aldi",
+
+    "kcal": "266",
+
+    "fat": "22",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "16",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Süß Saure SauceOncle Bens",
+
+    "kcal": "73",
+
+    "fat": "0.2",
+
+    "carbs": "16.9",
+
+    "sugar": "13.8",
+
+    "protein": "0.3",
+
+    "salt": "0.42",
+
+    "fiber": "0.8",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Protein Eiweißriegel Maxi Chocolate Brownie",
+
+    "kcal": "352",
+
+    "fat": "10",
+
+    "carbs": "22",
+
+    "sugar": "1.3",
+
+    "protein": "50",
+
+    "salt": "0.72",
+
+    "fiber": "0",
+
+    "quantityUnit": "40 g"
+
+},
+{
+
+    "productName": "Blumenkohl ",
+
+    "kcal": "31",
+
+    "fat": "0.9",
+
+    "carbs": "2.1",
+
+    "sugar": "1.8",
+
+    "protein": "0.9",
+
+    "salt": "0",
+
+    "fiber": "2.9",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Joghurt Netto",
+
+    "kcal": "67",
+
+    "fat": "3.5",
+
+    "carbs": "4.6",
+
+    "sugar": "4.6",
+
+    "protein": "3.7",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Champions frisch weiß ",
+
+    "kcal": "16",
+
+    "fat": "0.2",
+
+    "carbs": "0.6",
+
+    "sugar": "0.4",
+
+    "protein": "2.7",
+
+    "salt": "0",
+
+    "fiber": "1",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Schlemmerfilet Broccoli Aldi",
+
+    "kcal": "100",
+
+    "fat": "5.3",
+
+    "carbs": "2.7",
+
+    "sugar": "1",
+
+    "protein": "10",
+
+    "salt": "0.85",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Farfalle Gemüse Mix",
+
+    "kcal": "58",
+
+    "fat": "1.6",
+
+    "carbs": "6.4",
+
+    "sugar": "1.5",
+
+    "protein": "2.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Havre Kakor Haferkekse Edeka",
+
+    "kcal": "523",
+
+    "fat": "29.4",
+
+    "carbs": "56.8",
+
+    "sugar": "29.2",
+
+    "protein": "5.6",
+
+    "salt": "0.74",
+
+    "fiber": "2",
+
+    "quantityUnit": "20 g"
+
+},
+{
+
+    "productName": "Vollkorn Kerni Lieken Brot",
+
+    "kcal": "245",
+
+    "fat": "7.5",
+
+    "carbs": "32.5",
+
+    "sugar": "2.2",
+
+    "protein": "7.7",
+
+    "salt": "1",
+
+    "fiber": "8.5",
+
+    "quantityUnit": "62g"
+
+},
+{
+
+    "productName": "Eis Macadamia Nut Aldi",
+
+    "kcal": "292",
+
+    "fat": "19",
+
+    "carbs": "26",
+
+    "sugar": "25",
+
+    "protein": "3.5",
+
+    "salt": "0.19",
+
+    "fiber": "0",
+
+    "quantityUnit": "430 g"
+
+},
+{
+
+    "productName": "DeRuijter Haagelslaag",
+
+    "kcal": "450",
+
+    "fat": "15",
+
+    "carbs": "72",
+
+    "sugar": "71",
+
+    "protein": "5.7",
+
+    "salt": "0.12",
+
+    "fiber": "0",
+
+    "quantityUnit": "30 g"
+
+},
+{
+
+    "productName": "Feta",
+
+    "kcal": "276",
+
+    "fat": "23",
+
+    "carbs": "0.7",
+
+    "sugar": "0.7",
+
+    "protein": "16.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Thai green Curry Aldi",
+
+    "kcal": "108",
+
+    "fat": "2.4",
+
+    "carbs": "16",
+
+    "sugar": "0.7",
+
+    "protein": "5.1",
+
+    "salt": "0.58",
+
+    "fiber": "0.9",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Malz Mehrkornbrot Penny",
+
+    "kcal": "245",
+
+    "fat": "4.3",
+
+    "carbs": "41",
+
+    "sugar": "1.4",
+
+    "protein": "8",
+
+    "salt": "1.15",
+
+    "fiber": "2",
+
+    "quantityUnit": "42 g"
+
+},
+{
+
+    "productName": "Rillies chips Paprika Penny",
+
+    "kcal": "540",
+
+    "fat": "14",
+
+    "carbs": "50.5",
+
+    "sugar": "2.3",
+
+    "protein": "6",
+
+    "salt": "1.28",
+
+    "fiber": "2",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Eis Chocolate Brownie Netto",
+
+    "kcal": "209",
+
+    "fat": "13.1",
+
+    "carbs": "18.9",
+
+    "sugar": "17.4",
+
+    "protein": "3.2",
+
+    "salt": "0.16",
+
+    "fiber": "0",
+
+    "quantityUnit": "84 g"
+
+},
+{
+
+    "productName": "Mc Double Chilli Cheese",
+
+    "kcal": "259",
+
+    "fat": "13",
+
+    "carbs": "18",
+
+    "sugar": "3.2",
+
+    "protein": "16",
+
+    "salt": "1.4",
+
+    "fiber": "1",
+
+    "quantityUnit": "166 g"
+
+},
+{
+
+    "productName": "Filet Streifen Garden Gourmet ",
+
+    "kcal": "226",
+
+    "fat": "11",
+
+    "carbs": "3.3",
+
+    "sugar": "2.1",
+
+    "protein": "24.5",
+
+    "salt": "1.3",
+
+    "fiber": "8",
+
+    "quantityUnit": "175 g"
+
+},
+{
+
+    "productName": "Veggie Aufschnitt Brokkoli Aldi",
+
+    "kcal": "169",
+
+    "fat": "15",
+
+    "carbs": "4.2",
+
+    "sugar": "1.3",
+
+    "protein": "1.5",
+
+    "salt": "2.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "5 g"
+
+},
+{
+
+    "productName": "Saletti",
+
+    "kcal": "506",
+
+    "fat": "44",
+
+    "carbs": "1",
+
+    "sugar": "0.4",
+
+    "protein": "26",
+
+    "salt": "4",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Red Band Assortie",
+
+    "kcal": "336",
+
+    "fat": "0.2",
+
+    "carbs": "80",
+
+    "sugar": "56",
+
+    "protein": "4.9",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Mandeln",
+
+    "kcal": "619",
+
+    "fat": "53",
+
+    "carbs": "5.7",
+
+    "sugar": "5.6",
+
+    "protein": "24",
+
+    "salt": "0.4",
+
+    "fiber": "11.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Tofu geräuchert Bio Edeka",
+
+    "kcal": "158",
+
+    "fat": "9.1",
+
+    "carbs": "0.7",
+
+    "sugar": "0.7",
+
+    "protein": "17.5",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "350 g (2x175g)"
+
+},
+{
+
+    "productName": "Kinder Country",
+
+    "kcal": "561",
+
+    "fat": "33.8",
+
+    "carbs": "54.9",
+
+    "sugar": "49",
+
+    "protein": "8.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Vegane Pommersche",
+
+    "kcal": "212",
+
+    "fat": "19",
+
+    "carbs": "4.7",
+
+    "sugar": "0.6",
+
+    "protein": "2.7",
+
+    "salt": "1.7",
+
+    "fiber": "5.5",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Kürbisbrezel Ditch",
+
+    "kcal": "278",
+
+    "fat": "8.4",
+
+    "carbs": "33.8",
+
+    "sugar": "2.6",
+
+    "protein": "14.6",
+
+    "salt": "1.84",
+
+    "fiber": "4.4",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Treets Caramel Sea Salt",
+
+    "kcal": "523",
+
+    "fat": "30",
+
+    "carbs": "51",
+
+    "sugar": "47",
+
+    "protein": "11",
+
+    "salt": "0.58",
+
+    "fiber": "0",
+
+    "quantityUnit": "140 g Packung "
+
+},
+{
+
+    "productName": "Süss Sauer Sauce Netto",
+
+    "kcal": "94",
+
+    "fat": "0",
+
+    "carbs": "22.4",
+
+    "sugar": "20.2",
+
+    "protein": "0.5",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Rios Double In Penny Eis",
+
+    "kcal": "233",
+
+    "fat": "11.4",
+
+    "carbs": "28.7",
+
+    "sugar": "25.3",
+
+    "protein": "3.6",
+
+    "salt": "0.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "415 g"
+
+},
+{
+
+    "productName": "NussPli",
+
+    "kcal": "565",
+
+    "fat": "36",
+
+    "carbs": "55",
+
+    "sugar": "55",
+
+    "protein": "4.2",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Gemüsepfanne Französische Art Aldi",
+
+    "kcal": "52",
+
+    "fat": "1.5",
+
+    "carbs": "6.4",
+
+    "sugar": "3.2",
+
+    "protein": "1.9",
+
+    "salt": "0.77",
+
+    "fiber": "1",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Jasminreis",
+
+    "kcal": "354",
+
+    "fat": "0.4",
+
+    "carbs": "80.4",
+
+    "sugar": "0.2",
+
+    "protein": "6.7",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "LchsSchinken",
+
+    "kcal": "112",
+
+    "fat": "2",
+
+    "carbs": "2",
+
+    "sugar": "1.5",
+
+    "protein": "21",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Norwegischer Lachsfilet Netto Frischetheke",
+
+    "kcal": "247",
+
+    "fat": "18.8",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "19.4",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "300g"
+
+},
+{
+
+    "productName": "Bacon Aldi",
+
+    "kcal": "266",
+
+    "fat": "22",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "16",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Thunfisch ",
+
+    "kcal": "112",
+
+    "fat": "1.1",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "25.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Das Pure Aerzener",
+
+    "kcal": "273",
+
+    "fat": "13.4",
+
+    "carbs": "22.5",
+
+    "sugar": "3",
+
+    "protein": "11.1",
+
+    "salt": "1.5",
+
+    "fiber": "9.1",
+
+    "quantityUnit": "57 g"
+
+},
+{
+
+    "productName": "Lasagneplatten Barilla",
+
+    "kcal": "359",
+
+    "fat": "2",
+
+    "carbs": "71.2",
+
+    "sugar": "3.5",
+
+    "protein": "12.5",
+
+    "salt": "0.013",
+
+    "fiber": "3",
+
+    "quantityUnit": "17 g"
+
+},
+{
+
+    "productName": "Schlemmerfilet Bordelaise Aldi",
+
+    "kcal": "143",
+
+    "fat": "8.1",
+
+    "carbs": "4.1",
+
+    "sugar": "0.6",
+
+    "protein": "13",
+
+    "salt": "0.95",
+
+    "fiber": "0",
+
+    "quantityUnit": "400g"
+
+},
+{
+
+    "productName": "Vegetarische Frikadellen Garden Gourmet ",
+
+    "kcal": "183",
+
+    "fat": "7.5",
+
+    "carbs": "9.3",
+
+    "sugar": "3.2",
+
+    "protein": "17",
+
+    "salt": "1.2",
+
+    "fiber": "5",
+
+    "quantityUnit": "180 g"
+
+},
+{
+
+    "productName": "Döner",
+
+    "kcal": "174",
+
+    "fat": "4.9",
+
+    "carbs": "20.8",
+
+    "sugar": "1.7",
+
+    "protein": "10.5",
+
+    "salt": "0.6",
+
+    "fiber": "1.7",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Kartoffel Knusper Taschen Aldi",
+
+    "kcal": "182",
+
+    "fat": "9.2",
+
+    "carbs": "21",
+
+    "sugar": "1.7",
+
+    "protein": "2.8",
+
+    "salt": "1.3",
+
+    "fiber": "1",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Chicken Nuggets TK Edeka",
+
+    "kcal": "198",
+
+    "fat": "8",
+
+    "carbs": "15.4",
+
+    "sugar": "1",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Käseplatte Gourmet Aldi",
+
+    "kcal": "403",
+
+    "fat": "33",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "27",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Tofu Würfel SoFine Edeka",
+
+    "kcal": "193",
+
+    "fat": "13.8",
+
+    "carbs": "1.4",
+
+    "sugar": "1.1",
+
+    "protein": "15.2",
+
+    "salt": "1.1",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "180 g"
+
+},
+{
+
+    "productName": "Kesselchips Bacon ",
+
+    "kcal": "504",
+
+    "fat": "28",
+
+    "carbs": "53",
+
+    "sugar": "2.5",
+
+    "protein": "6.7",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Leinöl",
+
+    "kcal": "837",
+
+    "fat": "93",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "0.25",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Wraps Edeka",
+
+    "kcal": "314",
+
+    "fat": "6.9",
+
+    "carbs": "54",
+
+    "sugar": "5.5",
+
+    "protein": "7.9",
+
+    "salt": "1",
+
+    "fiber": "1",
+
+    "quantityUnit": "64"
+
+},
+{
+
+    "productName": "Schnitzel ",
+
+    "kcal": "233",
+
+    "fat": "11",
+
+    "carbs": "13",
+
+    "sugar": "0",
+
+    "protein": "20",
+
+    "salt": "1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sandwich Eis Keks Netto ",
+
+    "kcal": "202",
+
+    "fat": "11",
+
+    "carbs": "22.9",
+
+    "sugar": "15.6",
+
+    "protein": "2.3",
+
+    "salt": "0.06",
+
+    "fiber": "0",
+
+    "quantityUnit": "54,5 g"
+
+},
+{
+
+    "productName": "Schweineöhrchen",
+
+    "kcal": "530",
+
+    "fat": "31.1",
+
+    "carbs": "55.9",
+
+    "sugar": "20",
+
+    "protein": "5.9",
+
+    "salt": "0.8",
+
+    "fiber": "2.4",
+
+    "quantityUnit": "105 g"
+
+},
+{
+
+    "productName": "süßkartoffelpommes",
+
+    "kcal": "162",
+
+    "fat": "5.7",
+
+    "carbs": "24",
+
+    "sugar": "5",
+
+    "protein": "2",
+
+    "salt": "3",
+
+    "fiber": "2",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Pfannkuchen Schüttelfähig Aldi",
+
+    "kcal": "165",
+
+    "fat": "3.4",
+
+    "carbs": "27",
+
+    "sugar": "6.9",
+
+    "protein": "5.3",
+
+    "salt": "0.51",
+
+    "fiber": "0",
+
+    "quantityUnit": "200g"
+
+},
+{
+
+    "productName": "Lauch",
+
+    "kcal": "29",
+
+    "fat": "0.3",
+
+    "carbs": "3.3",
+
+    "sugar": "2.7",
+
+    "protein": "2.1",
+
+    "salt": "0",
+
+    "fiber": "2.3",
+
+    "quantityUnit": "mittel=200g / klein=125"
+
+},
+{
+
+    "productName": "Hähnchenbrust Filet",
+
+    "kcal": "99",
+
+    "fat": "0.8",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Vegetarische Mühlen Salami",
+
+    "kcal": "251",
+
+    "fat": "15",
+
+    "carbs": "9.1",
+
+    "sugar": "0.9",
+
+    "protein": "20",
+
+    "salt": "3.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "10 g"
+
+},
+{
+
+    "productName": "Cookie Double Trouble Aldi",
+
+    "kcal": "252",
+
+    "fat": "14",
+
+    "carbs": "27",
+
+    "sugar": "23",
+
+    "protein": "3.9",
+
+    "salt": "0.18",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Veggie Aufschnitt Paprika Aldi",
+
+    "kcal": "198",
+
+    "fat": "15",
+
+    "carbs": "5.7",
+
+    "sugar": "3.8",
+
+    "protein": "8.6",
+
+    "salt": "2.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "2 Scheiben 23 g"
+
+},
+{
+
+    "productName": "Walnuss Eiweißbrot ",
+
+    "kcal": "261",
+
+    "fat": "11.6",
+
+    "carbs": "13.6",
+
+    "sugar": "2.4",
+
+    "protein": "17.9",
+
+    "salt": "0",
+
+    "fiber": "14.9",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Spießbraten",
+
+    "kcal": "365",
+
+    "fat": "25.6",
+
+    "carbs": "1",
+
+    "sugar": "0",
+
+    "protein": "24",
+
+    "salt": "4",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Chips Zaziki",
+
+    "kcal": "532",
+
+    "fat": "33",
+
+    "carbs": "50",
+
+    "sugar": "2.8",
+
+    "protein": "5.7",
+
+    "salt": "1.3",
+
+    "fiber": "4.2",
+
+    "quantityUnit": "175 g"
+
+},
+{
+
+    "productName": "Ziegenkäse mit Speck Aldi",
+
+    "kcal": "288",
+
+    "fat": "23",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "19",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Craft Burger Buns Edeka",
+
+    "kcal": "287",
+
+    "fat": "4.2",
+
+    "carbs": "51",
+
+    "sugar": "7.1",
+
+    "protein": "10",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "75 g"
+
+},
+{
+
+    "productName": "Aioli ",
+
+    "kcal": "746",
+
+    "fat": "82",
+
+    "carbs": "1.3",
+
+    "sugar": "0",
+
+    "protein": "1.1",
+
+    "salt": "2.4",
+
+    "fiber": "0.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sojajoghurt Activate",
+
+    "kcal": "42",
+
+    "fat": "2.3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "4",
+
+    "salt": "0.24",
+
+    "fiber": "0.9",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Erbsen und Möhren Edeka",
+
+    "kcal": "59",
+
+    "fat": "0.3",
+
+    "carbs": "7.7",
+
+    "sugar": "2.7",
+
+    "protein": "3.7",
+
+    "salt": "0.13",
+
+    "fiber": "5.2",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Bio Bratwurst Netto ",
+
+    "kcal": "257",
+
+    "fat": "20",
+
+    "carbs": "1",
+
+    "sugar": "0.5",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Jägerschnitzel",
+
+    "kcal": "205",
+
+    "fat": "8.6",
+
+    "carbs": "2.3",
+
+    "sugar": "0.7",
+
+    "protein": "16.1",
+
+    "salt": "0.6",
+
+    "fiber": "0.9",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Protein Müsli",
+
+    "kcal": "423",
+
+    "fat": "22",
+
+    "carbs": "17",
+
+    "sugar": "2.6",
+
+    "protein": "32",
+
+    "salt": "0",
+
+    "fiber": "15",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schokomüsli Kantine",
+
+    "kcal": "439",
+
+    "fat": "14",
+
+    "carbs": "66",
+
+    "sugar": "24",
+
+    "protein": "8.8",
+
+    "salt": "0.9",
+
+    "fiber": "6.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Frischkäse Aldi",
+
+    "kcal": "252",
+
+    "fat": "25",
+
+    "carbs": "3",
+
+    "sugar": "3",
+
+    "protein": "4.5",
+
+    "salt": "0.8",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Gurke",
+
+    "kcal": "12",
+
+    "fat": "0.2",
+
+    "carbs": "2.2",
+
+    "sugar": "1.4",
+
+    "protein": "0.6",
+
+    "salt": "0",
+
+    "fiber": "0.7",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pesto alla Genoyese Cucina",
+
+    "kcal": "348",
+
+    "fat": "34",
+
+    "carbs": "6.3",
+
+    "sugar": "2.2",
+
+    "protein": "4.4",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "190 g"
+
+},
+{
+
+    "productName": "Forelle ",
+
+    "kcal": "139",
+
+    "fat": "6.4",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "20",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schweinegeschnetzeltes Edeka ",
+
+    "kcal": "133",
+
+    "fat": "5",
+
+    "carbs": "0.1",
+
+    "sugar": "0.1",
+
+    "protein": "22",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sonnenmais Aldi",
+
+    "kcal": "71",
+
+    "fat": "1.2",
+
+    "carbs": "11",
+
+    "sugar": "7",
+
+    "protein": "2.5",
+
+    "salt": "0",
+
+    "fiber": "3.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Halbes Hähnchen ",
+
+    "kcal": "233",
+
+    "fat": "13",
+
+    "carbs": "0.3",
+
+    "sugar": "0.3",
+
+    "protein": "27.9",
+
+    "salt": "0.18",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Schokolade 85% Aldi",
+
+    "kcal": "605",
+
+    "fat": "50.1",
+
+    "carbs": "20.4",
+
+    "sugar": "13.8",
+
+    "protein": "11",
+
+    "salt": "0.35",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Berner Würstchen",
+
+    "kcal": "264",
+
+    "fat": "22",
+
+    "carbs": "1.6",
+
+    "sugar": "0.5",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chili Bohnen Edeka",
+
+    "kcal": "94",
+
+    "fat": "0.5",
+
+    "carbs": "12",
+
+    "sugar": "5.3",
+
+    "protein": "5.6",
+
+    "salt": "0.63",
+
+    "fiber": "9.5",
+
+    "quantityUnit": "400g"
+
+},
+{
+
+    "productName": "Kürbiskernbrötchen",
+
+    "kcal": "209",
+
+    "fat": "7.8",
+
+    "carbs": "24.7",
+
+    "sugar": "0.7",
+
+    "protein": "8.5",
+
+    "salt": "1",
+
+    "fiber": "2.5",
+
+    "quantityUnit": "70 g"
+
+},
+{
+
+    "productName": "SüsSaDip gehört zu ChickenNuggets Penny",
+
+    "kcal": "190",
+
+    "fat": "6.8",
+
+    "carbs": "18.6",
+
+    "sugar": "4.6",
+
+    "protein": "13.5",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "90 g"
+
+},
+{
+
+    "productName": "Wok Nudeln Bamboo Garden",
+
+    "kcal": "366",
+
+    "fat": "2.6",
+
+    "carbs": "70",
+
+    "sugar": "3",
+
+    "protein": "14",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": "250g"
+
+},
+{
+
+    "productName": "Leibniz Dark Choc",
+
+    "kcal": "521",
+
+    "fat": "28",
+
+    "carbs": "59",
+
+    "sugar": "30",
+
+    "protein": "6.2",
+
+    "salt": "0.58",
+
+    "fiber": "0",
+
+    "quantityUnit": "19 g"
+
+},
+{
+
+    "productName": "Pizza Fantasia Pizz‘Ah Aldi",
+
+    "kcal": "190",
+
+    "fat": "7.6",
+
+    "carbs": "21",
+
+    "sugar": "3.8",
+
+    "protein": "8.7",
+
+    "salt": "0.81",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Kinderriegel",
+
+    "kcal": "566",
+
+    "fat": "35",
+
+    "carbs": "53.5",
+
+    "sugar": "53.3",
+
+    "protein": "8.7",
+
+    "salt": "0.313",
+
+    "fiber": "0",
+
+    "quantityUnit": "21 g"
+
+},
+{
+
+    "productName": "Zucchini",
+
+    "kcal": "19",
+
+    "fat": "0.3",
+
+    "carbs": "2.4",
+
+    "sugar": "2",
+
+    "protein": "3",
+
+    "salt": "0",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Magerquark 40%",
+
+    "kcal": "139",
+
+    "fat": "10",
+
+    "carbs": "3.2",
+
+    "sugar": "3.2",
+
+    "protein": "9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schlemmerfilet Sommergemüse Lidl",
+
+    "kcal": "111",
+
+    "fat": "6.2",
+
+    "carbs": "3.9",
+
+    "sugar": "2.3",
+
+    "protein": "9.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Bauchspeck Geräuchert Netto",
+
+    "kcal": "295",
+
+    "fat": "25",
+
+    "carbs": "0.6",
+
+    "sugar": "0.1",
+
+    "protein": "17",
+
+    "salt": "3",
+
+    "fiber": "0",
+
+    "quantityUnit": "150g / Scheibe"
+
+},
+{
+
+    "productName": "Käse Caverna Aldi",
+
+    "kcal": "366",
+
+    "fat": "30",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "23",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "22 g"
+
+},
+{
+
+    "productName": "Nussschnecke",
+
+    "kcal": "367",
+
+    "fat": "22.5",
+
+    "carbs": "32",
+
+    "sugar": "14.5",
+
+    "protein": "6.5",
+
+    "salt": "0.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "120 g"
+
+},
+{
+
+    "productName": "Kroketten",
+
+    "kcal": "181",
+
+    "fat": "7",
+
+    "carbs": "25",
+
+    "sugar": "1",
+
+    "protein": "3",
+
+    "salt": "0.9",
+
+    "fiber": "3",
+
+    "quantityUnit": "30 g"
+
+},
+{
+
+    "productName": "Käse mit Kürbiskerne",
+
+    "kcal": "344",
+
+    "fat": "27.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "24",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sandwich Thunfisch Lidl",
+
+    "kcal": "219",
+
+    "fat": "8.9",
+
+    "carbs": "20.2",
+
+    "sugar": "2.1",
+
+    "protein": "14",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Langkorn Reis Bio",
+
+    "kcal": "348",
+
+    "fat": "0.9",
+
+    "carbs": "77",
+
+    "sugar": "0.3",
+
+    "protein": "7.3",
+
+    "salt": "0.01",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eis Choco Crumble Netto",
+
+    "kcal": "221",
+
+    "fat": "13",
+
+    "carbs": "22.6",
+
+    "sugar": "19.9",
+
+    "protein": "3.2",
+
+    "salt": "0.18",
+
+    "fiber": "0",
+
+    "quantityUnit": "84 g"
+
+},
+{
+
+    "productName": "Chips Pork Paprika SnackIt Penny",
+
+    "kcal": "418",
+
+    "fat": "15",
+
+    "carbs": "3",
+
+    "sugar": "3",
+
+    "protein": "67",
+
+    "salt": "4.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Kokosöl",
+
+    "kcal": "901",
+
+    "fat": "100",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "1.27",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schwarze Bohnen",
+
+    "kcal": "114",
+
+    "fat": "0.9",
+
+    "carbs": "16",
+
+    "sugar": "0.1",
+
+    "protein": "7",
+
+    "salt": "0.78",
+
+    "fiber": "6.4",
+
+    "quantityUnit": "265 g"
+
+},
+{
+
+    "productName": "Popcorn Popz Süß Salzig Edeka",
+
+    "kcal": "459",
+
+    "fat": "25",
+
+    "carbs": "49",
+
+    "sugar": "0.7",
+
+    "protein": "8",
+
+    "salt": "2",
+
+    "fiber": "10",
+
+    "quantityUnit": "85 g"
+
+},
+{
+
+    "productName": "Käse Le Gruyere Aldi",
+
+    "kcal": "400",
+
+    "fat": "32",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "27",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "14 g"
+
+},
+{
+
+    "productName": "Skyr Arla Vanille",
+
+    "kcal": "74",
+
+    "fat": "0.2",
+
+    "carbs": "8.3",
+
+    "sugar": "7.6",
+
+    "protein": "9.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Ben & Jerrys Salted Caramel",
+
+    "kcal": "304",
+
+    "fat": "18",
+
+    "carbs": "30",
+
+    "sugar": "28",
+
+    "protein": "4.2",
+
+    "salt": "0.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "403 g"
+
+},
+{
+
+    "productName": "Ahoi Brause Eis",
+
+    "kcal": "102",
+
+    "fat": "4",
+
+    "carbs": "15",
+
+    "sugar": "13",
+
+    "protein": "1.1",
+
+    "salt": "0.14",
+
+    "fiber": "0",
+
+    "quantityUnit": "140 g"
+
+},
+{
+
+    "productName": "Frikadelle Metzger",
+
+    "kcal": "209",
+
+    "fat": "10.5",
+
+    "carbs": "7",
+
+    "sugar": "5",
+
+    "protein": "21.7",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Papa Joe‘s Curry Mango",
+
+    "kcal": "352",
+
+    "fat": "2.1",
+
+    "carbs": "18.7",
+
+    "sugar": "16.3",
+
+    "protein": "0.7",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Riesengarnelen AtkaProvencal Aldi",
+
+    "kcal": "82",
+
+    "fat": "4.4",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "11",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Penne Rote Linsen enjoyFree ",
+
+    "kcal": "343",
+
+    "fat": "1.7",
+
+    "carbs": "56",
+
+    "sugar": "2.2",
+
+    "protein": "23",
+
+    "salt": "0.01",
+
+    "fiber": "6",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Crispy Chicken",
+
+    "kcal": "262",
+
+    "fat": "15.7",
+
+    "carbs": "14.5",
+
+    "sugar": "0.5",
+
+    "protein": "15",
+
+    "salt": "2.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "100 g"
+
+},
+{
+
+    "productName": "Steinofenbrötchen Back mich Lieken Netto",
+
+    "kcal": "287",
+
+    "fat": "1.5",
+
+    "carbs": "55.6",
+
+    "sugar": "2.8",
+
+    "protein": "11.1",
+
+    "salt": "1.6",
+
+    "fiber": "3.1",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Emmentaler Streukäse",
+
+    "kcal": "376",
+
+    "fat": "28",
+
+    "carbs": "3",
+
+    "sugar": "0",
+
+    "protein": "28",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Thunfisch in Gemüsedressing Penny",
+
+    "kcal": "79",
+
+    "fat": "1.5",
+
+    "carbs": "5.3",
+
+    "sugar": "2.7",
+
+    "protein": "11",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "185 g"
+
+},
+{
+
+    "productName": "Beyond Sausage",
+
+    "kcal": "250",
+
+    "fat": "16",
+
+    "carbs": "8",
+
+    "sugar": "0",
+
+    "protein": "17",
+
+    "salt": "1.35",
+
+    "fiber": "0",
+
+    "quantityUnit": "100g"
+
+},
+{
+
+    "productName": "Ben&Jerry‘s Peanut Butter",
+
+    "kcal": "310",
+
+    "fat": "21",
+
+    "carbs": "24",
+
+    "sugar": "23",
+
+    "protein": "6.5",
+
+    "salt": "0.44",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Lachsrückenfilet geräuchert Aldi",
+
+    "kcal": "182",
+
+    "fat": "10",
+
+    "carbs": "0.1",
+
+    "sugar": "0.1",
+
+    "protein": "23",
+
+    "salt": "3",
+
+    "fiber": "0",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Speisequark 40%",
+
+    "kcal": "144",
+
+    "fat": "10",
+
+    "carbs": "3.2",
+
+    "sugar": "3.2",
+
+    "protein": "9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Fusilli Tricolore Netto",
+
+    "kcal": "368",
+
+    "fat": "1.5",
+
+    "carbs": "75",
+
+    "sugar": "3",
+
+    "protein": "12",
+
+    "salt": "0",
+
+    "fiber": "3",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Graubrot Lieken",
+
+    "kcal": "219",
+
+    "fat": "1.4",
+
+    "carbs": "41",
+
+    "sugar": "2.9",
+
+    "protein": "7.3",
+
+    "salt": "1.45",
+
+    "fiber": "6.6",
+
+    "quantityUnit": "71 g"
+
+},
+{
+
+    "productName": "Emmentaler GutBio Aldi",
+
+    "kcal": "395",
+
+    "fat": "31",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "29",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Edeka Fleischwurst ",
+
+    "kcal": "271",
+
+    "fat": "25",
+
+    "carbs": "0.6",
+
+    "sugar": "0.5",
+
+    "protein": "11",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Skyr Style ungesüßt",
+
+    "kcal": "64",
+
+    "fat": "3.6",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "6.2",
+
+    "salt": "0.33",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Wassereis",
+
+    "kcal": "52",
+
+    "fat": "0",
+
+    "carbs": "13",
+
+    "sugar": "13",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Marmorkuchen",
+
+    "kcal": "416",
+
+    "fat": "12",
+
+    "carbs": "79",
+
+    "sugar": "58",
+
+    "protein": "3.4",
+
+    "salt": "0.8",
+
+    "fiber": "2.9",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Oliven Penny ",
+
+    "kcal": "112",
+
+    "fat": "11",
+
+    "carbs": "0.7",
+
+    "sugar": "0.4",
+
+    "protein": "0.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Harry XXL Burger Brötchen ",
+
+    "kcal": "284",
+
+    "fat": "4.8",
+
+    "carbs": "50",
+
+    "sugar": "8",
+
+    "protein": "9",
+
+    "salt": "0",
+
+    "fiber": "2.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schweine Schnitzel Bio Aldi",
+
+    "kcal": "115",
+
+    "fat": "3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "22",
+
+    "salt": "0.15",
+
+    "fiber": "0",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Spinat Blub",
+
+    "kcal": "55",
+
+    "fat": "2.6",
+
+    "carbs": "3.3",
+
+    "sugar": "1.7",
+
+    "protein": "3.5",
+
+    "salt": "0",
+
+    "fiber": "1.9",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Nuss Riegel Gourmet Aldi",
+
+    "kcal": "453",
+
+    "fat": "25",
+
+    "carbs": "40",
+
+    "sugar": "27",
+
+    "protein": "9",
+
+    "salt": "0.13",
+
+    "fiber": "16",
+
+    "quantityUnit": "40 g"
+
+},
+{
+
+    "productName": "Mangold",
+
+    "kcal": "23",
+
+    "fat": "0.6",
+
+    "carbs": "1",
+
+    "sugar": "0.5",
+
+    "protein": "1.5",
+
+    "salt": "0",
+
+    "fiber": "3.6",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Milch ",
+
+    "kcal": "64",
+
+    "fat": "1.5",
+
+    "carbs": "4.8",
+
+    "sugar": "4.8",
+
+    "protein": "3.4",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Hähnchen Minischnitzel Netto",
+
+    "kcal": "202",
+
+    "fat": "8",
+
+    "carbs": "16",
+
+    "sugar": "1",
+
+    "protein": "16",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "500g"
+
+},
+{
+
+    "productName": "Tomatenstücke Mutti Basilikum",
+
+    "kcal": "25",
+
+    "fat": "0.2",
+
+    "carbs": "3.9",
+
+    "sugar": "2.8",
+
+    "protein": "1.2",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Weizenkleie",
+
+    "kcal": "267",
+
+    "fat": "4.7",
+
+    "carbs": "18",
+
+    "sugar": "1.9",
+
+    "protein": "16",
+
+    "salt": "0",
+
+    "fiber": "45",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Ben&Jerrys Salted caramel 124",
+
+    "kcal": "199",
+
+    "fat": "5.6",
+
+    "carbs": "34",
+
+    "sugar": "26",
+
+    "protein": "3.5",
+
+    "salt": "0.03",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Baby Bells",
+
+    "kcal": "295",
+
+    "fat": "23",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "22",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Vegetarische Klösschen Garden Gourmet",
+
+    "kcal": "201",
+
+    "fat": "10",
+
+    "carbs": "2",
+
+    "sugar": "2",
+
+    "protein": "22",
+
+    "salt": "1.4",
+
+    "fiber": "7.3",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Chickenburger McDonalds",
+
+    "kcal": "259",
+
+    "fat": "8.7",
+
+    "carbs": "35",
+
+    "sugar": "8",
+
+    "protein": "9.3",
+
+    "salt": "1.2",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "127 g"
+
+},
+{
+
+    "productName": "XL Hamburger BBC Aldi",
+
+    "kcal": "234",
+
+    "fat": "18",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "18",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Grillteller",
+
+    "kcal": "253",
+
+    "fat": "13.7",
+
+    "carbs": "29.4",
+
+    "sugar": "3",
+
+    "protein": "8.6",
+
+    "salt": "4",
+
+    "fiber": "2",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eiweiß Toastbrötchen Karotten Edeka",
+
+    "kcal": "249",
+
+    "fat": "9.2",
+
+    "carbs": "15.1",
+
+    "sugar": "4.7",
+
+    "protein": "19.6",
+
+    "salt": "1",
+
+    "fiber": "13.4",
+
+    "quantityUnit": "2 Scheiben = 65 g"
+
+},
+{
+
+    "productName": "Wldreis Netto",
+
+    "kcal": "357",
+
+    "fat": "1.4",
+
+    "carbs": "76.6",
+
+    "sugar": "0.4",
+
+    "protein": "8.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Feta Aldi",
+
+    "kcal": "290",
+
+    "fat": "25",
+
+    "carbs": "0.2",
+
+    "sugar": "0.2",
+
+    "protein": "16",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Aioli Jalapeño Edeka",
+
+    "kcal": "284",
+
+    "fat": "25.9",
+
+    "carbs": "9.9",
+
+    "sugar": "6.4",
+
+    "protein": "2.7",
+
+    "salt": "1.02",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Protein Cookies Granb. Aldi",
+
+    "kcal": "388",
+
+    "fat": "10.5",
+
+    "carbs": "24.7",
+
+    "sugar": "4.7",
+
+    "protein": "54.1",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Avocado",
+
+    "kcal": "130",
+
+    "fat": "12.5",
+
+    "carbs": "3.6",
+
+    "sugar": "0.8",
+
+    "protein": "1.4",
+
+    "salt": "0",
+
+    "fiber": "4.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Hackfleisch GARDEN GOURMET ",
+
+    "kcal": "165",
+
+    "fat": "7.9",
+
+    "carbs": "3.6",
+
+    "sugar": "1",
+
+    "protein": "17.3",
+
+    "salt": "1",
+
+    "fiber": "5",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Maasdamer 45%",
+
+    "kcal": "347",
+
+    "fat": "27",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "26",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "37.5g / Scheibe"
+
+},
+{
+
+    "productName": "Schmelzkäse Milkana Creme",
+
+    "kcal": "161",
+
+    "fat": "9",
+
+    "carbs": "5",
+
+    "sugar": "5",
+
+    "protein": "15",
+
+    "salt": "1.9",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Pizza Speciale Pizz‘Ah Aldi",
+
+    "kcal": "235",
+
+    "fat": "10",
+
+    "carbs": "24",
+
+    "sugar": "3.7",
+
+    "protein": "11",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "330 g"
+
+},
+{
+
+    "productName": "Sake Maki Sushi",
+
+    "kcal": "129",
+
+    "fat": "0.9",
+
+    "carbs": "22.4",
+
+    "sugar": "0",
+
+    "protein": "6.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "20 g"
+
+},
+{
+
+    "productName": "Sate Wijko Holland",
+
+    "kcal": "257",
+
+    "fat": "15",
+
+    "carbs": "23",
+
+    "sugar": "16",
+
+    "protein": "7.6",
+
+    "salt": "1.4",
+
+    "fiber": "1",
+
+    "quantityUnit": "500 g"
+
+},
+{
+
+    "productName": "Steinofenpizza Gegrilltes Gemüse Aldi",
+
+    "kcal": "193",
+
+    "fat": "6.6",
+
+    "carbs": "25",
+
+    "sugar": "3.6",
+
+    "protein": "7.9",
+
+    "salt": "0.9",
+
+    "fiber": "1",
+
+    "quantityUnit": "460 g"
+
+},
+{
+
+    "productName": "Bockwurst Aldi",
+
+    "kcal": "261",
+
+    "fat": "23",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "12.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Körniger Frischkäse",
+
+    "kcal": "103",
+
+    "fat": "4.6",
+
+    "carbs": "2.7",
+
+    "sugar": "2.7",
+
+    "protein": "12.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Multivitamin Tablette DM",
+
+    "kcal": "213",
+
+    "fat": "0.3",
+
+    "carbs": "17",
+
+    "sugar": "0.5",
+
+    "protein": "0.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Double Crunch KFC ",
+
+    "kcal": "257",
+
+    "fat": "11",
+
+    "carbs": "27",
+
+    "sugar": "3",
+
+    "protein": "13",
+
+    "salt": "1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pizza Tonno Gustavo Gusto",
+
+    "kcal": "186",
+
+    "fat": "5.6",
+
+    "carbs": "26.3",
+
+    "sugar": "4.3",
+
+    "protein": "7",
+
+    "salt": "1.5",
+
+    "fiber": "1.4",
+
+    "quantityUnit": "475 g"
+
+},
+{
+
+    "productName": "Mentos fruit",
+
+    "kcal": "388",
+
+    "fat": "1.9",
+
+    "carbs": "92",
+
+    "sugar": "69",
+
+    "protein": "0",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "38 g / Stange"
+
+},
+{
+
+    "productName": "Schinken Pizza Pizz‘Ah",
+
+    "kcal": "236",
+
+    "fat": "9.7",
+
+    "carbs": "25",
+
+    "sugar": "3.8",
+
+    "protein": "11",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "330 g"
+
+},
+{
+
+    "productName": "Sate Glas Edeka",
+
+    "kcal": "391",
+
+    "fat": "32",
+
+    "carbs": "19.7",
+
+    "sugar": "10",
+
+    "protein": "4.5",
+
+    "salt": "1.2",
+
+    "fiber": "3.1",
+
+    "quantityUnit": "170 g"
+
+},
+{
+
+    "productName": "Olivers Saure Würmchen Penny",
+
+    "kcal": "337",
+
+    "fat": "0.2",
+
+    "carbs": "77",
+
+    "sugar": "48",
+
+    "protein": "4.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "5g"
+
+},
+{
+
+    "productName": "Banane",
+
+    "kcal": "93",
+
+    "fat": "0.2",
+
+    "carbs": "21",
+
+    "sugar": "18.6",
+
+    "protein": "1",
+
+    "salt": "0",
+
+    "fiber": "2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Räucherlachs Aldi ",
+
+    "kcal": "206",
+
+    "fat": "13.5",
+
+    "carbs": "0.6",
+
+    "sugar": "0",
+
+    "protein": "20.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Weiße Bohnen Netto ",
+
+    "kcal": "88",
+
+    "fat": "0.6",
+
+    "carbs": "11",
+
+    "sugar": "0.3",
+
+    "protein": "6.4",
+
+    "salt": "0",
+
+    "fiber": "6.6",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Celebrations",
+
+    "kcal": "493",
+
+    "fat": "24",
+
+    "carbs": "62",
+
+    "sugar": "55",
+
+    "protein": "5.4",
+
+    "salt": "0.39",
+
+    "fiber": "0",
+
+    "quantityUnit": "9,3 g"
+
+},
+{
+
+    "productName": "Brot Vollkorn Kruste Edeka",
+
+    "kcal": "254",
+
+    "fat": "3.4",
+
+    "carbs": "42",
+
+    "sugar": "1.2",
+
+    "protein": "10",
+
+    "salt": "0.9",
+
+    "fiber": "1",
+
+    "quantityUnit": "300 g"
+
+},
+{
+
+    "productName": "Philadelphia Lachs ",
+
+    "kcal": "141",
+
+    "fat": "10",
+
+    "carbs": "5.1",
+
+    "sugar": "4.6",
+
+    "protein": "7.2",
+
+    "salt": "0",
+
+    "fiber": "0.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Salamini (BifiRoll) Penny",
+
+    "kcal": "400",
+
+    "fat": "25",
+
+    "carbs": "25",
+
+    "sugar": "4",
+
+    "protein": "18",
+
+    "salt": "2.3",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Kibbeling",
+
+    "kcal": "220",
+
+    "fat": "12.8",
+
+    "carbs": "4.4",
+
+    "sugar": "0.5",
+
+    "protein": "20.6",
+
+    "salt": "3",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Deprecziner",
+
+    "kcal": "298",
+
+    "fat": "26",
+
+    "carbs": "1",
+
+    "sugar": "0.8",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sardinen",
+
+    "kcal": "329",
+
+    "fat": "27.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "20.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Paranuss Farmer Aldi",
+
+    "kcal": "707",
+
+    "fat": "68",
+
+    "carbs": "4.1",
+
+    "sugar": "2.3",
+
+    "protein": "17",
+
+    "salt": "0.06",
+
+    "fiber": "4.9",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Rotwein Merlot",
+
+    "kcal": "83",
+
+    "fat": "0",
+
+    "carbs": "2.5",
+
+    "sugar": "0.1",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "Glas=300/-Daumen250g"
+
+},
+{
+
+    "productName": "Eiweißbrot KornMark Edeka ",
+
+    "kcal": "233",
+
+    "fat": "8",
+
+    "carbs": "14",
+
+    "sugar": "1",
+
+    "protein": "23.5",
+
+    "salt": "0",
+
+    "fiber": "5.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Rinder Filetsteak Aldi Bio",
+
+    "kcal": "111",
+
+    "fat": "2.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "22",
+
+    "salt": "0.15",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Butter ",
+
+    "kcal": "679",
+
+    "fat": "75",
+
+    "carbs": "0.5",
+
+    "sugar": "0.5",
+
+    "protein": "0.6",
+
+    "salt": "0.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Katenschinken",
+
+    "kcal": "218",
+
+    "fat": "14",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "22",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Finnisch Toasties Bio Edeka",
+
+    "kcal": "235",
+
+    "fat": "1",
+
+    "carbs": "46.6",
+
+    "sugar": "6.3",
+
+    "protein": "6.8",
+
+    "salt": "1.5",
+
+    "fiber": "6.3",
+
+    "quantityUnit": "65 g"
+
+},
+{
+
+    "productName": "Schokolade Erdnuss & Flakes Aldi",
+
+    "kcal": "548",
+
+    "fat": "33.6",
+
+    "carbs": "47.7",
+
+    "sugar": "42.3",
+
+    "protein": "12",
+
+    "salt": "0.59",
+
+    "fiber": "0",
+
+    "quantityUnit": "4 x 50 g"
+
+},
+{
+
+    "productName": "Eiweiss Brot Lieken",
+
+    "kcal": "255",
+
+    "fat": "11.7",
+
+    "carbs": "13",
+
+    "sugar": "3",
+
+    "protein": "20",
+
+    "salt": "1.3",
+
+    "fiber": "9",
+
+    "quantityUnit": "35 g"
+
+},
+{
+
+    "productName": "Schweine-Minutensteaks",
+
+    "kcal": "119",
+
+    "fat": "3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Burger Buns Butchers",
+
+    "kcal": "284",
+
+    "fat": "5.9",
+
+    "carbs": "45.3",
+
+    "sugar": "6.9",
+
+    "protein": "10.6",
+
+    "salt": "1.2",
+
+    "fiber": "2",
+
+    "quantityUnit": "75 g"
+
+},
+{
+
+    "productName": "Brokkoli Buchweizen Iglo",
+
+    "kcal": "92",
+
+    "fat": "2.3",
+
+    "carbs": "13",
+
+    "sugar": "2.3",
+
+    "protein": "2.9",
+
+    "salt": "0.73",
+
+    "fiber": "3.6",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Vegan Poké Bowl",
+
+    "kcal": "158",
+
+    "fat": "5.4",
+
+    "carbs": "24",
+
+    "sugar": "8",
+
+    "protein": "3.5",
+
+    "salt": "1.2",
+
+    "fiber": "4",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Olivenöl ",
+
+    "kcal": "822",
+
+    "fat": "91.3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0",
+
+    "salt": "0.13",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Burger Buns Edeka",
+
+    "kcal": "319",
+
+    "fat": "7.6",
+
+    "carbs": "52",
+
+    "sugar": "8.7",
+
+    "protein": "9.4",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 = 63 g"
+
+},
+{
+
+    "productName": "Wiener Würstchen Bio Aldi",
+
+    "kcal": "285",
+
+    "fat": "25",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "14",
+
+    "salt": "2.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Thunfisch In Olivenöl Hawesta",
+
+    "kcal": "180",
+
+    "fat": "8",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "27",
+
+    "salt": "0.9",
+
+    "fiber": "0",
+
+    "quantityUnit": "160 g"
+
+},
+{
+
+    "productName": "Walnuss",
+
+    "kcal": "717",
+
+    "fat": "70",
+
+    "carbs": "6.3",
+
+    "sugar": "1.9",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "6.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chickenwings Classic American Aldi ",
+
+    "kcal": "221",
+
+    "fat": "13",
+
+    "carbs": "2.9",
+
+    "sugar": "1.6",
+
+    "protein": "23",
+
+    "salt": "2.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "1000 /800 g ohne Knochen"
+
+},
+{
+
+    "productName": "Traditional Cheddar O‘Grady Aldi",
+
+    "kcal": "392",
+
+    "fat": "32",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "26",
+
+    "salt": "1.9",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 Scheibe = 25 g"
+
+},
+{
+
+    "productName": "Pfannen Fisch Frosta",
+
+    "kcal": "114",
+
+    "fat": "0.8",
+
+    "carbs": "11.4",
+
+    "sugar": "0.4",
+
+    "protein": "15",
+
+    "salt": "1.39",
+
+    "fiber": "0",
+
+    "quantityUnit": "250g"
+
+},
+{
+
+    "productName": "Kinder Croissants",
+
+    "kcal": "460",
+
+    "fat": "25.1",
+
+    "carbs": "51.4",
+
+    "sugar": "27",
+
+    "protein": "6.1",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "48 g"
+
+},
+{
+
+    "productName": "Bacon",
+
+    "kcal": "289",
+
+    "fat": "25",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "16",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Joghurt Dressing Delique leicht Netto",
+
+    "kcal": "163",
+
+    "fat": "13.1",
+
+    "carbs": "8.8",
+
+    "sugar": "7.6",
+
+    "protein": "2",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Sweet Chili Creme",
+
+    "kcal": "185",
+
+    "fat": "13.3",
+
+    "carbs": "12.6",
+
+    "sugar": "5.6",
+
+    "protein": "3.7",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Erdnüsse im Teigmantel Paprika Netto",
+
+    "kcal": "517",
+
+    "fat": "32",
+
+    "carbs": "40.7",
+
+    "sugar": "9",
+
+    "protein": "14.2",
+
+    "salt": "2.2",
+
+    "fiber": "4.6",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Penny Bauern Salat ",
+
+    "kcal": "112",
+
+    "fat": "8.7",
+
+    "carbs": "5.8",
+
+    "sugar": "4.9",
+
+    "protein": "1.6",
+
+    "salt": "0.63",
+
+    "fiber": "1",
+
+    "quantityUnit": "130 g"
+
+},
+{
+
+    "productName": "Hummus Knoblauch Paprika ",
+
+    "kcal": "345",
+
+    "fat": "31",
+
+    "carbs": "9",
+
+    "sugar": "0",
+
+    "protein": "6",
+
+    "salt": "0",
+
+    "fiber": "3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chicken Nuggets Netto ",
+
+    "kcal": "138",
+
+    "fat": "1.5",
+
+    "carbs": "12",
+
+    "sugar": "1.5",
+
+    "protein": "19",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Lughurt Luve Mango",
+
+    "kcal": "110",
+
+    "fat": "4.8",
+
+    "carbs": "15",
+
+    "sugar": "8.3",
+
+    "protein": "1.6",
+
+    "salt": "0",
+
+    "fiber": "0.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Leerdamer",
+
+    "kcal": "352",
+
+    "fat": "29.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "21.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schweinenacken Aldi",
+
+    "kcal": "189",
+
+    "fat": "13",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mozzarella Büffel Galbani",
+
+    "kcal": "262",
+
+    "fat": "23",
+
+    "carbs": "0.7",
+
+    "sugar": "0.7",
+
+    "protein": "13",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Milchreis Spitzenreis Edeka",
+
+    "kcal": "351",
+
+    "fat": "0.5",
+
+    "carbs": "79",
+
+    "sugar": "0.2",
+
+    "protein": "7",
+
+    "salt": "0.01",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Aufschnitt Pflanz Streich",
+
+    "kcal": "195",
+
+    "fat": "13",
+
+    "carbs": "12",
+
+    "sugar": "0.4",
+
+    "protein": "7",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Mango Ananas Sorbet Mucci Aldi",
+
+    "kcal": "120",
+
+    "fat": "0.4",
+
+    "carbs": "29",
+
+    "sugar": "25",
+
+    "protein": "0.4",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Raclette Käse",
+
+    "kcal": "328",
+
+    "fat": "26",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Brioche Burger Bun Edeka",
+
+    "kcal": "299",
+
+    "fat": "6.8",
+
+    "carbs": "48.7",
+
+    "sugar": "10.4",
+
+    "protein": "9.3",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "2x100g"
+
+},
+{
+
+    "productName": "Putenbrust",
+
+    "kcal": "111",
+
+    "fat": "1.7",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "24",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Burgerpettis Mühlen Vegan",
+
+    "kcal": "159",
+
+    "fat": "9.2",
+
+    "carbs": "2.5",
+
+    "sugar": "0.4",
+
+    "protein": "14",
+
+    "salt": "1.6",
+
+    "fiber": "5",
+
+    "quantityUnit": "110 g"
+
+},
+{
+
+    "productName": "Feta Edeka ",
+
+    "kcal": "275",
+
+    "fat": "23",
+
+    "carbs": "1",
+
+    "sugar": "1",
+
+    "protein": "16",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chiasamen",
+
+    "kcal": "455",
+
+    "fat": "32.9",
+
+    "carbs": "2.1",
+
+    "sugar": "0.5",
+
+    "protein": "20.9",
+
+    "salt": "0",
+
+    "fiber": "36.1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Höhlen Käse Castello",
+
+    "kcal": "364",
+
+    "fat": "30",
+
+    "carbs": "0.1",
+
+    "sugar": "0.1",
+
+    "protein": "22",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "25g"
+
+},
+{
+
+    "productName": "Sucralose",
+
+    "kcal": "388",
+
+    "fat": "0",
+
+    "carbs": "97",
+
+    "sugar": "6.8",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "1g / TL"
+
+},
+{
+
+    "productName": "Corny Milch",
+
+    "kcal": "444",
+
+    "fat": "19.1",
+
+    "carbs": "59.3",
+
+    "sugar": "29.2",
+
+    "protein": "5.8",
+
+    "salt": "0.73",
+
+    "fiber": "1",
+
+    "quantityUnit": "30 g"
+
+},
+{
+
+    "productName": "Saure Colaflaschen Haribo",
+
+    "kcal": "348",
+
+    "fat": "0.4",
+
+    "carbs": "82",
+
+    "sugar": "63",
+
+    "protein": "3.5",
+
+    "salt": "0.21",
+
+    "fiber": "0",
+
+    "quantityUnit": "3 g"
+
+},
+{
+
+    "productName": "Zucker",
+
+    "kcal": "400",
+
+    "fat": "0",
+
+    "carbs": "100",
+
+    "sugar": "100",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 TL = 6g"
+
+},
+{
+
+    "productName": "Ofen Chips",
+
+    "kcal": "409",
+
+    "fat": "9",
+
+    "carbs": "74",
+
+    "sugar": "11",
+
+    "protein": "6.1",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Kokosraspeln",
+
+    "kcal": "696",
+
+    "fat": "67.5",
+
+    "carbs": "7.9",
+
+    "sugar": "7.9",
+
+    "protein": "7.1",
+
+    "salt": "0.013",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Veggie Frikadellen Aldi",
+
+    "kcal": "273",
+
+    "fat": "17",
+
+    "carbs": "14",
+
+    "sugar": "5",
+
+    "protein": "17",
+
+    "salt": "2",
+
+    "fiber": "1",
+
+    "quantityUnit": "20 g"
+
+},
+{
+
+    "productName": "Protein salted Caramel Riegel NatureValley",
+
+    "kcal": "500",
+
+    "fat": "30.8",
+
+    "carbs": "23.5",
+
+    "sugar": "13.5",
+
+    "protein": "25.8",
+
+    "salt": "1.1",
+
+    "fiber": "12.9",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pommes",
+
+    "kcal": "161",
+
+    "fat": "6",
+
+    "carbs": "23",
+
+    "sugar": "0.5",
+
+    "protein": "2.5",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Gelbes Curry Real Thai",
+
+    "kcal": "134",
+
+    "fat": "4.2",
+
+    "carbs": "18",
+
+    "sugar": "9.3",
+
+    "protein": "3.8",
+
+    "salt": "13.7",
+
+    "fiber": "4.3",
+
+    "quantityUnit": "227 g Glas"
+
+},
+{
+
+    "productName": "Chips Roasted Chicken SnackIt Penny",
+
+    "kcal": "450",
+
+    "fat": "20",
+
+    "carbs": "2",
+
+    "sugar": "2",
+
+    "protein": "65",
+
+    "salt": "4.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "High Protein Iced Choco",
+
+    "kcal": "364",
+
+    "fat": "2.6",
+
+    "carbs": "54",
+
+    "sugar": "50",
+
+    "protein": "27",
+
+    "salt": "1.4",
+
+    "fiber": "7",
+
+    "quantityUnit": "20 g"
+
+},
+{
+
+    "productName": "Cocktail Würstchen Boklunder",
+
+    "kcal": "231",
+
+    "fat": "20",
+
+    "carbs": "0.7",
+
+    "sugar": "0.7",
+
+    "protein": "12",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Alpro zuckerfrei Yoghurt",
+
+    "kcal": "43",
+
+    "fat": "2.3",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "4",
+
+    "salt": "0",
+
+    "fiber": "1",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Alpro Natur mit Kokos",
+
+    "kcal": "55",
+
+    "fat": "3",
+
+    "carbs": "2.3",
+
+    "sugar": "2.1",
+
+    "protein": "3.9",
+
+    "salt": "0.32",
+
+    "fiber": "0.8",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Störtebecker Hanse Porter",
+
+    "kcal": "54",
+
+    "fat": "0",
+
+    "carbs": "5.1",
+
+    "sugar": "0.4",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "500 g"
+
+},
+{
+
+    "productName": "Haferflocken",
+
+    "kcal": "372",
+
+    "fat": "7",
+
+    "carbs": "58.7",
+
+    "sugar": "0.7",
+
+    "protein": "13.5",
+
+    "salt": "0",
+
+    "fiber": "10",
+
+    "quantityUnit": "1EL = 10g"
+
+},
+{
+
+    "productName": "Salamio Penny",
+
+    "kcal": "436",
+
+    "fat": "37",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "25",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Zwiebeln ",
+
+    "kcal": "28",
+
+    "fat": "0.2",
+
+    "carbs": "4.9",
+
+    "sugar": "3",
+
+    "protein": "1.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Macadamia",
+
+    "kcal": "768",
+
+    "fat": "77.5",
+
+    "carbs": "7.9",
+
+    "sugar": "4.4",
+
+    "protein": "7.2",
+
+    "salt": "0.85",
+
+    "fiber": "11.2",
+
+    "quantityUnit": "125 g "
+
+},
+{
+
+    "productName": "Rosenkohl",
+
+    "kcal": "48",
+
+    "fat": "0.4",
+
+    "carbs": "3.4",
+
+    "sugar": "2.8",
+
+    "protein": "4.9",
+
+    "salt": "0",
+
+    "fiber": "4.8",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Goldsaft Zuckerrüben Sirup",
+
+    "kcal": "306",
+
+    "fat": "0.4",
+
+    "carbs": "70",
+
+    "sugar": "66",
+
+    "protein": "2.3",
+
+    "salt": "0.03",
+
+    "fiber": "5",
+
+    "quantityUnit": "10 g"
+
+},
+{
+
+    "productName": "Eis Eisdiele",
+
+    "kcal": "162",
+
+    "fat": "10",
+
+    "carbs": "26.4",
+
+    "sugar": "26",
+
+    "protein": "4.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "70 g / Kugel"
+
+},
+{
+
+    "productName": "Chicken Nuggets im Backteig Netto",
+
+    "kcal": "348",
+
+    "fat": "5.9",
+
+    "carbs": "6.2",
+
+    "sugar": "0.71",
+
+    "protein": "17.5",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "1000 g"
+
+},
+{
+
+    "productName": "Seelachs-Filet Mariniert Iglo",
+
+    "kcal": "63",
+
+    "fat": "1",
+
+    "carbs": "0.5",
+
+    "sugar": "0.4",
+
+    "protein": "13",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Frikadelle",
+
+    "kcal": "165",
+
+    "fat": "3.8",
+
+    "carbs": "3.6",
+
+    "sugar": "3",
+
+    "protein": "19.1",
+
+    "salt": "0",
+
+    "fiber": "0.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Youcook - Chinese Style Sweet & Sour",
+
+    "kcal": "106",
+
+    "fat": "2.1",
+
+    "carbs": "16.5",
+
+    "sugar": "4.1",
+
+    "protein": "4.9",
+
+    "salt": "0.55",
+
+    "fiber": "0.9",
+
+    "quantityUnit": "Portion = 420 g"
+
+},
+{
+
+    "productName": "Rumpsteak",
+
+    "kcal": "159",
+
+    "fat": "5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "30",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Haydari Creme",
+
+    "kcal": "273",
+
+    "fat": "23.3",
+
+    "carbs": "7.4",
+
+    "sugar": "0.3",
+
+    "protein": "8.5",
+
+    "salt": "1.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "30g"
+
+},
+{
+
+    "productName": "Salat Edeka",
+
+    "kcal": "17",
+
+    "fat": "0.3",
+
+    "carbs": "1.6",
+
+    "sugar": "1.2",
+
+    "protein": "1.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Weichkäse Netto ",
+
+    "kcal": "352",
+
+    "fat": "31",
+
+    "carbs": "1",
+
+    "sugar": "0",
+
+    "protein": "17",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Salz Dill Gurken ",
+
+    "kcal": "17",
+
+    "fat": "0.2",
+
+    "carbs": "1.5",
+
+    "sugar": "0",
+
+    "protein": "0.9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Salat Bulgur Lidl",
+
+    "kcal": "97",
+
+    "fat": "6.5",
+
+    "carbs": "6.5",
+
+    "sugar": "3.1",
+
+    "protein": "2.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Frikadelle z.Braten Netto",
+
+    "kcal": "241",
+
+    "fat": "18",
+
+    "carbs": "3.5",
+
+    "sugar": "1",
+
+    "protein": "16",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sarotti Kakaosplitter 75%",
+
+    "kcal": "556",
+
+    "fat": "42",
+
+    "carbs": "28",
+
+    "sugar": "23",
+
+    "protein": "8.9",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Paranuss",
+
+    "kcal": "711",
+
+    "fat": "69",
+
+    "carbs": "3.7",
+
+    "sugar": "2.5",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Burgerpattys Block House",
+
+    "kcal": "246",
+
+    "fat": "20",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "17",
+
+    "salt": "0.88",
+
+    "fiber": "0",
+
+    "quantityUnit": "4 x 125 g"
+
+},
+{
+
+    "productName": "Schokohörnchen Aldi",
+
+    "kcal": "459",
+
+    "fat": "25",
+
+    "carbs": "51.4",
+
+    "sugar": "27",
+
+    "protein": "6.1",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 = 48g"
+
+},
+{
+
+    "productName": "Kichererbsen Chips Funny",
+
+    "kcal": "441",
+
+    "fat": "16",
+
+    "carbs": "59",
+
+    "sugar": "4.7",
+
+    "protein": "12",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "80 g"
+
+},
+{
+
+    "productName": "Torteloni Fleisch trocken Lidl",
+
+    "kcal": "358",
+
+    "fat": "5.1",
+
+    "carbs": "47",
+
+    "sugar": "2.6",
+
+    "protein": "11.9",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Passierte Tomaten",
+
+    "kcal": "30",
+
+    "fat": "0.2",
+
+    "carbs": "4.5",
+
+    "sugar": "4.5",
+
+    "protein": "1.7",
+
+    "salt": "0.15",
+
+    "fiber": "0",
+
+    "quantityUnit": "500 g"
+
+},
+{
+
+    "productName": "Lachsfilet",
+
+    "kcal": "188",
+
+    "fat": "12",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "20",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Pizza Gustavo Gusto Prosciutto e Funghi Handmade",
+
+    "kcal": "186",
+
+    "fat": "5.7",
+
+    "carbs": "25.9",
+
+    "sugar": "4.7",
+
+    "protein": "7",
+
+    "salt": "1.73",
+
+    "fiber": "1.3",
+
+    "quantityUnit": "460 g"
+
+},
+{
+
+    "productName": "Prinzen Rolle Cremys",
+
+    "kcal": "500",
+
+    "fat": "24",
+
+    "carbs": "62",
+
+    "sugar": "33",
+
+    "protein": "7.7",
+
+    "salt": "0.48",
+
+    "fiber": "2.7",
+
+    "quantityUnit": "42 g"
+
+},
+{
+
+    "productName": "Mini Mozzarella Light Lidl",
+
+    "kcal": "165",
+
+    "fat": "8.5",
+
+    "carbs": "1.5",
+
+    "sugar": "1.5",
+
+    "protein": "20.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Thunfisch Salat Edeka",
+
+    "kcal": "90",
+
+    "fat": "7.1",
+
+    "carbs": "4.8",
+
+    "sugar": "3.9",
+
+    "protein": "1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gebackene Ente",
+
+    "kcal": "249",
+
+    "fat": "18.2",
+
+    "carbs": "0.2",
+
+    "sugar": "0",
+
+    "protein": "19.6",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "170 g"
+
+},
+{
+
+    "productName": "Frühlingsrollen klein",
+
+    "kcal": "169",
+
+    "fat": "12.2",
+
+    "carbs": "9.2",
+
+    "sugar": "1.6",
+
+    "protein": "5.3",
+
+    "salt": "0.6",
+
+    "fiber": "0.7",
+
+    "quantityUnit": "22 g"
+
+},
+{
+
+    "productName": "Cheeseburger McDonalds",
+
+    "kcal": "254",
+
+    "fat": "10",
+
+    "carbs": "26",
+
+    "sugar": "5.8",
+
+    "protein": "13",
+
+    "salt": "1.4",
+
+    "fiber": "1.6",
+
+    "quantityUnit": "119 g"
+
+},
+{
+
+    "productName": "Thunfisch in Öl",
+
+    "kcal": "159",
+
+    "fat": "4.5",
+
+    "carbs": "0.6",
+
+    "sugar": "0.1",
+
+    "protein": "28.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Bacon Würfel Edeka",
+
+    "kcal": "250",
+
+    "fat": "20",
+
+    "carbs": "0.5",
+
+    "sugar": "0.5",
+
+    "protein": "17",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Basmati Reis Edeka",
+
+    "kcal": "349",
+
+    "fat": "0.9",
+
+    "carbs": "77.3",
+
+    "sugar": "0.3",
+
+    "protein": "7.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Knusperriegel Nussmix Aldi",
+
+    "kcal": "549",
+
+    "fat": "36",
+
+    "carbs": "31",
+
+    "sugar": "28",
+
+    "protein": "22",
+
+    "salt": "0.03",
+
+    "fiber": "2",
+
+    "quantityUnit": "25 g"
+
+},
+{
+
+    "productName": "Schlemmerfilet Italiano Iglo",
+
+    "kcal": "78",
+
+    "fat": "2.4",
+
+    "carbs": "3",
+
+    "sugar": "1.3",
+
+    "protein": "11",
+
+    "salt": "0.94",
+
+    "fiber": "0.4",
+
+    "quantityUnit": "380 g"
+
+},
+{
+
+    "productName": "Grillfackeln",
+
+    "kcal": "322",
+
+    "fat": "28",
+
+    "carbs": "2.5",
+
+    "sugar": "1",
+
+    "protein": "15",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Currywurst mit Pommes",
+
+    "kcal": "200",
+
+    "fat": "11.6",
+
+    "carbs": "18.2",
+
+    "sugar": "5.7",
+
+    "protein": "4.9",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "350g"
+
+},
+{
+
+    "productName": "Zimz Wuppi Kamps",
+
+    "kcal": "348",
+
+    "fat": "10.6",
+
+    "carbs": "56.3",
+
+    "sugar": "21",
+
+    "protein": "6.8",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Bergbauern Käse Aldi",
+
+    "kcal": "362",
+
+    "fat": "29",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "25.3",
+
+    "salt": "1.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "22 g"
+
+},
+{
+
+    "productName": "Clean Bar Cookie Dough",
+
+    "kcal": "310",
+
+    "fat": "9",
+
+    "carbs": "4.5",
+
+    "sugar": "3.8",
+
+    "protein": "33.4",
+
+    "salt": "0.48",
+
+    "fiber": "38.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Chickenwings Netto ",
+
+    "kcal": "207",
+
+    "fat": "14",
+
+    "carbs": "1.3",
+
+    "sugar": "1.3",
+
+    "protein": "19",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mayonnaise Tube Aldi Kim",
+
+    "kcal": "712",
+
+    "fat": "77.4",
+
+    "carbs": "2.9",
+
+    "sugar": "2.5",
+
+    "protein": "0.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pizza Margherita la Mia Grande ",
+
+    "kcal": "244",
+
+    "fat": "8.3",
+
+    "carbs": "30",
+
+    "sugar": "3.7",
+
+    "protein": "12",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "360 g"
+
+},
+{
+
+    "productName": "Schweine Gulasch Bio Aldi ",
+
+    "kcal": "120",
+
+    "fat": "4",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "21",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mandeln & Erdnüsse Honig-Salz",
+
+    "kcal": "545",
+
+    "fat": "35",
+
+    "carbs": "38",
+
+    "sugar": "34",
+
+    "protein": "17",
+
+    "salt": "0.75",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Butterkäse Würfel Aldi",
+
+    "kcal": "329",
+
+    "fat": "25",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "26",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Doppel-Cheeseburger McDonalds",
+
+    "kcal": "259",
+
+    "fat": "13",
+
+    "carbs": "19",
+
+    "sugar": "4.3",
+
+    "protein": "15",
+
+    "salt": "1.4",
+
+    "fiber": "1.1",
+
+    "quantityUnit": "171 g"
+
+},
+{
+
+    "productName": "Gutfried Vegetarische Wurst ",
+
+    "kcal": "174",
+
+    "fat": "14",
+
+    "carbs": "4",
+
+    "sugar": "2.2",
+
+    "protein": "8",
+
+    "salt": "2.3",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Aktiva Chia Dattel ",
+
+    "kcal": "89",
+
+    "fat": "3.2",
+
+    "carbs": "9.7",
+
+    "sugar": "8.1",
+
+    "protein": "4.5",
+
+    "salt": "0.06",
+
+    "fiber": "2.1",
+
+    "quantityUnit": "110 g"
+
+},
+{
+
+    "productName": "Steinofen Brötchen Netto ",
+
+    "kcal": "253",
+
+    "fat": "1",
+
+    "carbs": "51",
+
+    "sugar": "1.9",
+
+    "protein": "8.4",
+
+    "salt": "0",
+
+    "fiber": "3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mandelmilch",
+
+    "kcal": "13",
+
+    "fat": "1.1",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "0.4",
+
+    "salt": "1.08",
+
+    "fiber": "0.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gouda 12 Monate Aldi",
+
+    "kcal": "405",
+
+    "fat": "33.5",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "26.6",
+
+    "salt": "2.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "33 g"
+
+},
+{
+
+    "productName": "Wirsing",
+
+    "kcal": "62",
+
+    "fat": "0.3",
+
+    "carbs": "2.9",
+
+    "sugar": "2.9",
+
+    "protein": "2.2",
+
+    "salt": "0",
+
+    "fiber": "2.8",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kokosmehl",
+
+    "kcal": "259",
+
+    "fat": "8.6",
+
+    "carbs": "26.2",
+
+    "sugar": "26",
+
+    "protein": "19.5",
+
+    "salt": "0.9",
+
+    "fiber": "39",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Junge Erbsen Netto",
+
+    "kcal": "84",
+
+    "fat": "0.4",
+
+    "carbs": "9.7",
+
+    "sugar": "2.5",
+
+    "protein": "6.6",
+
+    "salt": "0.1",
+
+    "fiber": "7.6",
+
+    "quantityUnit": "450 g"
+
+},
+{
+
+    "productName": "Süßsauer Sauce McDonalds",
+
+    "kcal": "173",
+
+    "fat": "1",
+
+    "carbs": "40",
+
+    "sugar": "33",
+
+    "protein": "0.4",
+
+    "salt": "1.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 = 30g"
+
+},
+{
+
+    "productName": "Erdinger Alkoholfrei",
+
+    "kcal": "25",
+
+    "fat": "0",
+
+    "carbs": "5.3",
+
+    "sugar": "3.6",
+
+    "protein": "0.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Hamburger Royal TS McDonalds",
+
+    "kcal": "212",
+
+    "fat": "12",
+
+    "carbs": "12",
+
+    "sugar": "3",
+
+    "protein": "13",
+
+    "salt": "0.84",
+
+    "fiber": "0.7",
+
+    "quantityUnit": "215 g"
+
+},
+{
+
+    "productName": "Chicken Style Vegan Aldi",
+
+    "kcal": "129",
+
+    "fat": "3.3",
+
+    "carbs": "2.4",
+
+    "sugar": "0.4",
+
+    "protein": "19",
+
+    "salt": "2.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "185 g"
+
+},
+{
+
+    "productName": "Weckchen Rosinen",
+
+    "kcal": "243",
+
+    "fat": "1",
+
+    "carbs": "50",
+
+    "sugar": "7",
+
+    "protein": "7",
+
+    "salt": "0.01",
+
+    "fiber": "4.8",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Spirelli Barilla",
+
+    "kcal": "359",
+
+    "fat": "2",
+
+    "carbs": "71.2",
+
+    "sugar": "3.5",
+
+    "protein": "12.5",
+
+    "salt": "0",
+
+    "fiber": "3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mohnkuchen ",
+
+    "kcal": "510",
+
+    "fat": "24",
+
+    "carbs": "54.3",
+
+    "sugar": "30",
+
+    "protein": "15.1",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Popcorn Kino ",
+
+    "kcal": "522",
+
+    "fat": "26.3",
+
+    "carbs": "65.2",
+
+    "sugar": "28",
+
+    "protein": "6.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Griechischer Joghurt Netto",
+
+    "kcal": "116",
+
+    "fat": "9.4",
+
+    "carbs": "3.9",
+
+    "sugar": "3.9",
+
+    "protein": "3.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mettenden Edeka ",
+
+    "kcal": "345",
+
+    "fat": "30",
+
+    "carbs": "0.7",
+
+    "sugar": "0.3",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Natur Reis Oryza Edeka ",
+
+    "kcal": "344",
+
+    "fat": "2.5",
+
+    "carbs": "69",
+
+    "sugar": "0.5",
+
+    "protein": "9.1",
+
+    "salt": "0",
+
+    "fiber": "4.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kokosmilch",
+
+    "kcal": "185",
+
+    "fat": "17",
+
+    "carbs": "2",
+
+    "sugar": "2",
+
+    "protein": "1.6",
+
+    "salt": "0.07",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pekanuss Kerne",
+
+    "kcal": "714",
+
+    "fat": "72",
+
+    "carbs": "4.4",
+
+    "sugar": "2.2",
+
+    "protein": "11",
+
+    "salt": "0",
+
+    "fiber": "9.5",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Choko Cookie Crumble Aldi",
+
+    "kcal": "296",
+
+    "fat": "18",
+
+    "carbs": "28",
+
+    "sugar": "21",
+
+    "protein": "4.4",
+
+    "salt": "0.2",
+
+    "fiber": "0",
+
+    "quantityUnit": "410 g"
+
+},
+{
+
+    "productName": "Parmesan ",
+
+    "kcal": "398",
+
+    "fat": "29",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "33",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Bio Tofu Gehacktes Berief",
+
+    "kcal": "267",
+
+    "fat": "18",
+
+    "carbs": "1.5",
+
+    "sugar": "0.8",
+
+    "protein": "21",
+
+    "salt": "0.93",
+
+    "fiber": "0",
+
+    "quantityUnit": "180 g"
+
+},
+{
+
+    "productName": "Schinkenpizza Italiener",
+
+    "kcal": "228",
+
+    "fat": "8.9",
+
+    "carbs": "25.8",
+
+    "sugar": "2.8",
+
+    "protein": "10.8",
+
+    "salt": "1",
+
+    "fiber": "1.4",
+
+    "quantityUnit": "350 g"
+
+},
+{
+
+    "productName": "Linseneintopf Aldi",
+
+    "kcal": "72",
+
+    "fat": "1.4",
+
+    "carbs": "9.2",
+
+    "sugar": "0.8",
+
+    "protein": "4.5",
+
+    "salt": "0.75",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "800 g"
+
+},
+{
+
+    "productName": "Grobe Bio Bratwurst Aldi",
+
+    "kcal": "237",
+
+    "fat": "18",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "18",
+
+    "salt": "1.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "60 g"
+
+},
+{
+
+    "productName": "Schoko 70% Moser Aldi ",
+
+    "kcal": "579",
+
+    "fat": "42.6",
+
+    "carbs": "33.6",
+
+    "sugar": "27.9",
+
+    "protein": "9.6",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sorbet FrüchteEis Netto",
+
+    "kcal": "71",
+
+    "fat": "0.1",
+
+    "carbs": "17.1",
+
+    "sugar": "16.7",
+
+    "protein": "0.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Allioli Petersilie Chovi",
+
+    "kcal": "710",
+
+    "fat": "78",
+
+    "carbs": "1.3",
+
+    "sugar": "0.1",
+
+    "protein": "1.1",
+
+    "salt": "1.1",
+
+    "fiber": "0.1",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Pizza Prosciutto Pizza’ah Aldi ",
+
+    "kcal": "236",
+
+    "fat": "9.7",
+
+    "carbs": "24.6",
+
+    "sugar": "3.8",
+
+    "protein": "11",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "330g"
+
+},
+{
+
+    "productName": "Stremellachs",
+
+    "kcal": "221",
+
+    "fat": "15",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "21",
+
+    "salt": "1.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "125 g"
+
+},
+{
+
+    "productName": "Joghurt Aldi",
+
+    "kcal": "72",
+
+    "fat": "3.5",
+
+    "carbs": "5.3",
+
+    "sugar": "5.3",
+
+    "protein": "4.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Hitschler",
+
+    "kcal": "400",
+
+    "fat": "5.4",
+
+    "carbs": "86",
+
+    "sugar": "67",
+
+    "protein": "1.4",
+
+    "salt": "0.07",
+
+    "fiber": "0",
+
+    "quantityUnit": "3g"
+
+},
+{
+
+    "productName": "Tomatenstücke",
+
+    "kcal": "27",
+
+    "fat": "0.2",
+
+    "carbs": "4.4",
+
+    "sugar": "3.4",
+
+    "protein": "1.1",
+
+    "salt": "0",
+
+    "fiber": "2.4",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Haribo Goldbären Automat ",
+
+    "kcal": "343",
+
+    "fat": "0.4",
+
+    "carbs": "77",
+
+    "sugar": "46",
+
+    "protein": "6.9",
+
+    "salt": "0.67",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Red Band Fun Mix",
+
+    "kcal": "342",
+
+    "fat": "0.2",
+
+    "carbs": "83",
+
+    "sugar": "46",
+
+    "protein": "2.7",
+
+    "salt": "1.16",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Crunchips Cheese & Onion",
+
+    "kcal": "532",
+
+    "fat": "33",
+
+    "carbs": "51",
+
+    "sugar": "2",
+
+    "protein": "6",
+
+    "salt": "7.6",
+
+    "fiber": "3.5",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Schmelzkäse Creme Aldi",
+
+    "kcal": "164",
+
+    "fat": "9.2",
+
+    "carbs": "7.1",
+
+    "sugar": "7.1",
+
+    "protein": "13",
+
+    "salt": "2.6",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Belgischer Marktkäse Aldi",
+
+    "kcal": "353",
+
+    "fat": "29",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Joghurt griechisch Ehrmann",
+
+    "kcal": "123",
+
+    "fat": "9.7",
+
+    "carbs": "5",
+
+    "sugar": "5",
+
+    "protein": "4",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "470 g"
+
+},
+{
+
+    "productName": "cocktail Eis Pina Colada Aldi",
+
+    "kcal": "139",
+
+    "fat": "3.5",
+
+    "carbs": "22",
+
+    "sugar": "21",
+
+    "protein": "0.4",
+
+    "salt": "0.01",
+
+    "fiber": "0",
+
+    "quantityUnit": "117 g"
+
+},
+{
+
+    "productName": "Kap Seehecht",
+
+    "kcal": "77",
+
+    "fat": "0.8",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "17",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Werther‘s Original Caramel Popcorn Brezel",
+
+    "kcal": "456",
+
+    "fat": "16.2",
+
+    "carbs": "72.8",
+
+    "sugar": "51.2",
+
+    "protein": "3.5",
+
+    "salt": "2.08",
+
+    "fiber": "0",
+
+    "quantityUnit": "140g packung"
+
+},
+{
+
+    "productName": "Rinder Cevapcici Netto",
+
+    "kcal": "240",
+
+    "fat": "19",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "17",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "400 g / 6x 66 g"
+
+},
+{
+
+    "productName": "Gute Geister Edle Tropfen Aldi",
+
+    "kcal": "454",
+
+    "fat": "21",
+
+    "carbs": "52",
+
+    "sugar": "51",
+
+    "protein": "5.1",
+
+    "salt": "0.07",
+
+    "fiber": "0",
+
+    "quantityUnit": "12,5 g"
+
+},
+{
+
+    "productName": "Schokolade Salzbrezel",
+
+    "kcal": "522",
+
+    "fat": "28.1",
+
+    "carbs": "57.5",
+
+    "sugar": "46.4",
+
+    "protein": "8.7",
+
+    "salt": "0.98",
+
+    "fiber": "0",
+
+    "quantityUnit": "29 g"
+
+},
+{
+
+    "productName": "Spätzle Edeka",
+
+    "kcal": "372",
+
+    "fat": "3.7",
+
+    "carbs": "68",
+
+    "sugar": "3",
+
+    "protein": "15",
+
+    "salt": "0.08",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Mini Chinois Penny",
+
+    "kcal": "295",
+
+    "fat": "8.6",
+
+    "carbs": "46.3",
+
+    "sugar": "18",
+
+    "protein": "7",
+
+    "salt": "0.83",
+
+    "fiber": "0",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Hamburger Brötchen Harry",
+
+    "kcal": "293",
+
+    "fat": "5.9",
+
+    "carbs": "50",
+
+    "sugar": "8.2",
+
+    "protein": "8.7",
+
+    "salt": "1.1",
+
+    "fiber": "2.4",
+
+    "quantityUnit": "50 g"
+
+},
+{
+
+    "productName": "Sate-Soße Penny",
+
+    "kcal": "200",
+
+    "fat": "8.4",
+
+    "carbs": "25.7",
+
+    "sugar": "23.2",
+
+    "protein": "4.8",
+
+    "salt": "2.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Griechischer Joghurt Göttergrucht",
+
+    "kcal": "135",
+
+    "fat": "7.3",
+
+    "carbs": "14.4",
+
+    "sugar": "14",
+
+    "protein": "2.7",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Red Band Schuhe",
+
+    "kcal": "341",
+
+    "fat": "0.2",
+
+    "carbs": "82",
+
+    "sugar": "56",
+
+    "protein": "5",
+
+    "salt": "0.02",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Schweineschmalz",
+
+    "kcal": "897",
+
+    "fat": "99.4",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "0.4",
+
+    "salt": "0.81",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Beyound Burger Lidl",
+
+    "kcal": "269",
+
+    "fat": "19",
+
+    "carbs": "5.3",
+
+    "sugar": "0",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Brot Vollkorn Saftig Lieken",
+
+    "kcal": "198",
+
+    "fat": "1.2",
+
+    "carbs": "37",
+
+    "sugar": "2.5",
+
+    "protein": "5.5",
+
+    "salt": "1",
+
+    "fiber": "8.5",
+
+    "quantityUnit": "55,5 g"
+
+},
+{
+
+    "productName": "Stangen Spargel Netto Glas",
+
+    "kcal": "12",
+
+    "fat": "0",
+
+    "carbs": "1.4",
+
+    "sugar": "0",
+
+    "protein": "1",
+
+    "salt": "0.81",
+
+    "fiber": "1",
+
+    "quantityUnit": "205 g"
+
+},
+{
+
+    "productName": "Süßkartoffel",
+
+    "kcal": "113",
+
+    "fat": "0.6",
+
+    "carbs": "23.2",
+
+    "sugar": "4.5",
+
+    "protein": "1.6",
+
+    "salt": "0",
+
+    "fiber": "3.1",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Brokkoli",
+
+    "kcal": "38",
+
+    "fat": "0.9",
+
+    "carbs": "1.7",
+
+    "sugar": "1.4",
+
+    "protein": "3.6",
+
+    "salt": "0",
+
+    "fiber": "3.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gemüsepfanne Curry Kokos Frosta",
+
+    "kcal": "44",
+
+    "fat": "1.8",
+
+    "carbs": "4.7",
+
+    "sugar": "3.6",
+
+    "protein": "1.3",
+
+    "salt": "0.86",
+
+    "fiber": "2.1",
+
+    "quantityUnit": "480 g"
+
+},
+{
+
+    "productName": "Sports 40% Müller Haselnuss",
+
+    "kcal": "389",
+
+    "fat": "11",
+
+    "carbs": "35",
+
+    "sugar": "19",
+
+    "protein": "40",
+
+    "salt": "2.75",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Hokkaido Kürbis",
+
+    "kcal": "63",
+
+    "fat": "0.6",
+
+    "carbs": "12.6",
+
+    "sugar": "3.9",
+
+    "protein": "1.1",
+
+    "salt": "0",
+
+    "fiber": "2.5",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Eiweißriegel Raspberry Maxi",
+
+    "kcal": "356",
+
+    "fat": "10",
+
+    "carbs": "22",
+
+    "sugar": "3",
+
+    "protein": "50",
+
+    "salt": "0.55",
+
+    "fiber": "0",
+
+    "quantityUnit": "40 g"
+
+},
+{
+
+    "productName": "Grüne Bohnen Bonduelle",
+
+    "kcal": "26",
+
+    "fat": "0.2",
+
+    "carbs": "3.1",
+
+    "sugar": "1",
+
+    "protein": "1.6",
+
+    "salt": "0.57",
+
+    "fiber": "2.9",
+
+    "quantityUnit": "220 g"
+
+},
+{
+
+    "productName": "Kesselchips Sweet Chili Aldi",
+
+    "kcal": "502",
+
+    "fat": "27",
+
+    "carbs": "55",
+
+    "sugar": "3.7",
+
+    "protein": "6.1",
+
+    "salt": "1.05",
+
+    "fiber": "4.8",
+
+    "quantityUnit": "150 g"
+
+},
+{
+
+    "productName": "Schmelzkäse Kräuter Milkana Netto",
+
+    "kcal": "299",
+
+    "fat": "26",
+
+    "carbs": "7.8",
+
+    "sugar": "7.8",
+
+    "protein": "8.4",
+
+    "salt": "2",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Champignons Glas",
+
+    "kcal": "21",
+
+    "fat": "0.5",
+
+    "carbs": "0.6",
+
+    "sugar": "0",
+
+    "protein": "2.3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Mandelbutter Bio",
+
+    "kcal": "649",
+
+    "fat": "57.4",
+
+    "carbs": "5",
+
+    "sugar": "3.9",
+
+    "protein": "23.4",
+
+    "salt": "0",
+
+    "fiber": "9.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Pistazien Kerne Aldi",
+
+    "kcal": "625",
+
+    "fat": "51",
+
+    "carbs": "12",
+
+    "sugar": "6.9",
+
+    "protein": "26",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "100"
+
+},
+{
+
+    "productName": "Thai-Pfanne Erasco",
+
+    "kcal": "75",
+
+    "fat": "1.1",
+
+    "carbs": "12",
+
+    "sugar": "1",
+
+    "protein": "3.3",
+
+    "salt": "0.84",
+
+    "fiber": "1.5",
+
+    "quantityUnit": "800 g / Dose"
+
+},
+{
+
+    "productName": "Vital & fit Brötchen Edeka",
+
+    "kcal": "258",
+
+    "fat": "6.4",
+
+    "carbs": "35.2",
+
+    "sugar": "2.7",
+
+    "protein": "10.7",
+
+    "salt": "0",
+
+    "fiber": "8.2",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Gyoza mit Schwein",
+
+    "kcal": "474",
+
+    "fat": "15.8",
+
+    "carbs": "65.5",
+
+    "sugar": "2",
+
+    "protein": "18.7",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "10g"
+
+},
+{
+
+    "productName": "Sojasoße Kikkoman Salzarm",
+
+    "kcal": "107",
+
+    "fat": "0",
+
+    "carbs": "6.9",
+
+    "sugar": "3.9",
+
+    "protein": "9.7",
+
+    "salt": "9.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "5g pro essLöffel "
+
+},
+{
+
+    "productName": "Serviettenknödel",
+
+    "kcal": "113",
+
+    "fat": "0.6",
+
+    "carbs": "22.6",
+
+    "sugar": "0.2",
+
+    "protein": "2",
+
+    "salt": "0.8",
+
+    "fiber": "1",
+
+    "quantityUnit": "90 g"
+
+},
+{
+
+    "productName": "Erdnussbutter",
+
+    "kcal": "606",
+
+    "fat": "48",
+
+    "carbs": "16",
+
+    "sugar": "10",
+
+    "protein": "24",
+
+    "salt": "0.77",
+
+    "fiber": "1",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Tortellini Käse Netto",
+
+    "kcal": "236",
+
+    "fat": "7",
+
+    "carbs": "32.5",
+
+    "sugar": "1.5",
+
+    "protein": "9.5",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Kartoffel",
+
+    "kcal": "69",
+
+    "fat": "0.1",
+
+    "carbs": "14.2",
+
+    "sugar": "0.7",
+
+    "protein": "2",
+
+    "salt": "0",
+
+    "fiber": "2.3",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Thunfisch in Olivenöl Rio Mare ",
+
+    "kcal": "195",
+
+    "fat": "11",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "24",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": "185 g"
+
+},
+{
+
+    "productName": "Schokolade 78% Lindt",
+
+    "kcal": "576",
+
+    "fat": "46",
+
+    "carbs": "24",
+
+    "sugar": "17",
+
+    "protein": "10",
+
+    "salt": "0.05",
+
+    "fiber": "0",
+
+    "quantityUnit": "10 g"
+
+},
+{
+
+    "productName": "Ice Tea Pfanner Wildcherry",
+
+    "kcal": "26",
+
+    "fat": "0",
+
+    "carbs": "6.3",
+
+    "sugar": "6.3",
+
+    "protein": "0",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Baylis",
+
+    "kcal": "327",
+
+    "fat": "13",
+
+    "carbs": "25",
+
+    "sugar": "25",
+
+    "protein": "3",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Wasa Ballaststoffe ",
+
+    "kcal": "329",
+
+    "fat": "5",
+
+    "carbs": "43.5",
+
+    "sugar": "2",
+
+    "protein": "13",
+
+    "salt": "0",
+
+    "fiber": "29",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Meerrettich Quark Aldi",
+
+    "kcal": "128",
+
+    "fat": "8.7",
+
+    "carbs": "4.9",
+
+    "sugar": "4",
+
+    "protein": "7.4",
+
+    "salt": "0.7",
+
+    "fiber": "0",
+
+    "quantityUnit": "200 g"
+
+},
+{
+
+    "productName": "Griechischer Joghurt Aldi",
+
+    "kcal": "111",
+
+    "fat": "9.2",
+
+    "carbs": "3.8",
+
+    "sugar": "3.8",
+
+    "protein": "3.2",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Bergkäse Käsewürfel Aldi",
+
+    "kcal": "387",
+
+    "fat": "31",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "27",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "110 g"
+
+},
+{
+
+    "productName": "Chicken Nuggets Chili Dip Penny",
+
+    "kcal": "380",
+
+    "fat": "13.6",
+
+    "carbs": "37.2",
+
+    "sugar": "9.2",
+
+    "protein": "27",
+
+    "salt": "2.4",
+
+    "fiber": "0",
+
+    "quantityUnit": "510 g (SüsSaDip extra)"
+
+},
+{
+
+    "productName": "Störtebecker Schwarzbier",
+
+    "kcal": "43",
+
+    "fat": "0",
+
+    "carbs": "3.6",
+
+    "sugar": "3.6",
+
+    "protein": "0.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "500"
+
+},
+{
+
+    "productName": "Zuckerwaffeln Lütticher Netto",
+
+    "kcal": "453",
+
+    "fat": "23.3",
+
+    "carbs": "53.7",
+
+    "sugar": "24.1",
+
+    "protein": "6.3",
+
+    "salt": "0.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "55 g "
+
+},
+{
+
+    "productName": "Bechamel Thomy",
+
+    "kcal": "185",
+
+    "fat": "17.7",
+
+    "carbs": "5.1",
+
+    "sugar": "1.4",
+
+    "protein": "1.4",
+
+    "salt": "0.94",
+
+    "fiber": "0.2",
+
+    "quantityUnit": "250 g"
+
+},
+{
+
+    "productName": "Steinofen Pizza Thunfisch Netto",
+
+    "kcal": "188",
+
+    "fat": "5.2",
+
+    "carbs": "24.4",
+
+    "sugar": "2.9",
+
+    "protein": "10",
+
+    "salt": "0.98",
+
+    "fiber": "2",
+
+    "quantityUnit": "355 g"
+
+},
+{
+
+    "productName": "Mc Chicken",
+
+    "kcal": "258",
+
+    "fat": "11",
+
+    "carbs": "28",
+
+    "sugar": "2.3",
+
+    "protein": "12",
+
+    "salt": "1.4",
+
+    "fiber": "1.2",
+
+    "quantityUnit": "171 g"
+
+},
+{
+
+    "productName": "Bratwurst ",
+
+    "kcal": "245",
+
+    "fat": "19",
+
+    "carbs": "0.4",
+
+    "sugar": "0.4",
+
+    "protein": "18",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Barbeque Ketchup",
+
+    "kcal": "103",
+
+    "fat": "0",
+
+    "carbs": "23",
+
+    "sugar": "19",
+
+    "protein": "1",
+
+    "salt": "1.3",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "5 Korn Flocken Vollkorn",
+
+    "kcal": "355",
+
+    "fat": "2.7",
+
+    "carbs": "60",
+
+    "sugar": "0.9",
+
+    "protein": "11",
+
+    "salt": "0",
+
+    "fiber": "12",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Sesambällchen",
+
+    "kcal": "341",
+
+    "fat": "11",
+
+    "carbs": "50",
+
+    "sugar": "14",
+
+    "protein": "8.1",
+
+    "salt": "0.2",
+
+    "fiber": "0",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Erdnüsse Trockengeröstet Pikant Aldi",
+
+    "kcal": "590",
+
+    "fat": "46",
+
+    "carbs": "15",
+
+    "sugar": "5.6",
+
+    "protein": "26",
+
+    "salt": "1.8",
+
+    "fiber": "2",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Double Cheese Beef Aldi",
+
+    "kcal": "236",
+
+    "fat": "10",
+
+    "carbs": "24.7",
+
+    "sugar": "6.2",
+
+    "protein": "11",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "225 g"
+
+},
+{
+
+    "productName": "Bavaria blu Blauschimmel",
+
+    "kcal": "442",
+
+    "fat": "43.8",
+
+    "carbs": "0.1",
+
+    "sugar": "0.1",
+
+    "protein": "11.8",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+},
+{
+
+    "productName": "Popcorn Sweet & Salty Chio",
+
+    "kcal": "427",
+
+    "fat": "5.8",
+
+    "carbs": "88",
+
+    "sugar": "52",
+
+    "protein": "3.8",
+
+    "salt": "1.8",
+
+    "fiber": "0",
+
+    "quantityUnit": "120 g"
+
+},
+{
+
+    "productName": "Grüne Erbsen Penne Aldi",
+
+    "kcal": "343",
+
+    "fat": "2",
+
+    "carbs": "56",
+
+    "sugar": "3",
+
+    "protein": "21",
+
+    "salt": "0.01",
+
+    "fiber": "8",
+
+    "quantityUnit": ""
+
+},
+{
+
+    "productName": "Twix Caramel Cookies ",
+
+    "kcal": "462",
+
+    "fat": "20",
+
+    "carbs": "64",
+
+    "sugar": "35",
+
+    "protein": "4.5",
+
+    "salt": "0.53",
+
+    "fiber": "0",
+
+    "quantityUnit": "18 g"
+
+},
+{
+
+    "productName": "Pizza Schinken Pizz‘Ah Aldi",
+
+    "kcal": "229",
+
+    "fat": "7.7",
+
+    "carbs": "27",
+
+    "sugar": "4.3",
+
+    "protein": "12",
+
+    "salt": "1.2",
+
+    "fiber": "1",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Käsewürfel Gouda Aldi",
+
+    "kcal": "335",
+
+    "fat": "27",
+
+    "carbs": "0",
+
+    "sugar": "0",
+
+    "protein": "23",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "/"
+
+}
+]
+

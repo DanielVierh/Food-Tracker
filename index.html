@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Master</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <nav class="sticky zone blue">
+    <ul class="main-nav">
+      <li><a href="#">NEU</a></li>
+      <li><a href="#">Planer</a></li>
+      <li><a href="#">Statistik</a></li>
+      <li><a href="#">Einstellungen</a></li>
+    </ul>
+  </nav>
+  <div class="zone blue grid-wrapper"><h1></h1></div>
+  <div class="zone blue grid-wrapper">
+    <h1>Heute</h1>
+    <button class="button_TagAbschl">&#128465</button>
+  </div>
+
+  <!-- Kcal Bilanz -->
+  <div class="zone blue grid-wrapper">
+    <div class="box zone">
+      <p>Gegessen</p>
+      <p>2504 Kcal</p>
+    </div>
+
+    <div class="box zone">
+      <p>Verbrannt &#128293</p>
+      <p>1006 Kcal</p>
+    </div>
+
+
+    <div class="box zone">
+      <p>Effektiv</p>
+      <p>1498 Kcal</p>
+    </div>
+
+    <div class="box zone">
+      <p>Übrig</p>
+      <p>84 Kcal</p>
+    </div>
+    
+  </div>
+<!-- Makros -->
+  <div class="zone blue grid-wrapper"><h1></h1></div>
+  <div class="zone blue grid-wrapper">
+    <div class="box zone">
+      <p>Kohlenhydrate</p>
+      <p>190.2 g</p>
+    </div>
+    <div class="box zone">
+      <p>Zucker</p>
+      <p>46 g</p>
+    </div>
+    <div class="box zone">
+      <p>Eiweiß</p>
+      <p>146.5 g</p>
+    </div>
+    <div class="box zone">
+      <p>Fett</p>
+      <p>108.5 g</p>
+    </div>
+    <div class="box zone">
+      <p>Salz</p>
+      <p>1.9 g</p>
+    </div>
+    <div class="box zone">
+      <p>Ballaststoffe</p>
+      <p>68.3 g</p>
+    </div>
+    <p>2007 g gegessen</p>
+  </div>
+
+  <!-- Heute gegessen -->
+  <div class="fullCell"><h1>Liste Heute gegesen</h1></div>
+    <div class="fullCell">
+      <table id="t01">
+        <tr>
+          <th>Produkt</th>
+          <th>Menge</th> 
+          <th>Kcal</th>
+        </tr>
+        <tr>
+          <td>Haferflocken</td>
+          <td>80 g</td>
+          <td>322 kcal</td>
+        </tr>
+        <tr>
+          <td>Alpro Zuckerfrei</td>
+          <td>250 g</td>
+          <td>94 kcal</td>
+        </tr>
+        <tr>
+          <td>Walnuss</td>
+          <td>25 g</td>
+          <td>160 kcal</td>
+        </tr>
+      </table>
+    
+  </div>
+
+  <!-- Leerzone -->
+  <div class="container zone"></div>
+
+<!-- ================================================================ -->
+<!-- Tabelle mit Datenbank aller Lebensmittel -->
+<!-- ================================================================ --> 
+<div class="fullCell"><h1>Datenbank</h1></div>
+  <div class="fullCell">
+    <p>ausgewähltes Lebensmittel</p>
+    <div class="foodSection">
+      <p id="selectedFoodAnzeige"></p>
+      <p id="selectedFoodMakros"></p>
+      <input type="text" value="" id="foodAmound">
+      <button onclick="add_Food_to_TodayList()">Speichern</button>
+    </div>
+
+    <hr>
+    <div id="containerTabelle"></div>
+    
+    <div class="fullCell"><p>Suche Lebensmittel</p>
+      <input type="text" value="Suche...">
+    </div>
+  </div>
+
+  
+
+
+<!-- ================================================================ -->
+  <!-- Immer da Buttons -->
+<!-- ================================================================ -->
+  <div id="btnAdd" class="bg-text">&#129386 +</div>
+  <div id="btnscrl_Up" class="bg-text2">&#128285</div>
+  <button data-modal-target="#modal_Steps" id="btnSteps" class="bg-text3">zzz &#128095</button>
+
+<!-- Leerzone -->
+<div class="container zone"></div>
+
+<!-- ================================================================ -->
+<!-- Modal Form AKA PopUp für Schritte -->
+<!-- ================================================================ -->
+<div class="modal_Steps" id="modal_Steps">
+  <div class="modal-header">
+    <div class="title">Deine heutigen Schritte</div>
+    <button data-close-button class="close-button">&times</button>
+  </div>
+  <div class="modal-body">
+    <input type="text" value="1.300" class="inpSteps" id="inp_Steps">
+    <button data-close-button class id="btn_SaveSteps">Speichern</button>
+  </div>
+</div>
+
+<div id="overlay"></div>
+<!-- ================================================================ -->
+
+<!-- Leerzone -->
+  <div class="container zone"></div>
+
+<!-- Hinzufügen -->
+  <div class="fullCell">
+    <h1>Neues Lebensmittel hinzufügen</h1>
+    
+  </div>
+    <div class="mittelForm">
+     
+      <form class="form1">
+        <p class="advise">Nährwerte / 100 g</p>
+        <label>Produkt</label>
+        <input type="text" class="inpBox1">
+        <hr>
+        <label>Kcal</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Fett</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Kohlenhydr</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Zucker</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Ballaststoffe</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Eiweiss</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Salz</label>
+        <input type="text" class="inpBox2">
+        <hr>
+        <label>Mengeneinheit</label>
+        <input type="text" class="inpBox1">
+        <hr>
+        <button class="ButtonSpeichern">&#128190 Speichern</button>
+      </form>
+  </div>
+
+  <!-- Leerzone -->
+  <div class="container zone"></div>
+
+
+  <!-- upload Data
+  <h1>Upload Food Database</h1>
+<input type="file" id="upload">
+<p id="outputBx"></p>  -->
+
+
+
+  <div class="zone blue grid-wrapper">
+    <div class="box zone"></div>
+  </div>
+ 
+  <footer class="zone yellow">Daniel.V</footer>
+</body>
+<script src="./app.js"></script>
+</html>
