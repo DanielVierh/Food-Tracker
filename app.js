@@ -153,14 +153,13 @@ function get_new_Steps() {
 }
 
 
-
+//============================================================================
 // Food Datenbank Tabelle 
+//============================================================================
 
   function createTable_FoodDB() {
-        // (A) DUMMY ARRAY
-    //var data = ["doge", "cate", "birb", "doggo", "moon moon", "awkward seal"];
-  
-    // (B) CREATE HTML TABLE OBJECT
+ 
+    // CREATE HTML TABLE OBJECT
     var perrow = 1, // 1 CELLS PER ROW
         table = document.createElement("table"),
         row = table.insertRow();
@@ -191,13 +190,14 @@ function get_new_Steps() {
       }
     }
   
-    // (C) ATTACH TABLE TO CONTAINER
+    // ATTACH TABLE TO CONTAINER
     document.getElementById("containerTabelle").appendChild(table);
   }
 
 
-
+//============================================================================
   // Food zu heute gegessen hinzufügen
+  //============================================================================
   function add_Food_to_TodayList() {
       //Produkt nicht "", also ausgewählt
     if(selected_Food != "") {
@@ -226,10 +226,13 @@ function get_new_Steps() {
                                                     fiber_Intake
                      ));
 
-                console.log(fat_Intake);
-
                 // Aufräumen
                 document.getElementById('foodAmound').value = "";
+                selected_Food = "";
+                selectedFoodIndex = -1;
+                document.getElementById('selectedFoodAnzeige').innerHTML = "";
+                document.getElementById('selectedFoodMakros').innerHTML = "";
+
             } catch (error) {
                 console.log(error);
             }

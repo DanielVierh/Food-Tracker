@@ -162,9 +162,12 @@ footer{
     font-size: 44px;
 }
 
+/***********************************************************************
+ *  Immer da Button
+ **********************************************************************/
 .bg-text {
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.212); /* Black w/opacity/see-through */
+    background-color: rgba(0, 0, 0, 0.678); /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
@@ -180,11 +183,12 @@ footer{
     border-radius: 90px;
     backdrop-filter: blur(20px);
     text-align: center;
+    height: 150px;
   }
 
   .bg-text2{
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.212); /* Black w/opacity/see-through */
+    background-color: rgba(0, 0, 0, 0.678); /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
@@ -196,10 +200,13 @@ footer{
     z-index: 2;
     width: 80px;
     padding: 20px;
-    text-align: left;
+    text-align: center;
     border-radius: 90px;
     backdrop-filter: blur(20px);
     text-align: center;
+    height: 150px;
+    align-content: center;
+
   }
 
   .bg-text3{
@@ -267,17 +274,19 @@ footer{
   .button_TagAbschl{
     background-color: red;
     color: white;
-    width: 100px;
+    width: 200px;
     height: 100px;
-    font-size: 74px;
+    font-size: 24px;
     border-radius: 20px;
     font-weight: bold;
-    margin: 80px 0px 80px 300px;
+    margin: 40px 80px 50px 250px;
     justify-content: center;
   }
 
 
-
+/***********************************************************************
+ *  Tabelle Heute gegessen
+ **********************************************************************/
   #t01 tr:nth-child(even) {
     background-color: rgb(169, 199, 243);
     color: black;
@@ -302,7 +311,9 @@ footer{
   }
 
 /* ============================================================================== */
-  /* Popup Screen */
+  /***********************************************************************
+ *  Popup Screen
+ **********************************************************************/
   .modal_Steps{
       /* Damit das Fenster beim scrollen folgt */
       position: fixed;
@@ -315,9 +326,9 @@ footer{
       border-radius: 12px;
       z-index: 10;
       background-color: gray;
-      width: 50%;
+      width: 80%;
       max-width: 80%;
-      height: 20%;
+      height: 35%;
   }
 
   .modal_Steps.active{
@@ -362,7 +373,7 @@ footer{
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.815);
       pointer-events: none;
       backdrop-filter: blur(15px);
       z-index: 9;
@@ -379,11 +390,11 @@ footer{
   }
 
   #btn_SaveSteps{
-      width: 150px;
-      height: 60px;
+      width: 200px;
+      height: 80px;
       background-color: darkgreen;
       color: white;
-      font-size: 1.5rem;
+      font-size: 2.0rem;
       font-weight: bold;
       margin: 50px;
       border-radius: 15px;
