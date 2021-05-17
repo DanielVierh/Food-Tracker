@@ -74,7 +74,7 @@
   </div>
 
   <!-- Heute gegessen -->
-  <div class="fullCell"><h1>Liste Heute gegesen</h1></div>
+  <div class="fullCell"><h1>Liste Heute gegessen</h1></div>
   <div id="containerTabelle_Today"></div>
 
   <!-- Leerzone -->
@@ -85,12 +85,12 @@
 <!-- ================================================================ --> 
 <div class="fullCell"><h1>Datenbank</h1></div>
   <div class="fullCell">
-    <p>ausgewähltes Lebensmittel</p>
+    <p>Ausgewähltes Lebensmittel</p>
     <div class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
       <label style="color: aliceblue;">Menge in Gramm</label>
-      <input  type="text" value="" id="foodAmound" class="inputMenge">
+      <input  type="number" value="" id="foodAmound" class="inputMenge" placeholder="z.B. 150">
       <button class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
     </div>
 
@@ -98,7 +98,7 @@
     <div id="containerTabelle"></div>
     
     <div class="fullCell"><p>Suche Lebensmittel</p>
-      <input type="text" value="Suche...👓">
+      <input type="text" value="" placeholder="Suche...👓" class="labelSuche">
     </div>
   </div>
 
