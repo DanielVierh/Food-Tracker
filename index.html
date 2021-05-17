@@ -90,15 +90,15 @@
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
       <label style="color: aliceblue;">Menge in Gramm</label>
-      <input  type="number" value="" id="foodAmound" class="inputMenge" placeholder="z.B. 150">
+      <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="z.B. 150">
       <button class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
     </div>
 
     <hr>
     <div id="containerTabelle"></div>
     
-    <div class="fullCell"><p>Suche Lebensmittel</p>
-      <input type="text" value="" placeholder="Suche...👓" class="labelSuche">
+    <div class="fullCell">
+      <input type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
     </div>
   </div>
 
