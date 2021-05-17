@@ -215,7 +215,16 @@ function get_new_Steps() {
                 let salt_Intake = parseFloat(selectedAmount * selected_Food.salt / 100);
                 let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
 
-                today_eaten.push(new TodayEatenFood(selected_Food.productName,selectedAmount,kcal_Intake,fat_Intake,carb_Intake,sugar_Intake,protein_Intake, salt_Intake,fiber_Intake));
+                today_eaten.push(new TodayEatenFood(selected_Food.productName,
+                                                    selectedAmount,
+                                                    kcal_Intake,
+                                                    fat_Intake,
+                                                    carb_Intake,
+                                                    sugar_Intake,
+                                                    protein_Intake,
+                                                    salt_Intake,
+                                                    fiber_Intake
+                     ));
 
                 console.log(fat_Intake);
 
