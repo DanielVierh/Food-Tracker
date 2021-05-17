@@ -75,31 +75,7 @@
 
   <!-- Heute gegessen -->
   <div class="fullCell"><h1>Liste Heute gegesen</h1></div>
-    <div class="fullCell">
-      <table id="t01">
-        <tr>
-          <th>Produkt</th>
-          <th>Menge</th> 
-          <th>Kcal</th>
-        </tr>
-        <tr>
-          <td>Haferflocken</td>
-          <td>80 g</td>
-          <td>322 kcal</td>
-        </tr>
-        <tr>
-          <td>Alpro Zuckerfrei</td>
-          <td>250 g</td>
-          <td>94 kcal</td>
-        </tr>
-        <tr>
-          <td>Walnuss</td>
-          <td>25 g</td>
-          <td>160 kcal</td>
-        </tr>
-      </table>
-    
-  </div>
+  <div id="containerTabelle_Today"></div>
 
   <!-- Leerzone -->
   <div class="container zone"></div>
@@ -113,15 +89,16 @@
     <div class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
-      <input type="text" value="" id="foodAmound">
-      <button onclick="add_Food_to_TodayList()">Speichern</button>
+      <label style="color: aliceblue;">Menge in Gramm</label>
+      <input  type="text" value="" id="foodAmound" class="inputMenge">
+      <button class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
     </div>
 
     <hr>
     <div id="containerTabelle"></div>
     
     <div class="fullCell"><p>Suche Lebensmittel</p>
-      <input type="text" value="Suche...">
+      <input type="text" value="Suche...👓">
     </div>
   </div>
 

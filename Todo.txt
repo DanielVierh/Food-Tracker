@@ -74,3 +74,6 @@ Schlachtplan:
 
 
 
+git add index.html
+git add app.js
+git add style.css

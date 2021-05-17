@@ -145,6 +145,7 @@ function get_new_Steps() {
     try {
         today_Steps = parseInt(document.getElementById('inp_Steps').value);
         document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+        coloring_Labels(); 
         // TODO-- Persistent speichern
 
     } catch (error) {
@@ -241,4 +242,76 @@ function get_new_Steps() {
         alert("Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken");
     }
     console.log(today_eaten);
+    create_Table_TodayEaten();
   }
+
+
+
+//============================================================================
+  // Tabelle für Heute gegessen
+//============================================================================
+
+function create_Table_TodayEaten() {
+    // Reset der Tabelle
+    document.getElementById("containerTabelle_Today").innerHTML = "";
+
+        // CREATE HTML TABLE OBJECT
+        var perrow = 1, // 1 CELLS PER ROW
+        table = document.createElement("table"),
+        row = table.insertRow();
+    // LOOP THROUGH ARRAY AND ADD TABLE CELLS
+    for (var i = 0; i < today_eaten.length; i++) {
+      // ADD "BASIC" CELL
+      var cell = row.insertCell();
+      cell.innerHTML = today_eaten[i].intake_productName + " | " + today_eaten[i].intake_kcal + " Kcal";
+  
+      // ATTACH A RUNNING NUMBER OR CUSTOM DATA
+     cell.dataset.id = i;
+   
+        // Produktauswahl
+      cell.addEventListener("click", function(){
+        selectedFoodIndex = this.dataset.id;  
+        selected_Food = today_eaten[selectedFoodIndex];
+        let calories = selected_Food.intake_kcal;
+        let quantity = selected_Food.quantityUnit;
+        console.log(selected_Food.intake_productName);
+        // document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
+        // document.getElementById('selectedFoodMakros').innerHTML = "Kcal / 100g = " + calories + " // Mengeneinheit: " + quantity;
+      });
+  
+  
+      // BREAK INTO NEXT ROW
+      var next = i + 1;
+      if (next%perrow==0 && next!=today_eaten.length) {
+        row = table.insertRow();
+      }
+    }
+  
+    // ATTACH TABLE TO CONTAINER
+    document.getElementById("containerTabelle_Today").appendChild(table);
+}
+
+
+
+
+
+
+//============================================================================
+  // Färbung der Label je nach Fortschritt
+//============================================================================
+
+function coloring_Labels() {
+    step_Progress();
+}
+
+
+// Schritte
+function step_Progress(){
+    if(today_Steps <= 4999) {
+        document.getElementById('btnSteps').style.color = "red";
+    }else if(today_Steps <= 9999) {
+        document.getElementById('btnSteps').style.color = "orange";
+    }else{
+        document.getElementById('btnSteps').style.color = "rgb(27, 206, 27)";
+    }
+}
