@@ -309,13 +309,38 @@ footer{
   .advise{
       color: tomato;
   } */
-#containerTabelle_Today{
-    width: 100%;
-    font-size: 45px;
-    text-align: right;
+
+#sel_change_Prod{
+    text-align: center;
+    color: yellow;
+    margin: 15px;
+    font-size: 44px;
 }
 
 
+#containerTabelle_Today{
+    width: 100%;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: right;
+    overflow-y: auto;
+    height: 45vh;
+    max-height: 45vh;
+    border: 5px solid black;
+    background-color: lightslategray;
+    color: white;
+}
+
+.button_del{
+    background-color: red;
+    color: white;
+    width: 80px;
+    height: 80px;
+    margin: 15px;
+    border-radius: 20px;
+    font-size: 44px;
+    font-weight: bolder;
+}
 
 
 
@@ -323,7 +348,7 @@ footer{
   .inputMenge{
       width: 20%;
       height: 80px;
-      font-size: 44px;
+      font-size: 34px;
       font-weight: bolder;
       text-align: center;
       color: #000000;
@@ -348,6 +373,15 @@ footer{
   .foodSection{
       background-color: #313235;
   }
+
+  #statusX{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+    color: green;
+  }
+
+  
 
 /* ============================================================================== */
   /***********************************************************************

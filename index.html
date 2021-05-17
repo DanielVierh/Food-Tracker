@@ -73,8 +73,21 @@
     <p>2007 g gegessen</p>
   </div>
 
-  <!-- Heute gegessen -->
-  <div class="fullCell"><h1>Liste Heute gegessen</h1></div>
+  <!-- ================================================================ --> 
+  <!-- Heute gegessen Tabelle -->
+  <!-- ================================================================ --> 
+  <div class="fullCell">
+    <h1>Liste Heute gegessen</h1>
+    <div class="foodSection">
+      <button class="button_del">X</button>
+      <label style="color: aliceblue; margin: 15px">Menge ändern</label>
+      <input  type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMenge" placeholder="in Gramm">
+      <button class="button-Menge-speichern" onclick="change_Food_to_TodayList()">Ändern</button>
+      <p id="sel_change_Prod"></p>
+      <hr>
+    </div>
+  </div>
+
   <div id="containerTabelle_Today"></div>
 
   <!-- Leerzone -->
@@ -84,13 +97,13 @@
 <!-- Tabelle mit Datenbank aller Lebensmittel -->
 <!-- ================================================================ --> 
 <div class="fullCell"><h1>Datenbank</h1></div>
+<p id="statusX"></p>
   <div class="fullCell">
-    <p>Ausgewähltes Lebensmittel</p>
     <div class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
       <label style="color: aliceblue;">Menge in Gramm</label>
-      <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="z.B. 150">
+      <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
       <button class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
     </div>
 

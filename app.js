@@ -179,8 +179,11 @@ function get_new_Steps() {
         selected_Food = array_Food_DB[selectedFoodIndex];
         let calories = selected_Food.kcal;
         let quantity = selected_Food.quantityUnit;
+        document.getElementById('statusX').innerHTML = "";
         document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
         document.getElementById('selectedFoodMakros').innerHTML = "Kcal / 100g = " + calories + " // Mengeneinheit: " + quantity;
+        // Fokus auf Textfeld setzen
+        document.getElementById('foodAmound').focus();
       });
   
   
@@ -227,12 +230,15 @@ function get_new_Steps() {
                                                     fiber_Intake
                      ));
 
+                     // Anzeigen, dass Produkt eingetragen wurde
+                document.getElementById('statusX').innerHTML = selected_Food.productName + " wurde eingetragen";
                 // Aufräumen
                 document.getElementById('foodAmound').value = "";
                 selected_Food = "";
                 selectedFoodIndex = -1;
                 document.getElementById('selectedFoodAnzeige').innerHTML = "";
                 document.getElementById('selectedFoodMakros').innerHTML = "";
+                
 
             } catch (error) {
                 console.log(error);
@@ -274,9 +280,8 @@ function create_Table_TodayEaten() {
         selected_Food = today_eaten[selectedFoodIndex];
         let calories = selected_Food.intake_kcal;
         let quantity = selected_Food.quantityUnit;
-        console.log(selected_Food.intake_productName);
-        // document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
-        // document.getElementById('selectedFoodMakros').innerHTML = "Kcal / 100g = " + calories + " // Mengeneinheit: " + quantity;
+        document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
+        document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
       });
   
   
