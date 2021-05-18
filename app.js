@@ -54,11 +54,24 @@ fetch_Food_DB();
 buttonAdd.addEventListener('click', addProduct);
 buttonScroll_Up.addEventListener('click', scroll_UP);
 
+// Damit gesuchtes Produkt direkt überschreibbar ist
+document.getElementById('searchInput').addEventListener('click', selectWord);
+
+
+
+
+// Scroll Section
 function scroll_UP() {
     window.scrollTo(0, 0);
     console.log("ScrollUP");
 }
 
+
+// Wort markieren
+function selectWord() {
+    const inp = document.getElementById('searchInput');
+    inp.select()
+}
 
 
 // Klasse für Lebensmittel

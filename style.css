@@ -287,29 +287,6 @@ footer{
 /***********************************************************************
  *  Tabelle Heute gegessen
  **********************************************************************/
-  /* #t01 tr:nth-child(even) {
-    background-color: rgb(169, 199, 243);
-    color: black;
-    width: 500px;
-    text-align: center;
-  }
-  #t01 tr:nth-child(odd) {
-   background-color: #fff;
-   color: black;
-   width: 500px;
-   text-align: center;
-  }
-  #t01 th {
-    background-color: black;
-    color: rgb(245, 240, 240);
-    width: 500px;
-    text-align: center;
-  }
-
-  .advise{
-      color: tomato;
-  } */
-
 #sel_change_Prod{
     text-align: center;
     color: yellow;
@@ -334,8 +311,8 @@ footer{
 .button_del{
     background-color: red;
     color: white;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin: 15px;
     border-radius: 20px;
     font-size: 44px;
@@ -497,6 +474,7 @@ table tr:nth-child(odd) { background: #60a4e4; }
     font-weight: bold;
     font-size: 44px;
     margin: 5px;
+    text-align: center;
 }
 
 #selectedFoodMakros{
@@ -504,6 +482,7 @@ table tr:nth-child(odd) { background: #60a4e4; }
     font-size: 34px;
     font-weight: bold;
     margin: 5px;
+    text-align: center;
 }
 
 
