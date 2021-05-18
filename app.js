@@ -7,6 +7,7 @@ var array_Food_DB = [];
 var today_eaten = [];
 var selected_Food = "";
 var selectedFoodIndex = 0;
+var foodFromToday = false;
 //====================================================================================
 // Upload Food DB
 //====================================================================================
@@ -178,7 +179,8 @@ function get_new_Steps() {
 //============================================================================
 
   function createTable_FoodDB() {
- 
+
+
     // CREATE HTML TABLE OBJECT
     var perrow = 1, // 1 CELLS PER ROW
         table = document.createElement("table"),
@@ -188,12 +190,17 @@ function get_new_Steps() {
       // ADD "BASIC" CELL
       var cell = row.insertCell();
       cell.innerHTML = array_Food_DB[i].productName;
-  
+    
+            // Anzahl der Produkte
+    let anzProd = array_Food_DB.length;
+    document.getElementById('titleDatenbank').innerHTML = "Datenbank (" + anzProd + ")";
+
       // ATTACH A RUNNING NUMBER OR CUSTOM DATA
      cell.dataset.id = i;
    
         // Produktauswahl
       cell.addEventListener("click", function(){
+        foodFromToday = false;
         selectedFoodIndex = this.dataset.id;  
         selected_Food = array_Food_DB[selectedFoodIndex];
         let calories = selected_Food.kcal;
@@ -269,6 +276,7 @@ function get_new_Steps() {
 
 
         cell.addEventListener("click", function(){
+            foodFromToday = false;
             selectedFoodIndex = this.dataset.id;  
             selected_Food = data[selectedFoodIndex];
             let calories = selected_Food.kcal;
@@ -288,6 +296,10 @@ function get_new_Steps() {
     
       // Füge Tabelle zu Container hinzu
       document.getElementById("containerTabelle").appendChild(table);
+
+              // Anzahl der Produkte
+    let anzProd = data.length;
+    document.getElementById('titleDatenbank').innerHTML = "Datenbank (" + anzProd + ")";
 
       }
   }
@@ -373,6 +385,7 @@ function create_Table_TodayEaten() {
    
         // Produktauswahl
       cell.addEventListener("click", function(){
+        foodFromToday = true;
         selectedFoodIndex = this.dataset.id;  
         selected_Food = today_eaten[selectedFoodIndex];
         let calories = selected_Food.intake_kcal;
@@ -394,7 +407,22 @@ function create_Table_TodayEaten() {
 }
 
 
+// Lösche Position  
+function delete_from_today() {
+    if(foodFromToday == true) {
+        const decision = window.confirm("Möchtest du < " + selected_Food.intake_productName + "> wirklich von der heutigen Liste löschen?");
+        if(decision) {
+            today_eaten.splice(selectedFoodIndex, 1);
+            console.log(today_eaten);
+            // TODO Speichern 
+           // create_Table_TodayEaten();
+        }
 
+    }else{
+        alert("Kein Produkt ausgewählt");
+    }
+    
+}
 
 
 
@@ -403,6 +431,7 @@ function create_Table_TodayEaten() {
 //============================================================================
 
 function coloring_Labels() {
+
     step_Progress();
 }
 

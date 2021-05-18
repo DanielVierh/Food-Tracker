@@ -80,7 +80,7 @@
   <div class="fullCell">
     <h1>Liste Heute gegessen</h1>
     <div class="foodSection">
-      <button class="button_del">X</button>
+      <button class="button_del" onclick="delete_from_today()">X</button>
       <label style="color: aliceblue; margin: 15px">Menge ändern</label>
       <input  type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMenge" placeholder="in Gramm">
       <button class="button-Menge-speichern" onclick="change_Food_to_TodayList()">Ändern</button>
@@ -97,7 +97,7 @@
 <!-- ================================================================ -->
 <!-- Tabelle mit Datenbank aller Lebensmittel -->
 <!-- ================================================================ --> 
-<div class="fullCell"><h1>Datenbank</h1></div>
+<div class="fullCell"><h1 id="titleDatenbank">Datenbank</h1></div>
 <p id="statusX"></p>
   <div class="fullCell">
     <div class="foodSection">
