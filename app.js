@@ -67,6 +67,12 @@ function scroll_UP() {
 }
 
 
+// Zoom
+function zoom() {
+    document.body.style.zoom = "90%"; 
+}
+
+
 // Wort markieren
 function selectWord() {
     const inp = document.getElementById('searchInput');
@@ -329,7 +335,7 @@ function get_new_Steps() {
                 selectedFoodIndex = -1;
                 document.getElementById('selectedFoodAnzeige').innerHTML = "";
                 document.getElementById('selectedFoodMakros').innerHTML = "";
-                
+                zoom();
 
             } catch (error) {
                 console.log(error);
