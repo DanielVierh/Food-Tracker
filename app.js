@@ -198,6 +198,84 @@ function get_new_Steps() {
     document.getElementById("containerTabelle").appendChild(table);
   }
 
+//============================================================================
+  // Suche 
+//============================================================================
+
+  $('#searchInput').on('keyup', function(){
+      var value = $(this).val()
+      //console.log('Value:', value)
+      var data = searchTable(value, array_Food_DB)
+      buildTable(data)
+  })
+
+
+  buildTable(array_Food_DB)
+
+  function searchTable(value, data){
+      var filteredData = []
+
+      for (var i = 0; i < data.length; i++) {
+          value = value.toLowerCase()
+          var name = data[i].productName.toLowerCase()
+
+          if(name.includes(value)){
+              filteredData.push(data[i])
+          }
+      }
+
+      return filteredData
+  }
+
+
+  function buildTable(data){
+      var table = document.getElementById('containerTabelle'); 
+      
+      table.innerHTML = ''; 
+      table = document.createElement("table")
+      row = table.insertRow();
+      for(var i = 0; i < data.length; i++) {  
+
+        var perrow = 1, // 1 CELLS pro ROW
+        table = document.createElement("table"),
+        row = table.insertRow();
+        // FPR Schleife
+        for (var i = 0; i < data.length; i++) {
+        // Füge "BASIC" CELL hinzu
+        var cell = row.insertCell();
+        cell.innerHTML = data[i].productName;
+    
+            // Für Auswahl
+        cell.dataset.id = i;
+
+
+        cell.addEventListener("click", function(){
+            selectedFoodIndex = this.dataset.id;  
+            selected_Food = data[selectedFoodIndex];
+            let calories = selected_Food.kcal;
+            let quantity = selected_Food.quantityUnit;
+            document.getElementById('statusX').innerHTML = "";
+            document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
+            document.getElementById('selectedFoodMakros').innerHTML = "Kcal / 100g = " + calories + " // Mengeneinheit: " + quantity;
+            // Fokus auf Textfeld setzen
+            document.getElementById('foodAmound').focus();
+          });
+
+        var next = i + 1;
+        if (next%perrow==0 && next!=data.length) {
+          row = table.insertRow();
+        }
+      }
+    
+      // Füge Tabelle zu Container hinzu
+      document.getElementById("containerTabelle").appendChild(table);
+
+      }
+  }
+
+
+
+
 
 //============================================================================
   // Food zu heute gegessen hinzufügen
