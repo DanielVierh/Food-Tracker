@@ -152,7 +152,7 @@ function scroll_UP() {
 }
 
 function mittig_halten(){
-    window.scrollTo(0, 3700);
+    window.scrollTo(0, 3300);
 }
 
 //====================================================================================
