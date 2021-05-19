@@ -24,61 +24,65 @@
   <div class="zone blue grid-wrapper">
     <div class="box zone">
       <p>Gegessen</p>
-      <p id="output_Eaten">0 Kcal</p>
-      <div class="progress">100%</div>
+      <p class="uebersicht_Values" id="output_Eaten">0 Kcal</p>
     </div>
 
     <div class="box zone">
       <p>Verbrannt &#128293</p>
-      <p id="output_Burned">0 Kcal</p>
+      <p class="uebersicht_Values" id="output_Burned">0 Kcal</p>
     </div>
 
 
     <div class="box zone">
       <p>Effektiv</p>
-      <p id="output_EffectiveBurned">0 Kcal</p>
+      <p class="uebersicht_Values" id="output_EffectiveBurned">0 Kcal</p>
     </div>
 
     <div class="box zone">
       <p>Differenz</p>
-      <p id="output_Diff">0 Kcal übrig &#128512</p>
+      <p class="uebersicht_Values" id="output_Diff">0 Kcal übrig &#128512</p>
     </div>
     
   </div>
 
-<!-- Progress Bar   -->
-<div class="fullCell">
-    <!-- <div class="progress">100%</div> -->
-  </div>
+
 
   <!-- Makros -->
   <div class="zone blue grid-wrapper">
     <div class="box zone">
       <p>Kohlenhydrate</p>
-      <p id="output_Carbs">0 g</p>
+      <p class="uebersicht_Values" id="output_Carbs">0 g</p>
     </div>
     <div class="box zone">
       <p>Zucker</p>
-      <p id="output_Sugar">0 g</p>
+      <p class="uebersicht_Values" id="output_Sugar">0 g</p>
     </div>
     <div class="box zone">
       <p>Eiweiß</p>
-      <p id="output_Protein">0 g</p>
+      <p class="uebersicht_Values" id="output_Protein">0 g</p>
     </div>
     <div class="box zone">
       <p>Fett</p>
-      <p id="output_Fat">0 g</p>
+      <p class="uebersicht_Values" id="output_Fat">0 g</p>
     </div>
     <div class="box zone">
       <p>Salz</p>
-      <p id="output_Salt">0 g</p>
+      <p class="uebersicht_Values" id="output_Salt">0 g</p>
     </div>
     <div class="box zone">
       <p>Ballaststoffe</p>
-      <p id="output_Fiber">0 g</p>
+      <p class="uebersicht_Values" id="output_Fiber">0 g</p>
     </div>
     <p id="output_Gramm">0 g gegessen</p>
   </div>
+
+  <div class="fullCell">
+    <p style="text-align: center;">Progress</p>
+  </div>
+  <!-- Progress Bar   -->
+<div class="fullCell">
+  <div id="progress_Bar" class="progress">100%</div>
+</div>
 
   <!-- ================================================================ --> 
   <!-- Heute gegessen Tabelle -->
@@ -87,9 +91,9 @@
     <h1>Liste Heute gegessen</h1>
     <div class="foodSection">
       <button class="button_del" onclick="delete_from_today()">X</button>
-      <label style="color: aliceblue; margin: 15px">Menge ändern</label>
+      <label style="color: aliceblue; margin: 15px; font-size: 24px;">Menge ändern</label>
       <input  type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMenge" placeholder="in Gramm">
-      <button class="button-Menge-speichern" onclick="change_Food_to_TodayList()">Ändern</button>
+      <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()">Ändern</button>
       <p id="sel_change_Prod"></p>
       <hr>
     </div>

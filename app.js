@@ -525,6 +525,10 @@ function delete_from_today() {
 
             // Speichern
             save_Today_Eaten();
+
+            // Aufräumen und neu laden
+            document.getElementById('foodAmound_Change').value = '';
+            document.getElementById('sel_change_Prod').innerHTML = '';
             create_Table_TodayEaten();
         }
 
@@ -586,6 +590,18 @@ function calc_Values() {
     document.getElementById('output_Gramm').innerHTML = parseInt(eaten_Amount) + " g gegessen";
 
 
+    // Progress Bar
+        var progressValKcal = ((eaten_Kcal * 100 / (burned_Kcal + kcal_Ziel))) 
+        let originProgressVal = progressValKcal
+        // Wenn berechneter Wert über 200 dann 200
+        if (progressValKcal > 100) {
+            progressValKcal = 100
+            document.getElementById('progress_Bar').style.backgroundColor = "red";
+        }else {
+            document.getElementById('progress_Bar').style.backgroundColor = "green";
+        }
+        document.getElementById('progress_Bar').style.width = progressValKcal + "%";
+        document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
 }
 
 
