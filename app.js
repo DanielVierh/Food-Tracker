@@ -67,6 +67,10 @@ function scroll_UP() {
     console.log("ScrollUP");
 }
 
+function mittig_halten(){
+    window.scrollTo(0, 4000);
+}
+
 
 // Zoom
 function zoom() {
@@ -296,6 +300,9 @@ function get_new_Steps() {
     
       // Füge Tabelle zu Container hinzu
       document.getElementById("containerTabelle").appendChild(table);
+
+      // Immer Position beibehalten
+      mittig_halten();
 
               // Anzahl der Produkte
     let anzProd = data.length;

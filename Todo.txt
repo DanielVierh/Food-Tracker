@@ -14,6 +14,10 @@ NavBar Buttons.
 
 -Kcal Ziel berechnen
 
+-Produktmenge abändern
+
+
+
 ----------------------
 Arrays
 ----------------------
@@ -71,6 +75,10 @@ Schlachtplan:
     3. Man hat einen immer da Button für Schritte. Popup Fenster mit markierten letzten Schritten
        öffnet sich und man kann die Zahl überschreiben oder abbrechen.
        Kcal werden dann berechnet und man wird nach oben geleitet zur Übersicht
+
+
+
+    
 
 
 

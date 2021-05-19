@@ -457,7 +457,8 @@ footer{
 
   #containerTabelle{
     overflow-y: auto;
-    max-height: 45vh;
+    height: 40vh;
+    max-height: 40vh;
     border: 5px solid black;
 }
 
