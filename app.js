@@ -39,22 +39,6 @@ var effective_Kcal = 0;
 // })
 
 
-// Automatisches lesen des JSON Files
-function fetch_Food_DB() {
-    fetch("Food_DB_v2021_05.json")
-    .then(response => response.json())
-    .then(data => {
-        array_Food_DB = data;
-        console.log(array_Food_DB);
-        createTable_FoodDB();
-    })
-}
-
-// Weg machen
-fetch_Food_DB();
-
-
-
 
 
 //====================================================================================
@@ -68,6 +52,96 @@ buttonScroll_Up.addEventListener('click', scroll_UP);
 document.getElementById('searchInput').addEventListener('click', selectWord);
 
 
+
+
+
+//====================================================================================
+// Init
+//====================================================================================
+document.addEventListener('DOMContentLoaded', loadCont);
+
+
+// Load Content
+function loadCont() {
+    check_FoodDB();
+    load_other_LocalStorage_Values();
+}
+
+
+// Checke local Storage
+function check_FoodDB(){
+    if(localStorage.getItem('storedFoodDB') === null) {
+        console.log("Food-Datenbank ist leer");
+        // DB aus JSON generieren
+        fetch_Food_DB();
+    }else {
+        console.log("DB wird geladen");
+        loadFood_DB();
+    }
+}
+
+//====================================================================================
+// Save,  Load or create DB
+//====================================================================================
+// Save Food-DB
+function saveFood_DB() {
+    localStorage.setItem("storedFoodDB", JSON.stringify(array_Food_DB));
+    console.log("DB saved");
+}
+//Load Food-DB
+function loadFood_DB() {
+    array_Food_DB = JSON.parse(localStorage.getItem("storedFoodDB"));
+    createTable_FoodDB();
+    console.log("DB loaded");
+}
+
+
+// Automatisches lesen des JSON Files
+function fetch_Food_DB() {
+    fetch("Food_DB_v2021_05.json")
+    .then(response => response.json())
+    .then(data => {
+        array_Food_DB = data;
+        console.log(array_Food_DB);
+        saveFood_DB();
+        createTable_FoodDB();
+    })
+}
+
+
+// Andere abgespeicherte Werte
+function load_other_LocalStorage_Values(){
+    // Heute gegessen
+    if(localStorage.getItem('stored_Today_Eaten') === null) {
+        console.log("Today Eaten konnte nicht geladen werden");
+    }else{
+        today_eaten = JSON.parse(localStorage.getItem("stored_Today_Eaten"));
+        create_Table_TodayEaten();
+    }
+
+    // Schritte
+    if(localStorage.getItem('stored_Today_Steps') === null) {
+        console.log("Scritte konnten nicht geladen werden");
+    }else{
+        today_Steps = JSON.parse(localStorage.getItem("stored_Today_Steps"));
+        document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+        coloring_Labels();
+        steps_into_Kcal(); 
+        calc_Values();
+    }
+}
+
+// Speichere Today Eaten
+function save_Today_Eaten() {
+    localStorage.setItem("stored_Today_Eaten", JSON.stringify(today_eaten));
+    console.log("today_eaten gespeichert");
+}
+
+// Speichere Schritte
+function save_Today_Steps() {
+    localStorage.setItem("stored_Today_Steps", JSON.stringify(today_Steps));
+    console.log("stored_Today_Steps gespeichert");
+}
 
 //====================================================================================
 // Scroll Section
@@ -126,10 +200,6 @@ class TodayEatenFood {
     }
 }
 
-// function addingPrototypeProduct() {
-//     haferflocken = new Food("Haferflocken", 372.0, 0, 7.0, 58.7, 0.7, 13.5, 0, 10.0, "1EL = 10g")
-    
-// }
 
 // Neues Lebensmittel hinzufügen
 function addProduct() {
@@ -184,6 +254,7 @@ function get_new_Steps() {
         steps_into_Kcal(); 
         calc_Values();
         // TODO-- Persistent speichern
+        save_Today_Steps();
 
     } catch (error) {
         alert("Nur Zahlen eingeben");
@@ -368,6 +439,8 @@ function steps_into_Kcal() {
 
                      // Anzeigen, dass Produkt eingetragen wurde
                 document.getElementById('statusX').innerHTML = selected_Food.productName + " wurde eingetragen";
+                // Speichern
+                save_Today_Eaten();
                 // Aufräumen
                 document.getElementById('foodAmound').value = "";
                 selected_Food = "";
@@ -384,7 +457,6 @@ function steps_into_Kcal() {
     }else{
         alert("Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken");
     }
-    console.log(today_eaten);
     create_Table_TodayEaten();
     calc_Values();
   }
@@ -450,8 +522,10 @@ function delete_from_today() {
             today_eaten.splice(selectedFoodIndex, 1);
             console.log(today_eaten);
             calc_Values();
-            // TODO Speichern 
-           // create_Table_TodayEaten();
+
+            // Speichern
+            save_Today_Eaten();
+            create_Table_TodayEaten();
         }
 
     }else{
@@ -503,13 +577,13 @@ function calc_Values() {
     }
     
 
-    document.getElementById('output_Carbs').innerHTML = eaten_Carbs + " g";
-    document.getElementById('output_Sugar').innerHTML = eaten_Sugar + " g";
-    document.getElementById('output_Protein').innerHTML = eaten_Protein + " g";
-    document.getElementById('output_Fat').innerHTML = eaten_Fat + " g";
-    document.getElementById('output_Salt').innerHTML = eaten_Salt + " g";
-    document.getElementById('output_Fiber').innerHTML = eaten_Fiber + " g";
-    document.getElementById('output_Gramm').innerHTML = eaten_Amount + " g gegessen";
+    document.getElementById('output_Carbs').innerHTML = eaten_Carbs.toFixed(1) + " g";
+    document.getElementById('output_Sugar').innerHTML = eaten_Sugar.toFixed(1) + " g";
+    document.getElementById('output_Protein').innerHTML = eaten_Protein.toFixed(1) + " g";
+    document.getElementById('output_Fat').innerHTML = eaten_Fat.toFixed(1) + " g";
+    document.getElementById('output_Salt').innerHTML = eaten_Salt.toFixed(1) + " g";
+    document.getElementById('output_Fiber').innerHTML = eaten_Fiber.toFixed(1) + " g";
+    document.getElementById('output_Gramm').innerHTML = parseInt(eaten_Amount) + " g gegessen";
 
 
 }
