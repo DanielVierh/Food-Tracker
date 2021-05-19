@@ -21,6 +21,7 @@ body{
 
 .fullCell{
     font-size: 2.5em;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -162,9 +163,28 @@ footer{
     font-size: 44px;
 }
 
+
+
+/* Progress bar */
+
+.progress{
+    width: 100%;
+    height: 35px;
+    background-color: red;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    
+}
+
+  
+
 /***********************************************************************
  *  Immer da Button
  **********************************************************************/
+ /* Neues Essen hinzufügen */
 .bg-text {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.678); /* Black w/opacity/see-through */
@@ -185,7 +205,7 @@ footer{
     text-align: center;
     height: 150px;
   }
-
+  /* Nach oben Button  */
   .bg-text2{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.678); /* Black w/opacity/see-through */
@@ -208,10 +228,10 @@ footer{
     align-content: center;
 
   }
-
+  /* Schritte */
   .bg-text3{
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.527); /* Black w/opacity/see-through */
+    background-color: rgba(0, 0, 0, 0.397); /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
@@ -224,7 +244,6 @@ footer{
     width: 350px;
     padding: 20px;
     border-radius: 90px;
-    backdrop-filter: blur(20px);
     text-align: center; 
   }
 

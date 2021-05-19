@@ -8,6 +8,17 @@ var today_eaten = [];
 var selected_Food = "";
 var selectedFoodIndex = 0;
 var foodFromToday = false;
+
+var eaten_Kcal = 0;
+var eaten_Carbs = 0.0;
+var eaten_Sugar = 0.0;
+var eaten_Protein = 0.0;
+var eaten_Fat = 0.0;
+var eaten_Salt = 0.0;
+var eaten_Fiber = 0.0;
+var eaten_Amount = 0.0;
+var burned_Kcal = 0;
+var effective_Kcal = 0;
 //====================================================================================
 // Upload Food DB
 //====================================================================================
@@ -169,12 +180,21 @@ function get_new_Steps() {
     try {
         today_Steps = parseInt(document.getElementById('inp_Steps').value);
         document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
-        coloring_Labels(); 
+        coloring_Labels();
+        steps_into_Kcal(); 
+        calc_Values();
         // TODO-- Persistent speichern
 
     } catch (error) {
         alert("Nur Zahlen eingeben");
     }
+}
+
+
+function steps_into_Kcal() {
+    const kcal_per_Step = 0.077
+    burned_Kcal = parseInt(today_Steps * kcal_per_Step);
+    document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
 }
 
 
@@ -355,6 +375,7 @@ function get_new_Steps() {
                 document.getElementById('selectedFoodAnzeige').innerHTML = "";
                 document.getElementById('selectedFoodMakros').innerHTML = "";
                 zoom();
+                
 
             } catch (error) {
                 console.log(error);
@@ -365,6 +386,7 @@ function get_new_Steps() {
     }
     console.log(today_eaten);
     create_Table_TodayEaten();
+    calc_Values();
   }
 
 
@@ -414,13 +436,20 @@ function create_Table_TodayEaten() {
 }
 
 
+function change_Food_to_TodayList() {
+    alert("Wird noch gebaut.");
+}
+
+//============================================================================
 // Lösche Position  
+//============================================================================
 function delete_from_today() {
     if(foodFromToday == true) {
         const decision = window.confirm("Möchtest du < " + selected_Food.intake_productName + "> wirklich von der heutigen Liste löschen?");
         if(decision) {
             today_eaten.splice(selectedFoodIndex, 1);
             console.log(today_eaten);
+            calc_Values();
             // TODO Speichern 
            // create_Table_TodayEaten();
         }
@@ -430,6 +459,74 @@ function delete_from_today() {
     }
     
 }
+
+
+
+
+//============================================================================
+//Berechnung der Makros und Kcal Werte
+//============================================================================
+
+function calc_Values() {
+    eaten_Kcal = 0;
+    eaten_Carbs = 0.0;
+    eaten_Sugar = 0.0;
+    eaten_Protein = 0.0;
+    eaten_Fat = 0.0;
+    eaten_Salt = 0.0;
+    eaten_Fiber = 0.0;
+    eaten_Amount = 0.0;
+
+    for(var i = 0; i < today_eaten.length; i++) {
+        eaten_Kcal += today_eaten[i].intake_kcal;
+        eaten_Carbs += today_eaten[i].intake_carbs;
+        eaten_Sugar += today_eaten[i].intake_sugar;
+        eaten_Protein += today_eaten[i].intake_protein;
+        eaten_Fat += today_eaten[i].intake_fat;
+        eaten_Salt += today_eaten[i].intake_salt;
+        eaten_Fiber += today_eaten[i].intake_fiber;
+        eaten_Amount += today_eaten[i].intake_amount;
+    }
+
+    // Effektive Kcal und Differenz berechnen
+    let kcal_Ziel = 1582; // Wird später durch Variable abgelöst
+    effective_Kcal = parseInt(eaten_Kcal - burned_Kcal);
+    let diff = parseInt((kcal_Ziel + burned_Kcal) - eaten_Kcal);
+    // Output
+    document.getElementById('output_Eaten').innerHTML = eaten_Kcal + " Kcal";
+    document.getElementById('output_EffectiveBurned').innerHTML = effective_Kcal + " Kcal";
+
+    if(diff > 0) {
+        document.getElementById('output_Diff').innerHTML = diff + " Kcal übrig &#128512";
+    }else{
+        document.getElementById('output_Diff').innerHTML = Math.abs(diff) + " Kcal zu viel &#128577";
+    }
+    
+
+    document.getElementById('output_Carbs').innerHTML = eaten_Carbs + " g";
+    document.getElementById('output_Sugar').innerHTML = eaten_Sugar + " g";
+    document.getElementById('output_Protein').innerHTML = eaten_Protein + " g";
+    document.getElementById('output_Fat').innerHTML = eaten_Fat + " g";
+    document.getElementById('output_Salt').innerHTML = eaten_Salt + " g";
+    document.getElementById('output_Fiber').innerHTML = eaten_Fiber + " g";
+    document.getElementById('output_Gramm').innerHTML = eaten_Amount + " g gegessen";
+
+
+}
+
+
+
+calc_Values();
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -453,3 +550,4 @@ function step_Progress(){
         document.getElementById('btnSteps').style.color = "rgb(27, 206, 27)";
     }
 }
+
