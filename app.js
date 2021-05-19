@@ -43,8 +43,6 @@ function fetch_Food_DB() {
 fetch_Food_DB();
 
 
-// Tabelle aller Lebensmittel
-
 
 
 
@@ -60,19 +58,21 @@ document.getElementById('searchInput').addEventListener('click', selectWord);
 
 
 
-
+//====================================================================================
 // Scroll Section
+//====================================================================================
 function scroll_UP() {
     window.scrollTo(0, 0);
     console.log("ScrollUP");
 }
 
 function mittig_halten(){
-    window.scrollTo(0, 4000);
+    window.scrollTo(0, 3700);
 }
 
-
+//====================================================================================
 // Zoom
+//====================================================================================
 function zoom() {
     document.body.style.zoom = "90%"; 
 }
@@ -120,10 +120,10 @@ class TodayEatenFood {
     
 // }
 
-
+// Neues Lebensmittel hinzufügen
 function addProduct() {
-    alert("Muss noch gebaut werden");
-
+    mittig_halten();
+    document.getElementById('searchInput').select();
 }
 
 
