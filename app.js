@@ -5,8 +5,8 @@ var haferflocken = "";
 var today_Steps = 0;
 var array_Food_DB = [];
  var today_eaten = [];
-var bodyWeight = 97;  // AUF 78 ABÄNDERN !!!!!!!!!!!!!
-var kcal_Ziel = 1582;
+var bodyWeight = 78; 
+var kcal_Ziel = 0;
 var kcal_Requirement = 2500;
 
 var selected_Food = "";
@@ -23,6 +23,33 @@ var eaten_Fiber = 0.0;
 var eaten_Amount = 0.0;
 var burned_Kcal = 0;
 var effective_Kcal = 0;
+
+
+//====================================================================================
+// Init
+//====================================================================================
+document.addEventListener('DOMContentLoaded', loadCont);
+
+
+// Load Content
+function loadCont() {
+    check_FoodDB();
+    load_other_LocalStorage_Values();
+}
+
+
+// Checke local Storage
+function check_FoodDB(){
+    if(localStorage.getItem('storedFoodDB') === null) {
+        console.log("Food-Datenbank ist leer");
+        // DB aus JSON generieren
+        fetch_Food_DB();
+    }else {
+        console.log("DB wird geladen");
+        loadFood_DB();
+    }
+}
+
 
 
 //====================================================================================
@@ -61,30 +88,7 @@ document.getElementById('searchInput').addEventListener('click', selectWord);
 
 
 
-//====================================================================================
-// Init
-//====================================================================================
-document.addEventListener('DOMContentLoaded', loadCont);
 
-
-// Load Content
-function loadCont() {
-    check_FoodDB();
-    load_other_LocalStorage_Values();
-}
-
-
-// Checke local Storage
-function check_FoodDB(){
-    if(localStorage.getItem('storedFoodDB') === null) {
-        console.log("Food-Datenbank ist leer");
-        // DB aus JSON generieren
-        fetch_Food_DB();
-    }else {
-        console.log("DB wird geladen");
-        loadFood_DB();
-    }
-}
 
 //====================================================================================
 // Save,  Load or create DB
@@ -117,6 +121,14 @@ function fetch_Food_DB() {
 
 // Andere abgespeicherte Werte
 function load_other_LocalStorage_Values(){
+    // Kcal Ziel
+    if(localStorage.getItem('stored_KcalZiel') === null) {
+            console.log("Kcal-Ziel konnte nicht geladen werden");
+    }else{
+            kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
+            document.getElementById('target_KcalZiel').value = kcal_Ziel;
+    }
+
     // Heute gegessen
     if(localStorage.getItem('stored_Today_Eaten') === null) {
         console.log("Today Eaten konnte nicht geladen werden");
@@ -142,13 +154,6 @@ function load_other_LocalStorage_Values(){
     }else{
         bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
         document.getElementById('weight').value = bodyWeight;
-    }
-
-    // Kcal Ziel
-    if(localStorage.getItem('stored_KcalZiel') === null) {
-        console.log("Kcal-Ziel konnte nicht geladen werden");
-    }else{
-        kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
     }
 }
 
@@ -633,11 +638,11 @@ function calc_Values() {
         var progressValKcal = ((eaten_Kcal * 100 / (burned_Kcal + kcal_Ziel))) 
         let originProgressVal = progressValKcal
         // Wenn berechneter Wert über 200 dann 200
-        if (progressValKcal > 100) {
+        if (progressValKcal >= 100) {
             progressValKcal = 100
-            document.getElementById('progress_Bar').style.backgroundColor = "red";
+            document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
         }else {
-            document.getElementById('progress_Bar').style.backgroundColor = "green";
+            document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
         }
         document.getElementById('progress_Bar').style.width = progressValKcal + "%";
         document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
@@ -686,7 +691,9 @@ function step_Progress(){
 // Einstellungen
 //============================================================================
 
+//============================================================================
 // Kcal Ziel berechnen
+//============================================================================
 function calc_Kcal_Goal() {
     var height = 0;
     var age = 0;
@@ -739,6 +746,7 @@ function calc_Kcal_Goal() {
 
                             // Berechnung Kalorienbedarf
                             if(selectedGender == "male") {
+                                // Mann
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                                 kcal_Requirement = parseInt(66.47 + (13.7 * bodyWeight) + (5 * height) - (6.8 * age));
                                 
@@ -748,16 +756,36 @@ function calc_Kcal_Goal() {
                                 let zielEinsparung_pro_Tag = abnehmBerg / tage;
                                 let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
 
-                                console.log("targetWeight" + targetWeight);
-                                console.log("targetTime " + targetTime);
-                                console.log("recommended_Kcal " + recommended_Kcal );
                                 let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
-                                " Monat(en) erreichen möchtest, lägen die Effektiven Kcal bei: " + recommended_Kcal;
+                                " Monat(en) erreichen möchtest, läg dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal";
                                 document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
+                                document.getElementById('target_KcalZiel').value = recommended_Kcal;
 
                             }else{
+                                // Formel für KCAL Bedarf FRAU
+                                //655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
+                                kcal_Requirement = parseInt(655.1 + (9.6 * bodyWeight) + (1.8 * height) - (4.7 * age));
+                                
+                                let kcal_Differenz = bodyWeight - targetWeight;
+                                let tage = targetTime * 30;
+                                let abnehmBerg = kcal_Differenz * 7000;
+                                let zielEinsparung_pro_Tag = abnehmBerg / tage;
+                                let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
 
+                                let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
+                                " Monat(en) erreichen möchtest, läg dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal";
+                                document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
+                                document.getElementById('target_KcalZiel').value = recommended_Kcal;
                             }
+
+                            // Aufräumen
+                            document.getElementById('height').value = "";
+                            document.getElementById('age').value = "";
+                            document.getElementById('target_Weight').value = "";
+                            document.getElementById('target_Time').value = "";
+
+                            window.scrollTo(0, 11000);
+
                         }
                     }
                 }
@@ -766,5 +794,15 @@ function calc_Kcal_Goal() {
     }
 
 
-    //goto_Settings();
+}
+
+// kcal_Ziel
+function define_Kcal_Target() {
+    if(document.getElementById('target_KcalZiel').value == "") {
+        alert("Kein Wert enthalten");
+    }else{
+        kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
+        save_kcalZiel();
+        alert("Kcal Ziel wurde übernommen");
+    }
 }
