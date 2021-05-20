@@ -23,7 +23,7 @@ var eaten_Fiber = 0.0;
 var eaten_Amount = 0.0;
 var burned_Kcal = 0;
 var effective_Kcal = 0;
-
+var form_is_Invisible = false;
 
 //====================================================================================
 // Init
@@ -804,5 +804,44 @@ function define_Kcal_Target() {
         kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
         save_kcalZiel();
         alert("Kcal Ziel wurde übernommen");
+    }
+}
+
+
+//============================================================================
+// Tag abschließen
+//============================================================================
+
+function close_Day() {
+    const req = window.confirm("Soll der Tag wirklich zurückgesetzt werden?");
+    if (req) {
+        // TODO SPEICHERN DER WERTE
+        ///////////
+
+        // RESET
+        today_Steps = 0;
+        today_eaten = [];
+        document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+            coloring_Labels();
+            steps_into_Kcal(); 
+            calc_Values();
+            save_Today_Steps();
+            save_Today_Eaten();
+            location.reload();
+    }
+}
+
+//============================================================================
+// Form unsichtbar machen
+//============================================================================
+function makeFieldsInvisible() {
+    if(form_is_Invisible == true) {
+        document.getElementById('visibility').style.opacity = "1";
+        document.getElementById('inv_Button').style.opacity = "1";
+        form_is_Invisible = false;
+    }else{
+        document.getElementById('visibility').style.opacity = "0";
+        document.getElementById('inv_Button').style.opacity = "0";
+        form_is_Invisible = true;
     }
 }
