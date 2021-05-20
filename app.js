@@ -4,7 +4,10 @@ let buttonScroll_Up = document.getElementById('btnscrl_Up');
 var haferflocken = "";
 var today_Steps = 0;
 var array_Food_DB = [];
-var today_eaten = [];
+ var today_eaten = [];
+var bodyWeight = 97;  // AUF 78 ABÄNDERN !!!!!!!!!!!!!
+var kcal_Ziel = 1582;
+
 var selected_Food = "";
 var selectedFoodIndex = 0;
 var foodFromToday = false;
@@ -19,6 +22,8 @@ var eaten_Fiber = 0.0;
 var eaten_Amount = 0.0;
 var burned_Kcal = 0;
 var effective_Kcal = 0;
+
+
 //====================================================================================
 // Upload Food DB
 //====================================================================================
@@ -129,6 +134,20 @@ function load_other_LocalStorage_Values(){
         steps_into_Kcal(); 
         calc_Values();
     }
+
+    // Gewicht
+    if(localStorage.getItem('stored_BodyWeight') === null) {
+        console.log("Gewicht konnte nicht geladen werden");
+    }else{
+        bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
+    }
+
+    // Kcal Ziel
+    if(localStorage.getItem('stored_KcalZiel') === null) {
+        console.log("Kcal-Ziel konnte nicht geladen werden");
+    }else{
+        kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
+    }
 }
 
 // Speichere Today Eaten
@@ -140,8 +159,21 @@ function save_Today_Eaten() {
 // Speichere Schritte
 function save_Today_Steps() {
     localStorage.setItem("stored_Today_Steps", JSON.stringify(today_Steps));
-    console.log("stored_Today_Steps gespeichert");
+    console.log("today_Steps gespeichert");
 }
+
+// Speichere Gewicht
+function save_BodyWeight() {
+    localStorage.setItem("stored_BodyWeight", JSON.stringify(bodyWeight));
+    console.log("bodyWeight gespeichert");
+}
+
+// Speichere KcalZiel
+function save_kcalZiel() {
+    localStorage.setItem("stored_KcalZiel", JSON.stringify(kcal_Ziel));
+    console.log("kcal_Ziel gespeichert");
+}
+
 
 //====================================================================================
 // Scroll Section
@@ -263,8 +295,9 @@ function get_new_Steps() {
 
 
 function steps_into_Kcal() {
-    const kcal_per_Step = 0.077
-    burned_Kcal = parseInt(today_Steps * kcal_per_Step);
+    const kcalVal = 6;
+    const diviVal = 10000;
+    burned_Kcal = parseInt((today_Steps * kcalVal * bodyWeight) / (diviVal));
     document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
 }
 
@@ -567,7 +600,6 @@ function calc_Values() {
     }
 
     // Effektive Kcal und Differenz berechnen
-    let kcal_Ziel = 1582; // Wird später durch Variable abgelöst
     effective_Kcal = parseInt(eaten_Kcal - burned_Kcal);
     let diff = parseInt((kcal_Ziel + burned_Kcal) - eaten_Kcal);
     // Output
