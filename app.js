@@ -347,7 +347,7 @@ function steps_into_Kcal() {
         let quantity = selected_Food.quantityUnit;
         document.getElementById('statusX').innerHTML = "";
         document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
-        document.getElementById('selectedFoodMakros').innerHTML = "Kcal / 100g = " + calories + " // Mengeneinheit: " + quantity;
+        document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
         // Fokus auf Textfeld setzen
         document.getElementById('foodAmound').focus();
       });
@@ -423,8 +423,8 @@ function steps_into_Kcal() {
             let quantity = selected_Food.quantityUnit;
             document.getElementById('statusX').innerHTML = "";
             document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
-            document.getElementById('selectedFoodMakros').innerHTML = "Kcal / 100g = " + calories + " // Mengeneinheit: " + quantity;
-            // Fokus auf Textfeld setzen
+            document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
+            // Fokus auf Textfeld setzen 
             document.getElementById('foodAmound').focus();
           });
 
@@ -804,6 +804,7 @@ function define_Kcal_Target() {
         kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
         save_kcalZiel();
         alert("Kcal Ziel wurde übernommen");
+        location.reload();
     }
 }
 
@@ -843,5 +844,7 @@ function makeFieldsInvisible() {
         document.getElementById('visibility').style.opacity = "0";
         document.getElementById('inv_Button').style.opacity = "0";
         form_is_Invisible = true;
+        // TODO SPEICHERN DES STATUS UND 78 KG GEWICHT SPEICHERN
+        ///////////
     }
 }

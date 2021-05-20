@@ -88,6 +88,10 @@ git add style.css
 git commit -m""
 
 
+git add index.html
+git add app.js
+git commit -m""
+
 
 Formel für Schritte in Kcal
 (6 * Schritte * Gewicht) / (10.000)   // Eigentlich (4 * Schritte * Gewicht) / (10.000) erscheint aber wenig
