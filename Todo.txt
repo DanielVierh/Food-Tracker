@@ -79,9 +79,20 @@ Schlachtplan:
 
 
     
-
+ 
 
 
 git add index.html
 git add app.js
 git add style.css
+
+
+
+Formel für Schritte in Kcal
+(6 * Schritte * Gewicht) / (10.000)   // Eigentlich (4 * Schritte * Gewicht) / (10.000) erscheint aber wenig
+
+Formel für KCAL Bedarf MANN 
+66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
+
+Formel für KCAL Bedarf FRAU
+655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)

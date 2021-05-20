@@ -393,7 +393,7 @@ function steps_into_Kcal() {
       document.getElementById("containerTabelle").appendChild(table);
 
       // Immer Position beibehalten
-      mittig_halten();
+      //mittig_halten();
 
               // Anzahl der Produkte
     let anzProd = data.length;
