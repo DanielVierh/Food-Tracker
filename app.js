@@ -7,6 +7,7 @@ var array_Food_DB = [];
  var today_eaten = [];
 var bodyWeight = 97;  // AUF 78 ABÄNDERN !!!!!!!!!!!!!
 var kcal_Ziel = 1582;
+var kcal_Requirement = 2500;
 
 var selected_Food = "";
 var selectedFoodIndex = 0;
@@ -140,6 +141,7 @@ function load_other_LocalStorage_Values(){
         console.log("Gewicht konnte nicht geladen werden");
     }else{
         bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
+        document.getElementById('weight').value = bodyWeight;
     }
 
     // Kcal Ziel
@@ -185,6 +187,11 @@ function scroll_UP() {
 
 function mittig_halten(){
     window.scrollTo(0, 3300);
+}
+
+function goto_Settings() {
+    window.scrollTo(0, 9800);
+    console.log("ScrollToSettings");
 }
 
 //====================================================================================
@@ -673,3 +680,91 @@ function step_Progress(){
     }
 }
 
+
+
+//============================================================================
+// Einstellungen
+//============================================================================
+
+// Kcal Ziel berechnen
+function calc_Kcal_Goal() {
+    var height = 0;
+    var age = 0;
+    var targetWeight = 0;
+    var targetTime = 0;
+
+    // Gender Auswahl herausfinden
+    const gender = document.querySelectorAll('input[name="gender"]');
+    let selectedGender;
+    for (const x of gender) {
+        if (x.checked) {
+            selectedGender = x.value;
+            break;
+        }
+    }
+    // Check ob Auswahl getroffen
+    if(selectedGender == undefined) {
+        alert("Bitte eine Auswahl bei Geschlecht treffen");
+    }else{
+        // Gewicht
+        if(document.getElementById('weight').value == "") {
+            alert("Bitte das Feld Gewicht ausfüllen"); 
+        }else{
+            bodyWeight = document.getElementById('weight').value;
+            save_BodyWeight();
+
+            // Größe
+            if(document.getElementById('height').value == "") {
+                alert("Bitte das Feld Größe ausfüllen");
+            }else{
+                height = document.getElementById('height').value;
+
+                // Alter
+                if(document.getElementById('age').value == "") {
+                    alert("Bitte das Feld Alter ausfüllen");
+                }else{
+                    age = document.getElementById('age').value;
+
+                    // Zielgewicht
+                    if(document.getElementById('target_Weight').value == "") {
+                        alert("Bitte das Feld Alter ausfüllen");
+                    }else{
+                        targetWeight = document.getElementById('target_Weight').value;
+
+                        // Zielzeit
+                        if(document.getElementById('target_Time').value == "") {
+                            alert("Bitte das Feld Zeitraum ausfüllen");
+                        }else{
+                            targetTime = document.getElementById('target_Time').value;
+
+                            // Berechnung Kalorienbedarf
+                            if(selectedGender == "male") {
+                                // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
+                                kcal_Requirement = parseInt(66.47 + (13.7 * bodyWeight) + (5 * height) - (6.8 * age));
+                                
+                                let kcal_Differenz = bodyWeight - targetWeight;
+                                let tage = targetTime * 30;
+                                let abnehmBerg = kcal_Differenz * 7000;
+                                let zielEinsparung_pro_Tag = abnehmBerg / tage;
+                                let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
+
+                                console.log("targetWeight" + targetWeight);
+                                console.log("targetTime " + targetTime);
+                                console.log("recommended_Kcal " + recommended_Kcal );
+                                let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
+                                " Monat(en) erreichen möchtest, lägen die Effektiven Kcal bei: " + recommended_Kcal;
+                                document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
+
+                            }else{
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    //goto_Settings();
+}

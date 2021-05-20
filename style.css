@@ -46,6 +46,15 @@ li{
     border-radius: 12px;
 }
 
+.navButton{
+    padding: 20px;
+    background-color: #a5c956;
+    margin: 30px;
+    border-radius: 12px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
 a{
     color: #000000;
     text-decoration: none;
