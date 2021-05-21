@@ -848,3 +848,124 @@ function makeFieldsInvisible() {
         ///////////
     }
 }
+
+
+//============================================================================
+// Neues Lebensmittel hinzufügen  
+//============================================================================
+
+function add_new_Food() {
+    var new_productName = "";
+    var new_Kcal = 0;
+    var new_Fat = 0;
+    var new_Carbs = 0;
+    var new_Sugar = 0;
+    var new_Fiber = 0;
+    var new_Protein = 0;
+    var new_Salt = 0;
+    var new_Unit = 0;
+
+    // Produktname
+    if(document.getElementById('inp_Productname').value == "") {
+        alert("Bitte die Textbox für den Produktnamen ausfüllen");
+    }else{
+        new_productName = document.getElementById('inp_Productname').value;
+
+        // Kcal
+        if(document.getElementById('inp_Kcal').value == "") {
+            alert("Bitte die Textbox für Kcal ausfüllen");
+        }else{
+            new_Kcal = document.getElementById('inp_Kcal').value;
+
+            // Fett
+            if(document.getElementById('inp_Fat').value == "") {
+                alert("Bitte die Textbox für Fett ausfüllen");
+            }else{
+                new_Fat = document.getElementById('inp_Fat').value;
+
+                // Kohlenhydrate
+                if(document.getElementById('inp_Carbs').value == "") {
+                    alert("Bitte die Textbox für Kohlenhydrate ausfüllen");
+                }else{
+                    new_Carbs = document.getElementById('inp_Carbs').value;
+
+                    // Zucker
+                    if(document.getElementById('inp_Sugar').value == "") {
+                        alert("Bitte die Textbox für Zucker ausfüllen");
+                    }else{
+                        new_Sugar = document.getElementById('inp_Sugar').value;
+
+                        // Ballaststoffe
+                        if(document.getElementById('inp_Fiber').value == "") {
+                            alert("Bitte die Textbox für Ballaststoffe ausfüllen");
+                        }else{
+                            new_Fiber = document.getElementById('inp_Fiber').value;
+
+                            // Eiweiß
+                            if(document.getElementById('inp_Protein').value == "") {
+                                alert("Bitte die Textbox für Eiweiß ausfüllen");
+                            }else{
+                                new_Protein = document.getElementById('inp_Protein').value;
+
+                                // Salz
+                                if(document.getElementById('inp_Salt').value == "") {
+                                    alert("Bitte die Textbox für Salz ausfüllen");
+                                }else{
+                                    new_Salt = document.getElementById('inp_Salt').value;
+
+                                    // Mengeneinheit
+                                    if(document.getElementById('inp_Unit').value == "") {
+                                        alert("Bitte die Textbox für Mengeneinheit ausfüllen");
+                                    }else{
+                                        new_Unit = document.getElementById('inp_Unit').value;
+
+                                        let checkedNewFood = new_productName.toLowerCase();
+                                        var comp_Food = "";
+                                        var existTwice = false;
+                                        // Check Produktname
+                                        for(var i = 0; i < array_Food_DB.length; i++) {
+                                            comp_Food = array_Food_DB[i].productName.toLowerCase();
+
+                                            if(comp_Food == checkedNewFood) {
+                                                existTwice = true;
+                                                break;
+                                            }
+                                        }
+
+                                        if(existTwice == false) {
+                                            console.log("Neues Produkt wird angelegt");
+                                            // Produkt anlegen
+                                            array_Food_DB.push(new Food(new_productName, new_Kcal, new_Fat, new_Carbs, new_Sugar, new_Protein, new_Salt, new_Fiber, new_Unit));
+                                            document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " wurde zur Datenbank hinzugefügt.";
+                                            document.getElementById("Status_New_Food").style.color  = "green";
+                                            createTable_FoodDB();
+                                            // SAVE
+                                            saveFood_DB();
+
+                                            // Aufräumen
+                                            document.getElementById('inp_Productname').value = '';
+                                            document.getElementById('inp_Kcal').value = '';
+                                            document.getElementById('inp_Fat').value = '';
+                                            document.getElementById('inp_Carbs').value = '';
+                                            document.getElementById('inp_Sugar').value = '';
+                                            document.getElementById('inp_Fiber').value = '';
+                                            document.getElementById('inp_Protein').value = '';
+                                            document.getElementById('inp_Salt').value = '';
+                                            document.getElementById('inp_Unit').value = '';
+
+                                        }else{
+                                            console.log("Neues Produkt wird NICHT angelegt");
+                                            document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " exisitert bereits.";
+                                            document.getElementById("Status_New_Food").style.color  = "red";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -170,37 +170,45 @@
     <div class="mittelForm">
      
       <form class="form1">
-        <p class="advise">Nährwerte / 100 g</p>
-        <label>Produkt</label>
-        <input type="text" class="inpBox1">
+        <p class="advise"> <p style="color: yellow;">Nährwerte / 100 g</p> </p>
+        <br>
+        <p id="Status_New_Food"></p>
+        <br>
+        <label>Produktbezeichnung</label>
+        <input type="text" class="inpBox1"  id="inp_Productname">
         <hr>
         <label>Kcal</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Kcal" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Fett</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Fat" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Kohlenhydr</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Carbs" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Zucker</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Sugar" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Ballaststoffe</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Fiber" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Eiweiss</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Protein" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Salz</label>
-        <input type="text" class="inpBox2">
+        <input type="text" pattern="\d*" value="" id="inp_Salt" class="inpBox2" placeholder="pro 100 g">
         <hr>
         <label>Mengeneinheit</label>
-        <input type="text" class="inpBox1">
+        <input type="text" class="inpBox1" id="inp_Unit" placeholder="z.B. 1EL = 10g">
         <hr>
-        <button class="ButtonSpeichern">Speichern</button>
       </form>
+      <br>
+      
   </div>
+  <div class="box_SaveButton">
+    <button class="ButtonSpeichern" onclick="add_new_Food()">Speichern</button>
+  </div>
+ 
 
   <!-- Leerzone -->
   <div class="container zone"></div>
