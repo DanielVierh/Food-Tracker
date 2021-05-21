@@ -886,36 +886,48 @@ function add_new_Food() {
                 alert("Bitte die Textbox für Fett ausfüllen");
             }else{
                 new_Fat = document.getElementById('inp_Fat').value;
+                new_Fat.replace(",",".");
+                parseFloat(new_Fat);
 
                 // Kohlenhydrate
                 if(document.getElementById('inp_Carbs').value == "") {
                     alert("Bitte die Textbox für Kohlenhydrate ausfüllen");
                 }else{
                     new_Carbs = document.getElementById('inp_Carbs').value;
+                    new_Carbs.replace(",",".");
+                    parseFloat(new_Carbs);
 
                     // Zucker
                     if(document.getElementById('inp_Sugar').value == "") {
                         alert("Bitte die Textbox für Zucker ausfüllen");
                     }else{
                         new_Sugar = document.getElementById('inp_Sugar').value;
+                        new_Sugar.replace(",",".");
+                        parseFloat(new_Sugar);
 
                         // Ballaststoffe
                         if(document.getElementById('inp_Fiber').value == "") {
                             alert("Bitte die Textbox für Ballaststoffe ausfüllen");
                         }else{
                             new_Fiber = document.getElementById('inp_Fiber').value;
+                            new_Fiber.replace(",",".");
+                            parseFloat(new_Fiber);
 
                             // Eiweiß
                             if(document.getElementById('inp_Protein').value == "") {
                                 alert("Bitte die Textbox für Eiweiß ausfüllen");
                             }else{
                                 new_Protein = document.getElementById('inp_Protein').value;
+                                new_Protein.replace(",",".");
+                                parseFloat(new_Protein);
 
                                 // Salz
                                 if(document.getElementById('inp_Salt').value == "") {
                                     alert("Bitte die Textbox für Salz ausfüllen");
                                 }else{
                                     new_Salt = document.getElementById('inp_Salt').value;
+                                    new_Salt.replace(",",".");
+                                    parseFloat(new_Salt);
 
                                     // Mengeneinheit
                                     if(document.getElementById('inp_Unit').value == "") {
