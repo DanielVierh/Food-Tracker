@@ -24,7 +24,7 @@ var eaten_Amount = 0.0;
 var burned_Kcal = 0;
 var effective_Kcal = 0;
 var form_is_Invisible = false;
-
+var diff = 0;
 //====================================================================================
 // Init
 //====================================================================================
@@ -33,8 +33,10 @@ document.addEventListener('DOMContentLoaded', loadCont);
 
 // Load Content
 function loadCont() {
+    blendOut_MengeAendern();
     check_FoodDB();
     load_other_LocalStorage_Values();
+    coloring_Labels();
 }
 
 
@@ -217,6 +219,11 @@ function selectWord() {
     inp.select()
 }
 
+// Textfeld und Button für Menge ändern ausblenden
+function blendOut_MengeAendern() {
+    document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "0";
+}
+
 
 // Klasse für Lebensmittel
 
@@ -311,7 +318,7 @@ function get_new_Steps() {
 
 
 function steps_into_Kcal() {
-    const kcalVal = 6;
+    const kcalVal = 6.5;
     const diviVal = 10000;
     burned_Kcal = parseInt((today_Steps * kcalVal * bodyWeight) / (diviVal));
     document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
@@ -496,7 +503,6 @@ function steps_into_Kcal() {
                 selectedFoodIndex = -1;
                 document.getElementById('selectedFoodAnzeige').innerHTML = "";
                 document.getElementById('selectedFoodMakros').innerHTML = "";
-                zoom();
                 
 
             } catch (error) {
@@ -542,6 +548,7 @@ function create_Table_TodayEaten() {
         let quantity = selected_Food.quantityUnit;
         document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
         document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
+        document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "1";
       });
   
   
@@ -579,6 +586,8 @@ function delete_from_today() {
             document.getElementById('foodAmound_Change').value = '';
             document.getElementById('sel_change_Prod').innerHTML = '';
             create_Table_TodayEaten();
+            blendOut_MengeAendern();
+            coloring_Labels();
         }
 
     }else{
@@ -617,7 +626,7 @@ function calc_Values() {
 
     // Effektive Kcal und Differenz berechnen
     effective_Kcal = parseInt(eaten_Kcal - burned_Kcal);
-    let diff = parseInt((kcal_Ziel + burned_Kcal) - eaten_Kcal);
+    diff = parseInt((kcal_Ziel + burned_Kcal) - eaten_Kcal);
     // Output
     document.getElementById('output_Eaten').innerHTML = eaten_Kcal + " Kcal";
     document.getElementById('output_EffectiveBurned').innerHTML = effective_Kcal + " Kcal";
@@ -650,6 +659,8 @@ function calc_Values() {
         }
         document.getElementById('progress_Bar').style.width = progressValKcal + "%";
         document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
+
+        coloring_Labels();
 }
 
 
@@ -673,8 +684,9 @@ calc_Values();
 //============================================================================
 
 function coloring_Labels() {
-
     step_Progress();
+    effectiveKcal_Progress();
+    kalorienBilanz_Progress()
 }
 
 
@@ -686,6 +698,24 @@ function step_Progress(){
         document.getElementById('btnSteps').style.color = "orange";
     }else{
         document.getElementById('btnSteps').style.color = "rgb(27, 206, 27)";
+    }
+}
+
+// Effektive Kcal
+function effectiveKcal_Progress() {
+    if(effective_Kcal > kcal_Ziel) {
+        document.getElementById("output_EffectiveBurned").style.color = "red";
+    }else{
+        document.getElementById("output_EffectiveBurned").style.color = "green";
+    }
+}
+
+function kalorienBilanz_Progress() {
+    console.log(diff);
+    if(diff > 0) {
+        document.getElementById("output_Diff").style.color = "green";
+    }else{
+        document.getElementById("output_Diff").style.color = "red";
     }
 }
 
@@ -822,6 +852,10 @@ function close_Day() {
     if (req) {
         // TODO SPEICHERN DER WERTE
         ///////////
+
+        // Test Mail
+        window.open('mailto:test@example.com');
+
 
         // RESET
         today_Steps = 0;

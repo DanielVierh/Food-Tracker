@@ -9,8 +9,8 @@
   <nav class="sticky zone blue">
     <ul class="main-nav">
       <button class="navButton" onclick="goto_NewProduct()">NEU</button>
-      <li><a href="#">Planer</a></li>
-      <li><a href="#" >Statistik</a></li>
+      <!-- <li><a href="#">Planer</a></li>
+      <li><a href="#" >Statistik</a></li> -->
       <button class="navButton" onclick="goto_Settings()">Einstellungen</button>
     </ul>
   </nav>
@@ -89,11 +89,11 @@
   <!-- ================================================================ --> 
   <div class="fullCell">
     <h1>Liste Heute gegessen</h1>
-    <div class="foodSection">
+    <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen">
       <button class="button_del" onclick="delete_from_today()">X</button>
-      <label style="color: aliceblue; margin: 15px; font-size: 24px;">Menge ändern</label>
       <input  type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMenge" placeholder="in Gramm">
-      <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()">Ändern</button>
+      <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()">Menge ändern</button>
+      <button onclick="blendOut_MengeAendern()" class="checkMarkButton">✔</button>
       <p id="sel_change_Prod"></p>
       <hr>
     </div>
@@ -279,7 +279,7 @@
 
 
  
-  <footer class="zone blue">Version 0.8.6 -- 21.05.2021</footer>
+  <footer class="zone blue">Version 0.8.7 -- 21.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
