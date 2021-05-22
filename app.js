@@ -204,7 +204,6 @@ function save_Statistics() {
 //====================================================================================
 function scroll_UP() {
     window.scrollTo(0, 0);
-    console.log("ScrollUP");
 }
 
 function mittig_halten(){
@@ -212,12 +211,15 @@ function mittig_halten(){
 }
 
 function goto_Settings() {
-    window.scrollTo(0, 9800);
-    console.log("ScrollToSettings");
+    window.scrollTo(0, 12300);
 }
 
 function goto_NewProduct() {
-    window.scrollTo(0, 7100);
+    window.scrollTo(0, 9300);
+}
+
+function goto_Statistic() {
+    window.scrollTo(0, 6000);
 }
 
 //====================================================================================
@@ -1051,52 +1053,53 @@ function close_Day() {
     if (req) {
        
         var currDate = window.prompt("Bestätige oder ändere das Datum",get_today());
-        let todaySugar = document.getElementById('output_Sugar').innerHTML;
-        let todayFat = document.getElementById('output_Fat').innerHTML;
-        let todayFiber = document.getElementById('output_Fiber').innerHTML;
-        let todayProtein = document.getElementById('output_Protein').innerHTML;
-
-        // Hinzufügen der Tageswerte in Statistik
-        let length_Of_Statistic_Array = my_Statistics.length;
-        if(length_Of_Statistic_Array >= 7) {
-            // Wenn alle Plätze schon belegt, erste löschen
-            let oldarr = my_Statistics;
-            my_Statistics = [];
-            
-            for (var i = 1; i < oldarr.length; i++) {
-                my_Statistics.push(oldarr[i]);
+        if(currDate) {
+            let todaySugar = document.getElementById('output_Sugar').innerHTML;
+            let todayFat = document.getElementById('output_Fat').innerHTML;
+            let todayFiber = document.getElementById('output_Fiber').innerHTML;
+            let todayProtein = document.getElementById('output_Protein').innerHTML;
+    
+            // Hinzufügen der Tageswerte in Statistik
+            let length_Of_Statistic_Array = my_Statistics.length;
+            if(length_Of_Statistic_Array >= 7) {
+                // Wenn alle Plätze schon belegt, erste löschen
+                let oldarr = my_Statistics;
+                my_Statistics = [];
+                
+                for (var i = 1; i < oldarr.length; i++) {
+                    my_Statistics.push(oldarr[i]);
+                }
+    
+                my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
+                console.log(my_Statistics);
+                show_Statisitcs("show_Effekctive_Kcal");
+            }else{
+                my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
+                console.log(my_Statistics);
+                show_Statisitcs("show_Effekctive_Kcal");
             }
-
-            my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
-            console.log(my_Statistics);
-            show_Statisitcs("show_Effekctive_Kcal");
-        }else{
-            my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
-            console.log(my_Statistics);
-            show_Statisitcs("show_Effekctive_Kcal");
-        }
-
-        // SPEICHERN DER WERTE
-        save_Statistics();
-
-        // Test Mail
-        // TODO MAIL VERSENDEN
-        ///////////////
-        //window.open('mailto:test@example.com');
-
-        
-        // RESET
-        today_Steps = 0;
-        today_eaten = [];
-        document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
-            coloring_Labels();
-            steps_into_Kcal(); 
-            calc_Values();
-            save_Today_Steps();
-            save_Today_Eaten();
-            location.reload();
-
-           
+    
+            // SPEICHERN DER WERTE
+            save_Statistics();
+    
+            // Test Mail
+            // TODO MAIL VERSENDEN
+            ///////////////
+            //window.open('mailto:test@example.com');
+    
+            
+            // RESET
+            today_Steps = 0;
+            today_eaten = [];
+            document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+                coloring_Labels();
+                steps_into_Kcal(); 
+                calc_Values();
+                save_Today_Steps();
+                save_Today_Eaten();
+                alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
+                location.reload();
+        }           
     }
 }
 
