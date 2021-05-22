@@ -38,7 +38,7 @@ function loadCont() {
     check_FoodDB();
     load_other_LocalStorage_Values();
     coloring_Labels();
-    show_Statisitcs();
+    show_Statisitcs("show_Effekctive_Kcal");
 }
 
 
@@ -159,6 +159,13 @@ function load_other_LocalStorage_Values(){
         bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
         document.getElementById('weight').value = bodyWeight;
     }
+
+    // Statistics
+    if(localStorage.getItem('stored_Statistics') === null) {
+        console.log("Statistik Werte konnten nicht geladen werden");
+    }else{
+        my_Statistics = JSON.parse(localStorage.getItem("stored_Statistics"));
+    }
 }
 
 // Speichere Today Eaten
@@ -183,6 +190,12 @@ function save_BodyWeight() {
 function save_kcalZiel() {
     localStorage.setItem("stored_KcalZiel", JSON.stringify(kcal_Ziel));
     console.log("kcal_Ziel gespeichert");
+}
+
+// Speichere Statistics
+function save_Statistics() {
+    localStorage.setItem("stored_Statistics", JSON.stringify(my_Statistics));
+    console.log("Statistics gespeichert");
 }
 
 
@@ -276,6 +289,10 @@ function show_EffectKcal() {
     show_Statisitcs("show_Effekctive_Kcal");
 }
 
+function show_Steps() {
+    show_Statisitcs("show_Steps");
+}
+
 
 // Erstelle Statistik
 function show_Statisitcs(val) {
@@ -290,74 +307,150 @@ function show_Statisitcs(val) {
     var currProzent = 0;
 
     // TESTDATEN
-    let day1 = new RepositoryLast7Days("21.05.2021", 1300, 12199, 769, 39, 141, 32, 102);
-    let day2 = new RepositoryLast7Days("22.05.2021", 1400, 10884, 686, 12, 129, 58, 89);
-    let day3 = new RepositoryLast7Days("23.05.2021", 1500, 9478, 597, 48, 65, 47, 125);
-    let day4 = new RepositoryLast7Days("24.05.2021", 1600, 9478, 597, 48, 65, 47, 125);
-    let day5 = new RepositoryLast7Days("25.05.2021", 1700, 9478, 597, 48, 65, 47, 125);
-    let day6 = new RepositoryLast7Days("26.05.2021", 1800, 9478, 597, 48, 65, 47, 125);
-    let day7 = new RepositoryLast7Days("27.05.2021", 3500, 9478, 597, 48, 65, 47, 125);
-    my_Statistics.push(day1);
-    my_Statistics.push(day2);
-    my_Statistics.push(day3);
-    my_Statistics.push(day4);
-    my_Statistics.push(day5);
-    my_Statistics.push(day6);
-    my_Statistics.push(day7);
+    // let day1 = new RepositoryLast7Days("21.05.2021", 1300, 12199, 769, 39, 141, 32, 102);
+    // let day2 = new RepositoryLast7Days("22.05.2021", 1400, 10884, 686, 12, 129, 58, 89);
+    // let day3 = new RepositoryLast7Days("23.05.2021", 1500, 9478, 597, 48, 65, 47, 125);
+    // let day4 = new RepositoryLast7Days("24.05.2021", 1600, 9478, 597, 48, 65, 47, 125);
+    // let day5 = new RepositoryLast7Days("25.05.2021", 1700, 9478, 597, 48, 65, 47, 125);
+    // let day6 = new RepositoryLast7Days("26.05.2021", 1800, 9478, 597, 48, 65, 47, 125);
+    // let day7 = new RepositoryLast7Days("27.05.2021", 3500, 9478, 597, 48, 65, 47, 125);
+    // my_Statistics.push(day1);
+    // my_Statistics.push(day2);
+    // my_Statistics.push(day3);
+    // my_Statistics.push(day4);
+    // my_Statistics.push(day5);
+    // my_Statistics.push(day6);
+    // my_Statistics.push(day7);
 
-    console.log(my_Statistics);
-    
-    if(val == "") {
-        document.getElementById("valDescription").innerHTML = "Effek. Kcal";
-    }
+    console.log("In Statistics" + my_Statistics);
 
     let statistik_Count = my_Statistics.length;
     var val_to_DayBefore = 0;
     var lastDayVal = 0;
     var currentVal = 0;
     var fatSum = 0;
-
-    for(var i = 0; i < statistik_Count; i++) {
-        document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
-        currentVal = my_Statistics[i].repository_EffectiveKcal;
-        document.getElementById("val_Col_" + i).innerHTML = currentVal;
+    
+    if(val == "show_Effekctive_Kcal") {
+        // >>> EFFEKTIVE KCAL <<<  
+        document.getElementById("valDescription").innerHTML = "Effek. Kcal";
+        document.getElementById("valDescrFett").innerHTML = "Fett";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Effektive Kcal";
         
-        // + - zum Vortag
-        if(i > 0) {
-            val_to_DayBefore = parseInt(my_Statistics[i].repository_EffectiveKcal) - parseInt(lastDayVal);
-            document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
-            lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
-        }else{
-            val_to_DayBefore = "-";
-            lastDayVal = my_Statistics[i].repository_EffectiveKcal;
-            document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
+            currentVal = my_Statistics[i].repository_EffectiveKcal;
+            document.getElementById("val_Col_" + i).innerHTML = currentVal;
+            
+            // + - zum Vortag
+            if(i > 0) {
+                val_to_DayBefore = parseInt(my_Statistics[i].repository_EffectiveKcal) - parseInt(lastDayVal);
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " g";
+                lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
+            }else{
+                val_to_DayBefore = "-";
+                lastDayVal = my_Statistics[i].repository_EffectiveKcal;
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+            }
+    
+            // Fett in Gramm
+            let trueDifferenz = kcal_Ziel - parseInt(currentVal);
+            let kcal_in_Gramm = parseInt(trueDifferenz * 1000 / 7000);
+            fatSum += kcal_in_Gramm;
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = kcal_in_Gramm + " g";
+    
+            // Diagramm
+            currProzent = parseInt(my_Statistics[i].repository_EffectiveKcal) * 100 / kcal_Ziel;
+            let colHeightInPixel = currProzent * 500 / 100;
+            if(colHeightInPixel > 1000) {
+                document.getElementById("COL_Dia_" + i).style.height = "1000px";
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_EffectiveKcal + ' kcal 🚀';
+            }else {
+                document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_EffectiveKcal + ' kcal';
+            }
+    
+            // Balken färben
+            if(currentVal > kcal_Ziel) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+                document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                document.getElementById('fettInGramm_Col_' + i).style.color = "red";
+            }else{
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
+                document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                document.getElementById('fettInGramm_Col_' + i).style.color = "green";
+            }
+            
+            
+        }
+    
+            // Ziel Latte
+                let targetHeight = 500; // Mitte
+                document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
+    
+            // Fettsumme anzeigen  
+            document.getElementById('outputFatSum').innerHTML = fatSum + " g";
+
+
+
+
+
+        // >>> SCHRITTE <<<
+    }else if (val == "show_Steps") {
+        
+        document.getElementById("valDescription").innerHTML = "Schritte";
+        document.getElementById("valDescrFett").innerHTML = "";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte";
+        document.getElementById('outputFatSum').innerHTML = "";
+        // Fett ausblenden
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
+            document.getElementById('fettInGramm_Col_' + i).style.color = "white";
         }
 
-        // Fett in Gramm
-        let trueDifferenz = kcal_Ziel - parseInt(currentVal);
-        let kcal_in_Gramm = parseInt(trueDifferenz * 1000 / 7000);
-        fatSum += kcal_in_Gramm;
-        document.getElementById('fettInGramm_Col_' + i).innerHTML = kcal_in_Gramm + " g";
-
-        // Diagramm
-        currProzent = parseInt(my_Statistics[i].repository_EffectiveKcal) * 100 / kcal_Ziel;
-        let colHeightInPixel = currProzent * 500 / 100;
-        if(colHeightInPixel > 1000) {
-            document.getElementById("COL_Dia_" + i).style.height = "1000px";
-            document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_EffectiveKcal + ' kcal 🚀';
-        }else {
-            document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
-            document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_EffectiveKcal + ' kcal';
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
+            currentVal = my_Statistics[i].repository_Steps;
+            document.getElementById("val_Col_" + i).innerHTML = currentVal;
+            
+            // + - zum Vortag
+            if(i > 0) {
+                val_to_DayBefore = parseInt(my_Statistics[i].repository_Steps) - parseInt(lastDayVal);
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+                lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
+            }else{
+                val_to_DayBefore = "-";
+                lastDayVal = my_Statistics[i].repository_Steps;
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+            }
+    
+            // Diagramm
+            currProzent = parseInt(my_Statistics[i].repository_Steps) * 100 / 10000;
+            let colHeightInPixel = currProzent * 500 / 100;
+            if(colHeightInPixel > 1000) {
+                document.getElementById("COL_Dia_" + i).style.height = "1000px";
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Steps + ' 🚀';
+            }else {
+                document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Steps;
+            }
+    
+            // Balken färben
+            if(currentVal < 10000) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+                document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+            }else{
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
+                document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+            }
+            
+            
         }
-        
+
     }
 
-        // Ziel Latte
-            let targetHeight = 500; // Mitte
-            document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
 
-        // Fettsumme anzeigen  
-        document.getElementById('outputFatSum').innerHTML = fatSum + " g";
+
+
 
 
 }
@@ -956,13 +1049,42 @@ function define_Kcal_Target() {
 function close_Day() {
     const req = window.confirm("Soll der Tag wirklich zurückgesetzt werden?");
     if (req) {
-        // TODO SPEICHERN DER WERTE
-        ///////////
+       
+        var currDate = window.prompt("Bestätige oder ändere das Datum",get_today());
+        let todaySugar = document.getElementById('output_Sugar').innerHTML;
+        let todayFat = document.getElementById('output_Fat').innerHTML;
+        let todayFiber = document.getElementById('output_Fiber').innerHTML;
+        let todayProtein = document.getElementById('output_Protein').innerHTML;
+
+        // Hinzufügen der Tageswerte in Statistik
+        let length_Of_Statistic_Array = my_Statistics.length;
+        if(length_Of_Statistic_Array >= 7) {
+            // Wenn alle Plätze schon belegt, erste löschen
+            let oldarr = my_Statistics;
+            my_Statistics = [];
+            
+            for (var i = 1; i < oldarr.length; i++) {
+                my_Statistics.push(oldarr[i]);
+            }
+
+            my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
+            console.log(my_Statistics);
+            show_Statisitcs("show_Effekctive_Kcal");
+        }else{
+            my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
+            console.log(my_Statistics);
+            show_Statisitcs("show_Effekctive_Kcal");
+        }
+
+        // SPEICHERN DER WERTE
+        save_Statistics();
 
         // Test Mail
-        window.open('mailto:test@example.com');
+        // TODO MAIL VERSENDEN
+        ///////////////
+        //window.open('mailto:test@example.com');
 
-
+        
         // RESET
         today_Steps = 0;
         today_eaten = [];
@@ -973,7 +1095,31 @@ function close_Day() {
             save_Today_Steps();
             save_Today_Eaten();
             location.reload();
+
+           
     }
+}
+
+
+// Datum erzeugen
+function get_today(){
+    var today = new Date();
+
+    var day = today.getDate(); // Tag
+
+    // Monatsangabe startet bei 0!
+    var month = today.getMonth()+1; // Monat
+
+    var year = today.getFullYear(); // Jahr
+    if(day < 10) {
+            day = '0'+ day;
+    } 
+    if(month < 10) {
+            month = '0'+ month;
+    } 
+    today = day + '.' + month + '.' + year;
+
+    return today;
 }
 
 //============================================================================
