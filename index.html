@@ -163,66 +163,85 @@
     <div class="fullCell">
       <h1>Statistik</h1>
       <br>
+      <div class="wrapperButton">
+        <button class="optButtonStatisik" onclick="show_EffectKcal()">Effek. Kcal</button>
+        <button class="optButtonStatisik">Schritte</button>
+        <button class="optButtonStatisik">Verbrannt</button>
+      </div>
+      <div class="wrapperButton">
+        <button class="optButtonStatisik">Zucker</button>
+        <button class="optButtonStatisik">Eiweiß</button>
+        <button class="optButtonStatisik">Ballaststoffe</button>
+        <button class="optButtonStatisik">Fett</button>
+      </div>
+      <br>
       <p style="text-align: center;">Effektive Kcal</p>
       <br>
       <table class="names">
         <tr>
           <th>Datum</th>
-          <th>Effek. Kcal</th> 
+          <th id="valDescription">Effek. Kcal</th> 
           <th>Zum Vortag</th>
           <th>Fett</th>
         </tr>
         <tr>
-          <td>20.05.2021</td>
-          <td>1282 kcal</td>
-          <td>-239</td>
-          <td>111g</td>
+          <td id="datum_Col_0">00.00.0000</td>
+          <td id="val_Col_0">0 kcal</td>
+          <td id="change_DayBefore_Col_0">0</td>
+          <td id="fettInGramm_Col_0">0 g</td>
         </tr>
         <tr>
-          <td>21.05.2021</td>
-          <td>1507 kcal</td>
-          <td>+225</td>
-          <td>79g</td>
+          <td id="datum_Col_1">00.00.0000</td>
+          <td id="val_Col_1">0 kcal</td>
+          <td id="change_DayBefore_Col_1">0</td>
+          <td id="fettInGramm_Col_1">0g</td>
         </tr>
         <tr>
-          <td>22.05.2021</td>
-          <td>2113 kcal</td>
-          <td>+606</td>
-          <td>-7g</td>
+          <td id="datum_Col_2">00.00.0000</td>
+          <td id="val_Col_2">0 kcal</td>
+          <td id="change_DayBefore_Col_2">0</td>
+          <td id="fettInGramm_Col_2">0g</td>
         </tr>
         <tr>
-          <td>23.05.2021</td>
-          <td>1913 kcal</td>
-          <td>+806</td>
-          <td>-77g</td>
+          <td id="datum_Col_3">00.00.0000</td>
+          <td id="val_Col_3">0 kcal</td>
+          <td id="change_DayBefore_Col_3">0</td>
+          <td id="fettInGramm_Col_3">-0g</td>
         </tr>
-        <td>24.05.2021</td>
-        <td>13578 kcal</td>
-        <td>-506</td>
-        <td>97g</td>
+        <tr>
+          <td id="datum_Col_4">00.00.0000</td>
+          <td id="val_Col_4">0 kcal</td>
+          <td id="change_DayBefore_Col_4">0</td>
+          <td id="fettInGramm_Col_4">-0g</td>
+        </tr>
+        <td id="datum_Col_5">00.00.0000</td>
+        <td id="val_Col_5">0 kcal</td>
+        <td id="change_DayBefore_Col_5">0</td>
+        <td id="fettInGramm_Col_5">0g</td>
       </tr>
       <tr>
-        <td>25.05.2021</td>
-        <td>1282 kcal</td>
-        <td>-239</td>
-        <td>111g</td>
+        <td id="datum_Col_6">00.00.0000</td>
+        <td id="val_Col_6">0 kcal</td>
+        <td id="change_DayBefore_Col_6">0</td>
+        <td id="fettInGramm_Col_6">0g</td>
       </tr>
       <tr>
-        <td>26.05.2021</td>
-        <td>1507 kcal</td>
-        <td>+225</td>
-        <td>79g</td>
+        <td></td>
+        <td></td>
+        <td>Summe: </td>
+        <td id="outputFatSum">393 g</td>
       </tr>
       </table>
       <br>
       <div class="container_Kcal_Diagram">
-        <div class="column c1" id="eff_Dia_1">1282 kcal</div>
-        <div class="column c2" id="eff_Dia_2">1507 kcal</div>
-        <div class="column c3" id="eff_Dia_3">2113 kcal</div>
-        <div class="column c4" id="eff_Dia_4">1913 kcal</div>
-        <div class="column c5" id="eff_Dia_5">13578 kcal</div>
-        <div class="column c6" id="eff_Dia_6">1282 kcal</div>
-        <div class="column c7" id="eff_Dia_7">1507 kcal</div>
+        <div class="column c1" id="COL_Dia_0">1282 kcal</div>
+        <div class="column c2" id="COL_Dia_1">1507 kcal</div>
+        <div class="column c3" id="COL_Dia_2">2113 kcal</div>
+        <div class="column c4" id="COL_Dia_3">1913 kcal</div>
+        <div class="column c5" id="COL_Dia_4">13578 kcal</div>
+        <div class="column c6" id="COL_Dia_5">1282 kcal</div>
+        <div class="column c7" id="COL_Dia_6">1507 kcal</div>
+        <div class="column KcalGoal" id="eff_Goal"></div>
       </div>
     </div>
 
@@ -348,7 +367,7 @@
 
 
  
-  <footer class="zone blue">Version 0.8.8 -- 22.05.2021</footer>
+  <footer class="zone blue">Version 0.8.9 -- 22.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
