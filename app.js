@@ -28,6 +28,7 @@ var burned_Kcal = 0;
 var effective_Kcal = 0;
 var form_is_Invisible = false;
 var diff = 0;
+var changeProduct = false;
 //====================================================================================
 // Init
 //====================================================================================
@@ -633,7 +634,6 @@ function steps_into_Kcal() {
             foodFromToday = false;
             selectedFoodIndex = this.dataset.id;  
             selected_Food = data[selectedFoodIndex];
-            let calories = selected_Food.kcal;
             let quantity = selected_Food.quantityUnit;
             document.getElementById('statusX').innerHTML = "";
             document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
@@ -1159,6 +1159,7 @@ function add_new_Food() {
     var new_Protein = 0;
     var new_Salt = 0;
     var new_Unit = 0;
+    
 
     // Produktname
     if(document.getElementById('inp_Productname').value == "") {
@@ -1259,11 +1260,37 @@ function add_new_Food() {
                                             document.getElementById('inp_Protein').value = '';
                                             document.getElementById('inp_Salt').value = '';
                                             document.getElementById('inp_Unit').value = '';
+                                            changeProduct = false;
 
                                         }else{
-                                            console.log("Neues Produkt wird NICHT angelegt");
-                                            document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " exisitert bereits.";
-                                            document.getElementById("Status_New_Food").style.color  = "red";
+                                            if(changeProduct == true) {
+                                                // Makros werden angepasst
+                                                // Produkt anlegen
+                                                array_Food_DB.splice(selectedFoodIndex, 1);
+                                                array_Food_DB.push(new Food(new_productName, new_Kcal, new_Fat, new_Carbs, new_Sugar, new_Protein, new_Salt, new_Fiber, new_Unit));
+                                                document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " wurde erfolgreich geändert.";
+                                                document.getElementById("Status_New_Food").style.color  = "green";
+                                                createTable_FoodDB();
+                                                // SAVE
+                                                saveFood_DB();
+
+                                                // Aufräumen
+                                                document.getElementById('inp_Productname').value = '';
+                                                document.getElementById('inp_Kcal').value = '';
+                                                document.getElementById('inp_Fat').value = '';
+                                                document.getElementById('inp_Carbs').value = '';
+                                                document.getElementById('inp_Sugar').value = '';
+                                                document.getElementById('inp_Fiber').value = '';
+                                                document.getElementById('inp_Protein').value = '';
+                                                document.getElementById('inp_Salt').value = '';
+                                                document.getElementById('inp_Unit').value = '';
+                                                changeProduct = false;
+                                            }else{
+                                                console.log("Neues Produkt wird NICHT angelegt");
+                                                document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " exisitert bereits.";
+                                                document.getElementById("Status_New_Food").style.color  = "red";
+                                            }
+                                            
                                         }
                                     }
                                 }
@@ -1276,3 +1303,25 @@ function add_new_Food() {
     }
 }
 
+
+//============================================================================
+// Makros in der Datenbank ändern
+//============================================================================
+
+
+function changeMacros() {
+    goto_NewProduct();
+    changeProduct = true;
+    // Content laden
+    document.getElementById('inp_Productname').value = selected_Food.productName; 
+    document.getElementById('inp_Kcal').value = selected_Food.kcal;
+    document.getElementById('inp_Fat').value = selected_Food.fat;
+    document.getElementById('inp_Carbs').value = selected_Food.carbs;
+    document.getElementById('inp_Sugar').value = selected_Food.sugar;
+    document.getElementById('inp_Fiber').value = selected_Food.fiber;
+    document.getElementById('inp_Protein').value = selected_Food.protein;
+    document.getElementById('inp_Salt').value = selected_Food.salt;
+    document.getElementById('inp_Unit').value = selected_Food.quantityUnit;
+
+
+}
