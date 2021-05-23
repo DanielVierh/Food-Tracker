@@ -1325,3 +1325,32 @@ function changeMacros() {
 
 
 }
+
+//============================================================================
+// Produkt aus Datenbank löschen
+//============================================================================
+function delete_Food_from_DB() {
+    
+    let checkVal = document.getElementById('inp_Productname').value;
+    if(checkVal == "") {
+        console.log("Kein Produkt in der Pipe");
+    }else{
+        var deleteDecision = window.confirm("Soll das Lebensmittel: <" + selected_Food.productName + "> wirklich für immer aus der Datenbank gelöscht werrden?")
+        if(deleteDecision) {
+            let spliceIndex = indexErmittler(selected_Food.productName);
+            array_Food_DB.splice(spliceIndex, 1);
+            saveFood_DB();
+            alert("Lebensmittel wurde gelöscht");
+            location.reload();
+        }
+    }
+}
+
+
+function indexErmittler(searchWord) {
+    for(var i = 0; i< array_Food_DB.length; i++) {
+        if (array_Food_DB[i].productName == searchWord) {
+            return i;
+        }
+    }
+}

@@ -107,7 +107,6 @@ Formel für KCAL Bedarf FRAU
 TODOS 
 
 Produktmenge ändern
-o	Produkt löschen 
 o	Historie komplett
 o	Mailversand historie
 o	Ux verbessern bei neuen usern
@@ -118,9 +117,11 @@ o	Planer bauen
 o	Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto
 o	Themes Dark, light (hellblau)
 o	Bei ausgeblendeten eingabe verhindern
-o	Pizza spinacci löschen
+
 
 
 DONE 
 •	Mengenänderungsbox anpassen
 o	Produkt makros ändern
+o	Produkt löschen 
+o	Pizza spinacci löschen

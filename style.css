@@ -278,6 +278,18 @@ footer{
       height: 80px;
       font-size: 44px;
       border-radius: 20px;
+      margin: 15px;
+  }
+
+  .button_FoodLoeschen{
+    width: 250px;
+    height: 80px;
+    background-color: red;
+    color: white;
+    margin: 15px;
+    font-size: 44px;
+    font-weight: bold;
+    border-radius: 20px;
   }
 
   .button_TagAbschl{
@@ -587,8 +599,8 @@ table tr:nth-child(odd) { background: #010a13; }
 
 
 .box_SaveButton{
-    margin-left: 60%;
-    margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -691,5 +703,7 @@ table {
     margin: 10px;
     border: 3px solid rgb(17, 138, 146);
   }
+
+
 
 
