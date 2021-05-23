@@ -106,7 +106,7 @@ Formel für KCAL Bedarf FRAU
 
 TODOS 
 
-Produktmenge ändern
+o   Produktmenge ändern
 o	Historie komplett
 o	Mailversand historie
 o	Ux verbessern bei neuen usern
