@@ -1265,26 +1265,15 @@ function add_new_Food() {
                                         }else{
                                             if(changeProduct == true) {
                                                 // Makros werden angepasst
-                                                // Produkt anlegen
-                                                array_Food_DB.splice(selectedFoodIndex, 1);
+                                                // Produkt löschen und anlegen
+                                                let spliceIndex = indexErmittler(selected_Food.productName);
+                                                array_Food_DB.splice(spliceIndex, 1);
                                                 array_Food_DB.push(new Food(new_productName, new_Kcal, new_Fat, new_Carbs, new_Sugar, new_Protein, new_Salt, new_Fiber, new_Unit));
-                                                document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " wurde erfolgreich geändert.";
-                                                document.getElementById("Status_New_Food").style.color  = "green";
-                                                createTable_FoodDB();
                                                 // SAVE
                                                 saveFood_DB();
+                                                alert("Lebensmittel wurde erfolgreich angepasst");
+                                                location.reload();
 
-                                                // Aufräumen
-                                                document.getElementById('inp_Productname').value = '';
-                                                document.getElementById('inp_Kcal').value = '';
-                                                document.getElementById('inp_Fat').value = '';
-                                                document.getElementById('inp_Carbs').value = '';
-                                                document.getElementById('inp_Sugar').value = '';
-                                                document.getElementById('inp_Fiber').value = '';
-                                                document.getElementById('inp_Protein').value = '';
-                                                document.getElementById('inp_Salt').value = '';
-                                                document.getElementById('inp_Unit').value = '';
-                                                changeProduct = false;
                                             }else{
                                                 console.log("Neues Produkt wird NICHT angelegt");
                                                 document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " exisitert bereits.";
@@ -1335,7 +1324,7 @@ function delete_Food_from_DB() {
     if(checkVal == "") {
         console.log("Kein Produkt in der Pipe");
     }else{
-        var deleteDecision = window.confirm("Soll das Lebensmittel: <" + selected_Food.productName + "> wirklich für immer aus der Datenbank gelöscht werrden?")
+        var deleteDecision = window.confirm("Soll das Lebensmittel: <" + selected_Food.productName + "> wirklich für immer aus der Datenbank gelöscht werden?")
         if(deleteDecision) {
             let spliceIndex = indexErmittler(selected_Food.productName);
             array_Food_DB.splice(spliceIndex, 1);

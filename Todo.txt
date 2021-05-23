@@ -87,7 +87,12 @@ git add app.js
 git add style.css
 git commit -m""
 
+git add Todo.txt
+git add index.html
+git add style.css
+git commit -m""
 
+git add Todo.txt
 git add index.html
 git add app.js
 git commit -m""
