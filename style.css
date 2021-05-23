@@ -36,6 +36,7 @@ body{
     }
 }
 
+
 .push{
     /* Um Contacts nacht rechts zu setzen */
     margin-left: auto;
@@ -333,9 +334,19 @@ footer{
     height: 80px;
     background-color: rgb(230, 189, 10);
     color: black;
-    border-radius: 0px;
+    border-radius: 12px;
     font-size: 32px;
     font-weight: bolder;
+    margin: 15px;
+    border: 3px solid black;
+}
+
+.inputMengeChange{
+  margin: 15px;
+  font-size: 42px;
+  font-weight: bolder;
+  text-align: center;
+  width: 200px;
 }
 
 .checkMarkButton{
@@ -347,6 +358,7 @@ footer{
     border-radius: 55px;
     background-color: green;
     color: white;
+    margin: 15px 15px 15px 25px;
 }
 
   /* Tabelle ALLE PRODUKTE */
@@ -605,6 +617,7 @@ table {
       position:absolute;
       text-align: center;
       font-size: 34px;
+      border-radius: 12px;
   }
 
   .c1{

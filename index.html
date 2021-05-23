@@ -90,10 +90,14 @@
   <div class="fullCell">
     <h1>Liste Heute gegessen</h1>
     <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen">
-      <button class="button_del" onclick="delete_from_today()">X</button>
-      <input  type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMenge" placeholder="in Gramm">
-      <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()">Menge ändern</button>
-      <button onclick="blendOut_MengeAendern()" class="checkMarkButton">✔</button>
+      <div class="wrapperButton">
+        <button class="button_del" onclick="delete_from_today()">X</button>
+        <input  type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange" placeholder="in Gramm">
+        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()">Menge ändern</button>
+        <button onclick="blendOut_MengeAendern()" class="checkMarkButton">✔</button>
+      </div>
+
+
       <p id="sel_change_Prod"></p>
       <hr>
     </div>
@@ -367,7 +371,7 @@
 
 
  
-  <footer class="zone blue">Version 0.9.1 -- 23.05.2021</footer>
+  <footer class="zone blue">Version 0.9.2 -- 23.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
