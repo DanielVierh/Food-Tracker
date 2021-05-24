@@ -252,6 +252,11 @@ function selectWord2() {
 // Textfeld und Button für Menge ändern ausblenden
 function blendOut_MengeAendern() {
     document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "0";
+    // Disable Schaltflächen
+    document.getElementById("btnChangeQuantity").disabled = true;
+    document.getElementById("btnDeleteFoodFromToday").disabled = true;
+    document.getElementById("foodAmound_Change").disabled = true;
+    
 }
 
 
@@ -759,7 +764,12 @@ function create_Table_TodayEaten() {
         selected_Food = today_eaten[selectedFoodIndex];
         document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
         document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
+        // Sichbar machen
         document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "1";
+            // Enable Schaltflächen
+        document.getElementById("btnChangeQuantity").disabled = false;
+        document.getElementById("btnDeleteFoodFromToday").disabled = false;
+        document.getElementById("foodAmound_Change").disabled = false;
 
       });
   
