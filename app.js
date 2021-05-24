@@ -486,7 +486,7 @@ function show_Statisitcs(val) {
             if(i > 0) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_Steps) - parseInt(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
-                lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
+                lastDayVal = parseInt(my_Statistics[i].repository_Steps);
             }else{
                 val_to_DayBefore = "-";
                 lastDayVal = my_Statistics[i].repository_Steps;
@@ -1321,6 +1321,11 @@ function close_Day() {
        
         var currDate = window.prompt("Bestätige oder ändere das Datum",get_today());
         if(currDate) {
+            var realKcal = window.prompt("Kcal bestätigen oder abändern", burned_Kcal);
+            if(realKcal) {
+                burned_Kcal = parseInt(realKcal);
+                calc_Values();
+            }
             let todaySugar = document.getElementById('output_Sugar').innerHTML;
             let todayFat = document.getElementById('output_Fat').innerHTML;
             let todayFiber = document.getElementById('output_Fiber').innerHTML;
