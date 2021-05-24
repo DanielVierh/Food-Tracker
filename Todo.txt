@@ -132,7 +132,6 @@ TODOS
 o	Historie komplett
 o	Mailversand historie
 o	Ux verbessern bei neuen usern
-o	Möglichkeit schaffen , kcal einzutragen bei Abschluss?
 o	Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
 o	Andere Statistikwerte
 o	Planer bauen
@@ -152,3 +151,4 @@ o	Bei ausgeblendeten eingabe verhindern
 o   Action Bereiche ausgeblendet
 o   Collision Detection -- Erkennen, wenn Lebensmittel vorhanden in Heute gegessen und Fragen ob addiert werden soll. 
 o	Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto
+o	Möglichkeit schaffen , kcal einzutragen bei Abschluss?
