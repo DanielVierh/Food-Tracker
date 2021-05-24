@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', loadCont);
 // Load Content
 function loadCont() {
     blendOut_MengeAendern();
+    blendOut_Eingabebereich_FoodDB(); 
     check_FoodDB();
     load_other_LocalStorage_Values();
     coloring_Labels();
@@ -257,6 +258,14 @@ function blendOut_MengeAendern() {
     document.getElementById("btnDeleteFoodFromToday").disabled = true;
     document.getElementById("foodAmound_Change").disabled = true;
     
+}
+
+function blendOut_Eingabebereich_FoodDB() {
+    document.getElementById("optAreaDB").style.opacity = "0";
+    // Disable Schaltflächen
+    document.getElementById("btn_Save_to_TodayEaten").disabled = true;
+    document.getElementById("foodAmound").disabled = true;
+    document.getElementById("btn_ChangeMacros").disabled = true;
 }
 
 
@@ -578,6 +587,7 @@ function steps_into_Kcal() {
         document.getElementById('statusX').innerHTML = "";
         document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
         document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
+        blendIn_FoodActionArea();
         // Fokus auf Textfeld setzen
         document.getElementById('foodAmound').focus();
       });
@@ -653,6 +663,7 @@ function steps_into_Kcal() {
             document.getElementById('statusX').innerHTML = "";
             document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
             document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
+            blendIn_FoodActionArea();
             // Fokus auf Textfeld setzen 
             document.getElementById('foodAmound').focus();
           });
@@ -678,6 +689,14 @@ function steps_into_Kcal() {
 
 
 
+  function blendIn_FoodActionArea() {
+    document.getElementById("optAreaDB").style.opacity = "1";
+    // Disable Schaltflächen
+    document.getElementById("btn_Save_to_TodayEaten").disabled = false;
+    document.getElementById("foodAmound").disabled = false;
+    document.getElementById("btn_ChangeMacros").disabled = false;
+  }
+
 
 
 //============================================================================
@@ -689,9 +708,49 @@ function steps_into_Kcal() {
         if(document.getElementById('foodAmound').value == "") {
             alert("Bitte eine Menge eingeben");
         }else{
+
+            
+            let newProduct = selected_Food.productName;
+            var alreadyTracked = false;
+            var todayEatenIndex = 3000;
+            var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
+
+            // Checke ob bereits vorhanden
+            for(var i = 0; i < today_eaten.length; i++) {
+                if(today_eaten[i].intake_productName == newProduct) {
+                    alreadyTracked = true;
+                    todayEatenIndex = i;
+                    break;
+                }
+            }
+            if(alreadyTracked == false) {
+                console.log("Noch nicht vorhanden");
+            }else{
+                console.log("Bereits vorhanden");
+                // Fragen, ob addiert werden soll
+                var addRequest = window.confirm(newProduct + " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?");
+                
+                // WENN ADDIERT WERDEN SOLL...
+                if(addRequest) {
+                    // old_Quantity ermitteln
+                    old_Quantity = today_eaten[todayEatenIndex].intake_amount;
+                    // Neuen Wert eintragen alt + neu
+                    selectedAmount = selectedAmount + old_Quantity;
+                    // Altes Produkt löschen
+                    if(todayEatenIndex != 3000) {
+                        today_eaten.splice(todayEatenIndex, 1);
+                    }
+                    // Letzte Aktionen
+                    todayEatenIndex = 3000;
+                }else{
+                    createTable_FoodDB();
+                    blendOut_Eingabebereich_FoodDB();
+                    return;
+                }
+            }
+
             // Produkt hinzufügen
             try {
-                let selectedAmount = parseFloat(document.getElementById('foodAmound').value);
                 let kcal_Intake = parseInt(selectedAmount * selected_Food.kcal / 100);
                 let fat_Intake = parseFloat(selectedAmount * selected_Food.fat / 100);
                 let carb_Intake = parseFloat(selectedAmount * selected_Food.carbs / 100);
@@ -700,7 +759,7 @@ function steps_into_Kcal() {
                 let salt_Intake = parseFloat(selectedAmount * selected_Food.salt / 100);
                 let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
 
-                today_eaten.push(new TodayEatenFood(selected_Food.productName,
+                today_eaten.push(new TodayEatenFood(newProduct,
                                                     selectedAmount,
                                                     kcal_Intake,
                                                     fat_Intake,
@@ -721,6 +780,8 @@ function steps_into_Kcal() {
                 selectedFoodIndex = -1;
                 document.getElementById('selectedFoodAnzeige').innerHTML = "";
                 document.getElementById('selectedFoodMakros').innerHTML = "";
+                blendOut_Eingabebereich_FoodDB();
+                blendOut_MengeAendern();
                 
 
             } catch (error) {
@@ -770,6 +831,7 @@ function create_Table_TodayEaten() {
         document.getElementById("btnChangeQuantity").disabled = false;
         document.getElementById("btnDeleteFoodFromToday").disabled = false;
         document.getElementById("foodAmound_Change").disabled = false;
+        blendOut_Eingabebereich_FoodDB();
 
       });
   
@@ -822,6 +884,7 @@ function change_Food_to_TodayList() {
             //Speichern
             save_Today_Eaten();
             alert("Menge wurde geändert");
+            blendOut_MengeAendern();
     }
 
 }

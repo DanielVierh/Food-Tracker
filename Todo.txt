@@ -108,7 +108,16 @@ Formel für KCAL Bedarf FRAU
 655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
 
  console.log();
- 
+ console.log("" + xxx);
+
+///////////////////////////
+ ZWISCHENSPEICHER:::
+///////////////////////////
+
+ foodSection
+blendOut_Eingabebereich_FoodDB(); 
+
+ //////////////////////////
 
 TODOS 
 
@@ -121,7 +130,8 @@ o	Andere Statistikwerte
 o	Planer bauen
 o	Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto
 o	Themes Dark, light (hellblau)
-o	Bei ausgeblendeten eingabe verhindern
+
+
 
 
 
@@ -131,3 +141,6 @@ o	Produkt makros ändern
 o	Produkt löschen 
 o	Pizza spinacci löschen
 o   Produktmenge ändern
+o	Bei ausgeblendeten eingabe verhindern
+o   Action Bereiche ausgeblendet
+o   Collision Detection -- Erkennen, wenn Lebensmittel vorhanden in Heute gegessen und Fragen ob addiert werden soll. 

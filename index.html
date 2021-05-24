@@ -114,12 +114,12 @@
 <div class="fullCell"><h1 id="titleDatenbank">Datenbank</h1></div>
 <p id="statusX"></p>
   <div class="fullCell">
-    <div class="foodSection">
+    <div id="optAreaDB" class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
       <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
-      <button class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
-      <button class="buttonChangeMakros" onclick="changeMacros()">Ändern 🔧</button>
+      <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
+      <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">🔧 Ändern</button>
     </div>
 
     <!-- Searchbar -->
@@ -373,7 +373,7 @@
 
 
  
-  <footer class="zone blue">Version 0.9.7.1 -- 24.05.2021</footer>
+  <footer class="zone blue">Version 0.9.8.0 -- 24.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>

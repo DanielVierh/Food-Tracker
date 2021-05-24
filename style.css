@@ -394,11 +394,12 @@ footer{
     font-size: 34px;
     font-weight: bolder;
     text-align: center;
-    color: #fdfff9;
-    background-color: #064911;
+    color: black;
+    background-color: #23da41;
     border-radius: 20px;
     border: 2px solid black;
     margin: 15px;
+    box-shadow: 4px 4px 30px rgba(178, 248, 73, 0.589);
   }
 
   .foodSection{
@@ -517,7 +518,7 @@ footer{
     font-weight: bolder;
     text-align: center;
     color: #fdfff9;
-    background-color: #f18a14;
+    background-color: #111f3d;
     border-radius: 20px;
     border: 2px solid black;
     margin: 15px 0px 15px 35px;
