@@ -136,7 +136,6 @@ o	Möglichkeit schaffen , kcal einzutragen bei Abschluss?
 o	Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
 o	Andere Statistikwerte
 o	Planer bauen
-o	Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto
 o	Themes Dark, light (hellblau)
 
 
@@ -152,3 +151,4 @@ o   Produktmenge ändern
 o	Bei ausgeblendeten eingabe verhindern
 o   Action Bereiche ausgeblendet
 o   Collision Detection -- Erkennen, wenn Lebensmittel vorhanden in Heute gegessen und Fragen ob addiert werden soll. 
+o	Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto

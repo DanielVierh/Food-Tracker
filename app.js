@@ -35,7 +35,7 @@ var max_Sugar = 0;
 var max_Salt = 0;
 var min_Protein = 0;
 var min_Fiber = 0;
-var min_Steps = 0;
+var min_Steps = 10000;
 
 //====================================================================================
 // Init
@@ -476,7 +476,7 @@ function show_Statisitcs(val) {
             }
     
             // Diagramm
-            currProzent = parseInt(my_Statistics[i].repository_Steps) * 100 / 10000;
+            currProzent = parseInt(my_Statistics[i].repository_Steps) * 100 / min_Steps;
             let colHeightInPixel = currProzent * 500 / 100;
             if(colHeightInPixel > 1000) {
                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
@@ -487,7 +487,7 @@ function show_Statisitcs(val) {
             }
     
             // Balken färben
-            if(currentVal < 10000) {
+            if(currentVal < min_Steps) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
                 document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
             }else{
@@ -1030,15 +1030,16 @@ calc_Values();
 function coloring_Labels() {
     step_Progress();
     effectiveKcal_Progress();
-    kalorienBilanz_Progress()
+    kalorienBilanz_Progress();
+    colorizeTargetProgress();
 }
 
 
 // Schritte
 function step_Progress(){
-    if(today_Steps <= 4999) {
+    if(today_Steps <= (min_Steps / 2)) {
         document.getElementById('btnSteps').style.color = "red";
-    }else if(today_Steps <= 9999) {
+    }else if(today_Steps < min_Steps) {
         document.getElementById('btnSteps').style.color = "orange";
     }else{
         document.getElementById('btnSteps').style.color = "rgb(27, 206, 27)";
@@ -1061,6 +1062,39 @@ function kalorienBilanz_Progress() {
     }else{
         document.getElementById("output_Diff").style.color = "red";
     }
+}
+
+// Weitere Ziele
+
+function colorizeTargetProgress() {
+    let shouldMinVal = [min_Protein, min_Fiber, min_Steps];
+    let isMinVal = [eaten_Protein, eaten_Fiber, today_Steps];
+
+    if(eaten_Sugar >= max_Sugar) {
+        document.getElementById('output_Sugar').style.color = "red";
+    }else{
+        document.getElementById('output_Sugar').style.color = "green";
+    }
+
+    if(eaten_Salt >= max_Salt) {
+        document.getElementById('output_Salt').style.color = "red";
+    }else{
+        document.getElementById('output_Salt').style.color = "green";
+    }
+
+    if(eaten_Protein < min_Protein) {
+        document.getElementById('output_Protein').style.color = "red";
+    }else{
+        document.getElementById('output_Protein').style.color = "green";
+    }
+
+    if(eaten_Fiber < min_Fiber) {
+        document.getElementById('output_Fiber').style.color = "red";
+    }else{
+        document.getElementById('output_Fiber').style.color = "green";
+    }
+
+
 }
 
 
@@ -1226,6 +1260,8 @@ function define_additional_Target() {
     localStorage.setItem("storedAdditionalTargets", JSON.stringify(additional_Targets));
 
     alert("Ziele wurden übernommen");
+    calc_Values();
+    show_Statisitcs("show_Effekctive_Kcal");
 
 }
 
@@ -1253,15 +1289,7 @@ function load_Additional_Targets() {
             min_Steps = additional_Targets[i].targetVal;
             document.getElementById('target_Steps').value = min_Steps;
         }
-
-
-
     }
-    // console.log("max_Sugar: " + max_Sugar);
-    // console.log("max_Salt: " + max_Salt);
-    // console.log("min_Protein: " + min_Protein);
-    // console.log("min_Fiber: " + min_Fiber);
-    // console.log("min_Steps: " + min_Steps);
 }
 
 //============================================================================
