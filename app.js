@@ -179,6 +179,13 @@ function load_other_LocalStorage_Values(){
         my_Statistics = JSON.parse(localStorage.getItem("stored_Statistics"));
     }
 
+    // Kcal_Requirement
+    if(localStorage.getItem('stored_Kcal_Requirement') === null) {
+        console.log("stored_Kcal_Requirement konnten nicht geladen werden");
+    }else{
+        kcal_Requirement = JSON.parse(localStorage.getItem("stored_Kcal_Requirement"));
+    }
+
     // Weitere Ziele
     if(localStorage.getItem('storedAdditionalTargets') === null) {
         console.log("Weitere Ziele konnten nicht geladen werden");
@@ -216,6 +223,12 @@ function save_kcalZiel() {
 function save_Statistics() {
     localStorage.setItem("stored_Statistics", JSON.stringify(my_Statistics));
     console.log("Statistics gespeichert");
+}
+
+// Speichere Kcal_Requirement
+function save_Kcal_Requirement() {
+    localStorage.setItem("stored_Kcal_Requirement", JSON.stringify(kcal_Requirement));
+    console.log("kcal_Req gespeichert");
 }
 
 
@@ -405,7 +418,7 @@ function show_Statisitcs(val) {
             }
     
             // Fett in Gramm
-            let trueDifferenz = kcal_Ziel - parseInt(currentVal);
+            let trueDifferenz = kcal_Requirement - parseInt(currentVal);
             let kcal_in_Gramm = parseInt(trueDifferenz * 1000 / 7000);
             fatSum += kcal_in_Gramm;
             document.getElementById('fettInGramm_Col_' + i).innerHTML = kcal_in_Gramm + " g";
@@ -425,11 +438,16 @@ function show_Statisitcs(val) {
             if(currentVal > kcal_Ziel) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
                 document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
-                document.getElementById('fettInGramm_Col_' + i).style.color = "red";
             }else{
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
                 document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+            }
+
+            
+            if(kcal_in_Gramm >= 0) {
                 document.getElementById('fettInGramm_Col_' + i).style.color = "green";
+            }else{
+                document.getElementById('fettInGramm_Col_' + i).style.color = "red";
             }
             
             
@@ -1161,6 +1179,7 @@ function calc_Kcal_Goal() {
                                 // Mann
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                                 kcal_Requirement = parseInt(66.47 + (13.7 * bodyWeight) + (5 * height) - (6.8 * age));
+                                save_Kcal_Requirement();
                                 
                                 let kcal_Differenz = bodyWeight - targetWeight;
                                 let tage = targetTime * 30;
