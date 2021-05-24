@@ -1204,7 +1204,7 @@ function calc_Kcal_Goal() {
                                 let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
 
                                 let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
-                                " Monat(en) erreichen möchtest, läg dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal";
+                                " Monat(en) erreichen möchtest, würde dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal liegen";
                                 document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
                                 document.getElementById('target_KcalZiel').value = recommended_Kcal;
                             }
@@ -1215,7 +1215,7 @@ function calc_Kcal_Goal() {
                             document.getElementById('target_Weight').value = "";
                             document.getElementById('target_Time').value = "";
 
-                            window.scrollTo(0, 11000);
+                            window.scrollTo(0, 13600);
 
                         }
                     }
