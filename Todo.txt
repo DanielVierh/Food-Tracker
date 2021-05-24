@@ -107,11 +107,11 @@ Formel für KCAL Bedarf MANN
 Formel für KCAL Bedarf FRAU
 655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
 
-
+ console.log();
+ 
 
 TODOS 
 
-o   Produktmenge ändern
 o	Historie komplett
 o	Mailversand historie
 o	Ux verbessern bei neuen usern
@@ -130,3 +130,4 @@ DONE
 o	Produkt makros ändern
 o	Produkt löschen 
 o	Pizza spinacci löschen
+o   Produktmenge ändern

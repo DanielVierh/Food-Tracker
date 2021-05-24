@@ -29,6 +29,7 @@ var effective_Kcal = 0;
 var form_is_Invisible = false;
 var diff = 0;
 var changeProduct = false;
+var old_Quantity = 0;
 //====================================================================================
 // Init
 //====================================================================================
@@ -91,7 +92,7 @@ buttonScroll_Up.addEventListener('click', scroll_UP);
 // Damit gesuchtes Produkt direkt überschreibbar ist
 document.getElementById('searchInput').addEventListener('click', selectWord);
 
-
+document.getElementById('foodAmound_Change').addEventListener('click', selectWord2);
 
 
 
@@ -229,7 +230,7 @@ function goto_Statistic() {
 // Zoom
 //====================================================================================
 function zoom() {
-    document.body.style.zoom = "90%"; 
+    console.log("Zooming");
 }
 
 
@@ -238,6 +239,15 @@ function selectWord() {
     const inp = document.getElementById('searchInput');
     inp.select()
 }
+
+function selectWord2() {
+    old_Quantity = parseFloat(document.getElementById('foodAmound_Change').value);
+    console.log("old_Quantity " + old_Quantity);
+    const inp = document.getElementById('foodAmound_Change');
+    inp.select();
+}
+
+
 
 // Textfeld und Button für Menge ändern ausblenden
 function blendOut_MengeAendern() {
@@ -747,11 +757,10 @@ function create_Table_TodayEaten() {
         foodFromToday = true;
         selectedFoodIndex = this.dataset.id;  
         selected_Food = today_eaten[selectedFoodIndex];
-        let calories = selected_Food.intake_kcal;
-        let quantity = selected_Food.quantityUnit;
         document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
         document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
         document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "1";
+
       });
   
   
@@ -766,9 +775,45 @@ function create_Table_TodayEaten() {
     document.getElementById("containerTabelle_Today").appendChild(table);
 }
 
-
+//============================================================================
+// Menge ändern
+//============================================================================
 function change_Food_to_TodayList() {
-    alert("Wird noch gebaut.");
+    
+    let selectedAmount = parseFloat(document.getElementById('foodAmound_Change').value);
+    if(selectedAmount == "") {
+        console.log("Nichts ausgewählt");
+    }else{
+        let productNme = selected_Food.intake_productName; 
+        let kcal_Intake = parseInt(selectedAmount * selected_Food.intake_kcal / old_Quantity);
+        let fat_Intake = parseFloat(selectedAmount * selected_Food.intake_fat / old_Quantity);
+        let carb_Intake = parseFloat(selectedAmount * selected_Food.intake_carbs / old_Quantity);
+        let sugar_Intake = parseFloat(selectedAmount * selected_Food.intake_sugar / old_Quantity);
+        let protein_Intake = parseFloat(selectedAmount * selected_Food.intake_protein / old_Quantity);
+        let salt_Intake = parseFloat(selectedAmount * selected_Food.intake_salt / old_Quantity);
+        let fiber_Intake = parseFloat(selectedAmount * selected_Food.intake_fiber / old_Quantity);
+
+        // Löschen
+        today_eaten.splice(selectedFoodIndex, 1);
+
+        today_eaten.push(new TodayEatenFood(productNme,
+                                            selectedAmount,
+                                            kcal_Intake,
+                                            fat_Intake,
+                                            carb_Intake,
+                                            sugar_Intake,
+                                            protein_Intake,
+                                            salt_Intake,
+                                            fiber_Intake
+            ));
+
+            create_Table_TodayEaten();
+            calc_Values();
+            //Speichern
+            save_Today_Eaten();
+            alert("Menge wurde geändert");
+    }
+
 }
 
 //============================================================================
@@ -1343,3 +1388,5 @@ function indexErmittler(searchWord) {
         }
     }
 }
+
+
