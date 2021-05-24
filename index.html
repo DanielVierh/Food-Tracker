@@ -361,6 +361,26 @@
   <input type="text" pattern="\d*" value="" id="target_KcalZiel" class="inputMenge" placeholder="">
   <button class="ButtonSpeichern" onclick="define_Kcal_Target()">Speichern</button>
   <hr> <br>
+  <p style="color: gold;">Weitere Ziele</p>
+  <br>
+  <div class="boxWeitereZiele">
+    <label>Maximum Zucker</label>
+    <input type="text" pattern="\d*" value="" id="target_Sugar" class="inputMenge" placeholder="in Gramm">
+    <br>
+    <label>Maximum Salz</label>
+    <input type="text" pattern="\d*" value="" id="target_Salt" class="inputMenge" placeholder="in Gramm">
+    <br>
+    <label>Minimum Eiweiss</label>
+    <input type="text" pattern="\d*" value="" id="target_Protein" class="inputMenge" placeholder="in Gramm">
+    <br>
+    <label>Minimum Ballaststoffe</label>
+    <input type="text" pattern="\d*" value="" id="target_Fiber" class="inputMenge" placeholder="in Gramm">
+    <br>
+    <label>Schritte pro Tag </label>
+    <input type="text" pattern="\d*" value="" id="target_Steps" class="inputMenge" placeholder="z.B. 10.000">
+    <button class="ButtonSpeichern" onclick="define_additional_Target()">Speichern</button>
+  </div>
+
   </div>
 
     <!-- Leerzone -->
@@ -373,7 +393,7 @@
 
 
  
-  <footer class="zone blue">Version 0.9.8.0 -- 24.05.2021</footer>
+  <footer class="zone blue">Version 0.9.9.0 -- 24.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>

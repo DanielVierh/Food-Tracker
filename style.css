@@ -707,4 +707,7 @@ table {
 
 
 
-
+.boxWeitereZiele{
+  display: flex;
+  flex-direction: column;
+}

@@ -8,6 +8,7 @@ var today_Steps = 0;
 var array_Food_DB = [];
 var today_eaten = [];
 var my_Statistics = [];
+var additional_Targets = [];
 var bodyWeight = 78; 
 var kcal_Ziel = 0;
 var kcal_Requirement = 2500;
@@ -30,6 +31,12 @@ var form_is_Invisible = false;
 var diff = 0;
 var changeProduct = false;
 var old_Quantity = 0;
+var max_Sugar = 0;
+var max_Salt = 0;
+var min_Protein = 0;
+var min_Fiber = 0;
+var min_Steps = 0;
+
 //====================================================================================
 // Init
 //====================================================================================
@@ -170,6 +177,14 @@ function load_other_LocalStorage_Values(){
         console.log("Statistik Werte konnten nicht geladen werden");
     }else{
         my_Statistics = JSON.parse(localStorage.getItem("stored_Statistics"));
+    }
+
+    // Weitere Ziele
+    if(localStorage.getItem('storedAdditionalTargets') === null) {
+        console.log("Weitere Ziele konnten nicht geladen werden");
+    }else{
+        additional_Targets = JSON.parse(localStorage.getItem("storedAdditionalTargets"));
+        load_Additional_Targets();
     }
 }
 
@@ -313,6 +328,14 @@ class RepositoryLast7Days {
 
     }
 }
+
+class StoredTarget {
+    constructor(targetName, targetVal) {
+        this.targetName = targetName;
+        this.targetVal = targetVal
+    }
+}
+
 
 function show_EffectKcal() {
     show_Statisitcs("show_Effekctive_Kcal");
@@ -1163,6 +1186,83 @@ function define_Kcal_Target() {
     }
 }
 
+
+// Weitere Ziele
+function define_additional_Target() {
+
+    additional_Targets = [];
+
+    if(document.getElementById('target_Sugar').value != "") {
+        max_Sugar = document.getElementById('target_Sugar').value;
+        let varName = "tSugar";
+        additional_Targets.push(new StoredTarget(varName, max_Sugar));
+    }
+
+    if(document.getElementById('target_Salt').value != "") {
+        max_Salt = document.getElementById('target_Salt').value;
+        let varName = "tSalt";
+        additional_Targets.push(new StoredTarget(varName, max_Salt));
+    }
+
+    if(document.getElementById('target_Protein').value != "") {
+        min_Protein = document.getElementById('target_Protein').value;
+        let varName = "tProtein";
+        additional_Targets.push(new StoredTarget(varName, min_Protein));
+    }
+
+    if(document.getElementById('target_Fiber').value != "") {
+        min_Fiber = document.getElementById('target_Fiber').value;
+        let varName = "tFiber";
+        additional_Targets.push(new StoredTarget(varName, min_Fiber));
+    }
+
+    if(document.getElementById('target_Steps').value != "") {
+        min_Steps = document.getElementById('target_Steps').value;
+        let varName = "tSteps";
+        additional_Targets.push(new StoredTarget(varName, min_Steps));
+    }
+    console.log("additional_Targets " + additional_Targets);
+    // Save
+    localStorage.setItem("storedAdditionalTargets", JSON.stringify(additional_Targets));
+
+    alert("Ziele wurden übernommen");
+
+}
+
+function load_Additional_Targets() {
+
+    console.log("additional_Targets: " + additional_Targets);
+    for(var i = 0; i < additional_Targets.length; i++) {
+        if(additional_Targets[i].targetName == "tSugar") {
+            max_Sugar = additional_Targets[i].targetVal;
+            document.getElementById('target_Sugar').value = max_Sugar;
+        }
+        if(additional_Targets[i].targetName == "tSalt") {
+            max_Salt = additional_Targets[i].targetVal;
+            document.getElementById('target_Salt').value = max_Salt;
+        }
+        if(additional_Targets[i].targetName == "tProtein") {
+            min_Protein = additional_Targets[i].targetVal;
+            document.getElementById('target_Protein').value = min_Protein;
+        }
+        if(additional_Targets[i].targetName == "tFiber") {
+            min_Fiber = additional_Targets[i].targetVal;
+            document.getElementById('target_Fiber').value = min_Fiber;
+        }
+        if(additional_Targets[i].targetName == "tSteps") {
+            min_Steps = additional_Targets[i].targetVal;
+            document.getElementById('target_Steps').value = min_Steps;
+        }
+
+
+
+    }
+    // console.log("max_Sugar: " + max_Sugar);
+    // console.log("max_Salt: " + max_Salt);
+    // console.log("min_Protein: " + min_Protein);
+    // console.log("min_Fiber: " + min_Fiber);
+    // console.log("min_Steps: " + min_Steps);
+}
 
 //============================================================================
 // Tag abschließen
