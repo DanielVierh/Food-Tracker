@@ -51,7 +51,6 @@ function loadCont() {
     load_other_LocalStorage_Values();
     coloring_Labels();
     show_Statisitcs("show_Effekctive_Kcal");
-    welcome_Func();
 }
 
 
@@ -61,6 +60,7 @@ function check_FoodDB(){
         console.log("Food-Datenbank ist leer");
         // DB aus JSON generieren
         fetch_Food_DB();
+        welcome_Func();
     }else {
         console.log("DB wird geladen");
         loadFood_DB();
@@ -1626,7 +1626,7 @@ function indexErmittler(searchWord) {
 //====================================================================================
 
 function welcome_Func() {
-    let text = "Willkommen beim Food-Tracker. \n \n Diese Nachricht erhälst du, weil du hier Neu bist oder Deinen Browserverlauf gelöscht hast :) \n Setzte als erstes deine Ziele und es kann sofort losgehen.";
+    let text = "Willkommen beim Food-Tracker. \n \n 1. Das kleine Formular ausfüllen. \n 2. Setzte deine weiteren Ziele und schon kann es losgehen. \n Die Daten kannst du jederzeit abändern. \n \n * Die Daten werden nur auf deinem Gerät gespeichert. Weitere Infos sind unten vermerkt.";
     alert(text);
     window.scrollTo(0, 12300);
 }
