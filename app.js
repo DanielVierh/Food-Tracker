@@ -51,6 +51,7 @@ function loadCont() {
     load_other_LocalStorage_Values();
     coloring_Labels();
     show_Statisitcs("show_Effekctive_Kcal");
+    welcome_Func();
 }
 
 
@@ -65,6 +66,10 @@ function check_FoodDB(){
         loadFood_DB();
     }
 }
+
+
+
+
 
 
 
@@ -409,7 +414,7 @@ function show_Statisitcs(val) {
             // + - zum Vortag
             if(i > 0) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_EffectiveKcal) - parseInt(lastDayVal);
-                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " g";
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
                 lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
             }else{
                 val_to_DayBefore = "-";
@@ -485,7 +490,7 @@ function show_Statisitcs(val) {
             // + - zum Vortag
             if(i > 0) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_Steps) - parseInt(lastDayVal);
-                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Schr.";
                 lastDayVal = parseInt(my_Statistics[i].repository_Steps);
             }else{
                 val_to_DayBefore = "-";
@@ -1069,14 +1074,14 @@ function effectiveKcal_Progress() {
     if(effective_Kcal > kcal_Ziel) {
         document.getElementById("output_EffectiveBurned").style.color = "red";
     }else{
-        document.getElementById("output_EffectiveBurned").style.color = "green";
+        document.getElementById("output_EffectiveBurned").style.color = "rgb(27, 206, 27)";
     }
 }
 
 // Kalorienbilanz
 function kalorienBilanz_Progress() {
     if(diff > 0) {
-        document.getElementById("output_Diff").style.color = "green";
+        document.getElementById("output_Diff").style.color = "rgb(27, 206, 27)";
     }else{
         document.getElementById("output_Diff").style.color = "red";
     }
@@ -1091,25 +1096,25 @@ function colorizeTargetProgress() {
     if(eaten_Sugar >= max_Sugar) {
         document.getElementById('output_Sugar').style.color = "red";
     }else{
-        document.getElementById('output_Sugar').style.color = "green";
+        document.getElementById('output_Sugar').style.color = "rgb(27, 206, 27)";
     }
 
     if(eaten_Salt >= max_Salt) {
         document.getElementById('output_Salt').style.color = "red";
     }else{
-        document.getElementById('output_Salt').style.color = "green";
+        document.getElementById('output_Salt').style.color = "rgb(27, 206, 27)";
     }
 
     if(eaten_Protein < min_Protein) {
         document.getElementById('output_Protein').style.color = "red";
     }else{
-        document.getElementById('output_Protein').style.color = "green";
+        document.getElementById('output_Protein').style.color = "rgb(27, 206, 27)";
     }
 
     if(eaten_Fiber < min_Fiber) {
         document.getElementById('output_Fiber').style.color = "red";
     }else{
-        document.getElementById('output_Fiber').style.color = "green";
+        document.getElementById('output_Fiber').style.color = "rgb(27, 206, 27)";
     }
 
 
@@ -1235,6 +1240,7 @@ function define_Kcal_Target() {
         kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
         save_kcalZiel();
         alert("Kcal Ziel wurde übernommen");
+        window.scrollTo(0, 0);
         location.reload();
     }
 }
@@ -1615,3 +1621,12 @@ function indexErmittler(searchWord) {
 }
 
 
+//====================================================================================
+// Welcome 
+//====================================================================================
+
+function welcome_Func() {
+    let text = "Willkommen beim Food-Tracker. \n \n Diese Nachricht erhälst du, weil du hier Neu bist oder Deinen Browserverlauf gelöscht hast :) \n Setzte als erstes deine Ziele und es kann sofort losgehen.";
+    alert(text);
+    window.scrollTo(0, 12300);
+}
