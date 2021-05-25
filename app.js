@@ -362,6 +362,10 @@ function show_Steps() {
     show_Statisitcs("show_Steps");
 }
 
+function show_Sugar(){
+    show_Statisitcs("show_Sugar");
+}
+
 
 // Erstelle Statistik
 function show_Statisitcs(val) {
@@ -415,6 +419,12 @@ function show_Statisitcs(val) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_EffectiveKcal) - parseInt(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
                 lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
+                if(val_to_DayBefore < 0) {
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                }else{
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Kcal";
+                }
             }else{
                 val_to_DayBefore = "-";
                 lastDayVal = my_Statistics[i].repository_EffectiveKcal;
@@ -425,7 +435,12 @@ function show_Statisitcs(val) {
             let trueDifferenz = kcal_Requirement - parseInt(currentVal);
             let kcal_in_Gramm = parseInt(trueDifferenz * 1000 / 7000);
             fatSum += kcal_in_Gramm;
-            document.getElementById('fettInGramm_Col_' + i).innerHTML = kcal_in_Gramm + " g";
+            if(kcal_in_Gramm < 0) {
+                document.getElementById('fettInGramm_Col_' + i).innerHTML = "+" + Math.abs(kcal_in_Gramm) + " g";
+            }else{
+                document.getElementById('fettInGramm_Col_' + i).innerHTML = "-" + kcal_in_Gramm + " g";
+            }
+                
     
             // Diagramm
             currProzent = parseInt(my_Statistics[i].repository_EffectiveKcal) * 100 / kcal_Ziel;
@@ -441,10 +456,8 @@ function show_Statisitcs(val) {
             // Balken färben
             if(currentVal > kcal_Ziel) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-                document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
             }else{
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
-                document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
             }
 
             
@@ -462,8 +475,14 @@ function show_Statisitcs(val) {
                 document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
     
             // Fettsumme anzeigen  
-            document.getElementById('outputFatSum').innerHTML = fatSum + " g";
-
+            
+            if(fatSum > 0) {
+                document.getElementById('outputFatSum').innerHTML = "-" + fatSum + " g";
+                document.getElementById('outputFatSum').style.color = "green";
+            }else {
+                document.getElementById('outputFatSum').innerHTML = fatSum + " g";
+                document.getElementById('outputFatSum').style.color = "red";
+            }
 
 
 
@@ -491,6 +510,12 @@ function show_Statisitcs(val) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_Steps) - parseInt(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Schr.";
                 lastDayVal = parseInt(my_Statistics[i].repository_Steps);
+                if(val_to_DayBefore > 0) {
+                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Schr.";
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                }else{
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                }
             }else{
                 val_to_DayBefore = "-";
                 lastDayVal = my_Statistics[i].repository_Steps;
@@ -511,15 +536,64 @@ function show_Statisitcs(val) {
             // Balken färben
             if(currentVal < min_Steps) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-                document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
             }else{
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
-                document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
             }
             
-            
+        }
+        
+        // >>> Zucker <<<
+    }else if(val == "show_Sugar") {
+        document.getElementById("valDescription").innerHTML = "Zucker";
+        document.getElementById("valDescrFett").innerHTML = "";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Zucker";
+        document.getElementById('outputFatSum').innerHTML = "";
+        // Fett ausblenden
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
+            document.getElementById('fettInGramm_Col_' + i).style.color = "white";
         }
 
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
+            currentVal = parseFloat(my_Statistics[i].repository_Sugar);
+            document.getElementById("val_Col_" + i).innerHTML = currentVal;
+            
+            // + - zum Vortag
+            if(i > 0) {
+                val_to_DayBefore = parseInt(my_Statistics[i].repository_Sugar) - parseInt(lastDayVal);
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " g";
+                lastDayVal = parseInt(my_Statistics[i].repository_Sugar);
+                if(val_to_DayBefore < 0) {
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                }else{
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " g";
+                }
+            }else{
+                val_to_DayBefore = "-";
+                lastDayVal = my_Statistics[i].repository_Sugar;
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+            }
+    
+            // Diagramm
+            currProzent = parseInt(my_Statistics[i].repository_Sugar) * 100 / max_Sugar;
+            let colHeightInPixel = currProzent * 500 / 100;
+            if(colHeightInPixel > 1000) {
+                document.getElementById("COL_Dia_" + i).style.height = "1000px";
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Sugar + ' 🚀';
+            }else {
+                document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Sugar;
+            }
+    
+            // Balken färben
+            if(currentVal > max_Sugar) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+            }else{
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
+            }
+        }
     }
 
 
