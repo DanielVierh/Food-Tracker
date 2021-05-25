@@ -432,10 +432,12 @@ footer{
       border: 1px solid black;
       border-radius: 12px;
       z-index: 10;
-      background-color: gray;
+      background-color: rgba(2, 11, 43, 0.808);
       width: 80%;
       max-width: 80%;
       height: 35%;
+      border-radius: 20px;
+      
   }
 
   .modal_Steps.active{
@@ -448,13 +450,16 @@ footer{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid rgb(0, 0, 0);
+      text-align: center;
+      
   }
 
   .modal-header ,title{
       font-size: 3.25rem;
       font-weight: bold;
       color: greenyellow;
+      margin: 35px;
   }
 
   .modal-header .close-button{
@@ -464,11 +469,13 @@ footer{
     background: none;
     font-size: 3.25rem;
     font-weight: bold;
+    color: white;
   }
 
   .modal-body{
       padding: 10px 15px ;
       font-size: 3.25rem;
+      text-align: center;
   }
 
 
@@ -482,7 +489,7 @@ footer{
       bottom: 0;
       background-color: rgba(0, 0, 0, 0.815);
       pointer-events: none;
-      backdrop-filter: blur(15px);
+      /* backdrop-filter: blur(15px); */
       z-index: 9;
   }
 
@@ -492,8 +499,10 @@ footer{
   }
 
   .inpSteps{
-    width: 90%;
-    font-size: 3.25rem;
+    width: 50%;
+    height: 80px;
+    font-size: 64px;
+    text-align: center;
   }
 
   #btn_SaveSteps{

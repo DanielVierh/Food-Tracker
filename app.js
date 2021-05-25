@@ -60,7 +60,6 @@ function check_FoodDB(){
         console.log("Food-Datenbank ist leer");
         // DB aus JSON generieren
         fetch_Food_DB();
-        welcome_Func();
     }else {
         console.log("DB wird geladen");
         loadFood_DB();
