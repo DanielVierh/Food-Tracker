@@ -407,7 +407,7 @@ function show_Statisitcs(val) {
         // >>> EFFEKTIVE KCAL <<<  
         document.getElementById("valDescription").innerHTML = "Effek. Kcal";
         document.getElementById("valDescrFett").innerHTML = "Fett";
-        document.getElementById("UeberschriftStatisik").innerHTML = "Effektive Kcal";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Effektive Kcal -- (Ziel: " + kcal_Ziel + " Kcal)";
         
         for(var i = 0; i < statistik_Count; i++) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
@@ -492,7 +492,7 @@ function show_Statisitcs(val) {
         
         document.getElementById("valDescription").innerHTML = "Schritte";
         document.getElementById("valDescrFett").innerHTML = "";
-        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte Ziel -- (Ziel: " + min_Steps + " Scr.)";
         document.getElementById('outputFatSum').innerHTML = "";
         // Fett ausblenden
         for(var i = 0; i < statistik_Count; i++) {
@@ -546,7 +546,7 @@ function show_Statisitcs(val) {
     }else if(val == "show_Sugar") {
         document.getElementById("valDescription").innerHTML = "Zucker";
         document.getElementById("valDescrFett").innerHTML = "";
-        document.getElementById("UeberschriftStatisik").innerHTML = "Zucker";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Zucker -- (Ziel: " + max_Sugar + " g)";
         document.getElementById('outputFatSum').innerHTML = "";
         // Fett ausblenden
         for(var i = 0; i < statistik_Count; i++) {
