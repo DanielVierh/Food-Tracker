@@ -420,7 +420,7 @@ function show_Statisitcs(val) {
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
                 lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
                 if(val_to_DayBefore < 0) {
-                    document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
                 }else{
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Kcal";
@@ -457,12 +457,12 @@ function show_Statisitcs(val) {
             if(currentVal > kcal_Ziel) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
             }else{
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
             }
 
             
             if(kcal_in_Gramm >= 0) {
-                document.getElementById('fettInGramm_Col_' + i).style.color = "green";
+                document.getElementById('fettInGramm_Col_' + i).style.color = "rgb(27, 206, 27)";
             }else{
                 document.getElementById('fettInGramm_Col_' + i).style.color = "red";
             }
@@ -478,7 +478,7 @@ function show_Statisitcs(val) {
             
             if(fatSum > 0) {
                 document.getElementById('outputFatSum').innerHTML = "-" + fatSum + " g";
-                document.getElementById('outputFatSum').style.color = "green";
+                document.getElementById('outputFatSum').style.color = "rgb(27, 206, 27)";
             }else {
                 document.getElementById('outputFatSum').innerHTML = fatSum + " g";
                 document.getElementById('outputFatSum').style.color = "red";
@@ -492,7 +492,7 @@ function show_Statisitcs(val) {
         
         document.getElementById("valDescription").innerHTML = "Schritte";
         document.getElementById("valDescrFett").innerHTML = "";
-        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte Ziel -- (Ziel: " + min_Steps + " Scr.)";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte Ziel -- (Ziel: " + min_Steps + " Schr.)";
         document.getElementById('outputFatSum').innerHTML = "";
         // Fett ausblenden
         for(var i = 0; i < statistik_Count; i++) {
@@ -512,7 +512,7 @@ function show_Statisitcs(val) {
                 lastDayVal = parseInt(my_Statistics[i].repository_Steps);
                 if(val_to_DayBefore > 0) {
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Schr.";
-                    document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
                 }else{
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                 }
@@ -537,7 +537,7 @@ function show_Statisitcs(val) {
             if(currentVal < min_Steps) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
             }else{
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
             }
             
         }
@@ -565,7 +565,7 @@ function show_Statisitcs(val) {
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " g";
                 lastDayVal = parseInt(my_Statistics[i].repository_Sugar);
                 if(val_to_DayBefore < 0) {
-                    document.getElementById("change_DayBefore_Col_" + i).style.color = "green";
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
                 }else{
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " g";
@@ -591,7 +591,7 @@ function show_Statisitcs(val) {
             if(currentVal > max_Sugar) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
             }else{
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "green";
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
             }
         }
     }
