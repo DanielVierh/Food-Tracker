@@ -633,7 +633,7 @@ function water_Spin_Up() {
 }
 
 function water_Spin_Down() {
-    if(new_Water > 0.25) {
+    if(new_Water > -0.25) {
         new_Water -= 0.25;
         document.getElementById('outpWaterButton').innerText = new_Water + " L";
     }
