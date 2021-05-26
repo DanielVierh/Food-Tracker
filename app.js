@@ -36,6 +36,8 @@ var max_Salt = 0;
 var min_Protein = 0;
 var min_Fiber = 0;
 var min_Steps = 10000;
+var new_Water = 0.25;
+var today_Water = 0;
 
 //====================================================================================
 // Init
@@ -161,6 +163,14 @@ function load_other_LocalStorage_Values(){
             calc_Values();
         }
 
+    // Wasser today_Water
+    if(localStorage.getItem('stored_Water') === null) {
+        console.log("Wasser konnte nicht geladen werden");
+    }else{
+        today_Water = JSON.parse(localStorage.getItem("stored_Water"));
+        document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
+    }
+
     // Kcal Ziel
     if(localStorage.getItem('stored_KcalZiel') === null) {
             console.log("Kcal-Ziel konnte nicht geladen werden");
@@ -198,6 +208,12 @@ function load_other_LocalStorage_Values(){
         additional_Targets = JSON.parse(localStorage.getItem("storedAdditionalTargets"));
         load_Additional_Targets();
     }
+}
+
+// Speichere Wasser
+function save_Today_Water() {
+    localStorage.setItem("stored_Water", JSON.stringify(today_Water));
+    console.log("stored_Water gespeichert");
 }
 
 // Speichere Today Eaten
@@ -334,7 +350,7 @@ class TodayEatenFood {
 
 // Klasse für my_Statistics
 class RepositoryLast7Days {
-    constructor(repository_date, repository_EffectiveKcal, repository_Steps, repository_BurnedKCal, repository_Sugar, repository_Protein, repository_Fiber, repository_Fat) {
+    constructor(repository_date, repository_EffectiveKcal, repository_Steps, repository_BurnedKCal, repository_Sugar, repository_Protein, repository_Fiber, repository_Fat, repository_Water) {
         this.repository_date = repository_date;
         this.repository_EffectiveKcal = repository_EffectiveKcal;
         this.repository_Steps = repository_Steps;
@@ -343,6 +359,7 @@ class RepositoryLast7Days {
         this.repository_Protein = repository_Protein;
         this.repository_Fiber = repository_Fiber;
         this.repository_Fat = repository_Fat;
+        this.repository_Water = repository_Water;
 
     }
 }
@@ -604,7 +621,42 @@ function show_Statisitcs(val) {
 
 }
 
+
+//============================================================================
+// Wasser tracken
+//============================================================================
+function water_Spin_Up() {
+    if(new_Water < 4.00) {
+        new_Water += 0.25;
+        document.getElementById('outpWaterButton').innerText = new_Water + " L";
+    }
+}
+
+function water_Spin_Down() {
+    if(new_Water > 0.25) {
+        new_Water -= 0.25;
+        document.getElementById('outpWaterButton').innerText = new_Water + " L";
+    }
+}
+
+
+function take_Over_Water() {
+    today_Water += new_Water;
+    save_Today_Water();
+    alert(new_Water + " L Wasser wurden hinzugefügt");
+    document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
+    new_Water = 0.25;
+    document.getElementById('outpWaterButton').innerText = new_Water + " L";
+
+}
+
+
+
+
+
+//============================================================================
 // Neues Lebensmittel hinzufügen
+//============================================================================
 function addProduct() {
     mittig_halten();
     document.getElementById('searchInput').select();
@@ -1423,11 +1475,11 @@ function close_Day() {
                     my_Statistics.push(oldarr[i]);
                 }
     
-                my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
+                my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat, today_Water));
                 console.log(my_Statistics);
                 show_Statisitcs("show_Effekctive_Kcal");
             }else{
-                my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat));
+                my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat, today_Water));
                 console.log(my_Statistics);
                 show_Statisitcs("show_Effekctive_Kcal");
             }
@@ -1444,12 +1496,14 @@ function close_Day() {
             // RESET
             today_Steps = 0;
             today_eaten = [];
+            today_Water = 0;
             document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
                 coloring_Labels();
                 steps_into_Kcal(); 
                 calc_Values();
                 save_Today_Steps();
                 save_Today_Eaten();
+                save_Today_Water();
                 alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
                 location.reload();
         }           

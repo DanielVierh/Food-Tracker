@@ -720,3 +720,41 @@ table {
   display: flex;
   flex-direction: column;
 }
+
+.wasserContainer{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.spinButton{
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  background-color: #0e5397;
+  color: white;
+  font-size: 74px;
+  font-weight: bold;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.outputButtonWater{
+  width: 350px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #41e6fc;
+  font-size: 82px;
+  border-radius: 20px;
+  box-shadow:5px 5px 50px rgb(16, 207, 255);
+}
+
+.outpTxtWater{
+  text-align: center;
+  color: #41e6fc;
+  border-radius: 40px;
+  font-size: 117px;
+  font-weight: bolder;
+}
