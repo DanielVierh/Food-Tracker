@@ -51,6 +51,7 @@ function loadCont() {
     load_other_LocalStorage_Values();
     coloring_Labels();
     show_Statisitcs("show_Effekctive_Kcal");
+    calc_Values();
 }
 
 
@@ -141,6 +142,25 @@ function fetch_Food_DB() {
 
 // Andere abgespeicherte Werte
 function load_other_LocalStorage_Values(){
+        // Gewicht
+        if(localStorage.getItem('stored_BodyWeight') === null) {
+            console.log("Gewicht konnte nicht geladen werden");
+        }else{
+            bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
+            document.getElementById('weight').value = bodyWeight;
+        }
+
+        // Schritte
+        if(localStorage.getItem('stored_Today_Steps') === null) {
+            console.log("Scritte konnten nicht geladen werden");
+        }else{
+            today_Steps = JSON.parse(localStorage.getItem("stored_Today_Steps"));
+            document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+            steps_into_Kcal(); 
+            coloring_Labels();
+            calc_Values();
+        }
+
     // Kcal Ziel
     if(localStorage.getItem('stored_KcalZiel') === null) {
             console.log("Kcal-Ziel konnte nicht geladen werden");
@@ -155,25 +175,6 @@ function load_other_LocalStorage_Values(){
     }else{
         today_eaten = JSON.parse(localStorage.getItem("stored_Today_Eaten"));
         create_Table_TodayEaten();
-    }
-
-    // Schritte
-    if(localStorage.getItem('stored_Today_Steps') === null) {
-        console.log("Scritte konnten nicht geladen werden");
-    }else{
-        today_Steps = JSON.parse(localStorage.getItem("stored_Today_Steps"));
-        document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
-        coloring_Labels();
-        steps_into_Kcal(); 
-        calc_Values();
-    }
-
-    // Gewicht
-    if(localStorage.getItem('stored_BodyWeight') === null) {
-        console.log("Gewicht konnte nicht geladen werden");
-    }else{
-        bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
-        document.getElementById('weight').value = bodyWeight;
     }
 
     // Statistics
@@ -654,7 +655,6 @@ function get_new_Steps() {
         document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
         coloring_Labels();
         steps_into_Kcal(); 
-        calc_Values();
         // TODO-- Persistent speichern
         save_Today_Steps();
 
@@ -665,10 +665,12 @@ function get_new_Steps() {
 
 
 function steps_into_Kcal() {
+
     const kcalVal = 6.5;
     const diviVal = 10000;
     burned_Kcal = parseInt((today_Steps * kcalVal * bodyWeight) / (diviVal));
     document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
+    calc_Values();
 }
 
 
@@ -1105,7 +1107,7 @@ function calc_Values() {
 
 
 
-calc_Values();
+//calc_Values();
 
 
 
