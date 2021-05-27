@@ -128,7 +128,9 @@ blendOut_Eingabebereich_FoodDB();
  //////////////////////////
 
 TODOS 
+- [ ]
 
+<<<<<<< HEAD
 o	Historie komplett
 o	Mailversand historie. Es soll eine Textdatei mit der eigenenen Datenbank versendet werden und den ausgewählen Tag als Body Text.
 o	Ux verbessern bei neuen usern
@@ -139,17 +141,40 @@ o   Import Funktion bauen, um eigene Textdatei in Food_DB einzulesen. Mit Forsch
 o	Themes Dark, light (hellblau)
 o   Bei Food Select, HEUTE GEGESSEN die Makros des einzelnen Produkts anzeigen lassen bei Dash
 o
+=======
+- [ ] Historie komplett
+- [ ] Mailversand historie
+- [ ] Ux verbessern bei neuen usern
+- [ ] Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
+- [ ] Andere Statistikwerte
+- [ ] Planer bauen
+- [ ] Themes Dark, light (hellblau)
+- [ ] Immer da Buttons bei scrolling einblenden. Nach gewisser Zeit aisblenden https://www.javascripttutorial.net/javascript-dom/javascript-scroll-events/
+- [ ] Fertig Button bei Food Selektion. Dann scroll up zu Dash
+- [ ] Statistik index und Tabelle essen über immer da Button legen 
+- [ ] Besten Statistik Balken glühen lassen 
+- [ ] Wasser trinken
+- [ ] Button Statistik blau markiert 
+- [ ] Bug wenn Schritte abgespeichert werden, anderer Wert als wenn Seite aktualisiert wird.
+
+
+>>>>>>> 8c70665e781e36a8cc7008a34f77ab5637257834
 
 
 
 DONE 
-•	Mengenänderungsbox anpassen
-o	Produkt makros ändern
-o	Produkt löschen 
-o	Pizza spinacci löschen
-o   Produktmenge ändern
-o	Bei ausgeblendeten eingabe verhindern
-o   Action Bereiche ausgeblendet
-o   Collision Detection -- Erkennen, wenn Lebensmittel vorhanden in Heute gegessen und Fragen ob addiert werden soll. 
-o	Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto
-o	Möglichkeit schaffen , kcal einzutragen bei Abschluss?
+- [x] Mengenänderungsbox anpassen
+- [x] Produkt makros ändern
+- [x] Produkt löschen 
+- [x] Pizza spinacci löschen
+- [x] Produktmenge ändern
+- [x] Bei ausgeblendeten eingabe verhindern
+- [x] Action Bereiche ausgeblendet
+- [x] Collision Detection -- Erkennen, wenn Lebensmittel vorhanden in Heute gegessen und Fragen ob addiert werden soll. 
+- [x] Bei Einstellungen ziele definieren lassen: Eiweiß, zucker, Schritte, Keto
+- [x] Möglichkeit schaffen , kcal einzutragen bei Abschluss?
+- [x] Wenn weniger Schritte zum Vortag rot färben
+- [x] 0 Schritte als Initialwert
+- [x] Nach kcal Ziel abspeichern nach oben
+- [x] Grüne farbe bei dash heller
+- [x] Zum vortag aus g kcal machen

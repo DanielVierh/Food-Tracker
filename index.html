@@ -103,10 +103,29 @@
     </div>
   </div>
 
-  <div id="containerTabelle_Today"></div>
+<div id="containerTabelle_Today"></div>
 
-  <!-- Leerzone -->
-  <div class="container zone"></div>
+
+
+  <!-- Wasser -->
+  <div class="container zone">
+    <div class="fullCell">
+      <p style="text-align: center; color: aqua;">Wasserzähler</p>
+      <br>
+      <p style="text-align: center; font-size: 114px;">🥤</p>
+      <div class="wasserContainer">
+        
+        <button class="spinButton" onclick="water_Spin_Down()">-</button>
+        <button class="outputButtonWater" id="outpWaterButton" onclick="take_Over_Water()">0.25 L</button>
+        <button class="spinButton" onclick="water_Spin_Up()">+</button>
+      </div>
+      <br>
+      <p>Heute getrunken</p>
+      <p id="output_TodayDrank" class="outpTxtWater"> 0 Liter</p>
+    </div>
+  </div>
+
+  
 
 <!-- ================================================================ -->
 <!-- Tabelle mit Datenbank aller Lebensmittel -->
@@ -393,7 +412,7 @@
 
 
  
-  <footer class="zone blue">Version 0.9.9.3.4 -- 25.05.2021</footer>
+  <footer class="zone blue">Version 0.9.9.3.5 -- 27.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
