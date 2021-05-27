@@ -130,14 +130,15 @@ blendOut_Eingabebereich_FoodDB();
 TODOS 
 
 o	Historie komplett
-o	Mailversand historie
+o	Mailversand historie. Es soll eine Textdatei mit der eigenenen Datenbank versendet werden und den ausgewählen Tag als Body Text.
 o	Ux verbessern bei neuen usern
 o	Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
 o	Andere Statistikwerte
 o	Planer bauen
+o   Import Funktion bauen, um eigene Textdatei in Food_DB einzulesen. Mit Forschleife nur Elemente einbinden, welche noch nicht vorhanden sind 
 o	Themes Dark, light (hellblau)
-
-
+o   Bei Food Select, HEUTE GEGESSEN die Makros des einzelnen Produkts anzeigen lassen bei Dash
+o
 
 
 
