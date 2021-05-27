@@ -121,13 +121,15 @@ function saveFood_DB() {
     localStorage.setItem("storedFoodDB", JSON.stringify(array_Food_DB));
     console.log("DB saved");
 }
+
+
 //Load Food-DB
 function loadFood_DB() {
     array_Food_DB = JSON.parse(localStorage.getItem("storedFoodDB"));
+    array_Food_DB.sort((a, b) => (a.productName > b.productName) ? 1 : -1)
     createTable_FoodDB();
     console.log("DB loaded");
 }
-
 
 // Automatisches lesen des JSON Files
 function fetch_Food_DB() {
@@ -386,11 +388,19 @@ function show_Sugar(){
     show_Statisitcs("show_Sugar");
     all_Statistics_Button_UnselectColor("btnStatSugar");
 }
+
+function show_Water(){
+    show_Statisitcs("show_Water");
+    all_Statistics_Button_UnselectColor("btnStatWater");
+}
+
+
 //  selektieren Button färben
 function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     document.getElementById('btnStatEffektKcal').style.backgroundColor = "rgb(10, 10, 46)";
     document.getElementById('btnStatSteps').style.backgroundColor = "rgb(10, 10, 46)";
     document.getElementById('btnStatSugar').style.backgroundColor = "rgb(10, 10, 46)";
+    document.getElementById('btnStatWater').style.backgroundColor = "rgb(10, 10, 46)";
 
     document.getElementById(selectedButtonColorize).style.backgroundColor = "rgb(24, 24, 236)";
 
@@ -624,6 +634,70 @@ function show_Statisitcs(val) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
             }
         }
+
+        // >>> Wasser <<<
+    }else if (val == "show_Water") {
+
+        document.getElementById("valDescription").innerHTML = "Wasser";
+        document.getElementById("valDescrFett").innerHTML = "";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Wasser -- (Ziel: 2 L)";
+        document.getElementById('outputFatSum').innerHTML = "";
+        var waterCounter = 0.0;
+        // Fett ausblenden
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
+            document.getElementById('fettInGramm_Col_' + i).style.color = "white";
+        }
+
+        for(var i = 0; i < statistik_Count; i++) {
+            document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
+            currentVal = my_Statistics[i].repository_Water;
+            waterCounter += currentVal;
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = currentVal;
+            document.getElementById("val_Col_" + i).innerHTML = currentVal;
+            
+            // + - zum Vortag
+            if(i > 0) {
+                val_to_DayBefore = parseInt(my_Statistics[i].repository_Water) - parseInt(lastDayVal);
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " L";
+                lastDayVal = parseInt(my_Statistics[i].repository_Water);
+                if(val_to_DayBefore > 0) {
+                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " L";
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
+                }else{
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                }
+            }else{
+                val_to_DayBefore = "-";
+                lastDayVal = my_Statistics[i].repository_Water;
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+            }
+    
+            // Diagramm
+            currProzent = parseFloat(my_Statistics[i].repository_Water) * 100 / 2;
+            let colHeightInPixel = currProzent * 500 / 100;
+            if(colHeightInPixel > 1000) {
+                document.getElementById("COL_Dia_" + i).style.height = "1000px";
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Water + 'L 🚀';
+            }else {
+                document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Water + " L";
+            }
+    
+            // Balken färben
+            if(currentVal < 2) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+                console.log(i);
+            }else{
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "#41e6fc";
+                console.log(i);
+            }
+            
+        }
+
+            document.getElementById('outputFatSum').innerHTML = waterCounter + " L";
+
+
     }
 
 

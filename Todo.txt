@@ -138,10 +138,14 @@ TODOS
 - [ ] Andere Statistikwerte
 - [ ] Planer bauen
 - [ ] Themes Dark, light (hellblau)
-- [ ] Immer da Buttons bei scrolling einblenden. Nach gewisser Zeit aisblenden https://www.javascripttutorial.net/javascript-dom/javascript-scroll-events/
+- [ ] Immer da Buttons bei scrolling einblenden. Nach gewisser Zeit ausblenden https://www.javascripttutorial.net/javascript-dom/javascript-scroll-events/
 - [ ] Fertig Button bei Food Selektion. Dann scroll up zu Dash
 - [ ] Statistik index und Tabelle essen über immer da Button legen 
 - [ ] Besten Statistik Balken glühen lassen 
+- [ ] Zoom Prevent https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+- [ ] Wann man zuletzt getrunken hat
+- [ ] Nach produktbuchung Alert mit Info über Nährwerte und Kcal
+
 
 
 
@@ -152,7 +156,6 @@ DONE
 - [x] Mengenänderungsbox anpassen
 - [x] Produkt makros ändern
 - [x] Produkt löschen 
-- [x] Pizza spinacci löschen
 - [x] Produktmenge ändern
 - [x] Bei ausgeblendeten eingabe verhindern
 - [x] Action Bereiche ausgeblendet
@@ -167,3 +170,4 @@ DONE
 - [x] Wasser trinken
 - [x] Bug wenn Schritte abgespeichert werden, anderer Wert als wenn Seite aktualisiert wird.
 - [x] Button Statistik blau markiert 
+- [x] Liste alphabetisch 
