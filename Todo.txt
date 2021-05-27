@@ -59,25 +59,6 @@ Bugs
 
 
 
-Schlachtplan:
-    1. Bei Document Load checken ob Food Array belegt ist bzw. den persistenten Speicher checken
-        Wenn ja, Tabelle laden
-
-        Wenn Nein, FoodDB File automatisch laden und Tabelle laden 
-    
-    2. Wenn man auf Food + klickt, wird man zur Tabelle mit allen Lebensmitteln geführt.
-        -Suchfeld für unscharfe Suche.
-        -Wenn Lebensmittel angeklickt, taucht Input Feld mit Mengenangabe auf
-         Nach Eingabe und Klick auf speichern, verschwindet es wieder. Das Produkt
-         wird in Array Heute gegessen eingetragen und man wird zur Liste Heute gegessen 
-         geleitet.
-
-    3. Man hat einen immer da Button für Schritte. Popup Fenster mit markierten letzten Schritten
-       öffnet sich und man kann die Zahl überschreiben oder abbrechen.
-       Kcal werden dann berechnet und man wird nach oben geleitet zur Übersicht
-
-
-
  /////////////////////////////////   
 !!!!   VERSIONSBENENNUNG!!!!!!!!!!! 
 ///////////////////////////////////
