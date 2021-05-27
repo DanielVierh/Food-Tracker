@@ -130,17 +130,6 @@ blendOut_Eingabebereich_FoodDB();
 TODOS 
 - [ ]
 
-<<<<<<< HEAD
-o	Historie komplett
-o	Mailversand historie. Es soll eine Textdatei mit der eigenenen Datenbank versendet werden und den ausgewählen Tag als Body Text.
-o	Ux verbessern bei neuen usern
-o	Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
-o	Andere Statistikwerte
-o	Planer bauen
-o   Import Funktion bauen, um eigene Textdatei in Food_DB einzulesen. Mit Forschleife nur Elemente einbinden, welche noch nicht vorhanden sind 
-o	Themes Dark, light (hellblau)
-o   Bei Food Select, HEUTE GEGESSEN die Makros des einzelnen Produkts anzeigen lassen bei Dash
-o
 =======
 - [ ] Historie komplett
 - [ ] Mailversand historie
@@ -153,12 +142,9 @@ o
 - [ ] Fertig Button bei Food Selektion. Dann scroll up zu Dash
 - [ ] Statistik index und Tabelle essen über immer da Button legen 
 - [ ] Besten Statistik Balken glühen lassen 
-- [ ] Wasser trinken
-- [ ] Button Statistik blau markiert 
-- [ ] Bug wenn Schritte abgespeichert werden, anderer Wert als wenn Seite aktualisiert wird.
 
 
->>>>>>> 8c70665e781e36a8cc7008a34f77ab5637257834
+
 
 
 
@@ -178,3 +164,6 @@ DONE
 - [x] Nach kcal Ziel abspeichern nach oben
 - [x] Grüne farbe bei dash heller
 - [x] Zum vortag aus g kcal machen
+- [x] Wasser trinken
+- [x] Bug wenn Schritte abgespeichert werden, anderer Wert als wenn Seite aktualisiert wird.
+- [x] Button Statistik blau markiert 

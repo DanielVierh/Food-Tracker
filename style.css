@@ -28,6 +28,7 @@ body{
     text-align: center;
     justify-content: center;
     background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31));
+    background-color: rgb(5, 10, 37);
 }
 
 @media only screen and (max-width: 600px) {
@@ -520,6 +521,7 @@ footer{
 
 /* ================================================ */
   /* Food Datenbank */
+/* ================================================ */
 
   .buttonChangeMakros{
     width: 300px;
@@ -540,6 +542,7 @@ footer{
     max-height: 40vh;
     border: 5px solid black;
     background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31));
+   
 }
 
 
@@ -549,6 +552,7 @@ table tr td {
   padding: 10px;
   color: white;
   font-weight: bold;
+ 
 }
 table tr:nth-child(odd) { background: #010a13; }
 
@@ -586,8 +590,9 @@ table tr:nth-child(odd) { background: #010a13; }
     
 }
 
-
+/* ================================================ */
 /* Einstellungen  */
+/* ================================================ */
 
 .einstllungsform{
 
@@ -617,10 +622,12 @@ table tr:nth-child(odd) { background: #010a13; }
 
 table {
     width:100%;
+   
   }
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    
   }
    /*
   th, td {
@@ -721,6 +728,10 @@ table {
   display: flex;
   flex-direction: column;
 }
+
+/* ================================================ */
+/* Wasser */
+/* ================================================ */
 
 .wasserContainer{
   text-align: center;

@@ -106,8 +106,9 @@
 <div id="containerTabelle_Today"></div>
 
 
-
+ <!-- ================================================================ -->
   <!-- Wasser -->
+   <!-- ================================================================ -->
   <div class="container zone">
     <div class="fullCell">
       <p style="text-align: center; color: aqua;">Wasserzähler</p>
@@ -187,12 +188,12 @@
       <h1>Statistik</h1>
       <br>
       <div class="wrapperButton">
-        <button class="optButtonStatisik" onclick="show_EffectKcal()">Effek. Kcal</button>
-        <button class="optButtonStatisik" onclick="show_Steps()">Schritte</button>
+        <button class="optButtonStatisik" id="btnStatEffektKcal" onclick="show_EffectKcal()">Effek. Kcal</button>
+        <button class="optButtonStatisik" id="btnStatSteps" onclick="show_Steps()">Schritte</button>
         <!-- <button class="optButtonStatisik">Verbrannt</button> -->
       </div>
       <div class="wrapperButton">
-        <button class="optButtonStatisik" onclick="show_Sugar()">Zucker</button>
+        <button class="optButtonStatisik" id="btnStatSugar" onclick="show_Sugar()">Zucker</button>
         <!-- <button class="optButtonStatisik">Eiweiß</button>
         <button class="optButtonStatisik">Ballaststoffe</button>
         <button class="optButtonStatisik">Fett</button> -->
@@ -412,7 +413,7 @@
 
 
  
-  <footer class="zone blue">Version 0.9.9.3.5 -- 27.05.2021</footer>
+  <footer class="zone blue">Version 0.9.9.3.6 -- 27.05.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>

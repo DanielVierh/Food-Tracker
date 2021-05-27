@@ -52,7 +52,7 @@ function loadCont() {
     check_FoodDB();
     load_other_LocalStorage_Values();
     coloring_Labels();
-    show_Statisitcs("show_Effekctive_Kcal");
+    show_EffectKcal();
     calc_Values();
 }
 
@@ -374,14 +374,26 @@ class StoredTarget {
 
 function show_EffectKcal() {
     show_Statisitcs("show_Effekctive_Kcal");
+    all_Statistics_Button_UnselectColor("btnStatEffektKcal");
 }
 
 function show_Steps() {
     show_Statisitcs("show_Steps");
+    all_Statistics_Button_UnselectColor("btnStatSteps");
 }
 
 function show_Sugar(){
     show_Statisitcs("show_Sugar");
+    all_Statistics_Button_UnselectColor("btnStatSugar");
+}
+//  selektieren Button färben
+function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
+    document.getElementById('btnStatEffektKcal').style.backgroundColor = "rgb(10, 10, 46)";
+    document.getElementById('btnStatSteps').style.backgroundColor = "rgb(10, 10, 46)";
+    document.getElementById('btnStatSugar').style.backgroundColor = "rgb(10, 10, 46)";
+
+    document.getElementById(selectedButtonColorize).style.backgroundColor = "rgb(24, 24, 236)";
+
 }
 
 
