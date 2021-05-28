@@ -125,7 +125,7 @@ TODOS
 - [ ] Besten Statistik Balken glühen lassen 
 - [ ] Zoom Prevent https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 - [ ] Wann man zuletzt getrunken hat
-- [ ] Nach produktbuchung Alert mit Info über Nährwerte und Kcal
+
 
 
 
@@ -152,3 +152,4 @@ DONE
 - [x] Bug wenn Schritte abgespeichert werden, anderer Wert als wenn Seite aktualisiert wird.
 - [x] Button Statistik blau markiert 
 - [x] Liste alphabetisch 
+- [x] Nach produktbuchung Alert mit Info über Nährwerte und Kcal
