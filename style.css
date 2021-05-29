@@ -772,3 +772,27 @@ table {
   font-size: 117px;
   font-weight: bolder;
 }
+
+
+
+/* Theme  */
+
+.colorButtonHolder{
+  display: flex;
+  
+}
+
+.themeColorButton{
+  height: 150px;
+  width: 150px;
+  margin: 45px;
+  border-radius: 90px;
+}
+
+.dark{
+  background-color: #111f3d;
+}
+
+.light{
+  background-color: #4096ee;
+}
