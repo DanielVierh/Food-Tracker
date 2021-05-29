@@ -1030,7 +1030,7 @@ function steps_into_Kcal() {
                      ));
 
                      // Anzeigen, dass Produkt eingetragen wurde
-                let intakeFoodInfo = newProduct + " wurde zur Liste Heute Gegessen hinzugefügt mit \n Kcal:" + kcal_Intake + " Kcal \n Kohlenhydrate: " + parseInt(carb_Intake) + "g \n Zucker: " + parseInt(sugar_Intake) + "g \n Eiweiss: " + parseInt(protein_Intake) + "g \n Fett: " + parseInt(fat_Intake) + "g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g";
+                let intakeFoodInfo = newProduct + " wurde zur Liste Heute Gegessen hinzugefügt mit: \n Kcal:" + kcal_Intake + " Kcal \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g";
                 alert(intakeFoodInfo);
                 document.getElementById('statusX').innerHTML = selected_Food.productName + " wurde eingetragen";
                 // Speichern
