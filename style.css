@@ -775,11 +775,16 @@ table {
 
 
 
+
+/* ================================================ */
 /* Theme  */
+/* ================================================ */
+
 
 .colorButtonHolder{
   display: flex;
-  
+  background-color: rgba(0, 0, 0, 0.062);
+
 }
 
 .themeColorButton{
@@ -787,12 +792,18 @@ table {
   width: 150px;
   margin: 45px;
   border-radius: 90px;
+  box-shadow: 5px 5px 50px rgb(52, 241, 255);
+  font-size: 30px;
+  font-weight: bold;
+  border: 5px solid rgba(255, 255, 255, 0.37);
 }
 
 .dark{
   background-color: #111f3d;
+  color: #4096ee;
+
 }
 
 .light{
-  background-color: #4096ee;
+  background-color: #60aaf3;
 }
