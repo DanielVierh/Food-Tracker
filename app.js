@@ -57,6 +57,7 @@ function loadCont() {
 }
 
 
+
 // Checke local Storage
 function check_FoodDB(){
     if(localStorage.getItem('storedFoodDB') === null) {
@@ -1846,4 +1847,50 @@ function welcome_Func() {
     let text = "Willkommen beim Food-Tracker. \n \n 1. Das kleine Formular ausfüllen. \n 2. Setzte deine weiteren Ziele und schon kann es losgehen. \n Die Daten kannst du jederzeit abändern. \n \n * Die Daten werden nur auf deinem Gerät gespeichert. Weitere Infos sind unten vermerkt.";
     alert(text);
     window.scrollTo(0, 12300);
+}
+
+
+
+// Theme
+
+//  Lade Theme
+let theme = localStorage.getItem('theme');
+if(theme == null){
+    setTheme('light');
+    console.log("nullColor");
+}else{
+    setTheme(theme);
+    console.log("theme geladen " + theme);
+}
+
+
+// Schleife für angeklickten Theme Button
+let themeDots = document.getElementsByClassName('theme-dot');
+
+for (var i=0; themeDots.length > i; i++){
+    themeDots[i].addEventListener('click', function(){
+        let mode = this.dataset.mode;
+        setTheme(mode);
+        console.log("Option angeklickt", mode);
+    })
+}
+
+// Theme ändern
+function setTheme(mode){
+    if(mode == 'light'){
+        document.getElementById('theme-style').href = 'style.css';
+    }
+    if(mode == 'blue'){
+        document.getElementById('theme-style').href = 'blue.css';
+    }
+    if(mode == 'green'){
+        document.getElementById('theme-style').href = 'green.css';
+    }
+    if(mode == 'ocean'){
+        document.getElementById('theme-style').href = 'ocean.css';
+    }
+    console.log("COLOR");
+    // Save  Theme
+    localStorage.setItem('theme', mode);
+    console.log('Saved Theme');
 }

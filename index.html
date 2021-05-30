@@ -4,7 +4,7 @@
   <title>Food Tracker</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./style.css">
-
+  <link id="theme-style" rel="stylesheet" href="">
 </head>
 <body>
   <nav class="sticky zone blue">
@@ -112,7 +112,7 @@
    <!-- ================================================================ -->
   <div class="container zone">
     <div class="fullCell">
-      <p style="text-align: center; color: aqua;">Wasserzähler</p>
+      <p class="wasserUeberschr">Wasserzähler</p>
       <br>
       <p style="text-align: center; font-size: 114px;">🥤</p>
       <div class="wasserContainer">
@@ -287,7 +287,7 @@
      
       <form class="form1">
         
-        <p class="advise"> <p style="color: yellow;">Nährwerte / 100 g</p> </p>
+        <p class="advise"> <p>Nährwerte / 100 g</p> </p>
         <br>
         <p id="Status_New_Food"></p>
         <br>
@@ -385,7 +385,7 @@
   <input type="text" pattern="\d*" value="" id="target_KcalZiel" class="inputMenge" placeholder="">
   <button class="ButtonSpeichern" onclick="define_Kcal_Target()">Speichern</button>
   <hr> <br>
-  <p style="color: gold;">Weitere Ziele</p>
+  <p class="advise">Weitere Ziele</p>
   <br>
   <div class="boxWeitereZiele">
     <label>Maximum Zucker</label>
@@ -415,11 +415,11 @@
         <p>Theme</p>
         <br>
         <div class="colorButtonHolder">
-          <button class="themeColorButton dark">Dark</button>
-          <button class="themeColorButton light">Light-Blue</button>
-          <button class="themeColorButton green">Light</button>
+          <button data-mode="light" class="theme-dot light">Light</button>
+          <button data-mode="blue" class="theme-dot lightBlue">Ocean</button>
+          <button data-mode="green" class="theme-dot green">Green</button>
+          <button data-mode="ocean" class="theme-dot dark">Dark</button>
         </div>
-
       </div>
     </div>
 
