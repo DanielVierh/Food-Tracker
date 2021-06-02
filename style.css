@@ -850,3 +850,15 @@ table {
 .green{
   background-color: #606B56;
 }
+
+.expButton{
+  width: 250px;
+  height: 100px;
+  margin: 35px;
+  font-size: 33px;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  border-radius: 20px;
+  box-shadow:5px 5px 29px var(--previewShadow);
+  
+}

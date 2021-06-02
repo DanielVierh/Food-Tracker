@@ -38,7 +38,8 @@ var min_Fiber = 0;
 var min_Steps = 10000;
 var new_Water = 0.25;
 var today_Water = 0;
-
+var originDB = [];
+var exp_New_Prod = [];
 //====================================================================================
 // Init
 //====================================================================================
@@ -1893,4 +1894,66 @@ function setTheme(mode){
     // Save  Theme
     localStorage.setItem('theme', mode);
     console.log('Saved Theme');
+}
+
+
+//====================================================================================
+// Exportiere Daten 
+//====================================================================================
+
+// location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+emailBody;
+function export_FoodDB() {
+
+
+    // Daten aus originaler DB in Array laden
+    fetch_Food_DB_Origin();
+    
+}
+
+// Originale Datenbank ziehen und Vergleich anstoßen
+function fetch_Food_DB_Origin() {
+    fetch("Food_DB_v2021_05.json")
+    .then(response => response.json())
+    .then(data => {
+        originDB = data;
+        var potNewProduct = "";
+     for(var i = 0; i < array_Food_DB.length; i++) {
+        potNewProduct = array_Food_DB[i].productName;
+        if(checkProductInOldDB(potNewProduct) === false) {
+            let exp_Product = potNewProduct;
+            let exp_kcal = array_Food_DB[i].kcal;
+            let exp_Fat = array_Food_DB[i].fat;
+            let exp_Carbs = array_Food_DB[i].carbs;
+            let exp_Sugar = array_Food_DB[i].sugar;
+            let exp_Fiber = array_Food_DB[i].fiber;
+            let exp_Protein = array_Food_DB[i].protein;
+            let exp_Salt = array_Food_DB[i].salt;
+            let exp_Quantity = array_Food_DB[i].quantityUnit;
+            let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Fiber + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Quantity + "; | ";
+            exp_New_Prod.push(expItem);
+        }
+     }
+     let emailTo = "";
+     let emailCC = "";
+     let emailSub = "Export Food DB";
+     //var newProducts = [];
+     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+exp_New_Prod;
+     
+    })
+}
+
+// Suche gleichen Wert
+function checkProductInOldDB(oldProd) {
+    var found = false;
+    var verglProd = "";
+    for(var j = 0; j < originDB.length; j++) {
+        verglProd = originDB[j].productName;
+        if(verglProd == oldProd) {
+            found = true;
+            break;
+        }
+    }
+    if(found == false) {
+        return false
+    }
 }
