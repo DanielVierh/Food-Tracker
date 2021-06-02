@@ -663,7 +663,7 @@ function show_Statisitcs(val) {
             
             // + - zum Vortag
             if(i > 0) {
-                val_to_DayBefore = parseInt(my_Statistics[i].repository_Water) - parseFloat(lastDayVal);
+                val_to_DayBefore = parseFloat(my_Statistics[i].repository_Water) - parseFloat(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " L";
                 lastDayVal = parseInt(my_Statistics[i].repository_Water);
                 if(val_to_DayBefore > 0) {
