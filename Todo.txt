@@ -113,18 +113,18 @@ TODOS
 
 =======
 - [ ] Historie komplett
-- [ ] Mailversand historie
+- [ ] Mailversand der historie
 - [ ] Ux verbessern bei neuen usern
 - [ ] Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
 - [ ] Andere Statistikwerte
 - [ ] Planer bauen
-- [ ] Themes Dark, light (hellblau)
 - [ ] Immer da Buttons bei scrolling einblenden. Nach gewisser Zeit ausblenden https://www.javascripttutorial.net/javascript-dom/javascript-scroll-events/
 - [ ] Fertig Button bei Food Selektion. Dann scroll up zu Dash
 - [ ] Statistik index und Tabelle essen über immer da Button legen 
-- [ ] Besten Statistik Balken glühen lassen 
 - [ ] Zoom Prevent https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 - [ ] Wann man zuletzt getrunken hat
+
+
 
 
 
@@ -153,3 +153,8 @@ DONE
 - [x] Button Statistik blau markiert 
 - [x] Liste alphabetisch 
 - [x] Nach produktbuchung Alert mit Info über Nährwerte und Kcal
+- [x] Themes Dark, light (hellblau)
+- [x] Export der eigenst eingetragenen Datensätze
+- [x] Bei Statistik Schritte Ziel Ziel entfernen
+- [x] Bei Wasser Differenz in Float berechnen
+- [x] Summe der Schritte

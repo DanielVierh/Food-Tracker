@@ -534,8 +534,9 @@ function show_Statisitcs(val) {
         
         document.getElementById("valDescription").innerHTML = "Schritte";
         document.getElementById("valDescrFett").innerHTML = "";
-        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte Ziel -- (Ziel: " + min_Steps + " Schr.)";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Schritte -- (Ziel: " + min_Steps + " Schr.)";
         document.getElementById('outputFatSum').innerHTML = "";
+        var stepCounter = 0;
         // Fett ausblenden
         for(var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
@@ -546,7 +547,7 @@ function show_Statisitcs(val) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = my_Statistics[i].repository_Steps;
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
-            
+            stepCounter += currentVal;
             // + - zum Vortag
             if(i > 0) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_Steps) - parseInt(lastDayVal);
@@ -583,6 +584,8 @@ function show_Statisitcs(val) {
             }
             
         }
+        document.getElementById('outputFatSum').innerHTML = stepCounter;
+        
         
         // >>> Zucker <<<
     }else if(val == "show_Sugar") {
@@ -655,12 +658,12 @@ function show_Statisitcs(val) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = my_Statistics[i].repository_Water;
             waterCounter += currentVal;
-            document.getElementById('fettInGramm_Col_' + i).innerHTML = currentVal;
+            //document.getElementById('fettInGramm_Col_' + i).innerHTML = currentVal;
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
             
             // + - zum Vortag
             if(i > 0) {
-                val_to_DayBefore = parseInt(my_Statistics[i].repository_Water) - parseInt(lastDayVal);
+                val_to_DayBefore = parseInt(my_Statistics[i].repository_Water) - parseFloat(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " L";
                 lastDayVal = parseInt(my_Statistics[i].repository_Water);
                 if(val_to_DayBefore > 0) {
