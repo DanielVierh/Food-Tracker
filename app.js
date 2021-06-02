@@ -9,6 +9,7 @@ var array_Food_DB = [];
 var today_eaten = [];
 var my_Statistics = [];
 var additional_Targets = [];
+var my_History = [];
 var bodyWeight = 78; 
 var kcal_Ziel = 0;
 var kcal_Requirement = 2500;
@@ -366,6 +367,30 @@ class RepositoryLast7Days {
         this.repository_Water = repository_Water;
 
     }
+}
+
+class History {
+    constructor(history_date, history_TotalEaten,  history_BurnedKCal, history_diff, history_EffectiveKcal, history_Steps,
+                history_Keto, history_Fat, history_Protein, history_Carbs, history_Sugar, history_Salt, history_Fiber,
+                history_Gramm, history_Diff_to_Target, history_Water) {
+                
+                    this.history_date = history_date;
+                    this.history_TotalEaten = history_TotalEaten;
+                    this.history_BurnedKCal = history_BurnedKCal;
+                    this.history_diff = history_diff;
+                    this.history_EffectiveKcal = history_EffectiveKcal;
+                    this.history_Steps = history_Steps;
+                    this.history_Keto = history_Keto;
+                    this.history_Fat = history_Fat;
+                    this.history_Protein = history_Protein;
+                    this.history_Carbs = history_Carbs;
+                    this.history_Sugar = history_Sugar;
+                    this.history_Salt = history_Salt;
+                    this.history_Fiber = history_Fiber;
+                    this.history_Gramm = history_Gramm;
+                    this.history_Diff_to_Target = history_Diff_to_Target;
+                    this.history_Water = history_Water;
+                }
 }
 
 class StoredTarget {
@@ -1552,11 +1577,40 @@ function close_Day() {
                 burned_Kcal = parseInt(realKcal);
                 calc_Values();
             }
-            let todaySugar = document.getElementById('output_Sugar').innerHTML;
-            let todayFat = document.getElementById('output_Fat').innerHTML;
-            let todayFiber = document.getElementById('output_Fiber').innerHTML;
-            let todayProtein = document.getElementById('output_Protein').innerHTML;
-    
+            let todaySugar = parseFloat(document.getElementById('output_Sugar').innerHTML);
+            let todayFat = parseFloat(document.getElementById('output_Fat').innerHTML);
+            let todayFiber = parseFloat(document.getElementById('output_Fiber').innerHTML);
+            let todayProtein = parseFloat(document.getElementById('output_Protein').innerHTML);
+            // NEEEEWWWWWW für Historie
+            let todayCarbs = parseFloat(document.getElementById('output_Carbs').innerHTML);
+            let todayGramm = parseFloat(document.getElementById('output_Gramm').innerHTML);
+            let todaySalt = parseFloat(document.getElementById('output_Salt').innerHTML);
+            let uebrig = parseInt(document.getElementById('output_Diff').innerHTML);
+            // Vorerst automatisch auf nein
+            let todayKeto = "Keto: Nein";
+            let placeHolder = " | ";
+            let placeHolderGramm = " g | ";
+            let einleitung = "Hallo, heute wurde folgendes aufgezeichnet: ";
+            diff = parseInt(kcal_Requirement - eaten_Kcal);
+            //let trueDifferenz = kcal_Requirement - parseInt(today_eaten);
+            // Hinzufügen von MyHistory String
+            let new_Day_for_my_History = einleitung + currDate + " : Kcal:" + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
+            "Verbrannt: " + burned_Kcal + "Kcal" + placeHolder + "Übrig: " + uebrig + placeHolder + 
+            "Effektive Kcal: " + effective_Kcal + placeHolder + "Schritte: " + today_Steps + " Schr." + placeHolder + 
+            todayKeto + " |Makros--> Fett: " + todayFat + placeHolder + "Eiweiss: " + 
+            todayProtein + placeHolderGramm + "Kohlenhydrate: " + todayCarbs + placeHolderGramm + "Zucker: " + 
+            todaySugar + placeHolderGramm + "Salz: " + todaySalt + placeHolderGramm + 
+            "Ballaststoffe: " + todayFiber + placeHolder + "Gramm: " + todayGramm + placeHolderGramm + 
+            "Diff zum Ziel: " + diff;
+            
+            const mailEnquery = window.confirm("Möchstest du dir den heutigen Tag als E-Mail zuschicken?");
+            if(mailEnquery) {
+                let emailTo = "";
+                let emailCC = "";
+                let emailSub = "Food-Tracker:" + currDate;
+                location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+new_Day_for_my_History;
+            }
+
             // Hinzufügen der Tageswerte in Statistik
             let length_Of_Statistic_Array = my_Statistics.length;
             if(length_Of_Statistic_Array >= 7) {
@@ -1569,22 +1623,14 @@ function close_Day() {
                 }
     
                 my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat, today_Water));
-                console.log(my_Statistics);
                 show_Statisitcs("show_Effekctive_Kcal");
             }else{
                 my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat, today_Water));
-                console.log(my_Statistics);
                 show_Statisitcs("show_Effekctive_Kcal");
             }
     
             // SPEICHERN DER WERTE
             save_Statistics();
-    
-            // Test Mail
-            // TODO MAIL VERSENDEN
-            ///////////////
-            //window.open('mailto:test@example.com');
-    
             
             // RESET
             today_Steps = 0;
@@ -1597,7 +1643,7 @@ function close_Day() {
                 save_Today_Steps();
                 save_Today_Eaten();
                 save_Today_Water();
-                alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
+                //alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
                 location.reload();
         }           
     }
@@ -1742,6 +1788,7 @@ function add_new_Food() {
                                             console.log("Neues Produkt wird angelegt");
                                             // Produkt anlegen
                                             array_Food_DB.push(new Food(new_productName, new_Kcal, new_Fat, new_Carbs, new_Sugar, new_Protein, new_Salt, new_Fiber, new_Unit));
+                                            alert("Lebensmittel wurde gespeichert :)");
                                             document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " wurde zur Datenbank hinzugefügt.";
                                             document.getElementById("Status_New_Food").style.color  = "green";
                                             createTable_FoodDB();

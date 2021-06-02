@@ -113,7 +113,6 @@ TODOS
 
 =======
 - [ ] Historie komplett
-- [ ] Mailversand der historie
 - [ ] Ux verbessern bei neuen usern
 - [ ] Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
 - [ ] Andere Statistikwerte
@@ -158,3 +157,4 @@ DONE
 - [x] Bei Statistik Schritte Ziel Ziel entfernen
 - [x] Bei Wasser Differenz in Float berechnen
 - [x] Summe der Schritte
+- [x] Mailversand der historie
