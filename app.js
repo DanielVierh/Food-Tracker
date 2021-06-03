@@ -283,19 +283,19 @@ function scroll_UP() {
 }
 
 function mittig_halten(){
-    window.scrollTo(0, 3300);
+    // window.scrollTo(0, 3300);
 }
 
 function goto_Settings() {
-    window.scrollTo(0, 12300);
+    window.scrollTo(0, 16000);
 }
 
 function goto_NewProduct() {
-    window.scrollTo(0, 9300);
+    window.scrollTo(0, 13000);
 }
 
 function goto_Statistic() {
-    window.scrollTo(0, 6000);
+    window.scrollTo(0, 7300);
 }
 
 //====================================================================================
@@ -1607,15 +1607,6 @@ function close_Day() {
             
             // Save History
             save_History();
-
-            // Tag direkt per Mail versenden
-            const mailEnquery = window.confirm("Möchstest du dir den heutigen Tag als E-Mail zuschicken?");
-            if(mailEnquery) {
-                let emailTo = "";
-                let emailCC = "";
-                let emailSub = "Food-Tracker: " + currDate;
-                location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+new_Day_for_my_History;
-            }
 
             // Hinzufügen der Tageswerte in Statistik
             let length_Of_Statistic_Array = my_Statistics.length;

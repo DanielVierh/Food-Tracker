@@ -112,7 +112,7 @@ TODOS
 - [ ] 
 
 =======
-- [ ] Historie komplett
+
 - [ ] Ux verbessern bei neuen usern
 - [ ] Wenn formular nicht ausgefüllt, 78 kg und Entscheidung speichern 
 - [ ] Andere Statistikwerte
@@ -122,16 +122,8 @@ TODOS
 - [ ] Statistik index und Tabelle essen über immer da Button legen 
 - [ ] Zoom Prevent https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 - [ ] Wann man zuletzt getrunken hat
-- [ ] Historie wird nicht versendet !!!!
-
-
-
--Historie speichern
--Historie laden
--Historie in Tabelle
--Historie versenden
--Historie löschen
-
+- [ ] Historieneintrag löschen
+- [ ] KCAL manuell eintragen // Schritte werden dann nur in KCal umgewandelt, wenn über manuelle Kcal
 
 
 
@@ -162,3 +154,4 @@ DONE
 - [x] Bei Wasser Differenz in Float berechnen
 - [x] Summe der Schritte
 - [x] Mailversand der historie
+- [x] Historie komplett
