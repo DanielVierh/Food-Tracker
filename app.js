@@ -1931,14 +1931,17 @@ function setTheme(mode){
     if(mode == 'light'){
         document.getElementById('theme-style').href = 'style.css';
     }
-    if(mode == 'blue'){
-        document.getElementById('theme-style').href = 'blue.css';
+    if(mode == 'dark'){
+        document.getElementById('theme-style').href = 'dark.css';
     }
     if(mode == 'green'){
         document.getElementById('theme-style').href = 'green.css';
     }
     if(mode == 'ocean'){
         document.getElementById('theme-style').href = 'ocean.css';
+    }
+    if(mode == 'lightBlue'){
+        document.getElementById('theme-style').href = 'lightBlue.css';
     }
     console.log("COLOR");
     // Save  Theme

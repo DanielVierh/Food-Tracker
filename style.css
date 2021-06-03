@@ -303,7 +303,7 @@ footer{
 
   .ButtonSpeichern{
       background-color: green;
-      color: var(--mainText);
+      color: white;
       width: 300px;
       height: 80px;
       font-size: 44px;
@@ -539,7 +539,7 @@ footer{
       width: 300px;
       height: 150px;
       background-color: darkgreen;
-      color: var(--mainText);
+      color: white;
       font-size: 3.0rem;
       font-weight: bold;
       margin: 50px;
@@ -694,6 +694,7 @@ table {
       text-align: center;
       font-size: 34px;
       border-radius: 12px;
+      color: var(--secondaryColor);
   }
 
   .c1{
@@ -839,7 +840,7 @@ table {
   color: #4096ee;
 }
 
-.lightBlue{
+.ocean{
   background-color: #192734;
   color: #9cadbe;
 }
@@ -853,6 +854,11 @@ table {
   background-color: #606B56;
 }
 
+.lightBlue{
+  background-color: rgb(87, 166, 245);
+  color: white;
+}
+
 .expButton{
   width: 250px;
   height: 100px;
@@ -862,5 +868,17 @@ table {
   color: var(--mainText);
   border-radius: 20px;
   box-shadow:5px 5px 29px var(--previewShadow);
+  
+}
+
+/* Historie */
+
+.buttonHistorie{
+  margin: 25px;
+  width: 250px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 34px;
+  font-weight: bold;
   
 }

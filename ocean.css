@@ -1,8 +1,8 @@
 :root{
-    --mainColor: rgb(17, 19, 32);
+    --mainColor: #15202B;
     --secondaryColor:#2a3c3f;
     --borderColor:#ecf2f5;
-    --mainText:#fff;
+    --mainText:rgb(41, 240, 247);
     --secondaryText: #eeeeee;
     --themeDotBorder:rgb(241, 236, 236);
     --previewBg:rgba(21, 31, 32, 0.8);

@@ -33,7 +33,6 @@
       <p class="uebersicht_Values" id="output_Burned">0 Kcal</p>
     </div>
 
-
     <div class="box zone">
       <p>Effektiv</p>
       <p class="uebersicht_Values" id="output_EffectiveBurned">0 Kcal</p>
@@ -164,8 +163,16 @@
   <div id="btnscrl_Up" class="bg-text2">&#128285 UP</div>
   <button data-modal-target="#modal_Steps" id="btnSteps" class="bg-text3">0 &#128095</button>
 
-<!-- Leerzone -->
-<div class="container zone"></div>
+    <!-- Leerzone -->
+    <div class="container zone"></div>
+  <!-- ================================================================
+  Planer
+  ================================================================ -->
+  <div class="fullCell">
+    <h1>Planer</h1>
+  </div>
+    <!-- Leerzone -->
+    <div class="container zone"></div>
 
 <!-- ================================================================ -->
 <!-- Modal Form AKA PopUp für Schritte -->
@@ -182,6 +189,9 @@
 </div>
 
 <div id="overlay"></div>
+
+
+
 
 <!-- ================================================================ -->
 <!-- Statistik -->
@@ -274,8 +284,26 @@
     </div>
 
 
+  
     <!-- Leerzone -->
 <div class="container zone"></div>
+
+
+  <!-- ================================================================
+  Historie
+  ================================================================ -->
+  <div class="fullCell">
+    <h1>Historie</h1>
+    <br>
+    <div class="wasserContainer">
+      <button class="buttonHistorie">Löschen</button>
+      <button class="buttonHistorie">Senden</button>
+    </div>
+  </div>
+
+      <!-- Leerzone -->
+<div class="container zone"></div>
+
 
 
 <!-- Hinzufügen -->
@@ -416,9 +444,12 @@
         <br>
         <div class="colorButtonHolder">
           <button data-mode="light" class="theme-dot light">Light</button>
-          <button data-mode="blue" class="theme-dot lightBlue">Ocean</button>
+          <button data-mode="ocean" class="theme-dot ocean">Ocean</button>
           <button data-mode="green" class="theme-dot green">Green</button>
-          <button data-mode="ocean" class="theme-dot dark">Dark</button>
+          <button data-mode="dark" class="theme-dot dark">Dark</button>
+        </div>
+        <div class="colorButtonHolder">
+          <button data-mode="lightBlue" class="theme-dot lightBlue">light-Blue</button>
         </div>
       </div>
     </div>
@@ -435,7 +466,7 @@
 
 
  
-  <footer class="zone blue">Version 1.4.0.0. -- 02.06.2021</footer>
+  <footer class="zone blue">Version 1.4.1.0. -- 03.06.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>

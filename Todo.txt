@@ -109,7 +109,7 @@ blendOut_Eingabebereich_FoodDB();
  //////////////////////////
 
 TODOS 
-- [ ]
+- [ ] 
 
 =======
 - [ ] Historie komplett
@@ -122,7 +122,7 @@ TODOS
 - [ ] Statistik index und Tabelle essen über immer da Button legen 
 - [ ] Zoom Prevent https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 - [ ] Wann man zuletzt getrunken hat
-
+- [ ] Historie wird nicht versendet !!!!
 
 
 
