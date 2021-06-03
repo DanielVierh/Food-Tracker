@@ -874,11 +874,39 @@ table {
 /* Historie */
 
 .buttonHistorie{
-  margin: 25px;
+  margin: 25px 120px 25px 120px;
   width: 250px;
   height: 100px;
   border-radius: 25px;
   font-size: 34px;
   font-weight: bold;
-  
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
+}
+
+.deleteHistorie{
+  color: red;
+}
+
+#containerTabelle_History{
+width: 100%;
+font-size: 40px;
+font-weight: bolder;
+text-align: center;
+overflow-y: auto;
+height: 45vh;
+max-height: 45vh;
+border: 5px solid var(--themeDotBorder);
+background: var(--mainColor);
+color: var(--mainText);
+}
+
+#HistoryButtonContainer{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }

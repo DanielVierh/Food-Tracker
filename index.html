@@ -293,12 +293,21 @@
   Historie
   ================================================================ -->
   <div class="fullCell">
-    <h1>Historie</h1>
+    <h1 style="text-align: center;">Historie</h1>
     <br>
-    <div class="wasserContainer">
-      <button class="buttonHistorie">Löschen</button>
-      <button class="buttonHistorie">Senden</button>
+
+    <div id="HistoryButtonContainer">
+      <button class="buttonHistorie deleteHistorie">Löschen</button>
+      <button class="buttonHistorie sendHistorie" onclick="sendThisDay()">Senden</button>
     </div>
+    <hr>
+
+    <div class="txtAusgabeHistory">
+      <p id="output_History" style="margin: 15px;"></p>
+    </div>
+
+    <div id="containerTabelle_History"></div>
+
   </div>
 
       <!-- Leerzone -->

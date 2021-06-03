@@ -126,7 +126,11 @@ TODOS
 
 
 
-
+-Historie speichern
+-Historie laden
+-Historie in Tabelle
+-Historie versenden
+-Historie löschen
 
 
 

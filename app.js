@@ -41,6 +41,8 @@ var new_Water = 0.25;
 var today_Water = 0;
 var originDB = [];
 var exp_New_Prod = [];
+var selectedDateIndex = 0;
+var selectedDate = "";
 //====================================================================================
 // Init
 //====================================================================================
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', loadCont);
 function loadCont() {
     blendOut_MengeAendern();
     blendOut_Eingabebereich_FoodDB(); 
+    blendOut_HistoryButton();
     check_FoodDB();
     load_other_LocalStorage_Values();
     coloring_Labels();
@@ -213,6 +216,15 @@ function load_other_LocalStorage_Values(){
         additional_Targets = JSON.parse(localStorage.getItem("storedAdditionalTargets"));
         load_Additional_Targets();
     }
+
+    // History
+    if(localStorage.getItem('stored_History') === null) {
+         console.log("History konnte nicht geladen werden");
+     }else{
+        my_History = JSON.parse(localStorage.getItem("stored_History"));
+        my_History.sort((a, b) => (a.history_date < b.history_date) ? 1 : -1)
+        create_MyHistory();
+    }
 }
 
 // Speichere Wasser
@@ -257,6 +269,11 @@ function save_Kcal_Requirement() {
     console.log("kcal_Req gespeichert");
 }
 
+// Speichere History
+function save_History() {
+    localStorage.setItem("stored_History", JSON.stringify(my_History));
+    console.log("History gespeichert");
+}
 
 //====================================================================================
 // Scroll Section
@@ -312,6 +329,11 @@ function blendOut_MengeAendern() {
     document.getElementById("btnDeleteFoodFromToday").disabled = true;
     document.getElementById("foodAmound_Change").disabled = true;
     
+}
+
+function blendOut_HistoryButton() {
+    document.getElementsByClassName("buttonHistorie").disabled = true;
+    document.getElementById("HistoryButtonContainer").style.opacity = "0";
 }
 
 function blendOut_Eingabebereich_FoodDB() {
@@ -370,26 +392,9 @@ class RepositoryLast7Days {
 }
 
 class History {
-    constructor(history_date, history_TotalEaten,  history_BurnedKCal, history_diff, history_EffectiveKcal, history_Steps,
-                history_Keto, history_Fat, history_Protein, history_Carbs, history_Sugar, history_Salt, history_Fiber,
-                history_Gramm, history_Diff_to_Target, history_Water) {
-                
+    constructor(history_date, history_Content) {
                     this.history_date = history_date;
-                    this.history_TotalEaten = history_TotalEaten;
-                    this.history_BurnedKCal = history_BurnedKCal;
-                    this.history_diff = history_diff;
-                    this.history_EffectiveKcal = history_EffectiveKcal;
-                    this.history_Steps = history_Steps;
-                    this.history_Keto = history_Keto;
-                    this.history_Fat = history_Fat;
-                    this.history_Protein = history_Protein;
-                    this.history_Carbs = history_Carbs;
-                    this.history_Sugar = history_Sugar;
-                    this.history_Salt = history_Salt;
-                    this.history_Fiber = history_Fiber;
-                    this.history_Gramm = history_Gramm;
-                    this.history_Diff_to_Target = history_Diff_to_Target;
-                    this.history_Water = history_Water;
+                    this.history_Content = history_Content;
                 }
 }
 
@@ -729,11 +734,6 @@ function show_Statisitcs(val) {
 
 
     }
-
-
-
-
-
 
 }
 
@@ -1586,28 +1586,34 @@ function close_Day() {
             let todayGramm = parseFloat(document.getElementById('output_Gramm').innerHTML);
             let todaySalt = parseFloat(document.getElementById('output_Salt').innerHTML);
             let uebrig = parseInt(document.getElementById('output_Diff').innerHTML);
-            // Vorerst automatisch auf nein
-            let todayKeto = "Keto: Nein";
+            let todayKeto = "Keto: Nein";  // Vorerst automatisch auf nein
             let placeHolder = " | ";
             let placeHolderGramm = " g | ";
-            let einleitung = "Hallo, heute wurde folgendes aufgezeichnet: ";
+            let einleitung = "Am " + currDate + " wurde folgendes erfasst: ";
             diff = parseInt(kcal_Requirement - eaten_Kcal);
             //let trueDifferenz = kcal_Requirement - parseInt(today_eaten);
             // Hinzufügen von MyHistory String
-            let new_Day_for_my_History = einleitung + currDate + " : Kcal:" + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
-            "Verbrannt: " + burned_Kcal + "Kcal" + placeHolder + "Übrig: " + uebrig + placeHolder + 
+            let new_Day_for_my_History = einleitung + "Kcal: " + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
+            "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + uebrig + placeHolder + 
             "Effektive Kcal: " + effective_Kcal + placeHolder + "Schritte: " + today_Steps + " Schr." + placeHolder + 
-            todayKeto + " |Makros--> Fett: " + todayFat + placeHolder + "Eiweiss: " + 
+            todayKeto + " | Makros--> Fett: " + todayFat + placeHolder + "Eiweiss: " + 
             todayProtein + placeHolderGramm + "Kohlenhydrate: " + todayCarbs + placeHolderGramm + "Zucker: " + 
             todaySugar + placeHolderGramm + "Salz: " + todaySalt + placeHolderGramm + 
             "Ballaststoffe: " + todayFiber + placeHolder + "Gramm: " + todayGramm + placeHolderGramm + 
-            "Diff zum Ziel: " + diff;
+            "Diff zum Ziel: " + diff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L";
             
+            // Dem History Array hinzufügen
+            my_History.push(new History(currDate, new_Day_for_my_History));
+            
+            // Save History
+            save_History();
+
+            // Tag direkt per Mail versenden
             const mailEnquery = window.confirm("Möchstest du dir den heutigen Tag als E-Mail zuschicken?");
             if(mailEnquery) {
                 let emailTo = "";
                 let emailCC = "";
-                let emailSub = "Food-Tracker:" + currDate;
+                let emailSub = "Food-Tracker: " + currDate;
                 location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+new_Day_for_my_History;
             }
 
@@ -1643,7 +1649,7 @@ function close_Day() {
                 save_Today_Steps();
                 save_Today_Eaten();
                 save_Today_Water();
-                //alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
+                alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
                 location.reload();
         }           
     }
@@ -2009,4 +2015,68 @@ function checkProductInOldDB(oldProd) {
     if(found == false) {
         return false
     }
+}
+
+
+
+
+
+
+
+
+//====================================================================================
+// History
+//====================================================================================
+
+function create_MyHistory() {
+
+
+        // Reset der Tabelle
+        document.getElementById("containerTabelle_History").innerHTML = "";
+
+        // CREATE HTML TABLE OBJECT
+        var perrow = 1, // 1 CELLS PER ROW
+        table = document.createElement("table"),
+        row = table.insertRow();
+    // LOOP THROUGH ARRAY AND ADD TABLE CELLS
+    for (var i = 0; i < my_History.length; i++) {
+      // ADD "BASIC" CELL
+      var cell = row.insertCell();
+      cell.innerHTML = my_History[i].history_date;
+  
+      // ATTACH A RUNNING NUMBER OR CUSTOM DATA
+     cell.dataset.id = i;
+   
+        // Auswahl des Tages
+      cell.addEventListener("click", function(){
+        selectedDateIndex = this.dataset.id;  
+        selectedDate = my_History[selectedDateIndex];
+        document.getElementById('output_History').innerHTML = selectedDate.history_Content;
+        // Sichbar machen
+        document.getElementById("HistoryButtonContainer").style.opacity = "1";
+        // Enable Schaltflächen
+        document.getElementsByClassName("buttonHistorie").disabled = false;
+      });
+  
+  
+      // BREAK INTO NEXT ROW
+      var next = i + 1;
+      if (next%perrow==0 && next!=my_History.length) {
+        row = table.insertRow();
+      }
+    }
+  
+    // ATTACH TABLE TO CONTAINER
+    document.getElementById("containerTabelle_History").appendChild(table);
+}
+
+//====================================================================================
+// Den ausgewählten Tag per Mail versenden
+//====================================================================================
+function sendThisDay() {
+    let emailTo = "";
+    let emailCC = "";
+    let emailSub = "Food-Tracker: " + selectedDate.history_date;
+    let bodyContent = selectedDate.history_Content;
+    location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+bodyContent;
 }
