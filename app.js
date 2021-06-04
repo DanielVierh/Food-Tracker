@@ -450,25 +450,6 @@ function show_Statisitcs(val) {
     var height_Col_7 = 0;
     var zielLatte = kcal_Ziel;
     var currProzent = 0;
-
-    // TESTDATEN
-    // let day1 = new RepositoryLast7Days("21.05.2021", 1300, 12199, 769, 39, 141, 32, 102);
-    // let day2 = new RepositoryLast7Days("22.05.2021", 1400, 10884, 686, 12, 129, 58, 89);
-    // let day3 = new RepositoryLast7Days("23.05.2021", 1500, 9478, 597, 48, 65, 47, 125);
-    // let day4 = new RepositoryLast7Days("24.05.2021", 1600, 9478, 597, 48, 65, 47, 125);
-    // let day5 = new RepositoryLast7Days("25.05.2021", 1700, 9478, 597, 48, 65, 47, 125);
-    // let day6 = new RepositoryLast7Days("26.05.2021", 1800, 9478, 597, 48, 65, 47, 125);
-    // let day7 = new RepositoryLast7Days("27.05.2021", 3500, 9478, 597, 48, 65, 47, 125);
-    // my_Statistics.push(day1);
-    // my_Statistics.push(day2);
-    // my_Statistics.push(day3);
-    // my_Statistics.push(day4);
-    // my_Statistics.push(day5);
-    // my_Statistics.push(day6);
-    // my_Statistics.push(day7);
-
-    console.log("In Statistics" + my_Statistics);
-
     let statistik_Count = my_Statistics.length;
     var val_to_DayBefore = 0;
     var lastDayVal = 0;
@@ -636,23 +617,23 @@ function show_Statisitcs(val) {
             
             // + - zum Vortag
             if(i > 0) {
-                val_to_DayBefore = parseInt(my_Statistics[i].repository_Sugar) - parseInt(lastDayVal);
-                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " g";
-                lastDayVal = parseInt(my_Statistics[i].repository_Sugar);
+                val_to_DayBefore = parseFloat(my_Statistics[i].repository_Sugar) - parseFloat(lastDayVal);
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore.toFixed(1) + " g";
+                lastDayVal = parseFloat(my_Statistics[i].repository_Sugar);
                 if(val_to_DayBefore < 0) {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
                 }else{
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
-                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " g";
+                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore.toFixed(1) + " g";
                 }
             }else{
                 val_to_DayBefore = "-";
-                lastDayVal = my_Statistics[i].repository_Sugar;
+                lastDayVal = parseFloat(my_Statistics[i].repository_Sugar);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
             }
     
             // Diagramm
-            currProzent = parseInt(my_Statistics[i].repository_Sugar) * 100 / max_Sugar;
+            currProzent = parseFloat(my_Statistics[i].repository_Sugar) * 100 / max_Sugar;
             let colHeightInPixel = currProzent * 500 / 100;
             if(colHeightInPixel > 1000) {
                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
@@ -686,16 +667,15 @@ function show_Statisitcs(val) {
 
         for(var i = 0; i < statistik_Count; i++) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
-            currentVal = my_Statistics[i].repository_Water;
+            currentVal = parseFloat(my_Statistics[i].repository_Water);
             waterCounter += currentVal;
-            //document.getElementById('fettInGramm_Col_' + i).innerHTML = currentVal;
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
             
             // + - zum Vortag
             if(i > 0) {
                 val_to_DayBefore = parseFloat(my_Statistics[i].repository_Water) - parseFloat(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " L";
-                lastDayVal = parseInt(my_Statistics[i].repository_Water);
+                lastDayVal = parseFloat(my_Statistics[i].repository_Water);
                 if(val_to_DayBefore > 0) {
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " L";
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
@@ -704,7 +684,7 @@ function show_Statisitcs(val) {
                 }
             }else{
                 val_to_DayBefore = "-";
-                lastDayVal = my_Statistics[i].repository_Water;
+                lastDayVal = parseFloat(my_Statistics[i].repository_Water);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
             }
     
@@ -722,10 +702,8 @@ function show_Statisitcs(val) {
             // Balken färben
             if(currentVal < 2) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-                console.log(i);
             }else{
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "#41e6fc";
-                console.log(i);
             }
             
         }
