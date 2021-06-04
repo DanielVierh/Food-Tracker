@@ -283,7 +283,7 @@ function scroll_UP() {
 }
 
 function mittig_halten(){
-    // window.scrollTo(0, 3300);
+     window.scrollTo(0, 3300);
 }
 
 function goto_Settings() {
@@ -1585,22 +1585,23 @@ function close_Day() {
             let todayCarbs = parseFloat(document.getElementById('output_Carbs').innerHTML);
             let todayGramm = parseFloat(document.getElementById('output_Gramm').innerHTML);
             let todaySalt = parseFloat(document.getElementById('output_Salt').innerHTML);
-            let uebrig = parseInt(document.getElementById('output_Diff').innerHTML);
+            let todayDiff = parseInt(kcal_Requirement) + parseInt(burned_Kcal) - parseInt(eaten_Kcal); //parseInt(document.getElementById('output_Diff').innerHTML);
             let todayKeto = "Keto: Nein";  // Vorerst automatisch auf nein
             let placeHolder = " | ";
             let placeHolderGramm = " g | ";
             let einleitung = "Am " + currDate + " wurde folgendes erfasst: ";
-            diff = parseInt(kcal_Requirement - eaten_Kcal);
+            // diff = parseInt(kcal_Requirement - eaten_Kcal);
+            let goalDiff = parseInt(kcal_Ziel) + parseInt(burned_Kcal) - parseInt(eaten_Kcal);
             //let trueDifferenz = kcal_Requirement - parseInt(today_eaten);
             // Hinzufügen von MyHistory String
             let new_Day_for_my_History = einleitung + "Kcal: " + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
-            "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + uebrig + placeHolder + 
+            "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + todayDiff + placeHolder + 
             "Effektive Kcal: " + effective_Kcal + placeHolder + "Schritte: " + today_Steps + " Schr." + placeHolder + 
             todayKeto + " | Makros--> Fett: " + todayFat + placeHolder + "Eiweiss: " + 
             todayProtein + placeHolderGramm + "Kohlenhydrate: " + todayCarbs + placeHolderGramm + "Zucker: " + 
             todaySugar + placeHolderGramm + "Salz: " + todaySalt + placeHolderGramm + 
             "Ballaststoffe: " + todayFiber + placeHolder + "Gramm: " + todayGramm + placeHolderGramm + 
-            "Diff zum Ziel: " + diff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L";
+            "Diff zum Ziel: " + goalDiff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L";
             
             // Dem History Array hinzufügen
             my_History.push(new History(currDate, new_Day_for_my_History));
