@@ -155,3 +155,4 @@ DONE
 - [x] Summe der Schritte
 - [x] Mailversand der historie
 - [x] Historie komplett
+- [x] Makros der einzelnen LLebensmittel bei Heute gegessen
