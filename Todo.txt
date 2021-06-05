@@ -121,7 +121,7 @@ TODOS
 - [ ] Wann man zuletzt getrunken hat
 - [ ] Historieneintrag löschen
 - [ ] KCAL manuell eintragen // Schritte werden dann nur in KCal umgewandelt, wenn über manuelle Kcal
-
+- [ ] Funktion schreiben, dass Produkte überprüft und neue als update hineinlädt
 
 
 
