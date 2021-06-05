@@ -57,29 +57,26 @@ Bugs
 ----------------------
 
 
-
-
+ ///////////////////////////////// 
+!!!!     Checkliste    !!!!!!!!!!! 
  /////////////////////////////////   
-!!!!   VERSIONSBENENNUNG!!!!!!!!!!! 
+!!!  Version umbenennen          !!!
+!!!  Version in Commit erwähnen  !!!
 ///////////////////////////////////
+
+
 git add Todo.txt
 git add index.html
 git add app.js
 git add style.css
 git commit -m""
 
- /////////////////////////////////   
-!!!!   VERSIONSBENENNUNG!!!!!!!!!!! 
-///////////////////////////////////
 
 git add Todo.txt
 git add index.html
 git add style.css
 git commit -m""
 
- /////////////////////////////////   
-!!!!   VERSIONSBENENNUNG!!!!!!!!!!! 
-///////////////////////////////////
 
 git add Todo.txt
 git add index.html

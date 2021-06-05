@@ -426,6 +426,11 @@ function show_Water(){
     all_Statistics_Button_UnselectColor("btnStatWater");
 }
 
+function show_BurnedKcal(){
+    show_Statisitcs("show_BurndedKcal");
+    all_Statistics_Button_UnselectColor("btnStatBurnedKcal");
+}
+
 
 //  selektieren Button färben
 function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
@@ -433,6 +438,7 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     document.getElementById('btnStatSteps').style.backgroundColor = "rgb(10, 10, 46)";
     document.getElementById('btnStatSugar').style.backgroundColor = "rgb(10, 10, 46)";
     document.getElementById('btnStatWater').style.backgroundColor = "rgb(10, 10, 46)";
+    document.getElementById('btnStatBurnedKcal').style.backgroundColor = "rgb(10, 10, 46)";
 
     document.getElementById(selectedButtonColorize).style.backgroundColor = "rgb(24, 24, 236)";
 
@@ -711,6 +717,70 @@ function show_Statisitcs(val) {
             document.getElementById('outputFatSum').innerHTML = waterCounter + " L";
 
 
+    }else if(val == "show_BurndedKcal") {
+         // >>> Verbrannte KCAL <<<  
+         const kcalVal = 6.5;
+         const diviVal = 10000;
+         let burnedKcalGoal = parseInt((min_Steps * kcalVal * bodyWeight) / (diviVal));
+         document.getElementById("valDescription").innerHTML = "Verbrannte Kcal";
+         document.getElementById("valDescrFett").innerHTML = "";
+         document.getElementById("UeberschriftStatisik").innerHTML = "Verbrannte Kcal -- (Ziel: " + burnedKcalGoal + " Kcal)";
+         document.getElementById('outputFatSum').innerHTML = "";
+         
+                // Fett ausblenden
+                for(var i = 0; i < statistik_Count; i++) {
+                    document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
+                    document.getElementById('fettInGramm_Col_' + i).style.color = "white";
+                }
+
+         for(var i = 0; i < statistik_Count; i++) {
+             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_BurnedKCal;
+             currentVal = my_Statistics[i].repository_BurnedKCal;
+             document.getElementById("val_Col_" + i).innerHTML = currentVal;
+             
+             // + - zum Vortag
+             if(i > 0) {
+                 val_to_DayBefore = parseInt(my_Statistics[i].repository_BurnedKCal) - parseInt(lastDayVal);
+                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
+                 lastDayVal = parseInt(my_Statistics[i].repository_BurnedKCal);
+                 if(val_to_DayBefore < 0) {
+                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                 }else{
+                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
+                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Kcal";
+                 }
+             }else{
+                 val_to_DayBefore = "-";
+                 lastDayVal = my_Statistics[i].repository_BurnedKCal;
+                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+             }
+                  
+     
+             // Diagramm
+             currProzent = parseInt(my_Statistics[i].repository_BurnedKCal) * 100 / burnedKcalGoal;
+             let colHeightInPixel = currProzent * 500 / 100;
+             if(colHeightInPixel > 1000) {
+                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
+                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal 🚀';
+             }else {
+                 document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
+                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal';
+             }
+     
+             // Balken färben
+             if(currentVal < burnedKcalGoal) {
+                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+             }else{
+                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
+             }
+            
+             
+         }
+     
+             // Ziel Latte
+                 let targetHeight = 500; // Mitte
+                 document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
+     
     }
 
 }
@@ -1574,9 +1644,7 @@ function close_Day() {
             let placeHolder = " | ";
             let placeHolderGramm = " g | ";
             let einleitung = "Am " + currDate + " wurde folgendes erfasst: ";
-            // diff = parseInt(kcal_Requirement - eaten_Kcal);
             let goalDiff = parseInt(kcal_Ziel) + parseInt(burned_Kcal) - parseInt(eaten_Kcal);
-            //let trueDifferenz = kcal_Requirement - parseInt(today_eaten);
             // Hinzufügen von MyHistory String
             let new_Day_for_my_History = einleitung + "Kcal: " + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
             "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + todayDiff + placeHolder + 
@@ -1964,7 +2032,7 @@ function fetch_Food_DB_Origin() {
             let exp_Protein = array_Food_DB[i].protein;
             let exp_Salt = array_Food_DB[i].salt;
             let exp_Quantity = array_Food_DB[i].quantityUnit;
-            let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Fiber + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Quantity + "; | ";
+            let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Fiber + ";" + exp_Quantity + "; | ";
             exp_New_Prod.push(expItem);
         }
      }
