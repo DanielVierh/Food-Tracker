@@ -734,7 +734,7 @@ function show_Statisitcs(val) {
                 }
 
          for(var i = 0; i < statistik_Count; i++) {
-             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_BurnedKCal;
+             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
              currentVal = my_Statistics[i].repository_BurnedKCal;
              document.getElementById("val_Col_" + i).innerHTML = currentVal;
              
