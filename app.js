@@ -1082,10 +1082,8 @@ function create_Table_TodayEaten() {
     for (var i = 0; i < today_eaten.length; i++) {
       // ADD "BASIC" CELL
       var cell = row.insertCell();
-      var prozentFromDay = today_eaten[i].intake_kcal * 100 / kcal_Ziel;
-      cell.innerHTML = today_eaten[i].intake_productName + " --\n ( " + today_eaten[i].intake_amount +
-                     "g  / " + today_eaten[i].intake_kcal + " Kcal" + " / Fett. " + today_eaten[i].intake_fat + "g / Eiw. " +  today_eaten[i].intake_protein + "g / Kh. " + today_eaten[i].intake_carbs + "g / Zkr. " +
-                    today_eaten[i].intake_sugar + "g / Bal. " + today_eaten[i].intake_fiber +   "g / " + prozentFromDay.toFixed(0) + "% )";
+      cell.innerHTML = today_eaten[i].intake_productName + " --\n " + today_eaten[i].intake_amount +
+                     "g  = " + today_eaten[i].intake_kcal + " Kcal" ;
   
       // ATTACH A RUNNING NUMBER OR CUSTOM DATA
      cell.dataset.id = i;
@@ -1104,6 +1102,11 @@ function create_Table_TodayEaten() {
         document.getElementById("btnDeleteFoodFromToday").disabled = false;
         document.getElementById("foodAmound_Change").disabled = false;
         blendOut_Eingabebereich_FoodDB();
+
+        var prozentFromDay = selected_Food.intake_kcal * 100 / kcal_Ziel;
+        let calcSingle = "Makros: (" + selected_Food.intake_kcal + " Kcal = " + prozentFromDay.toFixed(0) + "%)" + " | Fett. " + selected_Food.intake_fat.toFixed(1) + "g | Eiw. " +  selected_Food.intake_protein.toFixed(1) + "g | Kh. " + selected_Food.intake_carbs.toFixed(1) + "g | Zkr. " +
+        selected_Food.intake_sugar.toFixed(1) + "g | Bal. " + selected_Food.intake_fiber.toFixed(1) +   "g | Slz:  " + selected_Food.intake_salt.toFixed(1) + "g";
+        document.getElementById("output_SingleMacros").innerHTML = calcSingle;
 
       });
   
