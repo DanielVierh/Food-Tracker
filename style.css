@@ -345,6 +345,9 @@ footer{
     font-size: 44px;
 }
 
+.singleCalc{
+  color: var(--secondaryText);
+}
 
 #containerTabelle_Today{
     width: 100%;
@@ -909,4 +912,19 @@ color: var(--mainText);
   flex-direction: row;
   width: 100%;
   justify-content: center;
+}
+
+.welcomeScreen{
+  position: fixed;
+  margin: 0px;
+
+  background-color: rgba(0, 0, 0, 0.918);
+  color: #23da41;
+  z-index: 2;
+  top: 40%;
+  left: 0%;
+  width: 100%;
+  height: 300px;
+  font-size: 34px;
+  text-align: center;
 }

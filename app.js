@@ -115,9 +115,19 @@ document.getElementById('searchInput').addEventListener('click', selectWord);
 
 document.getElementById('foodAmound_Change').addEventListener('click', selectWord2);
 
+document.getElementById("welcomeScrn").addEventListener('click', hideWelcomeScreen);
 
 
 
+
+
+
+
+
+function hideWelcomeScreen() {
+    document.getElementById("welcomeScrn").style.opacity = "0";
+    document.getElementById("welcomeScrn").style.zIndex = "-1";
+}
 
 //====================================================================================
 // Save,  Load or create DB
@@ -182,9 +192,13 @@ function load_other_LocalStorage_Values(){
     // Kcal Ziel
     if(localStorage.getItem('stored_KcalZiel') === null) {
             console.log("Kcal-Ziel konnte nicht geladen werden");
+            document.getElementById("welcomeScrn").style.opacity = "1";
+            document.getElementById("welcomeScrn").style.zIndex = "40";
     }else{
             kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
             document.getElementById('target_KcalZiel').value = kcal_Ziel;
+            document.getElementById("welcomeScrn").style.opacity = "0";
+            document.getElementById("welcomeScrn").style.zIndex = "-1";
     }
 
     // Heute gegessen
@@ -1492,7 +1506,7 @@ function calc_Kcal_Goal() {
                                 let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
 
                                 let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
-                                " Monat(en) erreichen möchtest, läg dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal";
+                                " Monat(en) erreichen möchtest, würde dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal liegen";
                                 document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
                                 document.getElementById('target_KcalZiel').value = recommended_Kcal;
 
@@ -1519,7 +1533,7 @@ function calc_Kcal_Goal() {
                             document.getElementById('target_Weight').value = "";
                             document.getElementById('target_Time').value = "";
 
-                            window.scrollTo(0, 13600);
+                            //window.scrollTo(0, 13600);
 
                         }
                     }
