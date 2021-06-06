@@ -1,0 +1,13 @@
+:root{
+
+    --mainColor: linear-gradient(135deg, rgba(6, 6, 24, 0.836), rgba(14, 54, 92, 0.849));
+    --secondaryColor:#192734;
+    --borderColor:#164D56;
+    --mainText:#fff;
+    --secondaryText: #eeeeee;
+    --themeDotBorder:#FFF;
+    --previewBg:rgb(25,39,52,0.8);
+    --previewShadow:#4b7baa;
+    --buttonColor:#17a2b8;
+    --waterColor: rgb(0, 247, 255);
+}

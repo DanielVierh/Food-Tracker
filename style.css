@@ -18,7 +18,7 @@
 body{
     margin: auto 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--mainColor);
+    background: var(--mainColor);
     color: var(--mainText);
 }
 
@@ -859,6 +859,11 @@ table {
 
 .lightBlue{
   background-color: rgb(87, 166, 245);
+  color: white;
+}
+
+.Linear{
+  background: linear-gradient(135deg, rgb(6, 6, 24), rgb(14, 54, 92));
   color: white;
 }
 

@@ -1990,7 +1990,7 @@ for (var i=0; themeDots.length > i; i++){
     })
 }
 
-// Theme ändern
+// Theme ändern  
 function setTheme(mode){
     if(mode == 'light'){
         document.getElementById('theme-style').href = 'style.css';
@@ -2006,6 +2006,9 @@ function setTheme(mode){
     }
     if(mode == 'lightBlue'){
         document.getElementById('theme-style').href = 'lightBlue.css';
+    }
+    if(mode == 'Linear'){
+        document.getElementById('theme-style').href = 'Linear.css';
     }
     console.log("COLOR");
     // Save  Theme
