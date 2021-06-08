@@ -879,7 +879,9 @@ table {
   
 }
 
+/* ================================================ */
 /* Historie */
+/* ================================================ */
 
 .buttonHistorie{
   margin: 25px 120px 25px 120px;
@@ -932,4 +934,43 @@ color: var(--mainText);
   height: 300px;
   font-size: 34px;
   text-align: center;
+}
+
+/* ================================================ */
+/* Planer  */
+/* ================================================ */
+
+.cont{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.macroContainer{
+  width: 90%;
+  height: 400px;
+  background-color: var(--mainColor);
+  border-radius: 25px;
+  border: 3px solid var(--borderColor);
+  box-shadow: 5px 5px 15px var(--previewShadow);
+}
+
+.row{
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 25px;
+}
+
+.addButton{
+  font-size: 75px;
+  color: rgb(31, 228, 31);
+  margin: 40px;
+}
+
+.verplantLabel{
+  text-align: center;
+  margin: 45px; 
+  color: var(--mainText); 
+  font-size: 96px;
 }
