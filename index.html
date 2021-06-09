@@ -134,7 +134,7 @@
 <!-- ================================================================ -->
 <!-- Tabelle mit Datenbank aller Lebensmittel -->
 <!-- ================================================================ --> 
-<div class="fullCell"><h1 id="titleDatenbank">Datenbank</h1></div>
+<div class="fullCell"><h1 id="titleDatenbank">Hinzufügen</h1></div>
 <p id="statusX"></p>
   <div class="fullCell">
     <div id="optAreaDB" class="foodSection">
@@ -144,7 +144,10 @@
       <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
       <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">🔧 Ändern</button>
     </div>
-
+    <br>
+    <label for="">Im Planer eintragen</label>
+    <input type="checkbox" class="checkBox" onclick="foodForPlaner()">
+    
     <!-- Searchbar -->
     <div class="fullCell">
       <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
@@ -179,15 +182,19 @@
   <div class="fullCell">
     <br>
     <h1 style="text-align: center; font-size: 124px;">Planer</h1>
-    <h1 class="verplantLabel">36 % verplant</h2>
-    <button class="buttonHistorie addButton">+</button>
+    <div class="buttonContainer">
+      <button class="buttonPlaner uebernehmenButton">Duplizieren</button>
+      <button class="buttonPlaner uebernehmenButton">Übernehmen + Leeren</button>
+    </div>
+    
       <br>
     <div class="cont">
           <div class="macroContainer">
             <div class="row">
+              <p>Plan <br> 36 %</p>
               <p>Gepl Kcal <br> 2432</p>
               <p>Kcal Ziel <br> 143</p>
-              <p>Kcal Diff <br> 34</p>
+              <p>Diff <br> 34</p>
             </div>
             <hr>
             <div class="row">
@@ -202,7 +209,13 @@
             </div>
           </div>
     </div>
-
+    <br>
+    <div class="buttonContainer">
+      <button class="buttonPlaner addButton">+</button>
+      <button class="buttonPlaner deleteFromPlaner">Löschen</button>
+    </div>
+     <!-- Tabellenbereich -->
+     <div id="containerTabelle_Planer"></div>
 
   </div>
   <br><br><br>
@@ -516,7 +529,7 @@
 
 
  
-  <footer class="zone blue">Version 1.4.6.0. -- 08.06.2021</footer>
+  <footer class="zone blue">Version 1.4.7.0. -- 09.06.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>

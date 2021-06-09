@@ -59,6 +59,7 @@ function loadCont() {
     coloring_Labels();
     show_EffectKcal();
     calc_Values();
+    create_Planer_Table();
 }
 
 
@@ -2140,4 +2141,86 @@ function sendThisDay() {
     let emailSub = "Food-Tracker: " + selectedDate.history_date;
     let bodyContent = selectedDate.history_Content;
     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+bodyContent;
+}
+
+
+
+
+//====================================================================================
+// Planer
+//====================================================================================
+function create_Planer_Table() {
+// Todo
+//Richtiges Array erstellen und ausgeben
+
+// containerTabelle_Planer
+     // Reset der Tabelle
+     document.getElementById("containerTabelle_Planer").innerHTML = "";
+
+     // CREATE HTML TABLE OBJECT
+     var perrow = 1, // 1 CELLS PER ROW
+     table = document.createElement("table"),
+     row = table.insertRow();
+ // LOOP THROUGH ARRAY AND ADD TABLE CELLS
+ for (var i = 0; i < today_eaten.length; i++) {
+   // ADD "BASIC" CELL
+   var cell = row.insertCell();
+   cell.innerHTML = today_eaten[i].intake_productName + " --\n " + today_eaten[i].intake_amount +
+                  "g  = " + today_eaten[i].intake_kcal + " Kcal" ;
+
+   // ATTACH A RUNNING NUMBER OR CUSTOM DATA
+  cell.dataset.id = i;
+
+     // Produktauswahl
+   cell.addEventListener("click", function(){
+     foodFromToday = true;
+     selectedFoodIndex = this.dataset.id;  
+     selected_Food = today_eaten[selectedFoodIndex];
+     document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
+     document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
+     // Sichbar machen
+     document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "1";
+         // Enable Schaltflächen
+     document.getElementById("btnChangeQuantity").disabled = false;
+     document.getElementById("btnDeleteFoodFromToday").disabled = false;
+     document.getElementById("foodAmound_Change").disabled = false;
+     blendOut_Eingabebereich_FoodDB();
+
+     var prozentFromDay = selected_Food.intake_kcal * 100 / kcal_Ziel;
+     let calcSingle = "Makros: (" + selected_Food.intake_kcal + " Kcal = " + prozentFromDay.toFixed(0) + "%)" + " | Fett. " + selected_Food.intake_fat.toFixed(1) + "g | Eiw. " +  selected_Food.intake_protein.toFixed(1) + "g | Kh. " + selected_Food.intake_carbs.toFixed(1) + "g | Zkr. " +
+     selected_Food.intake_sugar.toFixed(1) + "g | Bal. " + selected_Food.intake_fiber.toFixed(1) +   "g | Slz:  " + selected_Food.intake_salt.toFixed(1) + "g";
+     document.getElementById("output_SingleMacros").innerHTML = calcSingle;
+
+   });
+
+
+   // BREAK INTO NEXT ROW
+   var next = i + 1;
+   if (next%perrow==0 && next!=today_eaten.length) {
+     row = table.insertRow();
+   }
+ }
+
+ // ATTACH TABLE TO CONTAINER
+ document.getElementById("containerTabelle_Planer").appendChild(table);
+}
+
+
+
+
+
+// Delete from Planer
+
+
+// Übernehmen zu Heute Gegessen
+
+
+// Calc Planer
+
+
+// Add to Planer
+
+// Setzt einmalig den Wert auf true, wird dann in Planer eingetragen
+function foodForPlaner() {
+
 }

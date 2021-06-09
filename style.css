@@ -962,15 +962,41 @@ color: var(--mainText);
   margin: 25px;
 }
 
+.buttonPlaner{
+  margin: 25px 120px 25px 120px;
+  width: 450px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 34px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
+}
+
 .addButton{
   font-size: 75px;
-  color: rgb(31, 228, 31);
+  color: var(--mainText);
   margin: 40px;
 }
 
-.verplantLabel{
+.deleteFromPlaner{
+  font-size: 34px;
+  color: rgb(228, 31, 31);
+  margin: 40px;
+}
+
+.uebernehmenButton{
+  font-size: 34px;
+  color: var(--mainText);
+  margin: 40px;
+}
+
+.buttonContainer{
   text-align: center;
-  margin: 45px; 
-  color: var(--mainText); 
-  font-size: 96px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }
