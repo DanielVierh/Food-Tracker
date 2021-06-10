@@ -73,8 +73,9 @@ li{
     background-color: #a5c956;
     margin: 30px;
     border-radius: 12px;
-    font-size: 32px;
+    font-size: 52px;
     font-weight: bold;
+    min-width: 150px;
 }
 
 a{

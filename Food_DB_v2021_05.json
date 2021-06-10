@@ -14992,6 +14992,195 @@
 
     "quantityUnit": "250 g"
 
+},
+{
+
+    "productName": "Blütenhonig DM ",
+
+    "kcal": "326",
+
+    "fat": "0.1",
+
+    "carbs": "81",
+
+    "sugar": "75",
+
+    "protein": "0.4",
+
+    "salt": "0",
+
+    "fiber": "0",
+
+    "quantityUnit": "2TL= 7 g"
+
+},
+{
+
+    "productName": "Dinkel Jogi",
+
+    "kcal": "282",
+
+    "fat": "8.9",
+
+    "carbs": "37.8",
+
+    "sugar": "0",
+
+    "protein": "0.8",
+
+    "salt": "0.09",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 Portion=80g"
+
+},
+{
+
+    "productName": "Dinkel Schokoporridge",
+
+    "kcal": "364",
+
+    "fat": "5.9",
+
+    "carbs": "61",
+
+    "sugar": "12",
+
+    "protein": "12",
+
+    "salt": "0.02",
+
+    "fiber": "10",
+
+    "quantityUnit": "100g"
+
+},
+{
+
+    "productName": "Erdbeeren, frisch",
+
+    "kcal": "33",
+
+    "fat": "0.3",
+
+    "carbs": "8",
+
+    "sugar": "4.9",
+
+    "protein": "0.7",
+
+    "salt": "0.01",
+
+    "fiber": "2",
+
+    "quantityUnit": "100g"
+
+},
+{
+
+    "productName": "Krautsalat",
+
+    "kcal": "91",
+
+    "fat": "3.3",
+
+    "carbs": "12.8",
+
+    "sugar": "12.7",
+
+    "protein": "1",
+
+    "salt": "1.35",
+
+    "fiber": "3",
+
+    "quantityUnit": "400 g"
+
+},
+{
+
+    "productName": "Mango Lassi",
+
+    "kcal": "66",
+
+    "fat": "1.5",
+
+    "carbs": "12",
+
+    "sugar": "9.2",
+
+    "protein": "0.8",
+
+    "salt": "0.9",
+
+    "fiber": "0.5",
+
+    "quantityUnit": "1 Portion= 230g"
+
+},
+{
+
+    "productName": "Matjesbrötchen Nordsee",
+
+    "kcal": "171",
+
+    "fat": "6",
+
+    "carbs": "20.6",
+
+    "sugar": "1.7",
+
+    "protein": "7.9",
+
+    "salt": "1.5",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 Brötchen= 150g"
+
+},
+{
+
+    "productName": "Orangensaft",
+
+    "kcal": "43",
+
+    "fat": "0.5",
+
+    "carbs": "8.8",
+
+    "sugar": "8.8",
+
+    "protein": "0.7",
+
+    "salt": "0.1",
+
+    "fiber": "0",
+
+    "quantityUnit": "1 glas= 200ml"
+
+},
+{
+
+    "productName": "Schokolade Dinkel Porridge",
+
+    "kcal": "364",
+
+    "fat": "5.9",
+
+    "carbs": "61",
+
+    "sugar": "12",
+
+    "protein": "12",
+
+    "salt": "0.02",
+
+    "fiber": "10",
+
+    "quantityUnit": "1El 10g"
+
 }
 ]
 

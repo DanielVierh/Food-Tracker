@@ -302,15 +302,15 @@ function mittig_halten(){
 }
 
 function goto_Settings() {
-    window.scrollTo(0, 16000);
+    window.scrollTo(0, 17400);
 }
 
 function goto_NewProduct() {
-    window.scrollTo(0, 13000);
+    window.scrollTo(0, 14200);
 }
 
 function goto_Statistic() {
-    window.scrollTo(0, 7300);
+    window.scrollTo(0, 8300);
 }
 
 //====================================================================================

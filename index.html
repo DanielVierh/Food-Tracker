@@ -11,8 +11,8 @@
     <ul class="main-nav">
       <button class="navButton" onclick="goto_NewProduct()">NEU</button>
       <!-- <li><a href="#">Planer</a></li>-->
-      <button class="navButton" onclick="goto_Statistic()">Statistik</button> 
-      <button class="navButton" onclick="goto_Settings()">Einstellungen</button>
+      <button class="navButton" onclick="goto_Statistic()">📊</button> 
+      <button class="navButton" onclick="goto_Settings()">⚙</button>
     </ul>
    
   </nav>
@@ -142,7 +142,7 @@
       <p id="selectedFoodMakros"></p>
       <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
       <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
-      <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">🔧 Ändern</button>
+      <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏ Ändern</button>
     </div>
     <br>
     <label for="">Im Planer eintragen</label>
@@ -165,8 +165,8 @@
 <!-- ================================================================ -->
   <!-- Immer da Buttons -->
 <!-- ================================================================ -->
-  <div id="btnAdd" class="bg-text">&#129386 +</div>
-  <div id="btnscrl_Up" class="bg-text2">&#128285 UP</div>
+  <div id="btnAdd" class="bg-text">🍎 +</div>
+  <div id="btnscrl_Up" class="bg-text2">⬆ UP</div>
   <button data-modal-target="#modal_Steps" id="btnSteps" class="bg-text3">0 &#128095</button>
   <p class="welcomeScreen" id="welcomeScrn">Willkommen 😀 <br> Um die App nutzen zu können, müssen zuerst ein paar Einstellungen vorgenommen werden. Klicke hierzu oben auf Einstellungen.<br> <br> OK</p>
     <!-- Leerzone -->
@@ -524,12 +524,12 @@
 <input type="file" id="upload">
 <p id="outputBx"></p>  -->
 <div class="fullCell">
-  <button class="expButton" onclick="export_FoodDB()">Exportiere - Food DB</button>
+  <button class="expButton" onclick="export_FoodDB()">Exportiere - Food DB 📧</button>
 </div>
 
 
  
-  <footer class="zone blue">Version 1.4.7.0. -- 09.06.2021</footer>
+  <footer class="zone blue">Version 1.4.8.0. -- 10.06.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
