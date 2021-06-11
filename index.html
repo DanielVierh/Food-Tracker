@@ -11,11 +11,12 @@
     <ul class="main-nav">
       <button class="navButton" onclick="goto_NewProduct()">NEU</button>
       <!-- <li><a href="#">Planer</a></li>-->
-      <button class="navButton" onclick="goto_Statistic()">📊</button> 
-      <button class="navButton" onclick="goto_Settings()">⚙</button>
+      <button class="navButton" style="font-size: 70px;" onclick="goto_Statistic()">📊</button> 
+      <button class="navButton" style="font-size: 90px;" onclick="goto_Settings()">⚙</button>
     </ul>
    
   </nav>
+  <br><br><br><br>
   <div class="zone blue grid-wrapper"><h1></h1></div>
   <div class="zone blue grid-wrapper">
     <h1>Heute</h1>
@@ -141,8 +142,8 @@
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
       <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
-      <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">Speichern</button>
-      <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏ Ändern</button>
+      <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
+      <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
     </div>
     <br>
     <label for="">Im Planer eintragen</label>
@@ -529,7 +530,7 @@
 
 
  
-  <footer class="zone blue">Version 1.4.8.0. -- 10.06.2021</footer>
+  <footer class="zone blue">Version 1.4.9.0. -- 11.06.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>

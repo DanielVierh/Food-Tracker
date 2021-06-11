@@ -70,12 +70,14 @@ li{
 
 .navButton{
     padding: 20px;
-    background-color: #a5c956;
+    background-color: var(--mainColor);
+    color: var(--mainText);
     margin: 30px;
     border-radius: 12px;
     font-size: 52px;
     font-weight: bold;
     min-width: 150px;
+    box-shadow: 5px 5px 25px var(--previewShadow);
 }
 
 a{
@@ -254,7 +256,7 @@ footer{
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
     position: fixed; /* Stay fixed */
-    top: 12%;
+    top: 14%;
     left: 55%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -423,17 +425,17 @@ footer{
   }
 
   .button-Menge-speichern{
-    width: 300px;
+    width: 150px;
     height: 80px;
     font-size: 34px;
     font-weight: bolder;
     text-align: center;
     color: black;
-    background-color: #23da41;
+    background-color: var(--mainColor);
     border-radius: 20px;
     border: 2px solid black;
     margin: 15px;
-    box-shadow: 4px 4px 30px rgba(178, 248, 73, 0.589);
+    box-shadow: 4px 4px 30px var(--previewShadow);
   }
 
   .foodSection{
@@ -556,16 +558,17 @@ footer{
 /* ================================================ */
 
   .buttonChangeMakros{
-    width: 300px;
+    width: 150px;
     height: 80px;
     font-size: 34px;
     font-weight: bolder;
     text-align: center;
     color: #fdfff9;
-    background-color: #111f3d;
+    background-color: var(--mainColor);
     border-radius: 20px;
     border: 2px solid black;
     margin: 15px 0px 15px 35px;
+    box-shadow: 5px 5px 25px var(--previewShadow);
   }
 
   #containerTabelle{
