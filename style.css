@@ -256,7 +256,7 @@ footer{
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
     position: fixed; /* Stay fixed */
-    top: 14%;
+    top: 15%;
     left: 55%;
     transform: translate(-50%, -50%);
     z-index: 2;
