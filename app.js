@@ -805,6 +805,9 @@ function show_Statisitcs(val) {
 // Wasser tracken
 //============================================================================
 function water_Spin_Up() {
+    if(new_Water <= 0) {
+        new_Water = 0;
+    }
     if(new_Water < 4.00) {
         new_Water += 0.25;
         document.getElementById('outpWaterButton').innerText = new_Water + " L";
@@ -812,8 +815,12 @@ function water_Spin_Up() {
 }
 
 function water_Spin_Down() {
-    if(new_Water > -0.25) {
-        new_Water -= 0.25;
+    new_Water -= 0.25;
+    if(new_Water <= 0) {
+        new_Water = -0.25;
+        document.getElementById('outpWaterButton').innerText = new_Water + " L";
+    }else if(new_Water > 0) {
+        //new_Water -= 0.25;
         document.getElementById('outpWaterButton').innerText = new_Water + " L";
     }
 }
