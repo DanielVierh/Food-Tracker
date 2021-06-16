@@ -830,6 +830,12 @@ table {
 }
 
 
+#lastWater{
+  margin: 12px;
+  font-size: 44px;
+  font-weight: bold;
+  color: var(--mainText);
+}
 
 
 /* ================================================ */

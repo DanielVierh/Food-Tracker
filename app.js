@@ -43,6 +43,7 @@ var originDB = [];
 var exp_New_Prod = [];
 var selectedDateIndex = 0;
 var selectedDate = "";
+var lastWater = "";
 //====================================================================================
 // Init
 //====================================================================================
@@ -190,6 +191,14 @@ function load_other_LocalStorage_Values(){
         document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
     }
 
+    // Zuletzt getrunken 
+    if(localStorage.getItem('stored_Last_Water') === null) {
+        console.log("Letztes Wasser konnte nicht geladen werden");
+    }else{
+        lastWater = JSON.parse(localStorage.getItem("stored_Last_Water"));
+        document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
+    }
+
     // Kcal Ziel
     if(localStorage.getItem('stored_KcalZiel') === null) {
             console.log("Kcal-Ziel konnte nicht geladen werden");
@@ -240,12 +249,18 @@ function load_other_LocalStorage_Values(){
         my_History.sort((a, b) => (a.history_date < b.history_date) ? 1 : -1)
         create_MyHistory();
     }
+
 }
 
 // Speichere Wasser
 function save_Today_Water() {
     localStorage.setItem("stored_Water", JSON.stringify(today_Water));
     console.log("stored_Water gespeichert");
+}
+// Speichere zuletzt getrunken
+function save_Last_Water() {
+    localStorage.setItem("stored_Last_Water", JSON.stringify(lastWater));
+    console.log("stored_Last_Water gespeichert");
 }
 
 // Speichere Today Eaten
@@ -833,10 +848,27 @@ function take_Over_Water() {
     document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
     new_Water = 0.25;
     document.getElementById('outpWaterButton').innerText = new_Water + " L";
-
+    last_Water();
+    document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
 }
 
+function last_Water() {
+    var currentTime = new Date();
+    var hour = currentTime.getHours(); 
+    var minute = currentTime.getMinutes(); 
 
+    if(hour < 10) {
+            hour = '0'+ hour;
+    } 
+    if(minute < 10) {
+            minute = '0'+ minute;
+    } 
+    currentTime = hour + ':' + minute + ' Uhr';
+    lastWater = "" + currentTime;
+
+    save_Last_Water();
+    //return currentTime;
+}
 
 
 
@@ -1708,7 +1740,10 @@ function close_Day() {
             today_Steps = 0;
             today_eaten = [];
             today_Water = 0;
+            lastWater = "Gestern";
+            save_Last_Water();
             document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+            document.getElementById("lastWater").innerHTML = "Zuletzt: ";
                 coloring_Labels();
                 steps_into_Kcal(); 
                 calc_Values();
