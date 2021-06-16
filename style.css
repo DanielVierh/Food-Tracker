@@ -56,6 +56,17 @@ body{
 }
 
 
+@media screen and (min-width: 1200px) {
+  body{
+    font-size: 12px;
+  }
+
+  .zone{
+    overflow-x: auto;
+  }
+}
+
+
 .push{
     /* Um Contacts nacht rechts zu setzen */
     margin-left: auto;
