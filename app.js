@@ -108,7 +108,7 @@ function check_FoodDB(){
 //====================================================================================
 // EventListener
 //====================================================================================
-
+// TODO: In Variablen packen und auf Vorhandenheit abfragen
 buttonAdd.addEventListener('click', addProduct);
 buttonScroll_Up.addEventListener('click', scroll_UP);
 
@@ -317,15 +317,19 @@ function mittig_halten(){
 }
 
 function goto_Settings() {
-    window.scrollTo(0, 17400);
+    window.scrollTo(0, 16000);
 }
 
 function goto_NewProduct() {
-    window.scrollTo(0, 14200);
+    window.scrollTo(0, 13100);
 }
 
 function goto_Statistic() {
-    window.scrollTo(0, 8300);
+    window.scrollTo(0, 7300);
+}
+
+function goto_Planer() {
+    window.location = 'planer.html'
 }
 
 //====================================================================================
@@ -1227,7 +1231,7 @@ function create_Table_TodayEaten() {
         document.getElementById("foodAmound_Change").disabled = false;
         blendOut_Eingabebereich_FoodDB();
 
-        var prozentFromDay = selected_Food.intake_kcal * 100 / kcal_Ziel;
+        var prozentFromDay = selected_Food.intake_kcal * 100 / (kcal_Ziel + parseInt(burned_Kcal));
         let calcSingle = "Makros: (" + selected_Food.intake_kcal + " Kcal = " + prozentFromDay.toFixed(0) + "%)" + " | Fett. " + selected_Food.intake_fat.toFixed(1) + "g | Eiw. " +  selected_Food.intake_protein.toFixed(1) + "g | Kh. " + selected_Food.intake_carbs.toFixed(1) + "g | Zkr. " +
         selected_Food.intake_sugar.toFixed(1) + "g | Bal. " + selected_Food.intake_fiber.toFixed(1) +   "g | Slz:  " + selected_Food.intake_salt.toFixed(1) + "g";
         document.getElementById("output_SingleMacros").innerHTML = calcSingle;
