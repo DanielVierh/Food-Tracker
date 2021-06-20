@@ -64,20 +64,23 @@ Bugs
 !!!  Version in Commit erwähnen  !!!
 ///////////////////////////////////
 
-
+git add planer.html
+git add planer.js
 git add Todo.txt
 git add index.html
 git add app.js
 git add style.css
 git commit -m""
 
-
+git add planer.html
+git add planer.js
 git add Todo.txt
 git add index.html
 git add style.css
 git commit -m""
 
-
+git add planer.html
+git add planer.js
 git add Todo.txt
 git add index.html
 git add app.js

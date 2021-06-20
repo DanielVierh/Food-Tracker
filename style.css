@@ -1021,3 +1021,17 @@ color: var(--mainText);
   width: 100%;
   justify-content: center;
 }
+
+
+.fertigButton{
+  margin: 25px 120px 25px 10px;
+  width: 320px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 54px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: greenyellow;
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
+}

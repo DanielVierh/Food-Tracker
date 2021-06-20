@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="Logo.png">
     <link id="theme-style" rel="stylesheet" href="">
     <link rel="apple-touch-icon" href="Logo.png">
     <title>Food Tracker-Planer</title>
 </head>
 <body>
-    
+<button class="fertigButton" onclick="goto_Main()">Fertig</button>
   <!-- ================================================================
   Planer
   ================================================================ -->
   <div class="fullCell">
     <br>
     <h1 style="text-align: center; font-size: 124px;">Planer</h1>
+    <!-- Baustellen Label -->
+    <h1 style="text-align: center; font-size: 90px; color: red;">🚧 Baustelle 🚧</h1>
     <div class="buttonContainer">
       <button class="buttonPlaner uebernehmenButton">Duplizieren</button>
       <button class="buttonPlaner uebernehmenButton">Übernehmen + Leeren</button>
@@ -25,34 +28,84 @@
     <div class="cont">
           <div class="macroContainer">
             <div class="row">
-              <p>Plan <br> 36 %</p>
-              <p>Gepl Kcal <br> 2432</p>
-              <p>Kcal Ziel <br> 143</p>
-              <p>Diff <br> 34</p>
+              <p>Plan <br> 0 %</p>
+              <p id="output_Planned_Eaten">Gepl Kcal <br> 0</p>
+              <p id="target_KcalZiel">Kcal Ziel <br> 0</p>
+              <p id="output_Diff">Diff <br> 0</p>
             </div>
             <hr>
             <div class="row">
-              <p>KH. <br> 2432</p>
-              <p>Zck. <br> 143</p>
-              <p>Ball. <br> 34</p>
+              <p id="output_Carbs">KH. <br> 0</p>
+              <p id="output_Sugar">Zck. <br> 0</p>
+              <p id="output_Fiber">Ball. <br> 0</p>
             </div>
             <div class="row">
-              <p>Eiw. <br> 2432</p>
-              <p>Fett <br> 143</p>
-              <p>Salz <br> 34</p>
+              <p id="output_Protein">Eiw. <br> 0</p>
+              <p id="output_Fat">Fett <br> 0</p>
+              <p id="output_Salt">Salz <br> 0</p>
             </div>
           </div>
     </div>
     <br>
     <div class="buttonContainer">
-      <button class="buttonPlaner addButton">+</button>
-      <button class="buttonPlaner deleteFromPlaner">Löschen</button>
+      <button class="buttonPlaner addButton" onclick="addToPlaner()">+</button>
     </div>
-     <!-- Tabellenbereich -->
-     <div id="containerTabelle_Planer"></div>
+
+
 
   </div>
+
+  <div class="fullCell">
+    <h1>Liste Planer</h1>
+    <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen">
+      <div class="wrapperButton">
+        <button class="button_del" onclick="delete_from_today()" id="btnDeleteFoodFromToday">X</button>
+        <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange" placeholder="in Gramm">
+        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge ändern</button>
+        <button onclick="blendOut_MengeAendern()" class="checkMarkButton">✔</button>
+      </div>
+
+
+      <p id="sel_change_Prod"></p>
+      <br>
+      <p class="singleCalc" id="output_SingleMacros"></p>
+      <hr>
+    </div>
+  </div>
+   <!-- Tabellenbereich -->
+   <div id="containerTabelle_Planer"></div>
+
+
+  <br><br><hr>
+
+
+<!-- ================================================================ -->
+<!-- Tabelle mit Datenbank aller Lebensmittel -->
+<!-- ================================================================ --> 
+<div class="fullCell"><h1 id="titleDatenbank">Hinzufügen</h1></div>
+<p id="statusX"></p>
+  <div class="fullCell">
+    <div id="optAreaDB" class="foodSection">
+      <p id="selectedFoodAnzeige"></p>
+      <p id="selectedFoodMakros"></p>
+      <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
+      <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_Planer()">💾</button>
+    </div>
+    <br>
+    
+    <!-- Searchbar -->
+    <div class="fullCell">
+      <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
+    </div>
+
+    <!-- Tabellenbereich -->
+    <div id="containerTabelle"></div>
+    
+
+  </div>
+
+
 </body>
 
-<script src="./app.js"></script>
+<script src="./planer.js"></script>
 </html>
