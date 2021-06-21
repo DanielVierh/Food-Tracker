@@ -136,12 +136,6 @@ footer{
     text-align: center;
 }
 
-/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
-/***********************************************************************
- *  Green Background
- var(--mainColor);
- **********************************************************************/
-
 
 /***********************************************************************
  *  Blue Background
@@ -589,6 +583,10 @@ footer{
     border: 5px solid black;
     background: var(--mainColor);
    
+}
+
+#titleDatenbank{
+  text-align: center;
 }
 
 

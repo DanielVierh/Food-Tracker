@@ -316,15 +316,15 @@ function mittig_halten(){
 }
 
 function goto_Settings() {
-    window.scrollTo(0, 16000);
+    window.scrollTo(0, 14700);
 }
 
 function goto_NewProduct() {
-    window.scrollTo(0, 13100);
+    window.scrollTo(0, 11800);
 }
 
 function goto_Statistic() {
-    window.scrollTo(0, 7300);
+    window.scrollTo(0, 6000);
 }
 
 function goto_Planer() {

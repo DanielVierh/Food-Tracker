@@ -2,6 +2,7 @@
 var array_Food_DB = [];
 var planned_Meal = [];
 var additional_Targets = [];
+var today_eaten = [];
 var selected_Food = "";
 var selectedFoodIndex = 0;
 var foodFromToday = false;
@@ -18,12 +19,30 @@ var planned_Fat = 0.0;
 var planned_Salt = 0.0;
 var planned_Fiber = 0.0;
 var old_Quantity = 0;
-
+var could_Load_TodayEaten = false;
 
 
 
 
 document.addEventListener('DOMContentLoaded', loadCont);
+
+// Damit gesuchtes Produkt direkt überschreibbar ist
+document.getElementById('searchInput').addEventListener('click', selectWord);
+
+document.getElementById('foodAmound_Change').addEventListener('click', selectWord2);
+
+// Wort markieren
+function selectWord() {
+    const inp = document.getElementById('searchInput');
+    inp.select()
+}
+
+function selectWord2() {
+    old_Quantity = parseFloat(document.getElementById('foodAmound_Change').value);
+    console.log("old_Quantity " + old_Quantity);
+    const inp = document.getElementById('foodAmound_Change');
+    inp.select();
+}
 
 // Load Content
 function loadCont() {
@@ -31,7 +50,11 @@ function loadCont() {
     load_other_LocalStorage_Values();
     create_Planer_Table();
     blendOut_MengeAendern();
+    blendOut_Eingabebereich_FoodDB(); 
+    calc_Values();
 }
+
+
 
 
 
@@ -71,6 +94,15 @@ function load_other_LocalStorage_Values() {
             additional_Targets = JSON.parse(localStorage.getItem("storedAdditionalTargets"));
             load_Additional_Targets();
         }
+
+            // Heute gegessen
+        if(localStorage.getItem('stored_Today_Eaten') === null) {
+            console.log("Today Eaten konnte nicht geladen werden");
+            could_Load_TodayEaten = false;
+        }else{
+            today_eaten = JSON.parse(localStorage.getItem("stored_Today_Eaten"));
+            could_Load_TodayEaten = true;
+        }
 }
 
 function load_Additional_Targets() {
@@ -92,10 +124,16 @@ function load_Additional_Targets() {
     }
 }
 
-
+// Speichere Planer
 function save_planned_Meal() {
-    // localStorage.setItem("stored_Planned_Eaten", JSON.stringify(planned_Meal));
-    // console.log("planned_eaten gespeichert");
+     localStorage.setItem("stored_Planned_Eaten", JSON.stringify(planned_Meal));
+     console.log("planned_eaten gespeichert");
+}
+
+// Speichere Today Eaten
+function save_Today_Eaten() {
+    localStorage.setItem("stored_Today_Eaten", JSON.stringify(today_eaten));
+    console.log("today_eaten gespeichert");
 }
 
 
@@ -276,7 +314,6 @@ function calc_Values() {
     diff = parseInt((kcal_Ziel) - planned_Kcal);
     // Output
     document.getElementById('output_Eaten').innerHTML = planned_Kcal + " Kcal";
-    document.getElementById('output_EffectiveBurned').innerHTML = effective_Kcal + " Kcal";
 
     if(diff > 0) {
         document.getElementById('output_Diff').innerHTML = diff + " Kcal übrig &#128512";
@@ -309,24 +346,67 @@ function calc_Values() {
         coloring_Labels();
 }
 
-
+   
     
-    
-    // Delete from Planer
-    
-    
-    // Übernehmen zu Heute Gegessen
-    
-    
-    // Calc Planer
-    
-    
-    // Add to Planer
-    
-    // Setzt einmalig den Wert auf true, wird dann in Planer eingetragen
-    function foodForPlaner() {
-    
+    // Übernehmen zu Heute Gegessen Duplizieren
+    function duplicateList() {
+        let todayEatenLength = today_eaten.length;
+        // Noch nicht im LocaleStorage vorhanden?
+        if( could_Load_TodayEaten === false) {
+            save_Today_Eaten();
+            save_planned_Meal();
+            alert("Es ist etwas schief gelaufen, bitte versuch es erneut");
+            location.reload();
+        }else{
+            // Werte enthalten?
+            if(todayEatenLength === 0) {
+                // Ist im Planer etwas enthalten?
+                let plannedMealArrayLength = planned_Meal.length;
+                if(plannedMealArrayLength > 0) {
+                    today_eaten = planned_Meal;
+                    save_Today_Eaten();
+                    alert("Die Planung wurde erfolgreich übernommen 😀");
+                }
+            }else {
+                alert("Du hast bereits einen Eintrag in der Liste Heute gegessen. Die Liste muss leer sein, damut du den Tag übernehmen kannst");
+            }
+        }
     }
+    
+    
+    
+    // Übernehmen und Leeren
+    function duplicateList_AndDeleteSelf() {
+        let todayEatenLength = today_eaten.length;
+        // Noch nicht im LocaleStorage vorhanden?
+        if( could_Load_TodayEaten === false) {
+            save_Today_Eaten();
+            save_planned_Meal();
+            alert("Es ist etwas schief gelaufen, bitte versuch es erneut");
+            location.reload();
+        }else{
+            // Werte enthalten?
+            if(todayEatenLength === 0) {
+                // Ist im Planer etwas enthalten?
+                let plannedMealArrayLength = planned_Meal.length;
+                if(plannedMealArrayLength > 0) {
+                    var decisionDuplicateAndDelete = window.confirm("Wirklich übernehmen und den Planer zurücksetzen?");
+                    if (decisionDuplicateAndDelete) {
+                        today_eaten = planned_Meal;
+                        save_Today_Eaten();
+                        planned_Meal = [];
+                        save_planned_Meal();
+                        alert("Die Planung wurde erfolgreich übernommen, der Planer erfolgreich zurückgesetzt 😀");
+                        location.reload();
+                    }
+
+                }
+            }else {
+                alert("Du hast bereits einen Eintrag in der Liste Heute gegessen. Die Liste muss leer sein, damut du den Tag übernehmen kannst");
+            }
+        }
+    }
+
 
 
 
@@ -580,6 +660,7 @@ function calc_Values() {
 //============================================================================
 
 function calc_Values() {
+    console.log("Is Calcing");
     planned_Kcal = 0;
     planned_Carbs = 0.0;
     planned_Sugar = 0.0;
@@ -621,19 +702,19 @@ function calc_Values() {
 
 
     // Progress Bar
-        // var progressValKcal = ((planned_Kcal * 100 / (kcal_Ziel))) 
-        // let originProgressVal = progressValKcal
-        // // Wenn berechneter Wert über 200 dann 200
-        // if (progressValKcal >= 100) {
-        //     progressValKcal = 100
-        //     document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
-        // }else {
-        //     document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
-        // }
-        // document.getElementById('progress_Bar').style.width = progressValKcal + "%";
-        // document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
+         var progressValKcal = ((planned_Kcal * 100 / (kcal_Ziel))) 
+         let originProgressVal = progressValKcal
+        // // Wenn berechneter Wert über 100 dann 100
+         if (progressValKcal >= 100) {
+             progressValKcal = 100
+             document.getElementById('progress_Val').style.color = "rgb(221, 22, 22)";
+         }else {
+             document.getElementById('progress_Val').style.color = "rgb(4, 167, 4)";
+         }
+         document.getElementById('progress_Val').style.width = "Plan <br>" + progressValKcal + "%";
+         document.getElementById('progress_Val').innerHTML = "Plan <br>" + Math.round(originProgressVal) + "%";
 
-        // coloring_Labels();
+         coloring_Labels();
 }
 
 //============================================================================
@@ -706,20 +787,10 @@ function mittig_halten(){
 //============================================================================
 
 function coloring_Labels() {
-    effectiveKcal_Progress();
     kalorienBilanz_Progress();
     colorizeTargetProgress();
 }
 
-
-// Effektive Kcal
-function effectiveKcal_Progress() {
-    if(effective_Kcal > kcal_Ziel) {
-        document.getElementById("output_EffectiveBurned").style.color = "red";
-    }else{
-        document.getElementById("output_EffectiveBurned").style.color = "rgb(27, 206, 27)";
-    }
-}
 
 // Kalorienbilanz
 function kalorienBilanz_Progress() {
@@ -733,8 +804,8 @@ function kalorienBilanz_Progress() {
 // Weitere Ziele
 
 function colorizeTargetProgress() {
-    let shouldMinVal = [min_Protein, min_Fiber, min_Steps];
-    let isMinVal = [planned_Protein, planned_Fiber, today_Steps];
+    let shouldMinVal = [min_Protein, min_Fiber];
+    let isMinVal = [planned_Protein, planned_Fiber];
 
     if(planned_Sugar >= max_Sugar) {
         document.getElementById('output_Sugar').style.color = "red";
