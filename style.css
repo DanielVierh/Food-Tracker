@@ -636,6 +636,19 @@ table tr:nth-child(odd) { background: var(--mainColor); }
     
 }
 
+.buttonPruefe{
+  margin: 25px 120px 25px 120px;
+  width: 200px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 44px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
+}
+
 /* ================================================ */
 /* Einstellungen  */
 /* ================================================ */

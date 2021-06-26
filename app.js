@@ -878,6 +878,7 @@ function last_Water() {
 //============================================================================
 // Neues Lebensmittel hinzufügen
 //============================================================================
+
 function addProduct() {
     mittig_halten();
     document.getElementById('searchInput').select();
@@ -1091,6 +1092,40 @@ function steps_into_Kcal() {
     document.getElementById("btn_ChangeMacros").disabled = false;
   }
 
+//============================================================================
+// Prüfbutton für ausgewähltes Lebensmittel und Menge
+//============================================================================
+  function checkButton() {
+    if(selected_Food != "") {
+        if(document.getElementById('foodAmound').value == "") {
+            alert("Bitte eine Menge eingeben");
+        }else{
+            
+            let newProduct = selected_Food.productName;
+            var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
+
+            // Produkt hinzufügen
+            try {
+                let kcal_Intake = parseInt(selectedAmount * selected_Food.kcal / 100);
+                let fat_Intake = parseFloat(selectedAmount * selected_Food.fat / 100);
+                let carb_Intake = parseFloat(selectedAmount * selected_Food.carbs / 100);
+                let sugar_Intake = parseFloat(selectedAmount * selected_Food.sugar / 100);
+                let protein_Intake = parseFloat(selectedAmount * selected_Food.protein / 100);
+                let salt_Intake = parseFloat(selectedAmount * selected_Food.salt / 100);
+                let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
+
+                     // Anzeigen, dass Produkt eingetragen wurde
+                let intakeFoodInfo = newProduct + " hätte folgende Werte: \n Kcal:" + kcal_Intake + " Kcal \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g";
+                alert(intakeFoodInfo);
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }else{
+        alert("Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken");
+    }
+}
 
 
 //============================================================================
