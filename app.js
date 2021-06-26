@@ -1115,7 +1115,7 @@ function steps_into_Kcal() {
                 let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
 
                      // Anzeigen, dass Produkt eingetragen wurde
-                let intakeFoodInfo = newProduct + " hätte folgende Werte: \n Kcal:" + kcal_Intake + " Kcal \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g";
+                let intakeFoodInfo = selectedAmount + " Gramm " + newProduct + " hätte folgende Werte: \n Kcal: " + kcal_Intake + " \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g \n Salz: " + parseInt(salt_Intake) + " g";
                 alert(intakeFoodInfo);
 
             } catch (error) {

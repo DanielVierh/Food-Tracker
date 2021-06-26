@@ -368,7 +368,7 @@ function calc_Values() {
                     alert("Die Planung wurde erfolgreich übernommen 😀");
                 }
             }else {
-                alert("Du hast bereits einen Eintrag in der Liste Heute gegessen. Die Liste muss leer sein, damut du den Tag übernehmen kannst");
+                alert("Du hast bereits einen Eintrag in der Liste Heute gegessen. Die Liste muss leer sein, damit du den Tag übernehmen kannst");
             }
         }
     }
@@ -402,7 +402,7 @@ function calc_Values() {
 
                 }
             }else {
-                alert("Du hast bereits einen Eintrag in der Liste Heute gegessen. Die Liste muss leer sein, damut du den Tag übernehmen kannst");
+                alert("Du hast bereits einen Eintrag in der Liste Heute gegessen. Die Liste muss leer sein, damit du den Tag übernehmen kannst");
             }
         }
     }
