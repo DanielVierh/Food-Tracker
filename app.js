@@ -44,6 +44,10 @@ var exp_New_Prod = [];
 var selectedDateIndex = 0;
 var selectedDate = "";
 var lastWater = "";
+
+
+
+
 //====================================================================================
 // Init
 //====================================================================================
@@ -60,6 +64,7 @@ function loadCont() {
     coloring_Labels();
     show_EffectKcal();
     calc_Values();
+    //load_ProgressbarAnimation();
 }
 
 
@@ -75,7 +80,6 @@ function check_FoodDB(){
         loadFood_DB();
     }
 }
-
 
 
 
@@ -1418,12 +1422,19 @@ function calc_Values() {
         document.getElementById('progress_Bar').style.width = progressValKcal + "%";
         document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
 
+        // Animation der Progressbar
+        var keyframes = "@keyframes progressbar-move{ 0%{width:0%;} 100%{width:" + parseInt(progressValKcal) + "%;} }";
+        var s = document.createElement("style");
+        s.innerHTML = keyframes;
+        document.getElementsByClassName("fullCell")[0].appendChild(s);
+        var el = document.getElementById("progress_Bar");
+        el.style.animation = "progressbar-move ease-in 1.5s forwards normal";
+
         coloring_Labels();
 }
 
 
 
-//calc_Values();
 
 
 
