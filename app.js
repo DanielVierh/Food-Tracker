@@ -469,6 +469,7 @@ function show_BurnedKcal(){
 }
 
 
+
 //  selektieren Button färben
 function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     document.getElementById('btnStatEffektKcal').style.backgroundColor = "rgb(10, 10, 46)";
@@ -796,6 +797,7 @@ function show_Statisitcs(val) {
              // Diagramm
              currProzent = parseInt(my_Statistics[i].repository_BurnedKCal) * 100 / burnedKcalGoal;
              let colHeightInPixel = currProzent * 500 / 100;
+             let colName = "COL_Dia_" + i;
              if(colHeightInPixel > 1000) {
                  document.getElementById("COL_Dia_" + i).style.height = "1000px";
                  document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal 🚀';
@@ -803,6 +805,7 @@ function show_Statisitcs(val) {
                  document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
                  document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal';
              }
+             animate_StatisticCol(colHeightInPixel, colName);
      
              // Balken färben
              if(currentVal < burnedKcalGoal) {
@@ -820,6 +823,19 @@ function show_Statisitcs(val) {
      
     }
 
+}
+
+
+// Animation
+function animate_StatisticCol(progrsVal, colName) {
+    // var keyframes = "@keyframes progressbar-move{ 0%{heigth:0px;} 100%{heigth:" + parseInt(progrsVal) + "px;} }";
+    // var s = document.createElement("style");
+    // s.innerHTML = keyframes;
+    // document.getElementsByClassName("container_Kcal_Diagram")[0].appendChild(s);
+    // var el = document.getElementById(colName);
+    // el.style.animation = "progressbar-move ease-in-out 1.5s forwards normal";
+    // console.log(colName);
+    // console.log(progrsVal);
 }
 
 
@@ -1422,20 +1438,19 @@ function calc_Values() {
         document.getElementById('progress_Bar').style.width = progressValKcal + "%";
         document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
 
-        // Animation der Progressbar
-        var keyframes = "@keyframes progressbar-move{ 0%{width:0%;} 100%{width:" + parseInt(progressValKcal) + "%;} }";
-        var s = document.createElement("style");
-        s.innerHTML = keyframes;
-        document.getElementsByClassName("fullCell")[0].appendChild(s);
-        var el = document.getElementById("progress_Bar");
-        el.style.animation = "progressbar-move ease-in-out 1.5s forwards normal";
-
+        animate_ProgressBar(progressValKcal);
         coloring_Labels();
 }
 
 
-
-
+function animate_ProgressBar(prgrssVal) {
+    var keyframes = "@keyframes progressbar-move{ 0%{width:0%;} 100%{width:" + parseInt(prgrssVal) + "%;} }";
+    var s = document.createElement("style");
+    s.innerHTML = keyframes;
+    document.getElementsByClassName("fullCell")[0].appendChild(s);
+    var el = document.getElementById("progress_Bar");
+    el.style.animation = "progressbar-move ease-in-out 1.5s forwards normal";
+}
 
 
 
