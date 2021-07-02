@@ -195,7 +195,6 @@ footer{
     color: var(--mainText);
     text-align: right;
     border: 5px solid rgba(255, 255, 255, 0.336);
-    
 }
 
 .uebersicht_Values{
@@ -229,6 +228,12 @@ footer{
     text-align: center;
     height: 150px;
   }
+  .bg-text:hover{
+    transition: ease-in-out 1s;
+    box-shadow: 7px 7px 95px var(--previewShadow);
+  }
+
+
   /* Nach oben Button  */
   .bg-text2{
     background-color: var(--mainColor); /* Fallback color */
@@ -252,6 +257,13 @@ footer{
     align-content: center;
 
   }
+
+  .bg-text2:hover{
+    transition: ease-in-out 1s;
+    box-shadow: 7px 7px 95px var(--previewShadow);
+  }
+
+
   /* Schritte */
   .bg-text3{
     background-color: var(--mainColor); /* Fallback color */
@@ -598,6 +610,13 @@ table tr td {
   font-weight: bold;
  
 }
+
+td:hover{
+    transition: ease-in-out 1s;
+    background-color: var(--previewShadow);
+    color: var(--secondaryText);
+}
+
 table tr:nth-child(odd) { background: var(--mainColor); }
 
 
@@ -648,6 +667,7 @@ table tr:nth-child(odd) { background: var(--mainColor); }
   box-shadow: 7px 7px 25px var(--previewShadow);
   border: 3px solid var(--borderColor);
 }
+
 
 /* ================================================ */
 /* Einstellungen  */
@@ -724,7 +744,7 @@ table {
       font-size: 34px;
       border-radius: 12px;
       color: var(--secondaryColor);
-      transition: ease-in 1s;
+      transition: ease-in-out 2s;
   }
 
   .c1{
@@ -838,12 +858,12 @@ table {
   font-size: 82px;
   border-radius: 20px;
   box-shadow:5px 5px 50px var(--mainText);
-  transition: ease-in 1s;
+  transition: ease-in 2s;
 }
 
-.outputButtonWater:hover{
-  transition: ease-in 1s;
-  background-color: rgb(0, 102, 255);
+.outputButtonWater:active{
+  transition: ease-in-out 2s;
+  background: rgb(13, 179, 245);
 }
 
 .outpTxtWater{
