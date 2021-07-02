@@ -791,6 +791,13 @@ table {
   margin-left: 10%;
 }
 
+
+#Status_New_Food {
+  font-size: 34px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
 /* ================================================ */
 /* Wasser */
 /* ================================================ */
