@@ -724,6 +724,7 @@ table {
       font-size: 34px;
       border-radius: 12px;
       color: var(--secondaryColor);
+      transition: ease-in 1s;
   }
 
   .c1{
@@ -837,6 +838,12 @@ table {
   font-size: 82px;
   border-radius: 20px;
   box-shadow:5px 5px 50px var(--mainText);
+  transition: ease-in 1s;
+}
+
+.outputButtonWater:hover{
+  transition: ease-in 1s;
+  background-color: rgb(0, 102, 255);
 }
 
 .outpTxtWater{
