@@ -857,3 +857,19 @@ function blendOut_Eingabebereich_FoodDB() {
     document.getElementById("btn_Save_to_TodayEaten").disabled = true;
     document.getElementById("foodAmound").disabled = true;
 }
+
+
+//============================================================================
+// Plan verwerfen
+//============================================================================
+
+function discardPlan() {
+
+    let abfrage = window.confirm("Den Plan wirklich über den Haufen werfen?");
+    if(abfrage) {
+        planned_Meal = [];
+        save_planned_Meal();
+        alert("Plan wurde verworfen");
+        location.reload();
+    }
+}
