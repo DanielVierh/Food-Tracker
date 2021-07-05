@@ -1085,6 +1085,7 @@ color: var(--mainText);
 
 .verwerfbutton{
   color: red;
+  width: 380px;
   position: relative;
   left: 35%;
 }
