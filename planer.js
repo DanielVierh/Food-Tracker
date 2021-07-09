@@ -522,6 +522,8 @@ function calc_Values() {
             document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
             document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
             blendIn_FoodActionArea();
+            // Nutri Score
+            show_NutriScore();
             // Fokus auf Textfeld setzen 
             document.getElementById('foodAmound').focus();
           });
@@ -554,7 +556,9 @@ function calc_Values() {
     document.getElementById("foodAmound").disabled = false;
   }
 
-
+function show_NutriScore() {
+    console.log("Feffe");
+}
 
   
 //============================================================================
