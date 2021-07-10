@@ -863,7 +863,7 @@ table {
   transition: ease-in 2s;
 }
 
-.outputButtonWater:active{
+.outputButtonWater:hover{
   transition: ease-in-out 2s;
   background: rgb(13, 179, 245);
 }
@@ -1106,6 +1106,7 @@ color: var(--mainText);
   border-radius: 15px;
   color: black;
   font-weight: bold;
+  transition: ease-in-out 1s;
 }
 .C_A{
   background: green;
