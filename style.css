@@ -1090,3 +1090,39 @@ color: var(--mainText);
   left: 35%;
 }
 
+.containerNutri{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.cont{
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  border: 2px solid white;
+  border-radius: 15px;
+  color: black;
+  font-weight: bold;
+}
+.C_A{
+  background: green;
+}
+
+.C_B{
+  background: lightgreen;
+}
+
+.C_C{
+  background: yellow;
+}
+
+.C_D{
+  background: orange;
+}
+
+.C_E{
+  background: red;
+}

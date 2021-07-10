@@ -1147,7 +1147,9 @@ function steps_into_Kcal() {
     let check_Fiber = parseFloat(calcAmound * selected_Food.fiber / 100);
 
 // Check Kcal
-if(check_Kcal <=81) {
+if(check_Kcal <40) {
+    badPoints += -1;
+}else if(check_Kcal <=81) {
     badPoints += 0;
 }else if(check_Kcal >801) {
     badPoints += 10;
@@ -1173,9 +1175,7 @@ if(check_Kcal <=81) {
 console.log("Kcal: ", badPoints);
 
 // Check Zucker
-if(check_Sugar <=4.5) {
-    badPoints += 0;
-}else if(check_Sugar >45) {
+if(check_Sugar >45) {
     badPoints += 10;
 }else if(check_Sugar >40) {
     badPoints += 9;
@@ -1195,6 +1195,10 @@ if(check_Sugar <=4.5) {
     badPoints += 2;
 }else if(check_Sugar >4.5) {
     badPoints += 1;
+}else if(check_Sugar <2) {
+    badPoints += -1;
+}else if(check_Sugar <=4.5) {
+    badPoints += 0;
 }
 console.log("Zucker: ", badPoints);
 
@@ -1261,33 +1265,41 @@ var nutriScore = 0;
 var nutriScoreChar = "";
 var color = "";
 
+// Reset NutriScoreLabel
+document.getElementById("C_A").style.height = "80px";
+document.getElementById("C_B").style.height = "80px";
+document.getElementById("C_C").style.height = "80px";
+document.getElementById("C_D").style.height = "80px";
+document.getElementById("C_E").style.height = "80px";
+
 if(nutriScoreVal > 19) {
     nutriScore = 5;
+    document.getElementById("C_E").style.height = "120px";
     nutriScoreChar = "E";
     color = "red";
 }else if(nutriScoreVal > 11) {
     nutriScore = 4;
+    document.getElementById("C_D").style.height = "120px";
     nutriScoreChar = "D";
     color = "orange";
 }else if(nutriScoreVal > 3) {
     nutriScore = 3;
+    document.getElementById("C_C").style.height = "120px";
     nutriScoreChar = "C";
     color = "yellow";
 }else if(nutriScoreVal >= 0) {
     nutriScore = 2;
+    document.getElementById("C_B").style.height = "120px";
     nutriScoreChar = "B";
     color = "lightgreen";
 }else if(nutriScoreVal < 0) {
     nutriScore = 1;
+    document.getElementById("C_A").style.height = "120px";
     nutriScoreChar = "A";
     color = "green";
 }
 
-    document.getElementById("outputNutri").innerHTML = "Nutri Score: " + nutriScoreChar;
-    document.getElementById("outputNutri").style.backgroundColor = color;
-    document.getElementById("outputNutri").style.color = 'black';
-
-    console.log(nutriScore);
+    console.log(nutriScoreChar);
 }
 
 //============================================================================
@@ -1313,7 +1325,7 @@ if(nutriScoreVal > 19) {
                 let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
 
                      // Anzeigen, dass Produkt eingetragen wurde
-                let intakeFoodInfo = selectedAmount + " Gramm " + newProduct + " hätte folgende Werte: \n Kcal: " + kcal_Intake + " \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g \n Salz: " + parseInt(salt_Intake) + " g";
+                let intakeFoodInfo = selectedAmount + " Gramm " + newProduct + " hätte folgende Werte: \n Kcal: " + kcal_Intake + " \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g \n Salz: " + salt_Intake + " g";
                 alert(intakeFoodInfo);
 
             } catch (error) {
