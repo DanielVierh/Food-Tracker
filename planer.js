@@ -446,6 +446,8 @@ function calc_Values() {
         document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
         document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
         blendIn_FoodActionArea();
+        // Nutri Score
+        show_NutriScore();
         // Fokus auf Textfeld setzen
         document.getElementById('foodAmound').focus();
       });
@@ -558,6 +560,41 @@ function calc_Values() {
 
 function show_NutriScore() {
     console.log("Feffe");
+}
+
+//============================================================================
+// Prüfbutton für ausgewähltes Lebensmittel und Menge
+//============================================================================
+function checkButton() {
+    if(selected_Food != "") {
+        if(document.getElementById('foodAmound').value == "") {
+            alert("Bitte eine Menge eingeben");
+        }else{
+            
+            let newProduct = selected_Food.productName;
+            var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
+
+            // Produkt hinzufügen
+            try {
+                let kcal_Intake = parseInt(selectedAmount * selected_Food.kcal / 100);
+                let fat_Intake = parseFloat(selectedAmount * selected_Food.fat / 100);
+                let carb_Intake = parseFloat(selectedAmount * selected_Food.carbs / 100);
+                let sugar_Intake = parseFloat(selectedAmount * selected_Food.sugar / 100);
+                let protein_Intake = parseFloat(selectedAmount * selected_Food.protein / 100);
+                let salt_Intake = parseFloat(selectedAmount * selected_Food.salt / 100);
+                let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
+
+                     // Anzeigen, dass Produkt eingetragen wurde
+                let intakeFoodInfo = selectedAmount + " Gramm " + newProduct + " hätte folgende Werte: \n Kcal: " + kcal_Intake + " \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g \n Salz: " + salt_Intake + " g";
+                alert(intakeFoodInfo);
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }else{
+        alert("Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken");
+    }
 }
 
   
@@ -876,4 +913,189 @@ function discardPlan() {
         alert("Plan wurde verworfen");
         location.reload();
     }
+}
+
+
+function show_NutriScore() {
+    /* 
+    Menge 100 g
+    kcal in KJ umwandeln
+    Punkte        Energie (Kcal)        Zucker      Salz
+      0               <= 81          <= 4,5      <=0,09
+      1               >81            >4,5        >0,09
+      2               >160            >9          >0,18
+      3               >240           >13,5       >0,27
+      4               >320           >18         >0,36
+      5               >400           >22,5       >0,45
+      6               >480           >27         >0,54
+      7               >560           >31         >0,63
+      8               >641           >36         >0,72
+      9               >721           >40         >0,81
+      10              >801           >45         >0,9
+
+      
+    */
+  var badPoints = 0;
+  var googPoints = 0;
+  let calcAmound = 100;
+  let check_Kcal = parseInt(calcAmound * selected_Food.kcal / 100);
+  let check_Sugar = parseFloat(calcAmound * selected_Food.sugar / 100);
+  let check_Salt = parseFloat(calcAmound * selected_Food.salt / 100);
+  let check_Protein = parseFloat(calcAmound * selected_Food.protein / 100);
+  let check_Fiber = parseFloat(calcAmound * selected_Food.fiber / 100);
+
+// Check Kcal
+if(check_Kcal <40) {
+  badPoints += -1;
+}else if(check_Kcal <=81) {
+  badPoints += 0;
+}else if(check_Kcal >801) {
+  badPoints += 10;
+}else if(check_Kcal >721) {
+  badPoints += 9;
+}else if(check_Kcal >641) {
+  badPoints += 8;
+}else if(check_Kcal >560) {
+  badPoints += 7;
+}else if(check_Kcal >480) {
+  badPoints += 6;
+}else if(check_Kcal >400) {
+  badPoints += 5;
+}else if(check_Kcal >320) {
+  badPoints += 4;
+}else if(check_Kcal >240) {
+  badPoints += 3;
+}else if(check_Kcal >160) {
+  badPoints += 2;
+}else if(check_Kcal >81) {
+  badPoints += 1;
+}
+console.log("Kcal: ", badPoints);
+
+// Check Zucker
+if(check_Sugar >45) {
+  badPoints += 10;
+}else if(check_Sugar >40) {
+  badPoints += 9;
+}else if(check_Sugar >36) {
+  badPoints += 8;
+}else if(check_Sugar >31) {
+  badPoints += 7;
+}else if(check_Sugar >27) {
+  badPoints += 6;
+}else if(check_Sugar >22.5) {
+  badPoints += 5;
+}else if(check_Sugar >18) {
+  badPoints += 4;
+}else if(check_Sugar >13.5) {
+  badPoints += 3;
+}else if(check_Sugar >9) {
+  badPoints += 2;
+}else if(check_Sugar >4.5) {
+  badPoints += 1;
+}else if(check_Sugar <2) {
+  badPoints += -1;
+}else if(check_Sugar <=4.5) {
+  badPoints += 0;
+}
+console.log("Zucker: ", badPoints);
+
+// Salz
+if(check_Salt <=0.09) {
+  badPoints += 0;
+}else if(check_Salt >0.9) {
+  badPoints += 10;
+}else if(check_Salt >0.81) {
+  badPoints += 9;
+}else if(check_Salt >0.71) {
+  badPoints += 8;
+}else if(check_Salt >0.63) {
+  badPoints += 7;
+}else if(check_Salt >0.54) {
+  badPoints += 6;
+}else if(check_Salt >0.45) {
+  badPoints += 5;
+}else if(check_Salt >0.36) {
+  badPoints += 4;
+}else if(check_Salt >0.27) {
+  badPoints += 3;
+}else if(check_Salt >0.18) {
+  badPoints += 2;
+}else if(check_Salt >0.09) {
+  badPoints += 1;
+}
+console.log("Salz: ", badPoints);
+
+// Eiweiß
+if(check_Protein >8) {
+  googPoints += 5;
+}else if(check_Protein >6.4) {
+  googPoints += 4;
+}else if(check_Protein >4.8) {
+  googPoints += 3;
+}else if(check_Protein >3.2) {
+  googPoints += 2;
+}else if(check_Protein >1.6) {
+  googPoints += 1;
+}else if(check_Protein <=1.6) {
+  googPoints += 0;
+}
+console.log("Eiweiss: ", googPoints);
+
+// Ballaststoffe
+if(check_Fiber >4.7) {
+  googPoints += 5;
+}else if(check_Fiber >3.7) {
+  googPoints += 4;
+}else if(check_Fiber >2.8) {
+  googPoints += 3;
+}else if(check_Fiber >1.9) {
+  googPoints += 2;
+}else if(check_Fiber >0.9) {
+  googPoints += 1;
+}else if(check_Fiber <=0.9) {
+  googPoints += 0;
+}
+console.log("Ballast: ", googPoints);
+
+let nutriScoreVal = badPoints - googPoints;
+var nutriScore = 0;
+var nutriScoreChar = "";
+var color = "";
+
+// Reset NutriScoreLabel
+document.getElementById("C_A").style.height = "80px";
+document.getElementById("C_B").style.height = "80px";
+document.getElementById("C_C").style.height = "80px";
+document.getElementById("C_D").style.height = "80px";
+document.getElementById("C_E").style.height = "80px";
+
+if(nutriScoreVal > 19) {
+  nutriScore = 5;
+  document.getElementById("C_E").style.height = "120px";
+  nutriScoreChar = "E";
+  color = "red";
+}else if(nutriScoreVal > 11) {
+  nutriScore = 4;
+  document.getElementById("C_D").style.height = "120px";
+  nutriScoreChar = "D";
+  color = "orange";
+}else if(nutriScoreVal > 3) {
+  nutriScore = 3;
+  document.getElementById("C_C").style.height = "120px";
+  nutriScoreChar = "C";
+  color = "yellow";
+}else if(nutriScoreVal >= 0) {
+  nutriScore = 2;
+  document.getElementById("C_B").style.height = "120px";
+  nutriScoreChar = "B";
+  color = "lightgreen";
+}else if(nutriScoreVal < 0) {
+  nutriScore = 1;
+  document.getElementById("C_A").style.height = "120px";
+  nutriScoreChar = "A";
+  color = "green";
+}
+
+  console.log(nutriScoreChar);
 }
