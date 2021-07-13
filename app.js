@@ -648,6 +648,7 @@ function show_Statisitcs(val) {
         document.getElementById("valDescrFett").innerHTML = "";
         document.getElementById("UeberschriftStatisik").innerHTML = "Zucker -- (Ziel: " + max_Sugar + " g)";
         document.getElementById('outputFatSum').innerHTML = "";
+        var sugarCounter = 0;
         // Fett ausblenden
         for(var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
@@ -658,7 +659,7 @@ function show_Statisitcs(val) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = parseFloat(my_Statistics[i].repository_Sugar);
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
-            
+            sugarCounter += currentVal;
             // + - zum Vortag
             if(i > 0) {
                 val_to_DayBefore = parseFloat(my_Statistics[i].repository_Sugar) - parseFloat(lastDayVal);
@@ -694,6 +695,8 @@ function show_Statisitcs(val) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
             }
         }
+
+        document.getElementById('outputFatSum').innerHTML = sugarCounter.toFixed(1) + "g (" + (sugarCounter / statistik_Count).toFixed(1) + "g/Tag)";
 
         // >>> Wasser <<<
     }else if (val == "show_Water") {
