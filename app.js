@@ -551,12 +551,15 @@ function show_Statisitcs(val) {
             }
     
             // Balken färben
-            if(currentVal > kcal_Ziel) {
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-            }else{
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
-            }
+            if(currentVal > kcal_Ziel && currentVal < kcal_Requirement) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "yellow";
 
+            }else if(currentVal > kcal_Ziel){
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+
+            }else{
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
+            }
             
             if(kcal_in_Gramm >= 0) {
                 document.getElementById('fettInGramm_Col_' + i).style.color = "rgb(27, 206, 27)";
@@ -632,10 +635,12 @@ function show_Statisitcs(val) {
             }
     
             // Balken färben
-            if(currentVal < min_Steps) {
+            if(currentVal < min_Steps && currentVal > (min_Steps * 0.90)) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "yellow";
+            }else if(currentVal < min_Steps){
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-            }else{
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
+            }else {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
             }
             
         }
@@ -689,10 +694,12 @@ function show_Statisitcs(val) {
             }
     
             // Balken färben
-            if(currentVal > max_Sugar) {
+            if(currentVal > max_Sugar && currentVal < (max_Sugar * 1.1)) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "yellow";
+            }else if (currentVal > max_Sugar){
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-            }else{
-                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
+            }else {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
             }
         }
 
@@ -758,6 +765,7 @@ function show_Statisitcs(val) {
             document.getElementById('outputFatSum').innerHTML = waterCounter + " L";
 
 
+        // Verbrannte KCAL
     }else if(val == "show_BurndedKcal") {
          // >>> Verbrannte KCAL <<<  
          const kcalVal = 6.5;
@@ -814,7 +822,7 @@ function show_Statisitcs(val) {
              if(currentVal < burnedKcalGoal) {
                  document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
              }else{
-                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(27, 206, 27)";
+                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
              }
             
              
@@ -1175,7 +1183,7 @@ if(check_Kcal <40) {
 }else if(check_Kcal >81) {
     badPoints += 1;
 }
-console.log("Kcal: ", badPoints);
+// console.log("Kcal: ", badPoints);
 
 // Check Zucker
 if(check_Sugar >45) {
@@ -1203,7 +1211,7 @@ if(check_Sugar >45) {
 }else if(check_Sugar <=4.5) {
     badPoints += 0;
 }
-console.log("Zucker: ", badPoints);
+// console.log("Zucker: ", badPoints);
 
 // Salz
 if(check_Salt <=0.09) {
@@ -1229,7 +1237,7 @@ if(check_Salt <=0.09) {
 }else if(check_Salt >0.09) {
     badPoints += 1;
 }
-console.log("Salz: ", badPoints);
+// console.log("Salz: ", badPoints);
 
 // Eiweiß
 if(check_Protein >8) {
@@ -1245,7 +1253,7 @@ if(check_Protein >8) {
 }else if(check_Protein <=1.6) {
     googPoints += 0;
 }
-console.log("Eiweiss: ", googPoints);
+// console.log("Eiweiss: ", googPoints);
 
 // Ballaststoffe
 if(check_Fiber >4.7) {
@@ -1261,7 +1269,7 @@ if(check_Fiber >4.7) {
 }else if(check_Fiber <=0.9) {
     googPoints += 0;
 }
-console.log("Ballast: ", googPoints);
+// console.log("Ballast: ", googPoints);
 
 let nutriScoreVal = badPoints - googPoints;
 var nutriScore = 0;
@@ -1302,7 +1310,7 @@ if(nutriScoreVal > 19) {
     color = "green";
 }
 
-    console.log(nutriScoreChar);
+    // console.log(nutriScoreChar);
 }
 
 //============================================================================
