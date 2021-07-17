@@ -1127,3 +1127,10 @@ color: var(--mainText);
 .C_E{
   background: red;
 }
+
+
+#txtArea{
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  border: none;
+}

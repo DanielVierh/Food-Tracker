@@ -2367,10 +2367,14 @@ function fetch_Food_DB_Origin() {
      let emailSub = "Export Food DB";
      
 
-     // E-Mail öffnen // Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
+     // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
      // Deshalb wird dieser in Textbox ausgegeben
      document.getElementById("txtArea").innerHTML = exp_New_Prod;
-     //location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+exp_New_Prod;
+     document.getElementById("txtArea").select();
+     document.execCommand('copy');
+     let mailText = "";
+     alert("Backup befindet sich im Zwischenspeicher. Füge diesen in der Mail ein.");
+     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+mailText;
      
     })
 }
