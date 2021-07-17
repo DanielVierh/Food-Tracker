@@ -2369,11 +2369,11 @@ function fetch_Food_DB_Origin() {
 
      // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
      // Deshalb wird dieser in Textbox ausgegeben
+     document.getElementById("txtArea").innerHTML = "";
      document.getElementById("txtArea").innerHTML = exp_New_Prod;
-     document.getElementById("txtArea").select();
-     document.execCommand('copy');
+     //document.getElementById("txtArea").select();
+     //document.execCommand('copy');
      let mailText = "";
-     alert("Backup befindet sich im Zwischenspeicher. Füge diesen in der Mail ein.");
      location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+mailText;
      
     })
@@ -2395,8 +2395,34 @@ function checkProductInOldDB(oldProd) {
     }
 }
 
-
-
+// Exportiert alle Produkte
+function export_FoodDB_All() {
+     for(var i = 0; i < array_Food_DB.length; i++) {
+        potNewProduct = array_Food_DB[i].productName;
+            let exp_Product = potNewProduct;
+            let exp_kcal = array_Food_DB[i].kcal;
+            let exp_Fat = array_Food_DB[i].fat;
+            let exp_Carbs = array_Food_DB[i].carbs;
+            let exp_Sugar = array_Food_DB[i].sugar;
+            let exp_Fiber = array_Food_DB[i].fiber;
+            let exp_Protein = array_Food_DB[i].protein;
+            let exp_Salt = array_Food_DB[i].salt;
+            let exp_Quantity = array_Food_DB[i].quantityUnit;
+            let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Fiber + ";" + exp_Quantity + "; | ";
+            exp_New_Prod.push(expItem);
+     }
+     let emailTo = "";
+     let emailCC = "";
+     let emailSub = "Export Food DB";
+     // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
+     // Deshalb wird dieser in Textbox ausgegeben
+     document.getElementById("txtArea").innerHTML = "";
+     document.getElementById("txtArea").innerHTML = exp_New_Prod;
+     //document.getElementById("txtArea").select();
+     //document.execCommand('copy');
+     let mailText = "";
+     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+mailText;
+}
 
 
 
