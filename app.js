@@ -2365,8 +2365,12 @@ function fetch_Food_DB_Origin() {
      let emailTo = "";
      let emailCC = "";
      let emailSub = "Export Food DB";
-     //var newProducts = [];
-     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+exp_New_Prod;
+     
+
+     // E-Mail öffnen // Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
+     // Deshalb wird dieser in Textbox ausgegeben
+     document.getElementById("txtArea").innerHTML = exp_New_Prod;
+     //location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+exp_New_Prod;
      
     })
 }
