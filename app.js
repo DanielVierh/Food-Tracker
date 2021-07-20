@@ -175,6 +175,15 @@ function load_other_LocalStorage_Values(){
             document.getElementById('weight').value = bodyWeight;
         }
 
+        // Verbrannte Kcal
+        if(localStorage.getItem('stored_burned_Kcal') === null) {
+            console.log("stored_burned_Kcal konnte nicht geladen werden");
+        }else{
+           burned_Kcal = JSON.parse(localStorage.getItem("stored_burned_Kcal"));
+           document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
+           calc_Values();
+       }
+       
         // Schritte
         if(localStorage.getItem('stored_Today_Steps') === null) {
             console.log("Scritte konnten nicht geladen werden");
@@ -306,6 +315,12 @@ function save_Kcal_Requirement() {
 function save_History() {
     localStorage.setItem("stored_History", JSON.stringify(my_History));
     console.log("History gespeichert");
+}
+
+// Speichere Verbrannte Kcal
+function save_Burned_Kcal() {
+    localStorage.setItem("stored_burned_Kcal", JSON.stringify(burned_Kcal));
+    console.log("burned_Kcal gespeichert");
 }
 
 //====================================================================================
@@ -970,14 +985,30 @@ function get_new_Steps() {
 
 
 function steps_into_Kcal() {
-
     const kcalVal = 6.5;
     const diviVal = 10000;
-    burned_Kcal = parseInt((today_Steps * kcalVal * bodyWeight) / (diviVal));
+    let kcal_from_Steps = parseInt((today_Steps * kcalVal * bodyWeight) / (diviVal));
+    if(kcal_from_Steps > burned_Kcal) {
+        burned_Kcal = kcal_from_Steps;
+        save_Burned_Kcal();
+    }
     document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
     calc_Values();
 }
 
+
+//============================================================================
+// Kcal manuell eintragen
+//============================================================================
+function recordKcal() {
+    var new_Kcal = window.prompt("Trage hier abweichende Kcal ein:",burned_Kcal);
+    if (new_Kcal != burned_Kcal) {
+        burned_Kcal = parseInt(new_Kcal);
+        document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
+        save_Burned_Kcal();
+        calc_Values();
+    }
+}
 
 //============================================================================
 // Food Datenbank Tabelle 
@@ -2005,7 +2036,9 @@ function close_Day() {
             today_Steps = 0;
             today_eaten = [];
             today_Water = 0;
+            burned_Kcal = 0;
             lastWater = "Gestern";
+            save_Burned_Kcal();
             save_Last_Water();
             document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
             document.getElementById("lastWater").innerHTML = "Zuletzt: ";
@@ -2484,6 +2517,8 @@ function sendThisDay() {
     let bodyContent = selectedDate.history_Content;
     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+bodyContent;
 }
+
+
 
 
 
