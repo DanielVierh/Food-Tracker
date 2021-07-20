@@ -183,7 +183,7 @@ function load_other_LocalStorage_Values(){
            document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
            calc_Values();
        }
-       
+
         // Schritte
         if(localStorage.getItem('stored_Today_Steps') === null) {
             console.log("Scritte konnten nicht geladen werden");
@@ -1002,12 +1002,15 @@ function steps_into_Kcal() {
 //============================================================================
 function recordKcal() {
     var new_Kcal = window.prompt("Trage hier abweichende Kcal ein:",burned_Kcal);
-    if (new_Kcal != burned_Kcal) {
-        burned_Kcal = parseInt(new_Kcal);
-        document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
-        save_Burned_Kcal();
-        calc_Values();
+    if(new_Kcal) {
+        if (new_Kcal != burned_Kcal) {
+            burned_Kcal = parseInt(new_Kcal);
+            document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
+            save_Burned_Kcal();
+            calc_Values();
+        }
     }
+
 }
 
 //============================================================================
