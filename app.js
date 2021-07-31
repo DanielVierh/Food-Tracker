@@ -1998,6 +1998,7 @@ function close_Day() {
             let placeHolderGramm = " g | ";
             let einleitung = "Am " + currDate + " wurde folgendes erfasst: ";
             let goalDiff = parseInt(kcal_Ziel) + parseInt(burned_Kcal) - parseInt(eaten_Kcal);
+            let targets = "Ziel_Eiweiss:" + min_Protein + " | Ziel_Schritte: " + min_Steps;
             // Hinzufügen von MyHistory String
             let new_Day_for_my_History = einleitung + "Kcal: " + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
             "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + todayDiff + placeHolder + 
@@ -2006,7 +2007,7 @@ function close_Day() {
             todayProtein + placeHolderGramm + "Kohlenhydrate: " + todayCarbs + placeHolderGramm + "Zucker: " + 
             todaySugar + placeHolderGramm + "Salz: " + todaySalt + placeHolderGramm + 
             "Ballaststoffe: " + todayFiber + placeHolder + "Gramm: " + todayGramm + placeHolderGramm + 
-            "Diff zum Ziel: " + goalDiff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L";
+            "Diff zum Ziel: " + goalDiff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L" + placeHolder + targets;
             
             // Dem History Array hinzufügen
             my_History.push(new History(currDate, new_Day_for_my_History));
