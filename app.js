@@ -913,7 +913,7 @@ function last_Water() {
             minute = '0'+ minute;
     } 
     currentTime = hour + ':' + minute + ' Uhr';
-    lastWater = new_Water + " um " + currentTime;
+    lastWater = new_Water + " L um " + currentTime;
 
     save_Last_Water();
     //return currentTime;
