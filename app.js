@@ -895,10 +895,10 @@ function take_Over_Water() {
     save_Today_Water();
     alert(new_Water + " L Wasser wurden hinzugefügt");
     document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
-    new_Water = 0.25;
     document.getElementById('outpWaterButton').innerText = new_Water + " L";
     last_Water();
     document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
+    new_Water = 0.25;
 }
 
 function last_Water() {
@@ -913,7 +913,7 @@ function last_Water() {
             minute = '0'+ minute;
     } 
     currentTime = hour + ':' + minute + ' Uhr';
-    lastWater = "" + currentTime;
+    lastWater = new_Water + " um " + currentTime;
 
     save_Last_Water();
     //return currentTime;
