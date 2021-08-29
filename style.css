@@ -1243,4 +1243,6 @@ input:checked + .slider:before {
   border-radius: 15px;
   font-size: 34px;
   font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
 }
