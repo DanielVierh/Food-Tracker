@@ -44,7 +44,7 @@ var exp_New_Prod = [];
 var selectedDateIndex = 0;
 var selectedDate = "";
 var lastWater = "";
-
+var spezDiet_Visible = false;
 
 
 
@@ -380,7 +380,10 @@ function blendOut_MengeAendern() {
     document.getElementById("btnChangeQuantity").disabled = true;
     document.getElementById("btnDeleteFoodFromToday").disabled = true;
     document.getElementById("foodAmound_Change").disabled = true;
-    
+
+    // Disable SpezDiet  
+    document.getElementById("spezDietDiv").style.opacity = "0";
+    document.getElementById("diet_List").disabled = true;
 }
 
 function blendOut_HistoryButton() {
@@ -1966,6 +1969,22 @@ function load_Additional_Targets() {
             min_Steps = additional_Targets[i].targetVal;
             document.getElementById('target_Steps').value = min_Steps;
         }
+    }
+}
+
+// Spezielle Ernährungsweise ein / ausblenden je nach Toggle Wert
+let toggleBtn_SpezDiet = document.getElementById("spez_Diet_ToggleButton");
+toggleBtn_SpezDiet.addEventListener("click", showDietMethods);
+
+function showDietMethods() {
+    if(spezDiet_Visible == false) {
+        document.getElementById("spezDietDiv").style.opacity = "1";
+        document.getElementById("diet_List").disabled = false;
+        spezDiet_Visible = true;
+    }else{
+        document.getElementById("spezDietDiv").style.opacity = "0";
+        document.getElementById("diet_List").disabled = true;
+        spezDiet_Visible = false;
     }
 }
 

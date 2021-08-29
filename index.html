@@ -493,15 +493,41 @@
   <hr> <br>
   <p class="advise">Weitere Ziele</p>
   <br>
+
+  <p>Spezielle Ernährungsform</p>
+  <label class="switch">
+    <input type="checkbox" id="spez_Diet_ToggleButton">
+    <span class="slider ckround"></span>
+  </label>
+<br>
+  <div id="spezDietDiv">
+    <label>Ernährungsweise
+      <input type="text" list="intliste" name="dietList" id="diet_List">
+      <datalist id="intliste">
+          <option value="Keto">
+          <option value="Low Carb">
+          <option value="Moderat">
+      </datalist>
+  </label>
+  </div>
+
+
+<br><br>
   <div class="boxWeitereZiele">
+    <label>Fett</label>
+    <input type="text" pattern="\d*" value="" id="target_Fat" class="inputMenge" placeholder="in Gramm">
+    <br>
+    <label>Eiweiss</label>
+    <input type="text" pattern="\d*" value="" id="target_Protein" class="inputMenge" placeholder="in Gramm">
+    <br>
+    <label>Kohlenhydrate</label>
+    <input type="text" pattern="\d*" value="" id="target_Carbs" class="inputMenge" placeholder="in Gramm">
+    <br>
     <label>Maximum Zucker</label>
     <input type="text" pattern="\d*" value="" id="target_Sugar" class="inputMenge" placeholder="in Gramm">
     <br>
     <label>Maximum Salz</label>
     <input type="text" pattern="\d*" value="" id="target_Salt" class="inputMenge" placeholder="in Gramm">
-    <br>
-    <label>Minimum Eiweiss</label>
-    <input type="text" pattern="\d*" value="" id="target_Protein" class="inputMenge" placeholder="in Gramm">
     <br>
     <label>Minimum Ballaststoffe</label>
     <input type="text" pattern="\d*" value="" id="target_Fiber" class="inputMenge" placeholder="in Gramm">
@@ -548,7 +574,7 @@
 
 
  
-  <footer class="zone blue">Version 1.7.2.0. -- 22.08.2021</footer>
+  <footer class="zone blue">Version 1.7.3.0. -- 29.08.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
