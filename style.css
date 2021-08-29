@@ -1234,7 +1234,13 @@ input:checked + .slider:before {
   font-size: 50px;
   font-weight: bold;
   text-align: center;
-  background: rgba(51, 50, 50, 0.452);
-  color: white;
   border-radius: 20px;
+}
+
+#submitDiet{
+  width: 10%;
+  height: 60px;
+  border-radius: 15px;
+  font-size: 34px;
+  font-weight: bold;
 }

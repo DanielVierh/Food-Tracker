@@ -37,6 +37,8 @@ var max_Salt = 0;
 var min_Protein = 0;
 var min_Fiber = 0;
 var min_Steps = 10000;
+var des_Fat = 0;
+var des_Carbs = 0;
 var new_Water = 0.25;
 var today_Water = 0;
 var originDB = [];
@@ -45,7 +47,7 @@ var selectedDateIndex = 0;
 var selectedDate = "";
 var lastWater = "";
 var spezDiet_Visible = false;
-
+var isKeto = false;
 
 
 //====================================================================================
@@ -381,9 +383,10 @@ function blendOut_MengeAendern() {
     document.getElementById("btnDeleteFoodFromToday").disabled = true;
     document.getElementById("foodAmound_Change").disabled = true;
 
-    // Disable SpezDiet  
+    // Disable SpezDiet    
     document.getElementById("spezDietDiv").style.opacity = "0";
     document.getElementById("diet_List").disabled = true;
+    document.getElementById("submitDiet").disabled = true;
 }
 
 function blendOut_HistoryButton() {
@@ -1772,6 +1775,25 @@ function colorizeTargetProgress() {
         document.getElementById('output_Fiber').style.color = "rgb(27, 206, 27)";
     }
 
+    if(eaten_Carbs > des_Carbs) {
+        document.getElementById('output_Carbs').style.color = "red";
+    }else{
+        document.getElementById('output_Carbs').style.color = "rgb(27, 206, 27)";
+    }
+
+    if(isKeto == true) {
+        if(eaten_Fat > des_Fat) {
+            document.getElementById('output_Fat').style.color = "rgb(27, 206, 27)";
+        }else{
+            document.getElementById('output_Fat').style.color = "red";
+        }
+    }else{
+        if(eaten_Fat < des_Fat) {
+            document.getElementById('output_Fat').style.color = "rgb(27, 206, 27)";
+        }else{
+            document.getElementById('output_Fat').style.color = "red";
+        }
+    }
 
 }
 
@@ -1935,8 +1957,26 @@ function define_additional_Target() {
         let varName = "tSteps";
         additional_Targets.push(new StoredTarget(varName, min_Steps));
     }
+
+    if(document.getElementById('target_Fat').value != "") {
+        des_Fat = document.getElementById('target_Fat').value;
+        let varName = "tFat";
+        additional_Targets.push(new StoredTarget(varName, des_Fat));
+    }
+
+    if(document.getElementById('target_Carbs').value != "") {
+        des_Carbs = document.getElementById('target_Carbs').value;
+        let varName = "tCarbs";
+        additional_Targets.push(new StoredTarget(varName, des_Carbs));
+    }
+
+
+        let varName = "tKeto";
+        additional_Targets.push(new StoredTarget(varName, isKeto));
+    
+
     console.log("additional_Targets " + additional_Targets);
-    // Save
+    // Save 
     localStorage.setItem("storedAdditionalTargets", JSON.stringify(additional_Targets));
 
     alert("Ziele wurden übernommen");
@@ -1969,6 +2009,17 @@ function load_Additional_Targets() {
             min_Steps = additional_Targets[i].targetVal;
             document.getElementById('target_Steps').value = min_Steps;
         }
+        if(additional_Targets[i].targetName == "tFat") {
+            des_Fat = additional_Targets[i].targetVal;
+            document.getElementById('target_Fat').value = des_Fat;
+        }
+        if(additional_Targets[i].targetName == "tCarbs") {
+            des_Carbs = additional_Targets[i].targetVal;
+            document.getElementById('target_Carbs').value = des_Carbs;
+        }
+        if(additional_Targets[i].targetName == "tKeto") {
+            isKeto = additional_Targets[i].targetVal;
+        }
     }
 }
 
@@ -1980,13 +2031,80 @@ function showDietMethods() {
     if(spezDiet_Visible == false) {
         document.getElementById("spezDietDiv").style.opacity = "1";
         document.getElementById("diet_List").disabled = false;
+        document.getElementById("submitDiet").disabled = false;
         spezDiet_Visible = true;
+
     }else{
         document.getElementById("spezDietDiv").style.opacity = "0";
         document.getElementById("diet_List").disabled = true;
+        document.getElementById("submitDiet").disabled = true;
         spezDiet_Visible = false;
+
     }
 }
+
+// Bei Klick auf das Drop Down Feld Liste leeren
+let dietList = document.getElementById("diet_List");
+dietList.addEventListener("click", function() {
+    dietList.value = "";
+});
+
+// Diet auswählen
+
+function selectDiet() {
+    const prevDiet = document.getElementById("diet_List").value;
+    let limitFat = 0;
+    let limitProtein = 0;
+    let limitCarbs = 0;
+    let maxProtein = bodyWeight * 1.5;
+
+    if(prevDiet == "Keto") {
+        limitFat = 78;
+        limitProtein = 19;
+        limitCarbs = 3;
+        isKeto = true;
+    }else if(prevDiet == "Low Carb") {
+        limitFat = 50;
+        limitProtein = 30;
+        limitCarbs = 20;
+        isKeto = false;
+    }else if(prevDiet == "Moderat") {
+        limitFat = 40;
+        limitProtein = 30;
+        limitCarbs = 30;
+        isKeto = false;
+    }
+
+    const desired_Fat = limitFat * kcal_Ziel / 100;
+    const desired_Protein = limitProtein * kcal_Ziel / 100;
+    const desired_Carbs = limitCarbs * kcal_Ziel / 100;
+
+    let fat_in_Gramm = parseInt(desired_Fat / 9.3);
+    let protein_in_Gramm = parseInt(desired_Protein / 4.1);
+    const carbs_in_Gramm = parseInt(desired_Carbs / 4.1);
+
+    document.getElementById("target_Fat").value = fat_in_Gramm;
+    document.getElementById("target_Protein").value = protein_in_Gramm;
+    document.getElementById("target_Carbs").value = carbs_in_Gramm;
+    document.getElementById("target_Sugar").value = parseInt(carbs_in_Gramm * 0.5);
+
+    if(protein_in_Gramm > maxProtein) {
+        const proteinDiff = parseInt(protein_in_Gramm % maxProtein);
+        const protein_Diff_in_Kcal = proteinDiff * 4.1;
+        const addedFat = parseInt(protein_Diff_in_Kcal / 9.3);
+        
+        protein_in_Gramm = parseInt(protein_in_Gramm - proteinDiff);
+        fat_in_Gramm = parseInt(fat_in_Gramm + addedFat);
+        alert("Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: " + protein_in_Gramm + " g liegst du " + proteinDiff + " g darüber. Ich ändere die Eiweißmenge ab und schreibe dir " + addedFat + " g Fett gut :)");
+        document.getElementById("target_Fat").value = fat_in_Gramm;
+        document.getElementById("target_Protein").value = protein_in_Gramm;
+    }
+}
+
+
+
+
+
 
 //============================================================================
 // Tag abschließen

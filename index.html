@@ -491,6 +491,7 @@
   <input type="text" pattern="\d*" value="" id="target_KcalZiel" class="inputMenge" placeholder="">
   <button class="ButtonSpeichern" onclick="define_Kcal_Target()">Speichern</button>
   <hr> <br>
+  <!-- Weitere Ziele -->
   <p class="advise">Weitere Ziele</p>
   <br>
 
@@ -502,12 +503,13 @@
 <br>
   <div id="spezDietDiv">
     <label>Ernährungsweise
-      <input type="text" list="intliste" name="dietList" id="diet_List">
-      <datalist id="intliste">
+      <input type="text" list="dietListe" name="dietList" id="diet_List">
+      <datalist id="dietListe">
           <option value="Keto">
           <option value="Low Carb">
           <option value="Moderat">
       </datalist>
+      <button onclick="selectDiet()" id="submitDiet">Ok</button>
   </label>
   </div>
 
@@ -574,7 +576,7 @@
 
 
  
-  <footer class="zone blue">Version 1.7.3.0. -- 29.08.2021</footer>
+  <footer class="zone blue">Version 1.7.4.0. -- 29.08.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
