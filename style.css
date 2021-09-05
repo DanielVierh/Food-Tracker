@@ -1246,3 +1246,7 @@ input:checked + .slider:before {
   background-color: var(--mainColor);
   color: var(--mainText);
 }
+
+.menueButtonColor{
+  color: var(--mainText);
+}

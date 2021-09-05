@@ -12,12 +12,15 @@
 <body>
   <nav class="sticky zone blue">
     <ul class="main-nav">
-      <button class="navButton" onclick="goto_NewProduct()">NEU</button>
+      <!-- <button class="navButton" onclick="goto_NewProduct()">NEU</button> -->
+      <button class="navButton"><a href="#markerNewProduct" class="menueButtonColor">NEU</a></button>
       <button class="navButton" onclick="goto_Planer()">Planer</button>
-      <button class="navButton" style="font-size: 70px;" onclick="goto_Statistic()">📊</button> 
-      <button class="navButton" style="font-size: 90px;" onclick="goto_Settings()">⚙</button>
+      <!-- <button class="navButton" style="font-size: 70px;" onclick="goto_Statistic()">📊</button>  -->
+      <button class="navButton" style="font-size: 70px;"><a href="#markerStatistik">📊</a></button> 
+      <!-- <button class="navButton" style="font-size: 90px;" onclick="goto_Settings()">⚙</button> -->
+      <button class="navButton" style="font-size: 90px;"><a href="#markerEinstellungen" class="menueButtonColor">⚙</a></button>
     </ul>
-   
+
   </nav>
   <br><br><br><br>
   <div class="zone blue grid-wrapper"><h1></h1></div>
@@ -178,68 +181,15 @@
   
 
 <!-- ================================================================ -->
-  <!-- Immer da Buttons -->
+  <!-- Immer da Buttons --> 
 <!-- ================================================================ -->
-  <div id="btnAdd" class="bg-text">🍎 +</div>
+  <!-- <div id="btnAdd" class="bg-text">🍎 +</div> -->
+  <div id="btnAdd" class="bg-text"><a href="#titleDatenbank">🍎 +</a></div>
   <div id="btnscrl_Up" class="bg-text2">⬆ UP</div>
   <button data-modal-target="#modal_Steps" id="btnSteps" class="bg-text3">0 &#128095</button>
   <p class="welcomeScreen" id="welcomeScrn">Willkommen 😀 <br> Um die App nutzen zu können, müssen zuerst ein paar Einstellungen vorgenommen werden. Klicke hierzu oben auf Einstellungen.<br> <br> OK</p>
-    <!-- Leerzone -->
+    <!-- Leerzone  -->
     <div class="container zone"></div>
-
-
-
-
-
-  <!-- ================================================================
-  Planer
-  ================================================================ -->
-  <!-- <div class="fullCell">
-    <br>
-    <h1 style="text-align: center; font-size: 124px;">Planer</h1>
-    <div class="buttonContainer">
-      <button class="buttonPlaner uebernehmenButton">Duplizieren</button>
-      <button class="buttonPlaner uebernehmenButton">Übernehmen + Leeren</button>
-    </div>
-    
-      <br>
-    <div class="cont">
-          <div class="macroContainer">
-            <div class="row">
-              <p>Plan <br> 36 %</p>
-              <p>Gepl Kcal <br> 2432</p>
-              <p>Kcal Ziel <br> 143</p>
-              <p>Diff <br> 34</p>
-            </div>
-            <hr>
-            <div class="row">
-              <p>KH. <br> 2432</p>
-              <p>Zck. <br> 143</p>
-              <p>Ball. <br> 34</p>
-            </div>
-            <div class="row">
-              <p>Eiw. <br> 2432</p>
-              <p>Fett <br> 143</p>
-              <p>Salz <br> 34</p>
-            </div>
-          </div>
-    </div>
-    <br>
-    <div class="buttonContainer">
-      <button class="buttonPlaner addButton">+</button>
-      <button class="buttonPlaner deleteFromPlaner">Löschen</button>
-    </div>
-
-     <div id="containerTabelle_Planer"></div>
-
-  </div>  -->
-
-
-    <!-- Leerzone -->
-    <!-- <div class="container zone"></div> -->
-
-
-
 
 
 <!-- ================================================================ -->
@@ -265,7 +215,7 @@
 <!-- Statistik -->
 <!-- ================================================================ -->
 
-    <div class="fullCell">
+    <div class="fullCell" id="markerStatistik">
       <h1>Statistik</h1>
 
       <p style="text-align: center;" id="UeberschriftStatisik">Effektive Kcal</p>
@@ -385,7 +335,7 @@
 
 
 <!-- Hinzufügen -->
-  <div class="fullCell">
+  <div class="fullCell" id="markerNewProduct">
     <h1>Neues Lebensmittel hinzufügen</h1>
     
   </div>
@@ -441,7 +391,7 @@
 <!-- Einstellungen  -->
 <!-- ================================================================ -->
 
-  <div class="fullCell einstllungsform">
+  <div class="fullCell einstllungsform" id="markerEinstellungen">
     <h1>Einstellungen</h1>
 
     <form class="settingForm">
@@ -576,7 +526,7 @@
 
 
  
-  <footer class="zone blue">Version 1.7.5.0. -- 02.09.2021</footer>
+  <footer class="zone blue">Version 1.7.6.0. -- 05.09.2021</footer>
 </body>
 <script src="./app.js"></script>
 </html>
