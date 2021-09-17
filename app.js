@@ -899,12 +899,16 @@ function water_Spin_Down() {
 function take_Over_Water() {
     today_Water += new_Water;
     save_Today_Water();
-    alert(new_Water + " L Wasser wurden hinzugefügt");
+    if (new_Water == -0.25){
+        alert("Wassermenge um 0,25 L korrigiert");
+    }else{
+        alert(new_Water + " L Wasser wurden hinzugefügt");
+        last_Water();
+        document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
+    }
     document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
-    document.getElementById('outpWaterButton').innerText = new_Water + " L";
-    last_Water();
-    document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
     new_Water = 0.25;
+    document.getElementById('outpWaterButton').innerText = new_Water + " L";
 }
 
 function last_Water() {
@@ -1189,7 +1193,7 @@ function recordKcal() {
         
       */
     var badPoints = 0;
-    var googPoints = 0;
+    var goodPoints = 0;
     let calcAmound = 100;
     let check_Kcal = parseInt(calcAmound * selected_Food.kcal / 100);
     let check_Sugar = parseFloat(calcAmound * selected_Food.sugar / 100);
@@ -1281,37 +1285,37 @@ if(check_Salt <=0.09) {
 
 // Eiweiß
 if(check_Protein >8) {
-    googPoints += 5;
+    goodPoints += 5;
 }else if(check_Protein >6.4) {
-    googPoints += 4;
+    goodPoints += 4;
 }else if(check_Protein >4.8) {
-    googPoints += 3;
+    goodPoints += 3;
 }else if(check_Protein >3.2) {
-    googPoints += 2;
+    goodPoints += 2;
 }else if(check_Protein >1.6) {
-    googPoints += 1;
+    goodPoints += 1;
 }else if(check_Protein <=1.6) {
-    googPoints += 0;
+    goodPoints += 0;
 }
-// console.log("Eiweiss: ", googPoints);
+// console.log("Eiweiss: ", goodPoints);
 
 // Ballaststoffe
 if(check_Fiber >4.7) {
-    googPoints += 5;
+    goodPoints += 5;
 }else if(check_Fiber >3.7) {
-    googPoints += 4;
+    goodPoints += 4;
 }else if(check_Fiber >2.8) {
-    googPoints += 3;
+    goodPoints += 3;
 }else if(check_Fiber >1.9) {
-    googPoints += 2;
+    goodPoints += 2;
 }else if(check_Fiber >0.9) {
-    googPoints += 1;
+    goodPoints += 1;
 }else if(check_Fiber <=0.9) {
-    googPoints += 0;
+    goodPoints += 0;
 }
-// console.log("Ballast: ", googPoints);
+// console.log("Ballast: ", goodPoints);
 
-let nutriScoreVal = badPoints - googPoints;
+let nutriScoreVal = badPoints - goodPoints;
 var nutriScore = 0;
 var nutriScoreChar = "";
 var color = "";
@@ -2130,7 +2134,8 @@ function close_Day() {
             let todayGramm = parseFloat(document.getElementById('output_Gramm').innerHTML);
             let todaySalt = parseFloat(document.getElementById('output_Salt').innerHTML);
             let todayDiff = parseInt(kcal_Requirement) + parseInt(burned_Kcal) - parseInt(eaten_Kcal); //parseInt(document.getElementById('output_Diff').innerHTML);
-            let todayKeto = "Keto: Nein";  // Vorerst automatisch auf nein
+            let todayKeto = "Keto: Nein";
+              if(isKeto == true) {todayKeto = "Keto: Ja";}
             let placeHolder = " | ";
             let placeHolderGramm = " g | ";
             let einleitung = "Am " + currDate + " wurde folgendes erfasst: ";
