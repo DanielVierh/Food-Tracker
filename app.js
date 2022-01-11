@@ -10,7 +10,7 @@ var today_eaten = [];
 var my_Statistics = [];
 var additional_Targets = [];
 var my_History = [];
-var bodyWeight = 78; 
+var bodyWeight = 78;
 var kcal_Ziel = 0;
 var kcal_Requirement = 2500;
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', loadCont);
 // Load Content
 function loadCont() {
     blendOut_MengeAendern();
-    blendOut_Eingabebereich_FoodDB(); 
+    blendOut_Eingabebereich_FoodDB();
     blendOut_HistoryButton();
     check_FoodDB();
     load_other_LocalStorage_Values();
@@ -72,13 +72,11 @@ function loadCont() {
 
 
 // Checke local Storage
-function check_FoodDB(){
-    if(localStorage.getItem('storedFoodDB') === null) {
-        console.log("Food-Datenbank ist leer");
+function check_FoodDB() {
+    if (localStorage.getItem('storedFoodDB') === null) {
         // DB aus JSON generieren
         fetch_Food_DB();
-    }else {
-        console.log("DB wird geladen");
+    } else {
         loadFood_DB();
     }
 }
@@ -102,7 +100,6 @@ function check_FoodDB(){
 //         var dataObj = fr.result;
 //         var obj = JSON.parse(dataObj);
 //         let arrAmount = obj.length;
-//         console.log(obj);
 //         outputBx.innerHTML = arrAmount + " Produkte wurden geladen";
 //     }
 // })
@@ -142,7 +139,6 @@ function hideWelcomeScreen() {
 // Save Food-DB
 function saveFood_DB() {
     localStorage.setItem("storedFoodDB", JSON.stringify(array_Food_DB));
-    console.log("DB saved");
 }
 
 
@@ -151,114 +147,101 @@ function loadFood_DB() {
     array_Food_DB = JSON.parse(localStorage.getItem("storedFoodDB"));
     array_Food_DB.sort((a, b) => (a.productName > b.productName) ? 1 : -1)
     createTable_FoodDB();
-    console.log("DB loaded");
 }
 
 // Automatisches lesen des JSON Files
 function fetch_Food_DB() {
     fetch("Food_DB_v2021_05.json")
-    .then(response => response.json())
-    .then(data => {
-        array_Food_DB = data;
-        console.log(array_Food_DB);
-        saveFood_DB();
-        createTable_FoodDB();
-    })
+        .then(response => response.json())
+        .then(data => {
+            array_Food_DB = data;
+            saveFood_DB();
+            createTable_FoodDB();
+        })
 }
 
 
 // Andere abgespeicherte Werte
-function load_other_LocalStorage_Values(){
-        // Gewicht
-        if(localStorage.getItem('stored_BodyWeight') === null) {
-            console.log("Gewicht konnte nicht geladen werden");
-        }else{
-            bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
-            document.getElementById('weight').value = bodyWeight;
-        }
+function load_other_LocalStorage_Values() {
+    // Gewicht
+    if (localStorage.getItem('stored_BodyWeight') === null) {
+    } else {
+        bodyWeight = JSON.parse(localStorage.getItem("stored_BodyWeight"));
+        document.getElementById('weight').value = bodyWeight;
+    }
 
-        // Verbrannte Kcal
-        if(localStorage.getItem('stored_burned_Kcal') === null) {
-            console.log("stored_burned_Kcal konnte nicht geladen werden");
-        }else{
-           burned_Kcal = JSON.parse(localStorage.getItem("stored_burned_Kcal"));
-           document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
-           calc_Values();
-       }
+    // Verbrannte Kcal
+    if (localStorage.getItem('stored_burned_Kcal') === null) {
+    } else {
+        burned_Kcal = JSON.parse(localStorage.getItem("stored_burned_Kcal"));
+        document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
+        calc_Values();
+    }
 
-        // Schritte
-        if(localStorage.getItem('stored_Today_Steps') === null) {
-            console.log("Scritte konnten nicht geladen werden");
-        }else{
-            today_Steps = JSON.parse(localStorage.getItem("stored_Today_Steps"));
-            document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
-            steps_into_Kcal(); 
-            coloring_Labels();
-            calc_Values();
-        }
+    // Schritte
+    if (localStorage.getItem('stored_Today_Steps') === null) {
+    } else {
+        today_Steps = JSON.parse(localStorage.getItem("stored_Today_Steps"));
+        document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
+        steps_into_Kcal();
+        coloring_Labels();
+        calc_Values();
+    }
 
     // Wasser today_Water
-    if(localStorage.getItem('stored_Water') === null) {
-        console.log("Wasser konnte nicht geladen werden");
-    }else{
+    if (localStorage.getItem('stored_Water') === null) {
+    } else {
         today_Water = JSON.parse(localStorage.getItem("stored_Water"));
         document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
     }
 
     // Zuletzt getrunken 
-    if(localStorage.getItem('stored_Last_Water') === null) {
-        console.log("Letztes Wasser konnte nicht geladen werden");
-    }else{
+    if (localStorage.getItem('stored_Last_Water') === null) {
+    } else {
         lastWater = JSON.parse(localStorage.getItem("stored_Last_Water"));
         document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
     }
 
     // Kcal Ziel
-    if(localStorage.getItem('stored_KcalZiel') === null) {
-            console.log("Kcal-Ziel konnte nicht geladen werden");
-            document.getElementById("welcomeScrn").style.opacity = "1";
-            document.getElementById("welcomeScrn").style.zIndex = "40";
-    }else{
-            kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
-            document.getElementById('target_KcalZiel').value = kcal_Ziel;
-            document.getElementById("welcomeScrn").style.opacity = "0";
-            document.getElementById("welcomeScrn").style.zIndex = "-1";
+    if (localStorage.getItem('stored_KcalZiel') === null) {
+        document.getElementById("welcomeScrn").style.opacity = "1";
+        document.getElementById("welcomeScrn").style.zIndex = "40";
+    } else {
+        kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
+        document.getElementById('target_KcalZiel').value = kcal_Ziel;
+        document.getElementById("welcomeScrn").style.opacity = "0";
+        document.getElementById("welcomeScrn").style.zIndex = "-1";
     }
 
     // Heute gegessen
-    if(localStorage.getItem('stored_Today_Eaten') === null) {
-        console.log("Today Eaten konnte nicht geladen werden");
-    }else{
+    if (localStorage.getItem('stored_Today_Eaten') === null) {
+    } else {
         today_eaten = JSON.parse(localStorage.getItem("stored_Today_Eaten"));
         create_Table_TodayEaten();
     }
 
     // Statistics
-    if(localStorage.getItem('stored_Statistics') === null) {
-        console.log("Statistik Werte konnten nicht geladen werden");
-    }else{
+    if (localStorage.getItem('stored_Statistics') === null) {
+    } else {
         my_Statistics = JSON.parse(localStorage.getItem("stored_Statistics"));
     }
 
     // Kcal_Requirement
-    if(localStorage.getItem('stored_Kcal_Requirement') === null) {
-        console.log("stored_Kcal_Requirement konnten nicht geladen werden");
-    }else{
+    if (localStorage.getItem('stored_Kcal_Requirement') === null) {
+    } else {
         kcal_Requirement = JSON.parse(localStorage.getItem("stored_Kcal_Requirement"));
     }
 
     // Weitere Ziele
-    if(localStorage.getItem('storedAdditionalTargets') === null) {
-        console.log("Weitere Ziele konnten nicht geladen werden");
-    }else{
+    if (localStorage.getItem('storedAdditionalTargets') === null) {
+    } else {
         additional_Targets = JSON.parse(localStorage.getItem("storedAdditionalTargets"));
         load_Additional_Targets();
     }
 
     // History
-    if(localStorage.getItem('stored_History') === null) {
-         console.log("History konnte nicht geladen werden");
-     }else{
+    if (localStorage.getItem('stored_History') === null) {
+    } else {
         my_History = JSON.parse(localStorage.getItem("stored_History"));
         my_History.sort((a, b) => (a.history_date < b.history_date) ? 1 : -1)
         create_MyHistory();
@@ -269,60 +252,50 @@ function load_other_LocalStorage_Values(){
 // Speichere Wasser
 function save_Today_Water() {
     localStorage.setItem("stored_Water", JSON.stringify(today_Water));
-    console.log("stored_Water gespeichert");
 }
 // Speichere zuletzt getrunken
 function save_Last_Water() {
     localStorage.setItem("stored_Last_Water", JSON.stringify(lastWater));
-    console.log("stored_Last_Water gespeichert");
 }
 
 // Speichere Today Eaten
 function save_Today_Eaten() {
     localStorage.setItem("stored_Today_Eaten", JSON.stringify(today_eaten));
-    console.log("today_eaten gespeichert");
 }
 
 // Speichere Schritte
 function save_Today_Steps() {
     localStorage.setItem("stored_Today_Steps", JSON.stringify(today_Steps));
-    console.log("today_Steps gespeichert");
 }
 
 // Speichere Gewicht
 function save_BodyWeight() {
     localStorage.setItem("stored_BodyWeight", JSON.stringify(bodyWeight));
-    console.log("bodyWeight gespeichert");
 }
 
 // Speichere KcalZiel
 function save_kcalZiel() {
     localStorage.setItem("stored_KcalZiel", JSON.stringify(kcal_Ziel));
-    console.log("kcal_Ziel gespeichert");
 }
 
 // Speichere Statistics
 function save_Statistics() {
     localStorage.setItem("stored_Statistics", JSON.stringify(my_Statistics));
-    console.log("Statistics gespeichert");
 }
 
 // Speichere Kcal_Requirement
 function save_Kcal_Requirement() {
     localStorage.setItem("stored_Kcal_Requirement", JSON.stringify(kcal_Requirement));
-    console.log("kcal_Req gespeichert");
 }
 
 // Speichere History
 function save_History() {
     localStorage.setItem("stored_History", JSON.stringify(my_History));
-    console.log("History gespeichert");
 }
 
 // Speichere Verbrannte Kcal
 function save_Burned_Kcal() {
     localStorage.setItem("stored_burned_Kcal", JSON.stringify(burned_Kcal));
-    console.log("burned_Kcal gespeichert");
 }
 
 //====================================================================================
@@ -332,8 +305,8 @@ function scroll_UP() {
     window.scrollTo(0, 0);
 }
 
-function mittig_halten(){
-     window.scrollTo(0, 3300);
+function mittig_halten() {
+    window.scrollTo(0, 3300);
 }
 
 function goto_Settings() {
@@ -352,12 +325,7 @@ function goto_Planer() {
     window.location = 'planer.html'
 }
 
-//====================================================================================
-// Zoom
-//====================================================================================
-function zoom() {
-    console.log("Zooming");
-}
+
 
 
 // Wort markieren
@@ -368,7 +336,6 @@ function selectWord() {
 
 function selectWord2() {
     old_Quantity = parseFloat(document.getElementById('foodAmound_Change').value);
-    console.log("old_Quantity " + old_Quantity);
     const inp = document.getElementById('foodAmound_Change');
     inp.select();
 }
@@ -451,9 +418,9 @@ class RepositoryLast7Days {
 
 class History {
     constructor(history_date, history_Content) {
-                    this.history_date = history_date;
-                    this.history_Content = history_Content;
-                }
+        this.history_date = history_date;
+        this.history_Content = history_Content;
+    }
 }
 
 class StoredTarget {
@@ -474,17 +441,17 @@ function show_Steps() {
     all_Statistics_Button_UnselectColor("btnStatSteps");
 }
 
-function show_Sugar(){
+function show_Sugar() {
     show_Statisitcs("show_Sugar");
     all_Statistics_Button_UnselectColor("btnStatSugar");
 }
 
-function show_Water(){
+function show_Water() {
     show_Statisitcs("show_Water");
     all_Statistics_Button_UnselectColor("btnStatWater");
 }
 
-function show_BurnedKcal(){
+function show_BurnedKcal() {
     show_Statisitcs("show_BurndedKcal");
     all_Statistics_Button_UnselectColor("btnStatBurnedKcal");
 }
@@ -520,206 +487,206 @@ function show_Statisitcs(val) {
     var lastDayVal = 0;
     var currentVal = 0;
     var fatSum = 0;
-    
-    if(val == "show_Effekctive_Kcal") {
+
+    if (val == "show_Effekctive_Kcal") {
         // >>> EFFEKTIVE KCAL <<<  
         document.getElementById("valDescription").innerHTML = "Effek. Kcal";
         document.getElementById("valDescrFett").innerHTML = "Fett";
         document.getElementById("UeberschriftStatisik").innerHTML = "Effektive Kcal -- (Ziel: " + kcal_Ziel + " Kcal)";
-        
-        for(var i = 0; i < statistik_Count; i++) {
+
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = my_Statistics[i].repository_EffectiveKcal;
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
-            
+
             // + - zum Vortag
-            if(i > 0) {
+            if (i > 0) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_EffectiveKcal) - parseInt(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
                 lastDayVal = parseInt(my_Statistics[i].repository_EffectiveKcal);
-                if(val_to_DayBefore < 0) {
+                if (val_to_DayBefore < 0) {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
-                }else{
+                } else {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Kcal";
                 }
-            }else{
+            } else {
                 val_to_DayBefore = "-";
                 lastDayVal = my_Statistics[i].repository_EffectiveKcal;
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
             }
-    
+
             // Fett in Gramm
             let trueDifferenz = kcal_Requirement - parseInt(currentVal);
             let kcal_in_Gramm = parseInt(trueDifferenz * 1000 / 7000);
             fatSum += kcal_in_Gramm;
-            if(kcal_in_Gramm < 0) {
+            if (kcal_in_Gramm < 0) {
                 document.getElementById('fettInGramm_Col_' + i).innerHTML = "+" + Math.abs(kcal_in_Gramm) + " g";
-            }else{
+            } else {
                 document.getElementById('fettInGramm_Col_' + i).innerHTML = "-" + kcal_in_Gramm + " g";
             }
-                
-    
+
+
             // Diagramm
             currProzent = parseInt(my_Statistics[i].repository_EffectiveKcal) * 100 / kcal_Ziel;
             let colHeightInPixel = currProzent * 500 / 100;
-            if(colHeightInPixel > 1000) {
+            if (colHeightInPixel > 1000) {
                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_EffectiveKcal + ' kcal 🚀';
-            }else {
+            } else {
                 document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_EffectiveKcal + ' kcal';
             }
-    
+
             // Balken färben
-            if(currentVal > kcal_Ziel && currentVal < kcal_Requirement) {
+            if (currentVal > kcal_Ziel && currentVal < kcal_Requirement) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "yellow";
 
-            }else if(currentVal > kcal_Ziel){
+            } else if (currentVal > kcal_Ziel) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
 
-            }else{
+            } else {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
             }
-            
-            if(kcal_in_Gramm >= 0) {
+
+            if (kcal_in_Gramm >= 0) {
                 document.getElementById('fettInGramm_Col_' + i).style.color = "rgb(27, 206, 27)";
-            }else{
+            } else {
                 document.getElementById('fettInGramm_Col_' + i).style.color = "red";
             }
-            
-            
+
+
         }
-    
-            // Ziel Latte
-                let targetHeight = 500; // Mitte
-                document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
-    
-            // Fettsumme anzeigen  
-            
-            if(fatSum > 0) {
-                document.getElementById('outputFatSum').innerHTML = "-" + fatSum + " g";
-                document.getElementById('outputFatSum').style.color = "rgb(27, 206, 27)";
-            }else {
-                document.getElementById('outputFatSum').innerHTML = fatSum + " g";
-                document.getElementById('outputFatSum').style.color = "red";
-            }
+
+        // Ziel Latte
+        let targetHeight = 500; // Mitte
+        document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
+
+        // Fettsumme anzeigen  
+
+        if (fatSum > 0) {
+            document.getElementById('outputFatSum').innerHTML = "-" + fatSum + " g";
+            document.getElementById('outputFatSum').style.color = "rgb(27, 206, 27)";
+        } else {
+            document.getElementById('outputFatSum').innerHTML = fatSum + " g";
+            document.getElementById('outputFatSum').style.color = "red";
+        }
 
 
 
 
         // >>> SCHRITTE <<<
-    }else if (val == "show_Steps") {
-        
+    } else if (val == "show_Steps") {
+
         document.getElementById("valDescription").innerHTML = "Schritte";
         document.getElementById("valDescrFett").innerHTML = "";
         document.getElementById("UeberschriftStatisik").innerHTML = "Schritte -- (Ziel: " + min_Steps + " Schr.)";
         document.getElementById('outputFatSum').innerHTML = "";
         var stepCounter = 0;
         // Fett ausblenden
-        for(var i = 0; i < statistik_Count; i++) {
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
             document.getElementById('fettInGramm_Col_' + i).style.color = "white";
         }
 
-        for(var i = 0; i < statistik_Count; i++) {
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = my_Statistics[i].repository_Steps;
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
             stepCounter += currentVal;
             // + - zum Vortag
-            if(i > 0) {
+            if (i > 0) {
                 val_to_DayBefore = parseInt(my_Statistics[i].repository_Steps) - parseInt(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Schr.";
                 lastDayVal = parseInt(my_Statistics[i].repository_Steps);
-                if(val_to_DayBefore > 0) {
+                if (val_to_DayBefore > 0) {
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Schr.";
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
-                }else{
+                } else {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                 }
-            }else{
+            } else {
                 val_to_DayBefore = "-";
                 lastDayVal = my_Statistics[i].repository_Steps;
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
             }
-    
+
             // Diagramm
             currProzent = parseInt(my_Statistics[i].repository_Steps) * 100 / min_Steps;
             let colHeightInPixel = currProzent * 500 / 100;
-            if(colHeightInPixel > 1000) {
+            if (colHeightInPixel > 1000) {
                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Steps + ' 🚀';
-            }else {
+            } else {
                 document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Steps;
             }
-    
+
             // Balken färben
-            if(currentVal < min_Steps && currentVal > (min_Steps * 0.90)) {
+            if (currentVal < min_Steps && currentVal > (min_Steps * 0.90)) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "yellow";
-            }else if(currentVal < min_Steps){
+            } else if (currentVal < min_Steps) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-            }else {
+            } else {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
             }
-            
+
         }
         document.getElementById('outputFatSum').innerHTML = stepCounter;
-        
-        
+
+
         // >>> Zucker <<<
-    }else if(val == "show_Sugar") {
+    } else if (val == "show_Sugar") {
         document.getElementById("valDescription").innerHTML = "Zucker";
         document.getElementById("valDescrFett").innerHTML = "";
         document.getElementById("UeberschriftStatisik").innerHTML = "Zucker -- (Ziel: " + max_Sugar + " g)";
         document.getElementById('outputFatSum').innerHTML = "";
         var sugarCounter = 0;
         // Fett ausblenden
-        for(var i = 0; i < statistik_Count; i++) {
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
             document.getElementById('fettInGramm_Col_' + i).style.color = "white";
         }
 
-        for(var i = 0; i < statistik_Count; i++) {
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = parseFloat(my_Statistics[i].repository_Sugar);
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
             sugarCounter += currentVal;
             // + - zum Vortag
-            if(i > 0) {
+            if (i > 0) {
                 val_to_DayBefore = parseFloat(my_Statistics[i].repository_Sugar) - parseFloat(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore.toFixed(1) + " g";
                 lastDayVal = parseFloat(my_Statistics[i].repository_Sugar);
-                if(val_to_DayBefore < 0) {
+                if (val_to_DayBefore < 0) {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
-                }else{
+                } else {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore.toFixed(1) + " g";
                 }
-            }else{
+            } else {
                 val_to_DayBefore = "-";
                 lastDayVal = parseFloat(my_Statistics[i].repository_Sugar);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
             }
-    
+
             // Diagramm
             currProzent = parseFloat(my_Statistics[i].repository_Sugar) * 100 / max_Sugar;
             let colHeightInPixel = currProzent * 500 / 100;
-            if(colHeightInPixel > 1000) {
+            if (colHeightInPixel > 1000) {
                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Sugar + ' 🚀';
-            }else {
+            } else {
                 document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Sugar;
             }
-    
+
             // Balken färben
-            if(currentVal > max_Sugar && currentVal < (max_Sugar * 1.1)) {
+            if (currentVal > max_Sugar && currentVal < (max_Sugar * 1.1)) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "yellow";
-            }else if (currentVal > max_Sugar){
+            } else if (currentVal > max_Sugar) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-            }else {
+            } else {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
             }
         }
@@ -727,7 +694,7 @@ function show_Statisitcs(val) {
         document.getElementById('outputFatSum').innerHTML = sugarCounter.toFixed(1) + "g (" + (sugarCounter / statistik_Count).toFixed(1) + "g/Tag)";
 
         // >>> Wasser <<<
-    }else if (val == "show_Water") {
+    } else if (val == "show_Water") {
 
         document.getElementById("valDescription").innerHTML = "Wasser";
         document.getElementById("valDescrFett").innerHTML = "";
@@ -735,124 +702,124 @@ function show_Statisitcs(val) {
         document.getElementById('outputFatSum').innerHTML = "";
         var waterCounter = 0.0;
         // Fett ausblenden
-        for(var i = 0; i < statistik_Count; i++) {
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
             document.getElementById('fettInGramm_Col_' + i).style.color = "white";
         }
 
-        for(var i = 0; i < statistik_Count; i++) {
+        for (var i = 0; i < statistik_Count; i++) {
             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
             currentVal = parseFloat(my_Statistics[i].repository_Water);
             waterCounter += currentVal;
             document.getElementById("val_Col_" + i).innerHTML = currentVal;
-            
+
             // + - zum Vortag
-            if(i > 0) {
+            if (i > 0) {
                 val_to_DayBefore = parseFloat(my_Statistics[i].repository_Water) - parseFloat(lastDayVal);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " L";
                 lastDayVal = parseFloat(my_Statistics[i].repository_Water);
-                if(val_to_DayBefore > 0) {
+                if (val_to_DayBefore > 0) {
                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " L";
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
-                }else{
+                } else {
                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
                 }
-            }else{
+            } else {
                 val_to_DayBefore = "-";
                 lastDayVal = parseFloat(my_Statistics[i].repository_Water);
                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
             }
-    
+
             // Diagramm
             currProzent = parseFloat(my_Statistics[i].repository_Water) * 100 / 2;
             let colHeightInPixel = currProzent * 500 / 100;
-            if(colHeightInPixel > 1000) {
+            if (colHeightInPixel > 1000) {
                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Water + 'L 🚀';
-            }else {
+            } else {
                 document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_Water + " L";
             }
-    
+
             // Balken färben
-            if(currentVal < 2) {
+            if (currentVal < 2) {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-            }else{
+            } else {
                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "#41e6fc";
             }
-            
+
         }
 
-            document.getElementById('outputFatSum').innerHTML = waterCounter + " L";
+        document.getElementById('outputFatSum').innerHTML = waterCounter + " L";
 
 
         // Verbrannte KCAL
-    }else if(val == "show_BurndedKcal") {
-         // >>> Verbrannte KCAL <<<  
-         const kcalVal = 6.5;
-         const diviVal = 10000;
-         let burnedKcalGoal = parseInt((min_Steps * kcalVal * bodyWeight) / (diviVal));
-         document.getElementById("valDescription").innerHTML = "Verbrannte Kcal";
-         document.getElementById("valDescrFett").innerHTML = "";
-         document.getElementById("UeberschriftStatisik").innerHTML = "Verbrannte Kcal -- (Ziel: " + burnedKcalGoal + " Kcal)";
-         document.getElementById('outputFatSum').innerHTML = "";
-         
-                // Fett ausblenden
-                for(var i = 0; i < statistik_Count; i++) {
-                    document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
-                    document.getElementById('fettInGramm_Col_' + i).style.color = "white";
-                }
+    } else if (val == "show_BurndedKcal") {
+        // >>> Verbrannte KCAL <<<  
+        const kcalVal = 6.5;
+        const diviVal = 10000;
+        let burnedKcalGoal = parseInt((min_Steps * kcalVal * bodyWeight) / (diviVal));
+        document.getElementById("valDescription").innerHTML = "Verbrannte Kcal";
+        document.getElementById("valDescrFett").innerHTML = "";
+        document.getElementById("UeberschriftStatisik").innerHTML = "Verbrannte Kcal -- (Ziel: " + burnedKcalGoal + " Kcal)";
+        document.getElementById('outputFatSum').innerHTML = "";
 
-         for(var i = 0; i < statistik_Count; i++) {
-             document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
-             currentVal = my_Statistics[i].repository_BurnedKCal;
-             document.getElementById("val_Col_" + i).innerHTML = currentVal;
-             
-             // + - zum Vortag
-             if(i > 0) {
-                 val_to_DayBefore = parseInt(my_Statistics[i].repository_BurnedKCal) - parseInt(lastDayVal);
-                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
-                 lastDayVal = parseInt(my_Statistics[i].repository_BurnedKCal);
-                 if(val_to_DayBefore < 0) {
-                     document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
-                 }else{
-                     document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
-                     document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Kcal";
-                 }
-             }else{
-                 val_to_DayBefore = "-";
-                 lastDayVal = my_Statistics[i].repository_BurnedKCal;
-                 document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
-             }
-                  
-     
-             // Diagramm
-             currProzent = parseInt(my_Statistics[i].repository_BurnedKCal) * 100 / burnedKcalGoal;
-             let colHeightInPixel = currProzent * 500 / 100;
-             let colName = "COL_Dia_" + i;
-             if(colHeightInPixel > 1000) {
-                 document.getElementById("COL_Dia_" + i).style.height = "1000px";
-                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal 🚀';
-             }else {
-                 document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
-                 document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal';
-             }
-             animate_StatisticCol(colHeightInPixel, colName);
-     
-             // Balken färben
-             if(currentVal < burnedKcalGoal) {
-                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
-             }else{
-                 document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
-             }
-            
-             
-         }
-     
-             // Ziel Latte
-                 let targetHeight = 500; // Mitte
-                 document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
-     
+        // Fett ausblenden
+        for (var i = 0; i < statistik_Count; i++) {
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = "-";
+            document.getElementById('fettInGramm_Col_' + i).style.color = "white";
+        }
+
+        for (var i = 0; i < statistik_Count; i++) {
+            document.getElementById("datum_Col_" + i).innerHTML = my_Statistics[i].repository_date;
+            currentVal = my_Statistics[i].repository_BurnedKCal;
+            document.getElementById("val_Col_" + i).innerHTML = currentVal;
+
+            // + - zum Vortag
+            if (i > 0) {
+                val_to_DayBefore = parseInt(my_Statistics[i].repository_BurnedKCal) - parseInt(lastDayVal);
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore + " Kcal";
+                lastDayVal = parseInt(my_Statistics[i].repository_BurnedKCal);
+                if (val_to_DayBefore < 0) {
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "red";
+                } else {
+                    document.getElementById("change_DayBefore_Col_" + i).style.color = "rgb(27, 206, 27)";
+                    document.getElementById("change_DayBefore_Col_" + i).innerHTML = "+" + val_to_DayBefore + " Kcal";
+                }
+            } else {
+                val_to_DayBefore = "-";
+                lastDayVal = my_Statistics[i].repository_BurnedKCal;
+                document.getElementById("change_DayBefore_Col_" + i).innerHTML = val_to_DayBefore;
+            }
+
+
+            // Diagramm
+            currProzent = parseInt(my_Statistics[i].repository_BurnedKCal) * 100 / burnedKcalGoal;
+            let colHeightInPixel = currProzent * 500 / 100;
+            let colName = "COL_Dia_" + i;
+            if (colHeightInPixel > 1000) {
+                document.getElementById("COL_Dia_" + i).style.height = "1000px";
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal 🚀';
+            } else {
+                document.getElementById("COL_Dia_" + i).style.height = colHeightInPixel + 'px';
+                document.getElementById("COL_Dia_" + i).innerText = my_Statistics[i].repository_BurnedKCal + ' kcal';
+            }
+            animate_StatisticCol(colHeightInPixel, colName);
+
+            // Balken färben
+            if (currentVal < burnedKcalGoal) {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "red";
+            } else {
+                document.getElementById("COL_Dia_" + i).style.backgroundColor = "rgb(43, 161, 43)";
+            }
+
+
+        }
+
+        // Ziel Latte
+        let targetHeight = 500; // Mitte
+        document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
+
     }
 
 }
@@ -866,8 +833,6 @@ function animate_StatisticCol(progrsVal, colName) {
     // document.getElementsByClassName("container_Kcal_Diagram")[0].appendChild(s);
     // var el = document.getElementById(colName);
     // el.style.animation = "progressbar-move ease-in-out 1.5s forwards normal";
-    // console.log(colName);
-    // console.log(progrsVal);
 }
 
 
@@ -875,10 +840,10 @@ function animate_StatisticCol(progrsVal, colName) {
 // Wasser tracken
 //============================================================================
 function water_Spin_Up() {
-    if(new_Water <= 0) {
+    if (new_Water <= 0) {
         new_Water = 0;
     }
-    if(new_Water < 4.00) {
+    if (new_Water < 4.00) {
         new_Water += 0.25;
         document.getElementById('outpWaterButton').innerText = new_Water + " L";
     }
@@ -886,10 +851,10 @@ function water_Spin_Up() {
 
 function water_Spin_Down() {
     new_Water -= 0.25;
-    if(new_Water <= 0) {
+    if (new_Water <= 0) {
         new_Water = -0.25;
         document.getElementById('outpWaterButton').innerText = new_Water + " L";
-    }else if(new_Water > 0) {
+    } else if (new_Water > 0) {
         //new_Water -= 0.25;
         document.getElementById('outpWaterButton').innerText = new_Water + " L";
     }
@@ -899,9 +864,9 @@ function water_Spin_Down() {
 function take_Over_Water() {
     today_Water += new_Water;
     save_Today_Water();
-    if (new_Water == -0.25){
+    if (new_Water == -0.25) {
         alert("Wassermenge um 0,25 L korrigiert");
-    }else{
+    } else {
         alert(new_Water + " L Wasser wurden hinzugefügt");
         last_Water();
         document.getElementById("lastWater").innerHTML = "Zuletzt: " + lastWater;
@@ -913,15 +878,15 @@ function take_Over_Water() {
 
 function last_Water() {
     var currentTime = new Date();
-    var hour = currentTime.getHours(); 
-    var minute = currentTime.getMinutes(); 
+    var hour = currentTime.getHours();
+    var minute = currentTime.getMinutes();
 
-    if(hour < 10) {
-            hour = '0'+ hour;
-    } 
-    if(minute < 10) {
-            minute = '0'+ minute;
-    } 
+    if (hour < 10) {
+        hour = '0' + hour;
+    }
+    if (minute < 10) {
+        minute = '0' + minute;
+    }
     currentTime = hour + ':' + minute + ' Uhr';
     lastWater = new_Water + " L um " + currentTime;
 
@@ -963,7 +928,7 @@ closeModalButtons.forEach(button => {
 })
 
 function openModal(modal) {
-    if(modal == null) return
+    if (modal == null) return
     document.getElementById('inp_Steps').value = today_Steps;
     modal.classList.add('active');
     overlay.classList.add('active');
@@ -972,7 +937,7 @@ function openModal(modal) {
 }
 
 function closeModal(modal) {
-    if(modal == null) return
+    if (modal == null) return
     get_new_Steps();
     modal.classList.remove('active');
     overlay.classList.remove('active');
@@ -984,7 +949,7 @@ function get_new_Steps() {
         today_Steps = parseInt(document.getElementById('inp_Steps').value);
         document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
         coloring_Labels();
-        steps_into_Kcal(); 
+        steps_into_Kcal();
         // TODO-- Persistent speichern
         save_Today_Steps();
 
@@ -998,7 +963,7 @@ function steps_into_Kcal() {
     const kcalVal = 6.5;
     const diviVal = 10000;
     let kcal_from_Steps = parseInt((today_Steps * kcalVal * bodyWeight) / (diviVal));
-    if(kcal_from_Steps > burned_Kcal) {
+    if (kcal_from_Steps > burned_Kcal) {
         burned_Kcal = kcal_from_Steps;
         save_Burned_Kcal();
     }
@@ -1011,8 +976,8 @@ function steps_into_Kcal() {
 // Kcal manuell eintragen
 //============================================================================
 function recordKcal() {
-    var new_Kcal = window.prompt("Trage hier abweichende Kcal ein:",burned_Kcal);
-    if(new_Kcal) {
+    var new_Kcal = window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal);
+    if (new_Kcal) {
         if (new_Kcal != burned_Kcal) {
             burned_Kcal = parseInt(new_Kcal);
             document.getElementById('output_Burned').innerHTML = burned_Kcal + " Kcal";
@@ -1027,7 +992,7 @@ function recordKcal() {
 // Food Datenbank Tabelle 
 //============================================================================
 
-  function createTable_FoodDB() {
+function createTable_FoodDB() {
 
 
     // CREATE HTML TABLE OBJECT
@@ -1036,162 +1001,161 @@ function recordKcal() {
         row = table.insertRow();
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
     for (var i = 0; i < array_Food_DB.length; i++) {
-      // ADD "BASIC" CELL
-      var cell = row.insertCell();
-      cell.innerHTML = array_Food_DB[i].productName;
-    
-            // Anzahl der Produkte
-    let anzProd = array_Food_DB.length;
-    document.getElementById('titleDatenbank').innerHTML = "Datenbank (" + anzProd + ")";
-
-      // ATTACH A RUNNING NUMBER OR CUSTOM DATA
-     cell.dataset.id = i;
-   
-        // Produktauswahl
-      cell.addEventListener("click", function(){
-        foodFromToday = false;
-        selectedFoodIndex = this.dataset.id;  
-        selected_Food = array_Food_DB[selectedFoodIndex];
-        let calories = selected_Food.kcal;
-        let quantity = selected_Food.quantityUnit;
-        document.getElementById('statusX').innerHTML = "";
-        document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
-        document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
-         // Nutri Score
-         show_NutriScore();
-
-        blendIn_FoodActionArea();
-        // Fokus auf Textfeld setzen
-        document.getElementById('foodAmound').focus();
-      });
-  
-  
-      // BREAK INTO NEXT ROW
-      var next = i + 1;
-      if (next%perrow==0 && next!=array_Food_DB.length) {
-        row = table.insertRow();
-      }
-    }
-  
-    // ATTACH TABLE TO CONTAINER
-    document.getElementById("containerTabelle").appendChild(table);
-  }
-
-//============================================================================
-  // Suche 
-//============================================================================
-
-  $('#searchInput').on('keyup', function(){
-      var value = $(this).val()
-      //console.log('Value:', value)
-      var data = searchTable(value, array_Food_DB)
-      buildTable(data)
-  })
-
-
-  buildTable(array_Food_DB)
-
-  function searchTable(value, data){
-      var filteredData = []
-
-      for (var i = 0; i < data.length; i++) {
-          value = value.toLowerCase()
-          var name = data[i].productName.toLowerCase()
-
-          if(name.includes(value)){
-              filteredData.push(data[i])
-          }
-      }
-
-      return filteredData
-  }
-
-
-  function buildTable(data){
-      var table = document.getElementById('containerTabelle'); 
-      
-      table.innerHTML = ''; 
-      table = document.createElement("table")
-      row = table.insertRow();
-      for(var i = 0; i < data.length; i++) {  
-
-        var perrow = 1, // 1 CELLS pro ROW
-        table = document.createElement("table"),
-        row = table.insertRow();
-        // FPR Schleife
-        for (var i = 0; i < data.length; i++) {
-        // Füge "BASIC" CELL hinzu
+        // ADD "BASIC" CELL
         var cell = row.insertCell();
-        cell.innerHTML = data[i].productName;
-    
-            // Für Auswahl
+        cell.innerHTML = array_Food_DB[i].productName;
+
+        // Anzahl der Produkte
+        let anzProd = array_Food_DB.length;
+        document.getElementById('titleDatenbank').innerHTML = "Datenbank (" + anzProd + ")";
+
+        // ATTACH A RUNNING NUMBER OR CUSTOM DATA
         cell.dataset.id = i;
 
-
-        cell.addEventListener("click", function(){
+        // Produktauswahl
+        cell.addEventListener("click", function () {
             foodFromToday = false;
-            selectedFoodIndex = this.dataset.id;  
-            selected_Food = data[selectedFoodIndex];
+            selectedFoodIndex = this.dataset.id;
+            selected_Food = array_Food_DB[selectedFoodIndex];
+            let calories = selected_Food.kcal;
             let quantity = selected_Food.quantityUnit;
             document.getElementById('statusX').innerHTML = "";
             document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
             document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
-            blendIn_FoodActionArea();
             // Nutri Score
             show_NutriScore();
-            // Fokus auf Textfeld setzen 
+
+            blendIn_FoodActionArea();
+            // Fokus auf Textfeld setzen
             document.getElementById('foodAmound').focus();
-          });
+        });
 
+
+        // BREAK INTO NEXT ROW
         var next = i + 1;
-        if (next%perrow==0 && next!=data.length) {
-          row = table.insertRow();
+        if (next % perrow == 0 && next != array_Food_DB.length) {
+            row = table.insertRow();
         }
-      }
-    
-      // Füge Tabelle zu Container hinzu
-      document.getElementById("containerTabelle").appendChild(table);
+    }
 
-      // Immer Position beibehalten
-      //mittig_halten();
+    // ATTACH TABLE TO CONTAINER
+    document.getElementById("containerTabelle").appendChild(table);
+}
 
-              // Anzahl der Produkte
-    let anzProd = data.length;
-    document.getElementById('titleDatenbank').innerHTML = "Datenbank (" + anzProd + ")";
+//============================================================================
+// Suche 
+//============================================================================
 
-      }
-  }
+$('#searchInput').on('keyup', function () {
+    var value = $(this).val()
+    var data = searchTable(value, array_Food_DB)
+    buildTable(data)
+})
+
+
+buildTable(array_Food_DB)
+
+function searchTable(value, data) {
+    var filteredData = []
+
+    for (var i = 0; i < data.length; i++) {
+        value = value.toLowerCase()
+        var name = data[i].productName.toLowerCase()
+
+        if (name.includes(value)) {
+            filteredData.push(data[i])
+        }
+    }
+
+    return filteredData
+}
+
+
+function buildTable(data) {
+    var table = document.getElementById('containerTabelle');
+
+    table.innerHTML = '';
+    table = document.createElement("table")
+    row = table.insertRow();
+    for (var i = 0; i < data.length; i++) {
+
+        var perrow = 1, // 1 CELLS pro ROW
+            table = document.createElement("table"),
+            row = table.insertRow();
+        // FPR Schleife
+        for (var i = 0; i < data.length; i++) {
+            // Füge "BASIC" CELL hinzu
+            var cell = row.insertCell();
+            cell.innerHTML = data[i].productName;
+
+            // Für Auswahl
+            cell.dataset.id = i;
+
+
+            cell.addEventListener("click", function () {
+                foodFromToday = false;
+                selectedFoodIndex = this.dataset.id;
+                selected_Food = data[selectedFoodIndex];
+                let quantity = selected_Food.quantityUnit;
+                document.getElementById('statusX').innerHTML = "";
+                document.getElementById('selectedFoodAnzeige').innerHTML = selected_Food.productName;
+                document.getElementById('selectedFoodMakros').innerHTML = "Mengeneinheit: " + quantity;
+                blendIn_FoodActionArea();
+                // Nutri Score
+                show_NutriScore();
+                // Fokus auf Textfeld setzen 
+                document.getElementById('foodAmound').focus();
+            });
+
+            var next = i + 1;
+            if (next % perrow == 0 && next != data.length) {
+                row = table.insertRow();
+            }
+        }
+
+        // Füge Tabelle zu Container hinzu
+        document.getElementById("containerTabelle").appendChild(table);
+
+        // Immer Position beibehalten
+        //mittig_halten();
+
+        // Anzahl der Produkte
+        let anzProd = data.length;
+        document.getElementById('titleDatenbank').innerHTML = "Datenbank (" + anzProd + ")";
+
+    }
+}
 
 
 
-  function blendIn_FoodActionArea() {
+function blendIn_FoodActionArea() {
     document.getElementById("optAreaDB").style.opacity = "1";
     // Disable Schaltflächen
     document.getElementById("btn_Save_to_TodayEaten").disabled = false;
     document.getElementById("foodAmound").disabled = false;
     document.getElementById("btn_ChangeMacros").disabled = false;
-  }
+}
 
 
-  function show_NutriScore() {
-      /* 
-      Menge 100 g
-      kcal in KJ umwandeln
-      Punkte        Energie (Kcal)        Zucker      Salz
-        0               <= 81          <= 4,5      <=0,09
-        1               >81            >4,5        >0,09
-        2               >160            >9          >0,18
-        3               >240           >13,5       >0,27
-        4               >320           >18         >0,36
-        5               >400           >22,5       >0,45
-        6               >480           >27         >0,54
-        7               >560           >31         >0,63
-        8               >641           >36         >0,72
-        9               >721           >40         >0,81
-        10              >801           >45         >0,9
+function show_NutriScore() {
+    /* 
+    Menge 100 g
+    kcal in KJ umwandeln
+    Punkte        Energie (Kcal)        Zucker      Salz
+      0               <= 81          <= 4,5      <=0,09
+      1               >81            >4,5        >0,09
+      2               >160            >9          >0,18
+      3               >240           >13,5       >0,27
+      4               >320           >18         >0,36
+      5               >400           >22,5       >0,45
+      6               >480           >27         >0,54
+      7               >560           >31         >0,63
+      8               >641           >36         >0,72
+      9               >721           >40         >0,81
+      10              >801           >45         >0,9
 
-        
-      */
+      
+    */
     var badPoints = 0;
     var goodPoints = 0;
     let calcAmound = 100;
@@ -1201,171 +1165,168 @@ function recordKcal() {
     let check_Protein = parseFloat(calcAmound * selected_Food.protein / 100);
     let check_Fiber = parseFloat(calcAmound * selected_Food.fiber / 100);
 
-// Check Kcal
-if(check_Kcal <40) {
-    badPoints += -1;
-}else if(check_Kcal <=81) {
-    badPoints += 0;
-}else if(check_Kcal >801) {
-    badPoints += 10;
-}else if(check_Kcal >721) {
-    badPoints += 9;
-}else if(check_Kcal >641) {
-    badPoints += 8;
-}else if(check_Kcal >560) {
-    badPoints += 7;
-}else if(check_Kcal >480) {
-    badPoints += 6;
-}else if(check_Kcal >400) {
-    badPoints += 5;
-}else if(check_Kcal >320) {
-    badPoints += 4;
-}else if(check_Kcal >240) {
-    badPoints += 3;
-}else if(check_Kcal >160) {
-    badPoints += 2;
-}else if(check_Kcal >81) {
-    badPoints += 1;
-}
-// console.log("Kcal: ", badPoints);
+    // Check Kcal
+    if (check_Kcal < 40) {
+        badPoints += -1;
+    } else if (check_Kcal <= 81) {
+        badPoints += 0;
+    } else if (check_Kcal > 801) {
+        badPoints += 10;
+    } else if (check_Kcal > 721) {
+        badPoints += 9;
+    } else if (check_Kcal > 641) {
+        badPoints += 8;
+    } else if (check_Kcal > 560) {
+        badPoints += 7;
+    } else if (check_Kcal > 480) {
+        badPoints += 6;
+    } else if (check_Kcal > 400) {
+        badPoints += 5;
+    } else if (check_Kcal > 320) {
+        badPoints += 4;
+    } else if (check_Kcal > 240) {
+        badPoints += 3;
+    } else if (check_Kcal > 160) {
+        badPoints += 2;
+    } else if (check_Kcal > 81) {
+        badPoints += 1;
+    }
 
-// Check Zucker
-if(check_Sugar >45) {
-    badPoints += 10;
-}else if(check_Sugar >40) {
-    badPoints += 9;
-}else if(check_Sugar >36) {
-    badPoints += 8;
-}else if(check_Sugar >31) {
-    badPoints += 7;
-}else if(check_Sugar >27) {
-    badPoints += 6;
-}else if(check_Sugar >22.5) {
-    badPoints += 5;
-}else if(check_Sugar >18) {
-    badPoints += 4;
-}else if(check_Sugar >13.5) {
-    badPoints += 3;
-}else if(check_Sugar >9) {
-    badPoints += 2;
-}else if(check_Sugar >4.5) {
-    badPoints += 1;
-}else if(check_Sugar <2) {
-    badPoints += -1;
-}else if(check_Sugar <=4.5) {
-    badPoints += 0;
-}
-// console.log("Zucker: ", badPoints);
+    // Check Zucker
+    if (check_Sugar > 45) {
+        badPoints += 10;
+    } else if (check_Sugar > 40) {
+        badPoints += 9;
+    } else if (check_Sugar > 36) {
+        badPoints += 8;
+    } else if (check_Sugar > 31) {
+        badPoints += 7;
+    } else if (check_Sugar > 27) {
+        badPoints += 6;
+    } else if (check_Sugar > 22.5) {
+        badPoints += 5;
+    } else if (check_Sugar > 18) {
+        badPoints += 4;
+    } else if (check_Sugar > 13.5) {
+        badPoints += 3;
+    } else if (check_Sugar > 9) {
+        badPoints += 2;
+    } else if (check_Sugar > 4.5) {
+        badPoints += 1;
+    } else if (check_Sugar < 2) {
+        badPoints += -1;
+    } else if (check_Sugar <= 4.5) {
+        badPoints += 0;
+    }
 
-// Salz
-if(check_Salt <=0.09) {
-    badPoints += 0;
-}else if(check_Salt >0.9) {
-    badPoints += 10;
-}else if(check_Salt >0.81) {
-    badPoints += 9;
-}else if(check_Salt >0.71) {
-    badPoints += 8;
-}else if(check_Salt >0.63) {
-    badPoints += 7;
-}else if(check_Salt >0.54) {
-    badPoints += 6;
-}else if(check_Salt >0.45) {
-    badPoints += 5;
-}else if(check_Salt >0.36) {
-    badPoints += 4;
-}else if(check_Salt >0.27) {
-    badPoints += 3;
-}else if(check_Salt >0.18) {
-    badPoints += 2;
-}else if(check_Salt >0.09) {
-    badPoints += 1;
-}
-// console.log("Salz: ", badPoints);
+    // Salz
+    if (check_Salt <= 0.09) {
+        badPoints += 0;
+    } else if (check_Salt > 0.9) {
+        badPoints += 10;
+    } else if (check_Salt > 0.81) {
+        badPoints += 9;
+    } else if (check_Salt > 0.71) {
+        badPoints += 8;
+    } else if (check_Salt > 0.63) {
+        badPoints += 7;
+    } else if (check_Salt > 0.54) {
+        badPoints += 6;
+    } else if (check_Salt > 0.45) {
+        badPoints += 5;
+    } else if (check_Salt > 0.36) {
+        badPoints += 4;
+    } else if (check_Salt > 0.27) {
+        badPoints += 3;
+    } else if (check_Salt > 0.18) {
+        badPoints += 2;
+    } else if (check_Salt > 0.09) {
+        badPoints += 1;
+    }
 
-// Eiweiß
-if(check_Protein >8) {
-    goodPoints += 5;
-}else if(check_Protein >6.4) {
-    goodPoints += 4;
-}else if(check_Protein >4.8) {
-    goodPoints += 3;
-}else if(check_Protein >3.2) {
-    goodPoints += 2;
-}else if(check_Protein >1.6) {
-    goodPoints += 1;
-}else if(check_Protein <=1.6) {
-    goodPoints += 0;
-}
-// console.log("Eiweiss: ", goodPoints);
 
-// Ballaststoffe
-if(check_Fiber >4.7) {
-    goodPoints += 5;
-}else if(check_Fiber >3.7) {
-    goodPoints += 4;
-}else if(check_Fiber >2.8) {
-    goodPoints += 3;
-}else if(check_Fiber >1.9) {
-    goodPoints += 2;
-}else if(check_Fiber >0.9) {
-    goodPoints += 1;
-}else if(check_Fiber <=0.9) {
-    goodPoints += 0;
-}
-// console.log("Ballast: ", goodPoints);
+    // Eiweiß
+    if (check_Protein > 8) {
+        goodPoints += 5;
+    } else if (check_Protein > 6.4) {
+        goodPoints += 4;
+    } else if (check_Protein > 4.8) {
+        goodPoints += 3;
+    } else if (check_Protein > 3.2) {
+        goodPoints += 2;
+    } else if (check_Protein > 1.6) {
+        goodPoints += 1;
+    } else if (check_Protein <= 1.6) {
+        goodPoints += 0;
+    }
 
-let nutriScoreVal = badPoints - goodPoints;
-var nutriScore = 0;
-var nutriScoreChar = "";
-var color = "";
 
-// Reset NutriScoreLabel
-document.getElementById("C_A").style.height = "80px";
-document.getElementById("C_B").style.height = "80px";
-document.getElementById("C_C").style.height = "80px";
-document.getElementById("C_D").style.height = "80px";
-document.getElementById("C_E").style.height = "80px";
+    // Ballaststoffe
+    if (check_Fiber > 4.7) {
+        goodPoints += 5;
+    } else if (check_Fiber > 3.7) {
+        goodPoints += 4;
+    } else if (check_Fiber > 2.8) {
+        goodPoints += 3;
+    } else if (check_Fiber > 1.9) {
+        goodPoints += 2;
+    } else if (check_Fiber > 0.9) {
+        goodPoints += 1;
+    } else if (check_Fiber <= 0.9) {
+        goodPoints += 0;
+    }
 
-if(nutriScoreVal > 19) {
-    nutriScore = 5;
-    document.getElementById("C_E").style.height = "120px";
-    nutriScoreChar = "E";
-    color = "red";
-}else if(nutriScoreVal > 11) {
-    nutriScore = 4;
-    document.getElementById("C_D").style.height = "120px";
-    nutriScoreChar = "D";
-    color = "orange";
-}else if(nutriScoreVal > 3) {
-    nutriScore = 3;
-    document.getElementById("C_C").style.height = "120px";
-    nutriScoreChar = "C";
-    color = "yellow";
-}else if(nutriScoreVal >= 0) {
-    nutriScore = 2;
-    document.getElementById("C_B").style.height = "120px";
-    nutriScoreChar = "B";
-    color = "lightgreen";
-}else if(nutriScoreVal < 0) {
-    nutriScore = 1;
-    document.getElementById("C_A").style.height = "120px";
-    nutriScoreChar = "A";
-    color = "green";
-}
 
-    // console.log(nutriScoreChar);
+    let nutriScoreVal = badPoints - goodPoints;
+    var nutriScore = 0;
+    var nutriScoreChar = "";
+    var color = "";
+
+    // Reset NutriScoreLabel
+    document.getElementById("C_A").style.height = "80px";
+    document.getElementById("C_B").style.height = "80px";
+    document.getElementById("C_C").style.height = "80px";
+    document.getElementById("C_D").style.height = "80px";
+    document.getElementById("C_E").style.height = "80px";
+
+    if (nutriScoreVal > 19) {
+        nutriScore = 5;
+        document.getElementById("C_E").style.height = "120px";
+        nutriScoreChar = "E";
+        color = "red";
+    } else if (nutriScoreVal > 11) {
+        nutriScore = 4;
+        document.getElementById("C_D").style.height = "120px";
+        nutriScoreChar = "D";
+        color = "orange";
+    } else if (nutriScoreVal > 3) {
+        nutriScore = 3;
+        document.getElementById("C_C").style.height = "120px";
+        nutriScoreChar = "C";
+        color = "yellow";
+    } else if (nutriScoreVal >= 0) {
+        nutriScore = 2;
+        document.getElementById("C_B").style.height = "120px";
+        nutriScoreChar = "B";
+        color = "lightgreen";
+    } else if (nutriScoreVal < 0) {
+        nutriScore = 1;
+        document.getElementById("C_A").style.height = "120px";
+        nutriScoreChar = "A";
+        color = "green";
+    }
+
 }
 
 //============================================================================
 // Prüfbutton für ausgewähltes Lebensmittel und Menge
 //============================================================================
-  function checkButton() {
-    if(selected_Food != "") {
-        if(document.getElementById('foodAmound').value == "") {
+function checkButton() {
+    if (selected_Food != "") {
+        if (document.getElementById('foodAmound').value == "") {
             alert("Bitte eine Menge eingeben");
-        }else{
-            
+        } else {
+
             let newProduct = selected_Food.productName;
             var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
 
@@ -1379,64 +1340,61 @@ if(nutriScoreVal > 19) {
                 let salt_Intake = parseFloat(selectedAmount * selected_Food.salt / 100);
                 let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
 
-                     // Anzeigen, dass Produkt eingetragen wurde
+                // Anzeigen, dass Produkt eingetragen wurde
                 let intakeFoodInfo = selectedAmount + " Gramm " + newProduct + " hätte folgende Werte: \n Kcal: " + kcal_Intake + " \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g \n Salz: " + salt_Intake + " g";
                 alert(intakeFoodInfo);
 
             } catch (error) {
-                console.log(error);
             }
         }
-    }else{
+    } else {
         alert("Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken");
     }
 }
 
 
 //============================================================================
-  // Food zu heute gegessen hinzufügen
-  //============================================================================
-  function add_Food_to_TodayList() {
-      //Produkt nicht "", also ausgewählt
-    if(selected_Food != "") {
-        if(document.getElementById('foodAmound').value == "") {
+// Food zu heute gegessen hinzufügen
+//============================================================================
+function add_Food_to_TodayList() {
+    //Produkt nicht "", also ausgewählt
+    if (selected_Food != "") {
+        if (document.getElementById('foodAmound').value == "") {
             alert("Bitte eine Menge eingeben");
-        }else{
+        } else {
 
-            
+
             let newProduct = selected_Food.productName;
             var alreadyTracked = false;
             var todayEatenIndex = 3000;
             var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
 
             // Checke ob bereits vorhanden
-            for(var i = 0; i < today_eaten.length; i++) {
-                if(today_eaten[i].intake_productName == newProduct) {
+            for (var i = 0; i < today_eaten.length; i++) {
+                if (today_eaten[i].intake_productName == newProduct) {
                     alreadyTracked = true;
                     todayEatenIndex = i;
                     break;
                 }
             }
-            if(alreadyTracked == false) {
-                console.log("Noch nicht vorhanden");
-            }else{
-                console.log("Bereits vorhanden");
+            if (alreadyTracked == false) {
+            } else {
                 // Fragen, ob addiert werden soll
                 var addRequest = window.confirm(newProduct + " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?");
-                
+
                 // WENN ADDIERT WERDEN SOLL...
-                if(addRequest) {
+                if (addRequest) {
                     // old_Quantity ermitteln
                     old_Quantity = today_eaten[todayEatenIndex].intake_amount;
                     // Neuen Wert eintragen alt + neu
                     selectedAmount = selectedAmount + old_Quantity;
                     // Altes Produkt löschen
-                    if(todayEatenIndex != 3000) {
+                    if (todayEatenIndex != 3000) {
                         today_eaten.splice(todayEatenIndex, 1);
                     }
                     // Letzte Aktionen
                     todayEatenIndex = 3000;
-                }else{
+                } else {
                     createTable_FoodDB();
                     blendOut_Eingabebereich_FoodDB();
                     return;
@@ -1454,17 +1412,17 @@ if(nutriScoreVal > 19) {
                 let fiber_Intake = parseFloat(selectedAmount * selected_Food.fiber / 100);
 
                 today_eaten.push(new TodayEatenFood(newProduct,
-                                                    selectedAmount,
-                                                    kcal_Intake,
-                                                    fat_Intake,
-                                                    carb_Intake,
-                                                    sugar_Intake,
-                                                    protein_Intake,
-                                                    salt_Intake,
-                                                    fiber_Intake
-                     ));
+                    selectedAmount,
+                    kcal_Intake,
+                    fat_Intake,
+                    carb_Intake,
+                    sugar_Intake,
+                    protein_Intake,
+                    salt_Intake,
+                    fiber_Intake
+                ));
 
-                     // Anzeigen, dass Produkt eingetragen wurde
+                // Anzeigen, dass Produkt eingetragen wurde
                 let intakeFoodInfo = newProduct + " wurde zur Liste Heute Gegessen hinzugefügt mit: \n Kcal: " + kcal_Intake + " \n Kohlenhydrate: " + parseInt(carb_Intake) + " g \n Zucker: " + parseInt(sugar_Intake) + " g \n Eiweiss: " + parseInt(protein_Intake) + " g \n Fett: " + parseInt(fat_Intake) + " g \n Ballaststoffe: " + parseInt(fiber_Intake) + " g \n Salz: " + parseInt(salt_Intake) + " g";
                 alert(intakeFoodInfo);
                 document.getElementById('statusX').innerHTML = selected_Food.productName + " wurde eingetragen";
@@ -1478,73 +1436,72 @@ if(nutriScoreVal > 19) {
                 document.getElementById('selectedFoodMakros').innerHTML = "";
                 blendOut_Eingabebereich_FoodDB();
                 blendOut_MengeAendern();
-                
+
 
             } catch (error) {
-                console.log(error);
             }
         }
-    }else{
+    } else {
         alert("Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken");
     }
     create_Table_TodayEaten();
     calc_Values();
-  }
+}
 
 
 
 //============================================================================
-  // Tabelle für Heute gegessen
+// Tabelle für Heute gegessen
 //============================================================================
 
 function create_Table_TodayEaten() {
     // Reset der Tabelle
     document.getElementById("containerTabelle_Today").innerHTML = "";
 
-        // CREATE HTML TABLE OBJECT
-        var perrow = 1, // 1 CELLS PER ROW
+    // CREATE HTML TABLE OBJECT
+    var perrow = 1, // 1 CELLS PER ROW
         table = document.createElement("table"),
         row = table.insertRow();
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
     for (var i = 0; i < today_eaten.length; i++) {
-      // ADD "BASIC" CELL
-      var cell = row.insertCell();
-      cell.innerHTML = today_eaten[i].intake_productName + " --\n " + today_eaten[i].intake_amount +
-                     "g  = " + today_eaten[i].intake_kcal + " Kcal" ;
-  
-      // ATTACH A RUNNING NUMBER OR CUSTOM DATA
-     cell.dataset.id = i;
-   
+        // ADD "BASIC" CELL
+        var cell = row.insertCell();
+        cell.innerHTML = today_eaten[i].intake_productName + " --\n " + today_eaten[i].intake_amount +
+            "g  = " + today_eaten[i].intake_kcal + " Kcal";
+
+        // ATTACH A RUNNING NUMBER OR CUSTOM DATA
+        cell.dataset.id = i;
+
         // Produktauswahl
-      cell.addEventListener("click", function(){
-        foodFromToday = true;
-        selectedFoodIndex = this.dataset.id;  
-        selected_Food = today_eaten[selectedFoodIndex];
-        document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
-        document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
-        // Sichbar machen
-        document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "1";
+        cell.addEventListener("click", function () {
+            foodFromToday = true;
+            selectedFoodIndex = this.dataset.id;
+            selected_Food = today_eaten[selectedFoodIndex];
+            document.getElementById('sel_change_Prod').innerHTML = selected_Food.intake_productName;
+            document.getElementById('foodAmound_Change').value = selected_Food.intake_amount;
+            // Sichbar machen
+            document.getElementById("invisible_ChangeSection_HeuteGegessen").style.opacity = "1";
             // Enable Schaltflächen
-        document.getElementById("btnChangeQuantity").disabled = false;
-        document.getElementById("btnDeleteFoodFromToday").disabled = false;
-        document.getElementById("foodAmound_Change").disabled = false;
-        blendOut_Eingabebereich_FoodDB();
+            document.getElementById("btnChangeQuantity").disabled = false;
+            document.getElementById("btnDeleteFoodFromToday").disabled = false;
+            document.getElementById("foodAmound_Change").disabled = false;
+            blendOut_Eingabebereich_FoodDB();
 
-        var prozentFromDay = selected_Food.intake_kcal * 100 / (kcal_Ziel + parseInt(burned_Kcal));
-        let calcSingle = "Makros: (" + selected_Food.intake_kcal + " Kcal = " + prozentFromDay.toFixed(0) + "%)" + " | Fett. " + selected_Food.intake_fat.toFixed(1) + "g | Eiw. " +  selected_Food.intake_protein.toFixed(1) + "g | Kh. " + selected_Food.intake_carbs.toFixed(1) + "g | Zkr. " +
-        selected_Food.intake_sugar.toFixed(1) + "g | Bal. " + selected_Food.intake_fiber.toFixed(1) +   "g | Slz:  " + selected_Food.intake_salt.toFixed(1) + "g";
-        document.getElementById("output_SingleMacros").innerHTML = calcSingle;
+            var prozentFromDay = selected_Food.intake_kcal * 100 / (kcal_Ziel + parseInt(burned_Kcal));
+            let calcSingle = "Makros: (" + selected_Food.intake_kcal + " Kcal = " + prozentFromDay.toFixed(0) + "%)" + " | Fett. " + selected_Food.intake_fat.toFixed(1) + "g | Eiw. " + selected_Food.intake_protein.toFixed(1) + "g | Kh. " + selected_Food.intake_carbs.toFixed(1) + "g | Zkr. " +
+                selected_Food.intake_sugar.toFixed(1) + "g | Bal. " + selected_Food.intake_fiber.toFixed(1) + "g | Slz:  " + selected_Food.intake_salt.toFixed(1) + "g";
+            document.getElementById("output_SingleMacros").innerHTML = calcSingle;
 
-      });
-  
-  
-      // BREAK INTO NEXT ROW
-      var next = i + 1;
-      if (next%perrow==0 && next!=today_eaten.length) {
-        row = table.insertRow();
-      }
+        });
+
+
+        // BREAK INTO NEXT ROW
+        var next = i + 1;
+        if (next % perrow == 0 && next != today_eaten.length) {
+            row = table.insertRow();
+        }
     }
-  
+
     // ATTACH TABLE TO CONTAINER
     document.getElementById("containerTabelle_Today").appendChild(table);
 }
@@ -1553,12 +1510,11 @@ function create_Table_TodayEaten() {
 // Menge ändern
 //============================================================================
 function change_Food_to_TodayList() {
-    
+
     let selectedAmount = parseFloat(document.getElementById('foodAmound_Change').value);
-    if(selectedAmount == "") {
-        console.log("Nichts ausgewählt");
-    }else{
-        let productNme = selected_Food.intake_productName; 
+    if (selectedAmount == "") {
+    } else {
+        let productNme = selected_Food.intake_productName;
         let kcal_Intake = parseInt(selectedAmount * selected_Food.intake_kcal / old_Quantity);
         let fat_Intake = parseFloat(selectedAmount * selected_Food.intake_fat / old_Quantity);
         let carb_Intake = parseFloat(selectedAmount * selected_Food.intake_carbs / old_Quantity);
@@ -1571,22 +1527,22 @@ function change_Food_to_TodayList() {
         today_eaten.splice(selectedFoodIndex, 1);
 
         today_eaten.push(new TodayEatenFood(productNme,
-                                            selectedAmount,
-                                            kcal_Intake,
-                                            fat_Intake,
-                                            carb_Intake,
-                                            sugar_Intake,
-                                            protein_Intake,
-                                            salt_Intake,
-                                            fiber_Intake
-            ));
+            selectedAmount,
+            kcal_Intake,
+            fat_Intake,
+            carb_Intake,
+            sugar_Intake,
+            protein_Intake,
+            salt_Intake,
+            fiber_Intake
+        ));
 
-            create_Table_TodayEaten();
-            calc_Values();
-            //Speichern
-            save_Today_Eaten();
-            alert("Menge wurde geändert");
-            blendOut_MengeAendern();
+        create_Table_TodayEaten();
+        calc_Values();
+        //Speichern
+        save_Today_Eaten();
+        alert("Menge wurde geändert");
+        blendOut_MengeAendern();
     }
 
 }
@@ -1595,11 +1551,10 @@ function change_Food_to_TodayList() {
 // Lösche Position  
 //============================================================================
 function delete_from_today() {
-    if(foodFromToday == true) {
+    if (foodFromToday == true) {
         const decision = window.confirm("Möchtest du < " + selected_Food.intake_productName + "> wirklich von der heutigen Liste löschen?");
-        if(decision) {
+        if (decision) {
             today_eaten.splice(selectedFoodIndex, 1);
-            console.log(today_eaten);
             calc_Values();
 
             // Speichern
@@ -1613,10 +1568,10 @@ function delete_from_today() {
             coloring_Labels();
         }
 
-    }else{
+    } else {
         alert("Kein Produkt ausgewählt");
     }
-    
+
 }
 
 
@@ -1636,7 +1591,7 @@ function calc_Values() {
     eaten_Fiber = 0.0;
     eaten_Amount = 0.0;
 
-    for(var i = 0; i < today_eaten.length; i++) {
+    for (var i = 0; i < today_eaten.length; i++) {
         eaten_Kcal += today_eaten[i].intake_kcal;
         eaten_Carbs += today_eaten[i].intake_carbs;
         eaten_Sugar += today_eaten[i].intake_sugar;
@@ -1654,12 +1609,12 @@ function calc_Values() {
     document.getElementById('output_Eaten').innerHTML = eaten_Kcal + " Kcal";
     document.getElementById('output_EffectiveBurned').innerHTML = effective_Kcal + " Kcal";
 
-    if(diff > 0) {
+    if (diff > 0) {
         document.getElementById('output_Diff').innerHTML = diff + " Kcal übrig &#128512";
-    }else{
+    } else {
         document.getElementById('output_Diff').innerHTML = Math.abs(diff) + " Kcal zu viel &#128577";
     }
-    
+
 
     document.getElementById('output_Carbs').innerHTML = eaten_Carbs.toFixed(1) + " g";
     document.getElementById('output_Sugar').innerHTML = eaten_Sugar.toFixed(1) + " g";
@@ -1671,20 +1626,20 @@ function calc_Values() {
 
 
     // Progress Bar
-        var progressValKcal = ((eaten_Kcal * 100 / (burned_Kcal + kcal_Ziel))) 
-        let originProgressVal = progressValKcal
-        // Wenn berechneter Wert über 200 dann 200
-        if (progressValKcal >= 100) {
-            progressValKcal = 100
-            document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
-        }else {
-            document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
-        }
-        document.getElementById('progress_Bar').style.width = progressValKcal + "%";
-        document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
+    var progressValKcal = ((eaten_Kcal * 100 / (burned_Kcal + kcal_Ziel)))
+    let originProgressVal = progressValKcal
+    // Wenn berechneter Wert über 200 dann 200
+    if (progressValKcal >= 100) {
+        progressValKcal = 100
+        document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
+    } else {
+        document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
+    }
+    document.getElementById('progress_Bar').style.width = progressValKcal + "%";
+    document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
 
-        animate_ProgressBar(progressValKcal);
-        coloring_Labels();
+    animate_ProgressBar(progressValKcal);
+    coloring_Labels();
 }
 
 
@@ -1702,14 +1657,8 @@ function animate_ProgressBar(prgrssVal) {
 
 
 
-
-
-
-
-
-
 //============================================================================
-  // Färbung der Label je nach Fortschritt
+// Färbung der Label je nach Fortschritt
 //============================================================================
 
 function coloring_Labels() {
@@ -1721,30 +1670,30 @@ function coloring_Labels() {
 
 
 // Schritte
-function step_Progress(){
-    if(today_Steps <= (min_Steps / 2)) {
+function step_Progress() {
+    if (today_Steps <= (min_Steps / 2)) {
         document.getElementById('btnSteps').style.color = "red";
-    }else if(today_Steps < min_Steps) {
+    } else if (today_Steps < min_Steps) {
         document.getElementById('btnSteps').style.color = "orange";
-    }else{
+    } else {
         document.getElementById('btnSteps').style.color = "rgb(27, 206, 27)";
     }
 }
 
 // Effektive Kcal
 function effectiveKcal_Progress() {
-    if(effective_Kcal > kcal_Ziel) {
+    if (effective_Kcal > kcal_Ziel) {
         document.getElementById("output_EffectiveBurned").style.color = "red";
-    }else{
+    } else {
         document.getElementById("output_EffectiveBurned").style.color = "rgb(27, 206, 27)";
     }
 }
 
 // Kalorienbilanz
 function kalorienBilanz_Progress() {
-    if(diff > 0) {
+    if (diff > 0) {
         document.getElementById("output_Diff").style.color = "rgb(27, 206, 27)";
-    }else{
+    } else {
         document.getElementById("output_Diff").style.color = "red";
     }
 }
@@ -1755,46 +1704,46 @@ function colorizeTargetProgress() {
     let shouldMinVal = [min_Protein, min_Fiber, min_Steps];
     let isMinVal = [eaten_Protein, eaten_Fiber, today_Steps];
 
-    if(eaten_Sugar >= max_Sugar) {
+    if (eaten_Sugar >= max_Sugar) {
         document.getElementById('output_Sugar').style.color = "red";
-    }else{
+    } else {
         document.getElementById('output_Sugar').style.color = "rgb(27, 206, 27)";
     }
 
-    if(eaten_Salt >= max_Salt) {
+    if (eaten_Salt >= max_Salt) {
         document.getElementById('output_Salt').style.color = "red";
-    }else{
+    } else {
         document.getElementById('output_Salt').style.color = "rgb(27, 206, 27)";
     }
 
-    if(eaten_Protein < min_Protein) {
+    if (eaten_Protein < min_Protein) {
         document.getElementById('output_Protein').style.color = "red";
-    }else{
+    } else {
         document.getElementById('output_Protein').style.color = "rgb(27, 206, 27)";
     }
 
-    if(eaten_Fiber < min_Fiber) {
+    if (eaten_Fiber < min_Fiber) {
         document.getElementById('output_Fiber').style.color = "red";
-    }else{
+    } else {
         document.getElementById('output_Fiber').style.color = "rgb(27, 206, 27)";
     }
 
-    if(eaten_Carbs > des_Carbs) {
+    if (eaten_Carbs > des_Carbs) {
         document.getElementById('output_Carbs').style.color = "red";
-    }else{
+    } else {
         document.getElementById('output_Carbs').style.color = "rgb(27, 206, 27)";
     }
 
-    if(isKeto == true) {
-        if(eaten_Fat > des_Fat) {
+    if (isKeto == true) {
+        if (eaten_Fat > des_Fat) {
             document.getElementById('output_Fat').style.color = "rgb(27, 206, 27)";
-        }else{
+        } else {
             document.getElementById('output_Fat').style.color = "red";
         }
-    }else{
-        if(eaten_Fat < des_Fat) {
+    } else {
+        if (eaten_Fat < des_Fat) {
             document.getElementById('output_Fat').style.color = "rgb(27, 206, 27)";
-        }else{
+        } else {
             document.getElementById('output_Fat').style.color = "red";
         }
     }
@@ -1826,71 +1775,71 @@ function calc_Kcal_Goal() {
         }
     }
     // Check ob Auswahl getroffen
-    if(selectedGender == undefined) {
+    if (selectedGender == undefined) {
         alert("Bitte eine Auswahl bei Geschlecht treffen");
-    }else{
+    } else {
         // Gewicht
-        if(document.getElementById('weight').value == "") {
-            alert("Bitte das Feld Gewicht ausfüllen"); 
-        }else{
+        if (document.getElementById('weight').value == "") {
+            alert("Bitte das Feld Gewicht ausfüllen");
+        } else {
             bodyWeight = document.getElementById('weight').value;
             save_BodyWeight();
 
             // Größe
-            if(document.getElementById('height').value == "") {
+            if (document.getElementById('height').value == "") {
                 alert("Bitte das Feld Größe ausfüllen");
-            }else{
+            } else {
                 height = document.getElementById('height').value;
 
                 // Alter
-                if(document.getElementById('age').value == "") {
+                if (document.getElementById('age').value == "") {
                     alert("Bitte das Feld Alter ausfüllen");
-                }else{
+                } else {
                     age = document.getElementById('age').value;
 
                     // Zielgewicht
-                    if(document.getElementById('target_Weight').value == "") {
+                    if (document.getElementById('target_Weight').value == "") {
                         alert("Bitte das Feld Alter ausfüllen");
-                    }else{
+                    } else {
                         targetWeight = document.getElementById('target_Weight').value;
 
                         // Zielzeit
-                        if(document.getElementById('target_Time').value == "") {
+                        if (document.getElementById('target_Time').value == "") {
                             alert("Bitte das Feld Zeitraum ausfüllen");
-                        }else{
+                        } else {
                             targetTime = document.getElementById('target_Time').value;
 
                             // Berechnung Kalorienbedarf
-                            if(selectedGender == "male") {
+                            if (selectedGender == "male") {
                                 // Mann
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                                 kcal_Requirement = parseInt(66.47 + (13.7 * bodyWeight) + (5 * height) - (6.8 * age));
                                 save_Kcal_Requirement();
-                                
+
                                 let kcal_Differenz = bodyWeight - targetWeight;
                                 let tage = targetTime * 30;
                                 let abnehmBerg = kcal_Differenz * 7000;
                                 let zielEinsparung_pro_Tag = abnehmBerg / tage;
                                 let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
 
-                                let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
-                                " Monat(en) erreichen möchtest, würde dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal liegen";
+                                let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime +
+                                    " Monat(en) erreichen möchtest, würde dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal liegen";
                                 document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
                                 document.getElementById('target_KcalZiel').value = recommended_Kcal;
 
-                            }else{
+                            } else {
                                 // Formel für KCAL Bedarf FRAU
                                 //655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
                                 kcal_Requirement = parseInt(655.1 + (9.6 * bodyWeight) + (1.8 * height) - (4.7 * age));
-                                
+
                                 let kcal_Differenz = bodyWeight - targetWeight;
                                 let tage = targetTime * 30;
                                 let abnehmBerg = kcal_Differenz * 7000;
                                 let zielEinsparung_pro_Tag = abnehmBerg / tage;
                                 let recommended_Kcal = parseInt(kcal_Requirement - zielEinsparung_pro_Tag);
 
-                                let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime + 
-                                " Monat(en) erreichen möchtest, würde dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal liegen";
+                                let ausg = "Wenn du Dein Zielgewicht von " + targetWeight + "  kg in " + targetTime +
+                                    " Monat(en) erreichen möchtest, würde dein Kcal-Ziel bei: " + recommended_Kcal + " Kcal liegen";
                                 document.getElementById('output_Kcal_Req').innerHTML = "Du hast einen Kalorienbedarf von " + kcal_Requirement + " Kcal pro Tag. " + ausg;
                                 document.getElementById('target_KcalZiel').value = recommended_Kcal;
                             }
@@ -1915,9 +1864,9 @@ function calc_Kcal_Goal() {
 
 // kcal_Ziel
 function define_Kcal_Target() {
-    if(document.getElementById('target_KcalZiel').value == "") {
+    if (document.getElementById('target_KcalZiel').value == "") {
         alert("Kein Wert enthalten");
-    }else{
+    } else {
         kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
         save_kcalZiel();
         alert("Kcal Ziel wurde übernommen");
@@ -1932,54 +1881,52 @@ function define_additional_Target() {
 
     additional_Targets = [];
 
-    if(document.getElementById('target_Sugar').value != "") {
+    if (document.getElementById('target_Sugar').value != "") {
         max_Sugar = document.getElementById('target_Sugar').value;
         let varName = "tSugar";
         additional_Targets.push(new StoredTarget(varName, max_Sugar));
     }
 
-    if(document.getElementById('target_Salt').value != "") {
+    if (document.getElementById('target_Salt').value != "") {
         max_Salt = document.getElementById('target_Salt').value;
         let varName = "tSalt";
         additional_Targets.push(new StoredTarget(varName, max_Salt));
     }
 
-    if(document.getElementById('target_Protein').value != "") {
+    if (document.getElementById('target_Protein').value != "") {
         min_Protein = document.getElementById('target_Protein').value;
         let varName = "tProtein";
         additional_Targets.push(new StoredTarget(varName, min_Protein));
     }
 
-    if(document.getElementById('target_Fiber').value != "") {
+    if (document.getElementById('target_Fiber').value != "") {
         min_Fiber = document.getElementById('target_Fiber').value;
         let varName = "tFiber";
         additional_Targets.push(new StoredTarget(varName, min_Fiber));
     }
 
-    if(document.getElementById('target_Steps').value != "") {
+    if (document.getElementById('target_Steps').value != "") {
         min_Steps = document.getElementById('target_Steps').value;
         let varName = "tSteps";
         additional_Targets.push(new StoredTarget(varName, min_Steps));
     }
 
-    if(document.getElementById('target_Fat').value != "") {
+    if (document.getElementById('target_Fat').value != "") {
         des_Fat = document.getElementById('target_Fat').value;
         let varName = "tFat";
         additional_Targets.push(new StoredTarget(varName, des_Fat));
     }
 
-    if(document.getElementById('target_Carbs').value != "") {
+    if (document.getElementById('target_Carbs').value != "") {
         des_Carbs = document.getElementById('target_Carbs').value;
         let varName = "tCarbs";
         additional_Targets.push(new StoredTarget(varName, des_Carbs));
     }
 
 
-        let varName = "tKeto";
-        additional_Targets.push(new StoredTarget(varName, isKeto));
-    
+    let varName = "tKeto";
+    additional_Targets.push(new StoredTarget(varName, isKeto));
 
-    console.log("additional_Targets " + additional_Targets);
     // Save 
     localStorage.setItem("storedAdditionalTargets", JSON.stringify(additional_Targets));
 
@@ -1991,37 +1938,36 @@ function define_additional_Target() {
 
 function load_Additional_Targets() {
 
-    console.log("additional_Targets: " + additional_Targets);
-    for(var i = 0; i < additional_Targets.length; i++) {
-        if(additional_Targets[i].targetName == "tSugar") {
+    for (var i = 0; i < additional_Targets.length; i++) {
+        if (additional_Targets[i].targetName == "tSugar") {
             max_Sugar = additional_Targets[i].targetVal;
             document.getElementById('target_Sugar').value = max_Sugar;
         }
-        if(additional_Targets[i].targetName == "tSalt") {
+        if (additional_Targets[i].targetName == "tSalt") {
             max_Salt = additional_Targets[i].targetVal;
             document.getElementById('target_Salt').value = max_Salt;
         }
-        if(additional_Targets[i].targetName == "tProtein") {
+        if (additional_Targets[i].targetName == "tProtein") {
             min_Protein = additional_Targets[i].targetVal;
             document.getElementById('target_Protein').value = min_Protein;
         }
-        if(additional_Targets[i].targetName == "tFiber") {
+        if (additional_Targets[i].targetName == "tFiber") {
             min_Fiber = additional_Targets[i].targetVal;
             document.getElementById('target_Fiber').value = min_Fiber;
         }
-        if(additional_Targets[i].targetName == "tSteps") {
+        if (additional_Targets[i].targetName == "tSteps") {
             min_Steps = additional_Targets[i].targetVal;
             document.getElementById('target_Steps').value = min_Steps;
         }
-        if(additional_Targets[i].targetName == "tFat") {
+        if (additional_Targets[i].targetName == "tFat") {
             des_Fat = additional_Targets[i].targetVal;
             document.getElementById('target_Fat').value = des_Fat;
         }
-        if(additional_Targets[i].targetName == "tCarbs") {
+        if (additional_Targets[i].targetName == "tCarbs") {
             des_Carbs = additional_Targets[i].targetVal;
             document.getElementById('target_Carbs').value = des_Carbs;
         }
-        if(additional_Targets[i].targetName == "tKeto") {
+        if (additional_Targets[i].targetName == "tKeto") {
             isKeto = additional_Targets[i].targetVal;
         }
     }
@@ -2032,13 +1978,13 @@ let toggleBtn_SpezDiet = document.getElementById("spez_Diet_ToggleButton");
 toggleBtn_SpezDiet.addEventListener("click", showDietMethods);
 
 function showDietMethods() {
-    if(spezDiet_Visible == false) {
+    if (spezDiet_Visible == false) {
         document.getElementById("spezDietDiv").style.opacity = "1";
         document.getElementById("diet_List").disabled = false;
         document.getElementById("submitDiet").disabled = false;
         spezDiet_Visible = true;
 
-    }else{
+    } else {
         document.getElementById("spezDietDiv").style.opacity = "0";
         document.getElementById("diet_List").disabled = true;
         document.getElementById("submitDiet").disabled = true;
@@ -2049,7 +1995,7 @@ function showDietMethods() {
 
 // Bei Klick auf das Drop Down Feld Liste leeren
 let dietList = document.getElementById("diet_List");
-dietList.addEventListener("click", function() {
+dietList.addEventListener("click", function () {
     dietList.value = "";
 });
 
@@ -2062,17 +2008,17 @@ function selectDiet() {
     let limitCarbs = 0;
     let maxProtein = bodyWeight * 1.5;
 
-    if(prevDiet == "Keto") {
+    if (prevDiet == "Keto") {
         limitFat = 78;
         limitProtein = 19;
         limitCarbs = 3;
         isKeto = true;
-    }else if(prevDiet == "Low Carb") {
+    } else if (prevDiet == "Low Carb") {
         limitFat = 50;
         limitProtein = 30;
         limitCarbs = 20;
         isKeto = false;
-    }else if(prevDiet == "Moderat") {
+    } else if (prevDiet == "Moderat") {
         limitFat = 40;
         limitProtein = 30;
         limitCarbs = 30;
@@ -2092,11 +2038,11 @@ function selectDiet() {
     document.getElementById("target_Carbs").value = carbs_in_Gramm;
     document.getElementById("target_Sugar").value = parseInt(carbs_in_Gramm * 0.5);
 
-    if(protein_in_Gramm > maxProtein) {
+    if (protein_in_Gramm > maxProtein) {
         const proteinDiff = parseInt(protein_in_Gramm % maxProtein);
         const protein_Diff_in_Kcal = proteinDiff * 4.1;
         const addedFat = parseInt(protein_Diff_in_Kcal / 9.3);
-        
+
         protein_in_Gramm = parseInt(protein_in_Gramm - proteinDiff);
         fat_in_Gramm = parseInt(fat_in_Gramm + addedFat);
         alert("Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: " + protein_in_Gramm + " g liegst du " + proteinDiff + " g darüber. Ich ändere die Eiweißmenge ab und schreibe dir " + addedFat + " g Fett gut :)");
@@ -2117,11 +2063,11 @@ function selectDiet() {
 function close_Day() {
     const req = window.confirm("Soll der Tag wirklich zurückgesetzt werden?");
     if (req) {
-       
-        var currDate = window.prompt("Bestätige oder ändere das Datum",get_today());
-        if(currDate) {
+
+        var currDate = window.prompt("Bestätige oder ändere das Datum", get_today());
+        if (currDate) {
             var realKcal = window.prompt("Kcal bestätigen oder abändern", burned_Kcal);
-            if(realKcal) {
+            if (realKcal) {
                 burned_Kcal = parseInt(realKcal);
                 calc_Values();
             }
@@ -2129,55 +2075,54 @@ function close_Day() {
             let todayFat = parseFloat(document.getElementById('output_Fat').innerHTML);
             let todayFiber = parseFloat(document.getElementById('output_Fiber').innerHTML);
             let todayProtein = parseFloat(document.getElementById('output_Protein').innerHTML);
-            // NEEEEWWWWWW für Historie
             let todayCarbs = parseFloat(document.getElementById('output_Carbs').innerHTML);
             let todayGramm = parseFloat(document.getElementById('output_Gramm').innerHTML);
             let todaySalt = parseFloat(document.getElementById('output_Salt').innerHTML);
             let todayDiff = parseInt(kcal_Requirement) + parseInt(burned_Kcal) - parseInt(eaten_Kcal); //parseInt(document.getElementById('output_Diff').innerHTML);
             let todayKeto = "Keto: Nein";
-              if(isKeto == true) {todayKeto = "Keto: Ja";}
+            if (isKeto == true) { todayKeto = "Keto: Ja"; }
             let placeHolder = " | ";
             let placeHolderGramm = " g | ";
             let einleitung = "Am " + currDate + " wurde folgendes erfasst: ";
             let goalDiff = parseInt(kcal_Ziel) + parseInt(burned_Kcal) - parseInt(eaten_Kcal);
             let targets = "Ziel_Eiweiss:" + min_Protein + " | Ziel_Zucker: " + max_Sugar;
             // Hinzufügen von MyHistory String
-            let new_Day_for_my_History = einleitung + "Kcal: " + parseInt(eaten_Kcal) + " Kcal" + placeHolder + 
-            "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + todayDiff + placeHolder + 
-            "Effektive Kcal: " + effective_Kcal + placeHolder + "Schritte: " + today_Steps + " Schr." + placeHolder + 
-            todayKeto + " | Makros--> Fett: " + todayFat + placeHolder + "Eiweiss: " + 
-            todayProtein + placeHolderGramm + "Kohlenhydrate: " + todayCarbs + placeHolderGramm + "Zucker: " + 
-            todaySugar + placeHolderGramm + "Salz: " + todaySalt + placeHolderGramm + 
-            "Ballaststoffe: " + todayFiber + placeHolder + "Gramm: " + todayGramm + placeHolderGramm + 
-            "Diff zum Ziel: " + goalDiff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L" + placeHolder + targets;
-            
+            let new_Day_for_my_History = einleitung + "Kcal: " + parseInt(eaten_Kcal) + " Kcal" + placeHolder +
+                "Verbrannt: " + burned_Kcal + " Kcal" + placeHolder + "Übrig: " + todayDiff + placeHolder +
+                "Effektive Kcal: " + effective_Kcal + placeHolder + "Schritte: " + today_Steps + " Schr." + placeHolder +
+                todayKeto + " | Makros--> Fett: " + todayFat + placeHolder + "Eiweiss: " +
+                todayProtein + placeHolderGramm + "Kohlenhydrate: " + todayCarbs + placeHolderGramm + "Zucker: " +
+                todaySugar + placeHolderGramm + "Salz: " + todaySalt + placeHolderGramm +
+                "Ballaststoffe: " + todayFiber + placeHolder + "Gramm: " + todayGramm + placeHolderGramm +
+                "Diff zum Ziel: " + goalDiff + " Kcal" + placeHolder + "Wasser: " + parseFloat(today_Water) + " L" + placeHolder + targets;
+
             // Dem History Array hinzufügen
             my_History.push(new History(currDate, new_Day_for_my_History));
-            
+
             // Save History
             save_History();
 
             // Hinzufügen der Tageswerte in Statistik
             let length_Of_Statistic_Array = my_Statistics.length;
-            if(length_Of_Statistic_Array >= 7) {
+            if (length_Of_Statistic_Array >= 7) {
                 // Wenn alle Plätze schon belegt, erste löschen
                 let oldarr = my_Statistics;
                 my_Statistics = [];
-                
+
                 for (var i = 1; i < oldarr.length; i++) {
                     my_Statistics.push(oldarr[i]);
                 }
-    
+
                 my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat, today_Water));
                 show_Statisitcs("show_Effekctive_Kcal");
-            }else{
+            } else {
                 my_Statistics.push(new RepositoryLast7Days(currDate, effective_Kcal, today_Steps, burned_Kcal, todaySugar, todayProtein, todayFiber, todayFat, today_Water));
                 show_Statisitcs("show_Effekctive_Kcal");
             }
-    
+
             // SPEICHERN DER WERTE
             save_Statistics();
-            
+
             // RESET
             today_Steps = 0;
             today_eaten = [];
@@ -2188,35 +2133,35 @@ function close_Day() {
             save_Last_Water();
             document.getElementById('btnSteps').innerHTML = today_Steps + " &#128095";
             document.getElementById("lastWater").innerHTML = "Zuletzt: ";
-                coloring_Labels();
-                steps_into_Kcal(); 
-                calc_Values();
-                save_Today_Steps();
-                save_Today_Eaten();
-                save_Today_Water();
-                alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
-                location.reload();
-        }           
+            coloring_Labels();
+            steps_into_Kcal();
+            calc_Values();
+            save_Today_Steps();
+            save_Today_Eaten();
+            save_Today_Water();
+            alert("Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.")
+            location.reload();
+        }
     }
 }
 
 
 // Datum erzeugen
-function get_today(){
+function get_today() {
     var today = new Date();
 
     var day = today.getDate(); // Tag
 
     // Monatsangabe startet bei 0!
-    var month = today.getMonth()+1; // Monat
+    var month = today.getMonth() + 1; // Monat
 
     var year = today.getFullYear(); // Jahr
-    if(day < 10) {
-            day = '0'+ day;
-    } 
-    if(month < 10) {
-            month = '0'+ month;
-    } 
+    if (day < 10) {
+        day = '0' + day;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
     today = day + '.' + month + '.' + year;
 
     return today;
@@ -2226,11 +2171,11 @@ function get_today(){
 // Form unsichtbar machen
 //============================================================================
 function makeFieldsInvisible() {
-    if(form_is_Invisible == true) {
+    if (form_is_Invisible == true) {
         document.getElementById('visibility').style.opacity = "1";
         document.getElementById('inv_Button').style.opacity = "1";
         form_is_Invisible = false;
-    }else{
+    } else {
         document.getElementById('visibility').style.opacity = "0";
         document.getElementById('inv_Button').style.opacity = "0";
         form_is_Invisible = true;
@@ -2254,94 +2199,93 @@ function add_new_Food() {
     var new_Protein = 0;
     var new_Salt = 0;
     var new_Unit = 0;
-    
+
 
     // Produktname
-    if(document.getElementById('inp_Productname').value == "") {
+    if (document.getElementById('inp_Productname').value == "") {
         alert("Bitte die Textbox für den Produktnamen ausfüllen");
-    }else{
+    } else {
         new_productName = document.getElementById('inp_Productname').value;
 
         // Kcal
-        if(document.getElementById('inp_Kcal').value == "") {
+        if (document.getElementById('inp_Kcal').value == "") {
             alert("Bitte die Textbox für Kcal ausfüllen");
-        }else{
+        } else {
             new_Kcal = document.getElementById('inp_Kcal').value;
 
             // Fett
-            if(document.getElementById('inp_Fat').value == "") {
+            if (document.getElementById('inp_Fat').value == "") {
                 alert("Bitte die Textbox für Fett ausfüllen");
-            }else{
+            } else {
                 new_Fat = document.getElementById('inp_Fat').value;
-                new_Fat.replace(",",".");
+                new_Fat.replace(",", ".");
                 parseFloat(new_Fat);
 
                 // Kohlenhydrate
-                if(document.getElementById('inp_Carbs').value == "") {
+                if (document.getElementById('inp_Carbs').value == "") {
                     alert("Bitte die Textbox für Kohlenhydrate ausfüllen");
-                }else{
+                } else {
                     new_Carbs = document.getElementById('inp_Carbs').value;
-                    new_Carbs.replace(",",".");
+                    new_Carbs.replace(",", ".");
                     parseFloat(new_Carbs);
 
                     // Zucker
-                    if(document.getElementById('inp_Sugar').value == "") {
+                    if (document.getElementById('inp_Sugar').value == "") {
                         alert("Bitte die Textbox für Zucker ausfüllen");
-                    }else{
+                    } else {
                         new_Sugar = document.getElementById('inp_Sugar').value;
-                        new_Sugar.replace(",",".");
+                        new_Sugar.replace(",", ".");
                         parseFloat(new_Sugar);
 
                         // Ballaststoffe
-                        if(document.getElementById('inp_Fiber').value == "") {
+                        if (document.getElementById('inp_Fiber').value == "") {
                             alert("Bitte die Textbox für Ballaststoffe ausfüllen");
-                        }else{
+                        } else {
                             new_Fiber = document.getElementById('inp_Fiber').value;
-                            new_Fiber.replace(",",".");
+                            new_Fiber.replace(",", ".");
                             parseFloat(new_Fiber);
 
                             // Eiweiß
-                            if(document.getElementById('inp_Protein').value == "") {
+                            if (document.getElementById('inp_Protein').value == "") {
                                 alert("Bitte die Textbox für Eiweiß ausfüllen");
-                            }else{
+                            } else {
                                 new_Protein = document.getElementById('inp_Protein').value;
-                                new_Protein.replace(",",".");
+                                new_Protein.replace(",", ".");
                                 parseFloat(new_Protein);
 
                                 // Salz
-                                if(document.getElementById('inp_Salt').value == "") {
+                                if (document.getElementById('inp_Salt').value == "") {
                                     alert("Bitte die Textbox für Salz ausfüllen");
-                                }else{
+                                } else {
                                     new_Salt = document.getElementById('inp_Salt').value;
-                                    new_Salt.replace(",",".");
+                                    new_Salt.replace(",", ".");
                                     parseFloat(new_Salt);
 
                                     // Mengeneinheit
-                                    if(document.getElementById('inp_Unit').value == "") {
+                                    if (document.getElementById('inp_Unit').value == "") {
                                         alert("Bitte die Textbox für Mengeneinheit ausfüllen");
-                                    }else{
+                                    } else {
                                         new_Unit = document.getElementById('inp_Unit').value;
 
                                         let checkedNewFood = new_productName.toLowerCase();
                                         var comp_Food = "";
                                         var existTwice = false;
                                         // Check Produktname
-                                        for(var i = 0; i < array_Food_DB.length; i++) {
+                                        for (var i = 0; i < array_Food_DB.length; i++) {
                                             comp_Food = array_Food_DB[i].productName.toLowerCase();
 
-                                            if(comp_Food == checkedNewFood) {
+                                            if (comp_Food == checkedNewFood) {
                                                 existTwice = true;
                                                 break;
                                             }
                                         }
 
-                                        if(existTwice == false) {
-                                            console.log("Neues Produkt wird angelegt");
+                                        if (existTwice == false) {
                                             // Produkt anlegen
                                             array_Food_DB.push(new Food(new_productName, new_Kcal, new_Fat, new_Carbs, new_Sugar, new_Protein, new_Salt, new_Fiber, new_Unit));
                                             alert("Lebensmittel wurde gespeichert :)");
                                             document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " wurde zur Datenbank hinzugefügt.";
-                                            document.getElementById("Status_New_Food").style.color  = "green";
+                                            document.getElementById("Status_New_Food").style.color = "green";
                                             createTable_FoodDB();
                                             // SAVE
                                             saveFood_DB();
@@ -2358,8 +2302,8 @@ function add_new_Food() {
                                             document.getElementById('inp_Unit').value = '';
                                             changeProduct = false;
 
-                                        }else{
-                                            if(changeProduct == true) {
+                                        } else {
+                                            if (changeProduct == true) {
                                                 // Makros werden angepasst
                                                 // Produkt löschen und anlegen
                                                 let spliceIndex = indexErmittler(selected_Food.productName);
@@ -2370,12 +2314,11 @@ function add_new_Food() {
                                                 alert("Lebensmittel wurde erfolgreich angepasst");
                                                 location.reload();
 
-                                            }else{
-                                                console.log("Neues Produkt wird NICHT angelegt");
+                                            } else {
                                                 document.getElementById("Status_New_Food").innerHTML = "Lebensmittel: " + new_productName + " exisitert bereits.";
-                                                document.getElementById("Status_New_Food").style.color  = "red";
+                                                document.getElementById("Status_New_Food").style.color = "red";
                                             }
-                                            
+
                                         }
                                     }
                                 }
@@ -2398,7 +2341,7 @@ function changeMacros() {
     goto_NewProduct();
     changeProduct = true;
     // Content laden
-    document.getElementById('inp_Productname').value = selected_Food.productName; 
+    document.getElementById('inp_Productname').value = selected_Food.productName;
     document.getElementById('inp_Kcal').value = selected_Food.kcal;
     document.getElementById('inp_Fat').value = selected_Food.fat;
     document.getElementById('inp_Carbs').value = selected_Food.carbs;
@@ -2415,13 +2358,12 @@ function changeMacros() {
 // Produkt aus Datenbank löschen
 //============================================================================
 function delete_Food_from_DB() {
-    
+
     let checkVal = document.getElementById('inp_Productname').value;
-    if(checkVal == "") {
-        console.log("Kein Produkt in der Pipe");
-    }else{
+    if (checkVal == "") {
+    } else {
         var deleteDecision = window.confirm("Soll das Lebensmittel: <" + selected_Food.productName + "> wirklich für immer aus der Datenbank gelöscht werden?")
-        if(deleteDecision) {
+        if (deleteDecision) {
             let spliceIndex = indexErmittler(selected_Food.productName);
             array_Food_DB.splice(spliceIndex, 1);
             saveFood_DB();
@@ -2433,7 +2375,7 @@ function delete_Food_from_DB() {
 
 
 function indexErmittler(searchWord) {
-    for(var i = 0; i< array_Food_DB.length; i++) {
+    for (var i = 0; i < array_Food_DB.length; i++) {
         if (array_Food_DB[i].productName == searchWord) {
             return i;
         }
@@ -2458,50 +2400,45 @@ function welcome_Func() {
 
 //  Lade Theme
 let theme = localStorage.getItem('theme');
-if(theme == null){
+if (theme == null) {
     setTheme('light');
-    console.log("nullColor");
-}else{
+} else {
     setTheme(theme);
-    console.log("theme geladen " + theme);
 }
 
 
 // Schleife für angeklickten Theme Button
 let themeDots = document.getElementsByClassName('theme-dot');
 
-for (var i=0; themeDots.length > i; i++){
-    themeDots[i].addEventListener('click', function(){
+for (var i = 0; themeDots.length > i; i++) {
+    themeDots[i].addEventListener('click', function () {
         let mode = this.dataset.mode;
         setTheme(mode);
-        console.log("Option angeklickt", mode);
     })
 }
 
 // Theme ändern  
-function setTheme(mode){
-    if(mode == 'light'){
+function setTheme(mode) {
+    if (mode == 'light') {
         document.getElementById('theme-style').href = 'style.css';
     }
-    if(mode == 'dark'){
+    if (mode == 'dark') {
         document.getElementById('theme-style').href = 'dark.css';
     }
-    if(mode == 'green'){
+    if (mode == 'green') {
         document.getElementById('theme-style').href = 'green.css';
     }
-    if(mode == 'ocean'){
+    if (mode == 'ocean') {
         document.getElementById('theme-style').href = 'ocean.css';
     }
-    if(mode == 'lightBlue'){
+    if (mode == 'lightBlue') {
         document.getElementById('theme-style').href = 'lightBlue.css';
     }
-    if(mode == 'Linear'){
+    if (mode == 'Linear') {
         document.getElementById('theme-style').href = 'Linear.css';
     }
-    console.log("COLOR");
     // Save  Theme
     localStorage.setItem('theme', mode);
-    console.log('Saved Theme');
 }
 
 
@@ -2515,92 +2452,92 @@ function export_FoodDB() {
 
     // Daten aus originaler DB in Array laden
     fetch_Food_DB_Origin();
-    
+
 }
 
 // Originale Datenbank ziehen und Vergleich anstoßen
 function fetch_Food_DB_Origin() {
     fetch("Food_DB_v2021_05.json")
-    .then(response => response.json())
-    .then(data => {
-        originDB = data;
-        var potNewProduct = "";
-     for(var i = 0; i < array_Food_DB.length; i++) {
-        potNewProduct = array_Food_DB[i].productName;
-        if(checkProductInOldDB(potNewProduct) === false) {
-            let exp_Product = potNewProduct;
-            let exp_kcal = array_Food_DB[i].kcal;
-            let exp_Fat = array_Food_DB[i].fat;
-            let exp_Carbs = array_Food_DB[i].carbs;
-            let exp_Sugar = array_Food_DB[i].sugar;
-            let exp_Fiber = array_Food_DB[i].fiber;
-            let exp_Protein = array_Food_DB[i].protein;
-            let exp_Salt = array_Food_DB[i].salt;
-            let exp_Quantity = array_Food_DB[i].quantityUnit;
-            let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Fiber + ";" + exp_Quantity + "; | ";
-            exp_New_Prod.push(expItem);
-        }
-     }
-     let emailTo = "";
-     let emailCC = "";
-     let emailSub = "Export Food DB";
-     
+        .then(response => response.json())
+        .then(data => {
+            originDB = data;
+            var potNewProduct = "";
+            for (var i = 0; i < array_Food_DB.length; i++) {
+                potNewProduct = array_Food_DB[i].productName;
+                if (checkProductInOldDB(potNewProduct) === false) {
+                    let exp_Product = potNewProduct;
+                    let exp_kcal = array_Food_DB[i].kcal;
+                    let exp_Fat = array_Food_DB[i].fat;
+                    let exp_Carbs = array_Food_DB[i].carbs;
+                    let exp_Sugar = array_Food_DB[i].sugar;
+                    let exp_Fiber = array_Food_DB[i].fiber;
+                    let exp_Protein = array_Food_DB[i].protein;
+                    let exp_Salt = array_Food_DB[i].salt;
+                    let exp_Quantity = array_Food_DB[i].quantityUnit;
+                    let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Fiber + ";" + exp_Quantity + "; | ";
+                    exp_New_Prod.push(expItem);
+                }
+            }
+            let emailTo = "";
+            let emailCC = "";
+            let emailSub = "Export Food DB";
 
-     // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
-     // Deshalb wird dieser in Textbox ausgegeben
-     document.getElementById("txtArea").innerHTML = "";
-     document.getElementById("txtArea").innerHTML = exp_New_Prod;
-     //document.getElementById("txtArea").select();
-     //document.execCommand('copy');
-     let mailText = "";
-     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+mailText;
-     
-    })
+
+            // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
+            // Deshalb wird dieser in Textbox ausgegeben
+            document.getElementById("txtArea").innerHTML = "";
+            document.getElementById("txtArea").innerHTML = exp_New_Prod;
+            //document.getElementById("txtArea").select();
+            //document.execCommand('copy');
+            let mailText = "";
+            location.href = "mailto:" + emailTo + '?cc=' + emailCC + '&subject=' + emailSub + '&body=' + mailText;
+
+        })
 }
 
 // Suche gleichen Wert
 function checkProductInOldDB(oldProd) {
     var found = false;
     var verglProd = "";
-    for(var j = 0; j < originDB.length; j++) {
+    for (var j = 0; j < originDB.length; j++) {
         verglProd = originDB[j].productName;
-        if(verglProd == oldProd) {
+        if (verglProd == oldProd) {
             found = true;
             break;
         }
     }
-    if(found == false) {
+    if (found == false) {
         return false
     }
 }
 
 // Exportiert alle Produkte
 function export_FoodDB_All() {
-     for(var i = 0; i < array_Food_DB.length; i++) {
+    for (var i = 0; i < array_Food_DB.length; i++) {
         potNewProduct = array_Food_DB[i].productName;
-            let exp_Product = potNewProduct;
-            let exp_kcal = array_Food_DB[i].kcal;
-            let exp_Fat = array_Food_DB[i].fat;
-            let exp_Carbs = array_Food_DB[i].carbs;
-            let exp_Sugar = array_Food_DB[i].sugar;
-            let exp_Fiber = array_Food_DB[i].fiber;
-            let exp_Protein = array_Food_DB[i].protein;
-            let exp_Salt = array_Food_DB[i].salt;
-            let exp_Quantity = array_Food_DB[i].quantityUnit;
-            let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Fiber + ";" + exp_Quantity + "; | ";
-            exp_New_Prod.push(expItem);
-     }
-     let emailTo = "";
-     let emailCC = "";
-     let emailSub = "Export Food DB";
-     // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
-     // Deshalb wird dieser in Textbox ausgegeben
-     document.getElementById("txtArea").innerHTML = "";
-     document.getElementById("txtArea").innerHTML = exp_New_Prod;
-     //document.getElementById("txtArea").select();
-     //document.execCommand('copy');
-     let mailText = "";
-     location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+mailText;
+        let exp_Product = potNewProduct;
+        let exp_kcal = array_Food_DB[i].kcal;
+        let exp_Fat = array_Food_DB[i].fat;
+        let exp_Carbs = array_Food_DB[i].carbs;
+        let exp_Sugar = array_Food_DB[i].sugar;
+        let exp_Fiber = array_Food_DB[i].fiber;
+        let exp_Protein = array_Food_DB[i].protein;
+        let exp_Salt = array_Food_DB[i].salt;
+        let exp_Quantity = array_Food_DB[i].quantityUnit;
+        let expItem = exp_Product + ";" + exp_kcal + ";" + exp_Fat + ";" + exp_Carbs + ";" + exp_Sugar + ";" + exp_Protein + ";" + exp_Salt + ";" + exp_Fiber + ";" + exp_Quantity + "; | ";
+        exp_New_Prod.push(expItem);
+    }
+    let emailTo = "";
+    let emailCC = "";
+    let emailSub = "Export Food DB";
+    // E-Mail öffnen -- Problem ist, dass der Text auf eine bestimmte Anzahl an Zeichen limitiert ist
+    // Deshalb wird dieser in Textbox ausgegeben
+    document.getElementById("txtArea").innerHTML = "";
+    document.getElementById("txtArea").innerHTML = exp_New_Prod;
+    //document.getElementById("txtArea").select();
+    //document.execCommand('copy');
+    let mailText = "";
+    location.href = "mailto:" + emailTo + '?cc=' + emailCC + '&subject=' + emailSub + '&body=' + mailText;
 }
 
 
@@ -2614,41 +2551,41 @@ function export_FoodDB_All() {
 function create_MyHistory() {
 
 
-        // Reset der Tabelle
-        document.getElementById("containerTabelle_History").innerHTML = "";
+    // Reset der Tabelle
+    document.getElementById("containerTabelle_History").innerHTML = "";
 
-        // CREATE HTML TABLE OBJECT
-        var perrow = 1, // 1 CELLS PER ROW
+    // CREATE HTML TABLE OBJECT
+    var perrow = 1, // 1 CELLS PER ROW
         table = document.createElement("table"),
         row = table.insertRow();
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
     for (var i = 0; i < my_History.length; i++) {
-      // ADD "BASIC" CELL
-      var cell = row.insertCell();
-      cell.innerHTML = my_History[i].history_date;
-  
-      // ATTACH A RUNNING NUMBER OR CUSTOM DATA
-     cell.dataset.id = i;
-   
+        // ADD "BASIC" CELL
+        var cell = row.insertCell();
+        cell.innerHTML = my_History[i].history_date;
+
+        // ATTACH A RUNNING NUMBER OR CUSTOM DATA
+        cell.dataset.id = i;
+
         // Auswahl des Tages
-      cell.addEventListener("click", function(){
-        selectedDateIndex = this.dataset.id;  
-        selectedDate = my_History[selectedDateIndex];
-        document.getElementById('output_History').innerHTML = selectedDate.history_Content;
-        // Sichbar machen
-        document.getElementById("HistoryButtonContainer").style.opacity = "1";
-        // Enable Schaltflächen
-        document.getElementsByClassName("buttonHistorie").disabled = false;
-      });
-  
-  
-      // BREAK INTO NEXT ROW
-      var next = i + 1;
-      if (next%perrow==0 && next!=my_History.length) {
-        row = table.insertRow();
-      }
+        cell.addEventListener("click", function () {
+            selectedDateIndex = this.dataset.id;
+            selectedDate = my_History[selectedDateIndex];
+            document.getElementById('output_History').innerHTML = selectedDate.history_Content;
+            // Sichbar machen
+            document.getElementById("HistoryButtonContainer").style.opacity = "1";
+            // Enable Schaltflächen
+            document.getElementsByClassName("buttonHistorie").disabled = false;
+        });
+
+
+        // BREAK INTO NEXT ROW
+        var next = i + 1;
+        if (next % perrow == 0 && next != my_History.length) {
+            row = table.insertRow();
+        }
     }
-  
+
     // ATTACH TABLE TO CONTAINER
     document.getElementById("containerTabelle_History").appendChild(table);
 }
@@ -2661,7 +2598,7 @@ function sendThisDay() {
     let emailCC = "";
     let emailSub = "Food-Tracker: " + selectedDate.history_date;
     let bodyContent = selectedDate.history_Content;
-    location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+bodyContent;
+    location.href = "mailto:" + emailTo + '?cc=' + emailCC + '&subject=' + emailSub + '&body=' + bodyContent;
 }
 
 

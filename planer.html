@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="shortcut icon" type="image/png" href="Logo.png">
-    <link id="theme-style" rel="stylesheet" href="">
-    <link rel="apple-touch-icon" href="Logo.png">
-    <title>Food Tracker-Planer</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image/png" href="Logo.png">
+  <link id="theme-style" rel="stylesheet" href="">
+  <link rel="apple-touch-icon" href="Logo.png">
+  <title>Food Tracker-Planer</title>
 </head>
+
 <body>
-<button class="fertigButton" onclick="goto_Main()">Fertig</button>
+  <button class="fertigButton" onclick="goto_Main()">Fertig</button>
 
   <!-- ================================================================
   Planer
@@ -18,40 +20,43 @@
   <div class="fullCell">
     <br>
     <h1 style="text-align: center; font-size: 124px;">🚧 Planer 🚧</h1>
-    
+
     <div class="buttonContainer">
       <button class="buttonPlaner uebernehmenButton" onclick="duplicateList()">Duplizieren</button>
-      <button class="buttonPlaner uebernehmenButton" onclick="duplicateList_AndDeleteSelf()">Übernehmen + Leeren</button>
+      <button class="buttonPlaner uebernehmenButton" onclick="duplicateList_AndDeleteSelf()">Übernehmen +
+        Leeren</button>
     </div>
-    
-      <br>
+
+    <br>
     <div class="contr">
-          <div class="macroContainer">
-            <div class="row">
-              <p id="progress_Val">Plan <br> 0 %</p>
-              <p id="output_Planned_Eaten">Gepl Kcal <br> 0</p>
-              <p id="target_KcalZiel">Kcal Ziel <br> 0</p>
-              <p id="output_Diff">Diff <br> 0</p>
-            </div>
-            <hr>
-            <div class="row">
-              <p id="output_Carbs">KH. <br> 0</p>
-              <p id="output_Sugar">Zck. <br> 0</p>
-              <p id="output_Fiber">Ball. <br> 0</p>
-            </div>
-            <div class="row">
-              <p id="output_Protein">Eiw. <br> 0</p>
-              <p id="output_Fat">Fett <br> 0</p>
-              <p id="output_Salt">Salz <br> 0</p>
-            </div>
-          </div>
+      <div class="macroContainer">
+        <div class="row">
+          <p id="progress_Val">Plan <br> 0 %</p>
+          <p id="output_Planned_Eaten">Gepl Kcal <br> 0</p>
+          <p id="target_KcalZiel">Kcal Ziel <br> 0</p>
+          <p id="output_Diff">Diff <br> 0</p>
+        </div>
+        <hr>
+        <div class="row">
+          <p id="output_Carbs">KH. <br> 0</p>
+          <p id="output_Sugar">Zck. <br> 0</p>
+          <p id="output_Fiber">Ball. <br> 0</p>
+        </div>
+        <div class="row">
+          <p id="output_Protein">Eiw. <br> 0</p>
+          <p id="output_Fat">Fett <br> 0</p>
+          <p id="output_Salt">Salz <br> 0</p>
+        </div>
+      </div>
     </div>
     <br>
     <div class="buttonContainer">
       <button class="buttonPlaner addButton" onclick="addToPlaner()">+</button>
     </div>
 
-    <br><br><hr><hr>
+    <br><br>
+    <hr>
+    <hr>
 
   </div>
 
@@ -60,8 +65,10 @@
     <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen">
       <div class="wrapperButton">
         <button class="button_del" onclick="delete_from_today()" id="btnDeleteFoodFromToday">X</button>
-        <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange" placeholder="in Gramm">
-        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge ändern</button>
+        <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange"
+          placeholder="in Gramm">
+        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge
+          ändern</button>
         <button onclick="blendOut_MengeAendern()" class="checkMarkButton">✔</button>
       </div>
 
@@ -72,27 +79,31 @@
       <hr>
     </div>
   </div>
-   <!-- Tabellenbereich -->
-   <div id="containerTabelle_Planer"></div>
+  <!-- Tabellenbereich -->
+  <div id="containerTabelle_Planer"></div>
 
 
-  <br><br><hr><hr>
+  <br><br>
+  <hr>
+  <hr>
 
 
-<!-- ================================================================ -->
-<!-- Tabelle mit Datenbank aller Lebensmittel -->
-<!-- ================================================================ --> 
-<div class="fullCell"><h1 id="titleDatenbank">Hinzufügen</h1></div>
-<p id="statusX"></p>
+  <!-- ================================================================ -->
+  <!-- Tabelle mit Datenbank aller Lebensmittel -->
+  <!-- ================================================================ -->
+  <div class="fullCell">
+    <h1 id="titleDatenbank">Hinzufügen</h1>
+  </div>
+  <p id="statusX"></p>
   <div class="fullCell">
     <div id="optAreaDB" class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
-      <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
+      <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
       <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_Planer()">💾</button>
     </div>
     <br>
-    
+
     <br>
     <div class="containerNutri">
       <div class="cont C_A" id="C_A">A</div>
@@ -113,14 +124,15 @@
 
     <!-- Tabellenbereich -->
     <div id="containerTabelle"></div>
-    
+
 
   </div>
 
-  <br><br><hr><br>
+  <br><br>
+  <hr><br>
   <button class="fertigButton verwerfbutton" onclick="discardPlan()">Verwerfen</button>
   <br><br>
+  <script src="./planer.js"></script>
 </body>
 
-<script src="./planer.js"></script>
 </html>

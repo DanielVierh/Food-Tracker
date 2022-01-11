@@ -1250,3 +1250,38 @@ input:checked + .slider:before {
 .menueButtonColor{
   color: var(--mainText);
 }
+
+
+.onboarding_Main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.onboarding_Main h1{
+  font-size: 5rem;
+}
+
+
+.onboarding_Container{
+position: fixed;
+bottom: 0;
+width: 95%;
+height: 70%;
+background-color: lightblue;
+border-radius: 65px 65px 0 0;
+border:1px solid gray;
+box-shadow: -10px -10px 75px black;
+}
+
+.exitBtn{
+  width: 150px;
+  background-color: blue;
+  color: white;
+  margin: 20px;
+  padding: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}

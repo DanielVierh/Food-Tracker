@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Food Tracker</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -9,6 +10,7 @@
   <link rel="apple-touch-icon" href="Logo.png">
   <meta charset="utf-8">
 </head>
+
 <body>
   <nav class="sticky zone blue">
     <ul class="main-nav">
@@ -16,14 +18,17 @@
       <button class="navButton"><a href="#markerNewProduct" class="menueButtonColor">NEU</a></button>
       <button class="navButton" onclick="goto_Planer()">Planer</button>
       <!-- <button class="navButton" style="font-size: 70px;" onclick="goto_Statistic()">📊</button>  -->
-      <button class="navButton" style="font-size: 70px;"><a href="#markerStatistik">📊</a></button> 
+      <button class="navButton" style="font-size: 70px;"><a href="#markerStatistik">📊</a></button>
       <!-- <button class="navButton" style="font-size: 90px;" onclick="goto_Settings()">⚙</button> -->
-      <button class="navButton" style="font-size: 90px;"><a href="#markerEinstellungen" class="menueButtonColor">⚙</a></button>
+      <button class="navButton" style="font-size: 90px;"><a href="#markerEinstellungen"
+          class="menueButtonColor">⚙</a></button>
     </ul>
 
   </nav>
   <br><br><br><br>
-  <div class="zone blue grid-wrapper"><h1></h1></div>
+  <div class="zone blue grid-wrapper">
+    <h1></h1>
+  </div>
   <div class="zone blue grid-wrapper">
     <h1>Heute</h1>
     <button class="button_TagAbschl" onclick="close_Day()">Tag abschliessen</button>
@@ -50,7 +55,7 @@
       <p>Kcal-Bilanz</p>
       <p class="uebersicht_Values" id="output_Diff">0 Kcal übrig &#128512</p>
     </div>
-    
+
   </div>
 
 
@@ -88,20 +93,22 @@
     <p style="text-align: center;">Progress</p>
   </div>
   <!-- Progress Bar   -->
-<div class="fullCell">
-  <div id="progress_Bar" class="progress">100%</div>
-</div>
+  <div class="fullCell">
+    <div id="progress_Bar" class="progress">100%</div>
+  </div>
 
-  <!-- ================================================================ --> 
+  <!-- ================================================================ -->
   <!-- Heute gegessen Tabelle -->
-  <!-- ================================================================ --> 
+  <!-- ================================================================ -->
   <div class="fullCell">
     <h1>Liste Heute gegessen</h1>
     <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen">
       <div class="wrapperButton">
         <button class="button_del" onclick="delete_from_today()" id="btnDeleteFoodFromToday">X</button>
-        <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange" placeholder="in Gramm">
-        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge ändern</button>
+        <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange"
+          placeholder="in Gramm">
+        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge
+          ändern</button>
         <button onclick="blendOut_MengeAendern()" class="checkMarkButton">✔</button>
       </div>
 
@@ -113,43 +120,45 @@
     </div>
   </div>
 
-<div id="containerTabelle_Today"></div>
+  <div id="containerTabelle_Today"></div>
 
 
- <!-- ================================================================ -->
+  <!-- ================================================================ -->
   <!-- Wasser -->
-   <!-- ================================================================ -->
+  <!-- ================================================================ -->
   <!-- <div class="container zone"> -->
+  <br>
+  <div class="fullCell">
+    <p class="wasserUeberschr">Wasserzähler</p>
     <br>
-    <div class="fullCell">
-      <p class="wasserUeberschr">Wasserzähler</p>
-      <br>
-      <p style="text-align: center; font-size: 114px;">🥤</p>
-      <div class="wasserContainer">
-        
-        <button class="spinButton" onclick="water_Spin_Down()">-</button>
-        <button class="outputButtonWater" id="outpWaterButton" onclick="take_Over_Water()">0.25 L</button>
-        <button class="spinButton" onclick="water_Spin_Up()">+</button>
-      </div>
-      <br>
-      <p>Heute getrunken</p>
-      <p id="lastWater">Zuletzt um: </p>
-      <p id="output_TodayDrank" class="outpTxtWater"> 0 Liter</p>
+    <p style="text-align: center; font-size: 114px;">🥤</p>
+    <div class="wasserContainer">
+
+      <button class="spinButton" onclick="water_Spin_Down()">-</button>
+      <button class="outputButtonWater" id="outpWaterButton" onclick="take_Over_Water()">0.25 L</button>
+      <button class="spinButton" onclick="water_Spin_Up()">+</button>
     </div>
+    <br>
+    <p>Heute getrunken</p>
+    <p id="lastWater">Zuletzt um: </p>
+    <p id="output_TodayDrank" class="outpTxtWater"> 0 Liter</p>
+  </div>
   <!-- </div> -->
 
   <br>
 
-<!-- ================================================================ -->
-<!-- Tabelle mit Datenbank aller Lebensmittel -->
-<!-- ================================================================ --> 
-<div class="fullCell"><h1 id="titleDatenbank">Hinzufügen</h1></div>
-<p id="statusX"></p>
+  <!-- ================================================================ -->
+  <!-- Tabelle mit Datenbank aller Lebensmittel -->
+  <!-- ================================================================ -->
+  <div class="fullCell">
+    <h1 id="titleDatenbank">Hinzufügen</h1>
+  </div>
+  <p id="statusX"></p>
   <div class="fullCell">
     <div id="optAreaDB" class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
-      <input  type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
+      <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
       <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
       <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
     </div>
@@ -164,8 +173,8 @@
     <br>
     <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
     <button class="buttonPruefe" onclick="checkButton()">🔍</button>
-    
-    
+
+
     <!-- Searchbar -->
     <div class="fullCell">
       <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
@@ -173,94 +182,95 @@
 
     <!-- Tabellenbereich -->
     <div id="containerTabelle"></div>
-    
+
 
   </div>
 
-  
-  
 
-<!-- ================================================================ -->
-  <!-- Immer da Buttons --> 
-<!-- ================================================================ -->
+
+
+  <!-- ================================================================ -->
+  <!-- Immer da Buttons -->
+  <!-- ================================================================ -->
   <div id="btnAdd" class="bg-text">🍎 +</div>
   <!-- <div id="btnAdd" class="bg-text"><a href="#titleDatenbank" class="menueButtonColor">🍎 +</a></div> -->
   <div id="btnscrl_Up" class="bg-text2">⬆ UP</div>
   <button data-modal-target="#modal_Steps" id="btnSteps" class="bg-text3">0 &#128095</button>
-  <p class="welcomeScreen" id="welcomeScrn">Willkommen 😀 <br> Um die App nutzen zu können, müssen zuerst ein paar Einstellungen vorgenommen werden. Klicke hierzu oben auf Einstellungen.<br> <br> OK</p>
-    <!-- Leerzone  -->
-    <div class="container zone"></div>
+  <p class="welcomeScreen" id="welcomeScrn">Willkommen 😀 <br> Um die App nutzen zu können, müssen zuerst ein paar
+    Einstellungen vorgenommen werden. Klicke hierzu oben auf Einstellungen.<br> <br> OK</p>
+  <!-- Leerzone  -->
+  <div class="container zone"></div>
 
 
-<!-- ================================================================ -->
-<!-- Modal Form AKA PopUp für Schritte -->
-<!-- ================================================================ -->
-<div class="modal_Steps" id="modal_Steps">
-  <div class="modal-header">
-    <div class="title">Deine heutigen Schritte</div>
-    <button data-close-button class="close-button">&times</button>
+  <!-- ================================================================ -->
+  <!-- Modal Form AKA PopUp für Schritte -->
+  <!-- ================================================================ -->
+  <div class="modal_Steps" id="modal_Steps">
+    <div class="modal-header">
+      <div class="title">Deine heutigen Schritte</div>
+      <button data-close-button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+      <input type="text" pattern="\d*" value="1.300" class="inpSteps" id="inp_Steps">
+      <button data-close-button class id="btn_SaveSteps">Speichern</button>
+    </div>
   </div>
-  <div class="modal-body">
-    <input type="text" pattern="\d*" value="1.300" class="inpSteps" id="inp_Steps">
-    <button data-close-button class id="btn_SaveSteps">Speichern</button>
-  </div>
-</div>
 
-<div id="overlay"></div>
+  <div id="overlay"></div>
 
 
 
 
-<!-- ================================================================ -->
-<!-- Statistik -->
-<!-- ================================================================ -->
+  <!-- ================================================================ -->
+  <!-- Statistik -->
+  <!-- ================================================================ -->
 
-    <div class="fullCell" id="markerStatistik">
-      <h1>Statistik</h1>
+  <div class="fullCell" id="markerStatistik">
+    <h1>Statistik</h1>
 
-      <p style="text-align: center;" id="UeberschriftStatisik">Effektive Kcal</p>
-      <br>
-      <table class="names">
-        <tr>
-          <th>Datum</th>
-          <th id="valDescription">Effek. Kcal</th> 
-          <th>Zum Vortag</th>
-          <th id="valDescrFett">Fett</th>
-        </tr>
-        <tr>
-          <td id="datum_Col_0">-</td>
-          <td id="val_Col_0">-</td>
-          <td id="change_DayBefore_Col_0">-</td>
-          <td id="fettInGramm_Col_0">-</td>
-        </tr>
-        <tr>
-          <td id="datum_Col_1">-</td>
-          <td id="val_Col_1">-</td>
-          <td id="change_DayBefore_Col_1">-</td>
-          <td id="fettInGramm_Col_1">-</td>
-        </tr>
-        <tr>
-          <td id="datum_Col_2">-</td>
-          <td id="val_Col_2">-</td>
-          <td id="change_DayBefore_Col_2">-</td>
-          <td id="fettInGramm_Col_2">-</td>
-        </tr>
-        <tr>
-          <td id="datum_Col_3">-</td>
-          <td id="val_Col_3">-</td>
-          <td id="change_DayBefore_Col_3">-</td>
-          <td id="fettInGramm_Col_3">-</td>
-        </tr>
-        <tr>
-          <td id="datum_Col_4">-</td>
-          <td id="val_Col_4">-</td>
-          <td id="change_DayBefore_Col_4">-</td>
-          <td id="fettInGramm_Col_4">-</td>
-        </tr>
-        <td id="datum_Col_5">-</td>
-        <td id="val_Col_5">-</td>
-        <td id="change_DayBefore_Col_5">-</td>
-        <td id="fettInGramm_Col_5">-</td>
+    <p style="text-align: center;" id="UeberschriftStatisik">Effektive Kcal</p>
+    <br>
+    <table class="names">
+      <tr>
+        <th>Datum</th>
+        <th id="valDescription">Effek. Kcal</th>
+        <th>Zum Vortag</th>
+        <th id="valDescrFett">Fett</th>
+      </tr>
+      <tr>
+        <td id="datum_Col_0">-</td>
+        <td id="val_Col_0">-</td>
+        <td id="change_DayBefore_Col_0">-</td>
+        <td id="fettInGramm_Col_0">-</td>
+      </tr>
+      <tr>
+        <td id="datum_Col_1">-</td>
+        <td id="val_Col_1">-</td>
+        <td id="change_DayBefore_Col_1">-</td>
+        <td id="fettInGramm_Col_1">-</td>
+      </tr>
+      <tr>
+        <td id="datum_Col_2">-</td>
+        <td id="val_Col_2">-</td>
+        <td id="change_DayBefore_Col_2">-</td>
+        <td id="fettInGramm_Col_2">-</td>
+      </tr>
+      <tr>
+        <td id="datum_Col_3">-</td>
+        <td id="val_Col_3">-</td>
+        <td id="change_DayBefore_Col_3">-</td>
+        <td id="fettInGramm_Col_3">-</td>
+      </tr>
+      <tr>
+        <td id="datum_Col_4">-</td>
+        <td id="val_Col_4">-</td>
+        <td id="change_DayBefore_Col_4">-</td>
+        <td id="fettInGramm_Col_4">-</td>
+      </tr>
+      <td id="datum_Col_5">-</td>
+      <td id="val_Col_5">-</td>
+      <td id="change_DayBefore_Col_5">-</td>
+      <td id="fettInGramm_Col_5">-</td>
       </tr>
       <tr>
         <td id="datum_Col_6">-</td>
@@ -274,38 +284,38 @@
         <td>Summe: </td>
         <td id="outputFatSum">393 g</td>
       </tr>
-      </table>
-      <br>
-      <div class="wrapperButton">
-        <button class="optButtonStatisik" id="btnStatEffektKcal" onclick="show_EffectKcal()">🍕 Effek. Kcal</button>
-        <button class="optButtonStatisik" id="btnStatSteps" onclick="show_Steps()">&#128095 Schritte</button>
-        <button class="optButtonStatisik" id="btnStatBurnedKcal" onclick="show_BurnedKcal()">&#128293 Kcal</button>
-      </div>
-      <div class="wrapperButton">
-        <button class="optButtonStatisik" id="btnStatSugar" onclick="show_Sugar()">🍫 Zucker</button>
-        <!-- <button class="optButtonStatisik">Eiweiß</button>
+    </table>
+    <br>
+    <div class="wrapperButton">
+      <button class="optButtonStatisik" id="btnStatEffektKcal" onclick="show_EffectKcal()">🍕 Effek. Kcal</button>
+      <button class="optButtonStatisik" id="btnStatSteps" onclick="show_Steps()">&#128095 Schritte</button>
+      <button class="optButtonStatisik" id="btnStatBurnedKcal" onclick="show_BurnedKcal()">&#128293 Kcal</button>
+    </div>
+    <div class="wrapperButton">
+      <button class="optButtonStatisik" id="btnStatSugar" onclick="show_Sugar()">🍫 Zucker</button>
+      <!-- <button class="optButtonStatisik">Eiweiß</button>
         <button class="optButtonStatisik">Ballaststoffe</button>
         <button class="optButtonStatisik">Fett</button> -->
-        <button class="optButtonStatisik" id="btnStatWater" onclick="show_Water()"> 🥤 Wasser</button>
-      </div>
-      <br>
-
-      <div class="container_Kcal_Diagram">
-        <div class="column c1" id="COL_Dia_0"></div>
-        <div class="column c2" id="COL_Dia_1"></div>
-        <div class="column c3" id="COL_Dia_2"></div>
-        <div class="column c4" id="COL_Dia_3"></div>
-        <div class="column c5" id="COL_Dia_4"></div>
-        <div class="column c6" id="COL_Dia_5"></div>
-        <div class="column c7" id="COL_Dia_6"></div>
-        <div class="column KcalGoal" id="eff_Goal"></div>
-      </div>
+      <button class="optButtonStatisik" id="btnStatWater" onclick="show_Water()"> 🥤 Wasser</button>
     </div>
+    <br>
+
+    <div class="container_Kcal_Diagram">
+      <div class="column c1" id="COL_Dia_0"></div>
+      <div class="column c2" id="COL_Dia_1"></div>
+      <div class="column c3" id="COL_Dia_2"></div>
+      <div class="column c4" id="COL_Dia_3"></div>
+      <div class="column c5" id="COL_Dia_4"></div>
+      <div class="column c6" id="COL_Dia_5"></div>
+      <div class="column c7" id="COL_Dia_6"></div>
+      <div class="column KcalGoal" id="eff_Goal"></div>
+    </div>
+  </div>
 
 
-  
-    <!-- Leerzone -->
-<div class="container zone"></div>
+
+  <!-- Leerzone -->
+  <div class="container zone"></div>
 
 
   <!-- ================================================================
@@ -329,52 +339,54 @@
 
   </div>
 
-      <!-- Leerzone -->
-<div class="container zone"></div>
+  <!-- Leerzone -->
+  <div class="container zone"></div>
 
 
 
-<!-- Hinzufügen -->
+  <!-- Hinzufügen -->
   <div class="fullCell" id="markerNewProduct">
     <h1>Neues Lebensmittel hinzufügen</h1>
-    
+
   </div>
-    <div class="mittelForm">
-     
-      <form class="form1">
-        
-        <p class="advise"> <p>Nährwerte / 100 g</p> </p>
-        <br>
-        <label>Produktbezeichnung</label>
-        <input type="text" class="inpBox1"  id="inp_Productname">
-        <hr>
-        <label>Kcal</label>
-        <input type="text" pattern="\d*" value="" id="inp_Kcal" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Fett</label>
-        <input type="number" value="" id="inp_Fat" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Kohlenhydr</label>
-        <input type="number" value="" id="inp_Carbs" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Zucker</label>
-        <input type="number" value="" id="inp_Sugar" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Ballaststoffe</label>
-        <input type="number" value="" id="inp_Fiber" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Eiweiss</label>
-        <input type="number" value="" id="inp_Protein" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Salz</label>
-        <input type="number" value="" id="inp_Salt" class="inpBox2" placeholder="pro 100 g">
-        <hr>
-        <label>Mengeneinheit</label>
-        <input type="text" class="inpBox1" id="inp_Unit" placeholder="z.B. 1EL = 10g">
-        <hr>
-      </form>
+  <div class="mittelForm">
+
+    <form class="form1">
+
+      <p class="advise">
+      <p>Nährwerte / 100 g</p>
+      </p>
       <br>
-      
+      <label>Produktbezeichnung</label>
+      <input type="text" class="inpBox1" id="inp_Productname">
+      <hr>
+      <label>Kcal</label>
+      <input type="text" pattern="\d*" value="" id="inp_Kcal" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Fett</label>
+      <input type="number" value="" id="inp_Fat" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Kohlenhydr</label>
+      <input type="number" value="" id="inp_Carbs" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Zucker</label>
+      <input type="number" value="" id="inp_Sugar" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Ballaststoffe</label>
+      <input type="number" value="" id="inp_Fiber" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Eiweiss</label>
+      <input type="number" value="" id="inp_Protein" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Salz</label>
+      <input type="number" value="" id="inp_Salt" class="inpBox2" placeholder="pro 100 g">
+      <hr>
+      <label>Mengeneinheit</label>
+      <input type="text" class="inpBox1" id="inp_Unit" placeholder="z.B. 1EL = 10g">
+      <hr>
+    </form>
+    <br>
+
   </div>
   <p id="Status_New_Food"></p>
   <br>
@@ -382,59 +394,63 @@
     <button class="button_FoodLoeschen" onclick="delete_Food_from_DB()">löschen</button>
     <button class="ButtonSpeichern" onclick="add_new_Food()">Speichern</button>
   </div>
- 
+
 
   <!-- Leerzone -->
   <div class="container zone"></div>
 
-<!-- ================================================================ -->
-<!-- Einstellungen  -->
-<!-- ================================================================ -->
+  <!-- ================================================================ -->
+  <!-- Einstellungen  -->
+  <!-- ================================================================ -->
 
   <div class="fullCell einstllungsform" id="markerEinstellungen">
     <h1>Einstellungen</h1>
 
     <form class="settingForm">
       <div class="invisibleCont" id="visibility">
-      <label>Geschlecht</label>
-      <br>
-      <input type="radio"name="gender" class="radioBtn" id="opt_Male" value="male"> Mann <br>
-      <input type="radio"name="gender" class="radioBtn" id="opt_Female"value="female"> Frau <br>
-      <hr>
-      <label>Gewicht</label>
-      <br>
-      <input type="text" pattern="\d*" value="" id="weight" class="inputMenge" placeholder=" in kg">
-      <hr>
-      <label>Größe z.B. 180</label>
-      <br>
-      <input type="text" pattern="\d*" value="" id="height" class="inputMenge" placeholder=" in cm">
-      <hr>
-      <label>Alter</label>
-      <br>
-      <input type="text" pattern="\d*" value="" id="age" class="inputMenge" placeholder="">
-      <hr>
-      <label>Dein Zielgewicht</label>
-      <br>
-      <input type="text" pattern="\d*" value="" id="target_Weight" class="inputMenge" placeholder=" in kg">
-      <hr>
-      <label>In welchem Zeitraum willst du es schaffen z.B. 2 Monate</label>
-      <br>
-      <input type="text" pattern="\d*" value="" id="target_Time" class="inputMenge" placeholder="Monat">
-      <hr>
+        <label>Geschlecht</label>
+        <br>
+        <input type="radio" name="gender" class="radioBtn" id="opt_Male" value="male"> Mann <br>
+        <input type="radio" name="gender" class="radioBtn" id="opt_Female" value="female"> Frau <br>
+        <hr>
+        <label>Gewicht</label>
+        <br>
+        <input type="text" pattern="\d*" value="" id="weight" class="inputMenge" placeholder=" in kg">
+        <hr>
+        <label>Größe z.B. 180</label>
+        <br>
+        <input type="text" pattern="\d*" value="" id="height" class="inputMenge" placeholder=" in cm">
+        <hr>
+        <label>Alter</label>
+        <br>
+        <input type="text" pattern="\d*" value="" id="age" class="inputMenge" placeholder="">
+        <hr>
+        <label>Dein Zielgewicht</label>
+        <br>
+        <input type="text" pattern="\d*" value="" id="target_Weight" class="inputMenge" placeholder=" in kg">
+        <hr>
+        <label>In welchem Zeitraum willst du es schaffen z.B. 2 Monate</label>
+        <br>
+        <input type="text" pattern="\d*" value="" id="target_Time" class="inputMenge" placeholder="Monat">
+        <hr>
     </form>
   </div>
   <button class="ButtonSpeichern" onclick="calc_Kcal_Goal()" id="inv_Button">Berechnen</button>
   <p id="output_Kcal_Req" style="color: yellow; font-size: 20px; background-color: rgb(32, 32, 32);"></p>
-  
+
   <br><br>
-  <p style="font-size: 22px;">*Es wird nur das Gewicht, errechnete Kcal-Ziel und der errechnete Kcal-Bedarf auf deinem Gerät gespeichert. Diese Angaben werden benötigt um die Schritte in Kcal umzuwandeln und eine Kalorienbilanz zu berechnen. Alle anderen Eingaben wie das Alter oder Geschlecht werden nicht gespeichert.</p>
+  <p style="font-size: 22px;">*Es wird nur das Gewicht, errechnete Kcal-Ziel und der errechnete Kcal-Bedarf auf deinem
+    Gerät gespeichert. Diese Angaben werden benötigt um die Schritte in Kcal umzuwandeln und eine Kalorienbilanz zu
+    berechnen. Alle anderen Eingaben wie das Alter oder Geschlecht werden nicht gespeichert.</p>
   <hr>
   <br>
   <label for="">Möchte keine Angaben darüber machen</label>
   <input type="checkbox" class="checkBox" onclick="makeFieldsInvisible()">
   <br><br>
-  
-  <p style="font-size: 22px;">*Möchtest du keine Angaben über Alter, Gewicht etc. machen, kannst du auch Dein Kcal-Ziel selbst ausrechnen und unten manuell eingeben. Die Kalorien durch Schritte werden dann allerdings mit dem Durchschnittsgewicht von 78 kg berechnet.</p>
+
+  <p style="font-size: 22px;">*Möchtest du keine Angaben über Alter, Gewicht etc. machen, kannst du auch Dein Kcal-Ziel
+    selbst ausrechnen und unten manuell eingeben. Die Kalorien durch Schritte werden dann allerdings mit dem
+    Durchschnittsgewicht von 78 kg berechnet.</p>
   <hr>
   <label>Kalorien-Ziel</label>
   <br>
@@ -450,21 +466,21 @@
     <input type="checkbox" id="spez_Diet_ToggleButton">
     <span class="slider ckround"></span>
   </label>
-<br>
+  <br>
   <div id="spezDietDiv">
     <label>Ernährungsweise
       <input type="text" list="dietListe" name="dietList" id="diet_List">
       <datalist id="dietListe">
-          <option value="Keto">
-          <option value="Low Carb">
-          <option value="Moderat">
+        <option value="Keto">
+        <option value="Low Carb">
+        <option value="Moderat">
       </datalist>
       <button onclick="selectDiet()" id="submitDiet">Ok</button>
-  </label>
+    </label>
   </div>
 
 
-<br><br>
+  <br><br>
   <div class="boxWeitereZiele">
     <label>Fett</label>
     <input type="text" pattern="\d*" value="" id="target_Fat" class="inputMenge" placeholder="in Gramm">
@@ -491,42 +507,40 @@
 
   </div>
 
-    <!-- Leerzone -->
-    <div class="container zone"></div>
+  <!-- Leerzone -->
+  <div class="container zone"></div>
 
-    <!-- <div class="container zone"> -->
-      <div class="fullCell">
-        <p>Theme</p>
-        <br>
-        <div class="colorButtonHolder">
-          <button data-mode="light" class="theme-dot light">Light</button>
-          <button data-mode="ocean" class="theme-dot ocean">Ocean</button>
-          <button data-mode="green" class="theme-dot green">Green</button>
-          <button data-mode="dark" class="theme-dot dark">Dark</button>
-        </div>
-        <div class="colorButtonHolder">
-          <button data-mode="lightBlue" class="theme-dot lightBlue">light-Blue</button>
-          <button data-mode="Linear" class="theme-dot Linear">Linear</button>
-        </div>
-      </div>
-    <!-- </div> -->
+  <!-- <div class="container zone"> -->
+  <div class="fullCell">
+    <p>Theme</p>
+    <br>
+    <div class="colorButtonHolder">
+      <button data-mode="light" class="theme-dot light">Light</button>
+      <button data-mode="ocean" class="theme-dot ocean">Ocean</button>
+      <button data-mode="green" class="theme-dot green">Green</button>
+      <button data-mode="dark" class="theme-dot dark">Dark</button>
+    </div>
+    <div class="colorButtonHolder">
+      <button data-mode="lightBlue" class="theme-dot lightBlue">light-Blue</button>
+      <button data-mode="Linear" class="theme-dot Linear">Linear</button>
+    </div>
+  </div>
+  <!-- </div> -->
 
-    <div class="container zone"></div>
+  <div class="container zone"></div>
 
   <!-- upload Data
   <h1>Upload Food Database</h1>
 <input type="file" id="upload">
 <p id="outputBx"></p>  -->
-<div class="fullCell">
-  <button class="expButton" onclick="export_FoodDB()">Exportiere - MyFood</button>
-  <button class="expButton" onclick="export_FoodDB_All()">Exportiere - FoodDB</button>
-  <br>
-  <textarea name="" id="txtArea" cols="30" rows="10"></textarea>
-</div>
-
-
- 
+  <div class="fullCell">
+    <button class="expButton" onclick="export_FoodDB()">Exportiere - MyFood</button>
+    <button class="expButton" onclick="export_FoodDB_All()">Exportiere - FoodDB</button>
+    <br>
+    <textarea name="" id="txtArea" cols="30" rows="10"></textarea>
+  </div>
   <footer class="zone blue">Version 1.7.7.1. -- 13.10.2021</footer>
+  <script src="./app.js"></script>
 </body>
-<script src="./app.js"></script>
+
 </html>
