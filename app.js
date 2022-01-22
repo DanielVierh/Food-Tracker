@@ -11,8 +11,8 @@ var my_Statistics = [];
 var additional_Targets = [];
 var my_History = [];
 var bodyWeight = 78;
-var kcal_Ziel = 0;
-var kcal_Requirement = 2500;
+var kcal_Ziel = 2000;
+var kcal_Requirement = 2000;
 
 var selected_Food = "";
 var selectedFoodIndex = 0;
@@ -32,13 +32,13 @@ var form_is_Invisible = false;
 var diff = 0;
 var changeProduct = false;
 var old_Quantity = 0;
-var max_Sugar = 0;
-var max_Salt = 0;
-var min_Protein = 0;
-var min_Fiber = 0;
+var max_Sugar = 50;
+var max_Salt = 7;
+var min_Protein = 90;
+var min_Fiber = 30;
 var min_Steps = 10000;
-var des_Fat = 0;
-var des_Carbs = 0;
+var des_Fat = 80;
+var des_Carbs = 150;
 var new_Water = 0.25;
 var today_Water = 0;
 var originDB = [];
@@ -67,7 +67,6 @@ function loadCont() {
     coloring_Labels();
     show_EffectKcal();
     calc_Values();
-    //load_ProgressbarAnimation();
 }
 
 
@@ -175,8 +174,9 @@ function load_other_LocalStorage_Values() {
 
     // Kcal Ziel
     if (localStorage.getItem('stored_KcalZiel') === null) {
-        document.getElementById("welcomeScrn").style.opacity = "1";
-        document.getElementById("welcomeScrn").style.zIndex = "40";
+        // document.getElementById("welcomeScrn").style.opacity = "1";
+        // document.getElementById("welcomeScrn").style.zIndex = "40";
+        hideWelcomeScreen() // Vorerst reingenommen, um Welcomescreen nicht mehr einzublenden
     } else {
         kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
         document.getElementById('target_KcalZiel').value = kcal_Ziel;
@@ -400,7 +400,6 @@ class StoredTarget {
         this.targetVal = targetVal
     }
 }
-
 
 function show_EffectKcal() {
     show_Statisitcs("show_Effekctive_Kcal");
@@ -1562,6 +1561,7 @@ function calc_Values() {
     eaten_Fiber = 0.0;
     eaten_Amount = 0.0;
 
+    // Summen bilden
     for (var i = 0; i < today_eaten.length; i++) {
         eaten_Kcal += today_eaten[i].intake_kcal;
         eaten_Carbs += today_eaten[i].intake_carbs;
@@ -2371,8 +2371,8 @@ function welcome_Func() {
 
 //  Lade Theme
 let theme = localStorage.getItem('theme');
-if (theme == null) {
-    setTheme('light');
+if (theme === null) {
+    setTheme('dark');
 } else {
     setTheme(theme);
 }
