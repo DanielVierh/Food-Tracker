@@ -1263,14 +1263,14 @@ input:checked + .slider:before {
 
 
 .onboarding_Container{
-position: fixed;
-bottom: 0;
-width: 95%;
-height: 70%;
-background-color: lightblue;
-border-radius: 65px 65px 0 0;
-border:1px solid gray;
-box-shadow: -10px -10px 75px black;
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  height: 70%;
+  background-color: lightblue;
+  border-radius: 65px 65px 0 0;
+  border:1px solid gray;
+  box-shadow: -10px -10px 75px black;
 }
 
 .exitBtn{
