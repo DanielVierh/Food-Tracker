@@ -1,6 +1,6 @@
 // Projekt erstellt am 13.05.2021
 
-// Variabeln 
+// Variabeln
 let buttonAdd = document.getElementById('btnAdd');
 let buttonScroll_Up = document.getElementById('btnscrl_Up');
 var haferflocken = "";
@@ -49,6 +49,7 @@ var lastWater = "";
 var spezDiet_Visible = false;
 var isKeto = false;
 
+const inputField_EatenFood_in_Gramm = document.getElementById("foodAmound");
 
 //====================================================================================
 // Init
@@ -82,31 +83,6 @@ function check_FoodDB() {
 }
 
 
-
-
-
-
-//====================================================================================
-// Upload Food DB
-//====================================================================================
-
-// let upload = document.getElementById('upload');
-// let outputBx = document.getElementById('outputBx');
-
-// upload.addEventListener('change', ()=> {
-//     let fr = new FileReader();
-//     fr.readAsText(upload.files[0]);
-//     fr.onload = function() {
-//         var dataObj = fr.result;
-//         var obj = JSON.parse(dataObj);
-//         let arrAmount = obj.length;
-//         outputBx.innerHTML = arrAmount + " Produkte wurden geladen";
-//     }
-// })
-
-
-
-
 //====================================================================================
 // EventListener
 //====================================================================================
@@ -120,11 +96,6 @@ document.getElementById('searchInput').addEventListener('click', selectWord);
 document.getElementById('foodAmound_Change').addEventListener('click', selectWord2);
 
 document.getElementById("welcomeScrn").addEventListener('click', hideWelcomeScreen);
-
-
-
-
-
 
 
 
@@ -195,7 +166,7 @@ function load_other_LocalStorage_Values() {
         document.getElementById('output_TodayDrank').innerHTML = today_Water + " Liter";
     }
 
-    // Zuletzt getrunken 
+    // Zuletzt getrunken
     if (localStorage.getItem('stored_Last_Water') === null) {
     } else {
         lastWater = JSON.parse(localStorage.getItem("stored_Last_Water"));
@@ -350,7 +321,7 @@ function blendOut_MengeAendern() {
     document.getElementById("btnDeleteFoodFromToday").disabled = true;
     document.getElementById("foodAmound_Change").disabled = true;
 
-    // Disable SpezDiet    
+    // Disable SpezDiet
     document.getElementById("spezDietDiv").style.opacity = "0";
     document.getElementById("diet_List").disabled = true;
     document.getElementById("submitDiet").disabled = true;
@@ -365,7 +336,7 @@ function blendOut_Eingabebereich_FoodDB() {
     document.getElementById("optAreaDB").style.opacity = "0";
     // Disable Schaltflächen
     document.getElementById("btn_Save_to_TodayEaten").disabled = true;
-    document.getElementById("foodAmound").disabled = true;
+    inputField_EatenFood_in_Gramm.disabled = true;
     document.getElementById("btn_ChangeMacros").disabled = true;
 }
 
@@ -489,7 +460,7 @@ function show_Statisitcs(val) {
     var fatSum = 0;
 
     if (val == "show_Effekctive_Kcal") {
-        // >>> EFFEKTIVE KCAL <<<  
+        // >>> EFFEKTIVE KCAL <<<
         document.getElementById("valDescription").innerHTML = "Effek. Kcal";
         document.getElementById("valDescrFett").innerHTML = "Fett";
         document.getElementById("UeberschriftStatisik").innerHTML = "Effektive Kcal -- (Ziel: " + kcal_Ziel + " Kcal)";
@@ -562,7 +533,7 @@ function show_Statisitcs(val) {
         let targetHeight = 500; // Mitte
         document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
 
-        // Fettsumme anzeigen  
+        // Fettsumme anzeigen
 
         if (fatSum > 0) {
             document.getElementById('outputFatSum').innerHTML = "-" + fatSum + " g";
@@ -755,7 +726,7 @@ function show_Statisitcs(val) {
 
         // Verbrannte KCAL
     } else if (val == "show_BurndedKcal") {
-        // >>> Verbrannte KCAL <<<  
+        // >>> Verbrannte KCAL <<<
         const kcalVal = 6.5;
         const diviVal = 10000;
         let burnedKcalGoal = parseInt((min_Steps * kcalVal * bodyWeight) / (diviVal));
@@ -989,7 +960,7 @@ function recordKcal() {
 }
 
 //============================================================================
-// Food Datenbank Tabelle 
+// Food Datenbank Tabelle
 //============================================================================
 
 function createTable_FoodDB() {
@@ -1027,7 +998,7 @@ function createTable_FoodDB() {
 
             blendIn_FoodActionArea();
             // Fokus auf Textfeld setzen
-            document.getElementById('foodAmound').focus();
+            inputField_EatenFood_in_Gramm.focus();
         });
 
 
@@ -1043,7 +1014,7 @@ function createTable_FoodDB() {
 }
 
 //============================================================================
-// Suche 
+// Suche
 //============================================================================
 
 $('#searchInput').on('keyup', function () {
@@ -1103,8 +1074,8 @@ function buildTable(data) {
                 blendIn_FoodActionArea();
                 // Nutri Score
                 show_NutriScore();
-                // Fokus auf Textfeld setzen 
-                document.getElementById('foodAmound').focus();
+                // Fokus auf Textfeld setzen
+                inputField_EatenFood_in_Gramm.focus();
             });
 
             var next = i + 1;
@@ -1132,13 +1103,13 @@ function blendIn_FoodActionArea() {
     document.getElementById("optAreaDB").style.opacity = "1";
     // Disable Schaltflächen
     document.getElementById("btn_Save_to_TodayEaten").disabled = false;
-    document.getElementById("foodAmound").disabled = false;
+    inputField_EatenFood_in_Gramm.disabled = false;
     document.getElementById("btn_ChangeMacros").disabled = false;
 }
 
 
 function show_NutriScore() {
-    /* 
+    /*
     Menge 100 g
     kcal in KJ umwandeln
     Punkte        Energie (Kcal)        Zucker      Salz
@@ -1154,7 +1125,7 @@ function show_NutriScore() {
       9               >721           >40         >0,81
       10              >801           >45         >0,9
 
-      
+
     */
     var badPoints = 0;
     var goodPoints = 0;
@@ -1323,12 +1294,12 @@ function show_NutriScore() {
 //============================================================================
 function checkButton() {
     if (selected_Food != "") {
-        if (document.getElementById('foodAmound').value == "") {
+        if (inputField_EatenFood_in_Gramm.value == "") {
             alert("Bitte eine Menge eingeben");
         } else {
 
             let newProduct = selected_Food.productName;
-            var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
+            var selectedAmount = parseFloat(inputField_EatenFood_in_Gramm.value);
 
             // Produkt hinzufügen
             try {
@@ -1359,7 +1330,7 @@ function checkButton() {
 function add_Food_to_TodayList() {
     //Produkt nicht "", also ausgewählt
     if (selected_Food != "") {
-        if (document.getElementById('foodAmound').value == "") {
+        if (inputField_EatenFood_in_Gramm.value == "") {
             alert("Bitte eine Menge eingeben");
         } else {
 
@@ -1367,7 +1338,7 @@ function add_Food_to_TodayList() {
             let newProduct = selected_Food.productName;
             var alreadyTracked = false;
             var todayEatenIndex = 3000;
-            var selectedAmount = parseFloat(document.getElementById('foodAmound').value);
+            var selectedAmount = parseFloat(inputField_EatenFood_in_Gramm.value);
 
             // Checke ob bereits vorhanden
             for (var i = 0; i < today_eaten.length; i++) {
@@ -1429,7 +1400,7 @@ function add_Food_to_TodayList() {
                 // Speichern
                 save_Today_Eaten();
                 // Aufräumen
-                document.getElementById('foodAmound').value = "";
+                inputField_EatenFood_in_Gramm.value = "";
                 selected_Food = "";
                 selectedFoodIndex = -1;
                 document.getElementById('selectedFoodAnzeige').innerHTML = "";
@@ -1548,7 +1519,7 @@ function change_Food_to_TodayList() {
 }
 
 //============================================================================
-// Lösche Position  
+// Lösche Position
 //============================================================================
 function delete_from_today() {
     if (foodFromToday == true) {
@@ -1927,7 +1898,7 @@ function define_additional_Target() {
     let varName = "tKeto";
     additional_Targets.push(new StoredTarget(varName, isKeto));
 
-    // Save 
+    // Save
     localStorage.setItem("storedAdditionalTargets", JSON.stringify(additional_Targets));
 
     alert("Ziele wurden übernommen");
@@ -2186,7 +2157,7 @@ function makeFieldsInvisible() {
 
 
 //============================================================================
-// Neues Lebensmittel hinzufügen  
+// Neues Lebensmittel hinzufügen
 //============================================================================
 
 function add_new_Food() {
@@ -2384,7 +2355,7 @@ function indexErmittler(searchWord) {
 
 
 //====================================================================================
-// Welcome 
+// Welcome
 //====================================================================================
 
 function welcome_Func() {
@@ -2417,7 +2388,7 @@ for (var i = 0; themeDots.length > i; i++) {
     })
 }
 
-// Theme ändern  
+// Theme ändern
 function setTheme(mode) {
     if (mode == 'light') {
         document.getElementById('theme-style').href = 'style.css';
@@ -2443,7 +2414,7 @@ function setTheme(mode) {
 
 
 //====================================================================================
-// Exportiere Daten 
+// Exportiere Daten
 //====================================================================================
 
 // location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+emailBody;
@@ -2600,8 +2571,3 @@ function sendThisDay() {
     let bodyContent = selectedDate.history_Content;
     location.href = "mailto:" + emailTo + '?cc=' + emailCC + '&subject=' + emailSub + '&body=' + bodyContent;
 }
-
-
-
-
-

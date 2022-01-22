@@ -89,7 +89,7 @@ p{
     align-items: center;
     justify-content: center;
     height: 50vh;
-    
+
 }
 
 h1{
@@ -128,13 +128,13 @@ footer{
 
 /*
 .blue{
-  background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31)); 
+  background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31));
   background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee));
-  background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); 
-  background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); 
-  background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); 
-  background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31)); 
+  background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+  background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+  background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+  background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31));
 }
 */
 
@@ -262,7 +262,7 @@ footer{
     width: 350px;
     padding: 20px;
     border-radius: 90px;
-    text-align: center; 
+    text-align: center;
   }
 
 
@@ -278,7 +278,7 @@ footer{
 }
 
   .form1{
-      
+
       text-align: right;
       padding: 50px;
       color: var(--mainText);
@@ -376,6 +376,9 @@ footer{
     font-size: 44px;
     font-weight: bolder;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-Menge-aendern{
@@ -383,12 +386,12 @@ footer{
     height: 80px;
     background-color: rgb(230, 189, 10);
     color: black;
-    border-radius: 12px;
     font-size: 32px;
     font-weight: bolder;
     margin: 15px;
-    border: 3px solid rgb(255, 255, 255);
-    box-shadow: 5px 5px 15px rgba(186, 187, 187, 0.658);
+    border: 3px solid black;
+    box-shadow: 5px 5px 15px rgba(186, 187, 187, 0.658), inset 6px 6px 10px white;
+    border-radius: 9px;
 }
 
 .inputMengeChange{
@@ -397,6 +400,9 @@ footer{
   font-weight: bolder;
   text-align: center;
   width: 200px;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: inset 5px 5px 18px black;
 }
 
 .checkMarkButton{
@@ -409,6 +415,9 @@ footer{
     background-color: green;
     color: var(--mainText);
     margin: 15px 15px 15px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
   /* Tabelle ALLE PRODUKTE */
@@ -452,7 +461,7 @@ footer{
     background-color: rgb(31, 30, 30);
   }
 
-  
+
 
 /* ============================================================================== */
   /***********************************************************************
@@ -474,7 +483,7 @@ footer{
       max-width: 80%;
       height: 35%;
       border-radius: 20px;
-      
+
   }
 
   .modal_Steps.active{
@@ -489,7 +498,7 @@ footer{
       align-items: center;
       border-bottom: 1px solid rgb(0, 0, 0);
       text-align: center;
-      
+
   }
 
   .modal-header ,title{
@@ -578,7 +587,7 @@ footer{
     max-height: 40vh;
     border: 5px solid black;
     background: var(--mainColor);
-   
+
 }
 
 #titleDatenbank{
@@ -592,7 +601,7 @@ table tr td {
   padding: 10px;
   color: var(--mainText);
   font-weight: bold;
- 
+
 }
 
 td:hover{
@@ -636,7 +645,7 @@ table tr:nth-child(odd) { background: var(--mainColor); }
     font-weight: bold;
     box-shadow: 5px 5px 50px var(--previewShadow);
     border-radius: 30px;
-    
+
 }
 
 .buttonPruefe{
@@ -685,12 +694,12 @@ table tr:nth-child(odd) { background: var(--mainColor); }
 
 table {
     width:100%;
-   
+
   }
   table, th, td {
     border: 1px solid var(--themeDotBorder);
     border-collapse: collapse;
-    
+
   }
    /*
   th, td {
@@ -774,6 +783,7 @@ table {
   .wrapperButton{
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .optButtonStatisik{
@@ -927,7 +937,7 @@ table {
   color: var(--mainText);
   border-radius: 20px;
   box-shadow:5px 5px 29px var(--previewShadow);
-  
+
 }
 
 /* ================================================ */
@@ -994,7 +1004,7 @@ color: var(--mainText);
 .contr{
   display: flex;
   justify-content: center;
-  
+
 }
 
 .macroContainer{
@@ -1077,6 +1087,7 @@ color: var(--mainText);
   display: flex;
   justify-content: center;
   text-align: center;
+  min-height: 130px;
 }
 
 .cont{
@@ -1164,7 +1175,7 @@ color: var(--mainText);
 }
 
 /* --------------------------------------
-Togglebutton 
+Togglebutton
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
 
 .switch {
@@ -1174,7 +1185,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
