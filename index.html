@@ -32,7 +32,13 @@
     <h1></h1>
   </div>
   <div class="zone blue grid-wrapper">
-    <h1>Heute</h1>
+    <div class="circleContainer" id="circleAnimationArea">
+      <svg width="250" height="250">
+        <circle r="110" cx="125" cy="125" class="track"></circle>
+        <text x="75" y="140" class="percentText" id="txtPercent">0%</text>
+        <circle r="110" cx="125" cy="125" class="progress"></circle>
+    </svg>
+    </div>
     <button class="button_TagAbschl" onclick="close_Day()">Tag abschliessen</button>
   </div>
 
@@ -91,13 +97,14 @@
     <p id="output_Gramm">0 g gegessen</p>
   </div>
 
-  <div class="fullCell">
+    <!-- Progress Bar   -->
+  <!-- <div class="fullCell">
     <p style="text-align: center;">Progress</p>
   </div>
-  <!-- Progress Bar   -->
+
   <div class="fullCell">
     <div id="progress_Bar" class="progress">100%</div>
-  </div>
+  </div> -->
 
   <!-- ================================================================ -->
   <!-- Heute gegessen Tabelle -->

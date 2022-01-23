@@ -158,7 +158,7 @@ footer {
 
 /* Progress bar */
 
-.progress {
+/* .progress {
     width: 100%;
     height: 45px;
     background: linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22));
@@ -169,7 +169,41 @@ footer {
     color: var(--mainText);
     text-align: right;
     border: 5px solid rgba(255, 255, 255, 0.336);
+} */
+
+.circleContainer{
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border: 1px solid rgba(173, 216, 230, 0.158);
 }
+
+.track {
+    stroke-width: 1;
+    stroke: rgba(211, 211, 211, 0.233);
+    fill: none;
+    stroke-width: 30;
+}
+
+.progress {
+    stroke-width: 30;
+    stroke: rgb(17, 136, 6);
+    stroke-linecap: round;
+    fill: none;
+    transform: rotate(270deg);
+    transform-origin: center;
+    transition: 1s ease-in-out;
+}
+
+.percentText{
+    font-size: 45px;
+    font-weight: bold;
+    font-family: sans-serif;
+    fill: white;
+}
+
 
 .uebersicht_Values {
     font-weight: bolder;
