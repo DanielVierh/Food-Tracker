@@ -1848,7 +1848,7 @@ function calc_Values() {
         progressCircle.style.stroke = 'red';
         // document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
     } else {
-        progressCircle.style.stroke = 'green';
+        progressCircle.style.stroke = 'rgb(12, 255, 12);';
         // document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
     }
     // document.getElementById('progress_Bar').style.width = progressValKcal + "%";
