@@ -1,26 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="shortcut icon" type="image/png" href="Logo.png" />
+        <link id="theme-style" rel="stylesheet" href="" />
+        <link rel="apple-touch-icon" href="Logo.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Food Tracker-Einstellungen</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="shortcut icon" type="image/png" href="Logo.png">
-    <link id="theme-style" rel="stylesheet" href="">
-    <link rel="apple-touch-icon" href="Logo.png">
-    <title>Food Tracker-Einstellungen</title>
-</head>
+    <body>
+        <div class="exitBtn" id="exitBtn">Zurück</div>
+        <div class="onboarding_Main">
+            <div class="onboarding_Container" id="onboardingCard">
+                <div class="statusbar">
+                    <div class="point active">1</div>
+                    <div class="point">2</div>
+                    <div class="point">3</div>
+                    <div class="point">4</div>
+                </div>
+                <div class="formularfield">
+                    <h1 id="headline">Grundeinstellungen</h1>
+                    <button class="buttonWeiter">Weiter <i class="fas fa-arrow-right"></i></button>
+                    <div class="genderContainer">
+                        <div class="optionBox">
+                            <input
+                                type="radio"
+                                name="gender"
+                                class="radioBtn"
+                                id="opt_Male"
+                                value="male"
+                            />
+                            Mann <br />
+                        </div>
+                        <div class="optionBox">
+                            <input
+                                type="radio"
+                                name="gender"
+                                class="radioBtn"
+                                id="opt_Female"
+                                value="female"
+                            />
+                            Frau <br />
+                        </div>
+                    </div>
 
-<body>
-    <div class="exitBtn" id="exitBtn">Zurück</div>
-    <div class="onboarding_Main">
-        <h1>Einstellungen</h1>
-        <div class="onboarding_Container" id="onboardingCard">
+                    <label>Gewicht</label>
+                    <input type="text" pattern="\d*" value="" id="weight" class="inputMenge" placeholder=" in kg">
+                    <br>
+                    <label>Größe z.B. 180</label>
+                    <input type="text" pattern="\d*" value="" id="height" class="inputMenge" placeholder=" in cm">
+                    <br>
+                    <label>Alter</label>
+                    <input type="text" pattern="\d*" value="" id="age" class="inputMenge" placeholder="">
+                    <br>
+                        <label>Dein Zielgewicht</label>
+                        <input type="text" pattern="\d*" value="" id="target_Weight" class="inputMenge" placeholder=" in kg">
+                    <br>
+                        <label>In welchem Zeitraum willst du es schaffen z.B. 2 Monate</label>
+                        <input type="text" pattern="\d*" value="" id="target_Time" class="inputMenge" placeholder="Monat">
 
+                </div>
+            </div>
         </div>
-    </div>
 
-<script src="settings.js"></script>
-</body>
-
+        <script src="settings.js"></script>
+    </body>
 </html>
