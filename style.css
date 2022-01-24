@@ -91,8 +91,8 @@ p {
 }
 
 h1 {
-    text-align: left;
-    margin: 70px 70px 70px 70px;
+    text-align: center;
+    margin: 15px;
 }
 
 /* Projects */
@@ -476,6 +476,8 @@ footer {
     justify-content: center;
     background-color: #313235;
 }
+
+
 
 #statusX {
     font-size: 30px;
