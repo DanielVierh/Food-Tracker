@@ -98,7 +98,7 @@ h1 {
 /* Projects */
 .grid-wrapper {
     display: grid;
-    gap: 20px;
+    gap: 2px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     background: var(--mainColor);
 }
@@ -153,7 +153,7 @@ footer {
     height: 110px;
     border-radius: 20px;
     border: 2px solid var(--borderColor);
-    box-shadow: 5px 5px 20px var(--previewShadow);
+    box-shadow: 1px 1px 10px var(--previewShadow);
 }
 
 /* Progress bar */
@@ -172,7 +172,7 @@ footer {
 } */
 
 .circleContainer{
-    height: 280px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -355,7 +355,7 @@ footer {
     font-size: 24px;
     border-radius: 20px;
     font-weight: bold;
-    margin: 100px 80px 50px 150px;
+    margin: 100px 20px 50px 210px;
     justify-content: center;
 }
 
