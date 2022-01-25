@@ -851,6 +851,9 @@ table.names th {
     justify-content: center;
     border-radius: 12px;
     border: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .outputButtonWater {
