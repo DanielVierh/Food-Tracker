@@ -55,7 +55,14 @@ let originalPercentValue = 0;
 const inputField_EatenFood_in_Gramm = document.getElementById('foodAmound');
 const progressCircle = document.querySelector('.progress');
 const txtPercent = document.getElementById('txtPercent');
-const circleAnimationArea = document.getElementById("circleAnimationArea");
+const circleAnimationArea = document.getElementById('circleAnimationArea');
+
+const carbLabel = document.getElementById('output_Carbs');
+const sugarLabel = document.getElementById('output_Sugar');
+const proteinLabel = document.getElementById('output_Protein');
+const fatLabel = document.getElementById('output_Fat');
+const saltLabel = document.getElementById('output_Salt');
+const fiberLabel = document.getElementById('output_Fiber');
 
 //====================================================================================
 // Init
@@ -325,7 +332,9 @@ function selectWord2() {
 
 // Textfeld und Button für Menge ändern ausblenden
 function blendOut_MengeAendern() {
-    document.getElementById('invisible_ChangeSection_HeuteGegessen').hidden = true;
+    document.getElementById(
+        'invisible_ChangeSection_HeuteGegessen',
+    ).hidden = true;
     // Disable Schaltflächen
     document.getElementById('btnChangeQuantity').disabled = true;
     document.getElementById('btnDeleteFoodFromToday').disabled = true;
@@ -1647,7 +1656,9 @@ function create_Table_TodayEaten() {
             document.getElementById('foodAmound_Change').value =
                 selected_Food.intake_amount;
             // Sichbar machen
-            document.getElementById('invisible_ChangeSection_HeuteGegessen').hidden = false;
+            document.getElementById(
+                'invisible_ChangeSection_HeuteGegessen',
+            ).hidden = false;
             // Enable Schaltflächen
             document.getElementById('btnChangeQuantity').disabled = false;
             document.getElementById('btnDeleteFoodFromToday').disabled = false;
@@ -1820,18 +1831,12 @@ function calc_Values() {
             Math.abs(diff) + ' Kcal zu viel &#128577';
     }
 
-    document.getElementById('output_Carbs').innerHTML =
-        eaten_Carbs.toFixed(1) + ' g';
-    document.getElementById('output_Sugar').innerHTML =
-        eaten_Sugar.toFixed(1) + ' g';
-    document.getElementById('output_Protein').innerHTML =
-        eaten_Protein.toFixed(1) + ' g';
-    document.getElementById('output_Fat').innerHTML =
-        eaten_Fat.toFixed(1) + ' g';
-    document.getElementById('output_Salt').innerHTML =
-        eaten_Salt.toFixed(1) + ' g';
-    document.getElementById('output_Fiber').innerHTML =
-        eaten_Fiber.toFixed(1) + ' g';
+    carbLabel.innerHTML = eaten_Carbs.toFixed(1) + ' g';
+    sugarLabel.innerHTML = eaten_Sugar.toFixed(1) + ' g';
+    proteinLabel.innerHTML = eaten_Protein.toFixed(1) + ' g';
+    fatLabel.innerHTML = eaten_Fat.toFixed(1) + ' g';
+    saltLabel.innerHTML = eaten_Salt.toFixed(1) + ' g';
+    fiberLabel.innerHTML = eaten_Fiber.toFixed(1) + ' g';
     document.getElementById('output_Gramm').innerHTML =
         parseInt(eaten_Amount) + ' g gegessen';
 
@@ -1844,7 +1849,7 @@ function calc_Values() {
         progressCircle.style.stroke = 'red';
         // document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
     } else {
-        progressCircle.style.stroke = 'rgb(12, 255, 12);';
+        progressCircle.style.stroke = 'rgb(12, 255, 12)';
         // document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
     }
     // document.getElementById('progress_Bar').style.width = progressValKcal + "%";
@@ -1892,19 +1897,18 @@ function under10(val) {
     return val;
 }
 
-
-circleAnimationArea.addEventListener("click", ()=>{
+circleAnimationArea.addEventListener('click', () => {
     resetProgressCircle();
-})
+    showTargets();
+});
 
 function resetProgressCircle() {
     countedPercentNumber = 0;
     initChangeProgress(0, 0);
     setTimeout(() => {
         calc_Values();
-    }, 1500);
+    }, 4000);
 }
-
 
 function countingAnimation() {
     if (countedPercentNumber < originalPercentValue) {
@@ -1912,6 +1916,16 @@ function countingAnimation() {
         countedPercentNumber++;
         setTimeout(countingAnimation, 15);
     }
+}
+
+function showTargets() {
+    // Blende die Ziele ein
+    carbLabel.innerHTML = `${eaten_Carbs.toFixed(1)} / Max ${des_Carbs}`;
+    sugarLabel.innerHTML = `${eaten_Sugar.toFixed(1)} / Max ${max_Sugar}`;
+    proteinLabel.innerHTML = `${eaten_Protein.toFixed(1)} / Min ${min_Protein}`;
+    fatLabel.innerHTML = `${eaten_Fat.toFixed(1)} / Max ${des_Fat}`;
+    fiberLabel.innerHTML = `${eaten_Fiber.toFixed(1)} / Min ${min_Fiber}`;
+    saltLabel.innerHTML = `${eaten_Salt.toFixed(1)} / Max ${max_Salt}`;
 }
 
 //============================================================================
@@ -1962,52 +1976,46 @@ function colorizeTargetProgress() {
     let isMinVal = [eaten_Protein, eaten_Fiber, today_Steps];
 
     if (eaten_Sugar >= max_Sugar) {
-        document.getElementById('output_Sugar').style.color = 'red';
+        sugarLabel.style.color = 'red';
     } else {
-        document.getElementById('output_Sugar').style.color =
-            'rgb(27, 206, 27)';
+        sugarLabel.style.color = 'rgb(27, 206, 27)';
     }
 
     if (eaten_Salt >= max_Salt) {
-        document.getElementById('output_Salt').style.color = 'red';
+        saltLabel.style.color = 'red';
     } else {
-        document.getElementById('output_Salt').style.color = 'rgb(27, 206, 27)';
+        saltLabel.style.color = 'rgb(27, 206, 27)';
     }
 
     if (eaten_Protein < min_Protein) {
-        document.getElementById('output_Protein').style.color = 'red';
+        proteinLabel.style.color = 'red';
     } else {
-        document.getElementById('output_Protein').style.color =
-            'rgb(27, 206, 27)';
+        proteinLabel.style.color = 'rgb(27, 206, 27)';
     }
 
     if (eaten_Fiber < min_Fiber) {
-        document.getElementById('output_Fiber').style.color = 'red';
+        fiberLabel.style.color = 'red';
     } else {
-        document.getElementById('output_Fiber').style.color =
-            'rgb(27, 206, 27)';
+        fiberLabel.style.color = 'rgb(27, 206, 27)';
     }
 
     if (eaten_Carbs > des_Carbs) {
-        document.getElementById('output_Carbs').style.color = 'red';
+        carbLabel.style.color = 'red';
     } else {
-        document.getElementById('output_Carbs').style.color =
-            'rgb(27, 206, 27)';
+        carbLabel.style.color = 'rgb(27, 206, 27)';
     }
 
     if (isKeto == true) {
         if (eaten_Fat > des_Fat) {
-            document.getElementById('output_Fat').style.color =
-                'rgb(27, 206, 27)';
+            fatLabel.style.color = 'rgb(27, 206, 27)';
         } else {
-            document.getElementById('output_Fat').style.color = 'red';
+            fatLabel.style.color = 'red';
         }
     } else {
         if (eaten_Fat < des_Fat) {
-            document.getElementById('output_Fat').style.color =
-                'rgb(27, 206, 27)';
+            fatLabel.style.color = 'rgb(27, 206, 27)';
         } else {
-            document.getElementById('output_Fat').style.color = 'red';
+            fatLabel.style.color = 'red';
         }
     }
 }
@@ -2379,27 +2387,15 @@ function close_Day() {
                 burned_Kcal = parseInt(realKcal);
                 calc_Values();
             }
-            let todaySugar = parseFloat(
-                document.getElementById('output_Sugar').innerHTML,
-            );
-            let todayFat = parseFloat(
-                document.getElementById('output_Fat').innerHTML,
-            );
-            let todayFiber = parseFloat(
-                document.getElementById('output_Fiber').innerHTML,
-            );
-            let todayProtein = parseFloat(
-                document.getElementById('output_Protein').innerHTML,
-            );
-            let todayCarbs = parseFloat(
-                document.getElementById('output_Carbs').innerHTML,
-            );
+            let todaySugar = parseFloat(sugarLabel.innerHTML);
+            let todayFat = parseFloat(fatLabel.innerHTML);
+            let todayFiber = parseFloat(fiberLabel.innerHTML);
+            let todayProtein = parseFloat(sproteinLabel.innerHTML);
+            let todayCarbs = parseFloat(carbLabel.innerHTML);
             let todayGramm = parseFloat(
                 document.getElementById('output_Gramm').innerHTML,
             );
-            let todaySalt = parseFloat(
-                document.getElementById('output_Salt').innerHTML,
-            );
+            let todaySalt = parseFloat(saltLabel.innerHTML);
             let todayDiff =
                 parseInt(kcal_Requirement) +
                 parseInt(burned_Kcal) -
