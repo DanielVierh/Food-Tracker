@@ -2390,7 +2390,7 @@ function close_Day() {
             let todaySugar = parseFloat(sugarLabel.innerHTML);
             let todayFat = parseFloat(fatLabel.innerHTML);
             let todayFiber = parseFloat(fiberLabel.innerHTML);
-            let todayProtein = parseFloat(sproteinLabel.innerHTML);
+            let todayProtein = parseFloat(proteinLabel.innerHTML);
             let todayCarbs = parseFloat(carbLabel.innerHTML);
             let todayGramm = parseFloat(
                 document.getElementById('output_Gramm').innerHTML,
