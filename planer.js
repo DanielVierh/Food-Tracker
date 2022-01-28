@@ -6,7 +6,7 @@ var today_eaten = [];
 var selected_Food = "";
 var selectedFoodIndex = 0;
 var foodFromToday = false;
-var kcal_Ziel = 1;
+var kcal_Ziel = 2000;
 var max_Sugar = 0;
 var max_Salt = 0;
 var min_Protein = 0;
@@ -22,14 +22,13 @@ var old_Quantity = 0;
 var could_Load_TodayEaten = false;
 
 
-
-
 document.addEventListener('DOMContentLoaded', loadCont);
-
 // Damit gesuchtes Produkt direkt überschreibbar ist
 document.getElementById('searchInput').addEventListener('click', selectWord);
-
 document.getElementById('foodAmound_Change').addEventListener('click', selectWord2);
+
+const label_kcal_Ziel = document.getElementById("target_KcalZiel");
+const label_PlanInPercent = document.getElementById("progress_Val");
 
 // Wort markieren
 function selectWord() {
@@ -76,11 +75,11 @@ function load_other_LocalStorage_Values() {
   }
 
   // Kcal Ziel
-  if (localStorage.getItem('stored_KcalZiel') === null) {
-  } else {
+  if (localStorage.getItem('stored_KcalZiel') !== null) {
     kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
-    // document.getElementById('target_KcalZiel').innerHTML = "Kcal Ziel <br>" + kcal_Ziel;
   }
+    label_kcal_Ziel.innerHTML = "Kcal Ziel <br>" + kcal_Ziel;
+
 
   // Weitere Ziele
   if (localStorage.getItem('storedAdditionalTargets') === null) {
@@ -245,7 +244,7 @@ function change_Food_to_TodayList() {
 }
 
 //============================================================================
-// Lösche Position  
+// Lösche Position
 //============================================================================
 function delete_from_today() {
   if (foodFromToday == true) {
@@ -399,7 +398,7 @@ function duplicateList_AndDeleteSelf() {
 
 
 //============================================================================
-// Food Datenbank Tabelle 
+// Food Datenbank Tabelle
 //============================================================================
 
 function createTable_FoodDB() {
@@ -452,7 +451,7 @@ function createTable_FoodDB() {
 }
 
 //============================================================================
-// Suche 
+// Suche
 //============================================================================
 
 $('#searchInput').on('keyup', function () {
@@ -512,7 +511,7 @@ function buildTable(data) {
         blendIn_FoodActionArea();
         // Nutri Score
         show_NutriScore();
-        // Fokus auf Textfeld setzen 
+        // Fokus auf Textfeld setzen
         document.getElementById('foodAmound').focus();
       });
 
@@ -707,9 +706,9 @@ function calc_Values() {
 
 
   if (diff > 0) {
-    document.getElementById('output_Diff').innerHTML = "Diff <br>" + diff + " übrig";
+    document.getElementById('output_Diff').innerHTML = "Kcal Diff <br>" + diff + " übrig";
   } else {
-    document.getElementById('output_Diff').innerHTML = "Diff <br>" + Math.abs(diff) + " zu viel";
+    document.getElementById('output_Diff').innerHTML = "Kcal Diff <br>" + Math.abs(diff) + " zu viel";
   }
 
 
@@ -724,15 +723,16 @@ function calc_Values() {
   // Progress Bar
   var progressValKcal = ((planned_Kcal * 100 / (kcal_Ziel)))
   let originProgressVal = progressValKcal
-  // // Wenn berechneter Wert über 100 dann 100
-  if (progressValKcal >= 100) {
-    progressValKcal = 100
-    document.getElementById('progress_Val').style.color = "rgb(221, 22, 22)";
-  } else {
-    document.getElementById('progress_Val').style.color = "rgb(4, 167, 4)";
-  }
-  document.getElementById('progress_Val').style.width = "Plan <br>" + progressValKcal + "%";
-  document.getElementById('progress_Val').innerHTML = "Plan <br>" + Math.round(originProgressVal) + "%";
+  // ! Bedingte Färbung des % Wertes ausgeschaltet
+  // if (progressValKcal >= 100) {
+  //   label_PlanInPercent.style.color = "red";
+  // } else {
+  //   label_PlanInPercent.style.color = "green";
+  // }
+  label_PlanInPercent.style.color = "yellow";
+  label_PlanInPercent.style.fontSize = "3rem";
+  label_PlanInPercent.style.width = "Plan <br>" + progressValKcal + "%";
+  label_PlanInPercent.innerHTML = "Plan <br>" + Math.round(originProgressVal) + "%";
 
   coloring_Labels();
 }
@@ -760,7 +760,7 @@ for (var i = 0; themeDots.length > i; i++) {
   })
 }
 
-// Theme ändern  
+// Theme ändern
 function setTheme(mode) {
   if (mode == 'light') {
     document.getElementById('theme-style').href = 'style.css';
@@ -891,7 +891,7 @@ function discardPlan() {
 
 
 function show_NutriScore() {
-  /* 
+  /*
   Menge 100 g
   kcal in KJ umwandeln
   Punkte        Energie (Kcal)        Zucker      Salz
@@ -907,7 +907,7 @@ function show_NutriScore() {
     9               >721           >40         >0,81
     10              >801           >45         >0,9
 
-    
+
   */
   var badPoints = 0;
   var googPoints = 0;
