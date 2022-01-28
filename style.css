@@ -1021,6 +1021,7 @@ table.names th {
     border-radius: 25px;
     border: 3px solid var(--borderColor);
     box-shadow: 5px 5px 15px var(--previewShadow);
+    padding: 8px;
 }
 
 .row {
