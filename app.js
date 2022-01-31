@@ -115,6 +115,23 @@ function hideWelcomeScreen() {
     document.getElementById('welcomeScrn').style.zIndex = '-1';
 }
 
+
+// Fullscreen Mode
+function toggleFullScreen() {
+    if(document.fullscreenElement) {
+        document.exitFullscreen();
+    }else{
+        document.documentElement.requestFullscreen().catch((error) => {
+            //console.log(error);
+        });
+    }
+}
+
+document.addEventListener('dblclick', () => {
+    toggleFullScreen();
+});
+
+
 //====================================================================================
 // Save,  Load or create DB
 //====================================================================================
