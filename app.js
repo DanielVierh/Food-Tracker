@@ -64,6 +64,22 @@ const fatLabel = document.getElementById('output_Fat');
 const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
 
+// Modal
+const modalOverlay = document.getElementById('modalOverlay');
+const btn_ShowModalButton = document.getElementById('btn_ShowModal');
+const btn_CloseModal = document.getElementById('close-modal');
+
+// Modal einblenden
+btn_ShowModalButton.addEventListener('click', () => {
+    modalOverlay.style.display = 'block';
+});
+
+
+// Einstellungen ausblenden
+btn_CloseModal.addEventListener('click', () => {
+    modalOverlay.style.display = 'none';
+});
+
 //====================================================================================
 // Init
 //====================================================================================
@@ -96,7 +112,7 @@ function check_FoodDB() {
 // EventListener
 //====================================================================================
 // TODO: In Variablen packen und auf Vorhandenheit abfragen
-buttonAdd.addEventListener('click', addProduct);
+// buttonAdd.addEventListener('click', addProduct);
 buttonScroll_Up.addEventListener('click', scroll_UP);
 
 // Damit gesuchtes Produkt direkt überschreibbar ist
