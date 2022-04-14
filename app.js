@@ -2859,6 +2859,7 @@ function add_new_Food() {
 //============================================================================
 
 function changeMacros() {
+    modalOverlay.style.display = 'none';
     goto_NewProduct();
     changeProduct = true;
     // Content laden
