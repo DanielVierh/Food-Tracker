@@ -615,6 +615,7 @@ title {
 
 #titleDatenbank {
     text-align: center;
+    font-size: 1rem;
 }
 
 table {
@@ -1412,16 +1413,16 @@ input:checked + .slider:before {
 
   .buttonClose {
     position: fixed;
-    top: 0;
-    right: 0;
-    margin: 25px;
-    background-color: red;
-    color: white;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: lightblue;
+    color: black;
     font-size: 3rem;
     font-weight: bold;
-    border-radius: 50%;
+    border-radius: 15px;
     height: 70px;
-    width: 70px;
+    padding: 1rem;
 
     border: 1px solid #d40b0b;
     -webkit-box-shadow: inset 2px 2px 10px white;
@@ -1443,7 +1444,7 @@ input:checked + .slider:before {
     color: #4b5558;
   }
 
-/* .madalHeader {
+.madalHeader {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1453,9 +1454,9 @@ input:checked + .slider:before {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 0.3rem;
+    padding: 3rem;
     background: #4b5558;
-  } */
+  }
 
 
 
