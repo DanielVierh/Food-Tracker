@@ -602,6 +602,12 @@
     <button class="expButton" onclick="export_FoodDB()">Exportiere - MyFood</button>
     <button class="expButton" onclick="export_FoodDB_All()">Exportiere - FoodDB</button>
     <br>
+    <div class="deleteWrapper">
+      <button class="expButton" onclick="deleteDayWithoutHistory()" style="color: red; margin: 30px 200px;">Tag verwerfen</button>
+      <button class="expButton" onclick="deleteDHistory()" style="color: red; margin: 30px 200px;">History löschen</button>
+      <button class="expButton" onclick="deleteStatistics()" style="color: red; margin: 30px 200px;">Statistik löschen</button>
+    </div>
+
     <textarea name="" id="txtArea" cols="30" rows="10"></textarea>
   </div>
   <footer class="zone blue">Version 1.8.0. -- 24.01.2022</footer>
