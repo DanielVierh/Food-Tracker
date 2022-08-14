@@ -63,6 +63,7 @@ const proteinLabel = document.getElementById('output_Protein');
 const fatLabel = document.getElementById('output_Fat');
 const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
+const body = document.querySelector("body");
 
 // Modal
 const modalOverlay = document.getElementById('modalOverlay');
@@ -71,7 +72,9 @@ const btn_CloseModal = document.getElementById('close-modal');
 
 // Modal einblenden
 btn_ShowModalButton.addEventListener('click', () => {
+    body.classList.add("notAv");
     modalOverlay.style.display = 'block';
+    console.log(`Bodyheight: ${body.style.height}`);
 });
 
 
