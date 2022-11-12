@@ -46,8 +46,8 @@ body {
     justify-content: center;
     background: var(--mainColor);
     background-color: var(--mainColor);
-        /* !LÖSCHEN */
-        background: transparent;
+    /* !LÖSCHEN */
+    background: transparent;
 }
 
 .push {
@@ -173,7 +173,7 @@ footer {
     border: 5px solid rgba(255, 255, 255, 0.336);
 } */
 
-.circleContainer{
+.circleContainer {
     height: 250px;
     display: flex;
     align-items: center;
@@ -201,7 +201,7 @@ footer {
     transition: 1s ease-in-out;
 }
 
-.percentText{
+.percentText {
     font-size: 45px;
     font-weight: bold;
     font-family: sans-serif;
@@ -221,13 +221,16 @@ footer {
 /* Neues Essen hinzufügen */
 
 .bg-text {
-    background-color: var(--mainColor); /* Fallback color */
-    opacity: 0.9; /* Black w/opacity/see-through */
+    background-color: var(--mainColor);
+    /* Fallback color */
+    opacity: 0.9;
+    /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
-    position: fixed; /* Stay fixed */
+    position: fixed;
+    /* Stay fixed */
     top: 90%;
     left: 10%;
     transform: translate(-50%, -50%);
@@ -240,6 +243,7 @@ footer {
     text-align: center;
     height: 150px;
 }
+
 .bg-text:hover {
     transition: ease-in-out 1s;
     box-shadow: 7px 7px 95px var(--previewShadow);
@@ -247,13 +251,16 @@ footer {
 
 /* Nach oben Button  */
 .bg-text2 {
-    background-color: var(--mainColor); /* Fallback color */
-    opacity: 0.9; /* Black w/opacity/see-through */
+    background-color: var(--mainColor);
+    /* Fallback color */
+    opacity: 0.9;
+    /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
-    position: fixed; /* Stay fixed */
+    position: fixed;
+    /* Stay fixed */
     top: 90%;
     left: 90%;
     transform: translate(-50%, -50%);
@@ -275,13 +282,16 @@ footer {
 
 /* Schritte */
 .bg-text3 {
-    background-color: var(--mainColor); /* Fallback color */
-    opacity: 0.9; /* Black w/opacity/see-through */
+    background-color: var(--mainColor);
+    /* Fallback color */
+    opacity: 0.9;
+    /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
-    position: fixed; /* Stay fixed */
+    position: fixed;
+    /* Stay fixed */
     top: 15%;
     left: 55%;
     transform: translate(-50%, -50%);
@@ -364,6 +374,7 @@ footer {
 #output_Gramm {
     margin-left: 30px;
 }
+
 /***********************************************************************
  *  Tabelle Heute gegessen
  **********************************************************************/
@@ -424,7 +435,7 @@ footer {
 
 } */
 
-#foodAmound_Change{
+#foodAmound_Change {
     margin: 15px;
     font-size: 42px;
     font-weight: bolder;
@@ -638,6 +649,7 @@ table {
     min-height: 100px;
     font-size: 34px;
 }
+
 table tr td {
     border: 1px solid var(--themeDotBorder);
     padding: 10px;
@@ -725,12 +737,14 @@ table tr:nth-child(odd) {
 table {
     width: 100%;
 }
+
 table,
 th,
 td {
     border: 1px solid var(--themeDotBorder);
     border-collapse: collapse;
 }
+
 /*
   th, td {
     padding: 5px;
@@ -745,6 +759,7 @@ table.names tr:nth-child(odd) {
     background: var(--mainColor);
     text-align: center;
 }
+
 table.names th {
     background-color: black;
     color: rgb(245, 241, 11);
@@ -783,18 +798,22 @@ table.names th {
     left: 32%;
     height: 0px;
 }
+
 .c4 {
     left: 44%;
     height: 0px;
 }
+
 .c5 {
     left: 56%;
     height: 0px;
 }
+
 .c6 {
     left: 68%;
     height: 0px;
 }
+
 .c7 {
     left: 80%;
     height: 0px;
@@ -840,6 +859,7 @@ table.names th {
     padding: 20px;
     text-align: center;
 }
+
 /* ================================================ */
 /* Wasser */
 /* ================================================ */
@@ -1128,6 +1148,7 @@ table.names th {
     font-weight: bold;
     transition: ease-in-out 1s;
 }
+
 .C_A {
     background: green;
 }
@@ -1236,15 +1257,15 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
     transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #33f321;
 }
 
-input:focus + .slider {
+input:focus+.slider {
     box-shadow: 0 0 1px #33f321;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
@@ -1385,17 +1406,17 @@ input:checked + .slider:before {
     text-align: right;
 }
 
-.buttonWeiter{
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 10px;
-  background-color: #111f3d;
-  color: white;
-  border-radius: 10px;
-  height: 120px;
-  width: 200px;
-  border: 3px solid black;
-  box-shadow: 5px 5px 10px black;
+.buttonWeiter {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #111f3d;
+    color: white;
+    border-radius: 10px;
+    height: 120px;
+    width: 200px;
+    border: 3px solid black;
+    box-shadow: 5px 5px 10px black;
 }
 
 
@@ -1411,9 +1432,9 @@ input:checked + .slider:before {
     z-index: 30;
     background-color: rgba(0, 0, 0, 0.9);
 
-  }
+}
 
-  #modal {
+#modal {
     width: 100vw;
     height: 100vh;
     margin: auto;
@@ -1425,11 +1446,11 @@ input:checked + .slider:before {
     background: var(--mainColor);
     border-radius: 15px;
     -webkit-box-shadow: 0 0 35px black;
-            box-shadow: 0 0 35px black;
+    box-shadow: 0 0 35px black;
     color: white;
-  }
+}
 
-  .buttonClose {
+.buttonClose {
     position: fixed;
     bottom: 25px;
     left: 50%;
@@ -1445,37 +1466,37 @@ input:checked + .slider:before {
 
     border: 1px solid #d40b0b;
     -webkit-box-shadow: inset 2px 2px 10px white;
-            box-shadow: inset 2px 2px 10px white;
+    box-shadow: inset 2px 2px 10px white;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     font-family: sans-serif;
-  }
+}
 
-  .emptyButton {
+.emptyButton {
     color: #4b5558;
-  }
+}
 
 .madalHeader {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     padding: 3rem;
     background: #4b5558;
-  }
+}
 
 
 
@@ -1485,34 +1506,51 @@ input:checked + .slider:before {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     font-family: sans-serif;
-  }
+}
 
 
-  .saveButton {
+.saveButton {
     background-color: green;
     color: white;
     border-radius: 25px;
     border: 1px solid green;
     padding: 0.5rem;
     -webkit-box-shadow: inset 2px 2px 10px white;
-            box-shadow: inset 2px 2px 10px white;
+    box-shadow: inset 2px 2px 10px white;
     cursor: pointer;
     width: 130px;
     height: 38px;
     font-weight: bold;
     font-size: 1rem;
-  }
+}
 
 
-  .notAv {
+.notAv {
     height: 0;
-  }
+}
+
+.nutriLabelToday {
+    display: none;
+}
+
+.nutriLabelToday.active {
+    display: block;
+    font-size: .4em;
+    margin: 25px 25px 50px 25px;
+}
+
+.outp_nutriScore {
+    background-color: gray;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+}

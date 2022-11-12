@@ -64,6 +64,10 @@ const fatLabel = document.getElementById('output_Fat');
 const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
 const body = document.querySelector("body");
+const lbl_todayNutri = document.getElementById("lbl_todayNutri");
+const outp_nutriScore = document.getElementById("outp_nutriScore");
+
+
 
 // Modal
 const modalOverlay = document.getElementById('modalOverlay');
@@ -137,9 +141,9 @@ function hideWelcomeScreen() {
 
 // Fullscreen Mode
 function toggleFullScreen() {
-    if(document.fullscreenElement) {
+    if (document.fullscreenElement) {
         document.exitFullscreen();
-    }else{
+    } else {
         document.documentElement.requestFullscreen().catch((error) => {
             //console.log(error);
         });
@@ -1307,7 +1311,6 @@ function show_NutriScore() {
     let check_Salt = parseFloat((calcAmound * selected_Food.salt) / 100);
     let check_Protein = parseFloat((calcAmound * selected_Food.protein) / 100);
     let check_Fiber = parseFloat((calcAmound * selected_Food.fiber) / 100);
-
     // Check Kcal
     if (check_Kcal < 40) {
         badPoints += -1;
@@ -1455,7 +1458,85 @@ function show_NutriScore() {
         nutriScoreChar = 'A';
         color = 'green';
     }
+
+    return nutriScore;
 }
+
+function averageNutriScore() {
+    let nutriArray = [];
+
+    // Array mit Score Werten befüllen
+    for (let i = 0; i < today_eaten.length; i++) {
+        selectedFoodIndex = indexOfFood(today_eaten[i].intake_productName);
+        selected_Food = array_Food_DB[selectedFoodIndex];
+        nutriArray.push(show_NutriScore());
+    }
+
+    // Durchschnitt berechnen
+    let averageVal = 0;
+    let sum = 0;
+    const nutriArrayAmount = nutriArray.length;
+    for (let j = 0; j < nutriArray.length; j++) {
+        sum += nutriArray[j];
+    }
+    averageVal = parseInt(sum / nutriArrayAmount);
+
+    // Wert abbilden
+    if (averageVal > 0) {
+        lbl_todayNutri.classList.add("active");
+        switch (averageVal) {
+            case 1:
+                outp_nutriScore.innerHTML = 'A';
+                outp_nutriScore.style.backgroundColor = 'green';
+                outp_nutriScore.style.color = 'white';
+                break;
+            case 2:
+                outp_nutriScore.innerHTML = 'B'; 
+                outp_nutriScore.style.backgroundColor = 'lightgreen';
+                outp_nutriScore.style.color = 'black';
+                break;
+            case 3:
+                outp_nutriScore.innerHTML = 'C';
+                outp_nutriScore.style.backgroundColor = 'yellow';
+                outp_nutriScore.style.color = 'black';
+                break;
+            case 4:
+                outp_nutriScore.innerHTML = 'D';
+                outp_nutriScore.style.backgroundColor = 'orange';
+                outp_nutriScore.style.color = 'white';
+                break;
+            case 5:
+                outp_nutriScore.innerHTML = 'E';
+                outp_nutriScore.style.backgroundColor = 'red';
+                outp_nutriScore.style.color = 'white';
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    // Reset
+    resetNutriScore();
+}
+
+function indexOfFood(food) {
+    for (let i = 0; i < array_Food_DB.length; i++) {
+        if (array_Food_DB[i].productName === food) {
+            return i;
+        }
+    }
+}
+
+function resetNutriScore() {
+    selected_Food = '';
+    document.getElementById('C_A').style.height = '60px';
+    document.getElementById('C_B').style.height = '60px';
+    document.getElementById('C_C').style.height = '60px';
+    document.getElementById('C_D').style.height = '60px';
+    document.getElementById('C_E').style.height = '60px';
+}
+
 
 //============================================================================
 // Prüfbutton für ausgewähltes Lebensmittel und Menge
@@ -1515,7 +1596,7 @@ function checkButton() {
                     salt_Intake +
                     ' g';
                 alert(intakeFoodInfo);
-            } catch (error) {}
+            } catch (error) { }
         }
     } else {
         alert(
@@ -1553,7 +1634,7 @@ function add_Food_to_TodayList() {
                 // Fragen, ob addiert werden soll
                 var addRequest = window.confirm(
                     newProduct +
-                        ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
+                    ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
                 );
 
                 // WENN ADDIERT WERDEN SOLL...
@@ -1644,7 +1725,7 @@ function add_Food_to_TodayList() {
                 document.getElementById('selectedFoodMakros').innerHTML = '';
                 blendOut_Eingabebereich_FoodDB();
                 blendOut_MengeAendern();
-            } catch (error) {}
+            } catch (error) { }
         }
     } else {
         alert(
@@ -1803,8 +1884,8 @@ function delete_from_today() {
     if (foodFromToday == true) {
         const decision = window.confirm(
             'Möchtest du < ' +
-                selected_Food.intake_productName +
-                '> wirklich von der heutigen Liste löschen?',
+            selected_Food.intake_productName +
+            '> wirklich von der heutigen Liste löschen?',
         );
         if (decision) {
             today_eaten.splice(selectedFoodIndex, 1);
@@ -1897,6 +1978,7 @@ function calc_Values() {
     countedPercentNumber = 0;
     countingAnimation(originalPercentValue);
     coloring_Labels();
+    averageNutriScore();
 }
 
 // function animate_ProgressBar(prgrssVal) {
@@ -2123,9 +2205,9 @@ function calc_Kcal_Goal() {
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                                 kcal_Requirement = parseInt(
                                     66.47 +
-                                        13.7 * bodyWeight +
-                                        5 * height -
-                                        6.8 * age,
+                                    13.7 * bodyWeight +
+                                    5 * height -
+                                    6.8 * age,
                                 );
                                 save_Kcal_Requirement();
 
@@ -2160,9 +2242,9 @@ function calc_Kcal_Goal() {
                                 //655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
                                 kcal_Requirement = parseInt(
                                     655.1 +
-                                        9.6 * bodyWeight +
-                                        1.8 * height -
-                                        4.7 * age,
+                                    9.6 * bodyWeight +
+                                    1.8 * height -
+                                    4.7 * age,
                                 );
 
                                 let kcal_Differenz = bodyWeight - targetWeight;
@@ -2391,12 +2473,12 @@ function selectDiet() {
         fat_in_Gramm = parseInt(fat_in_Gramm + addedFat);
         alert(
             'Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: ' +
-                protein_in_Gramm +
-                ' g liegst du ' +
-                proteinDiff +
-                ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
-                addedFat +
-                ' g Fett gut :)',
+            protein_in_Gramm +
+            ' g liegst du ' +
+            proteinDiff +
+            ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
+            addedFat +
+            ' g Fett gut :)',
         );
         document.getElementById('target_Fat').value = fat_in_Gramm;
         document.getElementById('target_Protein').value = protein_in_Gramm;
@@ -2887,8 +2969,8 @@ function delete_Food_from_DB() {
     } else {
         var deleteDecision = window.confirm(
             'Soll das Lebensmittel: <' +
-                selected_Food.productName +
-                '> wirklich für immer aus der Datenbank gelöscht werden?',
+            selected_Food.productName +
+            '> wirklich für immer aus der Datenbank gelöscht werden?',
         );
         if (deleteDecision) {
             let spliceIndex = indexErmittler(selected_Food.productName);
@@ -3203,7 +3285,7 @@ function deleteDayWithoutHistory() {
 //
 function deleteDHistory() {
     const deleteRequest = window.confirm("Soll die komplette Historie gelöscht werden?");
-    if(deleteRequest) {
+    if (deleteRequest) {
         my_History = [];
         save_History();
         location.reload();
@@ -3212,7 +3294,7 @@ function deleteDHistory() {
 
 function deleteStatistics() {
     const deleteRequest = window.confirm("Soll die komplette Statistik gelöscht werden?");
-    if(deleteRequest) {
+    if (deleteRequest) {
         my_Statistics = [];
         save_Statistics();
         location.reload();
