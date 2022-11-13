@@ -1479,7 +1479,7 @@ function averageNutriScore() {
     for (let j = 0; j < nutriArray.length; j++) {
         sum += nutriArray[j];
     }
-    averageVal = parseInt(sum / nutriArrayAmount);
+    averageVal = Math.round(sum / nutriArrayAmount);
 
     // Wert abbilden
     if (averageVal > 0) {
