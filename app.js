@@ -903,7 +903,7 @@ function show_Statisitcs(val) {
         document.getElementById('UeberschriftStatisik').innerHTML =
             'Verbrannte Kcal -- (Ziel: ' + burnedKcalGoal + ' Kcal)';
         document.getElementById('outputFatSum').innerHTML = '';
-
+        let kcal_counter = 0.0;
         // Fett ausblenden
         for (var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
@@ -916,6 +916,7 @@ function show_Statisitcs(val) {
                 my_Statistics[i].repository_date;
             currentVal = my_Statistics[i].repository_BurnedKCal;
             document.getElementById('val_Col_' + i).innerHTML = currentVal;
+            kcal_counter += currentVal
 
             // + - zum Vortag
             if (i > 0) {
@@ -971,7 +972,7 @@ function show_Statisitcs(val) {
                     'rgb(43, 161, 43)';
             }
         }
-
+        document.getElementById('outputFatSum').innerHTML = kcal_counter + ' Kcal';
         // Ziel Latte
         let targetHeight = 500; // Mitte
         document.getElementById('eff_Goal').style.bottom = targetHeight + 'px';
