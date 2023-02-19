@@ -157,6 +157,9 @@
 
   <br>
 
+
+
+  <!-- ================================================================ -->
       <!-- Modal 1 für Food Db -->
       <div id="modalOverlay">
         <div id="modal">
@@ -178,6 +181,7 @@
                     <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
                     <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
                   </div>
+
                   <br>
                   <div class="containerNutri">
                     <div class="cont C_A" id="C_A">A</div>
@@ -187,6 +191,14 @@
                     <div class="cont C_E" id="C_E">E</div>
                   </div>
                   <br>
+                  <select id="sel_Eattime" class="selectfieldEattime" onchange="changeEatTime(this)" >
+                    <option value="br">Frühstück</option>
+                    <option value="lu">Mittagessen</option>
+                    <option value="di">Abendessen</option>
+                  </select>
+                  <br><br>
+
+
                   <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
                   <button class="buttonPruefe" onclick="checkButton()">🔍</button>
 

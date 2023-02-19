@@ -1494,7 +1494,7 @@ input:checked+.slider:before {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: 3rem;
+    /* padding: 3rem; */
     background: #4b5558;
 }
 
@@ -1553,4 +1553,24 @@ input:checked+.slider:before {
     padding: 15px;
     border-radius: 15px;
     font-weight: bold;
+}
+
+
+.selectfieldEattime {
+    /* width: 450px;
+    height: 50px;
+    font-size: 1em;
+    text-align: center; */
+
+    background-color: #315896bb;
+    color: white;
+    border-radius: 10px;
+    font-size: 1em;
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    letter-spacing: 1.5px;
+    -webkit-box-shadow: 0 0 5px white;
+            box-shadow: 0 0 5px white;
+    margin-bottom: 15px;
 }
