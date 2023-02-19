@@ -1658,7 +1658,8 @@ function add_Food_to_TodayList() {
                     break;
                 }
             }
-            // TODO - Zusätzlich Checken, ob in den unterArrays Breakfast und Dinner etc vorhanden
+            // TODO - Wenn vorhanden, an richtiger Stelle addieren.
+            // TODO - Wenn abgezogen wird, in subarrays ebenfalls abziehen
             if(checkEatTimeArrays(newProduct).eaten === true) {
                 console.log('Unterarray betroffen');
             }
