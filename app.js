@@ -243,10 +243,26 @@ function load_other_LocalStorage_Values() {
     }
 
     // Heute gegessen
+    // TODO: stored_Today_Eaten entfernen
     if (localStorage.getItem('stored_Today_Eaten') === null) {
     } else {
         today_eaten = JSON.parse(localStorage.getItem('stored_Today_Eaten'));
-        create_Table_TodayEaten();
+        // create_Table_TodayEaten();
+    }
+    if (localStorage.getItem('stored_Today_Eaten_Breakfast') === null) {
+    } else {
+        breakfast = JSON.parse(localStorage.getItem('stored_Today_Eaten_Breakfast'));
+        createTables();
+    }
+    if (localStorage.getItem('stored_Today_Eaten_Lunch') === null) {
+    } else {
+        lunch = JSON.parse(localStorage.getItem('stored_Today_Eaten_Lunch'));
+        createTables();
+    }
+    if (localStorage.getItem('stored_Today_Eaten_Dinner') === null) {
+    } else {
+        dinner = JSON.parse(localStorage.getItem('stored_Today_Eaten_Dinner'));
+        createTables();
     }
 
     // Statistics
@@ -293,6 +309,9 @@ function save_Last_Water() {
 // Speichere Today Eaten
 function save_Today_Eaten() {
     localStorage.setItem('stored_Today_Eaten', JSON.stringify(today_eaten));
+    localStorage.setItem('stored_Today_Eaten_Breakfast', JSON.stringify(breakfast));
+    localStorage.setItem('stored_Today_Eaten_Lunch', JSON.stringify(lunch));
+    localStorage.setItem('stored_Today_Eaten_Dinner', JSON.stringify(dinner));
 }
 
 // Speichere Schritte
@@ -1651,28 +1670,37 @@ function add_Food_to_TodayList() {
             );
 
             // Checke ob bereits vorhanden
-            for (let i = 0; i < today_eaten.length; i++) {
-                if (today_eaten[i].intake_productName == newProduct) {
-                    alreadyTracked = true;
-                    todayEatenIndex = i;
-                    break;
-                }
-            }
-            // TODO - Wenn vorhanden, an richtiger Stelle addieren.
-            // TODO - Wenn abgezogen wird, in subarrays ebenfalls abziehen
+            // for (let i = 0; i < today_eaten.length; i++) {
+            //     if (today_eaten[i].intake_productName == newProduct) {
+            //         alreadyTracked = true;
+            //         todayEatenIndex = i;
+            //         break;
+            //     }
+            // }
+
             if(checkEatTimeArrays(newProduct).eaten === true) {
                 console.log('Unterarray betroffen');
+                alreadyTracked = true;
             }
 
 
+
+                // ? NEU es wird nur noch darauf hingewiesen, dass das Produkt in der
+                //? Liste angepasst werden soll
             if (alreadyTracked === true) {
                 // Fragen, ob addiert werden soll
-                const addRequest = window.confirm(
-                    newProduct +
-                    ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
-                );
-
+                // const addRequest = window.confirm(
+                //     newProduct +
+                //     ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
+                // );
+                alert( newProduct + ' ist bereits in Deiner Liste vorhanden. Bitte passe es in der Liste "Heute gegessen" an.')
+                createTable_FoodDB();
+                blendOut_Eingabebereich_FoodDB();
+                return;
                 // WENN ADDIERT WERDEN SOLL...
+                /**
+                 *
+                 */
                 if (addRequest) {
                     // old_Quantity ermitteln
                     old_Quantity = today_eaten[todayEatenIndex].intake_amount;
@@ -1745,7 +1773,7 @@ function add_Food_to_TodayList() {
                     )
                 }
                 if(currentMealTime === 'lu') {
-                    breakfast.push(
+                    lunch.push(
                         new TodayEatenFood(
                             newProduct,
                             selectedAmount,
@@ -1760,7 +1788,7 @@ function add_Food_to_TodayList() {
                     )
                 }
                 if(currentMealTime === 'di') {
-                    breakfast.push(
+                    dinner.push(
                         new TodayEatenFood(
                             newProduct,
                             selectedAmount,
@@ -1817,7 +1845,7 @@ function add_Food_to_TodayList() {
             'Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken',
         );
     }
-    create_Table_TodayEaten();
+    createTables()
     calc_Values();
 }
 
@@ -1863,25 +1891,55 @@ function checkEatTimeArrays(newProduct) {
 //============================================================================
 // Tabelle für Heute gegessen
 //============================================================================
+/**
+ * Tabellenobjekte werden erzeugt für Frühstück, Mittag und Abend
+ * In Schleife wird jeweilige Tabelle mit create_Table_TodayEaten() generiert
+ */
+function createTables() {
+    const tableBreakfast = document.getElementById('containerTabelle_Today');
+    tableBreakfast.innerHTML = 'Frühstück - 07:00 - 12:00';
+    const tableLunch = document.getElementById('containerTabelle_Today_Breakfast');
+    tableLunch.innerHTML = 'Mittagessen 12:00 - 17:00'
+    const tableDinner = document.getElementById('containerTabelle_Today_Dinner')
+    tableDinner.innerHTML = 'Abendessen 17:00 - 21:00'
 
-function create_Table_TodayEaten() {
-    // Reset der Tabelle
-    document.getElementById('containerTabelle_Today').innerHTML = '';
+    let tables = [breakfastTable= {
+                    tableID: tableBreakfast,
+                    tableArray: breakfast},
 
+                    lunchTable = {
+                      tableID: tableLunch,
+                      tableArray: lunch},
+
+                    dinnerTable = {
+                      tableID: tableDinner,
+                      tableArray: dinner}
+    ];
+
+
+    for(let i = 0; i < tables.length; i++) {
+        create_Table_TodayEaten(tables[i].tableID, tables[i].tableArray)
+    }
+
+    console.log('todayEaten', today_eaten);
+
+}
+
+function create_Table_TodayEaten(tableId, foodArr) {
     // CREATE HTML TABLE OBJECT
-    var perrow = 1, // 1 CELLS PER ROW
+    let perrow = 1, // 1 CELLS PER ROW
         table = document.createElement('table'),
         row = table.insertRow();
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
-    for (var i = 0; i < today_eaten.length; i++) {
+    for (let i = 0; i < foodArr.length; i++) {
         // ADD "BASIC" CELL
-        var cell = row.insertCell();
+        let cell = row.insertCell();
         cell.innerHTML =
-            today_eaten[i].intake_productName +
+            foodArr[i].intake_productName +
             ' --\n ' +
-            today_eaten[i].intake_amount +
+            foodArr[i].intake_amount +
             'g  = ' +
-            today_eaten[i].intake_kcal +
+            foodArr[i].intake_kcal +
             ' Kcal';
 
         // ATTACH A RUNNING NUMBER OR CUSTOM DATA
@@ -1891,7 +1949,7 @@ function create_Table_TodayEaten() {
         cell.addEventListener('click', function () {
             foodFromToday = true;
             selectedFoodIndex = this.dataset.id;
-            selected_Food = today_eaten[selectedFoodIndex];
+            selected_Food = foodArr[selectedFoodIndex];
             document.getElementById('sel_change_Prod').innerHTML =
                 selected_Food.intake_productName;
             document.getElementById('foodAmound_Change').value =
@@ -1906,7 +1964,7 @@ function create_Table_TodayEaten() {
             document.getElementById('foodAmound_Change').disabled = false;
             blendOut_Eingabebereich_FoodDB();
 
-            var prozentFromDay =
+            let prozentFromDay =
                 (selected_Food.intake_kcal * 100) /
                 (kcal_Ziel + parseInt(burned_Kcal));
             let calcSingle =
@@ -1933,15 +1991,18 @@ function create_Table_TodayEaten() {
         });
 
         // BREAK INTO NEXT ROW
-        var next = i + 1;
+        let next = i + 1;
         if (next % perrow == 0 && next != today_eaten.length) {
             row = table.insertRow();
         }
     }
 
     // ATTACH TABLE TO CONTAINER
-    document.getElementById('containerTabelle_Today').appendChild(table);
+    tableId.appendChild(table);
 }
+
+
+
 
 //============================================================================
 // Menge ändern
@@ -1992,7 +2053,7 @@ function change_Food_to_TodayList() {
             ),
         );
 
-        create_Table_TodayEaten();
+        createTables();
         calc_Values();
         //Speichern
         save_Today_Eaten();
@@ -2021,7 +2082,7 @@ function delete_from_today() {
             // Aufräumen und neu laden
             document.getElementById('foodAmound_Change').value = '';
             document.getElementById('sel_change_Prod').innerHTML = '';
-            create_Table_TodayEaten();
+            createTables()
             blendOut_MengeAendern();
             coloring_Labels();
         }

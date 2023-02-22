@@ -389,13 +389,13 @@ footer {
     color: var(--secondaryText);
 }
 
-#containerTabelle_Today {
+.tableEaten {
     width: 100%;
     font-size: 40px;
     font-weight: bolder;
     text-align: right;
     overflow-y: auto;
-    height: 45vh;
+    height: auto;
     max-height: 45vh;
     border: 5px solid var(--themeDotBorder);
     background: var(--mainColor);
