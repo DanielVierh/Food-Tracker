@@ -51,7 +51,8 @@ let isKeto = false;
 let breakfast = [];
 let lunch = [];
 let dinner = [];
-let currentMealTime = 'br'
+let currentMealTime = 'br';
+let choosen_Food_Table_ID = '';
 
 let countedPercentNumber = 0;
 let originalPercentValue = 0;
@@ -1743,19 +1744,19 @@ function add_Food_to_TodayList() {
                     (selectedAmount * selected_Food.fiber) / 100,
                 );
 
-                today_eaten.push(
-                    new TodayEatenFood(
-                        newProduct,
-                        selectedAmount,
-                        kcal_Intake,
-                        fat_Intake,
-                        carb_Intake,
-                        sugar_Intake,
-                        protein_Intake,
-                        salt_Intake,
-                        fiber_Intake,
-                    ),
-                );
+                // today_eaten.push(
+                //     new TodayEatenFood(
+                //         newProduct,
+                //         selectedAmount,
+                //         kcal_Intake,
+                //         fat_Intake,
+                //         carb_Intake,
+                //         sugar_Intake,
+                //         protein_Intake,
+                //         salt_Intake,
+                //         fiber_Intake,
+                //     ),
+                // );
 
                 if(currentMealTime === 'br') {
                     breakfast.push(
@@ -1896,9 +1897,9 @@ function checkEatTimeArrays(newProduct) {
  * In Schleife wird jeweilige Tabelle mit create_Table_TodayEaten() generiert
  */
 function createTables() {
-    const tableBreakfast = document.getElementById('containerTabelle_Today');
+    const tableBreakfast = document.getElementById('containerTabelle_Today_Breakfast');
     tableBreakfast.innerHTML = 'Frühstück - 07:00 - 12:00';
-    const tableLunch = document.getElementById('containerTabelle_Today_Breakfast');
+    const tableLunch = document.getElementById('containerTabelle_Today_Lunch');
     tableLunch.innerHTML = 'Mittagessen 12:00 - 17:00'
     const tableDinner = document.getElementById('containerTabelle_Today_Dinner')
     tableDinner.innerHTML = 'Abendessen 17:00 - 21:00'
@@ -1920,8 +1921,6 @@ function createTables() {
     for(let i = 0; i < tables.length; i++) {
         create_Table_TodayEaten(tables[i].tableID, tables[i].tableArray)
     }
-
-    console.log('todayEaten', today_eaten);
 
 }
 
@@ -1947,6 +1946,8 @@ function create_Table_TodayEaten(tableId, foodArr) {
 
         // Produktauswahl
         cell.addEventListener('click', function () {
+            choosen_Food_Table_ID = cell.parentNode.parentNode.parentNode.parentNode.id
+            console.log('choosen_Food_Table_ID', choosen_Food_Table_ID);
             foodFromToday = true;
             selectedFoodIndex = this.dataset.id;
             selected_Food = foodArr[selectedFoodIndex];
@@ -1992,7 +1993,7 @@ function create_Table_TodayEaten(tableId, foodArr) {
 
         // BREAK INTO NEXT ROW
         let next = i + 1;
-        if (next % perrow == 0 && next != today_eaten.length) {
+        if (next % perrow == 0 && next != foodArr.length) {
             row = table.insertRow();
         }
     }
@@ -2036,22 +2037,71 @@ function change_Food_to_TodayList() {
             (selectedAmount * selected_Food.intake_fiber) / old_Quantity,
         );
 
-        // Löschen
-        today_eaten.splice(selectedFoodIndex, 1);
+        // Breakfast
+        if(choosen_Food_Table_ID === 'containerTabelle_Today_Breakfast') {
+            breakfast.splice(selectedFoodIndex, 1);
+            breakfast.push(
+                new TodayEatenFood(
+                    productNme,
+                    selectedAmount,
+                    kcal_Intake,
+                    fat_Intake,
+                    carb_Intake,
+                    sugar_Intake,
+                    protein_Intake,
+                    salt_Intake,
+                    fiber_Intake,
+                ),
+            );
+        }
+        // Lunch
+        if(choosen_Food_Table_ID === 'containerTabelle_Today_Lunch') {
+            lunch.splice(selectedFoodIndex, 1);
+            lunch.push(
+                new TodayEatenFood(
+                    productNme,
+                    selectedAmount,
+                    kcal_Intake,
+                    fat_Intake,
+                    carb_Intake,
+                    sugar_Intake,
+                    protein_Intake,
+                    salt_Intake,
+                    fiber_Intake,
+                ),
+            );
+        }
+        // Dinner
+        if(choosen_Food_Table_ID === 'containerTabelle_Today_Dinner') {
+            dinner.splice(selectedFoodIndex, 1);
+            dinner.push(
+                new TodayEatenFood(
+                    productNme,
+                    selectedAmount,
+                    kcal_Intake,
+                    fat_Intake,
+                    carb_Intake,
+                    sugar_Intake,
+                    protein_Intake,
+                    salt_Intake,
+                    fiber_Intake,
+                ),
+            );
+        }
 
-        today_eaten.push(
-            new TodayEatenFood(
-                productNme,
-                selectedAmount,
-                kcal_Intake,
-                fat_Intake,
-                carb_Intake,
-                sugar_Intake,
-                protein_Intake,
-                salt_Intake,
-                fiber_Intake,
-            ),
-        );
+        // today_eaten.push(
+        //     new TodayEatenFood(
+        //         productNme,
+        //         selectedAmount,
+        //         kcal_Intake,
+        //         fat_Intake,
+        //         carb_Intake,
+        //         sugar_Intake,
+        //         protein_Intake,
+        //         salt_Intake,
+        //         fiber_Intake,
+        //     ),
+        // );
 
         createTables();
         calc_Values();
@@ -2073,7 +2123,18 @@ function delete_from_today() {
             '> wirklich von der heutigen Liste löschen?',
         );
         if (decision) {
-            today_eaten.splice(selectedFoodIndex, 1);
+             // Breakfast
+        if(choosen_Food_Table_ID === 'containerTabelle_Today_Breakfast') {
+            breakfast.splice(selectedFoodIndex, 1);
+        }
+        // Lunch
+        if(choosen_Food_Table_ID === 'containerTabelle_Today_Lunch') {
+            lunch.splice(selectedFoodIndex, 1);
+        }
+        // Dinner
+        if(choosen_Food_Table_ID === 'containerTabelle_Today_Dinner') {
+            dinner.splice(selectedFoodIndex, 1);
+        }
             calc_Values();
 
             // Speichern
@@ -2106,15 +2167,35 @@ function calc_Values() {
     eaten_Amount = 0.0;
 
     // Summen bilden
-    for (var i = 0; i < today_eaten.length; i++) {
-        eaten_Kcal += today_eaten[i].intake_kcal;
-        eaten_Carbs += today_eaten[i].intake_carbs;
-        eaten_Sugar += today_eaten[i].intake_sugar;
-        eaten_Protein += today_eaten[i].intake_protein;
-        eaten_Fat += today_eaten[i].intake_fat;
-        eaten_Salt += today_eaten[i].intake_salt;
-        eaten_Fiber += today_eaten[i].intake_fiber;
-        eaten_Amount += today_eaten[i].intake_amount;
+    for (var i = 0; i < breakfast.length; i++) {
+        eaten_Kcal += breakfast[i].intake_kcal;
+        eaten_Carbs += breakfast[i].intake_carbs;
+        eaten_Sugar += breakfast[i].intake_sugar;
+        eaten_Protein += breakfast[i].intake_protein;
+        eaten_Fat += breakfast[i].intake_fat;
+        eaten_Salt += breakfast[i].intake_salt;
+        eaten_Fiber += breakfast[i].intake_fiber;
+        eaten_Amount += breakfast[i].intake_amount;
+    }
+    for (var i = 0; i < lunch.length; i++) {
+        eaten_Kcal += lunch[i].intake_kcal;
+        eaten_Carbs += lunch[i].intake_carbs;
+        eaten_Sugar += lunch[i].intake_sugar;
+        eaten_Protein += lunch[i].intake_protein;
+        eaten_Fat += lunch[i].intake_fat;
+        eaten_Salt += lunch[i].intake_salt;
+        eaten_Fiber += lunch[i].intake_fiber;
+        eaten_Amount += lunch[i].intake_amount;
+    }
+    for (var i = 0; i < dinner.length; i++) {
+        eaten_Kcal += dinner[i].intake_kcal;
+        eaten_Carbs += dinner[i].intake_carbs;
+        eaten_Sugar += dinner[i].intake_sugar;
+        eaten_Protein += dinner[i].intake_protein;
+        eaten_Fat += dinner[i].intake_fat;
+        eaten_Salt += dinner[i].intake_salt;
+        eaten_Fiber += dinner[i].intake_fiber;
+        eaten_Amount += dinner[i].intake_amount;
     }
 
     // Effektive Kcal und Differenz berechnen
@@ -2823,6 +2904,9 @@ function close_Day() {
             // RESET
             today_Steps = 0;
             today_eaten = [];
+            breakfast = [];
+            lunch = [];
+            dinner = [];
             today_Water = 0;
             burned_Kcal = 0;
             lastWater = 'Gestern';
@@ -3445,6 +3529,10 @@ function sendThisDay() {
 function deleteDayWithoutHistory() {
     today_Steps = 0;
     today_eaten = [];
+    breakfast = [];
+    dinner = [];
+    lunch = [];
+
     today_Water = 0;
     burned_Kcal = 0;
     lastWater = 'Gestern';
