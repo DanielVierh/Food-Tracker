@@ -160,6 +160,8 @@ document.addEventListener('dblclick', () => {
 });
 
 
+
+
 //====================================================================================
 // Save,  Load or create DB
 //====================================================================================
@@ -1744,20 +1746,6 @@ function add_Food_to_TodayList() {
                     (selectedAmount * selected_Food.fiber) / 100,
                 );
 
-                // today_eaten.push(
-                //     new TodayEatenFood(
-                //         newProduct,
-                //         selectedAmount,
-                //         kcal_Intake,
-                //         fat_Intake,
-                //         carb_Intake,
-                //         sugar_Intake,
-                //         protein_Intake,
-                //         salt_Intake,
-                //         fiber_Intake,
-                //     ),
-                // );
-
                 if(currentMealTime === 'br') {
                     breakfast.push(
                         new TodayEatenFood(
@@ -1899,8 +1887,13 @@ function checkEatTimeArrays(newProduct) {
 function createTables() {
     const tableBreakfast = document.getElementById('containerTabelle_Today_Breakfast');
     tableBreakfast.innerHTML = 'Frühstück - 07:00 - 12:00';
+    let appraisalContainer = document.createElement('div');
+    appraisalContainer.classList.add('appraisalContainer');
+    appraisalContainer.id = 'appraisalCont_Breakfast';
+    tableBreakfast.appendChild(appraisalContainer);
     const tableLunch = document.getElementById('containerTabelle_Today_Lunch');
-    tableLunch.innerHTML = 'Mittagessen 12:00 - 17:00'
+    tableLunch.innerHTML = 'Mittagessen 12:00 - 17:00';
+
     const tableDinner = document.getElementById('containerTabelle_Today_Dinner')
     tableDinner.innerHTML = 'Abendessen 17:00 - 21:00'
 
@@ -2166,18 +2159,118 @@ function calc_Values() {
     eaten_Fiber = 0.0;
     eaten_Amount = 0.0;
 
+    let temp_Kcal = 0;
+    let temp_Carbs = 0;
+    let temp_sugar = 0;
+    let temp_Protein = 0;
+    let temp_Fat = 0;
+    let temp_Salt = 0;
+    let temp_Fiber = 0;
+    let tempAmount = 0;
+
+
     // Summen bilden
-    for (var i = 0; i < breakfast.length; i++) {
-        eaten_Kcal += breakfast[i].intake_kcal;
-        eaten_Carbs += breakfast[i].intake_carbs;
-        eaten_Sugar += breakfast[i].intake_sugar;
-        eaten_Protein += breakfast[i].intake_protein;
-        eaten_Fat += breakfast[i].intake_fat;
-        eaten_Salt += breakfast[i].intake_salt;
-        eaten_Fiber += breakfast[i].intake_fiber;
-        eaten_Amount += breakfast[i].intake_amount;
+    for (let i = 0; i < breakfast.length; i++) {
+        eaten_Kcal += breakfast[i].intake_kcal; temp_Kcal += breakfast[i].intake_kcal;
+        eaten_Carbs += breakfast[i].intake_carbs; temp_Carbs += breakfast[i].intake_carbs;
+        eaten_Sugar += breakfast[i].intake_sugar; temp_sugar += breakfast[i].intake_sugar;
+        eaten_Protein += breakfast[i].intake_protein; temp_Protein += breakfast[i].intake_protein;
+        eaten_Fat += breakfast[i].intake_fat; temp_Fat += breakfast[i].intake_fat;
+        eaten_Salt += breakfast[i].intake_salt; temp_Salt += breakfast[i].intake_salt;
+        eaten_Fiber += breakfast[i].intake_fiber; temp_Fiber += breakfast[i].intake_fiber;
+        eaten_Amount += breakfast[i].intake_amount; tempAmount += breakfast[i].intake_amount;
     }
-    for (var i = 0; i < lunch.length; i++) {
+
+    // Appraisal Temp Values
+    // Bad if 10% over Max // Bad if 10% under min
+
+    const appraisalObj = {
+        max_Kcal_per_Meal : { should: parseInt(kcal_Ziel / 3), is: temp_Kcal},
+        max_Fett_per_Meal: { should: parseInt(des_Fat / 3), is: temp_Fat},
+        max_KH_per_Meal : { should: parseInt(des_Carbs / 3), is: temp_Carbs},
+        max_Zucker_per_Meal : { should: parseInt(max_Sugar / 3), is: temp_sugar},
+        max_Salz_per_Meal : { should: parseInt(max_Salt / 3), is: temp_Salt},
+        min_Ballaststoffe_per_Meal : { should: parseInt(min_Fiber / 3), is: temp_Fiber},
+        min_Eiweiss_per_Meal : { should: parseInt(min_Protein / 3), is: temp_Protein}
+    }
+
+        let toLessArray = [];
+        let toMuchArray = [];
+        let goodToHaveLess = [];
+        let goodToHaveMuch = [];
+
+        for (const [key, value] of Object.entries(appraisalObj)) {
+            const minOrMax = splitVal(key + '', '_', 0);
+            const is_in_Percent = parseInt(value.is * 100 / value.should);
+            console.log(key, ':', is_in_Percent, '%');
+            if(minOrMax === 'min') {
+                if(is_in_Percent < 80) {
+                    toLessArray.push(`Zu wenig ${splitVal(key + '', '_', 1)}`)
+                }
+                if(is_in_Percent > 150) {
+                    goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
+                }
+            }
+            if(minOrMax === 'max') {
+                if(is_in_Percent > 120) {
+                    toMuchArray.push(`Zu viel ${splitVal(key + '', '_', 1)}`)
+                }
+
+                if(is_in_Percent < 50) {
+                    goodToHaveLess.push(`Wenig ${splitVal(key + '', '_', 1)}`)
+                }
+            }
+        }
+
+        console.log('Zu wenig:', toLessArray);
+        console.log('Zu viel:', toMuchArray);
+        console.log('Schön wenig:', goodToHaveLess);
+        console.log('Schön viele:', goodToHaveMuch);
+
+        const brItmWrapper = document.getElementById('appraisalCont_Breakfast')
+
+        for(let itm1 = 0; itm1 < toLessArray.length; itm1++) {
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('badItem')
+                itemLabel.innerHTML = toLessArray[itm1];
+                brItmWrapper.appendChild(itemLabel);
+            } catch (error) { }
+        }
+
+        for(let itm1 = 0; itm1 < toMuchArray.length; itm1++) {
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('badItem')
+                itemLabel.innerHTML = toMuchArray[itm1];
+                brItmWrapper.appendChild(itemLabel);
+            } catch (error) { }
+        }
+
+        for(let itm1 = 0; itm1 < goodToHaveLess.length; itm1++) {
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('goodItem')
+                itemLabel.innerHTML = goodToHaveLess[itm1];
+                brItmWrapper.appendChild(itemLabel);
+            } catch (error) { }
+        }
+
+        for(let itm1 = 0; itm1 < goodToHaveMuch.length; itm1++) {
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('goodItem')
+                itemLabel.innerHTML = goodToHaveMuch[itm1];
+                brItmWrapper.appendChild(itemLabel);
+            } catch (error) { }
+        }
+
+
+    // Reset Temp Variables
+    temp_Kcal = 0; temp_Carbs = 0; temp_sugar = 0; temp_Protein = 0;
+    temp_Fat = 0; temp_Salt = 0; temp_Fiber = 0; tempAmount = 0;
+
+     for (let i = 0; i < lunch.length; i++) {
         eaten_Kcal += lunch[i].intake_kcal;
         eaten_Carbs += lunch[i].intake_carbs;
         eaten_Sugar += lunch[i].intake_sugar;
@@ -2187,7 +2280,11 @@ function calc_Values() {
         eaten_Fiber += lunch[i].intake_fiber;
         eaten_Amount += lunch[i].intake_amount;
     }
-    for (var i = 0; i < dinner.length; i++) {
+
+    temp_Kcal = 0; temp_Carbs = 0; temp_sugar = 0; temp_Protein = 0;
+    temp_Fat = 0; temp_Salt = 0; temp_Fiber = 0; tempAmount = 0;
+
+    for (let i = 0; i < dinner.length; i++) {
         eaten_Kcal += dinner[i].intake_kcal;
         eaten_Carbs += dinner[i].intake_carbs;
         eaten_Sugar += dinner[i].intake_sugar;
@@ -3572,4 +3669,11 @@ function deleteStatistics() {
         save_Statistics();
         location.reload();
     }
+}
+
+
+function splitVal(val, marker, pos) {
+    const elem = val.split(marker);
+    const retVal = elem[pos];
+    return retVal;
 }
