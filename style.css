@@ -397,6 +397,7 @@ footer {
     box-shadow: inset 0 0 5px lightblue;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .badItem {
@@ -407,7 +408,7 @@ footer {
     align-items: center;
     padding: 10px;
     border-radius: 15px;
-    margin: 20px;
+    margin: 10px;
     font-size: .8em;
     letter-spacing: 1.5px;
 }
