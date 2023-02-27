@@ -2092,20 +2092,6 @@ function change_Food_to_TodayList() {
             );
         }
 
-        // today_eaten.push(
-        //     new TodayEatenFood(
-        //         productNme,
-        //         selectedAmount,
-        //         kcal_Intake,
-        //         fat_Intake,
-        //         carb_Intake,
-        //         sugar_Intake,
-        //         protein_Intake,
-        //         salt_Intake,
-        //         fiber_Intake,
-        //     ),
-        // );
-
         createTables();
         calc_Values();
         //Speichern
@@ -2216,7 +2202,7 @@ function calc_Values() {
                 console.log(key, ':', is_in_Percent, '%');
                 if(minOrMax === 'min') {
                     if(is_in_Percent < 80) {
-                        toLessArray.push(`Zu wenig ${splitVal(key + '', '_', 1)}`)
+                        toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                     if(is_in_Percent > 150) {
                         goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
@@ -2224,11 +2210,11 @@ function calc_Values() {
                 }
                 if(minOrMax === 'max') {
                     if(is_in_Percent > 120) {
-                        toMuchArray.push(`Zu viel ${splitVal(key + '', '_', 1)}`)
+                        toMuchArray.push(`viel ${splitVal(key + '', '_', 1)}`)
                     }
 
                     if(is_in_Percent < 50) {
-                        goodToHaveLess.push(`Wenig ${splitVal(key + '', '_', 1)}`)
+                        goodToHaveLess.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                 }
             }
@@ -2314,7 +2300,7 @@ function calc_Values() {
                 const is_in_Percent = parseInt(value.is * 100 / value.should);
                 if(minOrMax === 'min') {
                     if(is_in_Percent < 80) {
-                        toLessArray.push(`Zu wenig ${splitVal(key + '', '_', 1)}`)
+                        toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                     if(is_in_Percent > 150) {
                         goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
@@ -2322,11 +2308,11 @@ function calc_Values() {
                 }
                 if(minOrMax === 'max') {
                     if(is_in_Percent > 120) {
-                        toMuchArray.push(`Zu viel ${splitVal(key + '', '_', 1)}`)
+                        toMuchArray.push(`viel ${splitVal(key + '', '_', 1)}`)
                     }
 
                     if(is_in_Percent < 50) {
-                        goodToHaveLess.push(`Wenig ${splitVal(key + '', '_', 1)}`)
+                        goodToHaveLess.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                 }
             }
@@ -2406,7 +2392,7 @@ function calc_Values() {
                 const is_in_Percent = parseInt(value.is * 100 / value.should);
                 if(minOrMax === 'min') {
                     if(is_in_Percent < 80) {
-                        toLessArray.push(`Zu wenig ${splitVal(key + '', '_', 1)}`)
+                        toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                     if(is_in_Percent > 150) {
                         goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
@@ -2414,11 +2400,11 @@ function calc_Values() {
                 }
                 if(minOrMax === 'max') {
                     if(is_in_Percent > 120) {
-                        toMuchArray.push(`Zu viel ${splitVal(key + '', '_', 1)}`)
+                        toMuchArray.push(`viel ${splitVal(key + '', '_', 1)}`)
                     }
 
                     if(is_in_Percent < 50) {
-                        goodToHaveLess.push(`Wenig ${splitVal(key + '', '_', 1)}`)
+                        goodToHaveLess.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                 }
             }

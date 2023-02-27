@@ -406,10 +406,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 7px;
     border-radius: 15px;
-    margin: 10px;
-    font-size: .8em;
+    margin: 5px;
+    font-size: .7em;
     letter-spacing: 1.5px;
 }
 .goodItem {
@@ -418,10 +418,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 7px;
     border-radius: 15px;
-    margin: 20px;
-    font-size: .8em;
+    margin: 5px;
+    font-size: .7em;
     letter-spacing: 1.5px;
 }
 
