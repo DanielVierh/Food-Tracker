@@ -425,6 +425,20 @@ footer {
     letter-spacing: 1.5px;
 }
 
+.alarmItem {
+    background-color: rgb(70, 4, 4);
+    color: yellow;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 15px;
+    margin: 10px 5px;
+    font-size: .7em;
+    letter-spacing: 1.5px;
+}
+
 .tableEaten {
     width: 100%;
     font-size: 30px;

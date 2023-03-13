@@ -2195,22 +2195,29 @@ function calc_Values() {
             let toMuchArray = [];
             let goodToHaveLess = [];
             let goodToHaveMuch = [];
+            let badCombo = [];
 
             for (const [key, value] of Object.entries(appraisalObj)) {
                 const minOrMax = splitVal(key + '', '_', 0);
                 const is_in_Percent = parseInt(value.is * 100 / value.should);
-                console.log(key, ':', is_in_Percent, '%');
                 if(minOrMax === 'min') {
                     if(is_in_Percent < 80) {
                         toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
                     }
                     if(is_in_Percent > 150) {
-                        goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
+                        goodToHaveMuch.push(`Viel ${ky}`)
                     }
                 }
                 if(minOrMax === 'max') {
                     if(is_in_Percent > 120) {
-                        toMuchArray.push(`viel ${splitVal(key + '', '_', 1)}`)
+                        const ky = splitVal(key + '', '_', 1)
+
+                        toMuchArray.push(`viel ${ky}`)
+
+                        if(ky === 'Fett') badCombo.push(ky);
+              
+                        if(ky === 'KH') badCombo.push(ky);
+
                     }
 
                     if(is_in_Percent < 50) {
@@ -2218,11 +2225,6 @@ function calc_Values() {
                     }
                 }
             }
-
-            console.log('Zu wenig:', toLessArray);
-            console.log('Zu viel:', toMuchArray);
-            console.log('Schön wenig:', goodToHaveLess);
-            console.log('Schön viele:', goodToHaveMuch);
 
             const brItmWrapper = document.getElementById('appraisalCont_Breakfast')
 
@@ -2261,6 +2263,17 @@ function calc_Values() {
                     brItmWrapper.appendChild(itemLabel);
                 } catch (error) { }
             }
+
+            // KH Fett Alarn
+            try {
+                if(badCombo.length === 2) {
+                    let itemLabel = document.createElement('div')
+                    itemLabel.classList.add('alarmItem')
+                    itemLabel.innerHTML = '⚠️ Fett & KH';
+                    brItmWrapper.appendChild(itemLabel);
+                }
+            } catch (error) {}
+
     }
 
     // Reset Temp Variables
@@ -2293,7 +2306,7 @@ function calc_Values() {
             toMuchArray = [];
             goodToHaveLess = [];
             goodToHaveMuch = [];
-
+            badCombo = [];
 
             for (const [key, value] of Object.entries(appraisalObj)) {
                 const minOrMax = splitVal(key + '', '_', 0);
@@ -2308,7 +2321,13 @@ function calc_Values() {
                 }
                 if(minOrMax === 'max') {
                     if(is_in_Percent > 120) {
-                        toMuchArray.push(`viel ${splitVal(key + '', '_', 1)}`)
+                        const ky = splitVal(key + '', '_', 1)
+
+                        toMuchArray.push(`viel ${ky}`)
+
+                        if(ky === 'Fett') badCombo.push(ky);
+              
+                        if(ky === 'KH') badCombo.push(ky);
                     }
 
                     if(is_in_Percent < 50) {
@@ -2354,6 +2373,16 @@ function calc_Values() {
                     brItmWrapper2.appendChild(itemLabel);
                 } catch (error) { }
             }
+
+            // KH Fett Alarn
+            try {
+                if(badCombo.length === 2) {
+                    let itemLabel = document.createElement('div')
+                    itemLabel.classList.add('alarmItem')
+                    itemLabel.innerHTML = '⚠️ Fett & KH';
+                    brItmWrapper2.appendChild(itemLabel);
+                }
+            } catch (error) {}
     }
 
     temp_Kcal = 0; temp_Carbs = 0; temp_sugar = 0; temp_Protein = 0;
@@ -2385,7 +2414,7 @@ function calc_Values() {
             toMuchArray = [];
             goodToHaveLess = [];
             goodToHaveMuch = [];
-
+            badCombo = [];
 
             for (const [key, value] of Object.entries(appraisalObj)) {
                 const minOrMax = splitVal(key + '', '_', 0);
@@ -2400,7 +2429,13 @@ function calc_Values() {
                 }
                 if(minOrMax === 'max') {
                     if(is_in_Percent > 120) {
-                        toMuchArray.push(`viel ${splitVal(key + '', '_', 1)}`)
+                        const ky = splitVal(key + '', '_', 1)
+
+                        toMuchArray.push(`viel ${ky}`)
+
+                        if(ky === 'Fett') badCombo.push(ky);
+              
+                        if(ky === 'KH') badCombo.push(ky);
                     }
 
                     if(is_in_Percent < 50) {
@@ -2446,6 +2481,16 @@ function calc_Values() {
                     brItmWrapper3.appendChild(itemLabel);
                 } catch (error) { }
             }
+
+            // KH Fett Alarn
+            try {
+                if(badCombo.length === 2) {
+                    let itemLabel = document.createElement('div')
+                    itemLabel.classList.add('alarmItem')
+                    itemLabel.innerHTML = '⚠️ Fett & KH';
+                    brItmWrapper3.appendChild(itemLabel);
+                }
+            } catch (error) {}            
     }
 
     // Effektive Kcal und Differenz berechnen
