@@ -2274,6 +2274,13 @@ function calc_Values() {
                 }
             } catch (error) {}
 
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('infoItem')
+                itemLabel.innerHTML = `${parseInt(eaten_Kcal)} Kcl - ${parseInt(eaten_Carbs)} KH - ${parseInt(eaten_Sugar)} Zck - ${parseInt(eaten_Protein)} Eiw - ${parseInt(eaten_Fat)} Ft - ${parseInt(eaten_Fiber)} Bl`;
+                brItmWrapper.appendChild(itemLabel);
+            } catch (error) {}
+
     }
 
     // Reset Temp Variables
@@ -2383,6 +2390,13 @@ function calc_Values() {
                     brItmWrapper2.appendChild(itemLabel);
                 }
             } catch (error) {}
+
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('infoItem')
+                itemLabel.innerHTML = `${parseInt(eaten_Kcal)} Kcl - ${parseInt(eaten_Carbs)} KH - ${parseInt(eaten_Sugar)} Zck - ${parseInt(eaten_Protein)} Eiw - ${parseInt(eaten_Fat)} Ft - ${parseInt(eaten_Fiber)} Bl`;
+                brItmWrapper2.appendChild(itemLabel);
+            } catch (error) {}
     }
 
     temp_Kcal = 0; temp_Carbs = 0; temp_sugar = 0; temp_Protein = 0;
@@ -2490,7 +2504,14 @@ function calc_Values() {
                     itemLabel.innerHTML = '⚠️ Fett & KH';
                     brItmWrapper3.appendChild(itemLabel);
                 }
-            } catch (error) {}            
+            } catch (error) {}  
+            
+            try {
+                let itemLabel = document.createElement('div')
+                itemLabel.classList.add('infoItem')
+                itemLabel.innerHTML = `${parseInt(eaten_Kcal)} Kcl - ${parseInt(eaten_Carbs)} KH - ${parseInt(eaten_Sugar)} Zck - ${parseInt(eaten_Protein)} Eiw - ${parseInt(eaten_Fat)} Ft - ${parseInt(eaten_Fiber)} Bl`;
+                brItmWrapper3.appendChild(itemLabel);
+            } catch (error) {}
     }
 
     // Effektive Kcal und Differenz berechnen
