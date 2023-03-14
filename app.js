@@ -2277,7 +2277,7 @@ function calc_Values() {
             try {
                 let itemLabel = document.createElement('div')
                 itemLabel.classList.add('infoItem')
-                itemLabel.innerHTML = `${parseInt(eaten_Kcal)} Kcl - ${parseInt(eaten_Carbs)} KH - ${parseInt(eaten_Sugar)} Zck - ${parseInt(eaten_Protein)} Eiw - ${parseInt(eaten_Fat)} Ft - ${parseInt(eaten_Fiber)} Bl`;
+                itemLabel.innerHTML = `${parseFloat(temp_Kcal).toFixed(1)} Kcl - ${parseFloat(temp_Carbs).toFixed(1)} KH - ${parseFloat(temp_sugar).toFixed(1)} Zck - ${parseFloat(temp_Protein).toFixed(1)} Eiw - ${parseFloat(temp_Fat).toFixed(1)} Ft - ${parseFloat(temp_Fiber).toFixed(1)} Bl`;
                 brItmWrapper.appendChild(itemLabel);
             } catch (error) {}
 
@@ -2394,7 +2394,7 @@ function calc_Values() {
             try {
                 let itemLabel = document.createElement('div')
                 itemLabel.classList.add('infoItem')
-                itemLabel.innerHTML = `${parseInt(eaten_Kcal)} Kcl - ${parseInt(eaten_Carbs)} KH - ${parseInt(eaten_Sugar)} Zck - ${parseInt(eaten_Protein)} Eiw - ${parseInt(eaten_Fat)} Ft - ${parseInt(eaten_Fiber)} Bl`;
+                itemLabel.innerHTML = `${parseFloat(temp_Kcal).toFixed(1)} Kcl - ${parseFloat(temp_Carbs).toFixed(1)} KH - ${parseFloat(temp_sugar).toFixed(1)} Zck - ${parseFloat(temp_Protein).toFixed(1)} Eiw - ${parseFloat(temp_Fat).toFixed(1)} Ft - ${parseFloat(temp_Fiber).toFixed(1)} Bl`;
                 brItmWrapper2.appendChild(itemLabel);
             } catch (error) {}
     }
@@ -2509,7 +2509,7 @@ function calc_Values() {
             try {
                 let itemLabel = document.createElement('div')
                 itemLabel.classList.add('infoItem')
-                itemLabel.innerHTML = `${parseInt(eaten_Kcal)} Kcl - ${parseInt(eaten_Carbs)} KH - ${parseInt(eaten_Sugar)} Zck - ${parseInt(eaten_Protein)} Eiw - ${parseInt(eaten_Fat)} Ft - ${parseInt(eaten_Fiber)} Bl`;
+                itemLabel.innerHTML = `${parseFloat(temp_Kcal).toFixed(1)} Kcl - ${parseFloat(temp_Carbs).toFixed(1)} KH - ${parseFloat(temp_sugar).toFixed(1)} Zck - ${parseFloat(temp_Protein).toFixed(1)} Eiw - ${parseFloat(temp_Fat).toFixed(1)} Ft - ${parseFloat(temp_Fiber).toFixed(1)} Bl`;
                 brItmWrapper3.appendChild(itemLabel);
             } catch (error) {}
     }
