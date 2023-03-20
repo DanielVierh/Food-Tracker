@@ -111,8 +111,7 @@
   <!-- ================================================================ -->
   <div class="fullCell">
     <h1>Liste Heute gegessen</h1>
-    <p class="nutriLabelToday" id="lbl_todayNutri">Heutiger Nutri-Durchschnitt: <span id="outp_nutriScore" class="outp_nutriScore"></span></p>
-    <div class="foodSection2" id="invisible_ChangeSection_HeuteGegessen" hidden>
+    <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen" hidden>
       <div class="wrapperButton">
         <button class="button_del" onclick="delete_from_today()" id="btnDeleteFoodFromToday">X</button>
         <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange"
@@ -130,11 +129,7 @@
     </div>
   </div>
 
-  <div id="containerTabelle_Today_Breakfast" class="tableEaten"></div>
-
-  <div id="containerTabelle_Today_Lunch" class="tableEaten"></div>
-
-  <div id="containerTabelle_Today_Dinner" class="tableEaten"></div>
+  <div id="containerTabelle_Today"></div>
 
 
   <!-- ================================================================ -->
@@ -161,73 +156,9 @@
 
   <br>
 
-
-
-  <!-- ================================================================ -->
-      <!-- Modal 1 für Food Db -->
-      <div id="modalOverlay">
-        <div id="modal">
-            <div class="madalHeader">
-                <div class="emptyButton">.</div>
-                <div id="close-modal" class="buttonClose">Fertig</div>
-            </div>
-            <div class="modalContentContainer" id="modalWindow">
-                <!-- <h1>Food-DB</h1> -->
-                <div class="fullCell">
-                  <h1 id="titleDatenbank">Hinzufügen</h1>
-                </div>
-                <p id="statusX"></p>
-                <div class="fullCell">
-                  <div id="optAreaDB" class="foodSection">
-                    <p id="selectedFoodAnzeige"></p>
-                    <p id="selectedFoodMakros"></p>
-                    <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
-                    <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
-                    <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
-                  </div>
-
-                  <br>
-                  <div class="containerNutri">
-                    <div class="cont C_A" id="C_A">A</div>
-                    <div class="cont C_B" id="C_B">B</div>
-                    <div class="cont C_C" id="C_C">C</div>
-                    <div class="cont C_D" id="C_D">D</div>
-                    <div class="cont C_E" id="C_E">E</div>
-                  </div>
-                  <br>
-                  <select id="sel_Eattime" class="selectfieldEattime" onchange="changeEatTime(this)" >
-                    <option value="br">Frühstück</option>
-                    <option value="lu">Mittagessen</option>
-                    <option value="di">Abendessen</option>
-                  </select>
-                  <br><br>
-
-
-                  <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
-                  <button class="buttonPruefe" onclick="checkButton()">🔍</button>
-
-
-                  <!-- Searchbar -->
-                  <div class="fullCell">
-                    <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
-                  </div>
-
-                  <!-- Tabellenbereich -->
-                  <div id="containerTabelle"></div>
-
-
-                </div>
-                <br>
-                <!-- <button class="saveButton" id="btnSaveSettings">Fertig</button> -->
-            </div>
-        </div>
-    </div>
-
   <!-- ================================================================ -->
   <!-- Tabelle mit Datenbank aller Lebensmittel -->
   <!-- ================================================================ -->
-
-  <!--
   <div class="fullCell">
     <h1 id="titleDatenbank">Hinzufügen</h1>
   </div>
@@ -249,22 +180,20 @@
       <div class="cont C_E" id="C_E">E</div>
     </div>
     <br>
-    -->
     <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
-
-    <!-- <button class="buttonPruefe" onclick="checkButton()">🔍</button> -->
+    <button class="buttonPruefe" onclick="checkButton()">🔍</button>
 
 
     <!-- Searchbar -->
-    <!-- <div class="fullCell">
+    <div class="fullCell">
       <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
-    </div> -->
+    </div>
 
     <!-- Tabellenbereich -->
-    <!-- <div id="containerTabelle"></div> -->
+    <div id="containerTabelle"></div>
 
 
-  <!-- </div> -->
+  </div>
 
 
 
@@ -272,15 +201,14 @@
   <!-- ================================================================ -->
   <!-- Immer da Buttons -->
   <!-- ================================================================ -->
-  <!-- <div id="btnAdd" class="bg-text">🍎 +</div> -->
-  <div id="btn_ShowModal" class="bg-text">🍎 +</div>
+  <div id="btnAdd" class="bg-text">🍎 +</div>
   <!-- <div id="btnAdd" class="bg-text"><a href="#titleDatenbank" class="menueButtonColor">🍎 +</a></div> -->
   <div id="btnscrl_Up" class="bg-text2">⬆ UP</div>
   <button data-modal-target="#modal_Steps" id="btnSteps" class="bg-text3">0 &#128095</button>
   <p class="welcomeScreen" id="welcomeScrn">Willkommen 😀 <br> Um die App nutzen zu können, müssen zuerst ein paar
     Einstellungen vorgenommen werden. Klicke hierzu oben auf Einstellungen.<br> <br> OK</p>
   <!-- Leerzone  -->
-  <!-- <div class="container zone"></div> -->
+  <div class="container zone"></div>
 
 
 
@@ -619,15 +547,9 @@
     <button class="expButton" onclick="export_FoodDB()">Exportiere - MyFood</button>
     <button class="expButton" onclick="export_FoodDB_All()">Exportiere - FoodDB</button>
     <br>
-    <div class="deleteWrapper">
-      <button class="expButton" onclick="deleteDayWithoutHistory()" style="color: red; margin: 30px 200px;">Tag verwerfen</button>
-      <button class="expButton" onclick="deleteDHistory()" style="color: red; margin: 30px 200px;">History löschen</button>
-      <button class="expButton" onclick="deleteStatistics()" style="color: red; margin: 30px 200px;">Statistik löschen</button>
-    </div>
-
     <textarea name="" id="txtArea" cols="30" rows="10"></textarea>
   </div>
-  <footer class="zone blue">Version 1.9.1. -- 12.11.2022</footer>
+  <footer class="zone blue">Version 1.8.0. -- 24.01.2022</footer>
   <script src="./app.js"></script>
 </body>
 

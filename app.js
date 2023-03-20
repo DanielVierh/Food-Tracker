@@ -1,58 +1,53 @@
 // Projekt erstellt am 13.05.2021
 
 // Variabeln
-const buttonAdd = document.getElementById('btnAdd');
-const buttonScroll_Up = document.getElementById('btnscrl_Up');
-let haferflocken = '';
-let today_Steps = 0;
-let array_Food_DB = [];
-let today_eaten = [];
-let my_Statistics = [];
-let additional_Targets = [];
-let my_History = [];
-let bodyWeight = 78;
-let kcal_Ziel = 2000;
-let kcal_Requirement = 2000;
+let buttonAdd = document.getElementById('btnAdd');
+let buttonScroll_Up = document.getElementById('btnscrl_Up');
+var haferflocken = '';
+var today_Steps = 0;
+var array_Food_DB = [];
+var today_eaten = [];
+var my_Statistics = [];
+var additional_Targets = [];
+var my_History = [];
+var bodyWeight = 78;
+var kcal_Ziel = 2000;
+var kcal_Requirement = 2000;
 
-let selected_Food = '';
-let selectedFoodIndex = 0;
-let foodFromToday = false;
+var selected_Food = '';
+var selectedFoodIndex = 0;
+var foodFromToday = false;
 
-let eaten_Kcal = 0;
-let eaten_Carbs = 0.0;
-let eaten_Sugar = 0.0;
-let eaten_Protein = 0.0;
-let eaten_Fat = 0.0;
-let eaten_Salt = 0.0;
-let eaten_Fiber = 0.0;
-let eaten_Amount = 0.0;
-let burned_Kcal = 0;
-let effective_Kcal = 0;
-let form_is_Invisible = false;
-let diff = 0;
-let changeProduct = false;
-let old_Quantity = 0;
-let max_Sugar = 50;
-let max_Salt = 7;
-let min_Protein = 90;
-let min_Fiber = 30;
-let min_Steps = 10000;
-let des_Fat = 80;
-let des_Carbs = 150;
-let new_Water = 0.25;
-let today_Water = 0;
-let originDB = [];
-let exp_New_Prod = [];
-let selectedDateIndex = 0;
-let selectedDate = '';
-let lastWater = '';
-let spezDiet_Visible = false;
-let isKeto = false;
-let breakfast = [];
-let lunch = [];
-let dinner = [];
-let currentMealTime = 'br';
-let choosen_Food_Table_ID = '';
+var eaten_Kcal = 0;
+var eaten_Carbs = 0.0;
+var eaten_Sugar = 0.0;
+var eaten_Protein = 0.0;
+var eaten_Fat = 0.0;
+var eaten_Salt = 0.0;
+var eaten_Fiber = 0.0;
+var eaten_Amount = 0.0;
+var burned_Kcal = 0;
+var effective_Kcal = 0;
+var form_is_Invisible = false;
+var diff = 0;
+var changeProduct = false;
+var old_Quantity = 0;
+var max_Sugar = 50;
+var max_Salt = 7;
+var min_Protein = 90;
+var min_Fiber = 30;
+var min_Steps = 10000;
+var des_Fat = 80;
+var des_Carbs = 150;
+var new_Water = 0.25;
+var today_Water = 0;
+var originDB = [];
+var exp_New_Prod = [];
+var selectedDateIndex = 0;
+var selectedDate = '';
+var lastWater = '';
+var spezDiet_Visible = false;
+var isKeto = false;
 
 let countedPercentNumber = 0;
 let originalPercentValue = 0;
@@ -68,30 +63,6 @@ const proteinLabel = document.getElementById('output_Protein');
 const fatLabel = document.getElementById('output_Fat');
 const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
-const body = document.querySelector("body");
-const lbl_todayNutri = document.getElementById("lbl_todayNutri");
-const outp_nutriScore = document.getElementById("outp_nutriScore");
-
-
-
-// Modal
-const modalOverlay = document.getElementById('modalOverlay');
-const btn_ShowModalButton = document.getElementById('btn_ShowModal');
-const btn_CloseModal = document.getElementById('close-modal');
-const select_EatTime = document.getElementById("sel_Eattime");
-
-// Modal einblenden
-btn_ShowModalButton.addEventListener('click', () => {
-    body.classList.add("notAv");
-    modalOverlay.style.display = 'block';
-    console.log('currentMealTime', currentMealTime);
-});
-
-
-// Einstellungen ausblenden
-btn_CloseModal.addEventListener('click', () => {
-    modalOverlay.style.display = 'none';
-});
 
 //====================================================================================
 // Init
@@ -125,7 +96,7 @@ function check_FoodDB() {
 // EventListener
 //====================================================================================
 // TODO: In Variablen packen und auf Vorhandenheit abfragen
-// buttonAdd.addEventListener('click', addProduct);
+buttonAdd.addEventListener('click', addProduct);
 buttonScroll_Up.addEventListener('click', scroll_UP);
 
 // Damit gesuchtes Produkt direkt überschreibbar ist
@@ -147,10 +118,11 @@ function hideWelcomeScreen() {
 
 // Fullscreen Mode
 function toggleFullScreen() {
-    if (document.fullscreenElement) {
+    if(document.fullscreenElement) {
         document.exitFullscreen();
-    } else {
+    }else{
         document.documentElement.requestFullscreen().catch((error) => {
+            //console.log(error);
         });
     }
 }
@@ -158,8 +130,6 @@ function toggleFullScreen() {
 document.addEventListener('dblclick', () => {
     toggleFullScreen();
 });
-
-
 
 
 //====================================================================================
@@ -246,26 +216,10 @@ function load_other_LocalStorage_Values() {
     }
 
     // Heute gegessen
-    // TODO: stored_Today_Eaten entfernen
     if (localStorage.getItem('stored_Today_Eaten') === null) {
     } else {
         today_eaten = JSON.parse(localStorage.getItem('stored_Today_Eaten'));
-        // create_Table_TodayEaten();
-    }
-    if (localStorage.getItem('stored_Today_Eaten_Breakfast') === null) {
-    } else {
-        breakfast = JSON.parse(localStorage.getItem('stored_Today_Eaten_Breakfast'));
-        createTables();
-    }
-    if (localStorage.getItem('stored_Today_Eaten_Lunch') === null) {
-    } else {
-        lunch = JSON.parse(localStorage.getItem('stored_Today_Eaten_Lunch'));
-        createTables();
-    }
-    if (localStorage.getItem('stored_Today_Eaten_Dinner') === null) {
-    } else {
-        dinner = JSON.parse(localStorage.getItem('stored_Today_Eaten_Dinner'));
-        createTables();
+        create_Table_TodayEaten();
     }
 
     // Statistics
@@ -312,9 +266,6 @@ function save_Last_Water() {
 // Speichere Today Eaten
 function save_Today_Eaten() {
     localStorage.setItem('stored_Today_Eaten', JSON.stringify(today_eaten));
-    localStorage.setItem('stored_Today_Eaten_Breakfast', JSON.stringify(breakfast));
-    localStorage.setItem('stored_Today_Eaten_Lunch', JSON.stringify(lunch));
-    localStorage.setItem('stored_Today_Eaten_Dinner', JSON.stringify(dinner));
 }
 
 // Speichere Schritte
@@ -929,7 +880,7 @@ function show_Statisitcs(val) {
         document.getElementById('UeberschriftStatisik').innerHTML =
             'Verbrannte Kcal -- (Ziel: ' + burnedKcalGoal + ' Kcal)';
         document.getElementById('outputFatSum').innerHTML = '';
-        let kcal_counter = 0.0;
+
         // Fett ausblenden
         for (var i = 0; i < statistik_Count; i++) {
             document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
@@ -942,7 +893,6 @@ function show_Statisitcs(val) {
                 my_Statistics[i].repository_date;
             currentVal = my_Statistics[i].repository_BurnedKCal;
             document.getElementById('val_Col_' + i).innerHTML = currentVal;
-            kcal_counter += currentVal
 
             // + - zum Vortag
             if (i > 0) {
@@ -998,7 +948,7 @@ function show_Statisitcs(val) {
                     'rgb(43, 161, 43)';
             }
         }
-        document.getElementById('outputFatSum').innerHTML = kcal_counter + ' Kcal';
+
         // Ziel Latte
         let targetHeight = 500; // Mitte
         document.getElementById('eff_Goal').style.bottom = targetHeight + 'px';
@@ -1119,8 +1069,6 @@ function closeModal(modal) {
     modal.classList.remove('active');
     overlay.classList.remove('active');
 }
-
-
 
 function get_new_Steps() {
     try {
@@ -1340,6 +1288,7 @@ function show_NutriScore() {
     let check_Salt = parseFloat((calcAmound * selected_Food.salt) / 100);
     let check_Protein = parseFloat((calcAmound * selected_Food.protein) / 100);
     let check_Fiber = parseFloat((calcAmound * selected_Food.fiber) / 100);
+
     // Check Kcal
     if (check_Kcal < 40) {
         badPoints += -1;
@@ -1487,85 +1436,7 @@ function show_NutriScore() {
         nutriScoreChar = 'A';
         color = 'green';
     }
-
-    return nutriScore;
 }
-
-function averageNutriScore() {
-    let nutriArray = [];
-
-    // Array mit Score Werten befüllen
-    for (let i = 0; i < today_eaten.length; i++) {
-        selectedFoodIndex = indexOfFood(today_eaten[i].intake_productName);
-        selected_Food = array_Food_DB[selectedFoodIndex];
-        nutriArray.push(show_NutriScore());
-    }
-
-    // Durchschnitt berechnen
-    let averageVal = 0;
-    let sum = 0;
-    const nutriArrayAmount = nutriArray.length;
-    for (let j = 0; j < nutriArray.length; j++) {
-        sum += nutriArray[j];
-    }
-    averageVal = Math.round(sum / nutriArrayAmount);
-
-    // Wert abbilden
-    if (averageVal > 0) {
-        lbl_todayNutri.classList.add("active");
-        switch (averageVal) {
-            case 1:
-                outp_nutriScore.innerHTML = 'A';
-                outp_nutriScore.style.backgroundColor = 'green';
-                outp_nutriScore.style.color = 'white';
-                break;
-            case 2:
-                outp_nutriScore.innerHTML = 'B';
-                outp_nutriScore.style.backgroundColor = 'lightgreen';
-                outp_nutriScore.style.color = 'black';
-                break;
-            case 3:
-                outp_nutriScore.innerHTML = 'C';
-                outp_nutriScore.style.backgroundColor = 'yellow';
-                outp_nutriScore.style.color = 'black';
-                break;
-            case 4:
-                outp_nutriScore.innerHTML = 'D';
-                outp_nutriScore.style.backgroundColor = 'orange';
-                outp_nutriScore.style.color = 'white';
-                break;
-            case 5:
-                outp_nutriScore.innerHTML = 'E';
-                outp_nutriScore.style.backgroundColor = 'red';
-                outp_nutriScore.style.color = 'white';
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    // Reset
-    resetNutriScore();
-}
-
-function indexOfFood(food) {
-    for (let i = 0; i < array_Food_DB.length; i++) {
-        if (array_Food_DB[i].productName === food) {
-            return i;
-        }
-    }
-}
-
-function resetNutriScore() {
-    selected_Food = '';
-    document.getElementById('C_A').style.height = '60px';
-    document.getElementById('C_B').style.height = '60px';
-    document.getElementById('C_C').style.height = '60px';
-    document.getElementById('C_D').style.height = '60px';
-    document.getElementById('C_E').style.height = '60px';
-}
-
 
 //============================================================================
 // Prüfbutton für ausgewähltes Lebensmittel und Menge
@@ -1625,7 +1496,7 @@ function checkButton() {
                     salt_Intake +
                     ' g';
                 alert(intakeFoodInfo);
-            } catch (error) { }
+            } catch (error) {}
         }
     } else {
         alert(
@@ -1637,28 +1508,6 @@ function checkButton() {
 //============================================================================
 // Food zu heute gegessen hinzufügen
 //============================================================================
-
-function changeEatTime(selectObject) {
-    const value = selectObject.value;
-    setEatTime(value);
-}
-
-function setEatTime(value) {
-    if (value === 'opt_normal') {
-        console.log('Breakfast');
-        currentMealTime = 'br';
-    }
-    if (value === 'lu') {
-        console.log('Lunch');
-        currentMealTime = 'lu';
-    }
-    if (value === 'di') {
-        console.log('Dinner');
-        currentMealTime = 'di';
-    }
-}
-
-
 function add_Food_to_TodayList() {
     //Produkt nicht "", also ausgewählt
     if (selected_Food != '') {
@@ -1666,55 +1515,40 @@ function add_Food_to_TodayList() {
             alert('Bitte eine Menge eingeben');
         } else {
             let newProduct = selected_Food.productName;
-            let alreadyTracked = false;
-            let todayEatenIndex = -1;
-            let selectedAmount = parseFloat(
+            var alreadyTracked = false;
+            var todayEatenIndex = 3000;
+            var selectedAmount = parseFloat(
                 inputField_EatenFood_in_Gramm.value,
             );
 
             // Checke ob bereits vorhanden
-            // for (let i = 0; i < today_eaten.length; i++) {
-            //     if (today_eaten[i].intake_productName == newProduct) {
-            //         alreadyTracked = true;
-            //         todayEatenIndex = i;
-            //         break;
-            //     }
-            // }
-
-            if(checkEatTimeArrays(newProduct).eaten === true) {
-                console.log('Unterarray betroffen');
-                alreadyTracked = true;
+            for (var i = 0; i < today_eaten.length; i++) {
+                if (today_eaten[i].intake_productName == newProduct) {
+                    alreadyTracked = true;
+                    todayEatenIndex = i;
+                    break;
+                }
             }
-
-
-
-                // ? NEU es wird nur noch darauf hingewiesen, dass das Produkt in der
-                //? Liste angepasst werden soll
-            if (alreadyTracked === true) {
+            if (alreadyTracked == false) {
+            } else {
                 // Fragen, ob addiert werden soll
-                // const addRequest = window.confirm(
-                //     newProduct +
-                //     ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
-                // );
-                alert( newProduct + ' ist bereits in Deiner Liste vorhanden. Bitte passe es in der Liste "Heute gegessen" an.')
-                createTable_FoodDB();
-                blendOut_Eingabebereich_FoodDB();
-                return;
+                var addRequest = window.confirm(
+                    newProduct +
+                        ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
+                );
+
                 // WENN ADDIERT WERDEN SOLL...
-                /**
-                 *
-                 */
                 if (addRequest) {
                     // old_Quantity ermitteln
                     old_Quantity = today_eaten[todayEatenIndex].intake_amount;
                     // Neuen Wert eintragen alt + neu
                     selectedAmount = selectedAmount + old_Quantity;
                     // Altes Produkt löschen
-                    if (todayEatenIndex != -1) {
+                    if (todayEatenIndex != 3000) {
                         today_eaten.splice(todayEatenIndex, 1);
                     }
                     // Letzte Aktionen
-                    todayEatenIndex = -1;
+                    todayEatenIndex = 3000;
                 } else {
                     createTable_FoodDB();
                     blendOut_Eingabebereich_FoodDB();
@@ -1746,55 +1580,19 @@ function add_Food_to_TodayList() {
                     (selectedAmount * selected_Food.fiber) / 100,
                 );
 
-                if(currentMealTime === 'br') {
-                    breakfast.push(
-                        new TodayEatenFood(
-                            newProduct,
-                            selectedAmount,
-                            kcal_Intake,
-                            fat_Intake,
-                            carb_Intake,
-                            sugar_Intake,
-                            protein_Intake,
-                            salt_Intake,
-                            fiber_Intake,
-                        ),
-                    )
-                }
-                if(currentMealTime === 'lu') {
-                    lunch.push(
-                        new TodayEatenFood(
-                            newProduct,
-                            selectedAmount,
-                            kcal_Intake,
-                            fat_Intake,
-                            carb_Intake,
-                            sugar_Intake,
-                            protein_Intake,
-                            salt_Intake,
-                            fiber_Intake,
-                        ),
-                    )
-                }
-                if(currentMealTime === 'di') {
-                    dinner.push(
-                        new TodayEatenFood(
-                            newProduct,
-                            selectedAmount,
-                            kcal_Intake,
-                            fat_Intake,
-                            carb_Intake,
-                            sugar_Intake,
-                            protein_Intake,
-                            salt_Intake,
-                            fiber_Intake,
-                        ),
-                    )
-                }
-
-                console.log('Breakfast', breakfast);
-                console.log('lunch', lunch);
-                console.log('dinner', dinner);
+                today_eaten.push(
+                    new TodayEatenFood(
+                        newProduct,
+                        selectedAmount,
+                        kcal_Intake,
+                        fat_Intake,
+                        carb_Intake,
+                        sugar_Intake,
+                        protein_Intake,
+                        salt_Intake,
+                        fiber_Intake,
+                    ),
+                );
 
                 // Anzeigen, dass Produkt eingetragen wurde
                 let intakeFoodInfo =
@@ -1827,121 +1625,39 @@ function add_Food_to_TodayList() {
                 document.getElementById('selectedFoodMakros').innerHTML = '';
                 blendOut_Eingabebereich_FoodDB();
                 blendOut_MengeAendern();
-            } catch (error) { }
+            } catch (error) {}
         }
     } else {
         alert(
             'Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken',
         );
     }
-    createTables()
+    create_Table_TodayEaten();
     calc_Values();
-}
-
-function checkEatTimeArrays(newProduct) {
-    let returnObj = {
-        eaten: false,
-        arr: ''
-    }
-
-    if(currentMealTime === 'br') {
-        for (let i = 0; i < breakfast.length; i++) {
-            if (breakfast[i].intake_productName == newProduct) {
-                returnObj.eaten = true;
-                returnObj.arr = 'breakfast'
-                break
-            }
-        }
-    }
-
-    if(currentMealTime === 'lu') {
-        for (let i = 0; i < lunch.length; i++) {
-            if (lunch[i].intake_productName == newProduct) {
-                returnObj.eaten = true;
-                returnObj.arr = 'lunch'
-                break
-            }
-        }
-    }
-
-    if(currentMealTime === 'di') {
-        for (let i = 0; i < dinner.length; i++) {
-            if (dinner[i].intake_productName == newProduct) {
-                returnObj.eaten = true;
-                returnObj.arr = 'dinner'
-                break
-            }
-        }
-    }
-
-    return returnObj;
 }
 
 //============================================================================
 // Tabelle für Heute gegessen
 //============================================================================
-/**
- * Tabellenobjekte werden erzeugt für Frühstück, Mittag und Abend
- * In Schleife wird jeweilige Tabelle mit create_Table_TodayEaten() generiert
- */
-function createTables() {
-    //Breakfast
-    const tableBreakfast = document.getElementById('containerTabelle_Today_Breakfast');
-    tableBreakfast.innerHTML = 'Frühstück - 07:00 - 12:00';
-    let appraisalContainer = document.createElement('div');
-    appraisalContainer.classList.add('appraisalContainer');
-    appraisalContainer.id = 'appraisalCont_Breakfast';
-    tableBreakfast.appendChild(appraisalContainer);
-    // Lunch
-    const tableLunch = document.getElementById('containerTabelle_Today_Lunch');
-    tableLunch.innerHTML = 'Mittagessen 12:00 - 17:00';
-    let appraisalContainer2 = document.createElement('div');
-    appraisalContainer2.classList.add('appraisalContainer');
-    appraisalContainer2.id = 'appraisalCont_Lunch';
-    tableLunch.appendChild(appraisalContainer2);
-    // Dinner
-    const tableDinner = document.getElementById('containerTabelle_Today_Dinner')
-    tableDinner.innerHTML = 'Abendessen 17:00 - 21:00'
-    let appraisalContainer3 = document.createElement('div');
-    appraisalContainer3.classList.add('appraisalContainer');
-    appraisalContainer3.id = 'appraisalCont_Dinner';
-    tableDinner.appendChild(appraisalContainer3);
 
-    let tables = [breakfastTable= {
-                    tableID: tableBreakfast,
-                    tableArray: breakfast},
+function create_Table_TodayEaten() {
+    // Reset der Tabelle
+    document.getElementById('containerTabelle_Today').innerHTML = '';
 
-                    lunchTable = {
-                      tableID: tableLunch,
-                      tableArray: lunch},
-
-                    dinnerTable = {
-                      tableID: tableDinner,
-                      tableArray: dinner}
-    ];
-
-
-    for(let i = 0; i < tables.length; i++) {
-        create_Table_TodayEaten(tables[i].tableID, tables[i].tableArray)
-    }
-
-}
-
-function create_Table_TodayEaten(tableId, foodArr) {
     // CREATE HTML TABLE OBJECT
-    let perrow = 1, // 1 CELLS PER ROW
+    var perrow = 1, // 1 CELLS PER ROW
         table = document.createElement('table'),
         row = table.insertRow();
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
-    for (let i = 0; i < foodArr.length; i++) {
+    for (var i = 0; i < today_eaten.length; i++) {
         // ADD "BASIC" CELL
-        let cell = row.insertCell();
+        var cell = row.insertCell();
         cell.innerHTML =
-            foodArr[i].intake_productName +
+            today_eaten[i].intake_productName +
             ' --\n ' +
-            foodArr[i].intake_amount +
+            today_eaten[i].intake_amount +
             'g  = ' +
-            foodArr[i].intake_kcal +
+            today_eaten[i].intake_kcal +
             ' Kcal';
 
         // ATTACH A RUNNING NUMBER OR CUSTOM DATA
@@ -1949,11 +1665,9 @@ function create_Table_TodayEaten(tableId, foodArr) {
 
         // Produktauswahl
         cell.addEventListener('click', function () {
-            choosen_Food_Table_ID = cell.parentNode.parentNode.parentNode.parentNode.id
-            console.log('choosen_Food_Table_ID', choosen_Food_Table_ID);
             foodFromToday = true;
             selectedFoodIndex = this.dataset.id;
-            selected_Food = foodArr[selectedFoodIndex];
+            selected_Food = today_eaten[selectedFoodIndex];
             document.getElementById('sel_change_Prod').innerHTML =
                 selected_Food.intake_productName;
             document.getElementById('foodAmound_Change').value =
@@ -1968,7 +1682,7 @@ function create_Table_TodayEaten(tableId, foodArr) {
             document.getElementById('foodAmound_Change').disabled = false;
             blendOut_Eingabebereich_FoodDB();
 
-            let prozentFromDay =
+            var prozentFromDay =
                 (selected_Food.intake_kcal * 100) /
                 (kcal_Ziel + parseInt(burned_Kcal));
             let calcSingle =
@@ -1995,18 +1709,15 @@ function create_Table_TodayEaten(tableId, foodArr) {
         });
 
         // BREAK INTO NEXT ROW
-        let next = i + 1;
-        if (next % perrow == 0 && next != foodArr.length) {
+        var next = i + 1;
+        if (next % perrow == 0 && next != today_eaten.length) {
             row = table.insertRow();
         }
     }
 
     // ATTACH TABLE TO CONTAINER
-    tableId.appendChild(table);
+    document.getElementById('containerTabelle_Today').appendChild(table);
 }
-
-
-
 
 //============================================================================
 // Menge ändern
@@ -2040,59 +1751,24 @@ function change_Food_to_TodayList() {
             (selectedAmount * selected_Food.intake_fiber) / old_Quantity,
         );
 
-        // Breakfast
-        if(choosen_Food_Table_ID === 'containerTabelle_Today_Breakfast') {
-            breakfast.splice(selectedFoodIndex, 1);
-            breakfast.push(
-                new TodayEatenFood(
-                    productNme,
-                    selectedAmount,
-                    kcal_Intake,
-                    fat_Intake,
-                    carb_Intake,
-                    sugar_Intake,
-                    protein_Intake,
-                    salt_Intake,
-                    fiber_Intake,
-                ),
-            );
-        }
-        // Lunch
-        if(choosen_Food_Table_ID === 'containerTabelle_Today_Lunch') {
-            lunch.splice(selectedFoodIndex, 1);
-            lunch.push(
-                new TodayEatenFood(
-                    productNme,
-                    selectedAmount,
-                    kcal_Intake,
-                    fat_Intake,
-                    carb_Intake,
-                    sugar_Intake,
-                    protein_Intake,
-                    salt_Intake,
-                    fiber_Intake,
-                ),
-            );
-        }
-        // Dinner
-        if(choosen_Food_Table_ID === 'containerTabelle_Today_Dinner') {
-            dinner.splice(selectedFoodIndex, 1);
-            dinner.push(
-                new TodayEatenFood(
-                    productNme,
-                    selectedAmount,
-                    kcal_Intake,
-                    fat_Intake,
-                    carb_Intake,
-                    sugar_Intake,
-                    protein_Intake,
-                    salt_Intake,
-                    fiber_Intake,
-                ),
-            );
-        }
+        // Löschen
+        today_eaten.splice(selectedFoodIndex, 1);
 
-        createTables();
+        today_eaten.push(
+            new TodayEatenFood(
+                productNme,
+                selectedAmount,
+                kcal_Intake,
+                fat_Intake,
+                carb_Intake,
+                sugar_Intake,
+                protein_Intake,
+                salt_Intake,
+                fiber_Intake,
+            ),
+        );
+
+        create_Table_TodayEaten();
         calc_Values();
         //Speichern
         save_Today_Eaten();
@@ -2108,22 +1784,11 @@ function delete_from_today() {
     if (foodFromToday == true) {
         const decision = window.confirm(
             'Möchtest du < ' +
-            selected_Food.intake_productName +
-            '> wirklich von der heutigen Liste löschen?',
+                selected_Food.intake_productName +
+                '> wirklich von der heutigen Liste löschen?',
         );
         if (decision) {
-             // Breakfast
-        if(choosen_Food_Table_ID === 'containerTabelle_Today_Breakfast') {
-            breakfast.splice(selectedFoodIndex, 1);
-        }
-        // Lunch
-        if(choosen_Food_Table_ID === 'containerTabelle_Today_Lunch') {
-            lunch.splice(selectedFoodIndex, 1);
-        }
-        // Dinner
-        if(choosen_Food_Table_ID === 'containerTabelle_Today_Dinner') {
-            dinner.splice(selectedFoodIndex, 1);
-        }
+            today_eaten.splice(selectedFoodIndex, 1);
             calc_Values();
 
             // Speichern
@@ -2132,7 +1797,7 @@ function delete_from_today() {
             // Aufräumen und neu laden
             document.getElementById('foodAmound_Change').value = '';
             document.getElementById('sel_change_Prod').innerHTML = '';
-            createTables()
+            create_Table_TodayEaten();
             blendOut_MengeAendern();
             coloring_Labels();
         }
@@ -2155,363 +1820,16 @@ function calc_Values() {
     eaten_Fiber = 0.0;
     eaten_Amount = 0.0;
 
-    let temp_Kcal = 0;
-    let temp_Carbs = 0;
-    let temp_sugar = 0;
-    let temp_Protein = 0;
-    let temp_Fat = 0;
-    let temp_Salt = 0;
-    let temp_Fiber = 0;
-    let tempAmount = 0;
-
-
     // Summen bilden
-    // ! Breakfast
-    for (let i = 0; i < breakfast.length; i++) {
-        eaten_Kcal += breakfast[i].intake_kcal; temp_Kcal += breakfast[i].intake_kcal;
-        eaten_Carbs += breakfast[i].intake_carbs; temp_Carbs += breakfast[i].intake_carbs;
-        eaten_Sugar += breakfast[i].intake_sugar; temp_sugar += breakfast[i].intake_sugar;
-        eaten_Protein += breakfast[i].intake_protein; temp_Protein += breakfast[i].intake_protein;
-        eaten_Fat += breakfast[i].intake_fat; temp_Fat += breakfast[i].intake_fat;
-        eaten_Salt += breakfast[i].intake_salt; temp_Salt += breakfast[i].intake_salt;
-        eaten_Fiber += breakfast[i].intake_fiber; temp_Fiber += breakfast[i].intake_fiber;
-        eaten_Amount += breakfast[i].intake_amount; tempAmount += breakfast[i].intake_amount;
-    }
-
-    // Appraisal Temp Values
-    // Bad if 10% over Max // Bad if 10% under min
-    if(breakfast.length > 0) {
-        const appraisalObj = {
-            max_Kcal_per_Meal : { should: parseInt(kcal_Ziel / 3), is: temp_Kcal},
-            max_Fett_per_Meal: { should: parseInt(des_Fat / 3), is: temp_Fat},
-            max_KH_per_Meal : { should: parseInt(des_Carbs / 3), is: temp_Carbs},
-            max_Zucker_per_Meal : { should: parseInt(max_Sugar / 3), is: temp_sugar},
-            max_Salz_per_Meal : { should: parseInt(max_Salt / 3), is: temp_Salt},
-            min_Ballaststoffe_per_Meal : { should: parseInt(min_Fiber / 3), is: temp_Fiber},
-            min_Eiweiss_per_Meal : { should: parseInt(min_Protein / 3), is: temp_Protein}
-        }
-
-            let toLessArray = [];
-            let toMuchArray = [];
-            let goodToHaveLess = [];
-            let goodToHaveMuch = [];
-            let badCombo = [];
-
-            for (const [key, value] of Object.entries(appraisalObj)) {
-                const minOrMax = splitVal(key + '', '_', 0);
-                const is_in_Percent = parseInt(value.is * 100 / value.should);
-                if(minOrMax === 'min') {
-                    if(is_in_Percent < 80) {
-                        toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
-                    }
-                    if(is_in_Percent > 150) {
-                        goodToHaveMuch.push(`Viel ${ky}`)
-                    }
-                }
-                if(minOrMax === 'max') {
-                    if(is_in_Percent > 120) {
-                        const ky = splitVal(key + '', '_', 1)
-
-                        toMuchArray.push(`viel ${ky}`)
-
-                        if(ky === 'Fett') badCombo.push(ky);
-              
-                        if(ky === 'KH') badCombo.push(ky);
-
-                    }
-
-                    if(is_in_Percent < 50) {
-                        goodToHaveLess.push(`wenig ${splitVal(key + '', '_', 1)}`)
-                    }
-                }
-            }
-
-            const brItmWrapper = document.getElementById('appraisalCont_Breakfast')
-
-            for(let itm1 = 0; itm1 < toLessArray.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('badItem')
-                    itemLabel.innerHTML = toLessArray[itm1];
-                    brItmWrapper.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < toMuchArray.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('badItem')
-                    itemLabel.innerHTML = toMuchArray[itm1];
-                    brItmWrapper.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < goodToHaveLess.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('goodItem')
-                    itemLabel.innerHTML = goodToHaveLess[itm1];
-                    brItmWrapper.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < goodToHaveMuch.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('goodItem')
-                    itemLabel.innerHTML = goodToHaveMuch[itm1];
-                    brItmWrapper.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            // KH Fett Alarn
-            try {
-                if(badCombo.length === 2) {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('alarmItem')
-                    itemLabel.innerHTML = '⚠️ Fett & KH';
-                    brItmWrapper.appendChild(itemLabel);
-                }
-            } catch (error) {}
-
-            try {
-                let itemLabel = document.createElement('div')
-                itemLabel.classList.add('infoItem')
-                itemLabel.innerHTML = `${parseFloat(temp_Kcal).toFixed(1)} Kcl - ${parseFloat(temp_Carbs).toFixed(1)} KH - ${parseFloat(temp_sugar).toFixed(1)} Zck - ${parseFloat(temp_Protein).toFixed(1)} Eiw - ${parseFloat(temp_Fat).toFixed(1)} Ft - ${parseFloat(temp_Fiber).toFixed(1)} Bl`;
-                brItmWrapper.appendChild(itemLabel);
-            } catch (error) {}
-
-    }
-
-    // Reset Temp Variables
-    temp_Kcal = 0; temp_Carbs = 0; temp_sugar = 0; temp_Protein = 0;
-    temp_Fat = 0; temp_Salt = 0; temp_Fiber = 0; tempAmount = 0;
-    //! LUNCH
-     for (let i = 0; i < lunch.length; i++) {
-        eaten_Kcal += lunch[i].intake_kcal; temp_Kcal += lunch[i].intake_kcal;
-        eaten_Carbs += lunch[i].intake_carbs; temp_Carbs += lunch[i].intake_carbs;
-        eaten_Sugar += lunch[i].intake_sugar; temp_sugar += lunch[i].intake_sugar;
-        eaten_Protein += lunch[i].intake_protein; temp_Protein += lunch[i].intake_protein;
-        eaten_Fat += lunch[i].intake_fat; temp_Fat += lunch[i].intake_fat;
-        eaten_Salt += lunch[i].intake_salt; temp_Salt += lunch[i].intake_salt;
-        eaten_Fiber += lunch[i].intake_fiber; temp_Fiber += lunch[i].intake_fiber;
-        eaten_Amount += lunch[i].intake_amount; tempAmount += lunch[i].intake_amount;
-    }
-
-    if(lunch.length > 0) {
-        const appraisalObj = {
-            max_Kcal_per_Meal : { should: parseInt(kcal_Ziel / 3), is: temp_Kcal},
-            max_Fett_per_Meal: { should: parseInt(des_Fat / 3), is: temp_Fat},
-            max_KH_per_Meal : { should: parseInt(des_Carbs / 3), is: temp_Carbs},
-            max_Zucker_per_Meal : { should: parseInt(max_Sugar / 3), is: temp_sugar},
-            max_Salz_per_Meal : { should: parseInt(max_Salt / 3), is: temp_Salt},
-            min_Ballaststoffe_per_Meal : { should: parseInt(min_Fiber / 3), is: temp_Fiber},
-            min_Eiweiss_per_Meal : { should: parseInt(min_Protein / 3), is: temp_Protein}
-        }
-
-            toLessArray = [];
-            toMuchArray = [];
-            goodToHaveLess = [];
-            goodToHaveMuch = [];
-            badCombo = [];
-
-            for (const [key, value] of Object.entries(appraisalObj)) {
-                const minOrMax = splitVal(key + '', '_', 0);
-                const is_in_Percent = parseInt(value.is * 100 / value.should);
-                if(minOrMax === 'min') {
-                    if(is_in_Percent < 80) {
-                        toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
-                    }
-                    if(is_in_Percent > 150) {
-                        goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
-                    }
-                }
-                if(minOrMax === 'max') {
-                    if(is_in_Percent > 120) {
-                        const ky = splitVal(key + '', '_', 1)
-
-                        toMuchArray.push(`viel ${ky}`)
-
-                        if(ky === 'Fett') badCombo.push(ky);
-              
-                        if(ky === 'KH') badCombo.push(ky);
-                    }
-
-                    if(is_in_Percent < 50) {
-                        goodToHaveLess.push(`wenig ${splitVal(key + '', '_', 1)}`)
-                    }
-                }
-            }
-
-            const brItmWrapper2 = document.getElementById('appraisalCont_Lunch')
-
-            for(let itm1 = 0; itm1 < toLessArray.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('badItem')
-                    itemLabel.innerHTML = toLessArray[itm1];
-                    brItmWrapper2.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < toMuchArray.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('badItem')
-                    itemLabel.innerHTML = toMuchArray[itm1];
-                    brItmWrapper2.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < goodToHaveLess.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('goodItem')
-                    itemLabel.innerHTML = goodToHaveLess[itm1];
-                    brItmWrapper2.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < goodToHaveMuch.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('goodItem')
-                    itemLabel.innerHTML = goodToHaveMuch[itm1];
-                    brItmWrapper2.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            // KH Fett Alarn
-            try {
-                if(badCombo.length === 2) {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('alarmItem')
-                    itemLabel.innerHTML = '⚠️ Fett & KH';
-                    brItmWrapper2.appendChild(itemLabel);
-                }
-            } catch (error) {}
-
-            try {
-                let itemLabel = document.createElement('div')
-                itemLabel.classList.add('infoItem')
-                itemLabel.innerHTML = `${parseFloat(temp_Kcal).toFixed(1)} Kcl - ${parseFloat(temp_Carbs).toFixed(1)} KH - ${parseFloat(temp_sugar).toFixed(1)} Zck - ${parseFloat(temp_Protein).toFixed(1)} Eiw - ${parseFloat(temp_Fat).toFixed(1)} Ft - ${parseFloat(temp_Fiber).toFixed(1)} Bl`;
-                brItmWrapper2.appendChild(itemLabel);
-            } catch (error) {}
-    }
-
-    temp_Kcal = 0; temp_Carbs = 0; temp_sugar = 0; temp_Protein = 0;
-    temp_Fat = 0; temp_Salt = 0; temp_Fiber = 0; tempAmount = 0;
-
-    for (let i = 0; i < dinner.length; i++) {
-        eaten_Kcal += dinner[i].intake_kcal; temp_Kcal += dinner[i].intake_kcal;
-        eaten_Carbs += dinner[i].intake_carbs; temp_Carbs += dinner[i].intake_carbs;
-        eaten_Sugar += dinner[i].intake_sugar; temp_sugar += dinner[i].intake_sugar;
-        eaten_Protein += dinner[i].intake_protein; temp_Protein += dinner[i].intake_protein;
-        eaten_Fat += dinner[i].intake_fat; temp_Fat += dinner[i].intake_fat;
-        eaten_Salt += dinner[i].intake_salt; temp_Salt += dinner[i].intake_salt;
-        eaten_Fiber += dinner[i].intake_fiber; temp_Fiber += dinner[i].intake_fiber;
-        eaten_Amount += dinner[i].intake_amount; tempAmount += dinner[i].intake_amount;
-    }
-
-    if(dinner.length > 0) {
-        const appraisalObj = {
-            max_Kcal_per_Meal : { should: parseInt(kcal_Ziel / 3), is: temp_Kcal},
-            max_Fett_per_Meal: { should: parseInt(des_Fat / 3), is: temp_Fat},
-            max_KH_per_Meal : { should: parseInt(des_Carbs / 3), is: temp_Carbs},
-            max_Zucker_per_Meal : { should: parseInt(max_Sugar / 3), is: temp_sugar},
-            max_Salz_per_Meal : { should: parseInt(max_Salt / 3), is: temp_Salt},
-            min_Ballaststoffe_per_Meal : { should: parseInt(min_Fiber / 3), is: temp_Fiber},
-            min_Eiweiss_per_Meal : { should: parseInt(min_Protein / 3), is: temp_Protein}
-        }
-
-            toLessArray = [];
-            toMuchArray = [];
-            goodToHaveLess = [];
-            goodToHaveMuch = [];
-            badCombo = [];
-
-            for (const [key, value] of Object.entries(appraisalObj)) {
-                const minOrMax = splitVal(key + '', '_', 0);
-                const is_in_Percent = parseInt(value.is * 100 / value.should);
-                if(minOrMax === 'min') {
-                    if(is_in_Percent < 80) {
-                        toLessArray.push(`wenig ${splitVal(key + '', '_', 1)}`)
-                    }
-                    if(is_in_Percent > 150) {
-                        goodToHaveMuch.push(`Viel ${splitVal(key + '', '_', 1)}`)
-                    }
-                }
-                if(minOrMax === 'max') {
-                    if(is_in_Percent > 120) {
-                        const ky = splitVal(key + '', '_', 1)
-
-                        toMuchArray.push(`viel ${ky}`)
-
-                        if(ky === 'Fett') badCombo.push(ky);
-              
-                        if(ky === 'KH') badCombo.push(ky);
-                    }
-
-                    if(is_in_Percent < 50) {
-                        goodToHaveLess.push(`wenig ${splitVal(key + '', '_', 1)}`)
-                    }
-                }
-            }
-
-            const brItmWrapper3 = document.getElementById('appraisalCont_Dinner')
-
-            for(let itm1 = 0; itm1 < toLessArray.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('badItem')
-                    itemLabel.innerHTML = toLessArray[itm1];
-                    brItmWrapper3.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < toMuchArray.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('badItem')
-                    itemLabel.innerHTML = toMuchArray[itm1];
-                    brItmWrapper3.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < goodToHaveLess.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('goodItem')
-                    itemLabel.innerHTML = goodToHaveLess[itm1];
-                    brItmWrapper3.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            for(let itm1 = 0; itm1 < goodToHaveMuch.length; itm1++) {
-                try {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('goodItem')
-                    itemLabel.innerHTML = goodToHaveMuch[itm1];
-                    brItmWrapper3.appendChild(itemLabel);
-                } catch (error) { }
-            }
-
-            // KH Fett Alarn
-            try {
-                if(badCombo.length === 2) {
-                    let itemLabel = document.createElement('div')
-                    itemLabel.classList.add('alarmItem')
-                    itemLabel.innerHTML = '⚠️ Fett & KH';
-                    brItmWrapper3.appendChild(itemLabel);
-                }
-            } catch (error) {}  
-            
-            try {
-                let itemLabel = document.createElement('div')
-                itemLabel.classList.add('infoItem')
-                itemLabel.innerHTML = `${parseFloat(temp_Kcal).toFixed(1)} Kcl - ${parseFloat(temp_Carbs).toFixed(1)} KH - ${parseFloat(temp_sugar).toFixed(1)} Zck - ${parseFloat(temp_Protein).toFixed(1)} Eiw - ${parseFloat(temp_Fat).toFixed(1)} Ft - ${parseFloat(temp_Fiber).toFixed(1)} Bl`;
-                brItmWrapper3.appendChild(itemLabel);
-            } catch (error) {}
+    for (var i = 0; i < today_eaten.length; i++) {
+        eaten_Kcal += today_eaten[i].intake_kcal;
+        eaten_Carbs += today_eaten[i].intake_carbs;
+        eaten_Sugar += today_eaten[i].intake_sugar;
+        eaten_Protein += today_eaten[i].intake_protein;
+        eaten_Fat += today_eaten[i].intake_fat;
+        eaten_Salt += today_eaten[i].intake_salt;
+        eaten_Fiber += today_eaten[i].intake_fiber;
+        eaten_Amount += today_eaten[i].intake_amount;
     }
 
     // Effektive Kcal und Differenz berechnen
@@ -2560,7 +1878,6 @@ function calc_Values() {
     countedPercentNumber = 0;
     countingAnimation(originalPercentValue);
     coloring_Labels();
-    averageNutriScore();
 }
 
 // function animate_ProgressBar(prgrssVal) {
@@ -2787,9 +2104,9 @@ function calc_Kcal_Goal() {
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                                 kcal_Requirement = parseInt(
                                     66.47 +
-                                    13.7 * bodyWeight +
-                                    5 * height -
-                                    6.8 * age,
+                                        13.7 * bodyWeight +
+                                        5 * height -
+                                        6.8 * age,
                                 );
                                 save_Kcal_Requirement();
 
@@ -2824,9 +2141,9 @@ function calc_Kcal_Goal() {
                                 //655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
                                 kcal_Requirement = parseInt(
                                     655.1 +
-                                    9.6 * bodyWeight +
-                                    1.8 * height -
-                                    4.7 * age,
+                                        9.6 * bodyWeight +
+                                        1.8 * height -
+                                        4.7 * age,
                                 );
 
                                 let kcal_Differenz = bodyWeight - targetWeight;
@@ -3055,12 +2372,12 @@ function selectDiet() {
         fat_in_Gramm = parseInt(fat_in_Gramm + addedFat);
         alert(
             'Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: ' +
-            protein_in_Gramm +
-            ' g liegst du ' +
-            proteinDiff +
-            ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
-            addedFat +
-            ' g Fett gut :)',
+                protein_in_Gramm +
+                ' g liegst du ' +
+                proteinDiff +
+                ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
+                addedFat +
+                ' g Fett gut :)',
         );
         document.getElementById('target_Fat').value = fat_in_Gramm;
         document.getElementById('target_Protein').value = protein_in_Gramm;
@@ -3220,9 +2537,6 @@ function close_Day() {
             // RESET
             today_Steps = 0;
             today_eaten = [];
-            breakfast = [];
-            lunch = [];
-            dinner = [];
             today_Water = 0;
             burned_Kcal = 0;
             lastWater = 'Gestern';
@@ -3529,7 +2843,6 @@ function add_new_Food() {
 //============================================================================
 
 function changeMacros() {
-    modalOverlay.style.display = 'none';
     goto_NewProduct();
     changeProduct = true;
     // Content laden
@@ -3554,8 +2867,8 @@ function delete_Food_from_DB() {
     } else {
         var deleteDecision = window.confirm(
             'Soll das Lebensmittel: <' +
-            selected_Food.productName +
-            '> wirklich für immer aus der Datenbank gelöscht werden?',
+                selected_Food.productName +
+                '> wirklich für immer aus der Datenbank gelöscht werden?',
         );
         if (deleteDecision) {
             let spliceIndex = indexErmittler(selected_Food.productName);
@@ -3839,60 +3152,4 @@ function sendThisDay() {
         emailSub +
         '&body=' +
         bodyContent;
-}
-
-
-function deleteDayWithoutHistory() {
-    today_Steps = 0;
-    today_eaten = [];
-    breakfast = [];
-    dinner = [];
-    lunch = [];
-
-    today_Water = 0;
-    burned_Kcal = 0;
-    lastWater = 'Gestern';
-    save_Burned_Kcal();
-    save_Last_Water();
-    document.getElementById('btnSteps').innerHTML =
-        today_Steps + ' &#128095';
-    document.getElementById('lastWater').innerHTML = 'Zuletzt: ';
-    coloring_Labels();
-    steps_into_Kcal();
-    calc_Values();
-    save_Today_Steps();
-    save_Today_Eaten();
-    save_Today_Water();
-    alert(
-        'Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.',
-    );
-    location.reload();
-}
-
-
-//
-//
-function deleteDHistory() {
-    const deleteRequest = window.confirm("Soll die komplette Historie gelöscht werden?");
-    if (deleteRequest) {
-        my_History = [];
-        save_History();
-        location.reload();
-    }
-}
-
-function deleteStatistics() {
-    const deleteRequest = window.confirm("Soll die komplette Statistik gelöscht werden?");
-    if (deleteRequest) {
-        my_Statistics = [];
-        save_Statistics();
-        location.reload();
-    }
-}
-
-
-function splitVal(val, marker, pos) {
-    const elem = val.split(marker);
-    const retVal = elem[pos];
-    return retVal;
 }
