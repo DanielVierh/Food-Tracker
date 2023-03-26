@@ -3153,3 +3153,48 @@ function sendThisDay() {
         '&body=' +
         bodyContent;
 }
+
+
+function deleteDayWithoutHistory() {
+    today_Steps = 0;
+    today_eaten = [];
+    today_Water = 0;
+    burned_Kcal = 0;
+    lastWater = 'Gestern';
+    save_Burned_Kcal();
+    save_Last_Water();
+    document.getElementById('btnSteps').innerHTML =
+        today_Steps + ' &#128095';
+    document.getElementById('lastWater').innerHTML = 'Zuletzt: ';
+    coloring_Labels();
+    steps_into_Kcal();
+    calc_Values();
+    save_Today_Steps();
+    save_Today_Eaten();
+    save_Today_Water();
+    alert(
+        'Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.',
+    );
+    location.reload();
+}
+
+
+//
+//
+function deleteDHistory() {
+    const deleteRequest = window.confirm("Soll die komplette Historie gelöscht werden?");
+    if(deleteRequest) {
+        my_History = [];
+        save_History();
+        location.reload();
+    }
+}
+
+function deleteStatistics() {
+    const deleteRequest = window.confirm("Soll die komplette Statistik gelöscht werden?");
+    if(deleteRequest) {
+        my_Statistics = [];
+        save_Statistics();
+        location.reload();
+    }
+}
