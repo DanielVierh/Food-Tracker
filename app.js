@@ -63,6 +63,7 @@ const proteinLabel = document.getElementById('output_Protein');
 const fatLabel = document.getElementById('output_Fat');
 const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
+const burned_Kcal_Label = document.getElementById('output_Burned');
 
 //====================================================================================
 // Init
@@ -171,7 +172,7 @@ function load_other_LocalStorage_Values() {
     if (localStorage.getItem('stored_burned_Kcal') === null) {
     } else {
         burned_Kcal = JSON.parse(localStorage.getItem('stored_burned_Kcal'));
-        document.getElementById('output_Burned').innerHTML =
+        burned_Kcal_Label.innerHTML =
             burned_Kcal + ' Kcal';
         calc_Values();
     }
@@ -1094,7 +1095,7 @@ function steps_into_Kcal() {
         burned_Kcal = kcal_from_Steps;
         save_Burned_Kcal();
     }
-    document.getElementById('output_Burned').innerHTML = burned_Kcal + ' Kcal';
+    burned_Kcal_Label.innerHTML = burned_Kcal + ' Kcal';
     calc_Values();
 }
 
@@ -1109,7 +1110,7 @@ function recordKcal() {
     if (new_Kcal) {
         if (new_Kcal != burned_Kcal) {
             burned_Kcal = parseInt(new_Kcal);
-            document.getElementById('output_Burned').innerHTML =
+            burned_Kcal_Label.innerHTML =
                 burned_Kcal + ' Kcal';
             save_Burned_Kcal();
             calc_Values();
@@ -1839,6 +1840,7 @@ function calc_Values() {
     document.getElementById('output_Eaten').innerHTML = eaten_Kcal + ' Kcal';
     document.getElementById('output_EffectiveBurned').innerHTML =
         effective_Kcal + ' Kcal';
+    burned_Kcal_Label.innerHTML = burned_Kcal + ' Kcal';
 
     if (diff > 0) {
         document.getElementById('output_Diff').innerHTML =
@@ -1935,8 +1937,23 @@ function countingAnimation() {
     }
 }
 
+function burned_Kcal_in_Fat() {
+        // Fett in Gramm
+        let trueDifferenz = kcal_Requirement - parseInt(effective_Kcal);
+        let kcal_in_Gramm = parseInt((trueDifferenz * 1000) / 7000);
+        let returnVal = '';
+            if (kcal_in_Gramm < 0) {
+                returnVal = '+' + Math.abs(kcal_in_Gramm) + ' g Fett';
+            } else {
+                returnVal = '-' + kcal_in_Gramm + ' g Fett';
+            }
+
+        return returnVal;
+}
+
 function showTargets() {
     // Blende die Ziele ein
+    burned_Kcal_Label.innerHTML = burned_Kcal_in_Fat();
     carbLabel.innerHTML = `${eaten_Carbs.toFixed(1)} / Max ${des_Carbs}`;
     sugarLabel.innerHTML = `${eaten_Sugar.toFixed(1)} / Max ${max_Sugar}`;
     proteinLabel.innerHTML = `${eaten_Protein.toFixed(1)} / Min ${min_Protein}`;
