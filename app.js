@@ -116,12 +116,11 @@ function hideWelcomeScreen() {
     document.getElementById('welcomeScrn').style.zIndex = '-1';
 }
 
-
 // Fullscreen Mode
 function toggleFullScreen() {
-    if(document.fullscreenElement) {
+    if (document.fullscreenElement) {
         document.exitFullscreen();
-    }else{
+    } else {
         document.documentElement.requestFullscreen().catch((error) => {
             //console.log(error);
         });
@@ -131,7 +130,6 @@ function toggleFullScreen() {
 document.addEventListener('dblclick', () => {
     toggleFullScreen();
 });
-
 
 //====================================================================================
 // Save,  Load or create DB
@@ -172,8 +170,7 @@ function load_other_LocalStorage_Values() {
     if (localStorage.getItem('stored_burned_Kcal') === null) {
     } else {
         burned_Kcal = JSON.parse(localStorage.getItem('stored_burned_Kcal'));
-        burned_Kcal_Label.innerHTML =
-            burned_Kcal + ' Kcal';
+        burned_Kcal_Label.innerHTML = burned_Kcal + ' Kcal';
         calc_Values();
     }
 
@@ -1110,8 +1107,7 @@ function recordKcal() {
     if (new_Kcal) {
         if (new_Kcal != burned_Kcal) {
             burned_Kcal = parseInt(new_Kcal);
-            burned_Kcal_Label.innerHTML =
-                burned_Kcal + ' Kcal';
+            burned_Kcal_Label.innerHTML = burned_Kcal + ' Kcal';
             save_Burned_Kcal();
             calc_Values();
         }
@@ -1938,17 +1934,17 @@ function countingAnimation() {
 }
 
 function burned_Kcal_in_Fat() {
-        // Fett in Gramm
-        let trueDifferenz = kcal_Requirement - parseInt(effective_Kcal);
-        let kcal_in_Gramm = parseInt((trueDifferenz * 1000) / 7000);
-        let returnVal = '';
-            if (kcal_in_Gramm < 0) {
-                returnVal = '+' + Math.abs(kcal_in_Gramm) + ' g Fett';
-            } else {
-                returnVal = '-' + kcal_in_Gramm + ' g Fett';
-            }
+    // Fett in Gramm
+    let trueDifferenz = kcal_Requirement - parseInt(effective_Kcal);
+    let kcal_in_Gramm = parseInt((trueDifferenz * 1000) / 7000);
+    let returnVal = '';
+    if (kcal_in_Gramm < 0) {
+        returnVal = '+' + Math.abs(kcal_in_Gramm) + ' g Fett';
+    } else {
+        returnVal = '-' + kcal_in_Gramm + ' g Fett';
+    }
 
-        return returnVal;
+    return returnVal;
 }
 
 function showTargets() {
@@ -2062,10 +2058,12 @@ function colorizeTargetProgress() {
 // Kcal Ziel berechnen
 //============================================================================
 function calc_Kcal_Goal() {
-    var height = 0;
-    var age = 0;
-    var targetWeight = 0;
-    var targetTime = 0;
+    let height = 0;
+    let age = 0;
+    let targetWeight = 0;
+    let targetTime = 0;
+    let heightForBmi = 0.0;
+    let ausg = '';
 
     // Gender Auswahl herausfinden
     const gender = document.querySelectorAll('input[name="gender"]');
@@ -2092,6 +2090,16 @@ function calc_Kcal_Goal() {
                 alert('Bitte das Feld Größe ausfüllen');
             } else {
                 height = document.getElementById('height').value;
+                // Aus Centimeter Meter erstellen
+                for (let i = 0; i < height.length; i++) {
+                    if (i === 1) {
+                        heightForBmi = heightForBmi + '.';
+                        heightForBmi = heightForBmi + height[i];
+                    } else {
+                        heightForBmi = heightForBmi + height[i];
+                    }
+                }
+                heightForBmi = parseFloat(heightForBmi);
 
                 // Alter
                 if (document.getElementById('age').value == '') {
@@ -2115,7 +2123,7 @@ function calc_Kcal_Goal() {
                             targetTime =
                                 document.getElementById('target_Time').value;
 
-                            // Berechnung Kalorienbedarf
+                            //! Berechnung Kalorienbedarf
                             if (selectedGender == 'male') {
                                 // Mann
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
@@ -2135,7 +2143,7 @@ function calc_Kcal_Goal() {
                                     kcal_Requirement - zielEinsparung_pro_Tag,
                                 );
 
-                                let ausg =
+                                ausg =
                                     'Wenn du Dein Zielgewicht von ' +
                                     targetWeight +
                                     '  kg in ' +
@@ -2171,7 +2179,7 @@ function calc_Kcal_Goal() {
                                     kcal_Requirement - zielEinsparung_pro_Tag,
                                 );
 
-                                let ausg =
+                                ausg =
                                     'Wenn du Dein Zielgewicht von ' +
                                     targetWeight +
                                     '  kg in ' +
@@ -2191,11 +2199,37 @@ function calc_Kcal_Goal() {
                                 ).value = recommended_Kcal;
                             }
 
+
+                            //! BMI Berechnung
+                            let heightTimes2 = heightForBmi * heightForBmi;
+                            let bmi = parseFloat(bodyWeight / heightTimes2);
+
+                            let bmi_result = '';
+
+                            if (bmi >= 40) {
+                                bmi_result =
+                                    'Adipositas Grad 3';
+                            } else if (bmi >= 35 && bmi <= 39.9) {
+                                bmi_result =
+                                    'Adipositas Grad 2';
+                            } else if (bmi >= 30 && bmi <= 34.9) {
+                                bmi_result = 'Adipositas Grad 1';
+                            } else if (bmi >= 25 && bmi <= 29.9) {
+                                bmi_result = 'Übergewicht';
+                            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                                bmi_result = 'Normalgewichtig';
+                            } else if (bmi < 18.5) {
+                                bmi_result = 'Untergewichtig';
+                            }
+
+                            ausg = ausg + '<br/>' + 'BMI Ergebnis:' + '<br/>' + bmi_result;
+                            document.getElementById('output_Kcal_Req').innerHTML = 'Du hast einen Kalorienbedarf von ' + kcal_Requirement + ' Kcal pro Tag. ' + ausg;
+
                             // Aufräumen
-                            document.getElementById('height').value = '';
-                            document.getElementById('age').value = '';
-                            document.getElementById('target_Weight').value = '';
-                            document.getElementById('target_Time').value = '';
+                            // document.getElementById('height').value = '';
+                            // document.getElementById('age').value = '';
+                            // document.getElementById('target_Weight').value = '';
+                            // document.getElementById('target_Time').value = '';
 
                             //window.scrollTo(0, 13600);
                         }
@@ -3171,7 +3205,6 @@ function sendThisDay() {
         bodyContent;
 }
 
-
 function deleteDayWithoutHistory() {
     today_Steps = 0;
     today_eaten = [];
@@ -3180,8 +3213,7 @@ function deleteDayWithoutHistory() {
     lastWater = 'Gestern';
     save_Burned_Kcal();
     save_Last_Water();
-    document.getElementById('btnSteps').innerHTML =
-        today_Steps + ' &#128095';
+    document.getElementById('btnSteps').innerHTML = today_Steps + ' &#128095';
     document.getElementById('lastWater').innerHTML = 'Zuletzt: ';
     coloring_Labels();
     steps_into_Kcal();
@@ -3195,12 +3227,13 @@ function deleteDayWithoutHistory() {
     location.reload();
 }
 
-
 //
 //
 function deleteDHistory() {
-    const deleteRequest = window.confirm("Soll die komplette Historie gelöscht werden?");
-    if(deleteRequest) {
+    const deleteRequest = window.confirm(
+        'Soll die komplette Historie gelöscht werden?',
+    );
+    if (deleteRequest) {
         my_History = [];
         save_History();
         location.reload();
@@ -3208,8 +3241,10 @@ function deleteDHistory() {
 }
 
 function deleteStatistics() {
-    const deleteRequest = window.confirm("Soll die komplette Statistik gelöscht werden?");
-    if(deleteRequest) {
+    const deleteRequest = window.confirm(
+        'Soll die komplette Statistik gelöscht werden?',
+    );
+    if (deleteRequest) {
         my_Statistics = [];
         save_Statistics();
         location.reload();
