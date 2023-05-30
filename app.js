@@ -2207,19 +2207,17 @@ function calc_Kcal_Goal() {
                             let bmi_result = '';
 
                             if (bmi >= 40) {
-                                bmi_result =
-                                    'Adipositas Grad 3';
+                                bmi_result = `Adipositas Grad 3 - BMI: ${parseInt(bmi)}`;
                             } else if (bmi >= 35 && bmi <= 39.9) {
-                                bmi_result =
-                                    'Adipositas Grad 2';
+                                bmi_result = `Adipositas Grad 2 - BMI: ${parseInt(bmi)}`;
                             } else if (bmi >= 30 && bmi <= 34.9) {
-                                bmi_result = 'Adipositas Grad 1';
+                                bmi_result = `Adipositas Grad 1 - BMI: ${parseInt(bmi)}`;
                             } else if (bmi >= 25 && bmi <= 29.9) {
-                                bmi_result = 'Übergewicht';
+                                bmi_result = `Übergewicht - BMI: ${parseInt(bmi)}`;
                             } else if (bmi >= 18.5 && bmi <= 24.9) {
-                                bmi_result = 'Normalgewichtig';
+                                bmi_result = `Normalgewichtig - BMI: ${parseInt(bmi)}`;
                             } else if (bmi < 18.5) {
-                                bmi_result = 'Untergewichtig';
+                                bmi_result = `Untergewichtig - BMI: ${parseInt(bmi)}`;
                             }
 
                             ausg = ausg + '<br/>' + 'BMI Ergebnis:' + '<br/>' + bmi_result;
