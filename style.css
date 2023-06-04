@@ -1390,3 +1390,31 @@ input:checked + .slider:before {
   border: 3px solid black;
   box-shadow: 5px 5px 10px black;
 }
+
+.miniclock-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: black;
+    border: 3px solid black;
+    box-shadow: 0 0 5px white, inset 0 0 30px gray;
+    position: fixed;
+    top: 220px;
+    left: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 9;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.lblfasting {
+    font-size: .7em;
+    margin-top: -5px;
+    letter-spacing: 1.5px;
+    color: yellow;
+}
