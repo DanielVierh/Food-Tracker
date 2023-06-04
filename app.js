@@ -65,6 +65,19 @@ const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
 const burned_Kcal_Label = document.getElementById('output_Burned');
 
+// Intervall Fasting
+let intervalEventObject = {
+    fastingTime: 16,
+    eatTime: 8,
+    fastingStartTime: '19:00',
+    theme: 'light',
+    water: 0,
+    lastWater: '-',
+    finishedFasting: [0, 0, 0, 0, 0, 0, 0],
+    lastIdentifier: '',
+    identifierObjStr: identifierObjStr
+};
+
 //====================================================================================
 // Init
 //====================================================================================
@@ -3247,4 +3260,280 @@ function deleteStatistics() {
         save_Statistics();
         location.reload();
     }
+}
+
+
+//!############################################
+//! INTERVALL FASTEN
+//!############################################
+
+
+const btn_IntervalFasting = document.getElementById("btn_IntervalFasting");
+const intervalTime = document.getElementById("intervalTime");
+const outputWhatNow = document.getElementById("outputWhatNow");
+
+if(btn_IntervalFasting) {
+    btn_IntervalFasting.addEventListener('click', ()=> {
+        window.location = 'https://danielvierh.github.io/intervallfasten24/';
+    })
+}
+var newFastingTime = 0;
+var newEatingTime = 0;
+var isFastingTime = false;
+var newWaterAmount = 0.2;
+var lastWater = '-';
+var finishedFasting = [0, 0, 0, 0, 0, 0, 0];
+var checkInterv_5Sec = 0;
+var lastIdentifier = '';
+var identifierObjStr = '';
+var FastingIdentifier = /** @class */ (function () {
+    function FastingIdentifier(id, fastingTime, approxFastingStartTime) {
+        this.id = id;
+        this.fastingTime = fastingTime;
+        this.approxFastingStartTime = approxFastingStartTime;
+    }
+    return FastingIdentifier;
+}());
+var identifierObj = new FastingIdentifier('', 0, '');
+// Init -- Start
+function initInterv() {
+    load_from_LocalStorage();
+    checkIntervall();
+}
+initInterv();
+//#########################################################################
+// View
+//#########################################################################
+
+//#########################################################################
+// Funktion zur Überprüfung, ob gerade Fastenzeit läuft
+// Entsprechend wird die Anzeige der UI Elemente angepasst
+//#########################################################################
+function checkFastingStatus() {
+    // Es wird alle 10 Sekunden die ...
+    checkInterv_5Sec < 5 ? checkInterv_5Sec++ : initIdentifier();
+    var now = currentTime();
+    var splittedFastingTime = intervalEventObject.fastingStartTime.split(':');
+    var fastingStartHour = parseInt(splittedFastingTime[0]);
+    var fastingStartMinute = parseInt(splittedFastingTime[1]);
+    var fastingStartTimeMinusEatTime = fastingStartHour - intervalEventObject.eatTime;
+    if (fastingStartTimeMinusEatTime < 0) {
+        fastingStartTimeMinusEatTime = 24 + fastingStartTimeMinusEatTime;
+    }
+    
+    const param_Now = "".concat(now)
+    const param_fastingStartTime = "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute)
+    var diffToFasting = func_diff(param_Now,param_fastingStartTime);
+    var diffToEating = func_diff("".concat(now), "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute));
+    var diffToFastingInPercent = ((timeStampIntoNumber(diffToFasting) * 100) /
+        (intervalEventObject.eatTime * 60 * 60)).toFixed(1);
+    var diffToEatingInPercent = ((timeStampIntoNumber(diffToEating) * 100) /
+        (intervalEventObject.fastingTime * 60 * 60)).toFixed(1);
+    var diffToFastingInSeconds = timeStampIntoNumber(diffToFasting);
+    // Wenn Diff kleiner als EatingTime dann ist fasting = false sonst fasting = true
+    if (diffToFastingInSeconds < intervalEventObject.eatTime * 60 * 60) {
+        isFastingTime = false;
+        outputWhatNow.innerHTML = 'Essen';
+        intervalTime.innerHTML = "".concat(diffToFasting);
+        // txtPercent.innerHTML = `${diffToFastingInPercent}%`;
+        //intervalTime.innerHTML = "".concat(addZero(fastingStartTimeMinusEatTime), ":").concat(addZero(fastingStartMinute));
+        //outputTo.innerHTML = "".concat(intervalEventObject.fastingStartTime);
+    }
+    else {
+        isFastingTime = true;
+        outputWhatNow.innerHTML = 'Fasten';
+        intervalTime.innerHTML = "".concat(diffToEating);
+        // txtPercent.innerHTML = `${diffToEatingInPercent}%`;
+        //intervalTime.innerHTML = "".concat(intervalEventObject.fastingStartTime);
+        //intervalTime.innerHTML = "".concat(addZero(fastingStartTimeMinusEatTime), ":").concat(addZero(fastingStartMinute));
+    }
+}
+var radius_interval = progressCircle.r.baseVal.value;
+var circumference_interval = radius_interval * 2 * Math.PI;
+progressCircle.style.strokeDasharray = circumference_interval;
+
+function circleProgress(percent) {
+    progressCircle.style.strokeDashoffset =
+        circumference_interval - (percent / 100) * circumference_interval;
+}
+function timeStampIntoNumber(timeStamp) {
+    var splittedTimestamp = timeStamp.split(':');
+    var splittedHour_inSeconds = parseInt(splittedTimestamp[0]) * 60 * 60;
+    var splittedMinute_inSeconds = parseInt(splittedTimestamp[1]) * 60;
+    var secondsSum = splittedHour_inSeconds + splittedMinute_inSeconds;
+    // console.log('Timestamp in Sec: ', secondsSum);
+    return secondsSum;
+}
+function currentTime() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var now = "".concat(addZero(hours), ":").concat(addZero(minutes));
+    return now;
+}
+// Sekündlicher Funktionsaufruf für Check Func
+function checkIntervall() {
+    setInterval(function () {
+        checkFastingStatus();
+    }, 1000);
+}
+function addZero(val) {
+    if (val < 10) {
+        val = '0' + val;
+    }
+    return val;
+}
+// Diff Berechnung
+function func_diff(start, end) {
+    start = start.split(':');
+    end = end.split(':');
+    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    var diff = endDate.getTime() - startDate.getTime();
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    var minutes = Math.floor(diff / 1000 / 60);
+    if (hours < 0)
+        hours = hours + 24;
+    return ((hours <= 9 ? '0' : '') +
+        hours +
+        ':' +
+        (minutes <= 9 ? '0' : '') +
+        minutes);
+}
+
+//################################################################################
+// Save LocalStorage
+//################################################################################
+var save_into_LocalStorage = function () {
+    localStorage.setItem('stored_IntervallObj', JSON.stringify(intervalEventObject));
+};
+//################################################################################
+// Load from LocalStorage
+//################################################################################
+function load_from_LocalStorage() {
+    if (localStorage.getItem('stored_IntervallObj') !== null) {
+        //@ts-ignore
+        intervalEventObject = JSON.parse(localStorage.getItem('stored_IntervallObj'));
+        
+        try {
+            lastIdentifier = intervalEventObject.lastIdentifier;
+        }
+        catch (err) {
+            console.log(err);
+            lastIdentifier = '';
+        }
+        try {
+            identifierObjStr = intervalEventObject.identifierObjStr;
+        }
+        catch (err) {
+             console.log(err);
+            identifierObjStr = '';
+        }
+    }
+    else {
+        // console.warn('Keine Daten vorh');
+    }
+    // console.log(intervalEventObject);
+}
+
+function initIdentifier() {
+    checkInterv_5Sec = 0;
+    // Aktueller Identifier wird generiert
+    identifierObj = new FastingIdentifier(setIdentifier(), intervalEventObject.fastingTime, intervalEventObject.fastingStartTime);
+    identifierObjStr = "".concat(identifierObj.id, "/").concat(identifierObj.approxFastingStartTime, "/").concat(identifierObj.fastingTime);
+    // console.log('identifierObjStr', identifierObjStr);
+    // Todo Klasse FastingIdentifier anpassen.
+    // Todo: ID muss besser sein
+    //? Wenn Essen erlaubt ist, ID abgleichen
+    if (isFastingTime === false) {
+        // Neue ID wird mit gespeicherten ID abgeglichen
+        if (lastIdentifier !== identifierObj.id && lastIdentifier !== '') {
+            //? Auslesen des zuletzt abgespeicherten Identifiers
+            var identifierObjStrInArr = identifierObjStr.split('/');
+            var savedFastHr = parseInt(identifierObjStrInArr[3]);
+            var savedApproxStartTime = identifierObjStrInArr[2];
+            var savedStartDay = identifierObjStrInArr[0];
+            var weekday = savedStartDay.substring(0, 3);
+            // console.log('weekday', weekday);
+            //? Funktion aufrufen, die den Index vom Wochentag zurück gibt
+            var indexDay = getIndexOfWeekday(weekday);
+            //? Abgleichen, ob sich die Fasten- Stunden geändert haben
+            if (savedFastHr === identifierObj.fastingTime) {
+                // console.log('Fastenzeit ist gleich geblieben');
+                //? Sonst einfach die Fastenzeit in Stunden übernehmen
+                finishedFasting.splice(indexDay, 1, savedFastHr);
+                intervalEventObject.finishedFasting = finishedFasting;
+            }
+            else {
+                //? Fastenzeit ist NICHT gleich geblieben
+                if (savedApproxStartTime === identifierObj.approxFastingStartTime) {
+                    // console.log('Die Startzeit ist aber gleich geblieben');
+                }
+                else {
+                    // console.log('Auch die Startzeit hat sich geändert');
+                    // Todo Diff berechnen wenn dies so ist.
+                }
+            }
+            //? ID wird in Variable ersetzt mit neuer ID
+            replaceIdentier();
+        }
+        else if (lastIdentifier === '') {
+            // console.log('LastIdentifer war leer');
+            replaceIdentier();
+        }
+    }
+}
+
+//renderDayChart();
+function replaceIdentier() {
+    lastIdentifier = identifierObj.id;
+    intervalEventObject.lastIdentifier = lastIdentifier;
+    intervalEventObject.identifierObjStr = identifierObjStr;
+    save_into_LocalStorage();
+}
+function getIndexOfWeekday(weekday) {
+    var index = -1;
+    switch (weekday) {
+        case 'Mon':
+            index = 0;
+            break;
+        case 'Tue':
+            index = 1;
+            break;
+        case 'Wed':
+            index = 2;
+            break;
+        case 'Thu':
+            index = 3;
+            break;
+        case 'Fri':
+            index = 4;
+            break;
+        case 'Sat':
+            index = 5;
+            break;
+        case 'Sun':
+            index = 6;
+            break;
+        default:
+            break;
+    }
+    return index;
+}
+function setIdentifier() {
+    // Todo: noch den Wochentag vom Vortag ermitteln
+    var date = new Date();
+    var dateString = "".concat(date);
+    var currentDateWeekday = dateString.slice(0, 3);
+    var currentDateDay = dateString.slice(8, 10);
+    // Create Day + 1
+    date.setDate(date.getDate() + 1); // ? +1 Tag
+    dateString = "".concat(date);
+    var tomorrowDateWeekday = dateString.slice(0, 3);
+    var tomorrowDateDay = dateString.slice(8, 10);
+    // Identifier
+    var currentIdentifier = "".concat(currentDateWeekday).concat(currentDateDay, "/").concat(tomorrowDateWeekday).concat(tomorrowDateDay);
+    // console.log(`currentIdentifier: ${currentIdentifier} // LastIdentifier: ${lastIdentifier}`);
+    return currentIdentifier;
 }
