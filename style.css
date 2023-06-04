@@ -223,9 +223,9 @@ footer {
 /* Neues Essen hinzufügen */
 
 .bg-text {
-    background-color: var(--mainColor); /* Fallback color */
-    opacity: 0.9; /* Black w/opacity/see-through */
-    color: rgb(27, 206, 27);
+   /* background-color: var(--mainColor); /* Fallback color */
+  /*  opacity: 0.9; /* Black w/opacity/see-through */
+    color: white;
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
@@ -238,9 +238,11 @@ footer {
     padding: 20px;
     text-align: left;
     border-radius: 90px;
-    /* backdrop-filter: blur(20px); */
     text-align: center;
     height: 150px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
 }
 .bg-text:hover {
     transition: ease-in-out 1s;
@@ -249,9 +251,9 @@ footer {
 
 /* Nach oben Button  */
 .bg-text2 {
-    background-color: var(--mainColor); /* Fallback color */
-    opacity: 0.9; /* Black w/opacity/see-through */
-    color: rgb(27, 206, 27);
+   /* background-color: var(--mainColor); /* Fallback color */
+   /* opacity: 0.9; /* Black w/opacity/see-through */
+    color: white;
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
@@ -264,10 +266,12 @@ footer {
     padding: 20px;
     text-align: center;
     border-radius: 90px;
-    /* backdrop-filter: blur(20px); */
     text-align: center;
     height: 150px;
     align-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
 }
 
 .bg-text2:hover {
@@ -277,8 +281,8 @@ footer {
 
 /* Schritte */
 .bg-text3 {
-    background-color: var(--mainColor); /* Fallback color */
-    opacity: 0.9; /* Black w/opacity/see-through */
+    /* background-color: var(--mainColor);  Fallback color */
+   /* opacity: 0.9; /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
@@ -292,6 +296,9 @@ footer {
     padding: 20px;
     border-radius: 90px;
     text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
 }
 
 .mittelForm {
