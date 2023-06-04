@@ -15,6 +15,10 @@
 
 /* background-color: var(--mainColor); */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: auto 0;
     font-family: Arial, Helvetica, sans-serif;
