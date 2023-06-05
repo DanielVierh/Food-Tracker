@@ -3332,6 +3332,7 @@ function checkFastingStatus() {
     if (diffToFastingInSeconds < intervalEventObject.eatTime * 60 * 60) {
         isFastingTime = false;
         outputWhatNow.innerHTML = 'Essen';
+        outputWhatNow.style.color = 'green';
         intervalTime.innerHTML = "".concat(diffToFasting);
         // txtPercent.innerHTML = `${diffToFastingInPercent}%`;
         //intervalTime.innerHTML = "".concat(addZero(fastingStartTimeMinusEatTime), ":").concat(addZero(fastingStartMinute));
@@ -3341,6 +3342,7 @@ function checkFastingStatus() {
         isFastingTime = true;
         outputWhatNow.innerHTML = 'Fasten';
         intervalTime.innerHTML = "".concat(diffToEating);
+        outputWhatNow.style.color = 'yellow';
         // txtPercent.innerHTML = `${diffToEatingInPercent}%`;
         //intervalTime.innerHTML = "".concat(intervalEventObject.fastingStartTime);
         //intervalTime.innerHTML = "".concat(addZero(fastingStartTimeMinusEatTime), ":").concat(addZero(fastingStartMinute));
