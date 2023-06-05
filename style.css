@@ -1395,7 +1395,9 @@ input:checked + .slider:before {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: black;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
     border: 3px solid black;
     box-shadow: 0 0 5px white, inset 0 0 30px gray;
     position: fixed;
