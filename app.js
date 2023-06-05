@@ -3271,12 +3271,10 @@ function deleteStatistics() {
 const btn_IntervalFasting = document.getElementById("btn_IntervalFasting");
 const intervalTime = document.getElementById("intervalTime");
 const outputWhatNow = document.getElementById("outputWhatNow");
-
-if(btn_IntervalFasting) {
-    btn_IntervalFasting.addEventListener('click', ()=> {
-        window.location = 'https://danielvierh.github.io/intervallfasten24/';
-    })
-}
+const btn_CloseModal = document.getElementById("close-modal");
+const btn_SaveSettings = document.getElementById("btnSaveSettings");
+const labelFastingTime = document.getElementById("lblfastingTime");
+const overlay_Interval = document.getElementById("overlay_Interval");
 var newFastingTime = 0;
 var newEatingTime = 0;
 var isFastingTime = false;
@@ -3356,6 +3354,11 @@ function circleProgress(percent) {
     progressCircle.style.strokeDashoffset =
         circumference_interval - (percent / 100) * circumference_interval;
 }
+
+function displayFastingTime() {
+    labelFastingTime.value = "".concat(newFastingTime, ":").concat(newEatingTime);
+}
+
 function timeStampIntoNumber(timeStamp) {
     var splittedTimestamp = timeStamp.split(':');
     var splittedHour_inSeconds = parseInt(splittedTimestamp[0]) * 60 * 60;
@@ -3401,6 +3404,55 @@ function func_diff(start, end) {
         (minutes <= 9 ? '0' : '') +
         minutes);
 }
+
+// Einstellungen einblenden
+btn_IntervalFasting === null || btn_IntervalFasting === void 0 ? void 0 : btn_IntervalFasting.addEventListener('click', function () {
+    overlay_Interval.style.display = 'block';
+    newFastingTime = intervalEventObject.fastingTime;
+    newEatingTime = intervalEventObject.eatTime;
+    inpFastingStartTime.value = intervalEventObject.fastingStartTime;
+    displayFastingTime();
+});
+// Fasten Wert rauf und runter schalten
+btn_IncreaseFasting === null || btn_IncreaseFasting === void 0 ? void 0 : btn_IncreaseFasting.addEventListener('click', function () {
+    changeFastingTime('incre');
+});
+// Fasten Wert rauf und runter schalten
+btn_DecreaseFasting === null || btn_DecreaseFasting === void 0 ? void 0 : btn_DecreaseFasting.addEventListener('click', function () {
+    changeFastingTime('decr');
+});
+// Einstellungen ausblenden
+btn_CloseModal === null || btn_CloseModal === void 0 ? void 0 : btn_CloseModal.addEventListener('click', function () {
+    overlay_Interval.style.display = 'none';
+});
+// Fastenzeit ändern
+function changeFastingTime(direction) {
+    // Fasten verlängern
+    if (direction === 'incre') {
+        if (newFastingTime < 23) {
+            newFastingTime++;
+            newEatingTime = 24 - newFastingTime;
+            displayFastingTime();
+        }
+        // Fasten verkürzen
+    }
+    else {
+        if (newFastingTime > 13) {
+            newFastingTime--;
+            newEatingTime = 24 - newFastingTime;
+            displayFastingTime();
+        }
+    }
+}
+// Einstellungen speichern
+btn_SaveSettings === null || btn_SaveSettings === void 0 ? void 0 : btn_SaveSettings.addEventListener('click', function () {
+    intervalEventObject.fastingTime = newFastingTime;
+    intervalEventObject.eatTime = newEatingTime;
+    intervalEventObject.fastingStartTime = inpFastingStartTime.value;
+    overlay_Interval.style.display = 'none';
+    save_into_LocalStorage();
+    setTheme();
+});
 
 //################################################################################
 // Save LocalStorage
