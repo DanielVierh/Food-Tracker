@@ -64,7 +64,8 @@ const fatLabel = document.getElementById('output_Fat');
 const saltLabel = document.getElementById('output_Salt');
 const fiberLabel = document.getElementById('output_Fiber');
 const burned_Kcal_Label = document.getElementById('output_Burned');
-
+const messageContainer = document.getElementById("messageContainer");
+const message = document.getElementById("message");
 // Intervall Fasting
 let intervalEventObject = {
     fastingTime: 16,
@@ -1004,9 +1005,9 @@ function take_Over_Water() {
     today_Water += new_Water;
     save_Today_Water();
     if (new_Water == -0.25) {
-        alert('Wassermenge um 0,25 L korrigiert');
+        showMessage('Wassermenge um 0,25 L korrigiert',5000)
     } else {
-        alert(new_Water + ' L Wasser wurden hinzugefügt');
+        showMessage(`${new_Water} L Wasser wurden hinzugefügt'`, 5000)
         last_Water();
         document.getElementById('lastWater').innerHTML =
             'Zuletzt: ' + lastWater;
@@ -1091,7 +1092,7 @@ function get_new_Steps() {
         // TODO-- Persistent speichern
         save_Today_Steps();
     } catch (error) {
-        alert('Nur Zahlen eingeben');
+        showMessage('Nur Zahlen eingeben', 5000, 'Alert');
     }
 }
 
@@ -1454,7 +1455,7 @@ function show_NutriScore() {
 function checkButton() {
     if (selected_Food != '') {
         if (inputField_EatenFood_in_Gramm.value == '') {
-            alert('Bitte eine Menge eingeben');
+            showMessage("Bitte eine Menge eingeben", 4000, 'Alert')
         } else {
             let newProduct = selected_Food.productName;
             var selectedAmount = parseFloat(
@@ -1505,13 +1506,11 @@ function checkButton() {
                     ' g \n Salz: ' +
                     salt_Intake +
                     ' g';
-                alert(intakeFoodInfo);
+                showMessage(`${intakeFoodInfo}`, 10000, 'Info')
             } catch (error) {}
         }
     } else {
-        alert(
-            'Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken',
-        );
+        showMessage('Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken', 10000, 'Alert')
     }
 }
 
@@ -1522,7 +1521,7 @@ function add_Food_to_TodayList() {
     //Produkt nicht "", also ausgewählt
     if (selected_Food != '') {
         if (inputField_EatenFood_in_Gramm.value == '') {
-            alert('Bitte eine Menge eingeben');
+            showMessage(`Bitte eine Menge eingeben`, 10000, 'Alert')
         } else {
             let newProduct = selected_Food.productName;
             var alreadyTracked = false;
@@ -1622,7 +1621,7 @@ function add_Food_to_TodayList() {
                     ' g \n Salz: ' +
                     parseInt(salt_Intake) +
                     ' g';
-                alert(intakeFoodInfo);
+                    showMessage(`${intakeFoodInfo}`, 10000, 'Info');
                 document.getElementById('statusX').innerHTML =
                     selected_Food.productName + ' wurde eingetragen';
                 // Speichern
@@ -1638,9 +1637,7 @@ function add_Food_to_TodayList() {
             } catch (error) {}
         }
     } else {
-        alert(
-            'Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken',
-        );
+        showMessage(`Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken`, 5000, 'Alert');
     }
     create_Table_TodayEaten();
     calc_Values();
@@ -1782,7 +1779,7 @@ function change_Food_to_TodayList() {
         calc_Values();
         //Speichern
         save_Today_Eaten();
-        alert('Menge wurde geändert');
+        showMessage(`Menge wurde geändert`, 3000, 'Info');
         blendOut_MengeAendern();
     }
 }
@@ -1812,7 +1809,7 @@ function delete_from_today() {
             coloring_Labels();
         }
     } else {
-        alert('Kein Produkt ausgewählt');
+        showMessage(`Kein Produkt ausgewählt`, 4000, 'Alert');
     }
 }
 
@@ -2089,18 +2086,18 @@ function calc_Kcal_Goal() {
     }
     // Check ob Auswahl getroffen
     if (selectedGender == undefined) {
-        alert('Bitte eine Auswahl bei Geschlecht treffen');
+        showMessage(`Bitte eine Auswahl bei Geschlecht treffen`, 4000, 'Alert');
     } else {
         // Gewicht
         if (document.getElementById('weight').value == '') {
-            alert('Bitte das Feld Gewicht ausfüllen');
+            showMessage(`Bitte das Feld Gewicht ausfüllen`, 4000, 'Alert');
         } else {
             bodyWeight = document.getElementById('weight').value;
             save_BodyWeight();
 
             // Größe
             if (document.getElementById('height').value == '') {
-                alert('Bitte das Feld Größe ausfüllen');
+                showMessage(`Bitte das Feld Größe ausfüllen`, 4000, 'Alert');
             } else {
                 height = document.getElementById('height').value;
                 // Aus Centimeter Meter erstellen
@@ -2116,13 +2113,13 @@ function calc_Kcal_Goal() {
 
                 // Alter
                 if (document.getElementById('age').value == '') {
-                    alert('Bitte das Feld Alter ausfüllen');
+                    showMessage(`Bitte das Feld Alter ausfüllen`, 4000, 'Alert');
                 } else {
                     age = document.getElementById('age').value;
 
                     // Zielgewicht
                     if (document.getElementById('target_Weight').value == '') {
-                        alert('Bitte das Feld Alter ausfüllen');
+                        showMessage(`Bitte das Feld Alter ausfüllen`, 4000, 'Alert');
                     } else {
                         targetWeight =
                             document.getElementById('target_Weight').value;
@@ -2131,7 +2128,7 @@ function calc_Kcal_Goal() {
                         if (
                             document.getElementById('target_Time').value == ''
                         ) {
-                            alert('Bitte das Feld Zeitraum ausfüllen');
+                            showMessage(`Bitte das Feld Zeitraum ausfüllen`, 4000, 'Alert');
                         } else {
                             targetTime =
                                 document.getElementById('target_Time').value;
@@ -2254,11 +2251,11 @@ function calc_Kcal_Goal() {
 // kcal_Ziel
 function define_Kcal_Target() {
     if (document.getElementById('target_KcalZiel').value == '') {
-        alert('Kein Wert enthalten');
+        showMessage(`Kein Wert enthalten`, 4000, 'Alert');
     } else {
         kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
         save_kcalZiel();
-        alert('Kcal Ziel wurde übernommen');
+        showMessage(`Kcal Ziel wurde übernommen`, 4000, 'Info');
         window.scrollTo(0, 0);
         location.reload();
     }
@@ -2319,7 +2316,7 @@ function define_additional_Target() {
         JSON.stringify(additional_Targets),
     );
 
-    alert('Ziele wurden übernommen');
+    showMessage(`Ziele wurden übernommen`, 4000, 'Info');
     calc_Values();
     show_Statisitcs('show_Effekctive_Kcal');
 }
@@ -2432,15 +2429,13 @@ function selectDiet() {
 
         protein_in_Gramm = parseInt(protein_in_Gramm - proteinDiff);
         fat_in_Gramm = parseInt(fat_in_Gramm + addedFat);
-        alert(
-            'Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: ' +
-                protein_in_Gramm +
-                ' g liegst du ' +
-                proteinDiff +
-                ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
-                addedFat +
-                ' g Fett gut :)',
-        );
+        showMessage(`Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: ' +
+        protein_in_Gramm +
+        ' g liegst du ' +
+        proteinDiff +
+        ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
+        addedFat +
+        ' g Fett gut :)`, 4000, 'Alert');
         document.getElementById('target_Fat').value = fat_in_Gramm;
         document.getElementById('target_Protein').value = protein_in_Gramm;
     }
@@ -2613,10 +2608,11 @@ function close_Day() {
             save_Today_Steps();
             save_Today_Eaten();
             save_Today_Water();
-            alert(
-                'Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.',
-            );
-            location.reload();
+
+            showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.`, 4000, 'Info');
+            setTimeout(() => {
+                location.reload();
+            }, 4500);
         }
     }
 }
@@ -2676,27 +2672,26 @@ function add_new_Food() {
 
     // Produktname
     if (document.getElementById('inp_Productname').value == '') {
-        alert('Bitte die Textbox für den Produktnamen ausfüllen');
+        showMessage(`Bitte die Textbox für den Produktnamen ausfüllen`, 4000, 'Alert');
     } else {
         new_productName = document.getElementById('inp_Productname').value;
 
         // Kcal
         if (document.getElementById('inp_Kcal').value == '') {
-            alert('Bitte die Textbox für Kcal ausfüllen');
+            showMessage(`Bitte die Textbox für Kcal ausfüllen`, 4000, 'Alert');
         } else {
             new_Kcal = document.getElementById('inp_Kcal').value;
 
             // Fett
             if (document.getElementById('inp_Fat').value == '') {
-                alert('Bitte die Textbox für Fett ausfüllen');
+                showMessage(`Bitte die Textbox für Fett ausfüllen`, 4000, 'Alert');
             } else {
                 new_Fat = document.getElementById('inp_Fat').value;
                 new_Fat.replace(',', '.');
                 parseFloat(new_Fat);
-
                 // Kohlenhydrate
                 if (document.getElementById('inp_Carbs').value == '') {
-                    alert('Bitte die Textbox für Kohlenhydrate ausfüllen');
+                    showMessage(`Bitte die Textbox für Kohlenhydrate ausfüllen`, 4000, 'Alert');
                 } else {
                     new_Carbs = document.getElementById('inp_Carbs').value;
                     new_Carbs.replace(',', '.');
@@ -2704,7 +2699,7 @@ function add_new_Food() {
 
                     // Zucker
                     if (document.getElementById('inp_Sugar').value == '') {
-                        alert('Bitte die Textbox für Zucker ausfüllen');
+                        showMessage(`Bitte die Textbox für Zucker ausfüllen`, 4000, 'Alert');
                     } else {
                         new_Sugar = document.getElementById('inp_Sugar').value;
                         new_Sugar.replace(',', '.');
@@ -2712,9 +2707,7 @@ function add_new_Food() {
 
                         // Ballaststoffe
                         if (document.getElementById('inp_Fiber').value == '') {
-                            alert(
-                                'Bitte die Textbox für Ballaststoffe ausfüllen',
-                            );
+                            showMessage(`Bitte die Textbox für Ballaststoffe ausfüllen`, 4000, 'Alert');
                         } else {
                             new_Fiber =
                                 document.getElementById('inp_Fiber').value;
@@ -2726,7 +2719,7 @@ function add_new_Food() {
                                 document.getElementById('inp_Protein').value ==
                                 ''
                             ) {
-                                alert('Bitte die Textbox für Eiweiß ausfüllen');
+                                showMessage(`Bitte die Textbox für Eiweiß ausfüllen`, 4000, 'Alert');
                             } else {
                                 new_Protein =
                                     document.getElementById(
@@ -2740,9 +2733,7 @@ function add_new_Food() {
                                     document.getElementById('inp_Salt').value ==
                                     ''
                                 ) {
-                                    alert(
-                                        'Bitte die Textbox für Salz ausfüllen',
-                                    );
+                                    showMessage(`Bitte die Textbox für Salz ausfüllen`, 4000, 'Alert');
                                 } else {
                                     new_Salt =
                                         document.getElementById(
@@ -2756,9 +2747,7 @@ function add_new_Food() {
                                         document.getElementById('inp_Unit')
                                             .value == ''
                                     ) {
-                                        alert(
-                                            'Bitte die Textbox für Mengeneinheit ausfüllen',
-                                        );
+                                        showMessage(`Bitte die Textbox für Mengeneinheit ausfüllen`, 4000, 'Alert');
                                     } else {
                                         new_Unit =
                                             document.getElementById(
@@ -2801,9 +2790,8 @@ function add_new_Food() {
                                                     new_Unit,
                                                 ),
                                             );
-                                            alert(
-                                                'Lebensmittel wurde gespeichert :)',
-                                            );
+                        
+                                            showMessage(`Lebensmittel wurde gespeichert :)`, 4000, 'Info');
                                             document.getElementById(
                                                 'Status_New_Food',
                                             ).innerHTML =
@@ -2873,10 +2861,12 @@ function add_new_Food() {
                                                 );
                                                 // SAVE
                                                 saveFood_DB();
-                                                alert(
-                                                    'Lebensmittel wurde erfolgreich angepasst',
-                                                );
-                                                location.reload();
+                                   
+                                                showMessage(`Lebensmittel wurde erfolgreich angepasst`, 4000, 'Info');
+                                                setTimeout(() => {
+                                                    location.reload();
+                                                }, 4500);
+                                             
                                             } else {
                                                 document.getElementById(
                                                     'Status_New_Food',
@@ -2936,8 +2926,10 @@ function delete_Food_from_DB() {
             let spliceIndex = indexErmittler(selected_Food.productName);
             array_Food_DB.splice(spliceIndex, 1);
             saveFood_DB();
-            alert('Lebensmittel wurde gelöscht');
-            location.reload();
+            showMessage(`Lebensmittel wurde gelöscht`, 4000, 'Info');
+            setTimeout(() => {
+                location.reload();
+            }, 4500);
         }
     }
 }
@@ -2957,7 +2949,7 @@ function indexErmittler(searchWord) {
 function welcome_Func() {
     let text =
         'Willkommen beim Food-Tracker. \n \n 1. Das kleine Formular ausfüllen. \n 2. Setzte deine weiteren Ziele und schon kann es losgehen. \n Die Daten kannst du jederzeit abändern. \n \n * Die Daten werden nur auf deinem Gerät gespeichert. Weitere Infos sind unten vermerkt.';
-    alert(text);
+    showMessage(`${text}`, 20000, 'Info');
     window.scrollTo(0, 12300);
 }
 
@@ -3232,10 +3224,10 @@ function deleteDayWithoutHistory() {
     save_Today_Steps();
     save_Today_Eaten();
     save_Today_Water();
-    alert(
-        'Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.',
-    );
-    location.reload();
+    showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.`, 4000, 'Info');
+    setTimeout(() => {
+        location.reload();
+    }, 4500);
 }
 
 //
@@ -3591,3 +3583,23 @@ function setIdentifier() {
     // console.log(`currentIdentifier: ${currentIdentifier} // LastIdentifier: ${lastIdentifier}`);
     return currentIdentifier;
 }
+
+function showMessage(msg, displaytime, messageType) {
+    messageContainer.classList.remove('infoMessage');
+    messageContainer.classList.remove('alertMessage');
+
+    if(messageType === 'Info') {
+        messageContainer.classList.add('infoMessage')
+    }
+    if(messageType === 'Alert') {
+        messageContainer.classList.add('alertMessage')
+    }
+
+    message.innerHTML = msg
+    messageContainer.classList.add("active")
+    setTimeout(() => {
+        messageContainer.classList.remove("active")
+    }, displaytime);
+}
+
+showMessage(`${intakeFoodInfo}`, 10000, 'Info');
