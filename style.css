@@ -29,19 +29,19 @@ body {
 
 .zone {
     color: var(--mainText);
-    font-size: 2em;
+    font-size: 2.5em;
     border-radius: 4px;
     border: 1px solid var(--themeDotBorder);
     transition: all 0.3s linear;
-    /* background: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31)); */
 }
 
 /* Navigation */
 .main-nav {
+    width: 95%;
     display: flex;
     list-style: none;
     font-size: 0.7em;
-    margin: 0;
+    margin: 0 auto;
     background: var(--mainColor);
 }
 
@@ -71,11 +71,11 @@ li {
     padding: 20px;
     background-color: var(--mainColor);
     color: var(--mainText);
-    margin: 30px;
+    margin: 20px;
     border-radius: 12px;
-    font-size: 52px;
+    font-size: 42px;
     font-weight: bold;
-    min-width: 150px;
+    min-width: 140px;
     box-shadow: 5px 5px 25px var(--previewShadow);
 }
 
@@ -148,7 +148,7 @@ footer {
 .sticky {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 98%;
     font-size: 44px;
 }
 
@@ -222,7 +222,7 @@ footer {
 .uebersicht_Values {
     font-weight: bolder;
     background: var(--mainColor);
-    font-size: larger;
+    font-size: 1.5em;
 }
 
 /***********************************************************************
