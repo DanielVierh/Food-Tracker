@@ -24,6 +24,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--mainColor);
     color: var(--mainText);
+    overflow-x: hidden;
 }
 
 .zone {
@@ -50,6 +51,8 @@ body {
     justify-content: center;
     background: var(--mainColor);
     background-color: var(--mainColor);
+    width: 98%;
+    margin: 0 auto;
 }
 
 .push {
@@ -102,6 +105,8 @@ h1 {
 /* Projects */
 .grid-wrapper {
     display: grid;
+    width: 95%;
+    margin: 0 auto;
     gap: 2px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     background: var(--mainColor);
@@ -153,11 +158,13 @@ footer {
     margin: 5px;
     background-color: var(--mainColor);
     text-align: center;
-    font-size: 40px;
-    height: 110px;
+    font-size: 30px;
+    min-height: 110px;
+    height: auto;
     border-radius: 20px;
     border: 2px solid var(--borderColor);
     box-shadow: 1px 1px 10px var(--previewShadow);
+    width: 98%;
 }
 
 /* Progress bar */
@@ -252,8 +259,6 @@ footer {
 
 /* Nach oben Button  */
 .bg-text2 {
-   /* background-color: var(--mainColor); /* Fallback color */
-   /* opacity: 0.9; /* Black w/opacity/see-through */
     color: white;
     font-weight: bold;
     font-size: 60px;
@@ -389,7 +394,7 @@ footer {
 }
 
 #containerTabelle_Today {
-    width: 100%;
+    width: 98%;
     font-size: 40px;
     font-weight: bolder;
     text-align: right;
@@ -1356,7 +1361,6 @@ input:checked + .slider:before {
     flex-direction: column;
     border-top: 1px solid black;
     text-align: center;
-    /* background-color: red; */
 }
 
 .genderContainer {
