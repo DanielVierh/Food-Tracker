@@ -1683,7 +1683,6 @@ input:checked + .slider:before {
     text-align: center;
     color: var(--mainText);
     letter-spacing: 6.5px;
-    /* text-shadow: 3px 0 4px white; */
     box-shadow: 0 0 30px black;
     border: 1px solid white;
     transition: all 1s ease;
@@ -1710,7 +1709,7 @@ input:checked + .slider:before {
   }
 
   .message.active {
-    transform: translateY(10px);
+    transform: translateY(-120%);
   }
 
   .message.alertMessage {

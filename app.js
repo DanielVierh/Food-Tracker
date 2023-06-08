@@ -3602,4 +3602,4 @@ function showMessage(msg, displaytime, messageType) {
     }, displaytime);
 }
 
-showMessage(`${intakeFoodInfo}`, 10000, 'Info');
+showMessage(`Willkommen zurück 😀`, 4000, 'Info');
