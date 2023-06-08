@@ -1506,7 +1506,7 @@ function checkButton() {
                     ' g \n Salz: ' +
                     salt_Intake +
                     ' g';
-                showMessage(`${intakeFoodInfo}`, 10000, 'Info')
+                showMessage(`${intakeFoodInfo}`, 200000, 'Info')
             } catch (error) {}
         }
     } else {
@@ -1621,7 +1621,7 @@ function add_Food_to_TodayList() {
                     ' g \n Salz: ' +
                     parseInt(salt_Intake) +
                     ' g';
-                    showMessage(`${intakeFoodInfo}`, 10000, 'Info');
+                    showMessage(`${intakeFoodInfo}`, 200000, 'Info');
                 document.getElementById('statusX').innerHTML =
                     selected_Food.productName + ' wurde eingetragen';
                 // Speichern
