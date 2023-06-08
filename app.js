@@ -3584,6 +3584,9 @@ function setIdentifier() {
     return currentIdentifier;
 }
 
+
+
+// Messagebox
 function showMessage(msg, displaytime, messageType) {
     messageContainer.classList.remove('infoMessage');
     messageContainer.classList.remove('alertMessage');
@@ -3602,4 +3605,9 @@ function showMessage(msg, displaytime, messageType) {
     }, displaytime);
 }
 
-showMessage(`Willkommen zurück 😀`, 4000, 'Info');
+// Hide Messagebox on click
+messageContainer.addEventListener('click', ()=> {
+    messageContainer.classList.remove("active")
+})
+
+showMessage(`Willkommen zurück 😀`, 3000, 'Info');
