@@ -1969,14 +1969,6 @@ function calc_Values() {
     averageNutriScore();
 }
 
-// function animate_ProgressBar(prgrssVal) {
-//     var keyframes = "@keyframes progressbar-move{ 0%{width:0%;} 100%{width:" + parseInt(prgrssVal) + "%;} }";
-//     var s = document.createElement("style");
-//     s.innerHTML = keyframes;
-//     document.getElementsByClassName("fullCell")[0].appendChild(s);
-//     var el = document.getElementById("progress_Bar");
-//     el.style.animation = "progressbar-move ease-in-out 1.5s forwards normal";
-// }
 
 //============================================================================
 // Progress Bar
@@ -1991,7 +1983,6 @@ function setProgress(percent) {
 }
 
 function initChangeProgress(originalPercentValue, circlePercentValue) {
-    // const roundedPercentOutputVal = Math.round(originalPercentValue);
     txtPercent.innerHTML = under10(originalPercentValue) + '%';
     setProgress(circlePercentValue);
 }
@@ -2314,13 +2305,6 @@ function calc_Kcal_Goal() {
                             ausg = ausg + '<br/>' + 'BMI Ergebnis:' + '<br/>' + bmi_result;
                             document.getElementById('output_Kcal_Req').innerHTML = 'Du hast einen Kalorienbedarf von ' + kcal_Requirement + ' Kcal pro Tag. ' + ausg;
 
-                            // Aufräumen
-                            // document.getElementById('height').value = '';
-                            // document.getElementById('age').value = '';
-                            // document.getElementById('target_Weight').value = '';
-                            // document.getElementById('target_Time').value = '';
-
-                            //window.scrollTo(0, 13600);
                         }
                     }
                 }
@@ -3211,8 +3195,6 @@ function export_FoodDB_All() {
     // Deshalb wird dieser in Textbox ausgegeben
     document.getElementById('txtArea').innerHTML = '';
     document.getElementById('txtArea').innerHTML = exp_New_Prod;
-    //document.getElementById("txtArea").select();
-    //document.execCommand('copy');
     let mailText = '';
     location.href =
         'mailto:' +
@@ -3439,7 +3421,6 @@ function timeStampIntoNumber(timeStamp) {
     var splittedHour_inSeconds = parseInt(splittedTimestamp[0]) * 60 * 60;
     var splittedMinute_inSeconds = parseInt(splittedTimestamp[1]) * 60;
     var secondsSum = splittedHour_inSeconds + splittedMinute_inSeconds;
-    // console.log('Timestamp in Sec: ', secondsSum);
     return secondsSum;
 }
 function currentTime() {
@@ -3666,8 +3647,9 @@ function setIdentifier() {
 }
 
 
-
+////////////////////////////////
 // Messagebox
+////////////////////////////////
 function showMessage(msg, displaytime, messageType) {
     messageContainer.classList.remove('infoMessage');
     messageContainer.classList.remove('alertMessage');
