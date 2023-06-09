@@ -708,7 +708,7 @@ table tr:nth-child(odd) {
 
 .einstllungsform {
     justify-content: center;
-    margin-left: 10%;
+    width: 98%;
 }
 
 .checkBox {
