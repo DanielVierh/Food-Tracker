@@ -66,6 +66,8 @@ const fiberLabel = document.getElementById('output_Fiber');
 const burned_Kcal_Label = document.getElementById('output_Burned');
 const messageContainer = document.getElementById("messageContainer");
 const message = document.getElementById("message");
+const lbl_todayNutri = document.getElementById("lbl_todayNutri");
+const outp_nutriScore = document.getElementById("outp_nutriScore");
 // Intervall Fasting
 let intervalEventObject = {
     fastingTime: 16,
@@ -1447,6 +1449,84 @@ function show_NutriScore() {
         nutriScoreChar = 'A';
         color = 'green';
     }
+
+    return nutriScore;
+}
+
+
+function averageNutriScore() {
+    let nutriArray = [];
+
+    // Array mit Score Werten befüllen
+    for (let i = 0; i < today_eaten.length; i++) {
+        selectedFoodIndex = indexOfFood(today_eaten[i].intake_productName);
+        selected_Food = array_Food_DB[selectedFoodIndex];
+        nutriArray.push(show_NutriScore());
+    }
+
+    // Durchschnitt berechnen
+    let averageVal = 0;
+    let sum = 0;
+    const nutriArrayAmount = nutriArray.length;
+    for (let j = 0; j < nutriArray.length; j++) {
+        sum += nutriArray[j];
+    }
+    averageVal = parseInt(sum / nutriArrayAmount);
+
+    // Wert abbilden
+    if (averageVal > 0) {
+        lbl_todayNutri.classList.add("active");
+        switch (averageVal) {
+            case 1:
+                outp_nutriScore.innerHTML = 'A';
+                outp_nutriScore.style.backgroundColor = 'green';
+                outp_nutriScore.style.color = 'white';
+                break;
+            case 2:
+                outp_nutriScore.innerHTML = 'B'; 
+                outp_nutriScore.style.backgroundColor = 'lightgreen';
+                outp_nutriScore.style.color = 'black';
+                break;
+            case 3:
+                outp_nutriScore.innerHTML = 'C';
+                outp_nutriScore.style.backgroundColor = 'yellow';
+                outp_nutriScore.style.color = 'black';
+                break;
+            case 4:
+                outp_nutriScore.innerHTML = 'D';
+                outp_nutriScore.style.backgroundColor = 'orange';
+                outp_nutriScore.style.color = 'white';
+                break;
+            case 5:
+                outp_nutriScore.innerHTML = 'E';
+                outp_nutriScore.style.backgroundColor = 'red';
+                outp_nutriScore.style.color = 'white';
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    // Reset
+    resetNutriScore();
+}
+
+function indexOfFood(food) {
+    for (let i = 0; i < array_Food_DB.length; i++) {
+        if (array_Food_DB[i].productName === food) {
+            return i;
+        }
+    }
+}
+
+function resetNutriScore() {
+    selected_Food = '';
+    document.getElementById('C_A').style.height = '60px';
+    document.getElementById('C_B').style.height = '60px';
+    document.getElementById('C_C').style.height = '60px';
+    document.getElementById('C_D').style.height = '60px';
+    document.getElementById('C_E').style.height = '60px';
 }
 
 //============================================================================
@@ -1886,6 +1966,7 @@ function calc_Values() {
     countedPercentNumber = 0;
     countingAnimation(originalPercentValue);
     coloring_Labels();
+    averageNutriScore();
 }
 
 // function animate_ProgressBar(prgrssVal) {
@@ -3610,4 +3691,6 @@ messageContainer.addEventListener('click', ()=> {
     messageContainer.classList.remove("active")
 })
 
-showMessage(`Willkommen zurück 😀`, 3000, 'Info');
+setTimeout(() => {
+    showMessage(`Willkommen zurück 😀`, 3000, 'Info');
+}, 4000);

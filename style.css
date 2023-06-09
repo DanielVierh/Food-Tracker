@@ -1194,6 +1194,23 @@ table.names th {
     color: yellow;
 }
 
+.nutriLabelToday {
+    display: none;
+}
+
+.nutriLabelToday.active {
+    display: block;
+    font-size: .4em;
+    margin: 25px 25px 50px 25px;
+}
+
+.outp_nutriScore {
+    background-color: gray;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
 /* --------------------------------------
 Togglebutton
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
@@ -1735,3 +1752,4 @@ input:checked + .slider:before {
     font-weight: bold;
     color: yellow;
   }
+
