@@ -1192,6 +1192,8 @@ table.names th {
 .advise {
     background: #31312f;
     color: yellow;
+    width: 98%;
+    margin: 0 auto;
 }
 
 .nutriLabelToday {
@@ -1211,6 +1213,10 @@ table.names th {
     font-weight: bold;
 }
 
+.settingForm {
+    width: 90%;
+    margin: 0 auto;
+}
 /* --------------------------------------
 Togglebutton
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
