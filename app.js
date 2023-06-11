@@ -3673,6 +3673,6 @@ messageContainer.addEventListener('click', ()=> {
     messageContainer.classList.remove("active")
 })
 
-setTimeout(() => {
-    showMessage(`Willkommen zurück 😀`, 3000, 'Info');
-}, 4000);
+// setTimeout(() => {
+//     showMessage(`Willkommen zurück 😀`, 3000, 'Info');
+// }, 4000);
