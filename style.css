@@ -94,7 +94,13 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50vh;
+    height: 10vh;
+    width: 98%;
+    border: none;
+    border-top: 3px solid var(--previewShadow);
+    background-color: transparent;
+    margin: 0 auto;
+    /* background-color: red; */
 }
 
 h1 {
@@ -404,6 +410,7 @@ footer {
     border: 5px solid var(--themeDotBorder);
     background: var(--mainColor);
     color: var(--mainText);
+    margin: 0 auto;
 }
 
 .button_del {
@@ -626,6 +633,8 @@ title {
     overflow-y: auto;
     height: 40vh;
     max-height: 40vh;
+    width: 98%;
+    margin: 0 auto;
     border: 5px solid black;
     background: var(--mainColor);
 }
@@ -987,7 +996,7 @@ table.names th {
 }
 
 #containerTabelle_History {
-    width: 100%;
+    width: 98%;
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
@@ -997,6 +1006,7 @@ table.names th {
     border: 5px solid var(--themeDotBorder);
     background: var(--mainColor);
     color: var(--mainText);
+    margin: 0 auto;
 }
 
 #HistoryButtonContainer {
