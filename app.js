@@ -1116,11 +1116,9 @@ function steps_into_Kcal() {
 // Kcal manuell eintragen
 //============================================================================
 function recordKcal() {
-    var new_Kcal = window.prompt(
-        'Trage hier abweichende Kcal ein:',
-        burned_Kcal,
-    );
-    if (new_Kcal) {
+    var new_Kcal = Number(window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal));
+    
+    if (new_Kcal && new_Kcal !== isNaN) {
         if (new_Kcal != burned_Kcal) {
             burned_Kcal = parseInt(new_Kcal);
             burned_Kcal_Label.innerHTML = burned_Kcal + ' Kcal';
@@ -2817,7 +2815,7 @@ function add_new_Food() {
                                         new_Unit =
                                             document.getElementById(
                                                 'inp_Unit',
-                                            ).value;
+                                            ).value + '| Eintrag: ' + current_timeStamp();
 
                                         let checkedNewFood =
                                             new_productName.toLowerCase();
@@ -3424,12 +3422,24 @@ function timeStampIntoNumber(timeStamp) {
     return secondsSum;
 }
 function currentTime() {
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var now = "".concat(addZero(hours), ":").concat(addZero(minutes));
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const now = "".concat(addZero(hours), ":").concat(addZero(minutes));
     return now;
 }
+
+function current_timeStamp() {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const timestamp = `${addZero(day)}.${addZero(month)}.${year}`
+    return timestamp;
+}
+
+
+
 // Sekündlicher Funktionsaufruf für Check Func
 function checkIntervall() {
     setInterval(function () {
