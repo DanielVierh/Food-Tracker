@@ -397,6 +397,9 @@ footer {
 
 .singleCalc {
     color: var(--secondaryText);
+    text-align: right;
+    padding-right: 20%;
+    padding-bottom: 50px;
 }
 
 #containerTabelle_Today {

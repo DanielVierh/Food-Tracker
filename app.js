@@ -1785,17 +1785,17 @@ function create_Table_TodayEaten() {
                 ' Kcal = ' +
                 prozentFromDay.toFixed(0) +
                 '%)' +
-                ' | Fett. ' +
+                ' <br/>  Fett: ' +
                 selected_Food.intake_fat.toFixed(1) +
-                'g | Eiw. ' +
+                'g <br/>  Eiweiß: ' +
                 selected_Food.intake_protein.toFixed(1) +
-                'g | Kh. ' +
+                'g <br/>  Kohlenhydrate: ' +
                 selected_Food.intake_carbs.toFixed(1) +
-                'g | Zkr. ' +
+                'g <br/>  Zucker: ' +
                 selected_Food.intake_sugar.toFixed(1) +
-                'g | Bal. ' +
+                'g <br/>  Ballaststoffe: ' +
                 selected_Food.intake_fiber.toFixed(1) +
-                'g | Slz:  ' +
+                'g <br/>  Salz:  ' +
                 selected_Food.intake_salt.toFixed(1) +
                 'g';
 
@@ -1813,7 +1813,7 @@ function create_Table_TodayEaten() {
                         break;
                     }
                 }
-            calcSingle = calcSingle + ' | ' + nutri;
+            calcSingle = calcSingle + ' <br/> ' + nutri;
             document.getElementById('output_SingleMacros').innerHTML = calcSingle;
         });
 
