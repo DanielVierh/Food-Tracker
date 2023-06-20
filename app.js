@@ -1272,7 +1272,7 @@ function blendIn_FoodActionArea() {
     document.getElementById('btn_ChangeMacros').disabled = false;
 }
 
-function show_NutriScore() {
+function show_NutriScore(choosenProduct) {
     /*
     Menge 100 g
     kcal in KJ umwandeln
@@ -1299,6 +1299,14 @@ function show_NutriScore() {
     let check_Salt = parseFloat((calcAmound * selected_Food.salt) / 100);
     let check_Protein = parseFloat((calcAmound * selected_Food.protein) / 100);
     let check_Fiber = parseFloat((calcAmound * selected_Food.fiber) / 100);
+
+    if(choosenProduct !== undefined) {
+         check_Kcal = parseInt((calcAmound * choosenProduct.kcal) / 100);
+         check_Sugar = parseFloat((calcAmound * choosenProduct.sugar) / 100);
+         check_Salt = parseFloat((calcAmound * choosenProduct.salt) / 100);
+         check_Protein = parseFloat((calcAmound * choosenProduct.protein) / 100);
+         check_Fiber = parseFloat((calcAmound * choosenProduct.fiber) / 100);
+    }
 
     // Check Kcal
     if (check_Kcal < 40) {
@@ -1757,6 +1765,7 @@ function create_Table_TodayEaten() {
                 selected_Food.intake_productName;
             document.getElementById('foodAmound_Change').value =
                 selected_Food.intake_amount;
+            
             // Sichbar machen
             document.getElementById(
                 'invisible_ChangeSection_HeuteGegessen',
@@ -1789,8 +1798,23 @@ function create_Table_TodayEaten() {
                 'g | Slz:  ' +
                 selected_Food.intake_salt.toFixed(1) +
                 'g';
-            document.getElementById('output_SingleMacros').innerHTML =
-                calcSingle;
+
+                let nutri;
+                for(let i = 0; i < array_Food_DB.length; i++) {
+                    if(array_Food_DB[i].productName === selected_Food.intake_productName) {
+                        const choosenProduct = array_Food_DB[i];
+                        nutri = show_NutriScore(choosenProduct);
+                        if (nutri === 1) nutri = 'Nutri: A';
+                        if (nutri === 2) nutri = 'Nutri: B';
+                        if (nutri === 3) nutri = 'Nutri: C';
+                        if (nutri === 4) nutri = 'Nutri: D';
+                        if (nutri === 5) nutri = 'Nutri: E';
+                        showMessage(nutri,2000);
+                        break;
+                    }
+                }
+            calcSingle = calcSingle + ' | ' + nutri;
+            document.getElementById('output_SingleMacros').innerHTML = calcSingle;
         });
 
         // BREAK INTO NEXT ROW
