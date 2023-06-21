@@ -1765,10 +1765,7 @@ function create_Table_TodayEaten() {
             document.getElementById('foodAmound_Change').value =
                 selected_Food.intake_amount;
             
-            // Sichbar machen !BAUSTELLE
-            // document.getElementById(
-            //     'invisible_ChangeSection_HeuteGegessen',
-            // ).hidden = false;
+            // Sichbar machen
             foodAmountSingleView.classList.add("active");
             console.log(foodAmountSingleView);
             // Enable Schaltflächen
