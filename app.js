@@ -364,7 +364,8 @@ function selectWord2() {
 
 // Textfeld und Button für Menge ändern ausblenden
 function blendOut_MengeAendern() {
-    foodAmountSingleView.classList.remove("active")
+    
+    foodAmountSingleView.hidden = true;
     // Disable Schaltflächen
     document.getElementById('btnChangeQuantity').disabled = true;
     document.getElementById('btnDeleteFoodFromToday').disabled = true;
@@ -1766,8 +1767,7 @@ function create_Table_TodayEaten() {
                 selected_Food.intake_amount;
             
             // Sichbar machen
-            foodAmountSingleView.classList.add("active");
-            console.log(foodAmountSingleView);
+            foodAmountSingleView.hidden = false;
             // Enable Schaltflächen
             document.getElementById('btnChangeQuantity').disabled = false;
             document.getElementById('btnDeleteFoodFromToday').disabled = false;

@@ -508,19 +508,8 @@ footer {
 }
 
 .foodSection {
-    visibility: hidden;
     justify-content: center;
     background-color: #313235;
-    height: 0;
-    opacity: 0;
-    transition: all .6s ease-in-out;
-}
-
-.foodSection.active {
-    visibility: visible;
-    height: auto;
-    opacity: 1;
-    transition: all .4s ease-in-out;
 }
 
 
