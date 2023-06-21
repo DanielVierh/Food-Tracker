@@ -1804,11 +1804,11 @@ function create_Table_TodayEaten() {
                     if(array_Food_DB[i].productName === selected_Food.intake_productName) {
                         const choosenProduct = array_Food_DB[i];
                         nutri = show_NutriScore(choosenProduct);
-                        if (nutri === 1) nutri = 'Nutri: A';
-                        if (nutri === 2) nutri = 'Nutri: B';
-                        if (nutri === 3) nutri = 'Nutri: C';
-                        if (nutri === 4) nutri = 'Nutri: D';
-                        if (nutri === 5) nutri = 'Nutri: E';
+                        if (nutri === 1) nutri = 'Nutriscore: A';
+                        if (nutri === 2) nutri = 'Nutriscore: B';
+                        if (nutri === 3) nutri = 'Nutriscore: C';
+                        if (nutri === 4) nutri = 'Nutriscore: D';
+                        if (nutri === 5) nutri = 'Nutriscore: E';
                         break;
                     }
                 }
