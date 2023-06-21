@@ -1809,7 +1809,6 @@ function create_Table_TodayEaten() {
                         if (nutri === 3) nutri = 'Nutri: C';
                         if (nutri === 4) nutri = 'Nutri: D';
                         if (nutri === 5) nutri = 'Nutri: E';
-                        showMessage(nutri,2000);
                         break;
                     }
                 }
