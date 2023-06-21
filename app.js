@@ -68,6 +68,7 @@ const messageContainer = document.getElementById("messageContainer");
 const message = document.getElementById("message");
 const lbl_todayNutri = document.getElementById("lbl_todayNutri");
 const outp_nutriScore = document.getElementById("outp_nutriScore");
+const foodAmountSingleView = document.getElementById("invisible_ChangeSection_HeuteGegessen")
 // Intervall Fasting
 let intervalEventObject = {
     fastingTime: 16,
@@ -363,9 +364,7 @@ function selectWord2() {
 
 // Textfeld und Button für Menge ändern ausblenden
 function blendOut_MengeAendern() {
-    document.getElementById(
-        'invisible_ChangeSection_HeuteGegessen',
-    ).hidden = true;
+    foodAmountSingleView.classList.remove("active")
     // Disable Schaltflächen
     document.getElementById('btnChangeQuantity').disabled = true;
     document.getElementById('btnDeleteFoodFromToday').disabled = true;
@@ -1766,10 +1765,12 @@ function create_Table_TodayEaten() {
             document.getElementById('foodAmound_Change').value =
                 selected_Food.intake_amount;
             
-            // Sichbar machen
-            document.getElementById(
-                'invisible_ChangeSection_HeuteGegessen',
-            ).hidden = false;
+            // Sichbar machen !BAUSTELLE
+            // document.getElementById(
+            //     'invisible_ChangeSection_HeuteGegessen',
+            // ).hidden = false;
+            foodAmountSingleView.classList.add("active");
+            console.log(foodAmountSingleView);
             // Enable Schaltflächen
             document.getElementById('btnChangeQuantity').disabled = false;
             document.getElementById('btnDeleteFoodFromToday').disabled = false;
