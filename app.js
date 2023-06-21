@@ -1008,7 +1008,7 @@ function take_Over_Water() {
     if (new_Water == -0.25) {
         showMessage('Wassermenge um 0,25 L korrigiert',5000)
     } else {
-        showMessage(`${new_Water} L Wasser wurden hinzugefügt'`, 5000)
+        showMessage(`${new_Water} L Wasser wurden hinzugefügt`, 5000)
         last_Water();
         document.getElementById('lastWater').innerHTML =
             'Zuletzt: ' + lastWater;
@@ -1591,7 +1591,7 @@ function checkButton() {
                     ' g \n Salz: ' +
                     salt_Intake +
                     ' g';
-                showMessage(`${intakeFoodInfo}`, 200000, 'Info')
+                showMessage(`${intakeFoodInfo}`, 20000, 'Info')
             } catch (error) {}
         }
     } else {
@@ -1706,7 +1706,7 @@ function add_Food_to_TodayList() {
                     ' g \n Salz: ' +
                     parseInt(salt_Intake) +
                     ' g';
-                    showMessage(`${intakeFoodInfo}`, 200000, 'Info');
+                    showMessage(`${intakeFoodInfo}`, 20000, 'Info');
                 document.getElementById('statusX').innerHTML =
                     selected_Food.productName + ' wurde eingetragen';
                 // Speichern
