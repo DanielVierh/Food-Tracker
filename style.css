@@ -396,10 +396,12 @@ footer {
 }
 
 .singleCalc {
-    color: var(--secondaryText);
+    color: lightblue;
     text-align: right;
     padding-right: 20%;
     padding-bottom: 50px;
+    letter-spacing: 1.6px;
+    background: radial-gradient(black, rgb(45, 44, 44));
 }
 
 #containerTabelle_Today {
