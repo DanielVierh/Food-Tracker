@@ -326,6 +326,7 @@ function save_Burned_Kcal() {
 //====================================================================================
 function scroll_UP() {
     window.scrollTo(0, 0);
+    messageContainer.classList.remove("active")
 }
 
 function mittig_halten() {
