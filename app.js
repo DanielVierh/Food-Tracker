@@ -2066,9 +2066,11 @@ function showTargets() {
 
 function coloring_Labels() {
     step_Progress();
-    effectiveKcal_Progress();
-    kalorienBilanz_Progress();
-    colorizeTargetProgress();
+    if(theme !== "light") {
+        effectiveKcal_Progress();
+        kalorienBilanz_Progress();
+        colorizeTargetProgress();
+    }
 }
 
 // Schritte
