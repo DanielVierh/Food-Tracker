@@ -506,10 +506,23 @@ function show_Carbs() {
     show_Statisitcs('show_Carbs');
     all_Statistics_Button_UnselectColor('btnCarbs');
 }
+function show_Ballast() {
+    show_Statisitcs('show_Ballast');
+    all_Statistics_Button_UnselectColor('btnStatBallast');
+}
 
 function show_BurnedKcal() {
     show_Statisitcs('show_BurndedKcal');
     all_Statistics_Button_UnselectColor('btnStatBurnedKcal');
+}
+function show_Protein() {
+    show_Statisitcs('show_Protein');
+    all_Statistics_Button_UnselectColor('btnStatProtein');
+}
+
+function show_Fat() {
+    show_Statisitcs('show_Fat');
+    all_Statistics_Button_UnselectColor('btnStatFat');
 }
 
 //  selektieren Button färben
@@ -524,12 +537,17 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
         'rgb(10, 10, 46)';
     document.getElementById('btnStatBurnedKcal').style.backgroundColor =
         'rgb(10, 10, 46)';
-
     document.getElementById('btnCarbs').style.backgroundColor =
         'rgb(10, 10, 46)';
-
+    document.getElementById('btnStatFat').style.backgroundColor =
+        'rgb(10, 10, 46)';
+    document.getElementById('btnStatBallast').style.backgroundColor =
+        'rgb(10, 10, 46)';
+    document.getElementById('btnStatProtein').style.backgroundColor =
+        'rgb(10, 10, 46)';
     document.getElementById(selectedButtonColorize).style.backgroundColor =
         'rgb(24, 24, 236)';
+
 }
 
 // Erstelle Statistik
@@ -733,176 +751,41 @@ function show_Statisitcs(val) {
             }
         }
         document.getElementById('outputFatSum').innerHTML = stepCounter;
+
         //ANCHOR - Statistik Zucker
         // >>> Zucker <<<
     } else if (val == 'show_Sugar') {
         document.getElementById('valDescription').innerHTML = 'Zucker';
-        document.getElementById('valDescrFett').innerHTML = '';
-        document.getElementById('UeberschriftStatisik').innerHTML =
-            'Zucker -- (Ziel: ' + max_Sugar + ' g)';
-        document.getElementById('outputFatSum').innerHTML = '';
-        var sugarCounter = 0;
-        // Fett ausblenden
-        for (var i = 0; i < statistik_Count; i++) {
-            document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
-            document.getElementById('fettInGramm_Col_' + i).style.color =
-                'white';
-        }
-
-        for (var i = 0; i < statistik_Count; i++) {
-            document.getElementById('datum_Col_' + i).innerHTML =
-                my_Statistics[i].repository_date;
-            currentVal = parseFloat(my_Statistics[i].repository_Sugar);
-            document.getElementById('val_Col_' + i).innerHTML = currentVal;
-            sugarCounter += currentVal;
-            // + - zum Vortag
-            if (i > 0) {
-                val_to_DayBefore =
-                    parseFloat(my_Statistics[i].repository_Sugar) -
-                    parseFloat(lastDayVal);
-                document.getElementById('change_DayBefore_Col_' + i).innerHTML =
-                    val_to_DayBefore.toFixed(1) + ' g';
-                lastDayVal = parseFloat(my_Statistics[i].repository_Sugar);
-                if (val_to_DayBefore < 0) {
-                    document.getElementById(
-                        'change_DayBefore_Col_' + i,
-                    ).style.color = 'rgb(27, 206, 27)';
-                } else {
-                    document.getElementById(
-                        'change_DayBefore_Col_' + i,
-                    ).style.color = 'red';
-                    document.getElementById(
-                        'change_DayBefore_Col_' + i,
-                    ).innerHTML = '+' + val_to_DayBefore.toFixed(1) + ' g';
-                }
-            } else {
-                val_to_DayBefore = '-';
-                lastDayVal = parseFloat(my_Statistics[i].repository_Sugar);
-                document.getElementById('change_DayBefore_Col_' + i).innerHTML =
-                    val_to_DayBefore;
-            }
-
-            // Diagramm
-            currProzent =
-                (parseFloat(my_Statistics[i].repository_Sugar) * 100) /
-                max_Sugar;
-            let colHeightInPixel = (currProzent * 500) / 100;
-            if (colHeightInPixel > 1000) {
-                document.getElementById('COL_Dia_' + i).style.height = '1000px';
-                document.getElementById('COL_Dia_' + i).innerText =
-                    my_Statistics[i].repository_Sugar + ' 🚀';
-            } else {
-                document.getElementById('COL_Dia_' + i).style.height =
-                    colHeightInPixel + 'px';
-                document.getElementById('COL_Dia_' + i).innerText =
-                    my_Statistics[i].repository_Sugar;
-            }
-
-            // Balken färben
-            if (currentVal > max_Sugar && currentVal < max_Sugar * 1.1) {
-                document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                    'yellow';
-            } else if (currentVal > max_Sugar) {
-                document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                    'red';
-            } else {
-                document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                    'rgb(43, 161, 43)';
-            }
-        }
-
-        document.getElementById('outputFatSum').innerHTML =
-            sugarCounter.toFixed(1) +
-            'g (' +
-            (sugarCounter / statistik_Count).toFixed(1) +
-            'g/Tag)';
+        document.getElementById('UeberschriftStatisik').innerHTML = 'Zucker -- (Ziel: ' + max_Sugar + ' g)';
+        fillingTable("repository_Sugar", max_Sugar, "maxGoal");
 
         //ANCHOR - Statistik Kohlenhydr
     } else if(val === "show_Carbs") {
-        document.getElementById('valDescription').innerHTML = 'KH';
-        document.getElementById('valDescrFett').innerHTML = '';
-        document.getElementById('UeberschriftStatisik').innerHTML =
-            'Kohlenhydrate -- (Ziel: ' + des_Carbs + ' g)';
-        document.getElementById('outputFatSum').innerHTML = '';
-        var carbCounter = 0;
-        // Fett ausblenden
-        for (var i = 0; i < statistik_Count; i++) {
-            document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
-            document.getElementById('fettInGramm_Col_' + i).style.color =
-                'white';
-        }
+    document.getElementById('valDescription').innerHTML = 'KH';
+    document.getElementById('UeberschriftStatisik').innerHTML = 'Kohlenhydrate -- (Ziel: ' + des_Carbs + ' g)';
+    fillingTable("repository_Carbs", des_Carbs, "maxGoal");
 
-        for (var i = 0; i < statistik_Count; i++) {
-            document.getElementById('datum_Col_' + i).innerHTML =
-                my_Statistics[i].repository_date;
-            currentVal = parseFloat(my_Statistics[i].repository_Carbs);
-            document.getElementById('val_Col_' + i).innerHTML = currentVal;
-            carbCounter += currentVal;
-            // + - zum Vortag
-            if (i > 0) {
-                val_to_DayBefore =
-                    parseFloat(my_Statistics[i].repository_Carbs) -
-                    parseFloat(lastDayVal);
-                document.getElementById('change_DayBefore_Col_' + i).innerHTML =
-                    val_to_DayBefore.toFixed(1) + ' g';
-                lastDayVal = parseFloat(my_Statistics[i].repository_Carbs);
-                if (val_to_DayBefore < 0) {
-                    document.getElementById(
-                        'change_DayBefore_Col_' + i,
-                    ).style.color = 'rgb(27, 206, 27)';
-                } else {
-                    document.getElementById(
-                        'change_DayBefore_Col_' + i,
-                    ).style.color = 'red';
-                    document.getElementById(
-                        'change_DayBefore_Col_' + i,
-                    ).innerHTML = '+' + val_to_DayBefore.toFixed(1) + ' g';
-                }
-            } else {
-                val_to_DayBefore = '-';
-                lastDayVal = parseFloat(my_Statistics[i].repository_Carbs);
-                document.getElementById('change_DayBefore_Col_' + i).innerHTML =
-                    val_to_DayBefore;
-            }
+        //ANCHOR - Statistik Fett
+    }else if(val === 'show_Fat') {
+        document.getElementById('valDescription').innerHTML = 'Fett';
+        document.getElementById('UeberschriftStatisik').innerHTML = 'Fett -- (Ziel: ' + des_Fat + ' g)';
+        fillingTable("repository_Fat", des_Fat, "maxGoal");
 
-            // Diagramm
-            currProzent =
-                (parseFloat(my_Statistics[i].repository_Carbs) * 100) /
-                des_Carbs;
-            let colHeightInPixel = (currProzent * 500) / 100;
-            if (colHeightInPixel > 1000) {
-                document.getElementById('COL_Dia_' + i).style.height = '1000px';
-                document.getElementById('COL_Dia_' + i).innerText =
-                    my_Statistics[i].repository_Carbs + ' 🚀';
-            } else {
-                document.getElementById('COL_Dia_' + i).style.height =
-                    colHeightInPixel + 'px';
-                document.getElementById('COL_Dia_' + i).innerText =
-                    my_Statistics[i].repository_Carbs;
-            }
+        //ANCHOR - Statistik Ballaststoffe
+        // >>> Ballaststoffe <<<
+    }else if(val === 'show_Ballast') {
+        document.getElementById('valDescription').innerHTML = 'Ballast.';
+        document.getElementById('UeberschriftStatisik').innerHTML = 'Ballaststoffe -- (Ziel: Min ' + min_Fiber + ' g)';
+        fillingTable("repository_Fiber", min_Fiber, "minGoal");
+        
+        //ANCHOR - Statistik Protein
+        // >>> Protein <<<
+    }else if (val === 'show_Protein') {
+        document.getElementById('valDescription').innerHTML = 'Eiweiß';
+        document.getElementById('UeberschriftStatisik').innerHTML = 'Eiweiß -- (Ziel: Min ' + min_Protein + ' g)';
+        fillingTable("repository_Protein", min_Protein, "minGoal");
 
-            // Balken färben
-            if (currentVal > des_Carbs && currentVal < des_Carbs * 1.1) {
-                document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                    'yellow';
-            } else if (currentVal > des_Carbs) {
-                document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                    'red';
-            } else {
-                document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                    'rgb(43, 161, 43)';
-            }
-        }
-
-        document.getElementById('outputFatSum').innerHTML =
-            carbCounter.toFixed(1) +
-            'g (' +
-            (carbCounter / statistik_Count).toFixed(1) +
-            'g/Tag)';
-            //ANCHOR - ENDE
-            //!SECTION
-
-         //ANCHOR - Statistik Wasser
+        //ANCHOR - Statistik Wasser
         // >>> Wasser <<<
     } else if (val == 'show_Water') {
         document.getElementById('valDescription').innerHTML = 'Wasser';
@@ -1065,6 +948,100 @@ function show_Statisitcs(val) {
         let targetHeight = 500; // Mitte
         document.getElementById('eff_Goal').style.bottom = targetHeight + 'px';
     }
+}
+
+//######################################################################
+//ANCHOR - Funktion um Tabelle mit Werten zu befüllen
+//######################################################################
+
+function fillingTable(repositoryPos, goal, min_max_goal) {
+
+    let valueCounter = 0;
+    let statistik_Count = my_Statistics.length;
+    document.getElementById('valDescrFett').innerHTML = '';
+    document.getElementById('outputFatSum').innerHTML = '';
+    //NOTE -  Fett ausblenden
+    for (var i = 0; i < statistik_Count; i++) {
+        document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
+        document.getElementById('fettInGramm_Col_' + i).style.color =
+            'white';
+    }
+    //NOTE - Schleife Werte & Datum
+    for (var i = 0; i < statistik_Count; i++) {
+        document.getElementById('datum_Col_' + i).innerHTML =
+            my_Statistics[i].repository_date
+        currentVal = parseFloat(my_Statistics[i][repositoryPos]);
+        console.log('Val', my_Statistics[i][repositoryPos]);
+        document.getElementById('val_Col_' + i).innerHTML = currentVal;
+        valueCounter += currentVal;
+        //NOTE + - zum Vortag
+        if (i > 0) {
+            val_to_DayBefore =
+                parseFloat(my_Statistics[i][repositoryPos]) -
+                parseFloat(lastDayVal);
+            document.getElementById('change_DayBefore_Col_' + i).innerHTML =
+                val_to_DayBefore.toFixed(1) + ' g';
+            lastDayVal = parseFloat(my_Statistics[i][repositoryPos]);
+            if (val_to_DayBefore < 0) {
+                document.getElementById(
+                    'change_DayBefore_Col_' + i,
+                ).style.color = 'rgb(27, 206, 27)';
+            } else {
+                document.getElementById(
+                    'change_DayBefore_Col_' + i,
+                ).style.color = 'red';
+                document.getElementById(
+                    'change_DayBefore_Col_' + i,
+                ).innerHTML = '+' + val_to_DayBefore.toFixed(1) + ' g';
+            }
+        } else {
+            val_to_DayBefore = '-';
+            lastDayVal = parseFloat(my_Statistics[i][repositoryPos]);
+            document.getElementById('change_DayBefore_Col_' + i).innerHTML =
+                val_to_DayBefore;
+        }
+
+        // Diagramm
+        currProzent = (parseFloat(my_Statistics[i][repositoryPos]) * 100) / goal;
+        let colHeightInPixel = (currProzent * 500) / 100;
+        if (colHeightInPixel > 1000) {
+            document.getElementById('COL_Dia_' + i).style.height = '1000px';
+            document.getElementById('COL_Dia_' + i).innerText = my_Statistics[i][repositoryPos] + ' 🚀';
+        } else {
+            document.getElementById('COL_Dia_' + i).style.height = colHeightInPixel + 'px';
+            document.getElementById('COL_Dia_' + i).innerText = my_Statistics[i][repositoryPos]
+        }
+
+        if(min_max_goal === "minGoal") {
+        // Balken färben
+        if (currentVal < goal && currentVal < goal * 1.1) {
+            document.getElementById('COL_Dia_' + i).style.backgroundColor = 'yellow';
+        } else if (currentVal < goal) {
+            document.getElementById('COL_Dia_' + i).style.backgroundColor = 'red';
+        } else {
+            document.getElementById('COL_Dia_' + i).style.backgroundColor =  'rgb(43, 161, 43)';
+        }
+        }else {
+        // Balken färben
+        if (currentVal > goal && currentVal < goal * 1.1) {
+            document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                'yellow';
+        } else if (currentVal > goal) {
+            document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                'red';
+        } else {
+            document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                'rgb(43, 161, 43)';
+        }
+        }
+
+    }
+
+    document.getElementById('outputFatSum').innerHTML =
+        valueCounter.toFixed(1) +
+        'g (' +
+        (valueCounter / statistik_Count).toFixed(1) +
+        'g/Tag)';
 }
 
 // Animation
