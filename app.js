@@ -453,6 +453,7 @@ class RepositoryLast7Days {
         repository_Fiber,
         repository_Fat,
         repository_Water,
+        repository_Carbs,
     ) {
         this.repository_date = repository_date;
         this.repository_EffectiveKcal = repository_EffectiveKcal;
@@ -463,6 +464,7 @@ class RepositoryLast7Days {
         this.repository_Fiber = repository_Fiber;
         this.repository_Fat = repository_Fat;
         this.repository_Water = repository_Water;
+        this.repository_Carbs = repository_Carbs;
     }
 }
 
@@ -498,6 +500,11 @@ function show_Sugar() {
 function show_Water() {
     show_Statisitcs('show_Water');
     all_Statistics_Button_UnselectColor('btnStatWater');
+}
+
+function show_Carbs() {
+    show_Statisitcs('show_Carbs');
+    all_Statistics_Button_UnselectColor('btnCarbs');
 }
 
 function show_BurnedKcal() {
@@ -538,7 +545,8 @@ function show_Statisitcs(val) {
     var lastDayVal = 0;
     var currentVal = 0;
     var fatSum = 0;
-
+    
+    //ANCHOR - Statistik Effektive Kcal
     if (val == 'show_Effekctive_Kcal') {
         // >>> EFFEKTIVE KCAL <<<
         document.getElementById('valDescription').innerHTML = 'Effek. Kcal';
@@ -645,7 +653,7 @@ function show_Statisitcs(val) {
             document.getElementById('outputFatSum').innerHTML = fatSum + ' g';
             document.getElementById('outputFatSum').style.color = 'red';
         }
-
+        //ANCHOR - Statistik SCHRITTE
         // >>> SCHRITTE <<<
     } else if (val == 'show_Steps') {
         document.getElementById('valDescription').innerHTML = 'Schritte';
@@ -722,7 +730,7 @@ function show_Statisitcs(val) {
             }
         }
         document.getElementById('outputFatSum').innerHTML = stepCounter;
-
+        //ANCHOR - Statistik Zucker
         // >>> Zucker <<<
     } else if (val == 'show_Sugar') {
         document.getElementById('valDescription').innerHTML = 'Zucker';
@@ -806,6 +814,92 @@ function show_Statisitcs(val) {
             (sugarCounter / statistik_Count).toFixed(1) +
             'g/Tag)';
 
+        //ANCHOR - Statistik Kohlenhydr
+    } else if(val === "show_Carbs") {
+        document.getElementById('valDescription').innerHTML = 'KH';
+        document.getElementById('valDescrFett').innerHTML = '';
+        document.getElementById('UeberschriftStatisik').innerHTML =
+            'Kohlenhydrate -- (Ziel: ' + des_Carbs + ' g)';
+        document.getElementById('outputFatSum').innerHTML = '';
+        var carbCounter = 0;
+        // Fett ausblenden
+        for (var i = 0; i < statistik_Count; i++) {
+            document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
+            document.getElementById('fettInGramm_Col_' + i).style.color =
+                'white';
+        }
+
+        for (var i = 0; i < statistik_Count; i++) {
+            document.getElementById('datum_Col_' + i).innerHTML =
+                my_Statistics[i].repository_date;
+            currentVal = parseFloat(my_Statistics[i].repository_Carbs);
+            document.getElementById('val_Col_' + i).innerHTML = currentVal;
+            carbCounter += currentVal;
+            // + - zum Vortag
+            if (i > 0) {
+                val_to_DayBefore =
+                    parseFloat(my_Statistics[i].repository_Carbs) -
+                    parseFloat(lastDayVal);
+                document.getElementById('change_DayBefore_Col_' + i).innerHTML =
+                    val_to_DayBefore.toFixed(1) + ' g';
+                lastDayVal = parseFloat(my_Statistics[i].repository_Carbs);
+                if (val_to_DayBefore < 0) {
+                    document.getElementById(
+                        'change_DayBefore_Col_' + i,
+                    ).style.color = 'rgb(27, 206, 27)';
+                } else {
+                    document.getElementById(
+                        'change_DayBefore_Col_' + i,
+                    ).style.color = 'red';
+                    document.getElementById(
+                        'change_DayBefore_Col_' + i,
+                    ).innerHTML = '+' + val_to_DayBefore.toFixed(1) + ' g';
+                }
+            } else {
+                val_to_DayBefore = '-';
+                lastDayVal = parseFloat(my_Statistics[i].repository_Carbs);
+                document.getElementById('change_DayBefore_Col_' + i).innerHTML =
+                    val_to_DayBefore;
+            }
+
+            // Diagramm
+            currProzent =
+                (parseFloat(my_Statistics[i].repository_Carbs) * 100) /
+                des_Carbs;
+            let colHeightInPixel = (currProzent * 500) / 100;
+            if (colHeightInPixel > 1000) {
+                document.getElementById('COL_Dia_' + i).style.height = '1000px';
+                document.getElementById('COL_Dia_' + i).innerText =
+                    my_Statistics[i].repository_Carbs + ' 🚀';
+            } else {
+                document.getElementById('COL_Dia_' + i).style.height =
+                    colHeightInPixel + 'px';
+                document.getElementById('COL_Dia_' + i).innerText =
+                    my_Statistics[i].repository_Carbs;
+            }
+
+            // Balken färben
+            if (currentVal > des_Carbs && currentVal < des_Carbs * 1.1) {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                    'yellow';
+            } else if (currentVal > des_Carbs) {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                    'red';
+            } else {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                    'rgb(43, 161, 43)';
+            }
+        }
+
+        document.getElementById('outputFatSum').innerHTML =
+            carbCounter.toFixed(1) +
+            'g (' +
+            (carbCounter / statistik_Count).toFixed(1) +
+            'g/Tag)';
+            //ANCHOR - ENDE
+            //!SECTION
+
+         //ANCHOR - Statistik Wasser
         // >>> Wasser <<<
     } else if (val == 'show_Water') {
         document.getElementById('valDescription').innerHTML = 'Wasser';
@@ -882,7 +976,7 @@ function show_Statisitcs(val) {
 
         document.getElementById('outputFatSum').innerHTML = waterCounter + ' L';
 
-        // Verbrannte KCAL
+        //ANCHOR - Statistik Verbrannte KCAL
     } else if (val == 'show_BurndedKcal') {
         // >>> Verbrannte KCAL <<<
         const kcalVal = 6.5;
@@ -2655,6 +2749,7 @@ function close_Day() {
                         todayFiber,
                         todayFat,
                         today_Water,
+                        todayCarbs,
                     ),
                 );
                 show_Statisitcs('show_Effekctive_Kcal');
@@ -2670,6 +2765,7 @@ function close_Day() {
                         todayFiber,
                         todayFat,
                         today_Water,
+                        todayCarbs,
                     ),
                 );
                 show_Statisitcs('show_Effekctive_Kcal');
