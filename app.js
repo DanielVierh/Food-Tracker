@@ -525,6 +525,9 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     document.getElementById('btnStatBurnedKcal').style.backgroundColor =
         'rgb(10, 10, 46)';
 
+    document.getElementById('btnCarbs').style.backgroundColor =
+        'rgb(10, 10, 46)';
+
     document.getElementById(selectedButtonColorize).style.backgroundColor =
         'rgb(24, 24, 236)';
 }
