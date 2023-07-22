@@ -1776,3 +1776,32 @@ input:checked + .slider:before {
     color: yellow;
   }
 
+  #output_Burned {
+    position: relative;
+  }
+
+  #output_Burned::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    background-color: rgb(193, 189, 189);
+    width: 30%;
+    animation: hoverFlow 10s ease infinite;
+  }
+
+  @keyframes hoverFlow {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: -10px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+  }

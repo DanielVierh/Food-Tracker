@@ -1044,16 +1044,6 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
         'g/Tag)';
 }
 
-// Animation
-function animate_StatisticCol(progrsVal, colName) {
-    // var keyframes = "@keyframes progressbar-move{ 0%{heigth:0px;} 100%{heigth:" + parseInt(progrsVal) + "px;} }";
-    // var s = document.createElement("style");
-    // s.innerHTML = keyframes;
-    // document.getElementsByClassName("container_Kcal_Diagram")[0].appendChild(s);
-    // var el = document.getElementById(colName);
-    // el.style.animation = "progressbar-move ease-in-out 1.5s forwards normal";
-}
-
 //============================================================================
 // Wasser tracken
 //============================================================================
@@ -1123,7 +1113,7 @@ function addProduct() {
 }
 
 //============================================================================
-//  Schritte PopUp
+//ANCHOR -  Schritte PopUp
 //============================================================================
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
@@ -1188,7 +1178,7 @@ function steps_into_Kcal() {
 }
 
 //============================================================================
-// Kcal manuell eintragen
+//ANCHOR -   Kcal manuell eintragen
 //============================================================================
 function recordKcal() {
     var new_Kcal = Number(window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal));
@@ -1204,7 +1194,7 @@ function recordKcal() {
 }
 
 //============================================================================
-// Food Datenbank Tabelle
+//ANCHOR -   Food Datenbank Tabelle
 //============================================================================
 
 function createTable_FoodDB() {
@@ -1258,7 +1248,7 @@ function createTable_FoodDB() {
 }
 
 //============================================================================
-// Suche
+//ANCHOR -   Suche
 //============================================================================
 
 $('#searchInput').on('keyup', function () {
