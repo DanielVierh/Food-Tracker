@@ -1337,6 +1337,11 @@ function blendIn_FoodActionArea() {
     document.getElementById('btn_ChangeMacros').disabled = false;
 }
 
+
+//============================================================================
+//ANCHOR -  Nutri Score
+//============================================================================
+
 function show_NutriScore(choosenProduct) {
     /*
     Menge 100 g
