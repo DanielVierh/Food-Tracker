@@ -83,7 +83,7 @@ let intervalEventObject = {
 };
 
 //====================================================================================
-//ANCHOR -   Init
+//NOTE -   Init
 //====================================================================================
 document.addEventListener('DOMContentLoaded', loadCont);
 
@@ -111,7 +111,7 @@ function check_FoodDB() {
 }
 
 //====================================================================================
-//ANCHOR -   EventListener
+//NOTE -   EventListener
 //====================================================================================
 // TODO: In Variablen packen und auf Vorhandenheit abfragen
 buttonAdd.addEventListener('click', addProduct);
@@ -149,7 +149,7 @@ document.addEventListener('dblclick', () => {
 });
 
 //====================================================================================
-//ANCHOR -   Save,  Load or create DB
+//NOTE -   Save,  Load or create DB
 //====================================================================================
 // Save Food-DB
 function saveFood_DB() {
@@ -322,7 +322,7 @@ function save_Burned_Kcal() {
 }
 
 //====================================================================================
-//ANCHOR -   Scroll Section
+//NOTE -   Scroll Section
 //====================================================================================
 function scroll_UP() {
     window.scrollTo(0, 0);
@@ -391,7 +391,7 @@ function blendOut_Eingabebereich_FoodDB() {
     document.getElementById('btn_ChangeMacros').disabled = true;
 }
 
-//ANCHOR -   Klasse für Lebensmittel
+//NOTE -   Klasse für Lebensmittel
 
 class Food {
     constructor(
@@ -441,7 +441,7 @@ class TodayEatenFood {
     }
 }
 
-//ANCHOR -   Klasse für my_Statistics
+//NOTE -   Klasse für my_Statistics
 class RepositoryLast7Days {
     constructor(
         repository_date,
@@ -525,7 +525,7 @@ function show_Fat() {
     all_Statistics_Button_UnselectColor('btnStatFat');
 }
 
-//ANCHOR - selektieren Button färben
+//NOTE - selektieren Button färben
 function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     document.getElementById('btnStatEffektKcal').style.backgroundColor =
         'rgb(10, 10, 46)';
@@ -550,7 +550,7 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
 
 }
 
-//ANCHOR -   Erstelle Statistik
+//NOTE -   Erstelle Statistik
 function show_Statisitcs(val) {
     var height_Col_1 = 0;
     var height_Col_2 = 0;
@@ -674,7 +674,7 @@ function show_Statisitcs(val) {
             document.getElementById('outputFatSum').innerHTML = fatSum + ' g';
             document.getElementById('outputFatSum').style.color = 'red';
         }
-        //ANCHOR - Statistik SCHRITTE
+        //NOTE - Statistik SCHRITTE
         // >>> SCHRITTE <<<
     } else if (val == 'show_Steps') {
         document.getElementById('valDescription').innerHTML = 'Schritte';
@@ -752,40 +752,40 @@ function show_Statisitcs(val) {
         }
         document.getElementById('outputFatSum').innerHTML = stepCounter;
 
-        //ANCHOR - Statistik Zucker
+        //NOTE - Statistik Zucker
         // >>> Zucker <<<
     } else if (val == 'show_Sugar') {
         document.getElementById('valDescription').innerHTML = 'Zucker';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Zucker -- (Ziel: ' + max_Sugar + ' g)';
         fillingTable("repository_Sugar", max_Sugar, "maxGoal");
 
-        //ANCHOR - Statistik Kohlenhydr
+        //NOTE - Statistik Kohlenhydr
     } else if(val === "show_Carbs") {
     document.getElementById('valDescription').innerHTML = 'KH';
     document.getElementById('UeberschriftStatisik').innerHTML = 'Kohlenhydrate -- (Ziel: ' + des_Carbs + ' g)';
     fillingTable("repository_Carbs", des_Carbs, "maxGoal");
 
-        //ANCHOR - Statistik Fett
+        //NOTE - Statistik Fett
     }else if(val === 'show_Fat') {
         document.getElementById('valDescription').innerHTML = 'Fett';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Fett -- (Ziel: ' + des_Fat + ' g)';
         fillingTable("repository_Fat", des_Fat, "maxGoal");
 
-        //ANCHOR - Statistik Ballaststoffe
+        //NOTE - Statistik Ballaststoffe
         // >>> Ballaststoffe <<<
     }else if(val === 'show_Ballast') {
         document.getElementById('valDescription').innerHTML = 'Ballast.';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Ballaststoffe -- (Ziel: Min ' + min_Fiber + ' g)';
         fillingTable("repository_Fiber", min_Fiber, "minGoal");
         
-        //ANCHOR - Statistik Protein
+        //NOTE - Statistik Protein
         // >>> Protein <<<
     }else if (val === 'show_Protein') {
         document.getElementById('valDescription').innerHTML = 'Eiweiß';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Eiweiß -- (Ziel: Min ' + min_Protein + ' g)';
         fillingTable("repository_Protein", min_Protein, "minGoal");
 
-        //ANCHOR - Statistik Wasser
+        //NOTE - Statistik Wasser
         // >>> Wasser <<<
     } else if (val == 'show_Water') {
         document.getElementById('valDescription').innerHTML = 'Wasser';
@@ -862,7 +862,7 @@ function show_Statisitcs(val) {
 
         document.getElementById('outputFatSum').innerHTML = waterCounter + ' L';
 
-        //ANCHOR - Statistik Verbrannte KCAL
+        //NOTE - Statistik Verbrannte KCAL
     } else if (val == 'show_BurndedKcal') {
         // >>> Verbrannte KCAL <<<
         const kcalVal = 6.5;
@@ -951,7 +951,7 @@ function show_Statisitcs(val) {
 }
 
 //######################################################################
-//ANCHOR - Funktion um Tabelle mit Werten zu befüllen
+//NOTE - Funktion um Tabelle mit Werten zu befüllen
 //######################################################################
 
 function fillingTable(repositoryPos, goal, min_max_goal) {
@@ -1113,7 +1113,7 @@ function addProduct() {
 }
 
 //============================================================================
-//ANCHOR -  Schritte PopUp
+//NOTE -  Schritte PopUp
 //============================================================================
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
@@ -1178,7 +1178,7 @@ function steps_into_Kcal() {
 }
 
 //============================================================================
-//ANCHOR -   Kcal manuell eintragen
+//NOTE -   Kcal manuell eintragen
 //============================================================================
 function recordKcal() {
     var new_Kcal = Number(window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal));
@@ -1194,7 +1194,7 @@ function recordKcal() {
 }
 
 //============================================================================
-//ANCHOR -   Food Datenbank Tabelle
+//NOTE -   Food Datenbank Tabelle
 //============================================================================
 
 function createTable_FoodDB() {
@@ -1248,7 +1248,7 @@ function createTable_FoodDB() {
 }
 
 //============================================================================
-//ANCHOR -   Suche
+//NOTE -   Suche
 //============================================================================
 
 $('#searchInput').on('keyup', function () {
@@ -1339,7 +1339,7 @@ function blendIn_FoodActionArea() {
 
 
 //============================================================================
-//ANCHOR -  Nutri Score
+//NOTE -  Nutri Score
 //============================================================================
 
 function show_NutriScore(choosenProduct) {
@@ -1530,7 +1530,7 @@ function show_NutriScore(choosenProduct) {
 }
 
 //============================================================================
-//ANCHOR -  Average Nutri Score
+//NOTE -  Average Nutri Score
 //============================================================================
 function averageNutriScore() {
     let nutriArray = [];
@@ -1599,7 +1599,7 @@ function indexOfFood(food) {
 }
 
 //============================================================================
-//ANCHOR -  Reset Nutri Score
+//NOTE -  Reset Nutri Score
 //============================================================================
 function resetNutriScore() {
     selected_Food = '';
@@ -1611,7 +1611,7 @@ function resetNutriScore() {
 }
 
 //============================================================================
-//ANCHOR -   Prüfbutton für ausgewähltes Lebensmittel und Menge
+//NOTE -   Prüfbutton für ausgewähltes Lebensmittel und Menge
 //============================================================================
 function checkButton() {
     if (selected_Food != '') {
@@ -1676,7 +1676,7 @@ function checkButton() {
 }
 
 //============================================================================
-//ANCHOR -   Food zu heute gegessen hinzufügen
+//NOTE -   Food zu heute gegessen hinzufügen
 //============================================================================
 function add_Food_to_TodayList() {
     //Produkt nicht "", also ausgewählt
@@ -1806,7 +1806,7 @@ function add_Food_to_TodayList() {
 
 
 //============================================================================
-//ANCHOR -  Tabelle für Heute gegessen
+//NOTE -  Tabelle für Heute gegessen
 //============================================================================
 
 function create_Table_TodayEaten() {
@@ -1902,7 +1902,7 @@ function create_Table_TodayEaten() {
 }
 
 //============================================================================
-//ANCHOR -  Menge ändern
+//NOTE -  Menge ändern
 //============================================================================
 function change_Food_to_TodayList() {
     let selectedAmount = parseFloat(
@@ -1960,7 +1960,7 @@ function change_Food_to_TodayList() {
 }
 
 //============================================================================
-//ANCHOR -  Lösche Position
+//NOTE -  Lösche Position
 //============================================================================
 function delete_from_today() {
     if (foodFromToday == true) {
@@ -1989,7 +1989,7 @@ function delete_from_today() {
 }
 
 //============================================================================
-//ANCHOR - Berechnung der Makros und Kcal Werte
+//NOTE - Berechnung der Makros und Kcal Werte
 //============================================================================
 
 function calc_Values() {
@@ -2066,7 +2066,7 @@ function calc_Values() {
 
 
 //============================================================================
-//ANCHOR -  Progress Bar
+//NOTE -  Progress Bar
 //============================================================================
 let radius = progressCircle.r.baseVal.value;
 let circumference = radius * 2 * Math.PI;
@@ -2136,7 +2136,7 @@ function showTargets() {
 }
 
 //============================================================================
-//ANCHOR -  Färbung der Label je nach Fortschritt
+//NOTE -  Färbung der Label je nach Fortschritt
 //============================================================================
 
 function coloring_Labels() {
@@ -2230,11 +2230,11 @@ function colorizeTargetProgress() {
 }
 
 //============================================================================
-//ANCHOR -  Einstellungen
+//NOTE -  Einstellungen
 //============================================================================
 
 //============================================================================
-//ANCHOR -  Kcal Ziel berechnen
+//NOTE -  Kcal Ziel berechnen
 //============================================================================
 function calc_Kcal_Goal() {
     let height = 0;
@@ -2604,7 +2604,7 @@ function selectDiet() {
 }
 
 //============================================================================
-//ANCHOR -  Tag abschließen
+//NOTE -  Tag abschließen
 //============================================================================
 
 function close_Day() {
@@ -2782,7 +2782,7 @@ function close_Day() {
 }
 
 //============================================================================
-//ANCHOR -  Datum erzeugen
+//NOTE -  Datum erzeugen
 //============================================================================
 
 function get_today() {
@@ -2823,7 +2823,7 @@ function makeFieldsInvisible() {
 }
 
 //============================================================================
-//ANCHOR -   Neues Lebensmittel hinzufügen
+//NOTE -   Neues Lebensmittel hinzufügen
 //============================================================================
 
 function add_new_Food() {
@@ -3058,7 +3058,7 @@ function add_new_Food() {
 }
 
 //============================================================================
-//ANCHOR -   Makros in der Datenbank ändern
+//NOTE -   Makros in der Datenbank ändern
 //============================================================================
 
 function changeMacros() {
@@ -3078,7 +3078,7 @@ function changeMacros() {
 }
 
 //============================================================================
-//ANCHOR -   Produkt aus Datenbank löschen
+//NOTE -   Produkt aus Datenbank löschen
 //============================================================================
 function delete_Food_from_DB() {
     let checkVal = document.getElementById('inp_Productname').value;
@@ -3121,7 +3121,7 @@ function welcome_Func() {
 }
 
 //============================================================================
-//ANCHOR -   Theme
+//NOTE -   Theme
 //============================================================================
 
 //  Lade Theme
@@ -3167,7 +3167,7 @@ function setTheme(mode) {
 }
 
 //====================================================================================
-//ANCHOR -   Exportiere Daten
+//NOTE -   Exportiere Daten
 //====================================================================================
 
 // location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+emailBody;
@@ -3310,7 +3310,7 @@ function export_FoodDB_All() {
 }
 
 //====================================================================================
-//ANCHOR -   History
+//NOTE -   History
 //====================================================================================
 
 function create_MyHistory() {
@@ -3355,7 +3355,7 @@ function create_MyHistory() {
 }
 
 //====================================================================================
-//ANCHOR -   Den ausgewählten Tag per Mail versenden
+//NOTE -   Den ausgewählten Tag per Mail versenden
 //====================================================================================
 function sendThisDay() {
     let emailTo = '';
@@ -3421,7 +3421,7 @@ function deleteStatistics() {
 
 
 //!############################################
-//ANCHOR -   INTERVALL FASTEN
+//NOTE -   INTERVALL FASTEN
 //!############################################
 
 
@@ -3762,7 +3762,7 @@ function setIdentifier() {
 
 
 ////////////////////////////////
-//ANCHOR -   Messagebox
+//NOTE -   Messagebox
 ////////////////////////////////
 function showMessage(msg, displaytime, messageType) {
     messageContainer.classList.remove('infoMessage');
