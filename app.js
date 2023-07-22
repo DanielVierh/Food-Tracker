@@ -1529,7 +1529,9 @@ function show_NutriScore(choosenProduct) {
     return nutriScore;
 }
 
-
+//============================================================================
+//ANCHOR -  Average Nutri Score
+//============================================================================
 function averageNutriScore() {
     let nutriArray = [];
 
@@ -1596,6 +1598,9 @@ function indexOfFood(food) {
     }
 }
 
+//============================================================================
+//ANCHOR -  Reset Nutri Score
+//============================================================================
 function resetNutriScore() {
     selected_Food = '';
     document.getElementById('C_A').style.height = '60px';
@@ -1606,7 +1611,7 @@ function resetNutriScore() {
 }
 
 //============================================================================
-// Prüfbutton für ausgewähltes Lebensmittel und Menge
+//ANCHOR -   Prüfbutton für ausgewähltes Lebensmittel und Menge
 //============================================================================
 function checkButton() {
     if (selected_Food != '') {
@@ -1671,7 +1676,7 @@ function checkButton() {
 }
 
 //============================================================================
-// Food zu heute gegessen hinzufügen
+//ANCHOR -   Food zu heute gegessen hinzufügen
 //============================================================================
 function add_Food_to_TodayList() {
     //Produkt nicht "", also ausgewählt
