@@ -83,7 +83,7 @@ let intervalEventObject = {
 };
 
 //====================================================================================
-// Init
+//ANCHOR -   Init
 //====================================================================================
 document.addEventListener('DOMContentLoaded', loadCont);
 
@@ -111,7 +111,7 @@ function check_FoodDB() {
 }
 
 //====================================================================================
-// EventListener
+//ANCHOR -   EventListener
 //====================================================================================
 // TODO: In Variablen packen und auf Vorhandenheit abfragen
 buttonAdd.addEventListener('click', addProduct);
@@ -149,7 +149,7 @@ document.addEventListener('dblclick', () => {
 });
 
 //====================================================================================
-// Save,  Load or create DB
+//ANCHOR -   Save,  Load or create DB
 //====================================================================================
 // Save Food-DB
 function saveFood_DB() {
@@ -322,7 +322,7 @@ function save_Burned_Kcal() {
 }
 
 //====================================================================================
-// Scroll Section
+//ANCHOR -   Scroll Section
 //====================================================================================
 function scroll_UP() {
     window.scrollTo(0, 0);
@@ -391,7 +391,7 @@ function blendOut_Eingabebereich_FoodDB() {
     document.getElementById('btn_ChangeMacros').disabled = true;
 }
 
-// Klasse für Lebensmittel
+//ANCHOR -   Klasse für Lebensmittel
 
 class Food {
     constructor(
@@ -441,7 +441,7 @@ class TodayEatenFood {
     }
 }
 
-// Klasse für my_Statistics
+//ANCHOR -   Klasse für my_Statistics
 class RepositoryLast7Days {
     constructor(
         repository_date,
@@ -525,7 +525,7 @@ function show_Fat() {
     all_Statistics_Button_UnselectColor('btnStatFat');
 }
 
-//  selektieren Button färben
+//ANCHOR - selektieren Button färben
 function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     document.getElementById('btnStatEffektKcal').style.backgroundColor =
         'rgb(10, 10, 46)';
@@ -550,7 +550,7 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
 
 }
 
-// Erstelle Statistik
+//ANCHOR -   Erstelle Statistik
 function show_Statisitcs(val) {
     var height_Col_1 = 0;
     var height_Col_2 = 0;
@@ -567,7 +567,7 @@ function show_Statisitcs(val) {
     var currentVal = 0;
     var fatSum = 0;
     
-    //ANCHOR - Statistik Effektive Kcal
+    //Statistik Effektive Kcal
     if (val == 'show_Effekctive_Kcal') {
         // >>> EFFEKTIVE KCAL <<<
         document.getElementById('valDescription').innerHTML = 'Effek. Kcal';
@@ -1794,8 +1794,9 @@ function add_Food_to_TodayList() {
     calc_Values();
 }
 
+
 //============================================================================
-// Tabelle für Heute gegessen
+//ANCHOR -  Tabelle für Heute gegessen
 //============================================================================
 
 function create_Table_TodayEaten() {
@@ -1891,7 +1892,7 @@ function create_Table_TodayEaten() {
 }
 
 //============================================================================
-// Menge ändern
+//ANCHOR -  Menge ändern
 //============================================================================
 function change_Food_to_TodayList() {
     let selectedAmount = parseFloat(
@@ -1949,7 +1950,7 @@ function change_Food_to_TodayList() {
 }
 
 //============================================================================
-// Lösche Position
+//ANCHOR -  Lösche Position
 //============================================================================
 function delete_from_today() {
     if (foodFromToday == true) {
@@ -1978,7 +1979,7 @@ function delete_from_today() {
 }
 
 //============================================================================
-//Berechnung der Makros und Kcal Werte
+//ANCHOR - Berechnung der Makros und Kcal Werte
 //============================================================================
 
 function calc_Values() {
@@ -2055,7 +2056,7 @@ function calc_Values() {
 
 
 //============================================================================
-// Progress Bar
+//ANCHOR -  Progress Bar
 //============================================================================
 let radius = progressCircle.r.baseVal.value;
 let circumference = radius * 2 * Math.PI;
@@ -2125,7 +2126,7 @@ function showTargets() {
 }
 
 //============================================================================
-// Färbung der Label je nach Fortschritt
+//ANCHOR -  Färbung der Label je nach Fortschritt
 //============================================================================
 
 function coloring_Labels() {
@@ -2219,11 +2220,11 @@ function colorizeTargetProgress() {
 }
 
 //============================================================================
-// Einstellungen
+//ANCHOR -  Einstellungen
 //============================================================================
 
 //============================================================================
-// Kcal Ziel berechnen
+//ANCHOR -  Kcal Ziel berechnen
 //============================================================================
 function calc_Kcal_Goal() {
     let height = 0;
@@ -2593,7 +2594,7 @@ function selectDiet() {
 }
 
 //============================================================================
-// Tag abschließen
+//ANCHOR -  Tag abschließen
 //============================================================================
 
 function close_Day() {
@@ -2770,7 +2771,10 @@ function close_Day() {
     }
 }
 
-// Datum erzeugen
+//============================================================================
+//ANCHOR -  Datum erzeugen
+//============================================================================
+
 function get_today() {
     var today = new Date();
 
@@ -2809,7 +2813,7 @@ function makeFieldsInvisible() {
 }
 
 //============================================================================
-// Neues Lebensmittel hinzufügen
+//ANCHOR -   Neues Lebensmittel hinzufügen
 //============================================================================
 
 function add_new_Food() {
@@ -3044,7 +3048,7 @@ function add_new_Food() {
 }
 
 //============================================================================
-// Makros in der Datenbank ändern
+//ANCHOR -   Makros in der Datenbank ändern
 //============================================================================
 
 function changeMacros() {
@@ -3064,7 +3068,7 @@ function changeMacros() {
 }
 
 //============================================================================
-// Produkt aus Datenbank löschen
+//ANCHOR -   Produkt aus Datenbank löschen
 //============================================================================
 function delete_Food_from_DB() {
     let checkVal = document.getElementById('inp_Productname').value;
@@ -3107,7 +3111,7 @@ function welcome_Func() {
 }
 
 //============================================================================
-// Theme
+//ANCHOR -   Theme
 //============================================================================
 
 //  Lade Theme
@@ -3153,7 +3157,7 @@ function setTheme(mode) {
 }
 
 //====================================================================================
-// Exportiere Daten
+//ANCHOR -   Exportiere Daten
 //====================================================================================
 
 // location.href = "mailto:"+emailTo+'?cc='+emailCC+'&subject='+emailSub+'&body='+emailBody;
@@ -3296,7 +3300,7 @@ function export_FoodDB_All() {
 }
 
 //====================================================================================
-// History
+//ANCHOR -   History
 //====================================================================================
 
 function create_MyHistory() {
@@ -3341,7 +3345,7 @@ function create_MyHistory() {
 }
 
 //====================================================================================
-// Den ausgewählten Tag per Mail versenden
+//ANCHOR -   Den ausgewählten Tag per Mail versenden
 //====================================================================================
 function sendThisDay() {
     let emailTo = '';
@@ -3407,7 +3411,7 @@ function deleteStatistics() {
 
 
 //!############################################
-//! INTERVALL FASTEN
+//ANCHOR -   INTERVALL FASTEN
 //!############################################
 
 
@@ -3748,7 +3752,7 @@ function setIdentifier() {
 
 
 ////////////////////////////////
-// Messagebox
+//ANCHOR -   Messagebox
 ////////////////////////////////
 function showMessage(msg, displaytime, messageType) {
     messageContainer.classList.remove('infoMessage');
