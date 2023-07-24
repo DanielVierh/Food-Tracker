@@ -365,7 +365,7 @@ function selectWord2() {
 
 // Textfeld und Button für Menge ändern ausblenden
 function blendOut_MengeAendern() {
-    
+
     foodAmountSingleView.hidden = true;
     // Disable Schaltflächen
     document.getElementById('btnChangeQuantity').disabled = true;
@@ -566,7 +566,7 @@ function show_Statisitcs(val) {
     var lastDayVal = 0;
     var currentVal = 0;
     var fatSum = 0;
-    
+
     //Statistik Effektive Kcal
     if (val == 'show_Effekctive_Kcal') {
         // >>> EFFEKTIVE KCAL <<<
@@ -777,7 +777,7 @@ function show_Statisitcs(val) {
         document.getElementById('valDescription').innerHTML = 'Ballast.';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Ballaststoffe -- (Ziel: Min ' + min_Fiber + ' g)';
         fillingTable("repository_Fiber", min_Fiber, "minGoal");
-        
+
         //NOTE - Statistik Protein
         // >>> Protein <<<
     }else if (val === 'show_Protein') {
@@ -932,7 +932,7 @@ function show_Statisitcs(val) {
                 document.getElementById('COL_Dia_' + i).innerText =
                     my_Statistics[i].repository_BurnedKCal + ' kcal';
             }
-            animate_StatisticCol(colHeightInPixel, colName);
+            //animate_StatisticCol(colHeightInPixel, colName);
 
             // Balken färben
             if (currentVal < burnedKcalGoal) {
@@ -1182,7 +1182,7 @@ function steps_into_Kcal() {
 //============================================================================
 function recordKcal() {
     var new_Kcal = Number(window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal));
-    
+
     if (new_Kcal && new_Kcal !== isNaN) {
         if (new_Kcal != burned_Kcal) {
             burned_Kcal = parseInt(new_Kcal);
@@ -1561,7 +1561,7 @@ function averageNutriScore() {
                 outp_nutriScore.style.color = 'white';
                 break;
             case 2:
-                outp_nutriScore.innerHTML = 'B'; 
+                outp_nutriScore.innerHTML = 'B';
                 outp_nutriScore.style.backgroundColor = 'lightgreen';
                 outp_nutriScore.style.color = 'black';
                 break;
@@ -1841,7 +1841,7 @@ function create_Table_TodayEaten() {
                 selected_Food.intake_productName;
             document.getElementById('foodAmound_Change').value =
                 selected_Food.intake_amount;
-            
+
             // Sichbar machen
             foodAmountSingleView.hidden = false;
             // Enable Schaltflächen
@@ -2957,7 +2957,7 @@ function add_new_Food() {
                                                     new_Unit,
                                                 ),
                                             );
-                        
+
                                             showMessage(`Lebensmittel wurde gespeichert :)`, 4000, 'Info');
                                             document.getElementById(
                                                 'Status_New_Food',
@@ -3028,12 +3028,12 @@ function add_new_Food() {
                                                 );
                                                 // SAVE
                                                 saveFood_DB();
-                                   
+
                                                 showMessage(`Lebensmittel wurde erfolgreich angepasst`, 4000, 'Info');
                                                 setTimeout(() => {
                                                     location.reload();
                                                 }, 4500);
-                                             
+
                                             } else {
                                                 document.getElementById(
                                                     'Status_New_Food',
@@ -3475,7 +3475,7 @@ function checkFastingStatus() {
     if (fastingStartTimeMinusEatTime < 0) {
         fastingStartTimeMinusEatTime = 24 + fastingStartTimeMinusEatTime;
     }
-    
+
     const param_Now = "".concat(now)
     const param_fastingStartTime = "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute)
     var diffToFasting = func_diff(param_Now,param_fastingStartTime);
@@ -3637,7 +3637,7 @@ function load_from_LocalStorage() {
     if (localStorage.getItem('stored_IntervallObj') !== null) {
         //@ts-ignore
         intervalEventObject = JSON.parse(localStorage.getItem('stored_IntervallObj'));
-        
+
         try {
             lastIdentifier = intervalEventObject.lastIdentifier;
         }
