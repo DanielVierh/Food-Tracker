@@ -510,9 +510,18 @@ footer {
 .foodSection {
     justify-content: center;
     background-color: #313235;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .9s ease;
 }
 
+.foodSection.active {
+    grid-template-rows: 1fr;
+}
 
+.inner {
+    overflow: hidden;
+}
 
 #statusX {
     font-size: 30px;

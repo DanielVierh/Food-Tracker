@@ -8,8 +8,10 @@
   <link id="theme-style" rel="stylesheet" href="">
   <link rel="shortcut icon" type="image/png" href="Logo.png">
   <link rel="apple-touch-icon" href="Logo.png">
-  <meta name="viewport", content="width=device-width, initial-scale=0.4, maximum-scale=0.6, user-scalable=no">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" , content="width=device-width, initial-scale=0.4, maximum-scale=0.6, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta charset="utf-8">
 
 </head>
@@ -36,14 +38,14 @@
     <div class="circleContainer" id="circleAnimationArea">
       <svg width="250" height="250">
         <defs>
-        <filter id="shadow">
-          <feDropShadow dx="0" dy="0" stdDeviation="5" />
-        </filter>
-      </defs>
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="0" stdDeviation="5" />
+          </filter>
+        </defs>
         <circle r="100" cx="125" cy="125" class="track"></circle>
         <text x="75" y="140" class="percentText" id="txtPercent">0%</text>
-        <circle r="100" cx="125" cy="125" class="progress" filter="url(#shadow)" fill="lightgray" ></circle>
-    </svg>
+        <circle r="100" cx="125" cy="125" class="progress" filter="url(#shadow)" fill="lightgray"></circle>
+      </svg>
     </div>
     <button class="button_TagAbschl" onclick="close_Day()">Tag abschliessen</button>
   </div>
@@ -52,7 +54,7 @@
   <div class="message" id="messageContainer">
     <p id="message">Dies ist eine rein informative Nachricht. Sie wird gleich wieder ausgeblendet</p>
   </div>
-  
+
   <!-- Kcal Bilanz -->
   <div class="zone blue grid-wrapper">
     <div class="box zone">
@@ -108,7 +110,7 @@
     <p id="output_Gramm">0 g gegessen</p>
   </div>
 
-    <!-- Progress Bar   -->
+  <!-- Progress Bar   -->
   <!-- <div class="fullCell">
     <p style="text-align: center;">Progress</p>
   </div>
@@ -122,25 +124,28 @@
   <!-- ================================================================ -->
   <div class="fullCell">
     <h1>Liste Heute gegessen</h1>
-    <p class="nutriLabelToday" id="lbl_todayNutri">Heutiger Nutri-Durchschnitt: <span id="outp_nutriScore" class="outp_nutriScore"></span></p>
-    <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen" hidden>
-      <div class="wrapperButton">
-        <button class="button_del" onclick="delete_from_today()" id="btnDeleteFoodFromToday">X</button>
-        <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange"
-          placeholder="in Gramm">
-        <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge
-          ändern</button>
-        <button onclick="blendOut_MengeAendern()" class="checkMarkButton"><i class="fas fa-chevron-up"></i></button>
+    <p class="nutriLabelToday" id="lbl_todayNutri">Heutiger Nutri-Durchschnitt: <span id="outp_nutriScore"
+        class="outp_nutriScore"></span></p>
+    <!-- ANCHOR -  -->
+    <div class="foodSection" id="invisible_ChangeSection_HeuteGegessen"> <!-- ANCHOR -  hidden -->
+      <div class="inner">
+        <div class="wrapperButton">
+          <button class="button_del" onclick="delete_from_today()" id="btnDeleteFoodFromToday">X</button>
+          <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange"
+            placeholder="in Gramm">
+          <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge
+            ändern</button>
+          <button onclick="blendOut_MengeAendern()" class="checkMarkButton"><i class="fas fa-chevron-up"></i></button>
+        </div>
+
+
+        <p id="sel_change_Prod"></p>
+        <br>
+        <p class="singleCalc" id="output_SingleMacros"></p>
+        <hr>
       </div>
-
-
-      <p id="sel_change_Prod"></p>
-      <br>
-      <p class="singleCalc" id="output_SingleMacros"></p>
-      <hr>
     </div>
   </div>
-
   <div id="containerTabelle_Today"></div>
 
 
@@ -179,9 +184,11 @@
     <div id="optAreaDB" class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
-      <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
-      <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
-      <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
+      <div class="horizontalWrapper">
+        <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
+        <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
+        <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
+      </div>
     </div>
     <br>
     <div class="containerNutri">
@@ -222,11 +229,11 @@
   <!-- Leerzone  -->
   <div class="container zone"></div>
 
- <!-- Intervall Fasten Uhr -->
- <div class="miniclock-wrapper" id="btn_IntervalFasting">
+  <!-- Intervall Fasten Uhr -->
+  <div class="miniclock-wrapper" id="btn_IntervalFasting">
     <p id="intervalTime">--:--</p>
     <p class="lblfasting" id="outputWhatNow">---</p>
- </div>
+  </div>
 
   <!-- ================================================================ -->
   <!-- Modal Form AKA PopUp für Schritte -->
@@ -465,10 +472,12 @@
     </form>
   </div>
   <button class="ButtonSpeichern" onclick="calc_Kcal_Goal()" id="inv_Button">Berechnen</button>
-  <p id="output_Kcal_Req" style="color: yellow; font-size: 20px; background-color: rgb(32, 32, 32); max-width: 80%; margin: 0 auto;"></p>
+  <p id="output_Kcal_Req"
+    style="color: yellow; font-size: 20px; background-color: rgb(32, 32, 32); max-width: 80%; margin: 0 auto;"></p>
 
   <br><br>
-  <p style="font-size: 22px; max-width: 80%; margin: 0 auto;">*Es wird nur das Gewicht, errechnete Kcal-Ziel und der errechnete Kcal-Bedarf auf deinem
+  <p style="font-size: 22px; max-width: 80%; margin: 0 auto;">*Es wird nur das Gewicht, errechnete Kcal-Ziel und der
+    errechnete Kcal-Bedarf auf deinem
     Gerät gespeichert. Diese Angaben werden benötigt um die Schritte in Kcal umzuwandeln und eine Kalorienbilanz zu
     berechnen. Alle anderen Eingaben wie das Alter oder Geschlecht werden nicht gespeichert.</p>
   <hr>
@@ -477,7 +486,8 @@
   <input type="checkbox" class="checkBox" onclick="makeFieldsInvisible()">
   <br><br>
 
-  <p style="font-size: 22px; max-width: 80%; margin: 0 auto;">*Möchtest du keine Angaben über Alter, Gewicht etc. machen, kannst du auch Dein Kcal-Ziel
+  <p style="font-size: 22px; max-width: 80%; margin: 0 auto;">*Möchtest du keine Angaben über Alter, Gewicht etc.
+    machen, kannst du auch Dein Kcal-Ziel
     selbst ausrechnen und unten manuell eingeben. Die Kalorien durch Schritte werden dann allerdings mit dem
     Durchschnittsgewicht von 78 kg berechnet.</p>
   <hr>
@@ -558,26 +568,26 @@
   <!-- Intervall Settings -->
   <div id="overlay_Interval">
     <div id="modal_Interval">
-        <div class="madalHeader">
-            <div class="emptyButton">.</div>
-            <div id="close-modal" class="buttonClose">X</div>
+      <div class="madalHeader">
+        <div class="emptyButton">.</div>
+        <div id="close-modal" class="buttonClose">X</div>
+      </div>
+      <div class="modalContentContainer" id="modalWindow">
+        <h1>Einstellungen</h1>
+        <div class="showRest">
+          <label for="intervallTime">Fasten:Essen</label>
+          <div id="btn_DecreaseFasting" class="settingButton">-</div>
+          <input type="text" id="lblfastingTime">
+          <div id="btn_IncreaseFasting" class="settingButton">+</div>
         </div>
-        <div class="modalContentContainer" id="modalWindow">
-            <h1>Einstellungen</h1>
-            <div class="showRest">
-                <label for="intervallTime">Fasten:Essen</label>
-                <div id="btn_DecreaseFasting" class="settingButton">-</div>
-                <input type="text" id="lblfastingTime">
-                <div id="btn_IncreaseFasting" class="settingButton">+</div>
-            </div>
-            <div class="showRest">
-                <label for="inpFastingStartTime">Fasten starten</label>
-                <input type="time" class="startTimeInput" id="inpFastingStartTime">
-            </div>
-            <button class="saveButton" id="btnSaveSettings">Speichern</button>
+        <div class="showRest">
+          <label for="inpFastingStartTime">Fasten starten</label>
+          <input type="time" class="startTimeInput" id="inpFastingStartTime">
         </div>
+        <button class="saveButton" id="btnSaveSettings">Speichern</button>
+      </div>
     </div>
-</div>
+  </div>
   <!-- </div> -->
 
   <div class="container zone"></div>
@@ -590,9 +600,12 @@
     <button class="expButton" onclick="export_FoodDB()">Exportiere - MyFood</button>
     <button class="expButton" onclick="export_FoodDB_All()">Exportiere - FoodDB</button>
     <div class="deleteWrapper">
-      <button class="expButton" onclick="deleteDayWithoutHistory()" style="color: red; margin: 30px 200px;">Tag verwerfen</button>
-      <button class="expButton" onclick="deleteDHistory()" style="color: red; margin: 30px 200px;">History löschen</button>
-      <button class="expButton" onclick="deleteStatistics()" style="color: red; margin: 30px 200px;">Statistik löschen</button>
+      <button class="expButton" onclick="deleteDayWithoutHistory()" style="color: red; margin: 30px 200px;">Tag
+        verwerfen</button>
+      <button class="expButton" onclick="deleteDHistory()" style="color: red; margin: 30px 200px;">History
+        löschen</button>
+      <button class="expButton" onclick="deleteStatistics()" style="color: red; margin: 30px 200px;">Statistik
+        löschen</button>
     </div>
     <br>
     <textarea name="" id="txtArea" cols="30" rows="10"></textarea>

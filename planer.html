@@ -51,15 +51,15 @@
     </div>
     <br>
 
-      <button class="buttonPlaner addButton" onclick="addToPlaner()">+</button>
-      <div class="round-button">Listen</div>
-      <div class="list-wrapper">
-        <div class="list-button">Frühstück Haferflocken</div>
-        <div class="list-button">Spaghetti Blogonese</div>
-        <div class="list-button">Möhren mit Huhn</div>
-        <div class="list-button">Eiweiß Toast mit Stremellachs</div>
-        <div class="list-button">Lauchsuppe</div>
-      </div>
+    <button class="buttonPlaner addButton" onclick="addToPlaner()">+</button>
+    <div class="round-button">Listen</div>
+    <div class="list-wrapper">
+      <div class="list-button">Frühstück Haferflocken</div>
+      <div class="list-button">Spaghetti Blogonese</div>
+      <div class="list-button">Möhren mit Huhn</div>
+      <div class="list-button">Eiweiß Toast mit Stremellachs</div>
+      <div class="list-button">Lauchsuppe</div>
+    </div>
 
 
     <br><br>
@@ -107,8 +107,10 @@
     <div id="optAreaDB" class="foodSection">
       <p id="selectedFoodAnzeige"></p>
       <p id="selectedFoodMakros"></p>
-      <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
-      <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_Planer()">💾</button>
+      <div class="horizontalWrapper">
+        <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
+        <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_Planer()">💾</button>
+      </div>
     </div>
     <br>
 
