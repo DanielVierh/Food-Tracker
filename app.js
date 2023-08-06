@@ -352,6 +352,7 @@ function goto_Planer() {
 // Wort markieren
 function selectWord() {
     const inp = document.getElementById('searchInput');
+    inp.focus();
     inp.select();
 }
 
