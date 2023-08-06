@@ -759,27 +759,27 @@ function show_Statisitcs(val) {
         fillingTable("repository_Sugar", max_Sugar, "maxGoal");
 
         //NOTE - Statistik Kohlenhydr
-    } else if(val === "show_Carbs") {
-    document.getElementById('valDescription').innerHTML = 'KH';
-    document.getElementById('UeberschriftStatisik').innerHTML = 'Kohlenhydrate -- (Ziel: ' + des_Carbs + ' g)';
-    fillingTable("repository_Carbs", des_Carbs, "maxGoal");
+    } else if (val === "show_Carbs") {
+        document.getElementById('valDescription').innerHTML = 'KH';
+        document.getElementById('UeberschriftStatisik').innerHTML = 'Kohlenhydrate -- (Ziel: ' + des_Carbs + ' g)';
+        fillingTable("repository_Carbs", des_Carbs, "maxGoal");
 
         //NOTE - Statistik Fett
-    }else if(val === 'show_Fat') {
+    } else if (val === 'show_Fat') {
         document.getElementById('valDescription').innerHTML = 'Fett';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Fett -- (Ziel: ' + des_Fat + ' g)';
         fillingTable("repository_Fat", des_Fat, "maxGoal");
 
         //NOTE - Statistik Ballaststoffe
         // >>> Ballaststoffe <<<
-    }else if(val === 'show_Ballast') {
+    } else if (val === 'show_Ballast') {
         document.getElementById('valDescription').innerHTML = 'Ballast.';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Ballaststoffe -- (Ziel: Min ' + min_Fiber + ' g)';
         fillingTable("repository_Fiber", min_Fiber, "minGoal");
 
         //NOTE - Statistik Protein
         // >>> Protein <<<
-    }else if (val === 'show_Protein') {
+    } else if (val === 'show_Protein') {
         document.getElementById('valDescription').innerHTML = 'Eiweiß';
         document.getElementById('UeberschriftStatisik').innerHTML = 'Eiweiß -- (Ziel: Min ' + min_Protein + ' g)';
         fillingTable("repository_Protein", min_Protein, "minGoal");
@@ -1011,27 +1011,27 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
             document.getElementById('COL_Dia_' + i).innerText = my_Statistics[i][repositoryPos]
         }
 
-        if(min_max_goal === "minGoal") {
-        // Balken färben
-        if (currentVal < goal && currentVal < goal * 1.1) {
-            document.getElementById('COL_Dia_' + i).style.backgroundColor = 'yellow';
-        } else if (currentVal < goal) {
-            document.getElementById('COL_Dia_' + i).style.backgroundColor = 'red';
+        if (min_max_goal === "minGoal") {
+            // Balken färben
+            if (currentVal < goal && currentVal < goal * 1.1) {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor = 'yellow';
+            } else if (currentVal < goal) {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor = 'red';
+            } else {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor = 'rgb(43, 161, 43)';
+            }
         } else {
-            document.getElementById('COL_Dia_' + i).style.backgroundColor =  'rgb(43, 161, 43)';
-        }
-        }else {
-        // Balken färben
-        if (currentVal > goal && currentVal < goal * 1.1) {
-            document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                'yellow';
-        } else if (currentVal > goal) {
-            document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                'red';
-        } else {
-            document.getElementById('COL_Dia_' + i).style.backgroundColor =
-                'rgb(43, 161, 43)';
-        }
+            // Balken färben
+            if (currentVal > goal && currentVal < goal * 1.1) {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                    'yellow';
+            } else if (currentVal > goal) {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                    'red';
+            } else {
+                document.getElementById('COL_Dia_' + i).style.backgroundColor =
+                    'rgb(43, 161, 43)';
+            }
         }
 
     }
@@ -1071,7 +1071,7 @@ function take_Over_Water() {
     today_Water += new_Water;
     save_Today_Water();
     if (new_Water == -0.25) {
-        showMessage('Wassermenge um 0,25 L korrigiert',5000)
+        showMessage('Wassermenge um 0,25 L korrigiert', 5000)
     } else {
         showMessage(`${new_Water} L Wasser wurden hinzugefügt`, 5000)
         last_Water();
@@ -1369,12 +1369,12 @@ function show_NutriScore(choosenProduct) {
     let check_Protein = parseFloat((calcAmound * selected_Food.protein) / 100);
     let check_Fiber = parseFloat((calcAmound * selected_Food.fiber) / 100);
 
-    if(choosenProduct !== undefined) {
-         check_Kcal = parseInt((calcAmound * choosenProduct.kcal) / 100);
-         check_Sugar = parseFloat((calcAmound * choosenProduct.sugar) / 100);
-         check_Salt = parseFloat((calcAmound * choosenProduct.salt) / 100);
-         check_Protein = parseFloat((calcAmound * choosenProduct.protein) / 100);
-         check_Fiber = parseFloat((calcAmound * choosenProduct.fiber) / 100);
+    if (choosenProduct !== undefined) {
+        check_Kcal = parseInt((calcAmound * choosenProduct.kcal) / 100);
+        check_Sugar = parseFloat((calcAmound * choosenProduct.sugar) / 100);
+        check_Salt = parseFloat((calcAmound * choosenProduct.salt) / 100);
+        check_Protein = parseFloat((calcAmound * choosenProduct.protein) / 100);
+        check_Fiber = parseFloat((calcAmound * choosenProduct.fiber) / 100);
     }
 
     // Check Kcal
@@ -1667,7 +1667,7 @@ function checkButton() {
                     salt_Intake +
                     ' g';
                 showMessage(`${intakeFoodInfo}`, 20000, 'Info')
-            } catch (error) {}
+            } catch (error) { }
         }
     } else {
         showMessage('Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken', 10000, 'Alert')
@@ -1703,7 +1703,7 @@ function add_Food_to_TodayList() {
                 // Fragen, ob addiert werden soll
                 var addRequest = window.confirm(
                     newProduct +
-                        ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
+                    ' ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?',
                 );
 
                 // WENN ADDIERT WERDEN SOLL...
@@ -1764,24 +1764,16 @@ function add_Food_to_TodayList() {
                 );
 
                 // Anzeigen, dass Produkt eingetragen wurde
-                let intakeFoodInfo =
-                    newProduct +
-                    ' wurde zur Liste Heute Gegessen hinzugefügt mit: \n Kcal: ' +
-                    kcal_Intake +
-                    ' \n Kohlenhydrate: ' +
-                    parseInt(carb_Intake) +
-                    ' g \n Zucker: ' +
-                    parseInt(sugar_Intake) +
-                    ' g \n Eiweiss: ' +
-                    parseInt(protein_Intake) +
-                    ' g \n Fett: ' +
-                    parseInt(fat_Intake) +
-                    ' g \n Ballaststoffe: ' +
-                    parseInt(fiber_Intake) +
-                    ' g \n Salz: ' +
-                    parseInt(salt_Intake) +
-                    ' g';
-                    showMessage(`${intakeFoodInfo}`, 20000, 'Info');
+                const intakeFoodInfo = `${newProduct} wurde hinzugefügt mit: <br> 
+                    Kcal: ${kcal_Intake} Kcal <br>
+                    Fett: ${parseInt(fat_Intake)}g <br>
+                    Kohlenhydrate: ${parseInt(carb_Intake)}g <br> 
+                    Zucker: ${parseInt(sugar_Intake)}g <br>
+                    Ballaststoffe: ${parseInt(fiber_Intake)}g <br>
+                    Eiweiss: ${parseInt(protein_Intake)}g <br>
+                    Salz: ${parseInt(salt_Intake)}g <br> <br>`
+
+                showMessage(`${intakeFoodInfo}`, 20000, 'Info');
                 document.getElementById('statusX').innerHTML =
                     selected_Food.productName + ' wurde eingetragen';
                 // Speichern
@@ -1794,7 +1786,7 @@ function add_Food_to_TodayList() {
                 document.getElementById('selectedFoodMakros').innerHTML = '';
                 blendOut_Eingabebereich_FoodDB();
                 blendOut_MengeAendern();
-            } catch (error) {}
+            } catch (error) { }
         }
     } else {
         showMessage(`Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken`, 5000, 'Alert');
@@ -1872,19 +1864,19 @@ function create_Table_TodayEaten() {
                 selected_Food.intake_salt.toFixed(1) +
                 'g';
 
-                let nutri;
-                for(let i = 0; i < array_Food_DB.length; i++) {
-                    if(array_Food_DB[i].productName === selected_Food.intake_productName) {
-                        const choosenProduct = array_Food_DB[i];
-                        nutri = show_NutriScore(choosenProduct);
-                        if (nutri === 1) nutri = 'Nutriscore: A';
-                        if (nutri === 2) nutri = 'Nutriscore: B';
-                        if (nutri === 3) nutri = 'Nutriscore: C';
-                        if (nutri === 4) nutri = 'Nutriscore: D';
-                        if (nutri === 5) nutri = 'Nutriscore: E';
-                        break;
-                    }
+            let nutri;
+            for (let i = 0; i < array_Food_DB.length; i++) {
+                if (array_Food_DB[i].productName === selected_Food.intake_productName) {
+                    const choosenProduct = array_Food_DB[i];
+                    nutri = show_NutriScore(choosenProduct);
+                    if (nutri === 1) nutri = 'Nutriscore: A';
+                    if (nutri === 2) nutri = 'Nutriscore: B';
+                    if (nutri === 3) nutri = 'Nutriscore: C';
+                    if (nutri === 4) nutri = 'Nutriscore: D';
+                    if (nutri === 5) nutri = 'Nutriscore: E';
+                    break;
                 }
+            }
             calcSingle = calcSingle + ' <br/> ' + nutri;
             document.getElementById('output_SingleMacros').innerHTML = calcSingle;
         });
@@ -1965,8 +1957,8 @@ function delete_from_today() {
     if (foodFromToday == true) {
         const decision = window.confirm(
             'Möchtest du < ' +
-                selected_Food.intake_productName +
-                '> wirklich von der heutigen Liste löschen?',
+            selected_Food.intake_productName +
+            '> wirklich von der heutigen Liste löschen?',
         );
         if (decision) {
             today_eaten.splice(selectedFoodIndex, 1);
@@ -2140,7 +2132,7 @@ function showTargets() {
 
 function coloring_Labels() {
     step_Progress();
-    if(theme !== "light") {
+    if (theme !== "light") {
         effectiveKcal_Progress();
         kalorienBilanz_Progress();
         colorizeTargetProgress();
@@ -2307,9 +2299,9 @@ function calc_Kcal_Goal() {
                                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                                 kcal_Requirement = parseInt(
                                     66.47 +
-                                        13.7 * bodyWeight +
-                                        5 * height -
-                                        6.8 * age,
+                                    13.7 * bodyWeight +
+                                    5 * height -
+                                    6.8 * age,
                                 );
                                 save_Kcal_Requirement();
 
@@ -2344,9 +2336,9 @@ function calc_Kcal_Goal() {
                                 //655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
                                 kcal_Requirement = parseInt(
                                     655.1 +
-                                        9.6 * bodyWeight +
-                                        1.8 * height -
-                                        4.7 * age,
+                                    9.6 * bodyWeight +
+                                    1.8 * height -
+                                    4.7 * age,
                                 );
 
                                 let kcal_Differenz = bodyWeight - targetWeight;
@@ -3085,8 +3077,8 @@ function delete_Food_from_DB() {
     } else {
         var deleteDecision = window.confirm(
             'Soll das Lebensmittel: <' +
-                selected_Food.productName +
-                '> wirklich für immer aus der Datenbank gelöscht werden?',
+            selected_Food.productName +
+            '> wirklich für immer aus der Datenbank gelöscht werden?',
         );
         if (deleteDecision) {
             let spliceIndex = indexErmittler(selected_Food.productName);
@@ -3477,7 +3469,7 @@ function checkFastingStatus() {
 
     const param_Now = "".concat(now)
     const param_fastingStartTime = "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute)
-    var diffToFasting = func_diff(param_Now,param_fastingStartTime);
+    var diffToFasting = func_diff(param_Now, param_fastingStartTime);
     var diffToEating = func_diff("".concat(now), "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute));
     var diffToFastingInPercent = ((timeStampIntoNumber(diffToFasting) * 100) /
         (intervalEventObject.eatTime * 60 * 60)).toFixed(1);
@@ -3648,7 +3640,7 @@ function load_from_LocalStorage() {
             identifierObjStr = intervalEventObject.identifierObjStr;
         }
         catch (err) {
-             console.log(err);
+            console.log(err);
             identifierObjStr = '';
         }
     }
@@ -3767,10 +3759,10 @@ function showMessage(msg, displaytime, messageType) {
     messageContainer.classList.remove('infoMessage');
     messageContainer.classList.remove('alertMessage');
 
-    if(messageType === 'Info') {
+    if (messageType === 'Info') {
         messageContainer.classList.add('infoMessage')
     }
-    if(messageType === 'Alert') {
+    if (messageType === 'Alert') {
         messageContainer.classList.add('alertMessage')
     }
 
@@ -3782,7 +3774,7 @@ function showMessage(msg, displaytime, messageType) {
 }
 
 // Hide Messagebox on click
-messageContainer.addEventListener('click', ()=> {
+messageContainer.addEventListener('click', () => {
     messageContainer.classList.remove("active")
 })
 

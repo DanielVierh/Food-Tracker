@@ -1766,7 +1766,7 @@ input:checked + .slider:before {
     position: fixed;
     left: 0;
     right: 0;
-    top: 30%;
+    top: 42%;
     margin: 0 auto;
     z-index: 100;
     font-size: 2.4em;
@@ -1774,12 +1774,13 @@ input:checked + .slider:before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     color: var(--mainText);
     letter-spacing: 6.5px;
     box-shadow: 0 0 30px black;
     border: 1px solid white;
     transition: all 1s ease;
+    padding-top: 25px;
   }
 
   #message{
@@ -1797,7 +1798,7 @@ input:checked + .slider:before {
     background: linear-gradient(to right, rgba(8, 36, 60, 0.8), rgba(5, 60, 78, 0.8));
     padding: 15px 15px 15px 100px; 
     font-size: 1.6em;
-    text-align: start;
+    text-align: left;
     font-weight: bold;
     color: lightblue;
   }
