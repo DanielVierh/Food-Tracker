@@ -1766,7 +1766,7 @@ input:checked + .slider:before {
     position: fixed;
     left: 0;
     right: 0;
-    top: 42%;
+    top: 37%;
     margin: 0 auto;
     z-index: 100;
     font-size: 2.4em;
