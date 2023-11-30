@@ -1504,26 +1504,31 @@ function show_NutriScore(choosenProduct) {
         document.getElementById('C_E').style.height = '120px';
         nutriScoreChar = 'E';
         color = 'red';
+        optAreaDB.style.backgroundColor = 'rgb(87, 2, 2)';
     } else if (nutriScoreVal > 11) {
         nutriScore = 4;
         document.getElementById('C_D').style.height = '120px';
         nutriScoreChar = 'D';
         color = 'orange';
+        optAreaDB.style.backgroundColor = 'rgb(81, 54, 3)';
     } else if (nutriScoreVal > 3) {
         nutriScore = 3;
         document.getElementById('C_C').style.height = '120px';
         nutriScoreChar = 'C';
         color = 'yellow';
+        optAreaDB.style.backgroundColor = 'rgb(94, 94, 1)';
     } else if (nutriScoreVal >= 0) {
         nutriScore = 2;
         document.getElementById('C_B').style.height = '120px';
         nutriScoreChar = 'B';
         color = 'lightgreen';
+        optAreaDB.style.backgroundColor = 'rgb(60, 106, 60)';
     } else if (nutriScoreVal < 0) {
         nutriScore = 1;
         document.getElementById('C_A').style.height = '120px';
         nutriScoreChar = 'A';
         color = 'green';
+        optAreaDB.style.backgroundColor = 'rgb(2, 65, 2)';
     }
 
     return nutriScore;
