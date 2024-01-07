@@ -16,7 +16,43 @@
 
 </head>
 
-<body>
+<body id="bdy">
+  <!-- *ANCHOR - Modal zum Hinzufügen eines Lebensmittels -->
+  <div class="new-food-modal" id="modal_new_food">
+    <div id="btn_close_modal" class="close-button">Fertig</div>
+      <h1 id="titleDatenbank">Hinzufügen</h1>
+    <p id="statusX"></p>
+    <div class="fullCell">
+      <div id="optAreaDB" class="foodSection">
+        <p id="selectedFoodAnzeige"></p>
+        <p id="selectedFoodMakros"></p>
+        <div class="horizontalWrapper">
+          <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
+          <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
+          <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
+        </div>
+      </div>
+      <div class="containerNutri">
+        <div class="cont C_A" id="C_A">A</div>
+        <div class="cont C_B" id="C_B">B</div>
+        <div class="cont C_C" id="C_C">C</div>
+        <div class="cont C_D" id="C_D">D</div>
+        <div class="cont C_E" id="C_E">E</div>
+      </div>
+      <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
+      <button class="buttonPruefe" onclick="checkButton()">🔍</button>
+  
+  
+      <!-- Searchbar -->
+        <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
+  
+      <!-- Tabellenbereich -->
+      <div id="containerTabelle"></div>
+  
+  
+    </div>
+  </div>
+
   <nav class="sticky zone blue">
     <ul class="main-nav">
       <!-- <button class="navButton" onclick="goto_NewProduct()">NEU</button> -->
@@ -176,43 +212,7 @@
   <!-- ================================================================ -->
   <!-- Tabelle mit Datenbank aller Lebensmittel -->
   <!-- ================================================================ -->
-  <div class="fullCell">
-    <h1 id="titleDatenbank">Hinzufügen</h1>
-  </div>
-  <p id="statusX"></p>
-  <div class="fullCell">
-    <div id="optAreaDB" class="foodSection">
-      <p id="selectedFoodAnzeige"></p>
-      <p id="selectedFoodMakros"></p>
-      <div class="horizontalWrapper">
-        <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
-        <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
-        <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
-      </div>
-    </div>
-    <br>
-    <div class="containerNutri">
-      <div class="cont C_A" id="C_A">A</div>
-      <div class="cont C_B" id="C_B">B</div>
-      <div class="cont C_C" id="C_C">C</div>
-      <div class="cont C_D" id="C_D">D</div>
-      <div class="cont C_E" id="C_E">E</div>
-    </div>
-    <br>
-    <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
-    <button class="buttonPruefe" onclick="checkButton()">🔍</button>
 
-
-    <!-- Searchbar -->
-    <div class="fullCell">
-      <input id="searchInput" type="text" value="" placeholder="Suche Lebensmittel...👓" class="labelSuche">
-    </div>
-
-    <!-- Tabellenbereich -->
-    <div id="containerTabelle"></div>
-
-
-  </div>
 
 
 
@@ -250,9 +250,6 @@
   </div>
 
   <div id="overlay"></div>
-
-
-
 
   <!-- ================================================================ -->
   <!-- Statistik -->

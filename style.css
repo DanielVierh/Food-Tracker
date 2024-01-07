@@ -27,6 +27,10 @@ body {
     overflow-x: hidden;
 }
 
+.prevent-scroll {
+    overflow: hidden;
+}
+
 .zone {
     color: var(--mainText);
     font-size: 2.5em;
@@ -657,6 +661,7 @@ title {
 
 #titleDatenbank {
     text-align: center;
+    font-size: 3rem;
 }
 
 table {
@@ -706,7 +711,7 @@ table tr:nth-child(odd) {
 .labelSuche {
     width: 80%;
     height: 80px;
-    margin: 80px;
+    margin: 20px auto;
     border: 5px solid black;
     font-size: 44px;
     font-weight: bold;
@@ -1193,6 +1198,7 @@ table.names th {
     color: black;
     font-weight: bold;
     transition: ease-in-out 1s;
+    font-size: 2.5rem;
 }
 .C_A {
     background: green;
@@ -1768,7 +1774,7 @@ input:checked + .slider:before {
     right: 0;
     top: 37%;
     margin: 0 auto;
-    z-index: 100;
+    z-index: 9999999;
     font-size: 2.4em;
     display: flex;
     flex-direction: column;
@@ -1855,4 +1861,40 @@ input:checked + .slider:before {
     100% {
         bottom: 0;
     }
+  }
+
+
+  .new-food-modal {
+    position: fixed;
+    background-color: #24292e;
+    z-index: 99999;
+    border-radius: 100px 100px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 70px;
+    font-size: 3rem;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .7s ease;
+    transform: translateY(400%);
+
+    &.active {
+        transform: translateY(0);
+    }
+
+    .close-button {
+        position: fixed;
+        right: 50px;
+        top: 30px;
+        padding: 20px;
+        font-size: 2.5rem;
+    }
+  }
+
+  #optAreaDB {
+    margin-bottom: 30px;
   }

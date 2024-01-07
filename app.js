@@ -68,7 +68,11 @@ const messageContainer = document.getElementById("messageContainer");
 const message = document.getElementById("message");
 const lbl_todayNutri = document.getElementById("lbl_todayNutri");
 const outp_nutriScore = document.getElementById("outp_nutriScore");
-const foodAmountSingleView = document.getElementById("invisible_ChangeSection_HeuteGegessen")
+const foodAmountSingleView = document.getElementById("invisible_ChangeSection_HeuteGegessen");
+const modal_new_food = document.getElementById('modal_new_food');
+const btn_close_modal = document.getElementById('btn_close_modal');
+const body = document.getElementById('bdy');
+
 // Intervall Fasting
 let intervalEventObject = {
     fastingTime: 16,
@@ -114,7 +118,17 @@ function check_FoodDB() {
 //NOTE -   EventListener
 //====================================================================================
 // TODO: In Variablen packen und auf Vorhandenheit abfragen
-buttonAdd.addEventListener('click', addProduct);
+//buttonAdd.addEventListener('click', addProduct); //NOTE - old event listener
+buttonAdd.addEventListener('click', ()=> {
+    setTimeout(() => {
+        modal_new_food.classList.add('active');
+        body.classList.add('prevent-scroll');
+    }, 300);
+});
+btn_close_modal.addEventListener('click', ()=> {
+    modal_new_food.classList.remove('active');
+    body.classList.remove('prevent-scroll');
+})
 buttonScroll_Up.addEventListener('click', scroll_UP);
 
 // Damit gesuchtes Produkt direkt überschreibbar ist
@@ -1672,7 +1686,7 @@ function checkButton() {
                     ' g \n Salz: ' +
                     salt_Intake +
                     ' g';
-                showMessage(`${intakeFoodInfo}`, 20000, 'Info')
+                showMessage(`${intakeFoodInfo}`, 10000, 'Info')
             } catch (error) { }
         }
     } else {
@@ -1779,7 +1793,7 @@ function add_Food_to_TodayList() {
                     Eiweiss: ${parseInt(protein_Intake)}g <br>
                     Salz: ${parseInt(salt_Intake)}g <br> <br>`
 
-                showMessage(`${intakeFoodInfo}`, 20000, 'Info');
+                showMessage(`${intakeFoodInfo}`, 10000, 'Info');
                 document.getElementById('statusX').innerHTML =
                     selected_Food.productName + ' wurde eingetragen';
                 // Speichern
@@ -3787,3 +3801,7 @@ messageContainer.addEventListener('click', () => {
 // setTimeout(() => {
 //     showMessage(`Willkommen zurück 😀`, 3000, 'Info');
 // }, 4000);
+
+
+
+
