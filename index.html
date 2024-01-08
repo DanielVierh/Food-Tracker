@@ -30,6 +30,7 @@
           <input type="text" pattern="\d*" value="" id="foodAmound" class="inputMenge" placeholder="in Gramm">
           <button id="btn_Save_to_TodayEaten" class="button-Menge-speichern" onclick="add_Food_to_TodayList()">💾</button>
           <button id="btn_ChangeMacros" class="buttonChangeMakros" onclick="changeMacros()">✏️</button>
+          <button class="buttonPruefe" onclick="checkButton()">🔍</button>
         </div>
       </div>
       <div class="containerNutri">
@@ -40,7 +41,7 @@
         <div class="cont C_E" id="C_E">E</div>
       </div>
       <!-- <div class="nutriScoreContainer" id="outputNutri"></div> -->
-      <button class="buttonPruefe" onclick="checkButton()">🔍</button>
+   
   
   
       <!-- Searchbar -->
@@ -49,7 +50,7 @@
       <!-- Tabellenbereich -->
       <div id="containerTabelle"></div>
   
-  
+      <div class="button-close-modal" id="btn_close_foodModal">Fertig</div>
     </div>
   </div>
 

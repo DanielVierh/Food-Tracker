@@ -71,6 +71,7 @@ const outp_nutriScore = document.getElementById("outp_nutriScore");
 const foodAmountSingleView = document.getElementById("invisible_ChangeSection_HeuteGegessen");
 const modal_new_food = document.getElementById('modal_new_food');
 const btn_close_modal = document.getElementById('btn_close_modal');
+const btn_close_foodModal = document.getElementById('btn_close_foodModal');
 const body = document.getElementById('bdy');
 
 // Intervall Fasting
@@ -126,6 +127,10 @@ buttonAdd.addEventListener('click', ()=> {
     }, 300);
 });
 btn_close_modal.addEventListener('click', ()=> {
+    modal_new_food.classList.remove('active');
+    body.classList.remove('prevent-scroll');
+})
+btn_close_foodModal.addEventListener('click', ()=> {
     modal_new_food.classList.remove('active');
     body.classList.remove('prevent-scroll');
 })
@@ -1518,31 +1523,31 @@ function show_NutriScore(choosenProduct) {
         document.getElementById('C_E').style.height = '120px';
         nutriScoreChar = 'E';
         color = 'red';
-        optAreaDB.style.backgroundColor = 'rgb(87, 2, 2)';
+        // optAreaDB.style.backgroundColor = 'rgb(87, 2, 2)';
     } else if (nutriScoreVal > 11) {
         nutriScore = 4;
         document.getElementById('C_D').style.height = '120px';
         nutriScoreChar = 'D';
         color = 'orange';
-        optAreaDB.style.backgroundColor = 'rgb(81, 54, 3)';
+        // optAreaDB.style.backgroundColor = 'rgb(81, 54, 3)';
     } else if (nutriScoreVal > 3) {
         nutriScore = 3;
-        document.getElementById('C_C').style.height = '120px';
+        // document.getElementById('C_C').style.height = '120px';
         nutriScoreChar = 'C';
         color = 'yellow';
-        optAreaDB.style.backgroundColor = 'rgb(94, 94, 1)';
+        // optAreaDB.style.backgroundColor = 'rgb(94, 94, 1)';
     } else if (nutriScoreVal >= 0) {
         nutriScore = 2;
         document.getElementById('C_B').style.height = '120px';
         nutriScoreChar = 'B';
         color = 'lightgreen';
-        optAreaDB.style.backgroundColor = 'rgb(60, 106, 60)';
+        // optAreaDB.style.backgroundColor = 'rgb(60, 106, 60)';
     } else if (nutriScoreVal < 0) {
         nutriScore = 1;
         document.getElementById('C_A').style.height = '120px';
         nutriScoreChar = 'A';
         color = 'green';
-        optAreaDB.style.backgroundColor = 'rgb(2, 65, 2)';
+        // optAreaDB.style.backgroundColor = 'rgb(2, 65, 2)';
     }
 
     return nutriScore;

@@ -636,7 +636,7 @@ title {
 /* ================================================ */
 
 .buttonChangeMakros {
-    width: 150px;
+    width: 130px;
     height: 80px;
     font-size: 34px;
     font-weight: bolder;
@@ -645,8 +645,8 @@ title {
     background-color: var(--mainColor);
     border-radius: 20px;
     border: 2px solid black;
-    margin: 15px 0px 15px 35px;
     box-shadow: 5px 5px 25px var(--previewShadow);
+    margin-left: 30px;
 }
 
 #containerTabelle {
@@ -662,6 +662,7 @@ title {
 #titleDatenbank {
     text-align: center;
     font-size: 3rem;
+    color: var(--secondaryText);
 }
 
 table {
@@ -720,11 +721,10 @@ table tr:nth-child(odd) {
 }
 
 .buttonPruefe {
-    margin: 25px 120px 25px 120px;
-    width: 200px;
-    height: 100px;
+    width: 130px;
+    height: 80px;
     border-radius: 25px;
-    font-size: 44px;
+    font-size: 34px;
     font-weight: bold;
     background-color: var(--mainColor);
     color: var(--mainText);
@@ -1881,6 +1881,7 @@ input:checked + .slider:before {
     bottom: 0;
     transition: all .7s ease;
     transform: translateY(400%);
+    color: var(--mainText);
 
     &.active {
         transform: translateY(0);
@@ -1892,6 +1893,19 @@ input:checked + .slider:before {
         top: 30px;
         padding: 20px;
         font-size: 2.5rem;
+        color: var(--secondaryText);
+    }
+
+    .button-close-modal {
+        background-color: #111f3d;
+        color: #23da41;
+        font-size: 4.2rem;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 30px;
+        border-radius: 30px;
     }
   }
 
