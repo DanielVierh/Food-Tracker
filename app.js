@@ -1532,7 +1532,7 @@ function show_NutriScore(choosenProduct) {
         // optAreaDB.style.backgroundColor = 'rgb(81, 54, 3)';
     } else if (nutriScoreVal > 3) {
         nutriScore = 3;
-        // document.getElementById('C_C').style.height = '120px';
+        document.getElementById('C_C').style.height = '120px';
         nutriScoreChar = 'C';
         color = 'yellow';
         // optAreaDB.style.backgroundColor = 'rgb(94, 94, 1)';
