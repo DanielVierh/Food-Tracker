@@ -3847,6 +3847,8 @@ async function fetchProductData(ean_code) {
         inp_Salt.value = data.product.nutriments.salt_100g;
         inp_Unit.value = data.product.product_quantity + 'g | Code:' + data.product.code;
 
+        // Clear Barcode input field
+        inp_Barcode.value = '';
     } catch (error) {
         console.error('Fehler:', error.message);
     }
