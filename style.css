@@ -334,6 +334,29 @@ footer {
     color: var(--mainText);
 }
 
+.barcode-section__label {
+    min-width: 100%;
+    text-align: left;
+    padding-left: 50px;
+    align-self: flex-start;
+}
+
+.barcode-section__form-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.barcode-section__button {
+    background-color: #1c3366;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px var(--secondaryText);
+}
+
 .inpBox1 {
     margin-left: 50px;
     width: 500px;

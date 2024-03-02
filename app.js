@@ -3809,4 +3809,45 @@ messageContainer.addEventListener('click', () => {
 
 
 
+////////////////////////////////
+//ANCHOR - API Fetch 
+////////////////////////////////
 
+const fetch_button = document.getElementById('submit_to_food_db');
+const inp_Barcode = document.getElementById('inp_Barcode');
+
+if(fetch_button) {
+    fetch_button.addEventListener('click', ()=> {
+        if(inp_Barcode.value !== '') {
+           fetchProductData(inp_Barcode.value);
+        }
+    })
+}
+
+async function fetchProductData(ean_code) {
+    const url = `https://world.openfoodfacts.org/api/v2/product/${ean_code}.json`;
+
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Fehler beim Abrufen der Daten. Statuscode: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Produktdaten:', data);
+
+        inp_Productname.value = data.product.product_name + ' ' + data.product.brands;
+        inp_Kcal.value = data.product.nutriments["energy-kcal_100g"]
+        inp_Fat.value = data.product.nutriments.fat_100g;
+        inp_Carbs.value = data.product.nutriments.carbohydrates_100g;
+        inp_Sugar.value = data.product.nutriments.sugars_100g;
+        inp_Fiber.value = data.product.nutriments.fiber_100g;
+        inp_Protein.value = data.product.nutriments.proteins_100g;
+        inp_Salt.value = data.product.nutriments.salt_100g;
+        inp_Unit.value = 'Code:' + data.product.code;
+
+    } catch (error) {
+        console.error('Fehler:', error.message);
+    }
+}
