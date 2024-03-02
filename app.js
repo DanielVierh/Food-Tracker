@@ -3845,7 +3845,7 @@ async function fetchProductData(ean_code) {
         inp_Fiber.value = data.product.nutriments.fiber_100g;
         inp_Protein.value = data.product.nutriments.proteins_100g;
         inp_Salt.value = data.product.nutriments.salt_100g;
-        inp_Unit.value = 'Code:' + data.product.code;
+        inp_Unit.value = data.product.product_quantity + 'g | Code:' + data.product.code;
 
     } catch (error) {
         console.error('Fehler:', error.message);
