@@ -128,7 +128,7 @@ buttonAdd.addEventListener('click', () => {
     setTimeout(() => {
         modal_new_food.classList.add('active');
         body.classList.add('prevent-scroll');
-    }, 300);
+    }, 200);
 });
 btn_close_modal.addEventListener('click', () => {
     modal_new_food.classList.remove('active');
@@ -3849,11 +3849,13 @@ if (fetch_button) {
         if (inp_Barcode.value !== '') {
             //* Check if barcode already exists
             let barcode_found_in_db = false;
+            let productname = ''
             console.log('array_Food_DB', array_Food_DB);
             try {
                 for (let i = 0; i < array_Food_DB.length; i++) {
                     if (array_Food_DB[i].barcode === inp_Barcode.value) {
                         barcode_found_in_db = true;
+                        productname = array_Food_DB[i].productName;
                         break;
                     }
                 }
@@ -3864,7 +3866,9 @@ if (fetch_button) {
             if (barcode_found_in_db === false) {
                 fetchProductData(inp_Barcode.value);
             }else {
-                showMessage('Das Produkt existiert bereits', 4000, 'Alert');
+                modal_new_food.classList.add('active');
+                body.classList.add('prevent-scroll');
+                document.getElementById('searchInput').value = productname;
             }
         }
     })
