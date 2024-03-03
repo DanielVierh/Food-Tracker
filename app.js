@@ -3850,7 +3850,6 @@ if (fetch_button) {
             //* Check if barcode already exists
             let barcode_found_in_db = false;
             let productname = ''
-            console.log('array_Food_DB', array_Food_DB);
             try {
                 for (let i = 0; i < array_Food_DB.length; i++) {
                     if (array_Food_DB[i].barcode === inp_Barcode.value) {
@@ -3869,6 +3868,8 @@ if (fetch_button) {
                 modal_new_food.classList.add('active');
                 body.classList.add('prevent-scroll');
                 document.getElementById('searchInput').value = productname;
+                var searchterm = searchTable(document.getElementById('searchInput').value, array_Food_DB);
+                buildTable(searchterm);
             }
         }
     })
