@@ -1647,7 +1647,8 @@ function resetNutriScore() {
 function checkButton() {
     if (selected_Food != '') {
         if (inputField_EatenFood_in_Gramm.value == '') {
-            showMessage("Bitte eine Menge eingeben", 4000, 'Alert')
+            inputField_EatenFood_in_Gramm.value = 100;
+            checkButton();
         } else {
             let newProduct = selected_Food.productName;
             var selectedAmount = parseFloat(
