@@ -1699,7 +1699,13 @@ function checkButton() {
                     ' g \n Salz: ' +
                     salt_Intake +
                     ' g';
-                showMessage(`${intakeFoodInfo}`, 10000, 'Info')
+                console.log('selected_Food.product_image', selected_Food.product_image);
+                if(selected_Food.product_image != undefined || selected_Food.product_image != null) {
+                    showMessage(`<img src="${selected_Food.product_image}" width=200 height=200/> </br> </br> ${intakeFoodInfo} </br> `, 8000, 'Info');
+                }else {
+                    showMessage(`${intakeFoodInfo}`, 10000, 'Info')
+                }
+                
             } catch (error) { }
         }
     } else {
