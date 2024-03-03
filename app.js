@@ -423,6 +423,8 @@ class Food {
         salt,
         fiber,
         quantityUnit,
+        barcode,
+        product_image,
     ) {
         this.productName = productName;
         this.kcal = kcal;
@@ -433,6 +435,8 @@ class Food {
         this.salt = salt;
         this.fiber = fiber;
         this.quantityUnit = quantityUnit;
+        this.barcode = barcode;
+        this.product_image = product_image;
     }
 }
 
@@ -3817,6 +3821,10 @@ const fetch_button = document.getElementById('submit_to_food_db');
 const inp_Barcode = document.getElementById('inp_Barcode');
 
 if(fetch_button) {
+    //* Check if barcode already exists
+    //TODO - Barcode check in db 
+
+    //* If barcode not found - Fetch Data
     fetch_button.addEventListener('click', ()=> {
         if(inp_Barcode.value !== '') {
            fetchProductData(inp_Barcode.value);
