@@ -52,6 +52,10 @@ var isKeto = false;
 let countedPercentNumber = 0;
 let originalPercentValue = 0;
 
+let fetched_barcode = '';
+let fetched_product_image = '';
+let is_fetched_Data = false;
+
 const inputField_EatenFood_in_Gramm = document.getElementById('foodAmound');
 const progressCircle = document.querySelector('.progress');
 const txtPercent = document.getElementById('txtPercent');
@@ -120,17 +124,17 @@ function check_FoodDB() {
 //====================================================================================
 // TODO: In Variablen packen und auf Vorhandenheit abfragen
 //buttonAdd.addEventListener('click', addProduct); //NOTE - old event listener
-buttonAdd.addEventListener('click', ()=> {
+buttonAdd.addEventListener('click', () => {
     setTimeout(() => {
         modal_new_food.classList.add('active');
         body.classList.add('prevent-scroll');
     }, 300);
 });
-btn_close_modal.addEventListener('click', ()=> {
+btn_close_modal.addEventListener('click', () => {
     modal_new_food.classList.remove('active');
     body.classList.remove('prevent-scroll');
 })
-btn_close_foodModal.addEventListener('click', ()=> {
+btn_close_foodModal.addEventListener('click', () => {
     modal_new_food.classList.remove('active');
     body.classList.remove('prevent-scroll');
 })
@@ -1179,7 +1183,6 @@ function get_new_Steps() {
             today_Steps + ' &#128095';
         coloring_Labels();
         steps_into_Kcal();
-        // TODO-- Persistent speichern
         save_Today_Steps();
     } catch (error) {
         showMessage('Nur Zahlen eingeben', 5000, 'Alert');
@@ -2962,6 +2965,17 @@ function add_new_Food() {
                                             }
                                         }
 
+                                        //* For new Product Fields Barcode and img url
+                                        let new_barcode = null;
+                                        let new_product_image = null;
+                                        if (is_fetched_Data === true) {
+                                            is_fetched_Data = false;
+                                            new_barcode = fetched_barcode;
+                                            new_product_image = fetched_product_image;
+                                        }
+
+
+                                        //TODO - Speichern
                                         if (existTwice == false) {
                                             // Produkt anlegen
                                             array_Food_DB.push(
@@ -2975,6 +2989,8 @@ function add_new_Food() {
                                                     new_Salt,
                                                     new_Fiber,
                                                     new_Unit,
+                                                    new_barcode,
+                                                    new_product_image,
                                                 ),
                                             );
 
@@ -3820,14 +3836,29 @@ messageContainer.addEventListener('click', () => {
 const fetch_button = document.getElementById('submit_to_food_db');
 const inp_Barcode = document.getElementById('inp_Barcode');
 
-if(fetch_button) {
-    //* Check if barcode already exists
-    //TODO - Barcode check in db 
-
-    //* If barcode not found - Fetch Data
-    fetch_button.addEventListener('click', ()=> {
-        if(inp_Barcode.value !== '') {
-           fetchProductData(inp_Barcode.value);
+if (fetch_button) {
+    fetch_button.addEventListener('click', () => {
+        //* If inputfield has value
+        if (inp_Barcode.value !== '') {
+            //* Check if barcode already exists
+            let barcode_found_in_db = false;
+            console.log('array_Food_DB', array_Food_DB);
+            try {
+                for (let i = 0; i < array_Food_DB.length; i++) {
+                    if (array_Food_DB[i].barcode === inp_Barcode.value) {
+                        barcode_found_in_db = true;
+                        break;
+                    }
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            //* If barcode not found in DB - Fetch Data
+            if (barcode_found_in_db === false) {
+                fetchProductData(inp_Barcode.value);
+            }else {
+                showMessage('Das Produkt existiert bereits', 4000, 'Alert');
+            }
         }
     })
 }
@@ -3846,18 +3877,26 @@ async function fetchProductData(ean_code) {
         console.log('Produktdaten:', data);
 
         inp_Productname.value = data.product.product_name + ' ' + data.product.brands;
-        inp_Kcal.value = data.product.nutriments["energy-kcal_100g"]
-        inp_Fat.value = data.product.nutriments.fat_100g;
-        inp_Carbs.value = data.product.nutriments.carbohydrates_100g;
-        inp_Sugar.value = data.product.nutriments.sugars_100g;
-        inp_Fiber.value = data.product.nutriments.fiber_100g;
-        inp_Protein.value = data.product.nutriments.proteins_100g;
-        inp_Salt.value = data.product.nutriments.salt_100g;
-        inp_Unit.value = data.product.product_quantity + 'g | Code:' + data.product.code;
+        inp_Kcal.value = (data.product.nutriments["energy-kcal_100g"] !== undefined) ? data.product.nutriments["energy-kcal_100g"] : 0;
+        inp_Fat.value = (data.product.nutriments.fat_100g !== undefined) ? data.product.nutriments.fat_100g : 0;
+        inp_Carbs.value = (data.product.nutriments.carbohydrates_100g !== undefined) ? data.product.nutriments.carbohydrates_100g : 0;
+        inp_Sugar.value = (data.product.nutriments.sugars_100g !== undefined) ? data.product.nutriments.sugars_100g : 0;
+        inp_Fiber.value = (data.product.nutriments.fiber_100g !== undefined) ? data.product.nutriments.fiber_100g : 0;
+        inp_Protein.value = (data.product.nutriments.proteins_100g !== undefined) ? data.product.nutriments.proteins_100g : 0;
+        inp_Salt.value = (data.product.nutriments.salt_100g !== undefined) ? data.product.nutriments.salt_100g : 0;
+        inp_Unit.value = (data.product.product_quantity + 'g') || 0;
+        
+
+        is_fetched_Data = true;
+        fetched_barcode = data.product.code;
+        fetched_product_image = data.product.image_front_small_url;
+
+        showMessage(`<img src="${fetched_product_image}" width=200 height=200/> </br> </br> Produkt wurde gefunden`, 8000, 'Info');
 
         // Clear Barcode input field
         inp_Barcode.value = '';
     } catch (error) {
         console.error('Fehler:', error.message);
+        showMessage('Das Produkt wurde nicht gefunden', 4000, 'Alert');
     }
 }
