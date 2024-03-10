@@ -125,30 +125,15 @@ function check_FoodDB() {
 }
 
 function check_Scan() {
-    const timestamp = new Date();
     if (localStorage.getItem('storedScan') === null) {
         console.log('storedScan = null');
     } else {
         scann_obj = JSON.parse(localStorage.getItem('storedScan'));
-        try {
-            console.log('timestamp', timestamp);
-            console.log('scann_obj.scann_time', scann_obj.scann_time);
-            const timediff = TimeDiff(scann_obj.scann_time, timestamp);
-            if(timediff <= 30) {
-                alert('Success')
-            }
-        } catch (error) {
-            console.log(error);
-        }
+        document.getElementById('inp_Barcode').value = scann_obj.barcode;
+        checking_barcode();
     }
 }
 
-function TimeDiff(dateTimeValue2, dateTimeValue1) {
-    console.log('feffe', dateTimeValue2.getTime());
-    var differenceValue = (dateTimeValue2.getTime() - dateTimeValue1.getTime()) / (1000 * 60 * 60 * 24);
-    const days = Math.floor(Math.abs(differenceValue));
-    return days;
-}
 
 //====================================================================================
 //NOTE -   EventListener
@@ -3878,34 +3863,40 @@ const inp_Barcode = document.getElementById('inp_Barcode');
 
 if (fetch_button) {
     fetch_button.addEventListener('click', () => {
-        //* If inputfield has value
-        if (inp_Barcode.value !== '') {
-            //* Check if barcode already exists
-            let barcode_found_in_db = false;
-            let productname = ''
-            try {
-                for (let i = 0; i < array_Food_DB.length; i++) {
-                    if (array_Food_DB[i].barcode === inp_Barcode.value) {
-                        barcode_found_in_db = true;
-                        productname = array_Food_DB[i].productName;
-                        break;
-                    }
-                }
-            } catch (error) {
-                console.log(error);
-            }
-            //* If barcode not found in DB - Fetch Data
-            if (barcode_found_in_db === false) {
-                fetchProductData(inp_Barcode.value);
-            }else {
-                modal_new_food.classList.add('active');
-                body.classList.add('prevent-scroll');
-                document.getElementById('searchInput').value = productname;
-                var searchterm = searchTable(document.getElementById('searchInput').value, array_Food_DB);
-                buildTable(searchterm);
-            }
-        }
+        checking_barcode();
     })
+}
+
+function checking_barcode() {
+     //* Remove transmitted barcode from local storage
+     localStorage.removeItem('storedScan');
+     //* If inputfield has value
+     if (inp_Barcode.value !== '') {
+         //* Check if barcode already exists
+         let barcode_found_in_db = false;
+         let productname = ''
+         try {
+             for (let i = 0; i < array_Food_DB.length; i++) {
+                 if (array_Food_DB[i].barcode === inp_Barcode.value) {
+                     barcode_found_in_db = true;
+                     productname = array_Food_DB[i].productName;
+                     break;
+                 }
+             }
+         } catch (error) {
+             console.log(error);
+         }
+         //* If barcode not found in DB - Fetch Data
+         if (barcode_found_in_db === false) {
+             fetchProductData(inp_Barcode.value);
+         }else {
+             modal_new_food.classList.add('active');
+             body.classList.add('prevent-scroll');
+             document.getElementById('searchInput').value = productname;
+             var searchterm = searchTable(document.getElementById('searchInput').value, array_Food_DB);
+             buildTable(searchterm);
+         }
+     }
 }
 
 async function fetchProductData(ean_code) {
