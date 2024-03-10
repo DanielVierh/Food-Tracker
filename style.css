@@ -1968,3 +1968,11 @@ input:checked + .slider:before {
    color: var(--mainText);
 }
 
+.small-scan-btn {
+    background-color: rgb(32, 42, 60);
+    padding: 20px;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    color: white;
+}
