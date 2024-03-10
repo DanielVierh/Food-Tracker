@@ -91,6 +91,11 @@ let intervalEventObject = {
     identifierObjStr: identifierObjStr
 };
 
+let scann_obj = {
+    "scann_time": undefined,
+    "barcode": ""
+}
+
 //====================================================================================
 //NOTE -   Init
 //====================================================================================
@@ -117,6 +122,32 @@ function check_FoodDB() {
     } else {
         loadFood_DB();
     }
+}
+
+function check_Scan() {
+    const timestamp = new Date();
+    if (localStorage.getItem('storedScan') === null) {
+        console.log('storedScan = null');
+    } else {
+        scann_obj = JSON.parse(localStorage.getItem('storedScan'));
+        try {
+            console.log('timestamp', timestamp);
+            console.log('scann_obj.scann_time', scann_obj.scann_time);
+            const timediff = TimeDiff(scann_obj.scann_time, timestamp);
+            if(timediff <= 30) {
+                alert('Success')
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+function TimeDiff(dateTimeValue2, dateTimeValue1) {
+    console.log('feffe', dateTimeValue2.getTime());
+    var differenceValue = (dateTimeValue2.getTime() - dateTimeValue1.getTime()) / (1000 * 60 * 60 * 24);
+    const days = Math.floor(Math.abs(differenceValue));
+    return days;
 }
 
 //====================================================================================
@@ -185,6 +216,7 @@ function loadFood_DB() {
     array_Food_DB.sort((a, b) => (a.productName > b.productName ? 1 : -1));
     console.log('array_Food_DB', array_Food_DB);
     createTable_FoodDB();
+    check_Scan();
 }
 
 // Automatisches lesen des JSON Files
