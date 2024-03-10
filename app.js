@@ -183,6 +183,7 @@ function saveFood_DB() {
 function loadFood_DB() {
     array_Food_DB = JSON.parse(localStorage.getItem('storedFoodDB'));
     array_Food_DB.sort((a, b) => (a.productName > b.productName ? 1 : -1));
+    console.log('array_Food_DB', array_Food_DB);
     createTable_FoodDB();
 }
 
