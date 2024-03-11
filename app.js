@@ -2824,7 +2824,7 @@ function close_Day() {
             showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.`, 4000, 'Info');
             setTimeout(() => {
                 location.reload();
-            }, 4500);
+            }, 2500);
         }
     }
 }
