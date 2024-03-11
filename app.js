@@ -2806,9 +2806,9 @@ function close_Day() {
             // RESET
             today_Steps = 0;
             today_eaten = [];
-            today_Water = 0;
+            today_Water = 2;
             burned_Kcal = 0;
-            lastWater = 'Gestern';
+            lastWater = '';
             save_Burned_Kcal();
             save_Last_Water();
             document.getElementById('btnSteps').innerHTML =
