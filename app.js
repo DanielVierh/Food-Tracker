@@ -2870,10 +2870,26 @@ function makeFieldsInvisible() {
     }
 }
 
+//* ANCHOR Open and close Modal for new Product
+let modal_is_open = false;
+
+function open_new_modal() {
+    if(modal_is_open === false) {
+        document.getElementById('modal_newProduct').classList.add('active');
+        modal_is_open = true;
+    }
+}
+
+function close_new_modal() {
+    if(modal_is_open === true) {
+        document.getElementById('modal_newProduct').classList.remove('active');
+        modal_is_open = false;
+    }
+}
+
 //============================================================================
 //NOTE -   Neues Lebensmittel hinzufügen
 //============================================================================
-
 function add_new_Food() {
     var new_productName = '';
     var new_Kcal = 0;
@@ -3123,7 +3139,6 @@ function add_new_Food() {
 //============================================================================
 
 function changeMacros() {
-    goto_NewProduct();
     changeProduct = true;
     // Content laden
     document.getElementById('inp_Productname').value =
@@ -3136,6 +3151,7 @@ function changeMacros() {
     document.getElementById('inp_Protein').value = selected_Food.protein;
     document.getElementById('inp_Salt').value = selected_Food.salt;
     document.getElementById('inp_Unit').value = selected_Food.quantityUnit;
+    open_new_modal();
 }
 
 //============================================================================
@@ -3890,6 +3906,7 @@ function checking_barcode() {
          if (barcode_found_in_db === false) {
              fetchProductData(inp_Barcode.value);
          }else {
+             close_new_modal();
              modal_new_food.classList.add('active');
              body.classList.add('prevent-scroll');
              document.getElementById('searchInput').value = productname;
@@ -3921,14 +3938,13 @@ async function fetchProductData(ean_code) {
         inp_Protein.value = (data.product.nutriments.proteins_100g !== undefined) ? data.product.nutriments.proteins_100g : 0;
         inp_Salt.value = (data.product.nutriments.salt_100g !== undefined) ? data.product.nutriments.salt_100g : 0;
         inp_Unit.value = (data.product.product_quantity + 'g') || 0;
-        
 
         is_fetched_Data = true;
         fetched_barcode = data.product.code;
         fetched_product_image = data.product.image_front_small_url;
-
+        open_new_modal();
         showMessage(`<img src="${fetched_product_image}" width=200 height=200/> </br> </br> Produkt wurde gefunden`, 8000, 'Info');
-
+        
         // Clear Barcode input field
         inp_Barcode.value = '';
     } catch (error) {
@@ -3936,3 +3952,6 @@ async function fetchProductData(ean_code) {
         showMessage('Das Produkt wurde nicht gefunden', 4000, 'Alert');
     }
 }
+
+
+
