@@ -3869,6 +3869,12 @@ messageContainer.addEventListener('click', () => {
 // }, 4000);
 
 
+////////////////////////////////
+//ANCHOR - Open Scanner
+////////////////////////////////
+function open_scanner() {
+    window.location = 'scanner.html';
+}
 
 ////////////////////////////////
 //ANCHOR - API Fetch 
