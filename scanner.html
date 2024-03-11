@@ -7,10 +7,42 @@
     <title>Document</title>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <style>
+        body {
+            background-color: rgb(37, 62, 62);
+            color: white;
+        }
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(grey, rgb(37, 62, 62));
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+                height: 3px;
+                background-color: lightblue;
+                animation: scanAnimation  3s ease-in-out infinite;
+            }
+        }
+
+        @keyframes scanAnimation {
+            0%{
+                top: 0%;
+            }
+
+            50% {
+                top: 100%;
+            }
+
+            100% {
+                top: 0%;
+            }
         }
 
         #reader {
