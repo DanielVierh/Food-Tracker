@@ -78,18 +78,6 @@ const btn_close_modal = document.getElementById('btn_close_modal');
 const btn_close_foodModal = document.getElementById('btn_close_foodModal');
 const body = document.getElementById('bdy');
 
-// Intervall Fasting
-let intervalEventObject = {
-    fastingTime: 16,
-    eatTime: 8,
-    fastingStartTime: '19:00',
-    theme: 'light',
-    water: 0,
-    lastWater: '-',
-    finishedFasting: [0, 0, 0, 0, 0, 0, 0],
-    lastIdentifier: '',
-    identifierObjStr: identifierObjStr
-};
 
 let scann_obj = {
     "scann_time": undefined,
@@ -1718,12 +1706,12 @@ function checkButton() {
                     salt_Intake +
                     ' g';
                 console.log('selected_Food.product_image', selected_Food.product_image);
-                if(selected_Food.product_image != undefined || selected_Food.product_image != null) {
+                if (selected_Food.product_image != undefined || selected_Food.product_image != null) {
                     showMessage(`<img src="${selected_Food.product_image}" width=200 height=200/> </br> </br> ${intakeFoodInfo} </br> `, 8000, 'Info');
-                }else {
+                } else {
                     showMessage(`${intakeFoodInfo}`, 10000, 'Info')
                 }
-                
+
             } catch (error) { }
         }
     } else {
@@ -2874,14 +2862,14 @@ function makeFieldsInvisible() {
 let modal_is_open = false;
 
 function open_new_modal() {
-    if(modal_is_open === false) {
+    if (modal_is_open === false) {
         document.getElementById('modal_newProduct').classList.add('active');
         modal_is_open = true;
     }
 }
 
 function close_new_modal() {
-    if(modal_is_open === true) {
+    if (modal_is_open === true) {
         document.getElementById('modal_newProduct').classList.remove('active');
         modal_is_open = false;
     }
@@ -2900,6 +2888,8 @@ function add_new_Food() {
     var new_Protein = 0;
     var new_Salt = 0;
     var new_Unit = 0;
+    let new_barcode = null;
+    let new_product_image = null;
 
     // Produktname
     if (document.getElementById('inp_Productname').value == '') {
@@ -3006,9 +2996,10 @@ function add_new_Food() {
                                             }
                                         }
 
+                                        new_barcode = document.getElementById('inp_barcode').value;
+                                        new_product_image = document.getElementById('inp_imgLink').value;
+
                                         //* For new Product Fields Barcode and img url
-                                        let new_barcode = null;
-                                        let new_product_image = null;
                                         if (is_fetched_Data === true) {
                                             is_fetched_Data = false;
                                             new_barcode = fetched_barcode;
@@ -3046,10 +3037,10 @@ function add_new_Food() {
                                                 'Status_New_Food',
                                             ).style.color = 'green';
                                             createTable_FoodDB();
-                                            // SAVE
+                                            //* SAVE
                                             saveFood_DB();
 
-                                            // Aufräumen
+                                            //* Aufräumen
                                             document.getElementById(
                                                 'inp_Productname',
                                             ).value = '';
@@ -3101,15 +3092,21 @@ function add_new_Food() {
                                                         new_Salt,
                                                         new_Fiber,
                                                         new_Unit,
+                                                        new_barcode,
+                                                        new_product_image
                                                     ),
                                                 );
+                                                showMessage(`Lebensmittel wurde erfolgreich angepasst`, 4000, 'Info');
                                                 // SAVE
+                                                if(new_barcode.length > 7) {
+                                                    scann_obj.barcode = new_barcode;
+                                                    localStorage.setItem('storedScan', JSON.stringify(scann_obj));
+                                                }
                                                 saveFood_DB();
 
-                                                showMessage(`Lebensmittel wurde erfolgreich angepasst`, 4000, 'Info');
                                                 setTimeout(() => {
                                                     location.reload();
-                                                }, 4500);
+                                                }, 2500);
 
                                             } else {
                                                 document.getElementById(
@@ -3134,6 +3131,23 @@ function add_new_Food() {
     }
 }
 
+function current_timeStamp() {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const timestamp = `${addZero(day)}.${addZero(month)}.${year}`
+    return timestamp;
+}
+
+
+function addZero(val) {
+    if (val < 10) {
+        val = '0' + val;
+    }
+    return val;
+}
+
 //============================================================================
 //NOTE -   Makros in der Datenbank ändern
 //============================================================================
@@ -3151,6 +3165,8 @@ function changeMacros() {
     document.getElementById('inp_Protein').value = selected_Food.protein;
     document.getElementById('inp_Salt').value = selected_Food.salt;
     document.getElementById('inp_Unit').value = selected_Food.quantityUnit;
+    document.getElementById('inp_barcode').value = selected_Food.barcode;
+    document.getElementById('inp_imgLink').value = selected_Food.product_image;
     open_new_modal();
 }
 
@@ -3497,345 +3513,6 @@ function deleteStatistics() {
 }
 
 
-//!############################################
-//NOTE -   INTERVALL FASTEN
-//!############################################
-
-
-const btn_IntervalFasting = document.getElementById("btn_IntervalFasting");
-const intervalTime = document.getElementById("intervalTime");
-const outputWhatNow = document.getElementById("outputWhatNow");
-const btn_CloseModal = document.getElementById("close-modal");
-const btn_SaveSettings = document.getElementById("btnSaveSettings");
-const labelFastingTime = document.getElementById("lblfastingTime");
-const overlay_Interval = document.getElementById("overlay_Interval");
-var newFastingTime = 0;
-var newEatingTime = 0;
-var isFastingTime = false;
-var newWaterAmount = 0.2;
-var lastWater = '-';
-var finishedFasting = [0, 0, 0, 0, 0, 0, 0];
-var checkInterv_5Sec = 0;
-var lastIdentifier = '';
-var identifierObjStr = '';
-var FastingIdentifier = /** @class */ (function () {
-    function FastingIdentifier(id, fastingTime, approxFastingStartTime) {
-        this.id = id;
-        this.fastingTime = fastingTime;
-        this.approxFastingStartTime = approxFastingStartTime;
-    }
-    return FastingIdentifier;
-}());
-var identifierObj = new FastingIdentifier('', 0, '');
-// Init -- Start
-function initInterv() {
-    load_from_LocalStorage();
-    checkIntervall();
-}
-initInterv();
-//#########################################################################
-// View
-//#########################################################################
-
-//#########################################################################
-// Funktion zur Überprüfung, ob gerade Fastenzeit läuft
-// Entsprechend wird die Anzeige der UI Elemente angepasst
-//#########################################################################
-function checkFastingStatus() {
-    // Es wird alle 10 Sekunden die ...
-    checkInterv_5Sec < 5 ? checkInterv_5Sec++ : initIdentifier();
-    var now = currentTime();
-    var splittedFastingTime = intervalEventObject.fastingStartTime.split(':');
-    var fastingStartHour = parseInt(splittedFastingTime[0]);
-    var fastingStartMinute = parseInt(splittedFastingTime[1]);
-    var fastingStartTimeMinusEatTime = fastingStartHour - intervalEventObject.eatTime;
-    if (fastingStartTimeMinusEatTime < 0) {
-        fastingStartTimeMinusEatTime = 24 + fastingStartTimeMinusEatTime;
-    }
-
-    const param_Now = "".concat(now)
-    const param_fastingStartTime = "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute)
-    var diffToFasting = func_diff(param_Now, param_fastingStartTime);
-    var diffToEating = func_diff("".concat(now), "".concat(fastingStartTimeMinusEatTime, ":").concat(fastingStartMinute));
-    var diffToFastingInPercent = ((timeStampIntoNumber(diffToFasting) * 100) /
-        (intervalEventObject.eatTime * 60 * 60)).toFixed(1);
-    var diffToEatingInPercent = ((timeStampIntoNumber(diffToEating) * 100) /
-        (intervalEventObject.fastingTime * 60 * 60)).toFixed(1);
-    var diffToFastingInSeconds = timeStampIntoNumber(diffToFasting);
-    // Wenn Diff kleiner als EatingTime dann ist fasting = false sonst fasting = true
-    if (diffToFastingInSeconds < intervalEventObject.eatTime * 60 * 60) {
-        isFastingTime = false;
-        outputWhatNow.innerHTML = 'Essen';
-        outputWhatNow.style.color = 'green';
-        intervalTime.innerHTML = "".concat(diffToFasting);
-        // txtPercent.innerHTML = `${diffToFastingInPercent}%`;
-        //intervalTime.innerHTML = "".concat(addZero(fastingStartTimeMinusEatTime), ":").concat(addZero(fastingStartMinute));
-        //outputTo.innerHTML = "".concat(intervalEventObject.fastingStartTime);
-    }
-    else {
-        isFastingTime = true;
-        outputWhatNow.innerHTML = 'Fasten';
-        intervalTime.innerHTML = "".concat(diffToEating);
-        outputWhatNow.style.color = 'yellow';
-        // txtPercent.innerHTML = `${diffToEatingInPercent}%`;
-        //intervalTime.innerHTML = "".concat(intervalEventObject.fastingStartTime);
-        //intervalTime.innerHTML = "".concat(addZero(fastingStartTimeMinusEatTime), ":").concat(addZero(fastingStartMinute));
-    }
-}
-var radius_interval = progressCircle.r.baseVal.value;
-var circumference_interval = radius_interval * 2 * Math.PI;
-progressCircle.style.strokeDasharray = circumference_interval;
-
-function circleProgress(percent) {
-    progressCircle.style.strokeDashoffset =
-        circumference_interval - (percent / 100) * circumference_interval;
-}
-
-function displayFastingTime() {
-    labelFastingTime.value = "".concat(newFastingTime, ":").concat(newEatingTime);
-}
-
-function timeStampIntoNumber(timeStamp) {
-    var splittedTimestamp = timeStamp.split(':');
-    var splittedHour_inSeconds = parseInt(splittedTimestamp[0]) * 60 * 60;
-    var splittedMinute_inSeconds = parseInt(splittedTimestamp[1]) * 60;
-    var secondsSum = splittedHour_inSeconds + splittedMinute_inSeconds;
-    return secondsSum;
-}
-function currentTime() {
-    const date = new Date();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const now = "".concat(addZero(hours), ":").concat(addZero(minutes));
-    return now;
-}
-
-function current_timeStamp() {
-    const date = new Date();
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    const timestamp = `${addZero(day)}.${addZero(month)}.${year}`
-    return timestamp;
-}
-
-
-
-// Sekündlicher Funktionsaufruf für Check Func
-function checkIntervall() {
-    setInterval(function () {
-        checkFastingStatus();
-    }, 1000);
-}
-function addZero(val) {
-    if (val < 10) {
-        val = '0' + val;
-    }
-    return val;
-}
-// Diff Berechnung
-function func_diff(start, end) {
-    start = start.split(':');
-    end = end.split(':');
-    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
-    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
-    var diff = endDate.getTime() - startDate.getTime();
-    var hours = Math.floor(diff / 1000 / 60 / 60);
-    diff -= hours * 1000 * 60 * 60;
-    var minutes = Math.floor(diff / 1000 / 60);
-    if (hours < 0)
-        hours = hours + 24;
-    return ((hours <= 9 ? '0' : '') +
-        hours +
-        ':' +
-        (minutes <= 9 ? '0' : '') +
-        minutes);
-}
-
-// Einstellungen einblenden
-btn_IntervalFasting === null || btn_IntervalFasting === void 0 ? void 0 : btn_IntervalFasting.addEventListener('click', function () {
-    overlay_Interval.style.display = 'block';
-    newFastingTime = intervalEventObject.fastingTime;
-    newEatingTime = intervalEventObject.eatTime;
-    inpFastingStartTime.value = intervalEventObject.fastingStartTime;
-    displayFastingTime();
-});
-// Fasten Wert rauf und runter schalten
-btn_IncreaseFasting === null || btn_IncreaseFasting === void 0 ? void 0 : btn_IncreaseFasting.addEventListener('click', function () {
-    changeFastingTime('incre');
-});
-// Fasten Wert rauf und runter schalten
-btn_DecreaseFasting === null || btn_DecreaseFasting === void 0 ? void 0 : btn_DecreaseFasting.addEventListener('click', function () {
-    changeFastingTime('decr');
-});
-// Einstellungen ausblenden
-btn_CloseModal === null || btn_CloseModal === void 0 ? void 0 : btn_CloseModal.addEventListener('click', function () {
-    overlay_Interval.style.display = 'none';
-});
-// Fastenzeit ändern
-function changeFastingTime(direction) {
-    // Fasten verlängern
-    if (direction === 'incre') {
-        if (newFastingTime < 23) {
-            newFastingTime++;
-            newEatingTime = 24 - newFastingTime;
-            displayFastingTime();
-        }
-        // Fasten verkürzen
-    }
-    else {
-        if (newFastingTime > 13) {
-            newFastingTime--;
-            newEatingTime = 24 - newFastingTime;
-            displayFastingTime();
-        }
-    }
-}
-// Einstellungen speichern
-btn_SaveSettings === null || btn_SaveSettings === void 0 ? void 0 : btn_SaveSettings.addEventListener('click', function () {
-    intervalEventObject.fastingTime = newFastingTime;
-    intervalEventObject.eatTime = newEatingTime;
-    intervalEventObject.fastingStartTime = inpFastingStartTime.value;
-    overlay_Interval.style.display = 'none';
-    save_into_LocalStorage();
-    setTheme();
-});
-
-//################################################################################
-// Save LocalStorage
-//################################################################################
-var save_into_LocalStorage = function () {
-    localStorage.setItem('stored_IntervallObj', JSON.stringify(intervalEventObject));
-};
-//################################################################################
-// Load from LocalStorage
-//################################################################################
-function load_from_LocalStorage() {
-    if (localStorage.getItem('stored_IntervallObj') !== null) {
-        //@ts-ignore
-        intervalEventObject = JSON.parse(localStorage.getItem('stored_IntervallObj'));
-
-        try {
-            lastIdentifier = intervalEventObject.lastIdentifier;
-        }
-        catch (err) {
-            console.log(err);
-            lastIdentifier = '';
-        }
-        try {
-            identifierObjStr = intervalEventObject.identifierObjStr;
-        }
-        catch (err) {
-            console.log(err);
-            identifierObjStr = '';
-        }
-    }
-    else {
-        // console.warn('Keine Daten vorh');
-    }
-    // console.log(intervalEventObject);
-}
-
-function initIdentifier() {
-    checkInterv_5Sec = 0;
-    // Aktueller Identifier wird generiert
-    identifierObj = new FastingIdentifier(setIdentifier(), intervalEventObject.fastingTime, intervalEventObject.fastingStartTime);
-    identifierObjStr = "".concat(identifierObj.id, "/").concat(identifierObj.approxFastingStartTime, "/").concat(identifierObj.fastingTime);
-    // console.log('identifierObjStr', identifierObjStr);
-    // Todo Klasse FastingIdentifier anpassen.
-    // Todo: ID muss besser sein
-    //? Wenn Essen erlaubt ist, ID abgleichen
-    if (isFastingTime === false) {
-        // Neue ID wird mit gespeicherten ID abgeglichen
-        if (lastIdentifier !== identifierObj.id && lastIdentifier !== '') {
-            //? Auslesen des zuletzt abgespeicherten Identifiers
-            var identifierObjStrInArr = identifierObjStr.split('/');
-            var savedFastHr = parseInt(identifierObjStrInArr[3]);
-            var savedApproxStartTime = identifierObjStrInArr[2];
-            var savedStartDay = identifierObjStrInArr[0];
-            var weekday = savedStartDay.substring(0, 3);
-            // console.log('weekday', weekday);
-            //? Funktion aufrufen, die den Index vom Wochentag zurück gibt
-            var indexDay = getIndexOfWeekday(weekday);
-            //? Abgleichen, ob sich die Fasten- Stunden geändert haben
-            if (savedFastHr === identifierObj.fastingTime) {
-                // console.log('Fastenzeit ist gleich geblieben');
-                //? Sonst einfach die Fastenzeit in Stunden übernehmen
-                finishedFasting.splice(indexDay, 1, savedFastHr);
-                intervalEventObject.finishedFasting = finishedFasting;
-            }
-            else {
-                //? Fastenzeit ist NICHT gleich geblieben
-                if (savedApproxStartTime === identifierObj.approxFastingStartTime) {
-                    // console.log('Die Startzeit ist aber gleich geblieben');
-                }
-                else {
-                    // console.log('Auch die Startzeit hat sich geändert');
-                    // Todo Diff berechnen wenn dies so ist.
-                }
-            }
-            //? ID wird in Variable ersetzt mit neuer ID
-            replaceIdentier();
-        }
-        else if (lastIdentifier === '') {
-            // console.log('LastIdentifer war leer');
-            replaceIdentier();
-        }
-    }
-}
-
-//renderDayChart();
-function replaceIdentier() {
-    lastIdentifier = identifierObj.id;
-    intervalEventObject.lastIdentifier = lastIdentifier;
-    intervalEventObject.identifierObjStr = identifierObjStr;
-    save_into_LocalStorage();
-}
-function getIndexOfWeekday(weekday) {
-    var index = -1;
-    switch (weekday) {
-        case 'Mon':
-            index = 0;
-            break;
-        case 'Tue':
-            index = 1;
-            break;
-        case 'Wed':
-            index = 2;
-            break;
-        case 'Thu':
-            index = 3;
-            break;
-        case 'Fri':
-            index = 4;
-            break;
-        case 'Sat':
-            index = 5;
-            break;
-        case 'Sun':
-            index = 6;
-            break;
-        default:
-            break;
-    }
-    return index;
-}
-function setIdentifier() {
-    // Todo: noch den Wochentag vom Vortag ermitteln
-    var date = new Date();
-    var dateString = "".concat(date);
-    var currentDateWeekday = dateString.slice(0, 3);
-    var currentDateDay = dateString.slice(8, 10);
-    // Create Day + 1
-    date.setDate(date.getDate() + 1); // ? +1 Tag
-    dateString = "".concat(date);
-    var tomorrowDateWeekday = dateString.slice(0, 3);
-    var tomorrowDateDay = dateString.slice(8, 10);
-    // Identifier
-    var currentIdentifier = "".concat(currentDateWeekday).concat(currentDateDay, "/").concat(tomorrowDateWeekday).concat(tomorrowDateDay);
-    // console.log(`currentIdentifier: ${currentIdentifier} // LastIdentifier: ${lastIdentifier}`);
-    return currentIdentifier;
-}
 
 
 ////////////////////////////////
@@ -3890,36 +3567,36 @@ if (fetch_button) {
 }
 
 function checking_barcode() {
-     //* Remove transmitted barcode from local storage
-     localStorage.removeItem('storedScan');
-     //* If inputfield has value
-     if (inp_Barcode.value !== '') {
-         //* Check if barcode already exists
-         let barcode_found_in_db = false;
-         let productname = ''
-         try {
-             for (let i = 0; i < array_Food_DB.length; i++) {
-                 if (array_Food_DB[i].barcode === inp_Barcode.value) {
-                     barcode_found_in_db = true;
-                     productname = array_Food_DB[i].productName;
-                     break;
-                 }
-             }
-         } catch (error) {
-             console.log(error);
-         }
-         //* If barcode not found in DB - Fetch Data
-         if (barcode_found_in_db === false) {
-             fetchProductData(inp_Barcode.value);
-         }else {
-             close_new_modal();
-             modal_new_food.classList.add('active');
-             body.classList.add('prevent-scroll');
-             document.getElementById('searchInput').value = productname;
-             var searchterm = searchTable(document.getElementById('searchInput').value, array_Food_DB);
-             buildTable(searchterm);
-         }
-     }
+    //* Remove transmitted barcode from local storage
+    localStorage.removeItem('storedScan');
+    //* If inputfield has value
+    if (inp_Barcode.value !== '') {
+        //* Check if barcode already exists
+        let barcode_found_in_db = false;
+        let productname = ''
+        try {
+            for (let i = 0; i < array_Food_DB.length; i++) {
+                if (array_Food_DB[i].barcode === inp_Barcode.value) {
+                    barcode_found_in_db = true;
+                    productname = array_Food_DB[i].productName;
+                    break;
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        //* If barcode not found in DB - Fetch Data
+        if (barcode_found_in_db === false) {
+            fetchProductData(inp_Barcode.value);
+        } else {
+            close_new_modal();
+            modal_new_food.classList.add('active');
+            body.classList.add('prevent-scroll');
+            document.getElementById('searchInput').value = productname;
+            var searchterm = searchTable(document.getElementById('searchInput').value, array_Food_DB);
+            buildTable(searchterm);
+        }
+    }
 }
 
 async function fetchProductData(ean_code) {
@@ -3950,7 +3627,7 @@ async function fetchProductData(ean_code) {
         fetched_product_image = data.product.image_front_small_url;
         open_new_modal();
         showMessage(`<img src="${fetched_product_image}" width=200 height=200/> </br> </br> Produkt wurde gefunden`, 8000, 'Info');
-        
+
         // Clear Barcode input field
         inp_Barcode.value = '';
     } catch (error) {
