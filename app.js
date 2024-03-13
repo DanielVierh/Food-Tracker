@@ -3074,6 +3074,9 @@ function add_new_Food() {
                                                 'inp_Unit',
                                             ).value = '';
                                             changeProduct = false;
+                                            setTimeout(() => {
+                                                location.reload();
+                                            }, 2500);
                                         } else {
                                             if (changeProduct == true) {
                                                 // Makros werden angepasst
