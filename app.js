@@ -3038,6 +3038,11 @@ function add_new_Food() {
                                             ).style.color = 'green';
                                             createTable_FoodDB();
                                             //* SAVE
+                                            // SAVE
+                                            if (new_barcode.length > 7) {
+                                                scann_obj.barcode = new_barcode;
+                                                localStorage.setItem('storedScan', JSON.stringify(scann_obj));
+                                            }
                                             saveFood_DB();
 
                                             //* Aufräumen
@@ -3098,7 +3103,7 @@ function add_new_Food() {
                                                 );
                                                 showMessage(`Lebensmittel wurde erfolgreich angepasst`, 4000, 'Info');
                                                 // SAVE
-                                                if(new_barcode.length > 7) {
+                                                if (new_barcode.length > 7) {
                                                     scann_obj.barcode = new_barcode;
                                                     localStorage.setItem('storedScan', JSON.stringify(scann_obj));
                                                 }
