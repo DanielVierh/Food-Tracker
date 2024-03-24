@@ -2013,3 +2013,23 @@ input:checked + .slider:before {
     top: 10px;
     color: white;
 }
+
+.progress-wrapper {
+    width: 50%;
+    background-color: var(--mainColor);
+    border: 1px solid var(--themeDotBorder);
+    height: 10px;
+    position: relative;
+    margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress-span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--mainText);
+    opacity: .7;
+}
