@@ -1237,8 +1237,9 @@ function createTable_FoodDB() {
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
     for (var i = 0; i < array_Food_DB.length; i++) {
         // ADD "BASIC" CELL
+        const short_product_name = cut_product_name(array_Food_DB[i].productName, 45)
         var cell = row.insertCell();
-        cell.innerHTML = array_Food_DB[i].productName;
+        cell.innerHTML = short_product_name;
 
         // Anzahl der Produkte
         let anzProd = array_Food_DB.length;
@@ -1319,8 +1320,9 @@ function buildTable(data) {
         // FPR Schleife
         for (var i = 0; i < data.length; i++) {
             // Füge "BASIC" CELL hinzu
+            const short_product_name = cut_product_name(data[i].productName, 45)
             var cell = row.insertCell();
-            cell.innerHTML = data[i].productName;
+            cell.innerHTML = short_product_name;
 
             // Für Auswahl
             cell.dataset.id = i;
