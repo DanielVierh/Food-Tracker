@@ -1856,9 +1856,10 @@ function create_Table_TodayEaten() {
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
     for (var i = 0; i < today_eaten.length; i++) {
         // ADD "BASIC" CELL
+        const short_product_name = cut_product_name(today_eaten[i].intake_productName, 32);
         var cell = row.insertCell();
         cell.innerHTML =
-            today_eaten[i].intake_productName +
+            short_product_name +
             ' --\n ' +
             today_eaten[i].intake_amount +
             'g  = ' +
@@ -1935,6 +1936,25 @@ function create_Table_TodayEaten() {
 
     // ATTACH TABLE TO CONTAINER
     document.getElementById('containerTabelle_Today').appendChild(table);
+}
+
+function cut_product_name(val, length) {
+    let return_val = '';
+    try {
+        for(let i = 0; i < val.length; i++) {
+            if(i < (length - 3)) {
+                return_val = return_val + val[i];
+            }else {
+                return_val = return_val + '...';
+                break
+            }
+        }
+
+        return return_val;
+
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 //============================================================================
