@@ -1858,7 +1858,7 @@ function create_Table_TodayEaten() {
     // LOOP THROUGH ARRAY AND ADD TABLE CELLS
     for (var i = 0; i < today_eaten.length; i++) {
         // ADD "BASIC" CELL
-        const short_product_name = cut_product_name(today_eaten[i].intake_productName, 32);
+        const short_product_name = cut_product_name(today_eaten[i].intake_productName, 40);
         var cell = row.insertCell();
         cell.innerHTML =
             short_product_name +
