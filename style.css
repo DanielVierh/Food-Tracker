@@ -160,6 +160,7 @@ footer {
     top: 0;
     width: 98%;
     font-size: 44px;
+    z-index: 999;
 }
 
 /* Graue Boxen */
