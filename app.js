@@ -1940,6 +1940,7 @@ function create_Table_TodayEaten() {
     document.getElementById('containerTabelle_Today').appendChild(table);
 }
 
+//* ANCHOR - Func to short string value
 function cut_product_name(val, length) {
     let return_val = '';
     try {
