@@ -1368,6 +1368,7 @@ function blendIn_FoodActionArea() {
     // Disable Schaltflächen
     document.getElementById('btn_Save_to_TodayEaten').disabled = false;
     inputField_EatenFood_in_Gramm.disabled = false;
+    inputField_EatenFood_in_Gramm.value = ''
     document.getElementById('btn_ChangeMacros').disabled = false;
 }
 
