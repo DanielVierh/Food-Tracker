@@ -2085,10 +2085,10 @@ function calc_Values() {
 
     if (diff > 0) {
         document.getElementById('output_Diff').innerHTML =
-            diff + ' Kcal übrig &#128512';
+            diff + ' Kcal übrig';
     } else {
         document.getElementById('output_Diff').innerHTML =
-            Math.abs(diff) + ' Kcal zu viel &#128577';
+            Math.abs(diff) + ' Kcal zu viel';
     }
 
     carbLabel.innerHTML = eaten_Carbs.toFixed(1) + ' g';
@@ -2206,6 +2206,7 @@ function coloring_Labels() {
         kalorienBilanz_Progress();
         colorizeTargetProgress();
     }
+    macro_progress();
 }
 
 // Schritte
@@ -2241,12 +2242,8 @@ function kalorienBilanz_Progress() {
 // Weitere Ziele
 
 function colorizeTargetProgress() {
-    let shouldMinVal = [min_Protein, min_Fiber, min_Steps];
-    let isMinVal = [eaten_Protein, eaten_Fiber, today_Steps];
 
     //* sugar
-    const sugar_progress = eaten_Sugar * 100 / max_Sugar;
-    document.getElementById('sugar_progress').style.width = `${sugar_progress}%`;
     if (eaten_Sugar >= max_Sugar) {
         sugarLabel.style.color = 'red';
     } else {
@@ -2254,8 +2251,6 @@ function colorizeTargetProgress() {
     }
 
     //* Salt salt_progress
-    const salt_progress = eaten_Salt * 100 / max_Salt;
-    document.getElementById('salt_progress').style.width = `${salt_progress}%`;
     if (eaten_Salt >= max_Salt) {
         saltLabel.style.color = 'red';
     } else {
@@ -2263,8 +2258,6 @@ function colorizeTargetProgress() {
     }
 
     //* protein_progress
-    const protein_progress = eaten_Protein * 100 / min_Protein;
-    document.getElementById('protein_progress').style.width = `${protein_progress}%`;
     if (eaten_Protein < min_Protein) {
         proteinLabel.style.color = 'red';
     } else {
@@ -2272,8 +2265,6 @@ function colorizeTargetProgress() {
     }
 
     //* Fiber 
-    const fiber_progress = eaten_Fiber * 100 / min_Fiber;
-    document.getElementById('fiber_progress').style.width = `${fiber_progress}%`;
     if (eaten_Fiber < min_Fiber) {
         fiberLabel.style.color = 'red';
     } else {
@@ -2281,8 +2272,6 @@ function colorizeTargetProgress() {
     }
 
     //* Carbs
-    const carb_progress = eaten_Carbs * 100 / des_Carbs;
-    document.getElementById('carbs_progress').style.width = `${carb_progress}%`;
     if (eaten_Carbs > des_Carbs) {
         carbLabel.style.color = 'red';
     } else {
@@ -2290,8 +2279,6 @@ function colorizeTargetProgress() {
     }
 
     //* Fat fat_progress
-    const fat_progress = eaten_Fat * 100 / des_Fat;
-    document.getElementById('fat_progress').style.width = `${fat_progress}%`;
 
     if (isKeto == true) {
         if (eaten_Fat > des_Fat) {
@@ -2306,6 +2293,32 @@ function colorizeTargetProgress() {
             fatLabel.style.color = 'red';
         }
     }
+}
+
+function macro_progress() {
+     //* sugar
+     const sugar_progress = eaten_Sugar * 100 / max_Sugar;
+     document.getElementById('sugar_progress').style.width = `${sugar_progress}%`;
+
+     //* Salt salt_progress
+     const salt_progress = eaten_Salt * 100 / max_Salt;
+     document.getElementById('salt_progress').style.width = `${salt_progress}%`;
+ 
+     //* protein_progress
+     const protein_progress = eaten_Protein * 100 / min_Protein;
+     document.getElementById('protein_progress').style.width = `${protein_progress}%`;
+ 
+     //* Fiber 
+     const fiber_progress = eaten_Fiber * 100 / min_Fiber;
+     document.getElementById('fiber_progress').style.width = `${fiber_progress}%`;
+ 
+     //* Carbs
+     const carb_progress = eaten_Carbs * 100 / des_Carbs;
+     document.getElementById('carbs_progress').style.width = `${carb_progress}%`;
+ 
+     //* Fat fat_progress
+     const fat_progress = eaten_Fat * 100 / des_Fat;
+     document.getElementById('fat_progress').style.width = `${fat_progress}%`;
 }
 
 //============================================================================
