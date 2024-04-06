@@ -3684,6 +3684,7 @@ async function fetchProductData(ean_code) {
         inp_Fiber.value = (data.product.nutriments.fiber_100g !== undefined) ? data.product.nutriments.fiber_100g : 0;
         inp_Protein.value = (data.product.nutriments.proteins_100g !== undefined) ? data.product.nutriments.proteins_100g : 0;
         inp_Salt.value = (data.product.nutriments.salt_100g !== undefined) ? data.product.nutriments.salt_100g : 0;
+        inp_Barcode.value = ean_code
         inp_Unit.value = (data.product.product_quantity + 'g') || 0;
 
         is_fetched_Data = true;
