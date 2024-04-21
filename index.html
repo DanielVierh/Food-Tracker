@@ -477,31 +477,37 @@
 
     <form class="settingForm">
       <div class="invisibleCont" id="visibility">
-        <label>Geschlecht</label>
-        <br>
-        <input type="radio" name="gender" class="radioBtn" id="opt_Male" value="male"> Mann <br>
-        <input type="radio" name="gender" class="radioBtn" id="opt_Female" value="female"> Frau <br>
-        <hr>
-        <label>Gewicht</label>
-        <br>
-        <input type="text" pattern="\d*" value="" id="weight" class="inputMenge" placeholder=" in kg">
-        <hr>
-        <label>Größe z.B. 180</label>
-        <br>
-        <input type="text" pattern="\d*" value="" id="height" class="inputMenge" placeholder=" in cm">
-        <hr>
-        <label>Alter</label>
-        <br>
-        <input type="text" pattern="\d*" value="" id="age" class="inputMenge" placeholder="">
-        <hr>
-        <label>Dein Zielgewicht</label>
-        <br>
-        <input type="text" pattern="\d*" value="" id="target_Weight" class="inputMenge" placeholder=" in kg">
-        <hr>
-        <label>In welchem Zeitraum willst du es schaffen z.B. 2 Monate</label>
-        <br>
-        <input type="text" pattern="\d*" value="" id="target_Time" class="inputMenge" placeholder="Monat">
-        <hr>
+        <div class="half-row">
+          <label>Geschlecht</label>
+          <input type="radio" name="gender" class="radioBtn" id="opt_Male" value="male"> Mann <br>
+          <hr style="width: 100%;">
+          <input type="radio" name="gender" class="radioBtn" id="opt_Female" value="female"> Frau <br>
+        </div>
+
+        <div class="half-row">
+          <label>Gewicht</label>
+          <input type="text" pattern="\d*" value="" id="weight" class="inputMenge" placeholder=" in kg">
+         </div>
+
+        <div class="half-row">
+          <label>Größe z.B. 180</label>
+          <input type="text" pattern="\d*" value="" id="height" class="inputMenge" placeholder=" in cm">
+        </div>
+
+        <div class="half-row">
+          <label>Alter</label>
+          <input type="text" pattern="\d*" value="" id="age" class="inputMenge" placeholder="">
+        </div>
+
+        <div class="half-row">
+          <label>Dein Zielgewicht</label>
+          <input type="text" pattern="\d*" value="" id="target_Weight" class="inputMenge" placeholder=" in kg">
+        </div>
+
+        <div class="half-row">
+          <label style="transform: scale(.9); text-align: center;">In welchem Zeitraum willst du es schaffen z.B. 2 Monate</label>
+          <input type="text" pattern="\d*" value="" id="target_Time" class="inputMenge" placeholder="Monat">
+        </div>
     </form>
   </div>
   <button class="ButtonSpeichern" onclick="calc_Kcal_Goal()" id="inv_Button">Berechnen</button>

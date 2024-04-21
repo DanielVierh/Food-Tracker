@@ -938,7 +938,7 @@ table.names th {
     border: 3px solid rgb(17, 138, 146);
 }
 
-.boxWeitereZiele {
+.boxWeitereZiele, .invisibleCont {
     display: grid;
     width: 100%;
     justify-content: center;
