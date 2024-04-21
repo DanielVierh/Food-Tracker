@@ -940,9 +940,23 @@ table.names th {
 
 .boxWeitereZiele {
     display: grid;
+    width: 100%;
     justify-content: center;
     text-align: left;
-    margin-left: 10%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: var(--mainColor);
+}
+
+.half-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondaryColor);
+    box-shadow: 0 0 10px var(--previewShadow);
+    padding-top: 15px;
+    border-radius: 8px;
 }
 
 #Status_New_Food {
