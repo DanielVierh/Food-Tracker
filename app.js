@@ -1396,14 +1396,18 @@ function show_NutriScore(choosenProduct) {
 
 
     */
-    var badPoints = 0;
-    var goodPoints = 0;
+    let badPoints = 0;
+    let goodPoints = 0;
     let calcAmound = 100;
     let check_Kcal = parseInt((calcAmound * selected_Food.kcal) / 100);
     let check_Sugar = parseFloat((calcAmound * selected_Food.sugar) / 100);
     let check_Salt = parseFloat((calcAmound * selected_Food.salt) / 100);
     let check_Protein = parseFloat((calcAmound * selected_Food.protein) / 100);
     let check_Fiber = parseFloat((calcAmound * selected_Food.fiber) / 100);
+    let check_Carbs = parseFloat((calcAmound * selected_Food.carbs) / 100); // Not for nutri score, but for product hints 
+
+    //* Product hint on product select
+    product_hints(check_Carbs, check_Sugar, check_Salt, check_Fiber, check_Protein);
 
     if (choosenProduct !== undefined) {
         check_Kcal = parseInt((calcAmound * choosenProduct.kcal) / 100);
@@ -1523,9 +1527,9 @@ function show_NutriScore(choosenProduct) {
     }
 
     let nutriScoreVal = badPoints - goodPoints;
-    var nutriScore = 0;
-    var nutriScoreChar = '';
-    var color = '';
+    let nutriScore = 0;
+    let nutriScoreChar = '';
+    let color = '';
 
     // Reset NutriScoreLabel
     document.getElementById('C_A').style.height = '80px';
@@ -1567,6 +1571,98 @@ function show_NutriScore(choosenProduct) {
     }
 
     return nutriScore;
+}
+
+//* ANCHOR - product_hints when selectign a product
+function product_hints(carbs, sugar, salt, fiber, protein) {
+    let hint_container = document.getElementById('hints');
+
+    // Carbs
+    let carbHint = document.createElement('div');
+    carbHint.classList.add('hint-item');
+    if (carbs > 20) {
+        carbHint.innerHTML = 'Viel Kohlenhydrate';
+        carbHint.style.backgroundColor = 'darkred'
+    }
+    if (carbs >= 3 && carbs <= 20) {
+        carbHint.innerHTML = 'Low Carb geeignet';
+        carbHint.style.backgroundColor = 'grey'
+    }
+    if (carbs < 3) {
+        carbHint.innerHTML = 'Keto geeignet';
+        carbHint.style.backgroundColor = 'green'
+    }
+
+    // Salt
+    let saltHint = document.createElement('div');
+    saltHint.classList.add('hint-item');
+    if (salt > 0.6) {
+        saltHint.innerHTML = 'Zu viel Salz';
+        saltHint.style.backgroundColor = 'darkred'
+    }
+    if (salt >= 0.2 && salt <= 0.6) {
+        saltHint.innerHTML = 'Mäßig gesalzen';
+        saltHint.style.backgroundColor = 'grey'
+    }
+    if (salt < 0.2) {
+        saltHint.innerHTML = 'Wenig Salz';
+        saltHint.style.backgroundColor = 'green'
+    }
+
+    // Protein
+    let proteinHint = document.createElement('div');
+    proteinHint.classList.add('hint-item');
+    if (protein > 10) {
+        proteinHint.innerHTML = 'Viel Eiweiß';
+        proteinHint.style.backgroundColor = 'green'
+    }
+    if (protein >= 5 && protein <= 10) {
+        proteinHint.innerHTML = 'Mäßig Eiweiß';
+        proteinHint.style.backgroundColor = 'grey'
+    }
+    if (protein < 5) {
+        proteinHint.innerHTML = 'Wenig Eiweiß';
+        proteinHint.style.backgroundColor = 'darkred'
+    }
+
+    // Fiber
+    let fiberHint = document.createElement('div');
+    fiberHint.classList.add('hint-item');
+    if (fiber > 4) {
+        fiberHint.innerHTML = 'Viel Ballaststoffe';
+        fiberHint.style.backgroundColor = 'green'
+    }
+    if (fiber >= 2 && fiber <= 4) {
+        fiberHint.innerHTML = 'Mäßig Ballaststoffe';
+        fiberHint.style.backgroundColor = 'grey'
+    }
+    if (fiber < 2) {
+        fiberHint.innerHTML = 'Wenig Ballaststoffe';
+        fiberHint.style.backgroundColor = 'darkred'
+    }
+
+    // Sugar
+    let sugarHint = document.createElement('div');
+    sugarHint.classList.add('hint-item');
+    if (sugar > 15) {
+        sugarHint.innerHTML = 'Viel Zucker';
+        sugarHint.style.backgroundColor = 'darkred'
+    }
+    if (sugar >= 5 && sugar <= 15) {
+        sugarHint.innerHTML = 'Mäßig Zucker';
+        sugarHint.style.backgroundColor = 'grey'
+    }
+    if (sugar < 5) {
+        sugarHint.innerHTML = 'Wenig Zucker';
+        sugarHint.style.backgroundColor = 'green'
+    }
+
+    hint_container.innerHTML = '';
+    hint_container.appendChild(carbHint)
+    hint_container.appendChild(saltHint)
+    hint_container.appendChild(proteinHint)
+    hint_container.appendChild(fiberHint)
+    hint_container.appendChild(sugarHint)
 }
 
 //============================================================================
@@ -1945,10 +2041,10 @@ function create_Table_TodayEaten() {
 function cut_product_name(val, length) {
     let return_val = '';
     try {
-        for(let i = 0; i < val.length; i++) {
-            if(i < (length - 3)) {
+        for (let i = 0; i < val.length; i++) {
+            if (i < (length - 3)) {
                 return_val = return_val + val[i];
-            }else {
+            } else {
                 return_val = return_val + '...';
                 break
             }
@@ -2296,29 +2392,29 @@ function colorizeTargetProgress() {
 }
 
 function macro_progress() {
-     //* sugar
-     const sugar_progress = eaten_Sugar * 100 / max_Sugar;
-     document.getElementById('sugar_progress').style.width = `${sugar_progress}%`;
+    //* sugar
+    const sugar_progress = eaten_Sugar * 100 / max_Sugar;
+    document.getElementById('sugar_progress').style.width = `${sugar_progress}%`;
 
-     //* Salt salt_progress
-     const salt_progress = eaten_Salt * 100 / max_Salt;
-     document.getElementById('salt_progress').style.width = `${salt_progress}%`;
- 
-     //* protein_progress
-     const protein_progress = eaten_Protein * 100 / min_Protein;
-     document.getElementById('protein_progress').style.width = `${protein_progress}%`;
- 
-     //* Fiber 
-     const fiber_progress = eaten_Fiber * 100 / min_Fiber;
-     document.getElementById('fiber_progress').style.width = `${fiber_progress}%`;
- 
-     //* Carbs
-     const carb_progress = eaten_Carbs * 100 / des_Carbs;
-     document.getElementById('carbs_progress').style.width = `${carb_progress}%`;
- 
-     //* Fat fat_progress
-     const fat_progress = eaten_Fat * 100 / des_Fat;
-     document.getElementById('fat_progress').style.width = `${fat_progress}%`;
+    //* Salt salt_progress
+    const salt_progress = eaten_Salt * 100 / max_Salt;
+    document.getElementById('salt_progress').style.width = `${salt_progress}%`;
+
+    //* protein_progress
+    const protein_progress = eaten_Protein * 100 / min_Protein;
+    document.getElementById('protein_progress').style.width = `${protein_progress}%`;
+
+    //* Fiber 
+    const fiber_progress = eaten_Fiber * 100 / min_Fiber;
+    document.getElementById('fiber_progress').style.width = `${fiber_progress}%`;
+
+    //* Carbs
+    const carb_progress = eaten_Carbs * 100 / des_Carbs;
+    document.getElementById('carbs_progress').style.width = `${carb_progress}%`;
+
+    //* Fat fat_progress
+    const fat_progress = eaten_Fat * 100 / des_Fat;
+    document.getElementById('fat_progress').style.width = `${fat_progress}%`;
 }
 
 //============================================================================

@@ -2047,3 +2047,20 @@ input:checked + .slider:before {
     background-color: var(--mainText);
     opacity: .7;
 }
+
+#hints {
+    margin: 20px auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.hint-item {
+    font-size: 1.8rem;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 9px;
+}
