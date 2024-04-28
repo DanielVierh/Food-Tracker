@@ -2060,7 +2060,32 @@ input:checked + .slider:before {
 
 .hint-item {
     font-size: 1.8rem;
-    width: fit-content;
-    padding: 15px;
+    padding: 5px;
     border-radius: 9px;
+}
+
+.macro-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 2rem;
+    width: 100%;
+    transition: all .7s ease-in-out;
+}
+
+.makro-bubble {
+    background-color: var(--secondaryColor);
+    padding: 20px;
+    border-radius: 8px;
+    animation: animate-makro-bubbles .6s ease-in-out;
+}
+
+@keyframes animate-makro-bubbles {
+    from {
+        color: var(--secondaryColor);
+    }
+
+    to {
+        color: var(--mainText);
+    }
 }

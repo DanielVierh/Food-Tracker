@@ -77,6 +77,7 @@ const modal_new_food = document.getElementById('modal_new_food');
 const btn_close_modal = document.getElementById('btn_close_modal');
 const btn_close_foodModal = document.getElementById('btn_close_foodModal');
 const body = document.getElementById('bdy');
+const macro_prev = document.getElementById('macro_prev');
 
 
 let scann_obj = {
@@ -1252,6 +1253,7 @@ function createTable_FoodDB() {
         // Produktauswahl
         cell.addEventListener('click', function () {
             foodFromToday = false;
+            macro_prev.innerHTML = '';
             selectedFoodIndex = this.dataset.id;
             selected_Food = array_Food_DB[selectedFoodIndex];
             let calories = selected_Food.kcal;
@@ -1329,6 +1331,7 @@ function buildTable(data) {
 
             cell.addEventListener('click', function () {
                 foodFromToday = false;
+                macro_prev.innerHTML = '';
                 selectedFoodIndex = this.dataset.id;
                 selected_Food = data[selectedFoodIndex];
                 let quantity = selected_Food.quantityUnit;
@@ -1817,6 +1820,41 @@ function checkButton() {
         showMessage('Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken', 10000, 'Alert')
     }
 }
+
+
+
+//============================================================================
+//NOTE -   Event Listener for Food Amount
+//============================================================================
+inputField_EatenFood_in_Gramm.addEventListener('input', () => {
+    const current_Food = selected_Food;
+    const quantity = inputField_EatenFood_in_Gramm.value;
+    let macroArr = [];
+
+    class MakroPrev {
+        constructor(name, val) {
+            this.name = name,
+                this.val = val
+        }
+    }
+
+    macroArr.push(new MakroPrev('Kcal: ', parseInt(quantity * current_Food.kcal / 100)))
+    macroArr.push(new MakroPrev('Fett: ', parseFloat(quantity * current_Food.fat / 100).toFixed(1)))
+    macroArr.push(new MakroPrev('KH: ', parseFloat(quantity * current_Food.carbs / 100).toFixed(1)))
+    macroArr.push(new MakroPrev('Zck: ', parseFloat(quantity * current_Food.sugar / 100).toFixed(1)))
+    macroArr.push(new MakroPrev('Bal.: ', parseFloat(quantity * current_Food.fiber / 100).toFixed(1)))
+    macroArr.push(new MakroPrev('Eiw.: ', parseFloat(quantity * current_Food.protein / 100).toFixed(1)))
+    macroArr.push(new MakroPrev('Salz: ', parseFloat(quantity * current_Food.salt / 100).toFixed(1)))
+
+    macro_prev.innerHTML = '';
+    macroArr.forEach((makro) => {
+        let makro_bubble = document.createElement('div');
+        makro_bubble.innerHTML = makro.name + ' ' + makro.val;
+        makro_bubble.classList.add('makro-bubble');
+        macro_prev.appendChild(makro_bubble);
+    })
+
+})
 
 //============================================================================
 //NOTE -   Food zu heute gegessen hinzufügen
