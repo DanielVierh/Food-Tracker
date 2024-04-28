@@ -1854,6 +1854,13 @@ inputField_EatenFood_in_Gramm.addEventListener('input', () => {
         macro_prev.appendChild(makro_bubble);
     })
 
+
+    product_hints(parseFloat(quantity * current_Food.carbs / 100).toFixed(1), 
+    parseFloat(quantity * current_Food.sugar / 100).toFixed(1), 
+    parseFloat(quantity * current_Food.salt / 100).toFixed(1), 
+    parseFloat(quantity * current_Food.fiber / 100).toFixed(1), 
+    parseFloat(quantity * current_Food.protein / 100).toFixed(1));
+
 })
 
 //============================================================================
