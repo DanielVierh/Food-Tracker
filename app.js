@@ -1,53 +1,53 @@
 // Projekt erstellt am 13.05.2021
+import { showMessage } from "./modules/message.js";
 
 // Variabeln
-let buttonAdd = document.getElementById('btnAdd');
-let buttonScroll_Up = document.getElementById('btnscrl_Up');
-var haferflocken = '';
-var today_Steps = 0;
-var array_Food_DB = [];
-var today_eaten = [];
-var my_Statistics = [];
-var additional_Targets = [];
-var my_History = [];
-var bodyWeight = 78;
-var kcal_Ziel = 2000;
-var kcal_Requirement = 2000;
+const buttonAdd = document.getElementById('btnAdd');
+const buttonScroll_Up = document.getElementById('btnscrl_Up');
+let today_Steps = 0;
+let array_Food_DB = [];
+let today_eaten = [];
+let my_Statistics = [];
+let additional_Targets = [];
+let my_History = [];
+let bodyWeight = 78;
+let kcal_Ziel = 2000;
+let kcal_Requirement = 2000;
 
-var selected_Food = '';
-var selectedFoodIndex = 0;
-var foodFromToday = false;
+let selected_Food = '';
+let selectedFoodIndex = 0;
+let foodFromToday = false;
 
-var eaten_Kcal = 0;
-var eaten_Carbs = 0.0;
-var eaten_Sugar = 0.0;
-var eaten_Protein = 0.0;
-var eaten_Fat = 0.0;
-var eaten_Salt = 0.0;
-var eaten_Fiber = 0.0;
-var eaten_Amount = 0.0;
-var burned_Kcal = 0;
-var effective_Kcal = 0;
-var form_is_Invisible = false;
-var diff = 0;
-var changeProduct = false;
-var old_Quantity = 0;
-var max_Sugar = 50;
-var max_Salt = 7;
-var min_Protein = 90;
-var min_Fiber = 30;
-var min_Steps = 10000;
-var des_Fat = 80;
-var des_Carbs = 150;
-var new_Water = 0.25;
-var today_Water = 0;
-var originDB = [];
-var exp_New_Prod = [];
-var selectedDateIndex = 0;
-var selectedDate = '';
-var lastWater = '';
-var spezDiet_Visible = false;
-var isKeto = false;
+let eaten_Kcal = 0;
+let eaten_Carbs = 0.0;
+let eaten_Sugar = 0.0;
+let eaten_Protein = 0.0;
+let eaten_Fat = 0.0;
+let eaten_Salt = 0.0;
+let eaten_Fiber = 0.0;
+let eaten_Amount = 0.0;
+let burned_Kcal = 0;
+let effective_Kcal = 0;
+let form_is_Invisible = false;
+let diff = 0;
+let changeProduct = false;
+let old_Quantity = 0;
+let max_Sugar = 50;
+let max_Salt = 7;
+let min_Protein = 90;
+let min_Fiber = 30;
+let min_Steps = 10000;
+let des_Fat = 80;
+let des_Carbs = 150;
+let new_Water = 0.25;
+let today_Water = 0;
+let originDB = [];
+let exp_New_Prod = [];
+let selectedDateIndex = 0;
+let selectedDate = '';
+let lastWater = '';
+let spezDiet_Visible = false;
+let isKeto = false;
 
 let countedPercentNumber = 0;
 let originalPercentValue = 0;
@@ -78,6 +78,7 @@ const btn_close_modal = document.getElementById('btn_close_modal');
 const btn_close_foodModal = document.getElementById('btn_close_foodModal');
 const body = document.getElementById('bdy');
 const macro_prev = document.getElementById('macro_prev');
+const btn_Save_to_TodayEaten = document.getElementById('btn_Save_to_TodayEaten');
 
 
 let scann_obj = {
@@ -1866,6 +1867,10 @@ inputField_EatenFood_in_Gramm.addEventListener('input', () => {
 //============================================================================
 //NOTE -   Food zu heute gegessen hinzufügen
 //============================================================================
+btn_Save_to_TodayEaten.addEventListener('click', ()=> {
+    add_Food_to_TodayList();
+});
+
 function add_Food_to_TodayList() {
     //Produkt nicht "", also ausgewählt
     if (selected_Food != '') {
@@ -3720,26 +3725,7 @@ function deleteStatistics() {
 
 
 
-////////////////////////////////
-//NOTE -   Messagebox
-////////////////////////////////
-function showMessage(msg, displaytime, messageType) {
-    messageContainer.classList.remove('infoMessage');
-    messageContainer.classList.remove('alertMessage');
 
-    if (messageType === 'Info') {
-        messageContainer.classList.add('infoMessage')
-    }
-    if (messageType === 'Alert') {
-        messageContainer.classList.add('alertMessage')
-    }
-
-    message.innerHTML = msg
-    messageContainer.classList.add("active")
-    setTimeout(() => {
-        messageContainer.classList.remove("active")
-    }, displaytime);
-}
 
 // Hide Messagebox on click
 messageContainer.addEventListener('click', () => {
