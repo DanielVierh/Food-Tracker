@@ -101,6 +101,7 @@ const btnStatFat = document.getElementById('btnStatFat');
 const btnStatBallast = document.getElementById('btnStatBallast');
 const btnStatProtein = document.getElementById('btnStatProtein');
 const btn_send_day = document.getElementById('btn_send_day');
+const btn_close_newProd_modal = document.getElementById('btn_close_newProd_modal');
 
 
 let scann_obj = {
@@ -281,6 +282,10 @@ btnStatProtein.addEventListener('click', ()=> {
 
 btn_send_day.addEventListener('click', ()=> {
     sendThisDay()
+});
+
+btn_close_newProd_modal.addEventListener('click', ()=> {
+    close_new_modal()
 });
 
 
