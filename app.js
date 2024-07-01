@@ -79,7 +79,7 @@ const btn_close_foodModal = document.getElementById('btn_close_foodModal');
 const body = document.getElementById('bdy');
 const macro_prev = document.getElementById('macro_prev');
 const btn_Save_to_TodayEaten = document.getElementById('btn_Save_to_TodayEaten');
-
+const btn_ChangeMacros = document.getElementById('btn_ChangeMacros');
 
 let scann_obj = {
     "scann_time": undefined,
@@ -419,7 +419,7 @@ function blendOut_Eingabebereich_FoodDB() {
     // Disable Schaltflächen
     document.getElementById('btn_Save_to_TodayEaten').disabled = true;
     inputField_EatenFood_in_Gramm.disabled = true;
-    document.getElementById('btn_ChangeMacros').disabled = true;
+    btn_ChangeMacros.disabled = true;
 }
 
 //NOTE -   Klasse für Lebensmittel
@@ -1373,7 +1373,7 @@ function blendIn_FoodActionArea() {
     document.getElementById('btn_Save_to_TodayEaten').disabled = false;
     inputField_EatenFood_in_Gramm.disabled = false;
     inputField_EatenFood_in_Gramm.value = ''
-    document.getElementById('btn_ChangeMacros').disabled = false;
+    btn_ChangeMacros.disabled = false;
 }
 
 
@@ -1749,80 +1749,6 @@ function resetNutriScore() {
     document.getElementById('C_D').style.height = '60px';
     document.getElementById('C_E').style.height = '60px';
 }
-
-//============================================================================
-//NOTE -   Prüfbutton für ausgewähltes Lebensmittel und Menge
-//============================================================================
-function checkButton() {
-    if (selected_Food != '') {
-        if (inputField_EatenFood_in_Gramm.value == '') {
-            inputField_EatenFood_in_Gramm.value = 100;
-            checkButton();
-        } else {
-            let newProduct = selected_Food.productName;
-            var selectedAmount = parseFloat(
-                inputField_EatenFood_in_Gramm.value,
-            );
-
-            // Produkt hinzufügen
-            try {
-                let kcal_Intake = parseInt(
-                    (selectedAmount * selected_Food.kcal) / 100,
-                );
-                let fat_Intake = parseFloat(
-                    (selectedAmount * selected_Food.fat) / 100,
-                );
-                let carb_Intake = parseFloat(
-                    (selectedAmount * selected_Food.carbs) / 100,
-                );
-                let sugar_Intake = parseFloat(
-                    (selectedAmount * selected_Food.sugar) / 100,
-                );
-                let protein_Intake = parseFloat(
-                    (selectedAmount * selected_Food.protein) / 100,
-                );
-                let salt_Intake = parseFloat(
-                    (selectedAmount * selected_Food.salt) / 100,
-                );
-                let fiber_Intake = parseFloat(
-                    (selectedAmount * selected_Food.fiber) / 100,
-                );
-
-                // Anzeigen, dass Produkt eingetragen wurde
-                let intakeFoodInfo =
-                    selectedAmount +
-                    ' Gramm ' +
-                    newProduct +
-                    ' hätte folgende Werte: \n Kcal: ' +
-                    kcal_Intake +
-                    ' \n Kohlenhydrate: ' +
-                    parseInt(carb_Intake) +
-                    ' g \n Zucker: ' +
-                    parseInt(sugar_Intake) +
-                    ' g \n Eiweiss: ' +
-                    parseInt(protein_Intake) +
-                    ' g \n Fett: ' +
-                    parseInt(fat_Intake) +
-                    ' g \n Ballaststoffe: ' +
-                    parseInt(fiber_Intake) +
-                    ' g \n Salz: ' +
-                    salt_Intake +
-                    ' g';
-                console.log('selected_Food.product_image', selected_Food.product_image);
-                if (selected_Food.product_image != undefined || selected_Food.product_image != null) {
-                    showMessage(`<img src="${selected_Food.product_image}" width=200 height=200/> </br> </br> ${intakeFoodInfo} </br> `, 8000, 'Info');
-                } else {
-                    showMessage(`${intakeFoodInfo}`, 10000, 'Info')
-                }
-
-            } catch (error) { }
-        }
-    } else {
-        showMessage('Konnte nicht berechnet werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf Lupe klicken', 10000, 'Alert')
-    }
-}
-
-
 
 //============================================================================
 //NOTE -   Event Listener for Food Amount
@@ -3362,6 +3288,10 @@ function addZero(val) {
 //NOTE -   Makros in der Datenbank ändern
 //============================================================================
 
+btn_ChangeMacros.addEventListener('click', ()=> {
+    changeMacros();
+});
+
 function changeMacros() {
     changeProduct = true;
     // Content laden
@@ -3375,7 +3305,9 @@ function changeMacros() {
     document.getElementById('inp_Protein').value = selected_Food.protein;
     document.getElementById('inp_Salt').value = selected_Food.salt;
     document.getElementById('inp_Unit').value = selected_Food.quantityUnit;
-    document.getElementById('inp_barcode').value = selected_Food.barcode;
+    if(selected_Food.barcode) {
+        document.getElementById('inp_barcode').value = selected_Food.barcode;
+    }
     document.getElementById('inp_imgLink').value = selected_Food.product_image;
     open_new_modal();
 }
