@@ -102,6 +102,11 @@ const btnStatBallast = document.getElementById('btnStatBallast');
 const btnStatProtein = document.getElementById('btnStatProtein');
 const btn_send_day = document.getElementById('btn_send_day');
 const btn_close_newProd_modal = document.getElementById('btn_close_newProd_modal');
+const btn_del_food_from_db = document.getElementById('btn_del_food_from_db');
+const btn_add_new_food = document.getElementById('btn_add_new_food');
+const inv_Button = document.getElementById('inv_Button');
+const btn_makeFieldsInvisible = document.getElementById('btn_makeFieldsInvisible');
+const btn_define_Kcal_Target = document.getElementById('btn_define_Kcal_Target');
 
 
 let scann_obj = {
@@ -286,6 +291,26 @@ btn_send_day.addEventListener('click', ()=> {
 
 btn_close_newProd_modal.addEventListener('click', ()=> {
     close_new_modal()
+});
+
+btn_del_food_from_db.addEventListener('click', ()=> {
+    delete_Food_from_DB()
+});
+
+btn_add_new_food.addEventListener('click', ()=> {
+    add_new_Food()
+});
+
+inv_Button.addEventListener('click', ()=> {
+    calc_Kcal_Goal()
+});
+
+btn_makeFieldsInvisible.addEventListener('click', ()=> {
+    makeFieldsInvisible()
+});
+
+btn_define_Kcal_Target.addEventListener('click', ()=> {
+    define_Kcal_Target()
 });
 
 
@@ -2701,8 +2726,12 @@ function define_Kcal_Target() {
         kcal_Ziel = parseInt(document.getElementById('target_KcalZiel').value);
         save_kcalZiel();
         showMessage(`Kcal Ziel wurde übernommen`, 4000, 'Info');
-        window.scrollTo(0, 0);
-        location.reload();
+        setTimeout(() => {
+            window.scrollTo(0, 0);  
+        }, 4000);
+        setTimeout(() => {
+            location.reload();   
+        }, 6000);
     }
 }
 
@@ -3094,11 +3123,11 @@ function get_today() {
 function makeFieldsInvisible() {
     if (form_is_Invisible == true) {
         document.getElementById('visibility').style.opacity = '1';
-        document.getElementById('inv_Button').style.opacity = '1';
+        inv_Button.style.opacity = '1';
         form_is_Invisible = false;
     } else {
         document.getElementById('visibility').style.opacity = '0';
-        document.getElementById('inv_Button').style.opacity = '0';
+        inv_Button.style.opacity = '0';
         form_is_Invisible = true;
         // TODO SPEICHERN DES STATUS UND 78 KG GEWICHT SPEICHERN
         ///////////

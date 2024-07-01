@@ -452,8 +452,8 @@
     <p id="Status_New_Food"></p>
     <br>
     <div class="box_SaveButton">
-      <button class="button_FoodLoeschen" onclick="delete_Food_from_DB()">löschen</button>
-      <button class="ButtonSpeichern" onclick="add_new_Food()">Speichern</button>
+      <button class="button_FoodLoeschen" id="btn_del_food_from_db">löschen</button>
+      <button class="ButtonSpeichern" id="btn_add_new_food">Speichern</button>
     </div>
   </div>
 
@@ -502,7 +502,7 @@
         </div>
     </form>
   </div>
-  <button class="ButtonSpeichern" onclick="calc_Kcal_Goal()" id="inv_Button">Berechnen</button>
+  <button class="ButtonSpeichern" id="inv_Button">Berechnen</button>
   <p id="output_Kcal_Req"
     style="color: yellow; font-size: 20px; background-color: rgb(32, 32, 32); max-width: 80%; margin: 0 auto;"></p>
 
@@ -514,7 +514,7 @@
   <hr>
   <br>
   <label for="">Möchte keine Angaben darüber machen</label>
-  <input type="checkbox" class="checkBox" onclick="makeFieldsInvisible()">
+  <input type="checkbox" class="checkBox" id="btn_makeFieldsInvisible">
   <br><br>
 
   <p style="font-size: 22px; max-width: 80%; margin: 0 auto;">*Möchtest du keine Angaben über Alter, Gewicht etc.
@@ -525,7 +525,7 @@
   <label>Kalorien-Ziel</label>
   <br>
   <input type="text" pattern="\d*" value="" id="target_KcalZiel" class="inputMenge" placeholder="">
-  <button class="ButtonSpeichern" onclick="define_Kcal_Target()">Speichern</button>
+  <button class="ButtonSpeichern" id="btn_define_Kcal_Target">Speichern</button>
   <hr> <br>
   <!-- Weitere Ziele -->
   <p class="advise">Weitere Ziele</p>
