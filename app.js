@@ -1,5 +1,6 @@
 // Projekt erstellt am 13.05.2021
 import { showMessage } from "./modules/message.js";
+import { addZero } from "./modules/helperfunctions.js";
 
 // Variabeln
 const buttonAdd = document.getElementById('btnAdd');
@@ -3462,12 +3463,6 @@ function current_timeStamp() {
 }
 
 
-function addZero(val) {
-    if (val < 10) {
-        val = '0' + val;
-    }
-    return val;
-}
 
 //============================================================================
 //NOTE -   Makros in der Datenbank ändern
