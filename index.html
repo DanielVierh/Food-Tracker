@@ -179,9 +179,9 @@
           <button class="button_del" id="btnDeleteFoodFromToday">X</button>
           <input type="text" pattern="\d*" value="" id="foodAmound_Change" class="inputMengeChange"
             placeholder="in Gramm">
-          <button class="button-Menge-aendern" onclick="change_Food_to_TodayList()" id="btnChangeQuantity">Menge
+          <button class="button-Menge-aendern" id="btnChangeQuantity">Menge
             ändern</button>
-          <button onclick="blendOut_MengeAendern()" class="checkMarkButton"><svg xmlns="http://www.w3.org/2000/svg"
+          <button class="checkMarkButton" id="btn_blendOut_MengeAendern"><svg xmlns="http://www.w3.org/2000/svg"
               width="1164" height="1164" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
               <path
                 d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
@@ -209,9 +209,9 @@
     <p style="text-align: center; font-size: 114px;">🥤</p>
     <div class="wasserContainer">
 
-      <button class="spinButton" onclick="water_Spin_Down()">-</button>
-      <button class="outputButtonWater" id="outpWaterButton" onclick="take_Over_Water()">0.25 L</button>
-      <button class="spinButton" onclick="water_Spin_Up()">+</button>
+      <button class="spinButton" id="btn_water_spin_down">-</button>
+      <button class="outputButtonWater" id="outpWaterButton">0.25 L</button>
+      <button class="spinButton" id="btn_water_spin_up">+</button>
     </div>
     <br>
     <p>Heute getrunken</p>
@@ -245,12 +245,7 @@
   <!-- Leerzone  -->
   <div class="container zone"></div>
 
-  <!-- Intervall Fasten Uhr -->
-  <!-- <div class="miniclock-wrapper" id="btn_IntervalFasting">
-    <p id="intervalTime">--:--</p>
-    <p class="lblfasting" id="outputWhatNow">---</p>
-  </div> -->
-  <div class="miniclock-wrapper" onclick="open_scanner()">
+  <div class="miniclock-wrapper" id="btn_open_scanner">
     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-upc-scan" viewBox="0 0 16 16">
       <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0z"/>
     </svg>
@@ -338,19 +333,19 @@
     </table>
     <br>
     <div class="wrapperButton">
-      <button class="optButtonStatisik" id="btnStatEffektKcal" onclick="show_EffectKcal()">🍕 Effek. Kcal</button>
-      <button class="optButtonStatisik" id="btnStatSteps" onclick="show_Steps()">&#128095 Schritte</button>
-      <button class="optButtonStatisik" id="btnStatBurnedKcal" onclick="show_BurnedKcal()">&#128293 Kcal</button>
+      <button class="optButtonStatisik" id="btnStatEffektKcal">🍕 Effek. Kcal</button>
+      <button class="optButtonStatisik" id="btnStatSteps">&#128095 Schritte</button>
+      <button class="optButtonStatisik" id="btnStatBurnedKcal">&#128293 Kcal</button>
     </div>
     <div class="wrapperButton">
-      <button class="optButtonStatisik" id="btnStatSugar" onclick="show_Sugar()">🍫 Zucker</button>
-      <button class="optButtonStatisik" id="btnStatWater" onclick="show_Water()"> 🥤 Wasser</button>
-      <button class="optButtonStatisik" id="btnCarbs" onclick="show_Carbs()"> 🍞 KH</button>
+      <button class="optButtonStatisik" id="btnStatSugar">🍫 Zucker</button>
+      <button class="optButtonStatisik" id="btnStatWater"> 🥤 Wasser</button>
+      <button class="optButtonStatisik" id="btnCarbs"> 🍞 KH</button>
     </div>
     <div class="wrapperButton">
-      <button class="optButtonStatisik" id="btnStatFat" onclick="show_Fat()">🧈 Fett</button>
-      <button class="optButtonStatisik" id="btnStatBallast" onclick="show_Ballast()">🥦 Ballast.</button>
-      <button class="optButtonStatisik" id="btnStatProtein" onclick="show_Protein()">🥚 Eiweiß</button>
+      <button class="optButtonStatisik" id="btnStatFat">🧈 Fett</button>
+      <button class="optButtonStatisik" id="btnStatBallast">🥦 Ballast.</button>
+      <button class="optButtonStatisik" id="btnStatProtein">🥚 Eiweiß</button>
     </div>
     <br>
 

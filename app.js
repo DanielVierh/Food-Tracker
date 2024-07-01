@@ -85,6 +85,21 @@ const btn_gotoPlaner = document.getElementById('btn_gotoPlaner');
 const btn_closeDay = document.getElementById('btn_closeDay');
 const output_Burned = document.getElementById('output_Burned');
 const btnDeleteFoodFromToday = document.getElementById('btnDeleteFoodFromToday');
+const btnChangeQuantity = document.getElementById('btnChangeQuantity');
+const btn_blendOut_MengeAendern = document.getElementById('btn_blendOut_MengeAendern');
+const btn_water_spin_down = document.getElementById('btn_water_spin_down');
+const outpWaterButton = document.getElementById('outpWaterButton');
+const btn_water_spin_up = document.getElementById('btn_water_spin_up');
+const btn_open_scanner = document.getElementById('btn_open_scanner');
+const btnStatEffektKcal = document.getElementById('btnStatEffektKcal');
+const btnStatSteps = document.getElementById('btnStatSteps');
+const btnStatBurnedKcal = document.getElementById('btnStatBurnedKcal');
+const btnStatSugar = document.getElementById('btnStatSugar');
+const btnStatWater = document.getElementById('btnStatWater');
+const btnCarbs = document.getElementById('btnCarbs');
+const btnStatFat = document.getElementById('btnStatFat');
+const btnStatBallast = document.getElementById('btnStatBallast');
+const btnStatProtein = document.getElementById('btnStatProtein');
 
 
 let scann_obj = {
@@ -201,6 +216,66 @@ output_Burned.addEventListener('click', ()=> {
 
 btnDeleteFoodFromToday.addEventListener('click', ()=> {
     delete_from_today();
+});
+
+btnChangeQuantity.addEventListener('click', ()=> {
+    change_Food_to_TodayList();
+});
+
+btn_blendOut_MengeAendern.addEventListener('click', ()=> {
+    blendOut_MengeAendern();
+});
+
+btn_water_spin_down.addEventListener('click', ()=> {
+    water_Spin_Down()
+});
+
+outpWaterButton.addEventListener('click', ()=> {
+    take_Over_Water()
+});
+
+btn_water_spin_up.addEventListener('click', ()=> {
+    water_Spin_Up()
+});
+
+btn_open_scanner.addEventListener('click', ()=> {
+    open_scanner()
+});
+
+btnStatEffektKcal.addEventListener('click', ()=> {
+    show_EffectKcal()
+});
+
+btnStatSteps.addEventListener('click', ()=> {
+    show_Steps()
+});
+
+btnStatBurnedKcal.addEventListener('click', ()=> {
+    show_BurnedKcal()
+});
+
+btnStatSugar.addEventListener('click', ()=> {
+    show_Sugar()
+});
+
+btnStatWater.addEventListener('click', ()=> {
+    show_Water()
+});
+
+btnCarbs.addEventListener('click', ()=> {
+    show_Carbs()
+});
+
+btnStatFat.addEventListener('click', ()=> {
+    show_Fat()
+});
+
+btnStatBallast.addEventListener('click', ()=> {
+    show_Ballast()
+});
+
+btnStatProtein.addEventListener('click', ()=> {
+    show_Protein()
 });
 
 
@@ -615,20 +690,20 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
 
 //NOTE -   Erstelle Statistik
 function show_Statisitcs(val) {
-    var height_Col_1 = 0;
-    var height_Col_2 = 0;
-    var height_Col_3 = 0;
-    var height_Col_4 = 0;
-    var height_Col_5 = 0;
-    var height_Col_6 = 0;
-    var height_Col_7 = 0;
-    var zielLatte = kcal_Ziel;
-    var currProzent = 0;
+    let height_Col_1 = 0;
+    let height_Col_2 = 0;
+    let height_Col_3 = 0;
+    let height_Col_4 = 0;
+    let height_Col_5 = 0;
+    let height_Col_6 = 0;
+    let height_Col_7 = 0;
+    let zielLatte = kcal_Ziel;
+    let currProzent = 0;
     let statistik_Count = my_Statistics.length;
-    var val_to_DayBefore = 0;
-    var lastDayVal = 0;
-    var currentVal = 0;
-    var fatSum = 0;
+    let val_to_DayBefore = 0;
+    let lastDayVal = 0;
+    let currentVal = 0;
+    let fatSum = 0;
 
     //Statistik Effektive Kcal
     if (val == 'show_Effekctive_Kcal') {
@@ -1021,16 +1096,22 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
 
     let valueCounter = 0;
     let statistik_Count = my_Statistics.length;
+    let currentVal = 0;
+    let val_to_DayBefore = 0;
+    let lastDayVal = 0;
+    let currProzent = 0;
+
     document.getElementById('valDescrFett').innerHTML = '';
     document.getElementById('outputFatSum').innerHTML = '';
+
     //NOTE -  Fett ausblenden
-    for (var i = 0; i < statistik_Count; i++) {
+    for (let i = 0; i < statistik_Count; i++) {
         document.getElementById('fettInGramm_Col_' + i).innerHTML = '-';
         document.getElementById('fettInGramm_Col_' + i).style.color =
             'white';
     }
     //NOTE - Schleife Werte & Datum
-    for (var i = 0; i < statistik_Count; i++) {
+    for (let i = 0; i < statistik_Count; i++) {
         document.getElementById('datum_Col_' + i).innerHTML =
             my_Statistics[i].repository_date
         currentVal = parseFloat(my_Statistics[i][repositoryPos]);
