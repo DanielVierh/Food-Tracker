@@ -59,8 +59,8 @@
 
   <nav class="sticky zone blue">
     <ul class="main-nav">
-      <button class="navButton" onclick="open_new_modal()">NEU</button>
-      <button class="navButton" onclick="goto_Planer()">Planer</button>
+      <button id="btn_openNewModal" class="navButton">NEU</button>
+      <button id="btn_gotoPlaner" class="navButton">Planer</button>
       <button class="navButton" style="font-size: 70px;"><a href="#markerStatistik">📊</a></button>
       <button class="navButton" style="font-size: 90px;"><a href="#markerEinstellungen"
           class="menueButtonColor">⚙</a></button>
@@ -84,7 +84,7 @@
         <circle r="100" cx="125" cy="125" class="progress" filter="url(#shadow)" fill="lightgray"></circle>
       </svg>
     </div>
-    <button class="button_TagAbschl" onclick="close_Day()">Tag abschliessen</button>
+    <button id="btn_closeDay" class="button_TagAbschl">Tag abschliessen</button>
   </div>
 
   <!-- Message -->

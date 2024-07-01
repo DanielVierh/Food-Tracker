@@ -80,6 +80,10 @@ const body = document.getElementById('bdy');
 const macro_prev = document.getElementById('macro_prev');
 const btn_Save_to_TodayEaten = document.getElementById('btn_Save_to_TodayEaten');
 const btn_ChangeMacros = document.getElementById('btn_ChangeMacros');
+const btn_openNewModal = document.getElementById('btn_openNewModal');
+const btn_gotoPlaner = document.getElementById('btn_gotoPlaner');
+const btn_closeDay = document.getElementById('btn_closeDay');
+
 
 let scann_obj = {
     "scann_time": undefined,
@@ -176,6 +180,20 @@ function toggleFullScreen() {
 document.addEventListener('dblclick', () => {
     toggleFullScreen();
 });
+
+btn_openNewModal.addEventListener('click', ()=> {
+    open_new_modal();
+});
+
+btn_gotoPlaner.addEventListener('click', ()=> {
+    goto_Planer();
+});
+
+btn_closeDay.addEventListener('click', ()=> {
+    close_Day();
+});
+
+
 
 //====================================================================================
 //NOTE -   Save,  Load or create DB
