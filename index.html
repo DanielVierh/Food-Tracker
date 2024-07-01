@@ -545,7 +545,7 @@
         <option value="Low Carb">
         <option value="Moderat">
       </datalist>
-      <button onclick="selectDiet()" id="submitDiet">Ok</button>
+      <button id="submitDiet">Ok</button>
     </label>
   </div>
 
@@ -588,7 +588,7 @@
     </div>
 
     <div class="half-row">
-      <button class="ButtonSpeichern" onclick="define_additional_Target()">Speichern</button>
+      <button class="ButtonSpeichern" id="btn_define_additional_Target">Speichern</button>
     </div>
   </div>
 
@@ -645,14 +645,14 @@
 <input type="file" id="upload">
 <p id="outputBx"></p>  -->
   <div class="fullCell">
-    <button class="expButton" onclick="export_FoodDB()">Exportiere - MyFood</button>
-    <button class="expButton" onclick="export_FoodDB_All()">Exportiere - FoodDB</button>
+    <button class="expButton" id="btn_expFoodDB">Exportiere - MyFood</button>
+    <button class="expButton" id="btn_export_FoodDB_All">Exportiere - FoodDB</button>
     <div class="deleteWrapper">
-      <button class="expButton" onclick="deleteDayWithoutHistory()" style="color: red; margin: 30px 200px;">Tag
+      <button class="expButton" id="btn_deleteDayWithoutHistory" style="color: red; margin: 30px 200px;">Tag
         verwerfen</button>
-      <button class="expButton" onclick="deleteDHistory()" style="color: red; margin: 30px 200px;">History
+      <button class="expButton" id="btn_deleteDHistory" style="color: red; margin: 30px 200px;">History
         löschen</button>
-      <button class="expButton" onclick="deleteStatistics()" style="color: red; margin: 30px 200px;">Statistik
+      <button class="expButton" id="btn_deleteStatistics" style="color: red; margin: 30px 200px;">Statistik
         löschen</button>
     </div>
     <br>

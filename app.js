@@ -107,6 +107,13 @@ const btn_add_new_food = document.getElementById('btn_add_new_food');
 const inv_Button = document.getElementById('inv_Button');
 const btn_makeFieldsInvisible = document.getElementById('btn_makeFieldsInvisible');
 const btn_define_Kcal_Target = document.getElementById('btn_define_Kcal_Target');
+const btn_define_additional_Target = document.getElementById('btn_define_additional_Target');
+const btn_expFoodDB = document.getElementById('btn_expFoodDB');
+const btn_export_FoodDB_All = document.getElementById('btn_export_FoodDB_All');
+const btn_deleteDayWithoutHistory = document.getElementById('btn_deleteDayWithoutHistory');
+const btn_deleteDHistory = document.getElementById('btn_deleteDHistory');
+const btn_deleteStatistics = document.getElementById('btn_deleteStatistics');
+const submitDiet = document.getElementById('submitDiet');
 
 
 let scann_obj = {
@@ -311,6 +318,34 @@ btn_makeFieldsInvisible.addEventListener('click', ()=> {
 
 btn_define_Kcal_Target.addEventListener('click', ()=> {
     define_Kcal_Target()
+});
+
+btn_define_additional_Target.addEventListener('click', ()=> {
+    define_additional_Target()
+});
+
+btn_expFoodDB.addEventListener('click', ()=> {
+    export_FoodDB()
+});
+
+btn_export_FoodDB_All.addEventListener('click', ()=> {
+    export_FoodDB_All()
+});
+
+btn_deleteDayWithoutHistory.addEventListener('click', ()=> {
+    deleteDayWithoutHistory()
+});
+
+btn_deleteDHistory.addEventListener('click', ()=> {
+    deleteDHistory()
+});
+
+btn_deleteStatistics.addEventListener('click', ()=> {
+    deleteStatistics()
+});
+
+submitDiet.addEventListener('click', ()=> {
+    selectDiet()
 });
 
 
@@ -544,7 +579,7 @@ function blendOut_MengeAendern() {
     // Disable SpezDiet
     document.getElementById('spezDietDiv').style.opacity = '0';
     document.getElementById('diet_List').disabled = true;
-    document.getElementById('submitDiet').disabled = true;
+    submitDiet.disabled = true;
 }
 
 function blendOut_HistoryButton() {
@@ -2839,12 +2874,12 @@ function showDietMethods() {
     if (spezDiet_Visible == false) {
         document.getElementById('spezDietDiv').style.opacity = '1';
         document.getElementById('diet_List').disabled = false;
-        document.getElementById('submitDiet').disabled = false;
+        submitDiet.disabled = false;
         spezDiet_Visible = true;
     } else {
         document.getElementById('spezDietDiv').style.opacity = '0';
         document.getElementById('diet_List').disabled = true;
-        document.getElementById('submitDiet').disabled = true;
+        submitDiet.disabled = true;
         spezDiet_Visible = false;
     }
 }
@@ -2858,6 +2893,7 @@ dietList.addEventListener('click', function () {
 // Diet auswählen
 
 function selectDiet() {
+    console.log('Feffe');
     const prevDiet = document.getElementById('diet_List').value;
     let limitFat = 0;
     let limitProtein = 0;
@@ -3565,7 +3601,7 @@ function fetch_Food_DB_Origin() {
         .then((response) => response.json())
         .then((data) => {
             originDB = data;
-            var potNewProduct = '';
+            let potNewProduct = '';
             for (var i = 0; i < array_Food_DB.length; i++) {
                 potNewProduct = array_Food_DB[i].productName;
                 if (checkProductInOldDB(potNewProduct) === false) {
@@ -3608,8 +3644,7 @@ function fetch_Food_DB_Origin() {
             // Deshalb wird dieser in Textbox ausgegeben
             document.getElementById('txtArea').innerHTML = '';
             document.getElementById('txtArea').innerHTML = exp_New_Prod;
-            //document.getElementById("txtArea").select();
-            //document.execCommand('copy');
+
             let mailText = '';
             location.href =
                 'mailto:' +
@@ -3641,6 +3676,7 @@ function checkProductInOldDB(oldProd) {
 
 // Exportiert alle Produkte
 function export_FoodDB_All() {
+    let potNewProduct = ''
     for (var i = 0; i < array_Food_DB.length; i++) {
         potNewProduct = array_Food_DB[i].productName;
         let exp_Product = potNewProduct;
