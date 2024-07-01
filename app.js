@@ -100,6 +100,7 @@ const btnCarbs = document.getElementById('btnCarbs');
 const btnStatFat = document.getElementById('btnStatFat');
 const btnStatBallast = document.getElementById('btnStatBallast');
 const btnStatProtein = document.getElementById('btnStatProtein');
+const btn_send_day = document.getElementById('btn_send_day');
 
 
 let scann_obj = {
@@ -276,6 +277,10 @@ btnStatBallast.addEventListener('click', ()=> {
 
 btnStatProtein.addEventListener('click', ()=> {
     show_Protein()
+});
+
+btn_send_day.addEventListener('click', ()=> {
+    sendThisDay()
 });
 
 
