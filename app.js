@@ -114,6 +114,7 @@ const btn_deleteDayWithoutHistory = document.getElementById('btn_deleteDayWithou
 const btn_deleteDHistory = document.getElementById('btn_deleteDHistory');
 const btn_deleteStatistics = document.getElementById('btn_deleteStatistics');
 const submitDiet = document.getElementById('submitDiet');
+const modal_load_animation = document.getElementById('modal_load_animation');
 
 
 let scann_obj = {
@@ -212,139 +213,139 @@ document.addEventListener('dblclick', () => {
     toggleFullScreen();
 });
 
-btn_openNewModal.addEventListener('click', ()=> {
+btn_openNewModal.addEventListener('click', () => {
     open_new_modal();
 });
 
-btn_gotoPlaner.addEventListener('click', ()=> {
+btn_gotoPlaner.addEventListener('click', () => {
     goto_Planer();
 });
 
-btn_closeDay.addEventListener('click', ()=> {
+btn_closeDay.addEventListener('click', () => {
     close_Day();
 });
 
-output_Burned.addEventListener('click', ()=> {
+output_Burned.addEventListener('click', () => {
     recordKcal();
 });
 
-btnDeleteFoodFromToday.addEventListener('click', ()=> {
+btnDeleteFoodFromToday.addEventListener('click', () => {
     delete_from_today();
 });
 
-btnChangeQuantity.addEventListener('click', ()=> {
+btnChangeQuantity.addEventListener('click', () => {
     change_Food_to_TodayList();
 });
 
-btn_blendOut_MengeAendern.addEventListener('click', ()=> {
+btn_blendOut_MengeAendern.addEventListener('click', () => {
     blendOut_MengeAendern();
 });
 
-btn_water_spin_down.addEventListener('click', ()=> {
+btn_water_spin_down.addEventListener('click', () => {
     water_Spin_Down()
 });
 
-outpWaterButton.addEventListener('click', ()=> {
+outpWaterButton.addEventListener('click', () => {
     take_Over_Water()
 });
 
-btn_water_spin_up.addEventListener('click', ()=> {
+btn_water_spin_up.addEventListener('click', () => {
     water_Spin_Up()
 });
 
-btn_open_scanner.addEventListener('click', ()=> {
+btn_open_scanner.addEventListener('click', () => {
     open_scanner()
 });
 
-btnStatEffektKcal.addEventListener('click', ()=> {
+btnStatEffektKcal.addEventListener('click', () => {
     show_EffectKcal()
 });
 
-btnStatSteps.addEventListener('click', ()=> {
+btnStatSteps.addEventListener('click', () => {
     show_Steps()
 });
 
-btnStatBurnedKcal.addEventListener('click', ()=> {
+btnStatBurnedKcal.addEventListener('click', () => {
     show_BurnedKcal()
 });
 
-btnStatSugar.addEventListener('click', ()=> {
+btnStatSugar.addEventListener('click', () => {
     show_Sugar()
 });
 
-btnStatWater.addEventListener('click', ()=> {
+btnStatWater.addEventListener('click', () => {
     show_Water()
 });
 
-btnCarbs.addEventListener('click', ()=> {
+btnCarbs.addEventListener('click', () => {
     show_Carbs()
 });
 
-btnStatFat.addEventListener('click', ()=> {
+btnStatFat.addEventListener('click', () => {
     show_Fat()
 });
 
-btnStatBallast.addEventListener('click', ()=> {
+btnStatBallast.addEventListener('click', () => {
     show_Ballast()
 });
 
-btnStatProtein.addEventListener('click', ()=> {
+btnStatProtein.addEventListener('click', () => {
     show_Protein()
 });
 
-btn_send_day.addEventListener('click', ()=> {
+btn_send_day.addEventListener('click', () => {
     sendThisDay()
 });
 
-btn_close_newProd_modal.addEventListener('click', ()=> {
+btn_close_newProd_modal.addEventListener('click', () => {
     close_new_modal()
 });
 
-btn_del_food_from_db.addEventListener('click', ()=> {
+btn_del_food_from_db.addEventListener('click', () => {
     delete_Food_from_DB()
 });
 
-btn_add_new_food.addEventListener('click', ()=> {
+btn_add_new_food.addEventListener('click', () => {
     add_new_Food()
 });
 
-inv_Button.addEventListener('click', ()=> {
+inv_Button.addEventListener('click', () => {
     calc_Kcal_Goal()
 });
 
-btn_makeFieldsInvisible.addEventListener('click', ()=> {
+btn_makeFieldsInvisible.addEventListener('click', () => {
     makeFieldsInvisible()
 });
 
-btn_define_Kcal_Target.addEventListener('click', ()=> {
+btn_define_Kcal_Target.addEventListener('click', () => {
     define_Kcal_Target()
 });
 
-btn_define_additional_Target.addEventListener('click', ()=> {
+btn_define_additional_Target.addEventListener('click', () => {
     define_additional_Target()
 });
 
-btn_expFoodDB.addEventListener('click', ()=> {
+btn_expFoodDB.addEventListener('click', () => {
     export_FoodDB()
 });
 
-btn_export_FoodDB_All.addEventListener('click', ()=> {
+btn_export_FoodDB_All.addEventListener('click', () => {
     export_FoodDB_All()
 });
 
-btn_deleteDayWithoutHistory.addEventListener('click', ()=> {
+btn_deleteDayWithoutHistory.addEventListener('click', () => {
     deleteDayWithoutHistory()
 });
 
-btn_deleteDHistory.addEventListener('click', ()=> {
+btn_deleteDHistory.addEventListener('click', () => {
     deleteDHistory()
 });
 
-btn_deleteStatistics.addEventListener('click', ()=> {
+btn_deleteStatistics.addEventListener('click', () => {
     deleteStatistics()
 });
 
-submitDiet.addEventListener('click', ()=> {
+submitDiet.addEventListener('click', () => {
     selectDiet()
 });
 
@@ -1961,18 +1962,18 @@ inputField_EatenFood_in_Gramm.addEventListener('input', () => {
     })
 
 
-    product_hints(parseFloat(quantity * current_Food.carbs / 100).toFixed(1), 
-    parseFloat(quantity * current_Food.sugar / 100).toFixed(1), 
-    parseFloat(quantity * current_Food.salt / 100).toFixed(1), 
-    parseFloat(quantity * current_Food.fiber / 100).toFixed(1), 
-    parseFloat(quantity * current_Food.protein / 100).toFixed(1));
+    product_hints(parseFloat(quantity * current_Food.carbs / 100).toFixed(1),
+        parseFloat(quantity * current_Food.sugar / 100).toFixed(1),
+        parseFloat(quantity * current_Food.salt / 100).toFixed(1),
+        parseFloat(quantity * current_Food.fiber / 100).toFixed(1),
+        parseFloat(quantity * current_Food.protein / 100).toFixed(1));
 
 })
 
 //============================================================================
 //NOTE -   Food zu heute gegessen hinzufügen
 //============================================================================
-btn_Save_to_TodayEaten.addEventListener('click', ()=> {
+btn_Save_to_TodayEaten.addEventListener('click', () => {
     add_Food_to_TodayList();
 });
 
@@ -2762,10 +2763,10 @@ function define_Kcal_Target() {
         save_kcalZiel();
         showMessage(`Kcal Ziel wurde übernommen`, 4000, 'Info');
         setTimeout(() => {
-            window.scrollTo(0, 0);  
+            window.scrollTo(0, 0);
         }, 4000);
         setTimeout(() => {
-            location.reload();   
+            location.reload();
         }, 6000);
     }
 }
@@ -3472,7 +3473,7 @@ function addZero(val) {
 //NOTE -   Makros in der Datenbank ändern
 //============================================================================
 
-btn_ChangeMacros.addEventListener('click', ()=> {
+btn_ChangeMacros.addEventListener('click', () => {
     changeMacros();
 });
 
@@ -3489,7 +3490,7 @@ function changeMacros() {
     document.getElementById('inp_Protein').value = selected_Food.protein;
     document.getElementById('inp_Salt').value = selected_Food.salt;
     document.getElementById('inp_Unit').value = selected_Food.quantityUnit;
-    if(selected_Food.barcode) {
+    if (selected_Food.barcode) {
         document.getElementById('inp_barcode').value = selected_Food.barcode;
     }
     document.getElementById('inp_imgLink').value = selected_Food.product_image;
@@ -3874,6 +3875,8 @@ if (fetch_button) {
 }
 
 function checking_barcode() {
+    //* Show Animation
+    modal_load_animation.classList.add('active');
     //* Remove transmitted barcode from local storage
     localStorage.removeItem('storedScan');
     //* If inputfield has value
@@ -3886,16 +3889,22 @@ function checking_barcode() {
                 if (array_Food_DB[i].barcode === inp_Barcode.value) {
                     barcode_found_in_db = true;
                     productname = array_Food_DB[i].productName;
+                    //* Remove Animation
+                    modal_load_animation.classList.remove('active');
                     break;
                 }
             }
         } catch (error) {
             console.log(error);
+            //* Remove Animation
+            modal_load_animation.classList.remove('active');
         }
         //* If barcode not found in DB - Fetch Data
         if (barcode_found_in_db === false) {
             fetchProductData(inp_Barcode.value);
         } else {
+            //* Remove Animation
+            modal_load_animation.classList.remove('active');
             close_new_modal();
             modal_new_food.classList.add('active');
             body.classList.add('prevent-scroll');
@@ -3913,9 +3922,13 @@ async function fetchProductData(ean_code) {
         const response = await fetch(url);
 
         if (!response.ok) {
+            //* Remove Animation
+            modal_load_animation.classList.remove('active');
             throw new Error(`Fehler beim Abrufen der Daten. Statuscode: ${response.status}`);
         }
 
+        //* Remove Animation
+        modal_load_animation.classList.remove('active');
         const data = await response.json();
         console.log('Produktdaten:', data);
 

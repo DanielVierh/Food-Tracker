@@ -193,7 +193,7 @@ footer {
     border: 5px solid rgba(255, 255, 255, 0.336);
 } */
 
-.circleContainer{
+.circleContainer {
     height: 250px;
     display: flex;
     align-items: center;
@@ -216,13 +216,13 @@ footer {
     stroke: rgb(12, 255, 12);
     stroke-linecap: round;
     fill: none;
-    
+
     transform: rotate(270deg);
     transform-origin: center;
     transition: 1s ease-in-out;
 }
 
-.percentText{
+.percentText {
     font-size: 45px;
     font-weight: bold;
     font-family: sans-serif;
@@ -242,13 +242,14 @@ footer {
 /* Neues Essen hinzufügen */
 
 .bg-text {
-   /* background-color: var(--mainColor); /* Fallback color */
-  /*  opacity: 0.9; /* Black w/opacity/see-through */
+    /* background-color: var(--mainColor); /* Fallback color */
+    /*  opacity: 0.9; /* Black w/opacity/see-through */
     color: white;
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
-    position: fixed; /* Stay fixed */
+    position: fixed;
+    /* Stay fixed */
     top: 90%;
     left: 10%;
     transform: translate(-50%, -50%);
@@ -263,6 +264,7 @@ footer {
     backdrop-filter: blur(13px);
     -webkit-backdrop-filter: blur(13px);
 }
+
 .bg-text:hover {
     transition: ease-in-out 1s;
     box-shadow: 7px 7px 95px var(--previewShadow);
@@ -274,7 +276,8 @@ footer {
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
-    position: fixed; /* Stay fixed */
+    position: fixed;
+    /* Stay fixed */
     top: 90%;
     left: 90%;
     transform: translate(-50%, -50%);
@@ -299,12 +302,13 @@ footer {
 /* Schritte */
 .bg-text3 {
     /* background-color: var(--mainColor);  Fallback color */
-   /* opacity: 0.9; /* Black w/opacity/see-through */
+    /* opacity: 0.9; /* Black w/opacity/see-through */
     color: rgb(27, 206, 27);
     font-weight: bold;
     font-size: 60px;
     border: 10px solid var(--themeDotBorder);
-    position: fixed; /* Stay fixed */
+    position: fixed;
+    /* Stay fixed */
     top: 15%;
     left: 55%;
     transform: translate(-50%, -50%);
@@ -333,7 +337,7 @@ footer {
     transition: all .6s ease-in-out;
 
     &.active {
-        transform: translateY(0);  
+        transform: translateY(0);
     }
 }
 
@@ -471,6 +475,7 @@ footer {
 #output_Gramm {
     margin-left: 30px;
 }
+
 /***********************************************************************
  *  Tabelle Heute gegessen
  **********************************************************************/
@@ -539,7 +544,7 @@ footer {
 
 } */
 
-#foodAmound_Change{
+#foodAmound_Change {
     margin: 15px;
     font-size: 42px;
     font-weight: bolder;
@@ -751,6 +756,7 @@ table {
     min-height: 100px;
     font-size: 34px;
 }
+
 table tr td {
     border: 1px solid var(--themeDotBorder);
     padding: 10px;
@@ -836,12 +842,14 @@ table tr:nth-child(odd) {
 table {
     width: 100%;
 }
+
 table,
 th,
 td {
     border: 1px solid var(--themeDotBorder);
     border-collapse: collapse;
 }
+
 /*
   th, td {
     padding: 5px;
@@ -856,6 +864,7 @@ table.names tr:nth-child(odd) {
     background: var(--mainColor);
     text-align: center;
 }
+
 table.names th {
     background-color: black;
     color: rgb(245, 241, 11);
@@ -894,18 +903,22 @@ table.names th {
     left: 32%;
     height: 0px;
 }
+
 .c4 {
     left: 44%;
     height: 0px;
 }
+
 .c5 {
     left: 56%;
     height: 0px;
 }
+
 .c6 {
     left: 68%;
     height: 0px;
 }
+
 .c7 {
     left: 80%;
     height: 0px;
@@ -938,7 +951,8 @@ table.names th {
     border: 3px solid rgb(17, 138, 146);
 }
 
-.boxWeitereZiele, .invisibleCont {
+.boxWeitereZiele,
+.invisibleCont {
     display: grid;
     width: 100%;
     justify-content: center;
@@ -965,6 +979,7 @@ table.names th {
     padding: 20px;
     text-align: center;
 }
+
 /* ================================================ */
 /* Wasser */
 /* ================================================ */
@@ -1295,6 +1310,7 @@ table.names th {
     transition: ease-in-out 1s;
     font-size: 2.5rem;
 }
+
 .C_A {
     background: green;
 }
@@ -1385,6 +1401,7 @@ table.names th {
     width: 90%;
     margin: 0 auto;
 }
+
 /* --------------------------------------
 Togglebutton
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
@@ -1426,15 +1443,15 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
     transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #33f321;
 }
 
-input:focus + .slider {
+input:focus+.slider {
     box-shadow: 0 0 1px #33f321;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
@@ -1574,17 +1591,17 @@ input:checked + .slider:before {
     text-align: right;
 }
 
-.buttonWeiter{
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 10px;
-  background-color: #111f3d;
-  color: white;
-  border-radius: 10px;
-  height: 120px;
-  width: 200px;
-  border: 3px solid black;
-  box-shadow: 5px 5px 10px black;
+.buttonWeiter {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #111f3d;
+    color: white;
+    border-radius: 10px;
+    height: 120px;
+    width: 200px;
+    border: 3px solid black;
+    box-shadow: 5px 5px 10px black;
 }
 
 .miniclock-wrapper {
@@ -1627,9 +1644,9 @@ input:checked + .slider:before {
     right: 0;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
-  }
+}
 
-  #modal_Interval {
+#modal_Interval {
     max-width: 600px;
     height: 400px;
     margin: auto;
@@ -1641,51 +1658,51 @@ input:checked + .slider:before {
     background: #0b101b;
     border-radius: 15px;
     -webkit-box-shadow: 0 0 35px black;
-            box-shadow: 0 0 35px black;
+    box-shadow: 0 0 35px black;
     color: white;
-  }
+}
 
-  .showRest {
+.showRest {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     margin-bottom: 25px;
-  }
+}
 
-  .modalContentContainer {
+.modalContentContainer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     font-family: sans-serif;
-  }
-  
-  .modalContentContainer h1 {
+}
+
+.modalContentContainer h1 {
     color: white;
     font-size: 1.3rem;
-  }
+}
 
-  .modalContentContainer label {
+.modalContentContainer label {
     font-size: 0.8rem;
     font-weight: bold;
     text-align: right;
     width: 110px;
     margin-right: 1rem;
-  }
-  
-  .modalContentContainer input {
+}
+
+.modalContentContainer input {
     max-width: 60px;
     text-align: center;
     background-color: #051a20;
@@ -1695,25 +1712,25 @@ input:checked + .slider:before {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     font-weight: bold;
     border-radius: 5px;
     height: 20px;
-  }
+}
 
-  .modalContentContainer select {
+.modalContentContainer select {
     background-color: lightblue;
     color: black;
     font-size: 1.2rem;
     font-weight: bold;
     border-radius: 5px;
-  }
+}
 
-  .startTimeInput {
+.startTimeInput {
     min-width: 90px;
     text-align: center;
     background-color: lightblue;
@@ -1723,47 +1740,47 @@ input:checked + .slider:before {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     font-weight: bold;
     border-radius: 5px;
     height: 20px;
-  }
+}
 
-  .modalContentContainer p {
+.modalContentContainer p {
     width: 90%;
     min-height: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     background-color: #e6edf0;
     padding: 5px;
-  }
+}
 
-  .madalHeader {
+.madalHeader {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     padding: 0.3rem;
     background: #4b5558;
-  }
+}
 
-  .buttonClose {
+.buttonClose {
     background-color: red;
     color: white;
     font-size: 1.2rem;
@@ -1773,46 +1790,46 @@ input:checked + .slider:before {
     width: 30px;
     border: 1px solid #d40b0b;
     -webkit-box-shadow: inset 2px 2px 10px white;
-            box-shadow: inset 2px 2px 10px white;
+    box-shadow: inset 2px 2px 10px white;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     font-family: sans-serif;
-  }
-  
-  .buttonClose:active {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
+}
 
-  .saveButton {
+.buttonClose:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.saveButton {
     background-color: green;
     color: white;
     border-radius: 25px;
     border: 1px solid green;
     padding: 0.5rem;
     -webkit-box-shadow: inset 2px 2px 10px white;
-            box-shadow: inset 2px 2px 10px white;
+    box-shadow: inset 2px 2px 10px white;
     cursor: pointer;
     width: 130px;
     height: 38px;
     font-weight: bold;
     font-size: 1rem;
-  }
-  
-  .saveButton:active {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-  }
+}
 
-  .smallButton {
+.saveButton:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.smallButton {
     width: 110px;
     height: 45px;
     border-radius: 10px;
@@ -1822,19 +1839,19 @@ input:checked + .slider:before {
     font-size: 1.1rem;
     color: black;
     -webkit-box-shadow: inset 2px 2px 4px white;
-            box-shadow: inset 2px 2px 4px white;
+    box-shadow: inset 2px 2px 4px white;
     cursor: pointer;
-  }
-  
-  .smallButton-dark {
+}
+
+.smallButton-dark {
     border: 1px solid rgba(255, 255, 255, 0.34);
     color: white;
     background-color: rgba(24, 220, 242, 0.295);
     -webkit-box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436), 0 0 10px rgba(255, 255, 255, 0.436);
-            box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436), 0 0 10px rgba(255, 255, 255, 0.436);
-  }
+    box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436), 0 0 10px rgba(255, 255, 255, 0.436);
+}
 
-  .settingButton {
+.settingButton {
     width: 40px;
     height: 40px;
     font-size: 2rem;
@@ -1843,18 +1860,18 @@ input:checked + .slider:before {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     cursor: pointer;
     background-color: gray;
     margin: 9px;
     border-radius: 25px;
-  }
+}
 
-  .message {
+.message {
     transform: translateY(-300%);
     overflow: hidden;
     width: 95%;
@@ -1882,14 +1899,14 @@ input:checked + .slider:before {
     border: 1px solid white;
     transition: all 1s ease;
     padding-top: 25px;
-  }
+}
 
-  #message{
+#message {
     max-width: 80%;
     margin-top: 80px;
-  }
+}
 
-  .message::before {
+.message::before {
     content: 'ℹ️ Info';
     position: fixed;
     top: 0;
@@ -1897,23 +1914,23 @@ input:checked + .slider:before {
     right: 0;
     height: 60px;
     background: linear-gradient(to right, rgba(8, 36, 60, 0.8), rgba(5, 60, 78, 0.8));
-    padding: 15px 15px 15px 100px; 
+    padding: 15px 15px 15px 100px;
     font-size: 1.6em;
     text-align: left;
     font-weight: bold;
     color: lightblue;
-  }
+}
 
-  .message.active {
+.message.active {
     transform: translateY(-120%);
-  }
+}
 
-  .message.alertMessage {
+.message.alertMessage {
     color: yellow;
     background: black;
-  }
+}
 
-  .message.alertMessage::before {
+.message.alertMessage::before {
     content: '⚠️ Fehler';
     position: fixed;
     top: 0;
@@ -1921,18 +1938,18 @@ input:checked + .slider:before {
     right: 0;
     height: 60px;
     background: linear-gradient(to right, rgba(8, 36, 60, 0.8), rgba(5, 60, 78, 0.8));
-    padding: 15px 15px 15px 100px; 
+    padding: 15px 15px 15px 100px;
     font-size: 1.6em;
     text-align: start;
     font-weight: bold;
     color: yellow;
-  }
+}
 
-  #output_Burned {
+#output_Burned {
     position: relative;
-  }
+}
 
-  #output_Burned::after {
+#output_Burned::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1942,9 +1959,9 @@ input:checked + .slider:before {
     background-color: rgb(193, 189, 189);
     width: 30%;
     animation: hoverFlow 10s ease infinite;
-  }
+}
 
-  @keyframes hoverFlow {
+@keyframes hoverFlow {
     0% {
         bottom: 0;
     }
@@ -1956,10 +1973,10 @@ input:checked + .slider:before {
     100% {
         bottom: 0;
     }
-  }
+}
 
 
-  .new-food-modal {
+.new-food-modal {
     position: fixed;
     background-color: #24292e;
     z-index: 99999;
@@ -2002,13 +2019,13 @@ input:checked + .slider:before {
         padding: 30px;
         border-radius: 30px;
     }
-  }
+}
 
-  #optAreaDB {
+#optAreaDB {
     margin-bottom: 30px;
-  }
+}
 
-  .add_button {
+.add_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2016,7 +2033,7 @@ input:checked + .slider:before {
 }
 
 .bi-plus-circle-fill {
-   color: var(--mainText);
+    color: var(--mainText);
 }
 
 .small-scan-btn {
@@ -2087,5 +2104,58 @@ input:checked + .slider:before {
 
     to {
         color: var(--mainText);
+    }
+}
+
+
+
+.load-animation {
+    display: none;
+
+    &.active {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.825);
+        z-index: 9999999999999;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .rotating-circle {
+        width: 300px;
+        height: 300px;
+        background-color: blue;
+        border-radius: 50%;
+        animation: rotating-animation 2s linear infinite;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+}
+
+@keyframes rotating-animation {
+    0% {
+        box-shadow: inset 0 0 10px black, 0 0 300px blue;
+    }
+
+    50% {
+        box-shadow: inset 0 0 200px black, 0 0 10px blue;
+        backdrop-filter: saturate(80%);
+        background-color: rgba(0, 0, 0, 0.068);
+    }
+
+    100% {
+        box-shadow: inset 0 0 10px black, 0 0 300px blue;
     }
 }
