@@ -83,6 +83,8 @@ const btn_ChangeMacros = document.getElementById('btn_ChangeMacros');
 const btn_openNewModal = document.getElementById('btn_openNewModal');
 const btn_gotoPlaner = document.getElementById('btn_gotoPlaner');
 const btn_closeDay = document.getElementById('btn_closeDay');
+const output_Burned = document.getElementById('output_Burned');
+const btnDeleteFoodFromToday = document.getElementById('btnDeleteFoodFromToday');
 
 
 let scann_obj = {
@@ -191,6 +193,14 @@ btn_gotoPlaner.addEventListener('click', ()=> {
 
 btn_closeDay.addEventListener('click', ()=> {
     close_Day();
+});
+
+output_Burned.addEventListener('click', ()=> {
+    recordKcal();
+});
+
+btnDeleteFoodFromToday.addEventListener('click', ()=> {
+    delete_from_today();
 });
 
 
