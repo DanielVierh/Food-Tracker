@@ -723,15 +723,6 @@ function calc_Values() {
   // Progress Bar
   var progressValKcal = ((planned_Kcal * 100 / (kcal_Ziel)))
   let originProgressVal = progressValKcal
-  // ! Bedingte Färbung des % Wertes ausgeschaltet
-  // if (progressValKcal >= 100) {
-  //   label_PlanInPercent.style.color = "red";
-  // } else {
-  //   label_PlanInPercent.style.color = "green";
-  // }
-  label_PlanInPercent.style.color = "yellow";
-  label_PlanInPercent.style.fontSize = "3rem";
-  label_PlanInPercent.style.width = "Plan <br>" + progressValKcal + "%";
   label_PlanInPercent.innerHTML = "Plan <br>" + Math.round(originProgressVal) + "%";
 
   coloring_Labels();

@@ -1182,6 +1182,14 @@ table.names th {
     padding: 8px 8px 30px 8px;
 }
 
+#progress_Val {
+    color: yellow;
+    font-size: 3rem;
+    text-shadow: 0 0 20px black;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
 .row {
     font-weight: bold;
     display: flex;
