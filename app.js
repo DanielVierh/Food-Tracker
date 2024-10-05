@@ -3123,7 +3123,7 @@ function close_Day() {
             save_Today_Eaten();
             save_Today_Water();
 
-            showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschaunen.`, 4000, 'Info');
+            showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschauen.`, 4000, 'Info');
             setTimeout(() => {
                 location.reload();
             }, 2500);
