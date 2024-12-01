@@ -454,6 +454,12 @@ function load_other_LocalStorage_Values() {
         my_Statistics = JSON.parse(localStorage.getItem('stored_Statistics'));
     }
 
+    // Gewichte
+    if (localStorage.getItem('stored_weights') === null) {
+    } else {
+        weights_obj = JSON.parse(localStorage.getItem('stored_weights'));
+    }
+
     // Kcal_Requirement
     if (localStorage.getItem('stored_Kcal_Requirement') === null) {
     } else {
@@ -504,29 +510,30 @@ function save_BodyWeight() {
     localStorage.setItem('stored_BodyWeight', JSON.stringify(bodyWeight));
 
     const confirm_save = window.confirm('Soll das Gewicht zum tracken gespeichert werden?')
-    
     if(confirm_save) {
+        const new_updateTime = current_timeStamp(new Date());
+        const new_weight = new Weight(bodyWeight, new_updateTime);
 
-    const new_updateTime = current_timeStamp(new Date());
-    const new_weight = new Weight(bodyWeight, new_updateTime);
-
-    if(new_updateTime === weights_obj.last_update) {
-        showMessage('Das Gewicht wurde bereits für heute erfasst. Soll der Wert überschrieben werden?', 5000, 'Alert');
-        setTimeout(() => {
-            const confirm_overwriting = window.confirm("Soll das gespeicherte Gewicht von heute überschrieben werden?");
-            //TODO - Überschreiben
-            
-        }, 6000);
-    }else {
-        weights_obj.tracks.push(new_weight);
-        weights_obj.last_update = new_updateTime;
-        console.log(weights_obj);
-        showMessage('Gewicht gespeichert', 3000, 'Info')
-        //TODO - Speichern ++ Laden
-
-    }
-
-
+        if(new_updateTime === weights_obj.last_update) {
+            showMessage('Das Gewicht wurde bereits für heute erfasst. Soll der Wert überschrieben werden?', 5000, 'Alert');
+            setTimeout(() => {
+                const confirm_overwriting = window.confirm("Soll das gespeicherte Gewicht von heute überschrieben werden?");
+                if(confirm_overwriting) {
+                    //* - Überschreiben
+                    const last_index_of_weights = weights_obj.tracks.length - 1;
+                    weights_obj.tracks.splice(last_index_of_weights, 1);
+                    weights_obj.tracks.push(new_weight);
+                    weights_obj.last_update = new_updateTime;
+                    localStorage.setItem('stored_weights', JSON.stringify(weights_obj));
+                    showMessage('Gewicht gespeichert', 3000, 'Info');
+                }
+            }, 6000);
+        }else {
+            weights_obj.tracks.push(new_weight);
+            weights_obj.last_update = new_updateTime;
+            localStorage.setItem('stored_weights', JSON.stringify(weights_obj));
+            showMessage('Gewicht gespeichert', 3000, 'Info');
+        }
     }
 }
 
