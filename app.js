@@ -509,6 +509,7 @@ function save_Today_Steps() {
 function save_BodyWeight() {
     localStorage.setItem('stored_BodyWeight', JSON.stringify(bodyWeight));
 
+    //*ANCHOR - save weights to show progress
     const confirm_save = window.confirm('Soll das Gewicht zum tracken gespeichert werden?')
     if(confirm_save) {
         const new_updateTime = current_timeStamp(new Date());
@@ -519,7 +520,7 @@ function save_BodyWeight() {
             setTimeout(() => {
                 const confirm_overwriting = window.confirm("Soll das gespeicherte Gewicht von heute überschrieben werden?");
                 if(confirm_overwriting) {
-                    //* - Überschreiben
+                    //* - Overwrite
                     const last_index_of_weights = weights_obj.tracks.length - 1;
                     weights_obj.tracks.splice(last_index_of_weights, 1);
                     weights_obj.tracks.push(new_weight);
