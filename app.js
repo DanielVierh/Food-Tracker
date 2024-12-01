@@ -123,6 +123,11 @@ let scann_obj = {
     "barcode": ""
 }
 
+let weights_obj = {
+    last_update: undefined,
+    tracks: [],
+}
+
 //====================================================================================
 //NOTE -   Init
 //====================================================================================
@@ -497,6 +502,32 @@ function save_Today_Steps() {
 // Speichere Gewicht
 function save_BodyWeight() {
     localStorage.setItem('stored_BodyWeight', JSON.stringify(bodyWeight));
+
+    const confirm_save = window.confirm('Soll das Gewicht zum tracken gespeichert werden?')
+    
+    if(confirm_save) {
+
+    const new_updateTime = current_timeStamp(new Date());
+    const new_weight = new Weight(bodyWeight, new_updateTime);
+
+    if(new_updateTime === weights_obj.last_update) {
+        showMessage('Das Gewicht wurde bereits für heute erfasst. Soll der Wert überschrieben werden?', 5000, 'Alert');
+        setTimeout(() => {
+            const confirm_overwriting = window.confirm("Soll das gespeicherte Gewicht von heute überschrieben werden?");
+            //TODO - Überschreiben
+            
+        }, 6000);
+    }else {
+        weights_obj.tracks.push(new_weight);
+        weights_obj.last_update = new_updateTime;
+        console.log(weights_obj);
+        showMessage('Gewicht gespeichert', 3000, 'Info')
+        //TODO - Speichern ++ Laden
+
+    }
+
+
+    }
 }
 
 // Speichere KcalZiel
@@ -691,6 +722,15 @@ class StoredTarget {
         this.targetVal = targetVal;
     }
 }
+
+
+class Weight {
+    constructor(_weight, _date) {
+        this._weight = _weight;
+        this._date = _date;
+    }
+}
+
 
 function show_EffectKcal() {
     show_Statisitcs('show_Effekctive_Kcal');
