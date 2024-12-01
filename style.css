@@ -2167,3 +2167,19 @@ input:checked+.slider:before {
         box-shadow: inset 0 0 10px black, 0 0 300px blue;
     }
 }
+
+.interval-fasting-link {
+    position: fixed;
+    top: 24vh;
+    left: 10px;
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
