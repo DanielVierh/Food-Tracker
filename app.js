@@ -128,6 +128,7 @@ let weights_obj = {
     tracks: [],
 }
 
+
 //====================================================================================
 //NOTE -   Init
 //====================================================================================
@@ -458,6 +459,7 @@ function load_other_LocalStorage_Values() {
     if (localStorage.getItem('stored_weights') === null) {
     } else {
         weights_obj = JSON.parse(localStorage.getItem('stored_weights'));
+        draw_weight_progress();
     }
 
     // Kcal_Requirement
@@ -511,15 +513,15 @@ function save_BodyWeight() {
 
     //*ANCHOR - save weights to show progress
     const confirm_save = window.confirm('Soll das Gewicht zum tracken gespeichert werden?')
-    if(confirm_save) {
+    if (confirm_save) {
         const new_updateTime = current_timeStamp(new Date());
         const new_weight = new Weight(bodyWeight, new_updateTime);
 
-        if(new_updateTime === weights_obj.last_update) {
+        if (new_updateTime === weights_obj.last_update) {
             showMessage('Das Gewicht wurde bereits für heute erfasst. Soll der Wert überschrieben werden?', 5000, 'Alert');
             setTimeout(() => {
                 const confirm_overwriting = window.confirm("Soll das gespeicherte Gewicht von heute überschrieben werden?");
-                if(confirm_overwriting) {
+                if (confirm_overwriting) {
                     //* - Overwrite
                     const last_index_of_weights = weights_obj.tracks.length - 1;
                     weights_obj.tracks.splice(last_index_of_weights, 1);
@@ -529,7 +531,7 @@ function save_BodyWeight() {
                     showMessage('Gewicht gespeichert', 3000, 'Info');
                 }
             }, 6000);
-        }else {
+        } else {
             weights_obj.tracks.push(new_weight);
             weights_obj.last_update = new_updateTime;
             localStorage.setItem('stored_weights', JSON.stringify(weights_obj));
@@ -537,6 +539,54 @@ function save_BodyWeight() {
         }
     }
 }
+
+
+//* ANCHOR - Draw tracked Weights
+function draw_weight_progress() {
+
+    // Canvas und Kontext initialisieren
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+
+    // Ausgangsvariablen
+    let y_Pos = 150; // Start-Y-Position
+    let x_Pos = 0; // Start-X-Position
+    let last_weight = weights_obj.tracks[0]._weight; // Startgewicht
+    const factor = 20; // Faktor für Gewichtsunterschied
+
+    // Linienfarbe und -breite
+    context.strokeStyle = 'red';
+    context.lineWidth = 3;
+
+    // Beginne den Pfad für die durchgehende Linie
+    context.beginPath();
+    context.moveTo(x_Pos, y_Pos); // Startpunkt setzen
+
+    // Schleife über die Punkte
+    for (let i = 0; i < weights_obj.tracks.length; i++) {
+        // Aktualisiere die Positionen
+        x_Pos += 35; // Verschiebe X-Position
+        const new_weight = parseInt(weights_obj.tracks[i]._weight);
+        const weight_diff = new_weight - last_weight;
+        y_Pos -= weight_diff * factor; // Berechne neue Y-Position
+
+        // Linie zum neuen Punkt zeichnen
+        context.lineTo(x_Pos, y_Pos);
+
+        // Rect
+        context.rect(x_Pos, y_Pos, 5, 5);
+
+        context.font = "18px san serif";
+        context.fillText(`${new_weight}kg`, x_Pos, (y_Pos - 5));
+
+        // Aktualisiere das Gewicht
+        last_weight = new_weight;
+    }
+
+    // Zeichne die durchgehende Linie
+    context.stroke();
+}
+
 
 // Speichere KcalZiel
 function save_kcalZiel() {

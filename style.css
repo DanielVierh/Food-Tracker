@@ -2183,3 +2183,8 @@ input:checked+.slider:before {
     align-items: center;
     text-align: center;
 }
+
+.canvas-wrapper {
+    max-width: 100%;
+    overflow-x: scroll;
+}
