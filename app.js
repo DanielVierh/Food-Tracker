@@ -544,6 +544,19 @@ function save_BodyWeight() {
 //* ANCHOR - Draw tracked Weights
 function draw_weight_progress() {
 
+    //* Testdaten
+
+    // weights_obj = {
+    //     last_update: undefined,
+    //     tracks: [{"_weight":"79","_date":"07.12.2024"},
+    //         {"_weight":"79","_date":"14.12.2024"},
+    //         {"_weight":"79","_date":"21.12.2024"},
+    //         {"_weight":"79","_date":"28.12.2024"},
+    //         {"_weight":"79","_date":"05.01.2025"},
+    //         {"_weight":"79","_date":"12.01.2025"},
+    //         {"_weight":"79","_date":"12.01.2025"}],
+    // }
+    
     // Canvas und Kontext initialisieren
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
@@ -553,6 +566,26 @@ function draw_weight_progress() {
     let x_Pos = 0; // Start-X-Position
     let last_weight = weights_obj.tracks[0]._weight; // Startgewicht
     const factor = 20; // Faktor für Gewichtsunterschied
+    let min_weight = weights_obj.tracks[0]._weight;
+    let max_weight = weights_obj.tracks[0]._weight;
+    let toggler = -1;
+    
+    // determine min and max weights
+    for(let i = 0; i < weights_obj.tracks.length; i++) {
+        const current_weight = parseInt(weights_obj.tracks[i]._weight);
+        if(current_weight < min_weight) {
+            min_weight = current_weight;
+        }
+        if(current_weight > max_weight) {
+            max_weight = current_weight;
+        }
+    }
+
+    //TODO Automatische Höhe - wip 
+    // const whole_weight_diff = max_weight - min_weight;
+    // canvas.height = whole_weight_diff * 40;
+    // y_Pos = (canvas.height / 2) - 50;
+    
 
     // Linienfarbe und -breite
     context.strokeStyle = 'red';
@@ -565,7 +598,7 @@ function draw_weight_progress() {
     // Schleife über die Punkte
     for (let i = 0; i < weights_obj.tracks.length; i++) {
         // Aktualisiere die Positionen
-        x_Pos += 35; // Verschiebe X-Position
+        x_Pos += 50; // Verschiebe X-Position
         const new_weight = parseInt(weights_obj.tracks[i]._weight);
         const weight_diff = new_weight - last_weight;
         y_Pos -= weight_diff * factor; // Berechne neue Y-Position
@@ -576,8 +609,18 @@ function draw_weight_progress() {
         // Rect
         context.rect(x_Pos, y_Pos, 5, 5);
 
+        //* Set weight text
+        toggler++;
         context.font = "18px san serif";
-        context.fillText(`${new_weight}kg`, x_Pos, (y_Pos - 5));
+        if( toggler <= 0) {
+            context.fillText(`${new_weight}kg`, (x_Pos + 1), (y_Pos - 10));
+        }else {
+            context.fillText(`${new_weight}kg`, (x_Pos + 1), (y_Pos  + 30));
+        }
+        
+        if(toggler === 1) {
+            toggler = -1;
+        }
 
         // Aktualisiere das Gewicht
         last_weight = new_weight;
