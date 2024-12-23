@@ -548,13 +548,13 @@ function draw_weight_progress() {
 
     // weights_obj = {
     //     last_update: undefined,
-    //     tracks: [{"_weight":"79","_date":"07.12.2024"},
-    //         {"_weight":"79","_date":"14.12.2024"},
-    //         {"_weight":"79","_date":"21.12.2024"},
-    //         {"_weight":"79","_date":"28.12.2024"},
-    //         {"_weight":"79","_date":"05.01.2025"},
-    //         {"_weight":"79","_date":"12.01.2025"},
-    //         {"_weight":"79","_date":"12.01.2025"}],
+    //     tracks: [{"_weight":"101","_date":"07.12.2024"},
+    //         {"_weight":"101","_date":"14.12.2024"},
+    //         {"_weight":"101","_date":"21.12.2024"},
+    //         {"_weight":"101","_date":"28.12.2024"},
+    //         {"_weight":"101","_date":"05.01.2025"},
+    //         {"_weight":"101","_date":"12.01.2025"},
+    //         {"_weight":"101","_date":"12.01.2025"}],
     // }
     
     // Canvas und Kontext initialisieren
@@ -611,11 +611,12 @@ function draw_weight_progress() {
 
         //* Set weight text
         toggler++;
-        context.font = "18px san serif";
-        if( toggler <= 0) {
-            context.fillText(`${new_weight}kg`, (x_Pos + 1), (y_Pos - 10));
-        }else {
-            context.fillText(`${new_weight}kg`, (x_Pos + 1), (y_Pos  + 30));
+        context.font = "14px sans-serif";
+        context.fillStyle = "white";
+        if (toggler <= 0) {
+            context.fillText(`${new_weight}kg`, x_Pos - 10, y_Pos - 5);
+        } else {
+            context.fillText(`${new_weight}kg`, x_Pos - 10, y_Pos - 5);
         }
         
         if(toggler === 1) {
