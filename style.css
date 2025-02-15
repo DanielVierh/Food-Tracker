@@ -762,6 +762,11 @@ table {
     font-size: 34px;
 }
 
+table tr {
+    height: 90px;
+    background-color: var(--secondaryColor);
+}
+
 table tr td {
     border: 1px solid var(--themeDotBorder);
     padding: 10px;
@@ -777,6 +782,7 @@ td:hover {
 
 table tr:nth-child(odd) {
     background: var(--mainColor);
+    height: 90px;
 }
 
 #selectedFoodAnzeige {
