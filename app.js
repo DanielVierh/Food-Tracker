@@ -2596,7 +2596,8 @@ function showTargets() {
 
 function coloring_Labels() {
     step_Progress();
-    if (theme !== "light") {
+    
+    if (theme !== "light" && theme !== "green") {
         effectiveKcal_Progress();
         kalorienBilanz_Progress();
         colorizeTargetProgress();
