@@ -2213,6 +2213,7 @@ function add_Food_to_TodayList() {
                     Fett: ${parseInt(fat_Intake)}g <br>
                     Kohlenhydrate: ${parseInt(carb_Intake)}g <br> 
                     Zucker: ${parseInt(sugar_Intake)}g <br>
+                    Zckrwürfel: ${parseInt(sugar_Intake / 3)}Stk <br>
                     Ballaststoffe: ${parseInt(fiber_Intake)}g <br>
                     Eiweiss: ${parseInt(protein_Intake)}g <br>
                     Salz: ${parseInt(salt_Intake)}g <br> <br>`
@@ -2297,17 +2298,19 @@ function create_Table_TodayEaten() {
                 '%)' +
                 ' <br/>  Fett: ' +
                 selected_Food.intake_fat.toFixed(1) +
-                'g <br/>  Eiweiß: ' +
+                ' g <br/>  Eiweiß: ' +
                 selected_Food.intake_protein.toFixed(1) +
-                'g <br/>  Kohlenhydrate: ' +
+                ' g <br/>  Kohlenhydrate: ' +
                 selected_Food.intake_carbs.toFixed(1) +
-                'g <br/>  Zucker: ' +
+                ' g <br/>  Zucker: ' +
                 selected_Food.intake_sugar.toFixed(1) +
-                'g <br/>  Ballaststoffe: ' +
+                ' g <br/>  ZckWürfel: ' +
+                parseInt(selected_Food.intake_sugar.toFixed(0) / 3) +
+                ' Stk <br/>  Ballaststoffe: ' +
                 selected_Food.intake_fiber.toFixed(1) +
-                'g <br/>  Salz:  ' +
+                ' g <br/>  Salz:  ' +
                 selected_Food.intake_salt.toFixed(1) +
-                'g';
+                ' g';
 
             let nutri;
             for (let i = 0; i < array_Food_DB.length; i++) {
@@ -2584,7 +2587,7 @@ function showTargets() {
     // Blende die Ziele ein
     burned_Kcal_Label.innerHTML = burned_Kcal_in_Fat();
     carbLabel.innerHTML = `${eaten_Carbs.toFixed(1)} / Max ${des_Carbs}`;
-    sugarLabel.innerHTML = `${eaten_Sugar.toFixed(1)} / Max ${max_Sugar}`;
+    sugarLabel.innerHTML = `${eaten_Sugar.toFixed(1)} / Max ${max_Sugar} zckw:${parseInt(eaten_Sugar.toFixed(0) / 3)}`;
     proteinLabel.innerHTML = `${eaten_Protein.toFixed(1)} / Min ${min_Protein}`;
     fatLabel.innerHTML = `${eaten_Fat.toFixed(1)} / Max ${des_Fat}`;
     fiberLabel.innerHTML = `${eaten_Fiber.toFixed(1)} / Min ${min_Fiber}`;
