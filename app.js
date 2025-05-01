@@ -2092,6 +2092,7 @@ inputField_EatenFood_in_Gramm.addEventListener('input', () => {
     macroArr.push(new MakroPrev('Fett: ', parseFloat(quantity * current_Food.fat / 100).toFixed(1)))
     macroArr.push(new MakroPrev('KH: ', parseFloat(quantity * current_Food.carbs / 100).toFixed(1)))
     macroArr.push(new MakroPrev('Zck: ', parseFloat(quantity * current_Food.sugar / 100).toFixed(1)))
+    macroArr.push(new MakroPrev('Zckwürfel: ', parseFloat((quantity * current_Food.sugar / 100) / 3).toFixed(0)))
     macroArr.push(new MakroPrev('Bal.: ', parseFloat(quantity * current_Food.fiber / 100).toFixed(1)))
     macroArr.push(new MakroPrev('Eiw.: ', parseFloat(quantity * current_Food.protein / 100).toFixed(1)))
     macroArr.push(new MakroPrev('Salz: ', parseFloat(quantity * current_Food.salt / 100).toFixed(1)))
