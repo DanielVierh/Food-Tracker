@@ -3831,25 +3831,19 @@ function export_FoodDB_All() {
         let exp_Protein = array_Food_DB[i].protein;
         let exp_Salt = array_Food_DB[i].salt;
         let exp_Quantity = array_Food_DB[i].quantityUnit;
-        let expItem =
-            exp_Product +
-            ';' +
-            exp_kcal +
-            ';' +
-            exp_Fat +
-            ';' +
-            exp_Carbs +
-            ';' +
-            exp_Sugar +
-            ';' +
-            exp_Protein +
-            ';' +
-            exp_Salt +
-            ';' +
-            exp_Fiber +
-            ';' +
-            exp_Quantity +
-            '; | ';
+        let exp_Barcode = array_Food_DB[i].barcode || '';
+        let expItem = JSON.stringify({
+            productName: exp_Product,
+            kcal: exp_kcal,
+            fat: exp_Fat,
+            carbs: exp_Carbs,
+            sugar: exp_Sugar,
+            protein: exp_Protein,
+            salt: exp_Salt,
+            fiber: exp_Fiber,
+            quantityUnit: exp_Quantity,
+            barcode: exp_Barcode
+        });
         exp_New_Prod.push(expItem);
     }
     let emailTo = '';
