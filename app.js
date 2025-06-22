@@ -511,7 +511,7 @@ function save_Today_Steps() {
 function save_BodyWeight() {
     localStorage.setItem('stored_BodyWeight', JSON.stringify(bodyWeight));
 
-    //*ANCHOR - save weights to show progress
+    //*NOTE - save weights to show progress
     const confirm_save = window.confirm('Soll das Gewicht zum tracken gespeichert werden?')
     if (confirm_save) {
         const new_updateTime = current_timeStamp(new Date());
@@ -541,7 +541,7 @@ function save_BodyWeight() {
 }
 
 
-//* ANCHOR - Draw tracked Weights
+//* NOTE - Draw tracked Weights
 function draw_weight_progress() {
 
     //* Testdaten
@@ -1900,7 +1900,7 @@ function show_NutriScore(choosenProduct) {
     return nutriScore;
 }
 
-//* ANCHOR - product_hints when selectign a product
+//* NOTE - product_hints when selectign a product
 function product_hints(carbs, sugar, salt, fiber, protein) {
     let hint_container = document.getElementById('hints');
 
@@ -2340,7 +2340,7 @@ function create_Table_TodayEaten() {
     document.getElementById('containerTabelle_Today').appendChild(table);
 }
 
-//* ANCHOR - Func to short string value
+//* NOTE - Func to short string value
 function cut_product_name(val, length) {
     let return_val = '';
     try {
@@ -3319,7 +3319,7 @@ function makeFieldsInvisible() {
     }
 }
 
-//* ANCHOR Open and close Modal for new Product
+//* NOTE Open and close Modal for new Product
 let modal_is_open = false;
 
 function open_new_modal() {
@@ -3910,9 +3910,9 @@ function create_MyHistory() {
     document.getElementById('containerTabelle_History').appendChild(table);
 }
 
-//====================================================================================
-//NOTE -   Den ausgewählten Tag per Mail versenden
-//====================================================================================
+////////////////////////////////
+//* NOTE -   Den ausgewählten Tag per Mail versenden
+////////////////////////////////
 function sendThisDay() {
     let emailTo = '';
     let emailCC = '';
@@ -3929,30 +3929,37 @@ function sendThisDay() {
         bodyContent;
 }
 
+////////////////////////////////
+//* NOTE - Delete Day whthout saving (Reset)
+////////////////////////////////
 function deleteDayWithoutHistory() {
-    today_Steps = 0;
-    today_eaten = [];
-    today_Water = 0;
-    burned_Kcal = 0;
-    lastWater = 'Gestern';
-    save_Burned_Kcal();
-    save_Last_Water();
-    document.getElementById('btnSteps').innerHTML = today_Steps + ' &#128095';
-    document.getElementById('lastWater').innerHTML = 'Zuletzt: ';
-    coloring_Labels();
-    steps_into_Kcal();
-    calc_Values();
-    save_Today_Steps();
-    save_Today_Eaten();
-    save_Today_Water();
-    showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.`, 4000, 'Info');
-    setTimeout(() => {
-        location.reload();
-    }, 4500);
+    const confirm = window.confirm('Möchtest du den Tag wirklich zurücksetzen? Beachte, dass die Werte nicht abgespeichert werden');
+    if(confirm) {
+        today_Steps = 0;
+        today_eaten = [];
+        today_Water = 2;
+        burned_Kcal = 0;
+        lastWater = 'Gestern';
+        save_Burned_Kcal();
+        save_Last_Water();
+        document.getElementById('btnSteps').innerHTML = today_Steps + ' &#128095';
+        document.getElementById('lastWater').innerHTML = 'Zuletzt: ';
+        coloring_Labels();
+        steps_into_Kcal();
+        calc_Values();
+        save_Today_Steps();
+        save_Today_Eaten();
+        save_Today_Water();
+        showMessage(`Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.`, 4000, 'Info');
+        setTimeout(() => {
+            location.reload();
+        }, 4500);
+    }
 }
 
-//
-//
+////////////////////////////////
+//* NOTE - Delete History
+////////////////////////////////
 function deleteDHistory() {
     const deleteRequest = window.confirm(
         'Soll die komplette Historie gelöscht werden?',
@@ -3963,7 +3970,9 @@ function deleteDHistory() {
         location.reload();
     }
 }
-
+////////////////////////////////
+//* NOTE - Delete Statistics
+////////////////////////////////
 function deleteStatistics() {
     const deleteRequest = window.confirm(
         'Soll die komplette Statistik gelöscht werden?',
@@ -3974,10 +3983,6 @@ function deleteStatistics() {
         location.reload();
     }
 }
-
-
-
-
 
 
 // Hide Messagebox on click
@@ -3991,14 +3996,14 @@ messageContainer.addEventListener('click', () => {
 
 
 ////////////////////////////////
-//ANCHOR - Open Scanner
+//NOTE - Open Scanner
 ////////////////////////////////
 function open_scanner() {
     window.location = 'scanner.html';
 }
 
 ////////////////////////////////
-//ANCHOR - API Fetch 
+//NOTE - API Fetch 
 ////////////////////////////////
 
 const fetch_button = document.getElementById('submit_to_food_db');
