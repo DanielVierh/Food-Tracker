@@ -2213,3 +2213,11 @@ input:checked+.slider:before {
     max-width: 100%;
     overflow-x: scroll;
 }
+
+#output_percentage {
+    font-size: 2rem;
+    padding: 5px;
+    margin: 10px;
+    color: var(--mainText);
+    font-weight: bold;
+}

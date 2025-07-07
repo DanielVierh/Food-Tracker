@@ -2450,7 +2450,7 @@ function delete_from_today() {
 //============================================================================
 //NOTE - Berechnung der Makros und Kcal Werte
 //============================================================================
-
+const output_percentage = document.getElementById('output_percentage');
 function calc_Values() {
     eaten_Kcal = 0;
     eaten_Carbs = 0.0;
@@ -2472,6 +2472,18 @@ function calc_Values() {
         eaten_Fiber += today_eaten[i].intake_fiber;
         eaten_Amount += today_eaten[i].intake_amount;
     }
+
+        //* Percentage distribution of macros
+        const fat_cal = eaten_Fat * 9.3;
+        const carb_cal = eaten_Carbs * 4.1;
+        const protein_cal = eaten_Protein * 4.1;
+        const eaten_sum_cal = fat_cal + carb_cal + protein_cal;
+        const fat_cal_percentage = +(fat_cal * 100 / eaten_sum_cal).toFixed(0);
+        const carbs_cal_percentage = +(carb_cal * 100 / eaten_sum_cal).toFixed(0);
+        const protein_cal_percentage = +(protein_cal * 100 / eaten_sum_cal).toFixed(0);
+        if(fat_cal_percentage && carbs_cal_percentage && protein_cal_percentage !== NaN) {
+            output_percentage.innerHTML = `Fett: ${fat_cal_percentage}% | KH: ${carbs_cal_percentage}% | Eiw: ${protein_cal_percentage}%`;
+        }
 
     // Effektive Kcal und Differenz berechnen
     effective_Kcal = parseInt(eaten_Kcal - burned_Kcal);
