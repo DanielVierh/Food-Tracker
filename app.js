@@ -2478,12 +2478,10 @@ function calc_Values() {
         const carb_cal = eaten_Carbs * 4.1;
         const protein_cal = eaten_Protein * 4.1;
         const eaten_sum_cal = fat_cal + carb_cal + protein_cal;
-        const fat_cal_percentage = +(fat_cal * 100 / eaten_sum_cal).toFixed(0);
-        const carbs_cal_percentage = +(carb_cal * 100 / eaten_sum_cal).toFixed(0);
-        const protein_cal_percentage = +(protein_cal * 100 / eaten_sum_cal).toFixed(0);
-        if(fat_cal_percentage && carbs_cal_percentage && protein_cal_percentage !== NaN) {
-            output_percentage.innerHTML = `Fett: ${fat_cal_percentage}% | KH: ${carbs_cal_percentage}% | Eiw: ${protein_cal_percentage}%`;
-        }
+        const fat_cal_percentage = isNaN(fat_cal * 100 / eaten_sum_cal) ? 0 : +(fat_cal * 100 / eaten_sum_cal).toFixed(0);
+        const carbs_cal_percentage = isNaN(carb_cal * 100 / eaten_sum_cal) ? 0 : +(carb_cal * 100 / eaten_sum_cal).toFixed(0);
+        const protein_cal_percentage = isNaN(protein_cal * 100 / eaten_sum_cal) ? 0 : +(protein_cal * 100 / eaten_sum_cal).toFixed(0);
+        output_percentage.innerHTML = `Fett: ${fat_cal_percentage}% | KH: ${carbs_cal_percentage}% | Eiw: ${protein_cal_percentage}%`;
 
     // Effektive Kcal und Differenz berechnen
     effective_Kcal = parseInt(eaten_Kcal - burned_Kcal);
