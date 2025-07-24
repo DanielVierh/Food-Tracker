@@ -678,6 +678,7 @@ function add_Food_to_Planer() {
 //============================================================================
 //Berechnung der Makros und Kcal Werte
 //============================================================================
+const output_percentage = document.getElementById('output_percentage');
 
 function calc_Values() {
   planned_Kcal = 0;
@@ -699,6 +700,17 @@ function calc_Values() {
     planned_Fiber += planned_Meal[i].intake_fiber;
     planned_Amount += planned_Meal[i].intake_amount;
   }
+
+          //* Percentage distribution of macros
+          const fat_cal = planned_Fat * 9.3;
+          const carb_cal = planned_Carbs * 4.1;
+          const protein_cal = planned_Protein * 4.1;
+          const eaten_sum_cal = fat_cal + carb_cal + protein_cal;
+          const fat_cal_percentage = isNaN(fat_cal * 100 / eaten_sum_cal) ? 0 : +(fat_cal * 100 / eaten_sum_cal).toFixed(0);
+          const carbs_cal_percentage = isNaN(carb_cal * 100 / eaten_sum_cal) ? 0 : +(carb_cal * 100 / eaten_sum_cal).toFixed(0);
+          const protein_cal_percentage = isNaN(protein_cal * 100 / eaten_sum_cal) ? 0 : +(protein_cal * 100 / eaten_sum_cal).toFixed(0);
+          output_percentage.innerHTML = `Fett: ${fat_cal_percentage}% | KH: ${carbs_cal_percentage}% | Eiw: ${protein_cal_percentage}%`;
+  
 
   diff = parseInt(kcal_Ziel - planned_Kcal);
   // Output
