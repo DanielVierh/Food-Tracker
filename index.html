@@ -545,15 +545,29 @@
   </label>
   <br>
   <div id="spezDietDiv">
-    <label>Ernährungsweise
-      <input type="text" list="dietListe" name="dietList" id="diet_List">
-      <datalist id="dietListe">
-        <option value="Keto">
-        <option value="Low Carb">
-        <option value="Moderat">
-      </datalist>
-      <button id="submitDiet">Ok</button>
-    </label>
+        <select id="diet_List" class="optionfield">
+            <option value="null">Bitte auswählen</option>
+            <option value="Keto">Keto</option>
+            <option value="Low_Carb">Low Carb</option>
+            <option value="Moderat">Moderat</option>
+        </select>
+
+        <!-- <div class="macro-distribution-slides">
+          <label for="fat_range">Fett</label>
+          <input type="range" min="70" max="300" step="1" id="fat_range" />
+        </div>
+        
+        <div class="macro-distribution-slides">
+          <label for="protein_range">Eiweiss</label>
+          <input type="range" min="60" max="300" step="1" id="protein_range" />
+        </div>
+
+        <div class="macro-distribution-slides">
+          <label for="carbs_range">Kohlenhydrate</label>
+          <input type="range" min="0" max="300" step="1" id="carbs_range" />
+        </div> -->
+
+
   </div>
 
 

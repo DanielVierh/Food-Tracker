@@ -2221,3 +2221,19 @@ input:checked+.slider:before {
     color: var(--mainText);
     font-weight: bold;
 }
+
+#spezDietDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px 0;
+}
+
+.macro-distribution-slides {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+    width: 100%;
+}
+

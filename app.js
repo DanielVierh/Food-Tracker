@@ -114,8 +114,16 @@ const btn_export_FoodDB_All = document.getElementById('btn_export_FoodDB_All');
 const btn_deleteDayWithoutHistory = document.getElementById('btn_deleteDayWithoutHistory');
 const btn_deleteDHistory = document.getElementById('btn_deleteDHistory');
 const btn_deleteStatistics = document.getElementById('btn_deleteStatistics');
-const submitDiet = document.getElementById('submitDiet');
 const modal_load_animation = document.getElementById('modal_load_animation');
+const height = document.getElementById('height');
+const age = document.getElementById('age');
+const target_Weight = document.getElementById('target_Weight');
+const target_Time = document.getElementById('target_Time');
+const opt_Male = document.getElementById('opt_Male');
+const opt_Female = document.getElementById('opt_Female');
+// const fat_range = document.getElementById('fat_range');
+// const protein_range = document.getElementById('protein_range');
+// const carbs_range = document.getElementById('carbs_range');
 
 
 let scann_obj = {
@@ -127,6 +135,8 @@ let weights_obj = {
     last_update: undefined,
     tracks: [],
 }
+
+let form_data;
 
 
 //====================================================================================
@@ -352,12 +362,6 @@ btn_deleteStatistics.addEventListener('click', () => {
     deleteStatistics()
 });
 
-submitDiet.addEventListener('click', () => {
-    selectDiet()
-});
-
-
-
 //====================================================================================
 //NOTE -   Save,  Load or create DB
 //====================================================================================
@@ -388,7 +392,53 @@ function fetch_Food_DB() {
 
 // Andere abgespeicherte Werte
 function load_other_LocalStorage_Values() {
-    // Gewicht
+    //* Form data like height, age and targetweight
+    if (localStorage.getItem('fd_tck_form') === null) {
+    } else {
+        form_data = JSON.parse(localStorage.getItem('fd_tck_form'));
+        
+        try {
+            height.value = form_data.hgt;
+        } catch (error) {
+            console.log(error);
+        }
+
+        try {
+            age.value = form_data.ag;
+        } catch (error) {
+            console.log(error);
+        }
+
+        try {
+            age.value = form_data.ag;
+        } catch (error) {
+            console.log(error);
+        }
+
+        try {
+            target_Weight.value = form_data.trg;
+        } catch (error) {
+            console.log(error);
+        }
+
+        try {
+            target_Time.value = form_data.trg_tme;
+        } catch (error) {
+            console.log(error);
+        }
+
+        try {
+            if(form_data.geschl === 'male') {
+                opt_Male.checked = true;
+            }else if(form_data.geschl === 'female') {
+                opt_Female.checked = true;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    //* Gewicht
     if (localStorage.getItem('stored_BodyWeight') === null) {
     } else {
         bodyWeight = JSON.parse(localStorage.getItem('stored_BodyWeight'));
@@ -714,7 +764,7 @@ function blendOut_MengeAendern() {
     // Disable SpezDiet
     document.getElementById('spezDietDiv').style.opacity = '0';
     document.getElementById('diet_List').disabled = true;
-    submitDiet.disabled = true;
+    //submitDiet.disabled = true;
 }
 
 function blendOut_HistoryButton() {
@@ -2745,7 +2795,7 @@ function calc_Kcal_Goal() {
     let targetTime = 0;
     let heightForBmi = 0.0;
     let ausg = '';
-
+    
     // Gender Auswahl herausfinden
     const gender = document.querySelectorAll('input[name="gender"]');
     let selectedGender;
@@ -2803,7 +2853,18 @@ function calc_Kcal_Goal() {
                         } else {
                             targetTime =
                                 document.getElementById('target_Time').value;
-
+                            //* Werte nach Rückfrage abspeichern
+                            const save_request = window.confirm('Formularangaben wie Größe, Alter etc. abspeichern? Diese müssen sonst immer wieder eingegeben werden.');
+                            if(save_request) {
+                                const new_form_data = {
+                                    geschl: selectedGender,
+                                    hgt: height,
+                                    ag: age,
+                                    trg: targetWeight,
+                                    trg_tme: targetTime
+                                }
+                                localStorage.setItem('fd_tck_form',  JSON.stringify(new_form_data))
+                            }
                             //! Berechnung Kalorienbedarf
                             if (selectedGender == 'male') {
                                 // Mann
@@ -3033,26 +3094,24 @@ function showDietMethods() {
     if (spezDiet_Visible == false) {
         document.getElementById('spezDietDiv').style.opacity = '1';
         document.getElementById('diet_List').disabled = false;
-        submitDiet.disabled = false;
         spezDiet_Visible = true;
+
     } else {
         document.getElementById('spezDietDiv').style.opacity = '0';
         document.getElementById('diet_List').disabled = true;
-        submitDiet.disabled = true;
         spezDiet_Visible = false;
     }
 }
 
 // Bei Klick auf das Drop Down Feld Liste leeren
 let dietList = document.getElementById('diet_List');
-dietList.addEventListener('click', function () {
-    dietList.value = '';
+    dietList.addEventListener('change', ()=> {
+    selectDiet();
 });
 
 // Diet auswählen
 
 function selectDiet() {
-    console.log('Feffe');
     const prevDiet = document.getElementById('diet_List').value;
     let limitFat = 0;
     let limitProtein = 0;
@@ -3060,11 +3119,11 @@ function selectDiet() {
     let maxProtein = bodyWeight * 1.5;
 
     if (prevDiet == 'Keto') {
-        limitFat = 78;
-        limitProtein = 19;
-        limitCarbs = 3;
+        limitFat = 70;
+        limitProtein = 26;
+        limitCarbs = 4;
         isKeto = true;
-    } else if (prevDiet == 'Low Carb') {
+    } else if (prevDiet == 'Low_Carb') {
         limitFat = 50;
         limitProtein = 30;
         limitCarbs = 20;
@@ -3076,39 +3135,43 @@ function selectDiet() {
         isKeto = false;
     }
 
-    const desired_Fat = (limitFat * kcal_Ziel) / 100;
-    const desired_Protein = (limitProtein * kcal_Ziel) / 100;
-    const desired_Carbs = (limitCarbs * kcal_Ziel) / 100;
+    let desired_Fat = (limitFat * kcal_Ziel) / 100;
+    let desired_Protein = (limitProtein * kcal_Ziel) / 100;
+    let desired_Carbs = (limitCarbs * kcal_Ziel) / 100;
 
     let fat_in_Gramm = parseInt(desired_Fat / 9.3);
     let protein_in_Gramm = parseInt(desired_Protein / 4.1);
-    const carbs_in_Gramm = parseInt(desired_Carbs / 4.1);
+    let carbs_in_Gramm = parseInt(desired_Carbs / 4.1);
 
-    document.getElementById('target_Fat').value = fat_in_Gramm;
-    document.getElementById('target_Protein').value = protein_in_Gramm;
+    //* new values with new formula
+    //* Fat Height - 100 round to next 10
+    fat_in_Gramm = height.value - 100;
+    while (fat_in_Gramm % 10 !== 0) {
+        fat_in_Gramm++;
+    }
+    protein_in_Gramm = bodyWeight * 0.8;
+
+    const kcal_diff_to_target = document.getElementById('target_KcalZiel').value - ((fat_in_Gramm * 9.3) + (protein_in_Gramm * 4.1) + (carbs_in_Gramm * 4.1))
+    const extra_fat = (kcal_diff_to_target / 2) / 9.3;
+    const extra_protein = (kcal_diff_to_target / 2) / 4.1;
+
+    fat_in_Gramm += extra_fat;
+    protein_in_Gramm += extra_protein;
+    
+    //* Set Range 
+    // fat_range.value = fat_in_Gramm;
+    // protein_range.value = protein_in_Gramm;
+    // carbs_range.value = carbs_in_Gramm;
+
+
+    document.getElementById('target_Fat').value = Math.floor(fat_in_Gramm);
+    document.getElementById('target_Protein').value = Math.floor(protein_in_Gramm);
     document.getElementById('target_Carbs').value = carbs_in_Gramm;
     document.getElementById('target_Sugar').value = parseInt(
         carbs_in_Gramm * 0.5,
     );
-
-    if (protein_in_Gramm > maxProtein) {
-        const proteinDiff = parseInt(protein_in_Gramm % maxProtein);
-        const protein_Diff_in_Kcal = proteinDiff * 4.1;
-        const addedFat = parseInt(protein_Diff_in_Kcal / 9.3);
-
-        protein_in_Gramm = parseInt(protein_in_Gramm - proteinDiff);
-        fat_in_Gramm = parseInt(fat_in_Gramm + addedFat);
-        showMessage(`Es ist nicht unbedingt empfohlen, mehr als 1.5 g Protein pro Kg Körpergewicht zu essen. Mit: ' +
-        protein_in_Gramm +
-        ' g liegst du ' +
-        proteinDiff +
-        ' g darüber. Ich ändere die Eiweißmenge ab und schreibe dir ' +
-        addedFat +
-        ' g Fett gut :)`, 4000, 'Alert');
-        document.getElementById('target_Fat').value = fat_in_Gramm;
-        document.getElementById('target_Protein').value = protein_in_Gramm;
-    }
 }
+
 
 //============================================================================
 //NOTE -  Tag abschließen
