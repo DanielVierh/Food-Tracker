@@ -691,7 +691,7 @@ function draw_weight_progress() {
     context.save();
     context.translate(x_Pos, y_Pos);
     context.rotate(-Math.PI / 2); //* um -90° rotate
-    context.fillText(`${new_date}`, -150, 0); // x/y-Werte anpassen für die gewünschte Position
+    context.fillText(`${new_date}`, -150, 10); // x/y-Werte anpassen für die gewünschte Position
     context.restore();
 
     if (toggler === 1) {
