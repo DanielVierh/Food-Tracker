@@ -2588,7 +2588,15 @@ function calc_Values() {
       Math.abs(diff) + " Kcal zu viel";
   }
 
-  carbLabel.innerHTML = eaten_Carbs.toFixed(1) + " g";
+  if (isKeto) {
+    const total_carbs = eaten_Carbs + eaten_Fiber;
+    carbLabel.innerHTML = `${eaten_Carbs.toFixed(1)} g (${total_carbs.toFixed(
+      1
+    )}g)`;
+  } else {
+    carbLabel.innerHTML = eaten_Carbs.toFixed(1) + " g";
+  }
+
   sugarLabel.innerHTML = eaten_Sugar.toFixed(1) + " g";
   proteinLabel.innerHTML = eaten_Protein.toFixed(1) + " g";
   fatLabel.innerHTML = eaten_Fat.toFixed(1) + " g";
