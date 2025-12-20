@@ -655,9 +655,10 @@ function draw_weight_progress() {
     }
   }
   const average_weight = weight_sum / weight_counter;
-  weight_statistics.innerHTML = `Werte: Min: ${min_weight} Kg | Durchn: ${average_weight.toFixed(
-    0
-  )}Kg | Max: ${max_weight} Kg`;
+  const weight_total_diff = max_weight - min_weight;
+  weight_statistics.innerHTML = `Werte: Min: ${min_weight} Kg | Durchn: ${parseInt(
+    average_weight
+  )}Kg | Max: ${max_weight} Kg | Diff: ${parseInt(weight_total_diff)} Kg`;
 
   //TODO Automatische Höhe - wip
   // const whole_weight_diff = max_weight - min_weight;
