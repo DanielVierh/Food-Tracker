@@ -1,149 +1,148 @@
 :root {
-    /* --mainColor: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31)); */
-    --mainColor: white;
-    --secondaryColor: rgb(255, 255, 255);
-    --thirdText: white;
-    --borderColor: #000000;
-    --mainText: black;
-    --secondaryText: #ffffff;
-    --themeDotBorder: #24292e;
-    --previewBg: rgb(251, 249, 243, 9.8);
-    --previewShadow: #31312f;
-    --buttonColor: black;
-    --waterColor: blue;
+  /* --mainColor: linear-gradient(to right, rgb(10, 10, 46), rgb(28, 29, 31)); */
+  --mainColor: white;
+  --secondaryColor: rgb(255, 255, 255);
+  --thirdText: white;
+  --borderColor: #000000;
+  --mainText: black;
+  --secondaryText: #ffffff;
+  --themeDotBorder: #24292e;
+  --previewBg: rgb(251, 249, 243, 9.8);
+  --previewShadow: #31312f;
+  --buttonColor: black;
+  --waterColor: blue;
 }
 
 /* background-color: var(--mainColor); */
 
 * {
-    overflow-x: clip;
+  overflow-x: clip;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: auto 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--mainColor);
-    color: var(--mainText);
-    overflow-x: hidden;
+  margin: auto 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--mainColor);
+  color: var(--mainText);
+  overflow-x: hidden;
 }
 
-
 .prevent-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .zone {
-    color: var(--mainText);
-    font-size: 2.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--themeDotBorder);
-    transition: all 0.3s linear;
+  color: var(--mainText);
+  font-size: 2.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--themeDotBorder);
+  transition: all 0.3s linear;
 }
 
 /* Navigation */
 .main-nav {
-    width: 95%;
-    display: flex;
-    list-style: none;
-    font-size: 0.7em;
-    margin: 0 auto;
-    background: var(--mainColor);
-    left: 0;
+  width: 95%;
+  display: flex;
+  list-style: none;
+  font-size: 0.7em;
+  margin: 0 auto;
+  background: var(--mainColor);
+  left: 0;
 }
 
 .fullCell {
-    font-size: 2.5em;
-    text-align: center;
-    justify-content: center;
-    background: var(--mainColor);
-    background-color: var(--mainColor);
-    width: 98%;
-    margin: 0 auto;
+  font-size: 2.5em;
+  text-align: center;
+  justify-content: center;
+  background: var(--mainColor);
+  background-color: var(--mainColor);
+  width: 98%;
+  margin: 0 auto;
 }
 
 .push {
-    /* Um Contacts nacht rechts zu setzen */
-    margin-left: auto;
+  /* Um Contacts nacht rechts zu setzen */
+  margin-left: auto;
 }
 
 li {
-    padding: 20px;
-    background-color: #a5c956;
-    margin: 30px;
-    border-radius: 12px;
+  padding: 20px;
+  background-color: #a5c956;
+  margin: 30px;
+  border-radius: 12px;
 }
 
 .navButton {
-    padding: 20px;
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    margin: 20px;
-    border-radius: 12px;
-    font-size: 42px;
-    font-weight: bold;
-    min-width: 140px;
-    box-shadow: 5px 5px 25px var(--previewShadow);
+  padding: 20px;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  margin: 20px;
+  border-radius: 12px;
+  font-size: 42px;
+  font-weight: bold;
+  min-width: 140px;
+  box-shadow: 5px 5px 25px var(--previewShadow);
 }
 
 a {
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 p {
-    margin: 0;
-    font-size: 36px;
+  margin: 0;
+  font-size: 36px;
 }
 
 /* Cover */
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    width: 98%;
-    border: none;
-    border-top: 3px solid var(--previewShadow);
-    background-color: transparent;
-    margin: 0 auto;
-    /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 98%;
+  border: none;
+  border-top: 3px solid var(--previewShadow);
+  background-color: transparent;
+  margin: 0 auto;
+  /* background-color: red; */
 }
 
 h1 {
-    text-align: center;
-    margin: 15px;
+  text-align: center;
+  margin: 15px;
 }
 
 /* Projects */
 .grid-wrapper {
-    display: grid;
-    width: 95%;
-    margin: 0 auto;
-    gap: 2px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    background: var(--mainColor);
+  display: grid;
+  width: 95%;
+  margin: 0 auto;
+  gap: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  background: var(--mainColor);
 }
 
 box2 {
-    width: 100%;
-    background-color: var(--mainColor);
+  width: 100%;
+  background-color: var(--mainColor);
 }
 
 /* FOOTER */
 footer {
-    text-align: center;
+  text-align: center;
 }
 
 /***********************************************************************
  *  Blue Background
  **********************************************************************/
 .blue {
-    background: var(--mainColor);
+  background: var(--mainColor);
 }
 
 /*
@@ -159,31 +158,31 @@ footer {
 */
 
 .cover {
-    width: 30rem;
+  width: 30rem;
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 98%;
-    font-size: 44px;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  font-size: 44px;
+  z-index: 999;
 }
 
 /* Graue Boxen */
 .box {
-    /* padding: 10px; */
-    margin: 5px;
-    background-color: var(--mainColor);
-    text-align: center;
-    font-size: 30px;
-    min-height: 110px;
-    height: auto;
-    border-radius: 20px;
-    border: 2px solid var(--borderColor);
-    box-shadow: 1px 1px 10px var(--previewShadow);
-    width: 98%;
+  /* padding: 10px; */
+  margin: 5px;
+  background-color: var(--mainColor);
+  text-align: center;
+  font-size: 30px;
+  min-height: 110px;
+  height: auto;
+  border-radius: 20px;
+  border: 2px solid var(--borderColor);
+  box-shadow: 1px 1px 10px var(--previewShadow);
+  width: 98%;
 }
 
 /* Progress bar */
@@ -202,46 +201,45 @@ footer {
 } */
 
 .circleContainer {
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    border: 1px solid rgba(173, 216, 230, 0.158);
-    background-color: #111f3dde;
-    border-radius: 30px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border: 1px solid rgba(173, 216, 230, 0.158);
+  background-color: #111f3dde;
+  border-radius: 30px;
 }
 
 .track {
-    stroke-width: 1;
-    stroke: rgba(211, 211, 211, 0.233);
-    fill: none;
-    stroke-width: 30;
+  stroke-width: 1;
+  stroke: rgba(211, 211, 211, 0.233);
+  fill: none;
+  stroke-width: 30;
 }
 
 .progress {
-    stroke-width: 30;
-    stroke: rgb(12, 255, 12);
-    stroke-linecap: round;
-    fill: none;
+  stroke-width: 30;
+  stroke: rgb(12, 255, 12);
+  stroke-linecap: round;
+  fill: none;
 
-    transform: rotate(270deg);
-    transform-origin: center;
-    transition: 1s ease-in-out;
+  transform: rotate(270deg);
+  transform-origin: center;
+  transition: 1s ease-in-out;
 }
 
 .percentText {
-    font-size: 45px;
-    font-weight: bold;
-    font-family: sans-serif;
-    fill: white;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: sans-serif;
+  fill: white;
 }
 
-
 .uebersicht_Values {
-    font-weight: bolder;
-    background: var(--mainColor);
-    font-size: 1.5em;
+  font-weight: bolder;
+  background: var(--mainColor);
+  font-size: 1.5em;
 }
 
 /***********************************************************************
@@ -250,302 +248,299 @@ footer {
 /* Neues Essen hinzufügen */
 
 .bg-text {
-    /* background-color: var(--mainColor); /* Fallback color */
-    /*  opacity: 0.9; /* Black w/opacity/see-through */
-    color: white;
-    font-weight: bold;
-    font-size: 60px;
-    border: 10px solid var(--themeDotBorder);
-    position: fixed;
-    /* Stay fixed */
-    top: 90%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 80px;
-    padding: 20px;
-    text-align: left;
-    border-radius: 90px;
-    text-align: center;
-    height: 150px;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
+  /* background-color: var(--mainColor); /* Fallback color */
+  /*  opacity: 0.9; /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid var(--themeDotBorder);
+  position: fixed;
+  /* Stay fixed */
+  top: 90%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80px;
+  padding: 20px;
+  text-align: left;
+  border-radius: 90px;
+  text-align: center;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
 }
 
 .bg-text:hover {
-    transition: ease-in-out 1s;
-    box-shadow: 7px 7px 95px var(--previewShadow);
+  transition: ease-in-out 1s;
+  box-shadow: 7px 7px 95px var(--previewShadow);
 }
 
 /* Nach oben Button  */
 .bg-text2 {
-    color: white;
-    font-weight: bold;
-    font-size: 60px;
-    border: 10px solid var(--themeDotBorder);
-    position: fixed;
-    /* Stay fixed */
-    top: 90%;
-    left: 90%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 80px;
-    padding: 20px;
-    text-align: center;
-    border-radius: 90px;
-    text-align: center;
-    height: 150px;
-    align-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid var(--themeDotBorder);
+  position: fixed;
+  /* Stay fixed */
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 90px;
+  text-align: center;
+  height: 150px;
+  align-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
 }
 
 .bg-text2:hover {
-    transition: ease-in-out 1s;
-    box-shadow: 7px 7px 95px var(--previewShadow);
+  transition: ease-in-out 1s;
+  box-shadow: 7px 7px 95px var(--previewShadow);
 }
 
 /* Schritte */
 .bg-text3 {
-    /* background-color: var(--mainColor);  Fallback color */
-    /* opacity: 0.9; /* Black w/opacity/see-through */
-    color: rgb(27, 206, 27);
-    font-weight: bold;
-    font-size: 60px;
-    border: 10px solid var(--themeDotBorder);
-    position: fixed;
-    /* Stay fixed */
-    top: 15%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 350px;
-    padding: 20px;
-    border-radius: 90px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
+  /* background-color: var(--mainColor);  Fallback color */
+  /* opacity: 0.9; /* Black w/opacity/see-through */
+  color: rgb(27, 206, 27);
+  font-weight: bold;
+  font-size: 60px;
+  border: 10px solid var(--themeDotBorder);
+  position: fixed;
+  /* Stay fixed */
+  top: 15%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 350px;
+  padding: 20px;
+  border-radius: 90px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
 }
 
 .new-product-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: scroll;
-    z-index: 9999999;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transform: translateY(300%);
-    transition: all .6s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  z-index: 9999999;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateY(300%);
+  transition: all 0.6s ease-in-out;
 
-    &.active {
-        transform: translateY(0);
-    }
+  &.active {
+    transform: translateY(0);
+  }
 }
 
 .close-modal-button {
-    position: sticky;
-    top: 20px;
-    left: 20px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 50px;
-    padding: 10px;
+  position: sticky;
+  top: 20px;
+  left: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  padding: 10px;
 }
 
-
 .mittelForm {
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    display: flex;
-    justify-content: center;
-    margin: 50px;
-    font-weight: bold;
-    font-size: 2.7em;
-    border: 3px solid var(--borderColor);
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  font-weight: bold;
+  font-size: 2.7em;
+  border: 3px solid var(--borderColor);
 }
 
 .form1 {
-    text-align: right;
-    padding: 50px;
-    color: var(--mainText);
+  text-align: right;
+  padding: 50px;
+  color: var(--mainText);
 }
 
 .barcode-section {
-    width: 100%;
-    min-height: 250px;
+  width: 100%;
+  min-height: 250px;
 }
 
 .barcode-section__label {
-    min-width: 100%;
-    text-align: left;
-    padding-left: 50px;
-    align-self: flex-start;
+  min-width: 100%;
+  text-align: left;
+  padding-left: 50px;
+  align-self: flex-start;
 }
 
 .barcode-section__scan-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px 20px;
-    margin: 60px 0;
-    width: 90%;
-    align-self: center;
-    border-radius: 15px;
-    background-color: #1c3366;
-    color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 60px 0;
+  width: 90%;
+  align-self: center;
+  border-radius: 15px;
+  background-color: #1c3366;
+  color: white;
 }
 
 .barcode-section__form-wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-
 .barcode-section__button {
-    background-color: #1c3366;
-    color: white;
-    padding: 15px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px var(--secondaryText);
-    cursor: pointer;
+  background-color: #1c3366;
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px var(--secondaryText);
+  cursor: pointer;
 }
 
 .inpBox1 {
-    margin-left: 50px;
-    width: 500px;
-    height: 80px;
-    font-size: 34px;
-    text-align: center;
-    border: 3px solid var(--themeDotBorder);
+  margin-left: 50px;
+  width: 500px;
+  height: 80px;
+  font-size: 34px;
+  text-align: center;
+  border: 3px solid var(--themeDotBorder);
 }
 
 .inpBox2 {
-    margin-left: 50px;
-    width: 200px;
-    height: 80px;
-    font-size: 34px;
-    font-weight: bolder;
-    text-align: center;
-    border: 3px solid var(--themeDotBorder);
+  margin-left: 50px;
+  width: 200px;
+  height: 80px;
+  font-size: 34px;
+  font-weight: bolder;
+  text-align: center;
+  border: 3px solid var(--themeDotBorder);
 }
 
 .ButtonSpeichern {
-    background-color: green;
-    color: white;
-    width: 300px;
-    height: 80px;
-    font-size: 44px;
-    border-radius: 20px;
-    margin: 15px;
+  background-color: green;
+  color: white;
+  width: 300px;
+  height: 80px;
+  font-size: 44px;
+  border-radius: 20px;
+  margin: 15px;
 }
 
 .button_FoodLoeschen {
-    width: 250px;
-    height: 80px;
-    background-color: red;
-    color: var(--mainText);
-    margin: 15px;
-    font-size: 44px;
-    font-weight: bold;
-    border-radius: 20px;
+  width: 250px;
+  height: 80px;
+  background-color: red;
+  color: var(--mainText);
+  margin: 15px;
+  font-size: 44px;
+  font-weight: bold;
+  border-radius: 20px;
 }
 
 .button_TagAbschl {
-    background-color: red;
-    color: white;
-    width: 200px;
-    height: 100px;
-    font-size: 24px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin: 100px 20px 50px 210px;
-    justify-content: center;
+  background-color: red;
+  color: white;
+  width: 200px;
+  height: 100px;
+  font-size: 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 100px 20px 50px 210px;
+  justify-content: center;
 }
 
 #output_Gramm {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 /***********************************************************************
  *  Tabelle Heute gegessen
  **********************************************************************/
 #sel_change_Prod {
-    text-align: center;
-    color: yellow;
-    margin: 15px;
-    font-size: 44px;
+  text-align: center;
+  color: yellow;
+  margin: 15px;
+  font-size: 44px;
 }
 
 .singleCalc {
-    color: lightblue;
-    text-align: right;
-    padding-right: 20%;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    letter-spacing: 1.6px;
-    background: radial-gradient(black, rgb(65, 63, 63));
-    margin-top: -30px;
+  color: lightblue;
+  text-align: right;
+  padding-right: 20%;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  letter-spacing: 1.6px;
+  background: radial-gradient(black, rgb(65, 63, 63));
+  margin-top: -30px;
 }
 
 #containerTabelle_Today {
-    width: 98%;
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: right;
-    overflow-y: auto;
-    height: 45vh;
-    max-height: 45vh;
-    border: 5px solid var(--themeDotBorder);
-    background: var(--mainColor);
-    color: var(--mainText);
-    margin: 0 auto;
+  width: 98%;
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: right;
+  overflow-y: auto;
+  height: 45vh;
+  max-height: 45vh;
+  border: 5px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+  margin: 0 auto;
 }
 
 .button_del {
-    background-color: red;
-    color: white;
-    width: 60px;
-    height: 60px;
-    margin: 15px;
-    border-radius: 20px;
-    font-size: 44px;
-    font-weight: bolder;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: red;
+  color: white;
+  width: 60px;
+  height: 60px;
+  margin: 15px;
+  border-radius: 20px;
+  font-size: 44px;
+  font-weight: bolder;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-Menge-aendern {
-    width: 260px;
-    height: 80px;
-    background-color: rgb(230, 189, 10);
-    color: black;
-    font-size: 32px;
-    font-weight: bolder;
-    margin: 15px;
-    border: 3px solid black;
-    box-shadow: 5px 5px 15px rgba(186, 187, 187, 0.658),
-        inset 6px 6px 10px white;
-    border-radius: 9px;
+  width: 260px;
+  height: 80px;
+  background-color: rgb(230, 189, 10);
+  color: black;
+  font-size: 32px;
+  font-weight: bolder;
+  margin: 15px;
+  border: 3px solid black;
+  box-shadow: 5px 5px 15px rgba(186, 187, 187, 0.658), inset 6px 6px 10px white;
+  border-radius: 9px;
 }
 
 /* .inputMengeChange {
@@ -553,80 +548,80 @@ footer {
 } */
 
 #foodAmound_Change {
-    margin: 15px;
-    font-size: 42px;
-    font-weight: bolder;
-    text-align: center;
-    width: 200px;
-    border-radius: 15px;
-    border: 3px solid black;
-    box-shadow: inset 5px 5px 18px black;
+  margin: 15px;
+  font-size: 42px;
+  font-weight: bolder;
+  text-align: center;
+  width: 200px;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: inset 5px 5px 18px black;
 }
 
 .checkMarkButton {
-    height: 75px;
-    width: 75px;
-    font-weight: bold;
-    margin-left: 40px;
-    border-radius: 55px;
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    margin: 15px 15px 15px 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 75px;
+  width: 75px;
+  font-weight: bold;
+  margin-left: 40px;
+  border-radius: 55px;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  margin: 15px 15px 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Tabelle ALLE PRODUKTE */
 .inputMenge {
-    width: 200px;
-    height: 80px;
-    font-size: 34px;
-    font-weight: bold;
-    margin: 15px;
-    text-align: center;
-    color: var(--mainText);
-    background-color: var(--secondaryColor);
-    border-radius: 20px;
-    border: 4px solid black;
+  width: 200px;
+  height: 80px;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 15px;
+  text-align: center;
+  color: var(--mainText);
+  background-color: var(--secondaryColor);
+  border-radius: 20px;
+  border: 4px solid black;
 }
 
 .button-Menge-speichern {
-    width: 150px;
-    height: 80px;
-    font-size: 34px;
-    font-weight: bolder;
-    text-align: center;
-    color: black;
-    background-color: var(--mainColor);
-    border-radius: 20px;
-    border: 2px solid black;
-    margin: 15px;
-    box-shadow: 4px 4px 30px var(--previewShadow);
+  width: 150px;
+  height: 80px;
+  font-size: 34px;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+  background-color: var(--mainColor);
+  border-radius: 20px;
+  border: 2px solid black;
+  margin: 15px;
+  box-shadow: 4px 4px 30px var(--previewShadow);
 }
 
 .foodSection {
-    justify-content: center;
-    background-color: #313235;
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows .9s ease;
+  justify-content: center;
+  background-color: #313235;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.9s ease;
 }
 
 .foodSection.active {
-    grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
 }
 
 .inner {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #statusX {
-    font-size: 30px;
-    text-align: center;
-    font-weight: bolder;
-    color: rgb(15, 230, 15);
-    background-color: rgb(31, 30, 30);
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  color: rgb(15, 230, 15);
+  background-color: rgb(31, 30, 30);
 }
 
 /* ============================================================================== */
@@ -634,95 +629,95 @@ footer {
  *  Popup Screen
  **********************************************************************/
 .modal_Steps {
-    /* Damit das Fenster beim scrollen folgt */
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+  /* Damit das Fenster beim scrollen folgt */
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
 
-    transition: 200ms ease-in-out;
-    border: 1px solid black;
-    border-radius: 12px;
-    z-index: 10;
-    background-color: rgba(2, 11, 43, 0.808);
-    width: 80%;
-    max-width: 80%;
-    height: 35%;
-    border-radius: 20px;
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 12px;
+  z-index: 10;
+  background-color: rgba(2, 11, 43, 0.808);
+  width: 80%;
+  max-width: 80%;
+  height: 35%;
+  border-radius: 20px;
 }
 
 .modal_Steps.active {
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-header {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    text-align: center;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  text-align: center;
 }
 
 .modal-header,
 title {
-    font-size: 3.25rem;
-    font-weight: bold;
-    color: greenyellow;
-    margin: 35px;
+  font-size: 3.25rem;
+  font-weight: bold;
+  color: greenyellow;
+  margin: 35px;
 }
 
 .modal-header .close-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 3.25rem;
-    font-weight: bold;
-    color: var(--mainText);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 3.25rem;
+  font-weight: bold;
+  color: var(--mainText);
 }
 
 .modal-body {
-    padding: 10px 15px;
-    font-size: 3.25rem;
-    text-align: center;
+  padding: 10px 15px;
+  font-size: 3.25rem;
+  text-align: center;
 }
 
 #overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.815);
-    pointer-events: none;
-    /* backdrop-filter: blur(15px); */
-    z-index: 9;
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.815);
+  pointer-events: none;
+  /* backdrop-filter: blur(15px); */
+  z-index: 9;
 }
 
 #overlay.active {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .inpSteps {
-    width: 50%;
-    height: 80px;
-    font-size: 64px;
-    text-align: center;
+  width: 50%;
+  height: 80px;
+  font-size: 64px;
+  text-align: center;
 }
 
 #btn_SaveSteps {
-    width: 300px;
-    height: 150px;
-    background-color: darkgreen;
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 50px;
-    border-radius: 15px;
+  width: 300px;
+  height: 150px;
+  background-color: darkgreen;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 50px;
+  border-radius: 15px;
 }
 
 /* ================================================ */
@@ -730,107 +725,107 @@ title {
 /* ================================================ */
 
 .buttonChangeMakros {
-    width: 130px;
-    height: 80px;
-    font-size: 34px;
-    font-weight: bolder;
-    text-align: center;
-    color: #fdfff9;
-    background-color: var(--mainColor);
-    border-radius: 20px;
-    border: 2px solid black;
-    box-shadow: 5px 5px 25px var(--previewShadow);
-    margin-left: 30px;
+  width: 130px;
+  height: 80px;
+  font-size: 34px;
+  font-weight: bolder;
+  text-align: center;
+  color: #fdfff9;
+  background-color: var(--mainColor);
+  border-radius: 20px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 25px var(--previewShadow);
+  margin-left: 30px;
 }
 
 #containerTabelle {
-    overflow-y: auto;
-    height: 40vh;
-    max-height: 40vh;
-    width: 98%;
-    margin: 0 auto;
-    border: 5px solid black;
-    background: var(--mainColor);
+  overflow-y: auto;
+  height: 40vh;
+  max-height: 40vh;
+  width: 98%;
+  margin: 0 auto;
+  border: 5px solid black;
+  background: var(--mainColor);
 }
 
 #titleDatenbank {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--secondaryText);
+  text-align: center;
+  font-size: 3rem;
+  color: var(--secondaryText);
 }
 
 table {
-    border-collapse: collapse;
-    min-height: 100px;
-    font-size: 34px;
+  border-collapse: collapse;
+  min-height: 100px;
+  font-size: 34px;
 }
 
 table tr {
-    height: 90px;
-    background-color: var(--secondaryColor);
+  height: 90px;
+  background-color: var(--secondaryColor);
 }
 
 table tr td {
-    border: 1px solid var(--themeDotBorder);
-    padding: 10px;
-    color: var(--mainText);
-    font-weight: bold;
+  border: 1px solid var(--themeDotBorder);
+  padding: 10px;
+  color: var(--mainText);
+  font-weight: bold;
 }
 
 td:hover {
-    transition: ease-in-out 1s;
-    background-color: var(--previewShadow);
-    color: var(--secondaryText);
+  transition: ease-in-out 1s;
+  background-color: var(--previewShadow);
+  color: var(--secondaryText);
 }
 
 table tr:nth-child(odd) {
-    background: var(--mainColor);
-    height: 90px;
+  background: var(--mainColor);
+  height: 90px;
 }
 
 #selectedFoodAnzeige {
-    color: cadetblue;
-    font-weight: bold;
-    font-size: 44px;
-    margin: 5px;
-    text-align: center;
+  color: cadetblue;
+  font-weight: bold;
+  font-size: 44px;
+  margin: 5px;
+  text-align: center;
 }
 
 #selectedFoodMakros {
-    color: darkgoldenrod;
-    font-size: 34px;
-    font-weight: bold;
-    margin: 5px;
-    text-align: center;
+  color: darkgoldenrod;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 5px;
+  text-align: center;
 }
 
 .inpSteps {
-    background-color: black;
-    color: chartreuse;
-    font-weight: bolder;
+  background-color: black;
+  color: chartreuse;
+  font-weight: bolder;
 }
 
 .labelSuche {
-    width: 80%;
-    height: 80px;
-    margin: 20px auto;
-    border: 5px solid black;
-    font-size: 44px;
-    font-weight: bold;
-    box-shadow: 5px 5px 50px var(--previewShadow);
-    border-radius: 30px;
+  width: 80%;
+  height: 80px;
+  margin: 20px auto;
+  border: 5px solid black;
+  font-size: 44px;
+  font-weight: bold;
+  box-shadow: 5px 5px 50px var(--previewShadow);
+  border-radius: 30px;
 }
 
 .buttonPruefe {
-    width: 130px;
-    height: 80px;
-    border-radius: 25px;
-    font-size: 34px;
-    font-weight: bold;
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    box-shadow: 7px 7px 25px var(--previewShadow);
-    border: 3px solid var(--borderColor);
+  width: 130px;
+  height: 80px;
+  border-radius: 25px;
+  font-size: 34px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
 }
 
 /* ================================================ */
@@ -838,30 +833,30 @@ table tr:nth-child(odd) {
 /* ================================================ */
 
 .einstllungsform {
-    justify-content: center;
-    width: 98%;
+  justify-content: center;
+  width: 98%;
 }
 
 .checkBox {
-    width: 30px;
-    height: 30px;
-    border: 2px solid red;
+  width: 30px;
+  height: 30px;
+  border: 2px solid red;
 }
 
 .box_SaveButton {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 table,
 th,
 td {
-    border: 1px solid var(--themeDotBorder);
-    border-collapse: collapse;
+  border: 1px solid var(--themeDotBorder);
+  border-collapse: collapse;
 }
 
 /*
@@ -870,128 +865,128 @@ td {
     text-align: left;
   } */
 table.names tr:nth-child(even) {
-    background: var(--mainColor);
-    text-align: center;
+  background: var(--mainColor);
+  text-align: center;
 }
 
 table.names tr:nth-child(odd) {
-    background: var(--mainColor);
-    text-align: center;
+  background: var(--mainColor);
+  text-align: center;
 }
 
 table.names th {
-    background-color: black;
-    color: rgb(245, 241, 11);
+  background-color: black;
+  color: rgb(245, 241, 11);
 }
 
 .container_Kcal_Diagram {
-    position: relative;
-    min-height: 1000px;
+  position: relative;
+  min-height: 1000px;
 }
 
 .column {
-    width: 11%;
-    background-color: teal;
-    margin: 8px;
-    border: 3px solid black;
-    bottom: 0;
-    position: absolute;
-    text-align: center;
-    font-size: 34px;
-    border-radius: 12px;
-    color: var(--secondaryColor);
-    transition: ease-in-out 2s;
+  width: 11%;
+  background-color: teal;
+  margin: 8px;
+  border: 3px solid black;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  font-size: 34px;
+  border-radius: 12px;
+  color: var(--secondaryColor);
+  transition: ease-in-out 2s;
 }
 
 .c1 {
-    left: 8%;
-    height: 0px;
+  left: 8%;
+  height: 0px;
 }
 
 .c2 {
-    left: 20%;
-    height: 0px;
+  left: 20%;
+  height: 0px;
 }
 
 .c3 {
-    left: 32%;
-    height: 0px;
+  left: 32%;
+  height: 0px;
 }
 
 .c4 {
-    left: 44%;
-    height: 0px;
+  left: 44%;
+  height: 0px;
 }
 
 .c5 {
-    left: 56%;
-    height: 0px;
+  left: 56%;
+  height: 0px;
 }
 
 .c6 {
-    left: 68%;
-    height: 0px;
+  left: 68%;
+  height: 0px;
 }
 
 .c7 {
-    left: 80%;
-    height: 0px;
+  left: 80%;
+  height: 0px;
 }
 
 .KcalGoal {
-    left: 0%;
-    bottom: 60%;
-    width: 100%;
-    height: 1%;
-    background-color: red;
-    opacity: 0.3;
+  left: 0%;
+  bottom: 60%;
+  width: 100%;
+  height: 1%;
+  background-color: red;
+  opacity: 0.3;
 }
 
 .wrapperButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .optButtonStatisik {
-    width: 230px;
-    height: 75px;
-    background-color: rgb(10, 10, 46);
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 15px;
-    margin: 10px;
-    border: 3px solid rgb(17, 138, 146);
+  width: 230px;
+  height: 75px;
+  background-color: rgb(10, 10, 46);
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 15px;
+  margin: 10px;
+  border: 3px solid rgb(17, 138, 146);
 }
 
 .boxWeitereZiele,
 .invisibleCont {
-    display: grid;
-    width: 100%;
-    justify-content: center;
-    text-align: left;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    background-color: var(--mainColor);
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  text-align: left;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  background-color: var(--mainColor);
 }
 
 .half-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondaryColor);
-    box-shadow: 0 0 10px var(--previewShadow);
-    padding-top: 15px;
-    border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondaryColor);
+  box-shadow: 0 0 10px var(--previewShadow);
+  padding-top: 15px;
+  border-radius: 8px;
 }
 
 #Status_New_Food {
-    font-size: 34px;
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
+  font-size: 34px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
 }
 
 /* ================================================ */
@@ -999,63 +994,63 @@ table.names th {
 /* ================================================ */
 
 .wasserUeberschr {
-    text-align: center;
-    color: var(--waterColor);
+  text-align: center;
+  color: var(--waterColor);
 }
 
 .wasserContainer {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }
 
 .spinButton {
-    height: 100px;
-    width: 100px;
-    margin: 20px;
-    background-color: var(--buttonColor);
-    color: var(--thirdText);
-    font-size: 74px;
-    font-weight: bold;
-    justify-content: center;
-    border-radius: 12px;
-    border: 3px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
+  background-color: var(--buttonColor);
+  color: var(--thirdText);
+  font-size: 74px;
+  font-weight: bold;
+  justify-content: center;
+  border-radius: 12px;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .outputButtonWater {
-    width: 470px;
-    height: 150px;
-    background-color: rgba(0, 0, 0, 0);
-    color: var(--waterColor);
-    font-size: 82px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 50px var(--mainText);
-    transition: ease-in 2s;
+  width: 470px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--waterColor);
+  font-size: 82px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 50px var(--mainText);
+  transition: ease-in 2s;
 }
 
 .outputButtonWater:hover {
-    transition: ease-in-out 2s;
-    background: rgb(13, 179, 245);
+  transition: ease-in-out 2s;
+  background: rgb(13, 179, 245);
 }
 
 .outpTxtWater {
-    text-align: center;
-    color: var(--waterColor);
-    border-radius: 40px;
-    font-size: 117px;
-    font-weight: bolder;
+  text-align: center;
+  color: var(--waterColor);
+  border-radius: 40px;
+  font-size: 117px;
+  font-weight: bolder;
 }
 
 #lastWater {
-    margin: 12px;
-    font-size: 44px;
-    font-weight: bold;
-    color: var(--mainText);
+  margin: 12px;
+  font-size: 44px;
+  font-weight: bold;
+  color: var(--mainText);
 }
 
 /* ================================================ */
@@ -1063,60 +1058,60 @@ table.names th {
 /* ================================================ */
 
 .colorButtonHolder {
-    display: flex;
-    background-color: var(--mainColor);
-    justify-content: center;
+  display: flex;
+  background-color: var(--mainColor);
+  justify-content: center;
 }
 
 .theme-dot {
-    height: 150px;
-    width: 150px;
-    margin: 45px;
-    border-radius: 90px;
-    box-shadow: 5px 5px 50px rgb(52, 241, 255);
-    font-size: 30px;
-    font-weight: bold;
-    border: 5px solid rgba(255, 255, 255, 0.37);
+  height: 150px;
+  width: 150px;
+  margin: 45px;
+  border-radius: 90px;
+  box-shadow: 5px 5px 50px rgb(52, 241, 255);
+  font-size: 30px;
+  font-weight: bold;
+  border: 5px solid rgba(255, 255, 255, 0.37);
 }
 
 .dark {
-    background-color: #111f3d;
-    color: #4096ee;
+  background-color: #111f3d;
+  color: #4096ee;
 }
 
 .ocean {
-    background-color: #192734;
-    color: #9cadbe;
+  background-color: #192734;
+  color: #9cadbe;
 }
 
 .light {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .green {
-    background-color: #606b56;
+  background-color: #606b56;
 }
 
 .lightBlue {
-    background-color: rgb(87, 166, 245);
-    color: white;
+  background-color: rgb(87, 166, 245);
+  color: white;
 }
 
 .Linear {
-    background: linear-gradient(135deg, rgb(6, 6, 24), rgb(14, 54, 92));
-    color: white;
+  background: linear-gradient(135deg, rgb(6, 6, 24), rgb(14, 54, 92));
+  color: white;
 }
 
 .expButton {
-    width: 250px;
-    height: 100px;
-    margin: 35px;
-    font-size: 33px;
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    border-radius: 20px;
-    box-shadow: 5px 5px 29px var(--previewShadow);
+  width: 250px;
+  height: 100px;
+  margin: 35px;
+  font-size: 33px;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  border-radius: 20px;
+  box-shadow: 5px 5px 29px var(--previewShadow);
 }
 
 /* ================================================ */
@@ -1124,57 +1119,57 @@ table.names th {
 /* ================================================ */
 
 .buttonHistorie {
-    margin: 25px 120px 25px 120px;
-    width: 250px;
-    height: 100px;
-    border-radius: 25px;
-    font-size: 34px;
-    font-weight: bold;
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    box-shadow: 7px 7px 25px var(--previewShadow);
-    border: 3px solid var(--borderColor);
+  margin: 25px 120px 25px 120px;
+  width: 250px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 34px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
 }
 
 .deleteHistorie {
-    color: red;
+  color: red;
 }
 
 #containerTabelle_History {
-    width: 98%;
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: center;
-    overflow-y: auto;
-    height: 45vh;
-    max-height: 45vh;
-    border: 5px solid var(--themeDotBorder);
-    background: var(--mainColor);
-    color: var(--mainText);
-    margin: 0 auto;
+  width: 98%;
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: center;
+  overflow-y: auto;
+  height: 45vh;
+  max-height: 45vh;
+  border: 5px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+  margin: 0 auto;
 }
 
 #HistoryButtonContainer {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }
 
 .welcomeScreen {
-    position: fixed;
-    margin: 0px;
+  position: fixed;
+  margin: 0px;
 
-    background-color: rgba(0, 0, 0, 0.918);
-    color: #23da41;
-    z-index: 2;
-    top: 40%;
-    left: 0%;
-    width: 100%;
-    height: 300px;
-    font-size: 34px;
-    text-align: center;
+  background-color: rgba(0, 0, 0, 0.918);
+  color: #23da41;
+  z-index: 2;
+  top: 40%;
+  left: 0%;
+  width: 100%;
+  height: 300px;
+  font-size: 34px;
+  text-align: center;
 }
 
 /* ================================================ */
@@ -1182,257 +1177,255 @@ table.names th {
 /* ================================================ */
 
 .contr {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .macroContainer {
-    width: 90%;
-    height: 400px;
-    background-color: var(--mainColor);
-    border-radius: 25px;
-    border: 3px solid var(--borderColor);
-    box-shadow: 5px 5px 15px var(--previewShadow);
-    padding: 8px 8px 30px 8px;
+  width: 90%;
+  height: 400px;
+  background-color: var(--mainColor);
+  border-radius: 25px;
+  border: 3px solid var(--borderColor);
+  box-shadow: 5px 5px 15px var(--previewShadow);
+  padding: 8px 8px 30px 8px;
 }
 
 #progress_Val {
-    color: yellow;
-    font-size: 3rem;
-    text-shadow: 0 0 20px black;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+  color: yellow;
+  font-size: 3rem;
+  text-shadow: 0 0 20px black;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
 
 .row {
-    font-weight: bold;
-    display: flex;
-    justify-content: space-evenly;
-    margin: 25px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 25px;
 }
 
 .buttonPlaner {
-    margin: 25px 120px 25px 120px;
-    width: 450px;
-    height: 100px;
-    border-radius: 25px;
-    font-size: 34px;
-    font-weight: bold;
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    box-shadow: 7px 7px 25px var(--previewShadow);
-    border: 3px solid var(--borderColor);
+  margin: 25px 120px 25px 120px;
+  width: 450px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 34px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
 }
 
-
 .addButton {
-    font-size: 75px;
-    color: var(--mainText);
-    margin: 40px auto;
+  font-size: 75px;
+  color: var(--mainText);
+  margin: 40px auto;
 }
 
 .deleteFromPlaner {
-    font-size: 34px;
-    color: rgb(228, 31, 31);
-    margin: 40px;
+  font-size: 34px;
+  color: rgb(228, 31, 31);
+  margin: 40px;
 }
 
 .uebernehmenButton {
-    font-size: 34px;
-    color: var(--mainText);
-    margin: 40px;
+  font-size: 34px;
+  color: var(--mainText);
+  margin: 40px;
 }
 
 .buttonContainer {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }
 
 .round-button {
-    background-color: white;
-    box-shadow: inset 0 0 35px black, 0 0 30px var(--previewShadow);
-    border: 2px solid white;
-    width: max-content;
-    width: 120px;
-    height: 120px;
-    color: black;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: .8em;
+  background-color: white;
+  box-shadow: inset 0 0 35px black, 0 0 30px var(--previewShadow);
+  border: 2px solid white;
+  width: max-content;
+  width: 120px;
+  height: 120px;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
 }
 
 .list-wrapper {
-    width: 100%;
-    padding: 20px;
-    background-color: var(--mainColor);
-    border: 1px solid var(--borderColor);
-    box-shadow: 0 0 15px var(--previewShadow);
+  width: 100%;
+  padding: 20px;
+  background-color: var(--mainColor);
+  border: 1px solid var(--borderColor);
+  box-shadow: 0 0 15px var(--previewShadow);
 }
 
 .list-button {
-    background-color: var(--mainColor);
-    box-shadow: inset 0 0 35px var(--themeDotBorder), 0 0 30px var(--previewShadow);
-    border: 2px solid white;
-    width: fit-content;
-    color: var(--mainText);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: .8em;
-    margin: 60px 0;
-    border-radius: 15px;
-    text-align: left;
-    padding: 20px 20px 20px 30px;
+  background-color: var(--mainColor);
+  box-shadow: inset 0 0 35px var(--themeDotBorder),
+    0 0 30px var(--previewShadow);
+  border: 2px solid white;
+  width: fit-content;
+  color: var(--mainText);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+  margin: 60px 0;
+  border-radius: 15px;
+  text-align: left;
+  padding: 20px 20px 20px 30px;
 }
 
 .fertigButton {
-    margin: 25px 120px 25px 10px;
-    width: 320px;
-    height: 100px;
-    border-radius: 25px;
-    font-size: 54px;
-    font-weight: bold;
-    background-color: var(--mainColor);
-    color: greenyellow;
-    box-shadow: 7px 7px 25px var(--previewShadow);
-    border: 3px solid var(--borderColor);
+  margin: 25px 120px 25px 10px;
+  width: 320px;
+  height: 100px;
+  border-radius: 25px;
+  font-size: 54px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: greenyellow;
+  box-shadow: 7px 7px 25px var(--previewShadow);
+  border: 3px solid var(--borderColor);
 }
 
 .verwerfbutton {
-    color: red;
-    width: 380px;
-    position: relative;
-    left: 35%;
+  color: red;
+  width: 380px;
+  position: relative;
+  left: 35%;
 }
 
 .containerNutri {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    min-height: 130px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-height: 130px;
 }
 
 .cont {
-    display: grid;
-    place-items: center;
-    width: 60px;
-    height: 60px;
-    margin: 2px;
-    border: 2px solid white;
-    border-radius: 15px;
-    color: black;
-    font-weight: bold;
-    transition: ease-in-out 1s;
-    font-size: 2.5rem;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  border: 2px solid white;
+  border-radius: 15px;
+  color: black;
+  font-weight: bold;
+  transition: ease-in-out 1s;
+  font-size: 2.5rem;
 }
 
 .C_A {
-    background: green;
+  background: green;
 }
 
 .C_B {
-    background: lightgreen;
+  background: lightgreen;
 }
 
 .C_C {
-    background: yellow;
+  background: yellow;
 }
 
 .C_D {
-    background: orange;
+  background: orange;
 }
 
 .C_E {
-    background: red;
+  background: red;
 }
 
 #txtArea {
-    background-color: var(--mainColor);
-    color: var(--mainText);
-    border: none;
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  border: none;
 }
 
-
 @media screen and (min-width: 1200px) {
-    * {
-        zoom: 0.9;
-    }
+  * {
+    zoom: 0.9;
+  }
 
-    .zone {
-        font-size: 40px;
-        margin: 0 0 50px 0;
-    }
+  .zone {
+    font-size: 40px;
+    margin: 0 0 50px 0;
+  }
 
-    p {
-        font-size: 40px;
-    }
+  p {
+    font-size: 40px;
+  }
 
-    #btn_SaveSteps {
-        width: 100%;
-    }
+  #btn_SaveSteps {
+    width: 100%;
+  }
 
-    .bg-text3 {
-        top: 11%;
-    }
+  .bg-text3 {
+    top: 11%;
+  }
 
-    .container_Kcal_Diagram {
-        zoom: 0.6;
-        margin-left: 20%;
-        width: 60%;
-    }
+  .container_Kcal_Diagram {
+    zoom: 0.6;
+    margin-left: 20%;
+    width: 60%;
+  }
 
-     body {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+  body {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
-    #btnSteps {
-        top:250px;
-    }
-    
+  #btnSteps {
+    top: 250px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    .main-nav {
-        font-size: 0.5em;
-        padding: 0;
-    }
+  .main-nav {
+    font-size: 0.5em;
+    padding: 0;
+  }
 }
 
 .advise {
-    background: #31312f;
-    color: yellow;
-    width: 98%;
-    margin: 0 auto;
+  background: #31312f;
+  color: yellow;
+  width: 98%;
+  margin: 0 auto;
 }
 
 .nutriLabelToday {
-    display: none;
+  display: none;
 }
 
 .nutriLabelToday.active {
-    display: block;
-    font-size: .4em;
-    margin: 25px 25px 70px 25px;
+  display: block;
+  font-size: 0.4em;
+  margin: 25px 25px 70px 25px;
 }
 
 .outp_nutriScore {
-    background-color: gray;
-    padding: 15px;
-    border-radius: 15px;
-    font-weight: bold;
+  background-color: gray;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: bold;
 }
 
 .settingForm {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 /* --------------------------------------
@@ -1440,800 +1433,813 @@ Togglebutton
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch */
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
-    position: absolute;
-    content: '';
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: rgb(37, 36, 36);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(37, 36, 36);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked+.slider {
-    background-color: #33f321;
+input:checked + .slider {
+  background-color: #33f321;
 }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px #33f321;
+input:focus + .slider {
+  box-shadow: 0 0 1px #33f321;
 }
 
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 /* Rounded sliders */
 .slider.ckround {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .slider.ckround:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 /* Ernährungsweise */
 
 #diet_List {
-    width: 70%;
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 20px;
+  width: 70%;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 20px;
 }
 
 #submitDiet {
-    width: 10%;
-    height: 60px;
-    border-radius: 15px;
-    font-size: 34px;
-    font-weight: bold;
-    background-color: var(--mainColor);
-    color: var(--mainText);
+  width: 10%;
+  height: 60px;
+  border-radius: 15px;
+  font-size: 34px;
+  font-weight: bold;
+  background-color: var(--mainColor);
+  color: var(--mainText);
 }
 
 .menueButtonColor {
-    color: var(--mainText);
+  color: var(--mainText);
 }
 
 .onboarding_Main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 .onboarding_Container {
-    position: fixed;
-    bottom: 0;
-    width: 95%;
-    height: 85%;
-    background-color: lightblue;
-    border-radius: 65px 65px 0 0;
-    border: 1px solid gray;
-    box-shadow: -10px -10px 75px black;
-    font-size: 1.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  height: 85%;
+  background-color: lightblue;
+  border-radius: 65px 65px 0 0;
+  border: 1px solid gray;
+  box-shadow: -10px -10px 75px black;
+  font-size: 1.5rem;
 }
 
 .exitBtn {
-    width: 150px;
-    background-color: blue;
-    color: white;
-    margin: 20px;
-    padding: 1.5rem;
-    font-size: 2.5rem;
-    font-weight: bold;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
+  width: 150px;
+  background-color: blue;
+  color: white;
+  margin: 20px;
+  padding: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
 }
 
 .statusbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 10px;
-    padding: 5px;
-    background-color: blue;
-    margin-top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10px;
+  padding: 5px;
+  background-color: blue;
+  margin-top: 90px;
 }
 
 .point {
-    font-size: 3rem;
-    font-weight: bold;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 50%;
-    height: 70px;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-color: black;
-    color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
 }
 
 .point.active {
-    background-color: rgb(0, 255, 255);
-    border: 15px solid rgb(0, 0, 0);
-    color: black;
+  background-color: rgb(0, 255, 255);
+  border: 15px solid rgb(0, 0, 0);
+  color: black;
 }
 
 .formularfield {
-    /*
+  /*
     position: absolute;
     bottom: 0;
     left: 0; */
-    margin-top: 60px;
-    width: 100%;
-    min-height: 85%;
-    max-height: 300px;
-    overflow-y: scroll;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-top: 1px solid black;
-    text-align: center;
+  margin-top: 60px;
+  width: 100%;
+  min-height: 85%;
+  max-height: 300px;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid black;
+  text-align: center;
 }
 
 .genderContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .optionBox {
-    display: flex;
-    align-items: center;
-    margin: 50px;
-    font-size: 2rem;
+  display: flex;
+  align-items: center;
+  margin: 50px;
+  font-size: 2rem;
 }
 
 .radioBtn {
-    width: 35px;
-    height: 35px;
-    margin: 15px;
-    text-align: right;
+  width: 35px;
+  height: 35px;
+  margin: 15px;
+  text-align: right;
 }
 
 .buttonWeiter {
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 10px;
-    background-color: #111f3d;
-    color: white;
-    border-radius: 10px;
-    height: 120px;
-    width: 200px;
-    border: 3px solid black;
-    box-shadow: 5px 5px 10px black;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #111f3d;
+  color: white;
+  border-radius: 10px;
+  height: 120px;
+  width: 200px;
+  border: 3px solid black;
+  box-shadow: 5px 5px 10px black;
 }
 
 .miniclock-wrapper {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
-    border: 3px solid black;
-    box-shadow: 0 0 5px white, inset 0 0 30px gray;
-    position: fixed;
-    top: 220px;
-    left: 10px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    z-index: 9;
-    font-size: 2em;
-    font-weight: bold;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border: 3px solid black;
+  box-shadow: 0 0 5px white, inset 0 0 30px gray;
+  position: fixed;
+  top: 220px;
+  left: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  z-index: 9;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .lblfasting {
-    font-size: .7em;
-    margin-top: -5px;
-    letter-spacing: 1.5px;
-    color: yellow;
+  font-size: 0.7em;
+  margin-top: -5px;
+  letter-spacing: 1.5px;
+  color: yellow;
 }
 
 /* Intervall Fasting Styles */
 #overlay_Interval {
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #modal_Interval {
-    max-width: 600px;
-    height: 400px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #0b101b;
-    border-radius: 15px;
-    -webkit-box-shadow: 0 0 35px black;
-    box-shadow: 0 0 35px black;
-    color: white;
+  max-width: 600px;
+  height: 400px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0b101b;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 35px black;
+  box-shadow: 0 0 35px black;
+  color: white;
 }
 
 .showRest {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .modalContentContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-family: sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 .modalContentContainer h1 {
-    color: white;
-    font-size: 1.3rem;
+  color: white;
+  font-size: 1.3rem;
 }
 
 .modalContentContainer label {
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-align: right;
-    width: 110px;
-    margin-right: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: right;
+  width: 110px;
+  margin-right: 1rem;
 }
 
 .modalContentContainer input {
-    max-width: 60px;
-    text-align: center;
-    background-color: #051a20;
-    color: yellow;
-    font-size: 1.2rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-weight: bold;
-    border-radius: 5px;
-    height: 20px;
+  max-width: 60px;
+  text-align: center;
+  background-color: #051a20;
+  color: yellow;
+  font-size: 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 20px;
 }
 
 .modalContentContainer select {
-    background-color: lightblue;
-    color: black;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
+  background-color: lightblue;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .startTimeInput {
-    min-width: 90px;
-    text-align: center;
-    background-color: lightblue;
-    color: black;
-    font-size: 1.2rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-weight: bold;
-    border-radius: 5px;
-    height: 20px;
+  min-width: 90px;
+  text-align: center;
+  background-color: lightblue;
+  color: black;
+  font-size: 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 20px;
 }
 
 .modalContentContainer p {
-    width: 90%;
-    min-height: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    background-color: #e6edf0;
-    padding: 5px;
+  width: 90%;
+  min-height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #e6edf0;
+  padding: 5px;
 }
 
 .madalHeader {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0.3rem;
-    background: #4b5558;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.3rem;
+  background: #4b5558;
 }
 
 .buttonClose {
-    background-color: red;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    border: 1px solid #d40b0b;
-    -webkit-box-shadow: inset 2px 2px 10px white;
-    box-shadow: inset 2px 2px 10px white;
-    cursor: pointer;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-family: sans-serif;
+  background-color: red;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #d40b0b;
+  -webkit-box-shadow: inset 2px 2px 10px white;
+  box-shadow: inset 2px 2px 10px white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 .buttonClose:active {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 .saveButton {
-    background-color: green;
-    color: white;
-    border-radius: 25px;
-    border: 1px solid green;
-    padding: 0.5rem;
-    -webkit-box-shadow: inset 2px 2px 10px white;
-    box-shadow: inset 2px 2px 10px white;
-    cursor: pointer;
-    width: 130px;
-    height: 38px;
-    font-weight: bold;
-    font-size: 1rem;
+  background-color: green;
+  color: white;
+  border-radius: 25px;
+  border: 1px solid green;
+  padding: 0.5rem;
+  -webkit-box-shadow: inset 2px 2px 10px white;
+  box-shadow: inset 2px 2px 10px white;
+  cursor: pointer;
+  width: 130px;
+  height: 38px;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .saveButton:active {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 .smallButton {
-    width: 110px;
-    height: 45px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.068);
-    margin: 10px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: black;
-    -webkit-box-shadow: inset 2px 2px 4px white;
-    box-shadow: inset 2px 2px 4px white;
-    cursor: pointer;
+  width: 110px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.068);
+  margin: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: black;
+  -webkit-box-shadow: inset 2px 2px 4px white;
+  box-shadow: inset 2px 2px 4px white;
+  cursor: pointer;
 }
 
 .smallButton-dark {
-    border: 1px solid rgba(255, 255, 255, 0.34);
-    color: white;
-    background-color: rgba(24, 220, 242, 0.295);
-    -webkit-box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436), 0 0 10px rgba(255, 255, 255, 0.436);
-    box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436), 0 0 10px rgba(255, 255, 255, 0.436);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  color: white;
+  background-color: rgba(24, 220, 242, 0.295);
+  -webkit-box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436),
+    0 0 10px rgba(255, 255, 255, 0.436);
+  box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436),
+    0 0 10px rgba(255, 255, 255, 0.436);
 }
 
 .settingButton {
-    width: 40px;
-    height: 40px;
-    font-size: 2rem;
-    font-weight: bold;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: gray;
-    margin: 9px;
-    border-radius: 25px;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: gray;
+  margin: 9px;
+  border-radius: 25px;
 }
 
 .message {
-    transform: translateY(-300%);
-    overflow: hidden;
-    width: 95%;
-    height: auto;
-    min-height: 400px;
-    background: linear-gradient(to right, rgba(33, 139, 226, 0.6), rgba(48, 198, 248, 0.6));
-    border-radius: 30px;
-    backdrop-filter: blur(23px);
-    -webkit-backdrop-filter: blur(23px);
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 37%;
-    margin: 0 auto;
-    z-index: 9999999999;
-    font-size: 2.4em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    color: var(--mainText);
-    letter-spacing: 6.5px;
-    box-shadow: 0 0 30px black;
-    border: 1px solid white;
-    transition: all 1s ease;
-    padding-top: 25px;
+  transform: translateY(-300%);
+  overflow: hidden;
+  width: 95%;
+  height: auto;
+  min-height: 400px;
+  background: linear-gradient(
+    to right,
+    rgba(33, 139, 226, 0.6),
+    rgba(48, 198, 248, 0.6)
+  );
+  border-radius: 30px;
+  backdrop-filter: blur(23px);
+  -webkit-backdrop-filter: blur(23px);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 37%;
+  margin: 0 auto;
+  z-index: 9999999999;
+  font-size: 2.4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  color: var(--mainText);
+  letter-spacing: 6.5px;
+  box-shadow: 0 0 30px black;
+  border: 1px solid white;
+  transition: all 1s ease;
+  padding-top: 25px;
 }
 
 #message {
-    max-width: 80%;
-    margin-top: 80px;
+  max-width: 80%;
+  margin-top: 80px;
 }
 
 .message::before {
-    content: 'ℹ️ Info';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to right, rgba(8, 36, 60, 0.8), rgba(5, 60, 78, 0.8));
-    padding: 15px 15px 15px 100px;
-    font-size: 1.6em;
-    text-align: left;
-    font-weight: bold;
-    color: lightblue;
+  content: "ℹ️ Info";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(
+    to right,
+    rgba(8, 36, 60, 0.8),
+    rgba(5, 60, 78, 0.8)
+  );
+  padding: 15px 15px 15px 100px;
+  font-size: 1.6em;
+  text-align: left;
+  font-weight: bold;
+  color: lightblue;
 }
 
 .message.active {
-    transform: translateY(-120%);
+  transform: translateY(-120%);
 }
 
 .message.alertMessage {
-    color: yellow;
-    background: black;
+  color: yellow;
+  background: black;
 }
 
 .message.alertMessage::before {
-    content: '⚠️ Fehler';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to right, rgba(8, 36, 60, 0.8), rgba(5, 60, 78, 0.8));
-    padding: 15px 15px 15px 100px;
-    font-size: 1.6em;
-    text-align: start;
-    font-weight: bold;
-    color: yellow;
+  content: "⚠️ Fehler";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(
+    to right,
+    rgba(8, 36, 60, 0.8),
+    rgba(5, 60, 78, 0.8)
+  );
+  padding: 15px 15px 15px 100px;
+  font-size: 1.6em;
+  text-align: start;
+  font-weight: bold;
+  color: yellow;
 }
 
 #output_Burned {
-    position: relative;
+  position: relative;
 }
 
 #output_Burned::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 3px;
-    background-color: rgb(193, 189, 189);
-    width: 30%;
-    animation: hoverFlow 10s ease infinite;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background-color: rgb(193, 189, 189);
+  width: 30%;
+  animation: hoverFlow 10s ease infinite;
 }
 
 @keyframes hoverFlow {
-    0% {
-        bottom: 0;
-    }
+  0% {
+    bottom: 0;
+  }
 
-    50% {
-        bottom: -10px;
-    }
+  50% {
+    bottom: -10px;
+  }
 
-    100% {
-        bottom: 0;
-    }
+  100% {
+    bottom: 0;
+  }
 }
 
-
 .new-food-modal {
+  position: fixed;
+  background-color: #24292e;
+  z-index: 99999;
+  border-radius: 100px 100px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 70px;
+  font-size: 3rem;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.7s ease;
+  transform: translateY(400%);
+  color: var(--mainText);
+
+  &.active {
+    transform: translateY(0);
+  }
+
+  .close-button {
     position: fixed;
-    background-color: #24292e;
-    z-index: 99999;
-    border-radius: 100px 100px 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 70px;
-    font-size: 3rem;
-    top: 10px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: all .7s ease;
-    transform: translateY(400%);
-    color: var(--mainText);
+    right: 50px;
+    top: 30px;
+    padding: 20px;
+    font-size: 2.5rem;
+    color: var(--secondaryText);
+  }
 
-    &.active {
-        transform: translateY(0);
-    }
-
-    .close-button {
-        position: fixed;
-        right: 50px;
-        top: 30px;
-        padding: 20px;
-        font-size: 2.5rem;
-        color: var(--secondaryText);
-    }
-
-    .button-close-modal {
-        background-color: #111f3d;
-        color: #23da41;
-        font-size: 4.2rem;
-        position: fixed;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 30px;
-        border-radius: 30px;
-    }
+  .button-close-modal {
+    background-color: #111f3d;
+    color: #23da41;
+    font-size: 4.2rem;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px;
+    border-radius: 30px;
+  }
 }
 
 #optAreaDB {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .add_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: inset 0 0 30px var(--mainText);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 30px var(--mainText);
 }
 
 .bi-plus-circle-fill {
-    color: var(--mainText);
+  color: var(--mainText);
 }
 
 .small-scan-btn {
-    background-color: rgb(32, 42, 60);
-    padding: 20px;
-    position: absolute;
-    left: 40px;
-    top: 10px;
-    color: white;
+  background-color: rgb(32, 42, 60);
+  padding: 20px;
+  position: absolute;
+  left: 40px;
+  top: 10px;
+  color: white;
 }
 
 .progress-wrapper {
-    width: 50%;
-    background-color: var(--mainColor);
-    border: 1px solid var(--themeDotBorder);
-    height: 10px;
-    position: relative;
-    margin: 20px auto;
-    border-radius: 15px;
-    overflow: hidden;
+  width: 50%;
+  background-color: var(--mainColor);
+  border: 1px solid var(--themeDotBorder);
+  height: 10px;
+  position: relative;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .progress-span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background-color: var(--mainText);
-    opacity: .7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--mainText);
+  opacity: 0.7;
 }
 
 #hints {
-    margin: 20px auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  margin: 20px auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .hint-item {
-    font-size: 1.8rem;
-    padding: 5px;
-    border-radius: 9px;
+  font-size: 1.8rem;
+  padding: 5px;
+  border-radius: 9px;
 }
 
 .macro-preview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 2rem;
-    width: 100%;
-    transition: all .7s ease-in-out;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 2rem;
+  width: 100%;
+  transition: all 0.7s ease-in-out;
 }
 
 .makro-bubble {
-    background-color: var(--secondaryColor);
-    padding: 20px;
-    border-radius: 8px;
-    animation: animate-makro-bubbles .6s ease-in-out;
+  background-color: var(--secondaryColor);
+  padding: 20px;
+  border-radius: 8px;
+  animation: animate-makro-bubbles 0.6s ease-in-out;
 }
 
 @keyframes animate-makro-bubbles {
-    from {
-        color: var(--secondaryColor);
-    }
+  from {
+    color: var(--secondaryColor);
+  }
 
-    to {
-        color: var(--mainText);
-    }
+  to {
+    color: var(--mainText);
+  }
 }
-
-
 
 .load-animation {
-    display: none;
+  display: none;
 
-    &.active {
-        position: fixed;
-        background-color: rgba(0, 0, 0, 0.825);
-        z-index: 9999999999999;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        font-size: 3rem;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .rotating-circle {
-        width: 300px;
-        height: 300px;
-        background-color: blue;
-        border-radius: 50%;
-        animation: rotating-animation 2s linear infinite;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: white;
-    }
-}
-
-@keyframes rotating-animation {
-    0% {
-        box-shadow: inset 0 0 10px black, 0 0 300px blue;
-    }
-
-    50% {
-        box-shadow: inset 0 0 200px black, 0 0 10px blue;
-        backdrop-filter: saturate(80%);
-        background-color: rgba(0, 0, 0, 0.068);
-    }
-
-    100% {
-        box-shadow: inset 0 0 10px black, 0 0 300px blue;
-    }
-}
-
-.interval-fasting-link {
+  &.active {
     position: fixed;
-    top: 24vh;
-    left: 10px;
-    width: 126px;
-    height: 126px;
-    border-radius: 50%;
-    background-color: black;
-    color: white;
-    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.825);
+    z-index: 9999999999999;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rotating-circle {
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    border-radius: 50%;
+    animation: rotating-animation 2s linear infinite;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
+  }
+}
+
+@keyframes rotating-animation {
+  0% {
+    box-shadow: inset 0 0 10px black, 0 0 300px blue;
+  }
+
+  50% {
+    box-shadow: inset 0 0 200px black, 0 0 10px blue;
+    backdrop-filter: saturate(80%);
+    background-color: rgba(0, 0, 0, 0.068);
+  }
+
+  100% {
+    box-shadow: inset 0 0 10px black, 0 0 300px blue;
+  }
+}
+
+.interval-fasting-link {
+  position: fixed;
+  top: 24vh;
+  left: 10px;
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .canvas-wrapper {
-    max-width: 100%;
-    overflow-x: scroll;
+  max-width: 100%;
+  overflow-x: scroll;
 }
 
 #output_percentage {
-    font-size: 2rem;
-    padding: 5px;
-    margin: 10px;
-    color: var(--mainText);
-    font-weight: bold;
+  font-size: 2rem;
+  padding: 5px;
+  margin: 10px;
+  color: var(--mainText);
+  font-weight: bold;
 }
 
 #spezDietDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px 0;
 }
 
 .macro-distribution-slides {
-    display: flex;
-    flex-direction: column;
-    gap: 20px 0;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  width: 100%;
 }
 
+.weight_statistics {
+  font-weight: 8px;
+}

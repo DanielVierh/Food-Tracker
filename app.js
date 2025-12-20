@@ -139,6 +139,7 @@ const target_Weight = document.getElementById("target_Weight");
 const target_Time = document.getElementById("target_Time");
 const opt_Male = document.getElementById("opt_Male");
 const opt_Female = document.getElementById("opt_Female");
+const weight_statistics = document.getElementById("weight_statistics");
 // const fat_range = document.getElementById('fat_range');
 // const protein_range = document.getElementById('protein_range');
 // const carbs_range = document.getElementById('carbs_range');
@@ -638,10 +639,14 @@ function draw_weight_progress() {
   let min_weight = weights_obj.tracks[0]._weight;
   let max_weight = weights_obj.tracks[0]._weight;
   let toggler = -1;
+  let weight_sum = 0;
+  let weight_counter = 0;
 
   // determine min and max weights
   for (let i = 0; i < weights_obj.tracks.length; i++) {
+    weight_counter++;
     const current_weight = parseInt(weights_obj.tracks[i]._weight);
+    weight_sum += current_weight;
     if (current_weight < min_weight) {
       min_weight = current_weight;
     }
@@ -649,6 +654,8 @@ function draw_weight_progress() {
       max_weight = current_weight;
     }
   }
+  const average_weight = weight_sum / weight_counter;
+  weight_statistics.innerHTML = `Werte: Min: ${min_weight} Kg || Durchschn: ${average_weight}Kg || Max: ${max_weight} Kg`;
 
   //TODO Automatische Höhe - wip
   // const whole_weight_diff = max_weight - min_weight;
