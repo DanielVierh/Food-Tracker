@@ -596,7 +596,7 @@ footer {
   background-color: var(--mainColor);
   border-radius: 20px;
   border: 2px solid black;
-  margin: 15px;
+  margin: 10px;
   box-shadow: 4px 4px 30px var(--previewShadow);
 }
 

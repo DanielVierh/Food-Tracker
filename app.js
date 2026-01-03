@@ -1,6 +1,7 @@
 // Projekt erstellt am 13.05.2021
 import { showMessage } from "./modules/message.js";
 import { addZero } from "./modules/helperfunctions.js";
+import { stored_planed_food } from "./modules/Store.js";
 
 // Variabeln
 const buttonAdd = document.getElementById("btnAdd");
@@ -11,6 +12,7 @@ let today_eaten = [];
 let my_Statistics = [];
 let additional_Targets = [];
 let my_History = [];
+let planed_food = [];
 let bodyWeight = 78;
 let kcal_Ziel = 2000;
 let kcal_Requirement = 2000;
@@ -140,6 +142,9 @@ const target_Time = document.getElementById("target_Time");
 const opt_Male = document.getElementById("opt_Male");
 const opt_Female = document.getElementById("opt_Female");
 const weight_statistics = document.getElementById("weight_statistics");
+const btn_add_to_list_and_planer = document.getElementById(
+  "btn_add_to_list_and_planer"
+);
 // const fat_range = document.getElementById('fat_range');
 // const protein_range = document.getElementById('protein_range');
 // const carbs_range = document.getElementById('carbs_range');
@@ -172,6 +177,7 @@ function loadCont() {
   coloring_Labels();
   show_EffectKcal();
   calc_Values();
+  planed_food = stored_planed_food;
 }
 
 // Checke local Storage
@@ -2216,19 +2222,23 @@ btn_Save_to_TodayEaten.addEventListener("click", () => {
   add_Food_to_TodayList();
 });
 
-function add_Food_to_TodayList() {
+btn_add_to_list_and_planer.addEventListener("click", () => {
+  add_Food_to_TodayList(true);
+});
+
+function add_Food_to_TodayList(add_additionally_to_planer = false) {
   //Produkt nicht "", also ausgewählt
   if (selected_Food != "") {
     if (inputField_EatenFood_in_Gramm.value == "") {
       showMessage(`Bitte eine Menge eingeben`, 10000, "Alert");
     } else {
       let newProduct = selected_Food.productName;
-      var alreadyTracked = false;
-      var todayEatenIndex = 3000;
-      var selectedAmount = parseFloat(inputField_EatenFood_in_Gramm.value);
+      let alreadyTracked = false;
+      let todayEatenIndex = 99999;
+      let selectedAmount = parseFloat(inputField_EatenFood_in_Gramm.value);
 
       // Checke ob bereits vorhanden
-      for (var i = 0; i < today_eaten.length; i++) {
+      for (let i = 0; i < today_eaten.length; i++) {
         if (today_eaten[i].intake_productName == newProduct) {
           alreadyTracked = true;
           todayEatenIndex = i;
@@ -2238,7 +2248,7 @@ function add_Food_to_TodayList() {
       if (alreadyTracked == false) {
       } else {
         // Fragen, ob addiert werden soll
-        var addRequest = window.confirm(
+        const addRequest = window.confirm(
           newProduct +
             " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?"
         );
@@ -2250,11 +2260,11 @@ function add_Food_to_TodayList() {
           // Neuen Wert eintragen alt + neu
           selectedAmount = selectedAmount + old_Quantity;
           // Altes Produkt löschen
-          if (todayEatenIndex != 3000) {
+          if (todayEatenIndex != 99999) {
             today_eaten.splice(todayEatenIndex, 1);
           }
           // Letzte Aktionen
-          todayEatenIndex = 3000;
+          todayEatenIndex = 99999;
         } else {
           createTable_FoodDB();
           blendOut_Eingabebereich_FoodDB();
