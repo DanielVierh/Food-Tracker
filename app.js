@@ -2317,7 +2317,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
                     Eiweiss: ${parseInt(protein_Intake)}g <br>
                     Salz: ${parseInt(salt_Intake)}g <br> <br>`;
 
-        showMessage(`${intakeFoodInfo}`, 10000, "Info");
+        showMessage(`${intakeFoodInfo}`, 5000, "Info");
         document.getElementById("statusX").innerHTML =
           selected_Food.productName + " wurde eingetragen";
         // Speichern
