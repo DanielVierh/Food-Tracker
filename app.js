@@ -2392,29 +2392,87 @@ function create_Table_TodayEaten() {
       document.getElementById("foodAmound_Change").disabled = false;
       blendOut_Eingabebereich_FoodDB();
 
-      var prozentFromDay =
+      const disclaimer =
+        "(Die Prozente geben an, wie stark das ausgewählte Lebensmittel zur heute gegessenen Gesamtmenge an Fett, Kohlenhydraten usw. beiträgt.) ";
+      const selected_food__fat = selected_Food.intake_fat.toFixed(1);
+      const selected_food__fat_percentage_of_eaten = (
+        (selected_Food.intake_fat * 100) /
+        (eaten_Fat || 1)
+      ).toFixed(0);
+
+      const selected_food__protein = selected_Food.intake_protein.toFixed(1);
+      const selected_food__protein_percentage_of_eaten = (
+        (selected_Food.intake_protein * 100) /
+        (eaten_Protein || 1)
+      ).toFixed(0);
+
+      const selected_food__carbs = selected_Food.intake_carbs.toFixed(1);
+      const selected_food__carbs_percentage_of_eaten = (
+        (selected_Food.intake_carbs * 100) /
+        (eaten_Carbs || 1)
+      ).toFixed(0);
+
+      const selected_food__sugar = selected_Food.intake_sugar.toFixed(1);
+      const selected_food__sugar_percentage_of_eaten = (
+        (selected_Food.intake_sugar * 100) /
+        (eaten_Sugar || 1)
+      ).toFixed(0);
+      const selected_food__sugar_cubes = parseInt(
+        selected_Food.intake_sugar.toFixed(0) / 3
+      );
+
+      const selected_food__fiber = selected_Food.intake_fiber.toFixed(1);
+      const selected_food__fiber_percentage_of_eaten = (
+        (selected_Food.intake_fiber * 100) /
+        (eaten_Fiber || 1)
+      ).toFixed(0);
+
+      const selected_food__salt = selected_Food.intake_salt.toFixed(1);
+      const selected_food__salt_percentage_of_eaten = (
+        (selected_Food.intake_salt * 100) /
+        (eaten_Salt || 1)
+      ).toFixed(0);
+
+      let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle =
-        "Makros: (" +
-        selected_Food.intake_kcal +
-        " Kcal = " +
-        prozentFromDay.toFixed(0) +
-        "%)" +
-        " <br/>  Fett: " +
-        selected_Food.intake_fat.toFixed(1) +
-        " g <br/>  Eiweiß: " +
-        selected_Food.intake_protein.toFixed(1) +
-        " g <br/>  Kohlenhydrate: " +
-        selected_Food.intake_carbs.toFixed(1) +
-        " g <br/>  Zucker: " +
-        selected_Food.intake_sugar.toFixed(1) +
-        " g <br/>  ZckWürfel: " +
-        parseInt(selected_Food.intake_sugar.toFixed(0) / 3) +
-        " Stk <br/>  Ballaststoffe: " +
-        selected_Food.intake_fiber.toFixed(1) +
-        " g <br/>  Salz:  " +
-        selected_Food.intake_salt.toFixed(1) +
-        " g";
+      let calcSingle = `Makros: (${
+        selected_Food.intake_kcal
+      } Kcal = ${prozentFromDay.toFixed(0)}%)
+      <br/>
+      Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
+      <br/>
+      Eiweiß: ${selected_food__protein} g | ${selected_food__protein_percentage_of_eaten}%
+      <br/>
+      Kohlenhydrate: ${selected_food__carbs} g | ${selected_food__carbs_percentage_of_eaten}%
+      <br/>
+      Zucker: ${selected_food__sugar} g | ${selected_food__sugar_percentage_of_eaten}% | ${selected_food__sugar_cubes} Stk
+      <br/>
+      Ballaststoffe: ${selected_food__fiber} g | ${selected_food__fiber_percentage_of_eaten}%
+      <br/>
+      Salz: ${selected_food__salt} g | ${selected_food__salt_percentage_of_eaten}%
+      <br/>
+      <span class="calcSingle__disclaimer">${disclaimer}</span>`;
+
+      // "Makros: (" +
+      //   selected_Food.intake_kcal +
+      //   " Kcal = " +
+      //   prozentFromDay.toFixed(0) +
+      //   "%)" +
+      //   " <br/>  Fett: " +
+      //   selected_Food.intake_fat.toFixed(1) +
+      //   " g <br/>  Eiweiß: " +
+      //   selected_Food.intake_protein.toFixed(1) +
+      //   " g <br/>  Kohlenhydrate: " +
+      //   selected_Food.intake_carbs.toFixed(1) +
+      //   " g <br/>  Zucker: " +
+      //   selected_Food.intake_sugar.toFixed(1) +
+      //   " g <br/>  ZckWürfel: " +
+      //   parseInt(selected_Food.intake_sugar.toFixed(0) / 3) +
+      //   " Stk <br/>  Ballaststoffe: " +
+      //   selected_Food.intake_fiber.toFixed(1) +
+      //   " g <br/>  Salz:  " +
+      //   selected_Food.intake_salt.toFixed(1) +
+      //   " g";
 
       let nutri;
       for (let i = 0; i < array_Food_DB.length; i++) {

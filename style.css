@@ -2249,3 +2249,9 @@ input:checked + .slider:before {
 .weight_statistics {
   font-weight: 8px;
 }
+
+.calcSingle__disclaimer {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  color: gray;
+}
