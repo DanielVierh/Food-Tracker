@@ -2453,27 +2453,6 @@ function create_Table_TodayEaten() {
       <br/>
       <span class="calcSingle__disclaimer">${disclaimer}</span>`;
 
-      // "Makros: (" +
-      //   selected_Food.intake_kcal +
-      //   " Kcal = " +
-      //   prozentFromDay.toFixed(0) +
-      //   "%)" +
-      //   " <br/>  Fett: " +
-      //   selected_Food.intake_fat.toFixed(1) +
-      //   " g <br/>  Eiweiß: " +
-      //   selected_Food.intake_protein.toFixed(1) +
-      //   " g <br/>  Kohlenhydrate: " +
-      //   selected_Food.intake_carbs.toFixed(1) +
-      //   " g <br/>  Zucker: " +
-      //   selected_Food.intake_sugar.toFixed(1) +
-      //   " g <br/>  ZckWürfel: " +
-      //   parseInt(selected_Food.intake_sugar.toFixed(0) / 3) +
-      //   " Stk <br/>  Ballaststoffe: " +
-      //   selected_Food.intake_fiber.toFixed(1) +
-      //   " g <br/>  Salz:  " +
-      //   selected_Food.intake_salt.toFixed(1) +
-      //   " g";
-
       let nutri;
       for (let i = 0; i < array_Food_DB.length; i++) {
         if (array_Food_DB[i].productName === selected_Food.intake_productName) {
