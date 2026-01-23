@@ -76,7 +76,7 @@ const message = document.getElementById("message");
 const lbl_todayNutri = document.getElementById("lbl_todayNutri");
 const outp_nutriScore = document.getElementById("outp_nutriScore");
 const foodAmountSingleView = document.getElementById(
-  "invisible_ChangeSection_HeuteGegessen"
+  "invisible_ChangeSection_HeuteGegessen",
 );
 const modal_new_food = document.getElementById("modal_new_food");
 const btn_close_modal = document.getElementById("btn_close_modal");
@@ -84,7 +84,7 @@ const btn_close_foodModal = document.getElementById("btn_close_foodModal");
 const body = document.getElementById("bdy");
 const macro_prev = document.getElementById("macro_prev");
 const btn_Save_to_TodayEaten = document.getElementById(
-  "btn_Save_to_TodayEaten"
+  "btn_Save_to_TodayEaten",
 );
 const btn_ChangeMacros = document.getElementById("btn_ChangeMacros");
 const btn_openNewModal = document.getElementById("btn_openNewModal");
@@ -92,11 +92,11 @@ const btn_gotoPlaner = document.getElementById("btn_gotoPlaner");
 const btn_closeDay = document.getElementById("btn_closeDay");
 const output_Burned = document.getElementById("output_Burned");
 const btnDeleteFoodFromToday = document.getElementById(
-  "btnDeleteFoodFromToday"
+  "btnDeleteFoodFromToday",
 );
 const btnChangeQuantity = document.getElementById("btnChangeQuantity");
 const btn_blendOut_MengeAendern = document.getElementById(
-  "btn_blendOut_MengeAendern"
+  "btn_blendOut_MengeAendern",
 );
 const btn_water_spin_down = document.getElementById("btn_water_spin_down");
 const outpWaterButton = document.getElementById("outpWaterButton");
@@ -113,24 +113,24 @@ const btnStatBallast = document.getElementById("btnStatBallast");
 const btnStatProtein = document.getElementById("btnStatProtein");
 const btn_send_day = document.getElementById("btn_send_day");
 const btn_close_newProd_modal = document.getElementById(
-  "btn_close_newProd_modal"
+  "btn_close_newProd_modal",
 );
 const btn_del_food_from_db = document.getElementById("btn_del_food_from_db");
 const btn_add_new_food = document.getElementById("btn_add_new_food");
 const inv_Button = document.getElementById("inv_Button");
 const btn_makeFieldsInvisible = document.getElementById(
-  "btn_makeFieldsInvisible"
+  "btn_makeFieldsInvisible",
 );
 const btn_define_Kcal_Target = document.getElementById(
-  "btn_define_Kcal_Target"
+  "btn_define_Kcal_Target",
 );
 const btn_define_additional_Target = document.getElementById(
-  "btn_define_additional_Target"
+  "btn_define_additional_Target",
 );
 const btn_expFoodDB = document.getElementById("btn_expFoodDB");
 const btn_export_FoodDB_All = document.getElementById("btn_export_FoodDB_All");
 const btn_deleteDayWithoutHistory = document.getElementById(
-  "btn_deleteDayWithoutHistory"
+  "btn_deleteDayWithoutHistory",
 );
 const btn_deleteDHistory = document.getElementById("btn_deleteDHistory");
 const btn_deleteStatistics = document.getElementById("btn_deleteStatistics");
@@ -143,7 +143,7 @@ const opt_Male = document.getElementById("opt_Male");
 const opt_Female = document.getElementById("opt_Female");
 const weight_statistics = document.getElementById("weight_statistics");
 const btn_add_to_list_and_planer = document.getElementById(
-  "btn_add_to_list_and_planer"
+  "btn_add_to_list_and_planer",
 );
 // const fat_range = document.getElementById('fat_range');
 // const protein_range = document.getElementById('protein_range');
@@ -227,15 +227,6 @@ document.getElementById("searchInput").addEventListener("click", selectWord);
 document
   .getElementById("foodAmound_Change")
   .addEventListener("click", selectWord2);
-
-document
-  .getElementById("welcomeScrn")
-  .addEventListener("click", hideWelcomeScreen);
-
-function hideWelcomeScreen() {
-  document.getElementById("welcomeScrn").style.opacity = "0";
-  document.getElementById("welcomeScrn").style.zIndex = "-1";
-}
 
 // Fullscreen Mode
 function toggleFullScreen() {
@@ -502,14 +493,9 @@ function load_other_LocalStorage_Values() {
 
   // Kcal Ziel
   if (localStorage.getItem("stored_KcalZiel") === null) {
-    // document.getElementById("welcomeScrn").style.opacity = "1";
-    // document.getElementById("welcomeScrn").style.zIndex = "40";
-    hideWelcomeScreen(); // Vorerst reingenommen, um Welcomescreen nicht mehr einzublenden
   } else {
     kcal_Ziel = JSON.parse(localStorage.getItem("stored_KcalZiel"));
     document.getElementById("target_KcalZiel").value = kcal_Ziel;
-    document.getElementById("welcomeScrn").style.opacity = "0";
-    document.getElementById("welcomeScrn").style.zIndex = "-1";
   }
 
   // Heute gegessen
@@ -536,7 +522,7 @@ function load_other_LocalStorage_Values() {
   if (localStorage.getItem("stored_Kcal_Requirement") === null) {
   } else {
     kcal_Requirement = JSON.parse(
-      localStorage.getItem("stored_Kcal_Requirement")
+      localStorage.getItem("stored_Kcal_Requirement"),
     );
   }
 
@@ -544,7 +530,7 @@ function load_other_LocalStorage_Values() {
   if (localStorage.getItem("storedAdditionalTargets") === null) {
   } else {
     additional_Targets = JSON.parse(
-      localStorage.getItem("storedAdditionalTargets")
+      localStorage.getItem("storedAdditionalTargets"),
     );
     load_Additional_Targets();
   }
@@ -583,7 +569,7 @@ function save_BodyWeight() {
 
   //*NOTE - save weights to show progress
   const confirm_save = window.confirm(
-    "Soll das Gewicht zum tracken gespeichert werden?"
+    "Soll das Gewicht zum tracken gespeichert werden?",
   );
   if (confirm_save) {
     const new_updateTime = current_timeStamp(new Date());
@@ -593,11 +579,11 @@ function save_BodyWeight() {
       showMessage(
         "Das Gewicht wurde bereits für heute erfasst. Soll der Wert überschrieben werden?",
         5000,
-        "Alert"
+        "Alert",
       );
       setTimeout(() => {
         const confirm_overwriting = window.confirm(
-          "Soll das gespeicherte Gewicht von heute überschrieben werden?"
+          "Soll das gespeicherte Gewicht von heute überschrieben werden?",
         );
         if (confirm_overwriting) {
           //* - Overwrite
@@ -663,7 +649,7 @@ function draw_weight_progress() {
   const average_weight = weight_sum / weight_counter;
   const weight_total_diff = max_weight - min_weight;
   weight_statistics.innerHTML = `Werte: Min: ${min_weight} Kg | Durchn: ${parseInt(
-    average_weight
+    average_weight,
   )}Kg | Max: ${max_weight} Kg | Diff: ${parseInt(weight_total_diff)} Kg`;
 
   //TODO Automatische Höhe - wip
@@ -736,7 +722,7 @@ function save_Statistics() {
 function save_Kcal_Requirement() {
   localStorage.setItem(
     "stored_Kcal_Requirement",
-    JSON.stringify(kcal_Requirement)
+    JSON.stringify(kcal_Requirement),
   );
 }
 
@@ -832,7 +818,7 @@ class Food {
     fiber,
     quantityUnit,
     barcode,
-    product_image
+    product_image,
   ) {
     this.productName = productName;
     this.kcal = kcal;
@@ -858,7 +844,7 @@ class TodayEatenFood {
     intake_sugar,
     intake_protein,
     intake_salt,
-    intake_fiber
+    intake_fiber,
   ) {
     this.intake_productName = intake_productName;
     this.intake_amount = intake_amount;
@@ -884,7 +870,7 @@ class RepositoryLast7Days {
     repository_Fiber,
     repository_Fat,
     repository_Water,
-    repository_Carbs
+    repository_Carbs,
   ) {
     this.repository_date = repository_date;
     this.repository_EffectiveKcal = repository_EffectiveKcal;
@@ -1579,7 +1565,7 @@ function steps_into_Kcal() {
   const kcalVal = 6.5;
   const diviVal = 10000;
   let kcal_from_Steps = parseInt(
-    (today_Steps * kcalVal * bodyWeight) / diviVal
+    (today_Steps * kcalVal * bodyWeight) / diviVal,
   );
   if (kcal_from_Steps > burned_Kcal) {
     burned_Kcal = kcal_from_Steps;
@@ -1594,7 +1580,7 @@ function steps_into_Kcal() {
 //============================================================================
 function recordKcal() {
   var new_Kcal = Number(
-    window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal)
+    window.prompt("Trage hier abweichende Kcal ein:", burned_Kcal),
   );
 
   if (new_Kcal && new_Kcal !== isNaN) {
@@ -1621,7 +1607,7 @@ function createTable_FoodDB() {
     // ADD "BASIC" CELL
     const short_product_name = cut_product_name(
       array_Food_DB[i].productName,
-      45
+      45,
     );
     var cell = row.insertCell();
     cell.innerHTML = short_product_name;
@@ -1798,7 +1784,7 @@ function show_NutriScore(choosenProduct) {
     check_Sugar,
     check_Salt,
     check_Fiber,
-    check_Protein
+    check_Protein,
   );
 
   if (choosenProduct !== undefined) {
@@ -2148,54 +2134,54 @@ inputField_EatenFood_in_Gramm.addEventListener("input", () => {
 
   class MakroPrev {
     constructor(name, val) {
-      (this.name = name), (this.val = val);
+      ((this.name = name), (this.val = val));
     }
   }
 
   macroArr.push(
-    new MakroPrev("Kcal: ", parseInt((quantity * current_Food.kcal) / 100))
+    new MakroPrev("Kcal: ", parseInt((quantity * current_Food.kcal) / 100)),
   );
   macroArr.push(
     new MakroPrev(
       "Fett: ",
-      parseFloat((quantity * current_Food.fat) / 100).toFixed(1)
-    )
+      parseFloat((quantity * current_Food.fat) / 100).toFixed(1),
+    ),
   );
   macroArr.push(
     new MakroPrev(
       "KH: ",
-      parseFloat((quantity * current_Food.carbs) / 100).toFixed(1)
-    )
+      parseFloat((quantity * current_Food.carbs) / 100).toFixed(1),
+    ),
   );
   macroArr.push(
     new MakroPrev(
       "Zck: ",
-      parseFloat((quantity * current_Food.sugar) / 100).toFixed(1)
-    )
+      parseFloat((quantity * current_Food.sugar) / 100).toFixed(1),
+    ),
   );
   macroArr.push(
     new MakroPrev(
       "Zckwürfel: ",
-      parseFloat((quantity * current_Food.sugar) / 100 / 3).toFixed(0)
-    )
+      parseFloat((quantity * current_Food.sugar) / 100 / 3).toFixed(0),
+    ),
   );
   macroArr.push(
     new MakroPrev(
       "Bal.: ",
-      parseFloat((quantity * current_Food.fiber) / 100).toFixed(1)
-    )
+      parseFloat((quantity * current_Food.fiber) / 100).toFixed(1),
+    ),
   );
   macroArr.push(
     new MakroPrev(
       "Eiw.: ",
-      parseFloat((quantity * current_Food.protein) / 100).toFixed(1)
-    )
+      parseFloat((quantity * current_Food.protein) / 100).toFixed(1),
+    ),
   );
   macroArr.push(
     new MakroPrev(
       "Salz: ",
-      parseFloat((quantity * current_Food.salt) / 100).toFixed(1)
-    )
+      parseFloat((quantity * current_Food.salt) / 100).toFixed(1),
+    ),
   );
 
   macro_prev.innerHTML = "";
@@ -2211,7 +2197,7 @@ inputField_EatenFood_in_Gramm.addEventListener("input", () => {
     parseFloat((quantity * current_Food.sugar) / 100).toFixed(1),
     parseFloat((quantity * current_Food.salt) / 100).toFixed(1),
     parseFloat((quantity * current_Food.fiber) / 100).toFixed(1),
-    parseFloat((quantity * current_Food.protein) / 100).toFixed(1)
+    parseFloat((quantity * current_Food.protein) / 100).toFixed(1),
   );
 });
 
@@ -2250,7 +2236,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?"
+            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2277,19 +2263,19 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         let kcal_Intake = parseInt((selectedAmount * selected_Food.kcal) / 100);
         let fat_Intake = parseFloat((selectedAmount * selected_Food.fat) / 100);
         let carb_Intake = parseFloat(
-          (selectedAmount * selected_Food.carbs) / 100
+          (selectedAmount * selected_Food.carbs) / 100,
         );
         let sugar_Intake = parseFloat(
-          (selectedAmount * selected_Food.sugar) / 100
+          (selectedAmount * selected_Food.sugar) / 100,
         );
         let protein_Intake = parseFloat(
-          (selectedAmount * selected_Food.protein) / 100
+          (selectedAmount * selected_Food.protein) / 100,
         );
         let salt_Intake = parseFloat(
-          (selectedAmount * selected_Food.salt) / 100
+          (selectedAmount * selected_Food.salt) / 100,
         );
         let fiber_Intake = parseFloat(
-          (selectedAmount * selected_Food.fiber) / 100
+          (selectedAmount * selected_Food.fiber) / 100,
         );
 
         today_eaten.push(
@@ -2302,8 +2288,8 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
             sugar_Intake,
             protein_Intake,
             salt_Intake,
-            fiber_Intake
-          )
+            fiber_Intake,
+          ),
         );
 
         // Anzeigen, dass Produkt eingetragen wurde
@@ -2336,7 +2322,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
     showMessage(
       `Konnte nicht gespeichert werden.  \n  1. Produkt auswählen.  \n  2. Eine Menge eingeben. \n  3. Auf speichern klicken`,
       5000,
-      "Alert"
+      "Alert",
     );
   }
   create_Table_TodayEaten();
@@ -2360,7 +2346,7 @@ function create_Table_TodayEaten() {
     // ADD "BASIC" CELL
     const short_product_name = cut_product_name(
       today_eaten[i].intake_productName,
-      40
+      40,
     );
     var cell = row.insertCell();
     cell.innerHTML =
@@ -2418,7 +2404,7 @@ function create_Table_TodayEaten() {
         (eaten_Sugar || 1)
       ).toFixed(0);
       const selected_food__sugar_cubes = parseInt(
-        selected_Food.intake_sugar.toFixed(0) / 3
+        selected_Food.intake_sugar.toFixed(0) / 3,
       );
 
       const selected_food__fiber = selected_Food.intake_fiber.toFixed(1);
@@ -2505,31 +2491,31 @@ function cut_product_name(val, length) {
 //============================================================================
 function change_Food_to_TodayList() {
   let selectedAmount = parseFloat(
-    document.getElementById("foodAmound_Change").value
+    document.getElementById("foodAmound_Change").value,
   );
   if (selectedAmount == "") {
   } else {
     let productNme = selected_Food.intake_productName;
     let kcal_Intake = parseInt(
-      (selectedAmount * selected_Food.intake_kcal) / old_Quantity
+      (selectedAmount * selected_Food.intake_kcal) / old_Quantity,
     );
     let fat_Intake = parseFloat(
-      (selectedAmount * selected_Food.intake_fat) / old_Quantity
+      (selectedAmount * selected_Food.intake_fat) / old_Quantity,
     );
     let carb_Intake = parseFloat(
-      (selectedAmount * selected_Food.intake_carbs) / old_Quantity
+      (selectedAmount * selected_Food.intake_carbs) / old_Quantity,
     );
     let sugar_Intake = parseFloat(
-      (selectedAmount * selected_Food.intake_sugar) / old_Quantity
+      (selectedAmount * selected_Food.intake_sugar) / old_Quantity,
     );
     let protein_Intake = parseFloat(
-      (selectedAmount * selected_Food.intake_protein) / old_Quantity
+      (selectedAmount * selected_Food.intake_protein) / old_Quantity,
     );
     let salt_Intake = parseFloat(
-      (selectedAmount * selected_Food.intake_salt) / old_Quantity
+      (selectedAmount * selected_Food.intake_salt) / old_Quantity,
     );
     let fiber_Intake = parseFloat(
-      (selectedAmount * selected_Food.intake_fiber) / old_Quantity
+      (selectedAmount * selected_Food.intake_fiber) / old_Quantity,
     );
 
     // Löschen
@@ -2545,8 +2531,8 @@ function change_Food_to_TodayList() {
         sugar_Intake,
         protein_Intake,
         salt_Intake,
-        fiber_Intake
-      )
+        fiber_Intake,
+      ),
     );
 
     create_Table_TodayEaten();
@@ -2566,7 +2552,7 @@ function delete_from_today() {
     const decision = window.confirm(
       "Möchtest du < " +
         selected_Food.intake_productName +
-        "> wirklich von der heutigen Liste löschen?"
+        "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -2648,7 +2634,7 @@ function calc_Values() {
   if (isKeto) {
     const total_carbs = eaten_Carbs + eaten_Fiber;
     carbLabel.innerHTML = `${eaten_Carbs.toFixed(1)} g (${total_carbs.toFixed(
-      1
+      1,
     )}g)`;
   } else {
     carbLabel.innerHTML = eaten_Carbs.toFixed(1) + " g";
@@ -2750,7 +2736,7 @@ function showTargets() {
   burned_Kcal_Label.innerHTML = burned_Kcal_in_Fat();
   carbLabel.innerHTML = `${eaten_Carbs.toFixed(1)} / Max ${des_Carbs}`;
   sugarLabel.innerHTML = `${eaten_Sugar.toFixed(
-    1
+    1,
   )} / Max ${max_Sugar} zckw:${parseInt(eaten_Sugar.toFixed(0) / 3)}`;
   proteinLabel.innerHTML = `${eaten_Protein.toFixed(1)} / Min ${min_Protein}`;
   fatLabel.innerHTML = `${eaten_Fat.toFixed(1)} / Max ${des_Fat}`;
@@ -2869,9 +2855,8 @@ function macro_progress() {
 
   //* protein_progress
   const protein_progress = (eaten_Protein * 100) / min_Protein;
-  document.getElementById(
-    "protein_progress"
-  ).style.width = `${protein_progress}%`;
+  document.getElementById("protein_progress").style.width =
+    `${protein_progress}%`;
 
   //* Fiber
   const fiber_progress = (eaten_Fiber * 100) / min_Fiber;
@@ -2956,7 +2941,7 @@ function calc_Kcal_Goal() {
               targetTime = document.getElementById("target_Time").value;
               //* Werte nach Rückfrage abspeichern
               const save_request = window.confirm(
-                "Formularangaben wie Größe, Alter etc. abspeichern? Diese müssen sonst immer wieder eingegeben werden."
+                "Formularangaben wie Größe, Alter etc. abspeichern? Diese müssen sonst immer wieder eingegeben werden.",
               );
               if (save_request) {
                 const new_form_data = {
@@ -2968,7 +2953,7 @@ function calc_Kcal_Goal() {
                 };
                 localStorage.setItem(
                   "fd_tck_form",
-                  JSON.stringify(new_form_data)
+                  JSON.stringify(new_form_data),
                 );
               }
               //! Berechnung Kalorienbedarf
@@ -2976,7 +2961,7 @@ function calc_Kcal_Goal() {
                 // Mann
                 // 66,47 + (13,7 * Körpergewicht in kg) + (5 * Körpergröße in cm) – (6,8 * Alter in Jahren)
                 kcal_Requirement = parseInt(
-                  66.47 + 13.7 * bodyWeight + 5 * height - 6.8 * age
+                  66.47 + 13.7 * bodyWeight + 5 * height - 6.8 * age,
                 );
                 save_Kcal_Requirement();
 
@@ -2985,7 +2970,7 @@ function calc_Kcal_Goal() {
                 let abnehmBerg = kcal_Differenz * 7000;
                 let zielEinsparung_pro_Tag = abnehmBerg / tage;
                 let recommended_Kcal = parseInt(
-                  kcal_Requirement - zielEinsparung_pro_Tag
+                  kcal_Requirement - zielEinsparung_pro_Tag,
                 );
 
                 ausg =
@@ -3007,7 +2992,7 @@ function calc_Kcal_Goal() {
                 // Formel für KCAL Bedarf FRAU
                 //655,1 + (9,6 * Körpergewicht in kg) + (1,8 * Körpergröße in cm) – (4,7 * Alter in Jahren)
                 kcal_Requirement = parseInt(
-                  655.1 + 9.6 * bodyWeight + 1.8 * height - 4.7 * age
+                  655.1 + 9.6 * bodyWeight + 1.8 * height - 4.7 * age,
                 );
 
                 let kcal_Differenz = bodyWeight - targetWeight;
@@ -3015,7 +3000,7 @@ function calc_Kcal_Goal() {
                 let abnehmBerg = kcal_Differenz * 7000;
                 let zielEinsparung_pro_Tag = abnehmBerg / tage;
                 let recommended_Kcal = parseInt(
-                  kcal_Requirement - zielEinsparung_pro_Tag
+                  kcal_Requirement - zielEinsparung_pro_Tag,
                 );
 
                 ausg =
@@ -3138,7 +3123,7 @@ function define_additional_Target() {
   // Save
   localStorage.setItem(
     "storedAdditionalTargets",
-    JSON.stringify(additional_Targets)
+    JSON.stringify(additional_Targets),
   );
 
   showMessage(`Ziele wurden übernommen`, 4000, "Info");
@@ -3265,7 +3250,7 @@ function selectDiet() {
     Math.floor(protein_in_Gramm);
   document.getElementById("target_Carbs").value = carbs_in_Gramm;
   document.getElementById("target_Sugar").value = parseInt(
-    carbs_in_Gramm * 0.5
+    carbs_in_Gramm * 0.5,
   );
 }
 
@@ -3278,12 +3263,12 @@ function close_Day() {
   if (req) {
     var currDate = window.prompt(
       "Bestätige oder ändere das Datum",
-      get_today()
+      get_today(),
     );
     if (currDate) {
       var realKcal = window.prompt(
         "Kcal bestätigen oder abändern",
-        burned_Kcal
+        burned_Kcal,
       );
       if (realKcal) {
         burned_Kcal = parseInt(realKcal);
@@ -3295,7 +3280,7 @@ function close_Day() {
       let todayProtein = parseFloat(proteinLabel.innerHTML);
       let todayCarbs = parseFloat(carbLabel.innerHTML);
       let todayGramm = parseFloat(
-        document.getElementById("output_Gramm").innerHTML
+        document.getElementById("output_Gramm").innerHTML,
       );
       let todaySalt = parseFloat(saltLabel.innerHTML);
       let todayDiff =
@@ -3394,8 +3379,8 @@ function close_Day() {
             todayFiber,
             todayFat,
             today_Water,
-            todayCarbs
-          )
+            todayCarbs,
+          ),
         );
         show_Statisitcs("show_Effekctive_Kcal");
       } else {
@@ -3410,8 +3395,8 @@ function close_Day() {
             todayFiber,
             todayFat,
             today_Water,
-            todayCarbs
-          )
+            todayCarbs,
+          ),
         );
         show_Statisitcs("show_Effekctive_Kcal");
       }
@@ -3439,7 +3424,7 @@ function close_Day() {
       showMessage(
         `Tag wurde erfolgreich zurückgesetzt. Die Werte kannst du Dir im Statistikbereich anschauen.`,
         4000,
-        "Info"
+        "Info",
       );
       setTimeout(() => {
         location.reload();
@@ -3527,7 +3512,7 @@ function add_new_Food() {
     showMessage(
       `Bitte die Textbox für den Produktnamen ausfüllen`,
       4000,
-      "Alert"
+      "Alert",
     );
   } else {
     new_productName = document.getElementById("inp_Productname").value;
@@ -3550,7 +3535,7 @@ function add_new_Food() {
           showMessage(
             `Bitte die Textbox für Kohlenhydrate ausfüllen`,
             4000,
-            "Alert"
+            "Alert",
           );
         } else {
           new_Carbs = document.getElementById("inp_Carbs").value;
@@ -3562,7 +3547,7 @@ function add_new_Food() {
             showMessage(
               `Bitte die Textbox für Zucker ausfüllen`,
               4000,
-              "Alert"
+              "Alert",
             );
           } else {
             new_Sugar = document.getElementById("inp_Sugar").value;
@@ -3574,7 +3559,7 @@ function add_new_Food() {
               showMessage(
                 `Bitte die Textbox für Ballaststoffe ausfüllen`,
                 4000,
-                "Alert"
+                "Alert",
               );
             } else {
               new_Fiber = document.getElementById("inp_Fiber").value;
@@ -3586,7 +3571,7 @@ function add_new_Food() {
                 showMessage(
                   `Bitte die Textbox für Eiweiß ausfüllen`,
                   4000,
-                  "Alert"
+                  "Alert",
                 );
               } else {
                 new_Protein = document.getElementById("inp_Protein").value;
@@ -3598,7 +3583,7 @@ function add_new_Food() {
                   showMessage(
                     `Bitte die Textbox für Salz ausfüllen`,
                     4000,
-                    "Alert"
+                    "Alert",
                   );
                 } else {
                   new_Salt = document.getElementById("inp_Salt").value;
@@ -3610,7 +3595,7 @@ function add_new_Food() {
                     showMessage(
                       `Bitte die Textbox für Mengeneinheit ausfüllen`,
                       4000,
-                      "Alert"
+                      "Alert",
                     );
                   } else {
                     new_Unit =
@@ -3657,14 +3642,14 @@ function add_new_Food() {
                           new_Fiber,
                           new_Unit,
                           new_barcode,
-                          new_product_image
-                        )
+                          new_product_image,
+                        ),
                       );
 
                       showMessage(
                         `Lebensmittel wurde gespeichert :)`,
                         4000,
-                        "Info"
+                        "Info",
                       );
                       document.getElementById("Status_New_Food").innerHTML =
                         "Lebensmittel: " +
@@ -3679,7 +3664,7 @@ function add_new_Food() {
                         scann_obj.barcode = new_barcode;
                         localStorage.setItem(
                           "storedScan",
-                          JSON.stringify(scann_obj)
+                          JSON.stringify(scann_obj),
                         );
                       }
                       saveFood_DB();
@@ -3703,7 +3688,7 @@ function add_new_Food() {
                         // Makros werden angepasst
                         // Produkt löschen und anlegen
                         let spliceIndex = indexErmittler(
-                          selected_Food.productName
+                          selected_Food.productName,
                         );
                         array_Food_DB.splice(spliceIndex, 1);
                         array_Food_DB.push(
@@ -3718,20 +3703,20 @@ function add_new_Food() {
                             new_Fiber,
                             new_Unit,
                             new_barcode,
-                            new_product_image
-                          )
+                            new_product_image,
+                          ),
                         );
                         showMessage(
                           `Lebensmittel wurde erfolgreich angepasst`,
                           4000,
-                          "Info"
+                          "Info",
                         );
                         // SAVE
                         if (new_barcode.length > 7) {
                           scann_obj.barcode = new_barcode;
                           localStorage.setItem(
                             "storedScan",
-                            JSON.stringify(scann_obj)
+                            JSON.stringify(scann_obj),
                           );
                         }
                         saveFood_DB();
@@ -3805,7 +3790,7 @@ function delete_Food_from_DB() {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
         selected_Food.productName +
-        "> wirklich für immer aus der Datenbank gelöscht werden?"
+        "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4089,7 +4074,7 @@ function sendThisDay() {
 ////////////////////////////////
 function deleteDayWithoutHistory() {
   const confirm = window.confirm(
-    "Möchtest du den Tag wirklich zurücksetzen? Beachte, dass die Werte nicht abgespeichert werden"
+    "Möchtest du den Tag wirklich zurücksetzen? Beachte, dass die Werte nicht abgespeichert werden",
   );
   if (confirm) {
     today_Steps = 0;
@@ -4110,7 +4095,7 @@ function deleteDayWithoutHistory() {
     showMessage(
       `Tag wurde erfolgreich zurückgesetzt. Die Werte wurden nicht abgespeichert.`,
       4000,
-      "Info"
+      "Info",
     );
     setTimeout(() => {
       location.reload();
@@ -4123,7 +4108,7 @@ function deleteDayWithoutHistory() {
 ////////////////////////////////
 function deleteDHistory() {
   const deleteRequest = window.confirm(
-    "Soll die komplette Historie gelöscht werden?"
+    "Soll die komplette Historie gelöscht werden?",
   );
   if (deleteRequest) {
     my_History = [];
@@ -4136,7 +4121,7 @@ function deleteDHistory() {
 ////////////////////////////////
 function deleteStatistics() {
   const deleteRequest = window.confirm(
-    "Soll die komplette Statistik gelöscht werden?"
+    "Soll die komplette Statistik gelöscht werden?",
   );
   if (deleteRequest) {
     my_Statistics = [];
@@ -4211,7 +4196,7 @@ function checking_barcode() {
       document.getElementById("searchInput").value = productname;
       var searchterm = searchTable(
         document.getElementById("searchInput").value,
-        array_Food_DB
+        array_Food_DB,
       );
       buildTable(searchterm);
     }
@@ -4228,7 +4213,7 @@ async function fetchProductData(ean_code) {
       //* Remove Animation
       modal_load_animation.classList.remove("active");
       throw new Error(
-        `Fehler beim Abrufen der Daten. Statuscode: ${response.status}`
+        `Fehler beim Abrufen der Daten. Statuscode: ${response.status}`,
       );
     }
 
@@ -4277,7 +4262,7 @@ async function fetchProductData(ean_code) {
     showMessage(
       `<img src="${fetched_product_image}" width=200 height=200/> </br> </br> Produkt wurde gefunden`,
       8000,
-      "Info"
+      "Info",
     );
 
     // Clear Barcode input field
