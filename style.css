@@ -229,6 +229,18 @@ footer {
   transition: 1s ease-in-out;
 }
 
+.progress-over {
+  stroke-width: 30;
+  stroke: rgb(255, 45, 45);
+  stroke-linecap: round;
+  fill: none;
+
+  transform: rotate(270deg);
+  transform-origin: center;
+  transition: 1s ease-in-out;
+  opacity: 0;
+}
+
 .percentText {
   font-size: 45px;
   font-weight: bold;

@@ -61,6 +61,7 @@ let is_fetched_Data = false;
 
 const inputField_EatenFood_in_Gramm = document.getElementById("foodAmound");
 const progressCircle = document.querySelector(".progress");
+const progressCircleOver = document.querySelector(".progress-over");
 const txtPercent = document.getElementById("txtPercent");
 const circleAnimationArea = document.getElementById("circleAnimationArea");
 
@@ -2821,14 +2822,9 @@ function calc_Values() {
   // Progress Bar
   let progressValKcal = (eaten_Kcal * 100) / (burned_Kcal + kcal_Ziel);
   let originProgressVal = progressValKcal;
-  // Wenn berechneter Wert über 200 dann 200
-  if (progressValKcal >= 100) {
-    progressValKcal = 100;
-    progressCircle.style.stroke = "red";
-    // document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(167, 4, 4), rgb(221, 22, 22))";
-  } else {
+  // Basis-Ring bleibt grün, Über-100% wird als zweiter Ring dargestellt
+  if (progressCircle) {
     progressCircle.style.stroke = "rgb(12, 255, 12)";
-    // document.getElementById('progress_Bar').style.background = "linear-gradient(to right, rgb(4, 167, 4), rgb(22, 221, 22))";
   }
   // document.getElementById('progress_Bar').style.width = progressValKcal + "%";
   // document.getElementById('progress_Bar').innerHTML = Math.round(originProgressVal) + "%";
@@ -2845,18 +2841,59 @@ function calc_Values() {
 //============================================================================
 //NOTE -  Progress Bar
 //============================================================================
-let radius = progressCircle.r.baseVal.value;
-let circumference = radius * 2 * Math.PI;
-progressCircle.style.strokeDasharray = circumference;
+let circumference = 0;
+let circumferenceOver = 0;
 
-function setProgress(percent) {
-  progressCircle.style.strokeDashoffset =
-    circumference - (percent / 100) * circumference;
+if (progressCircle) {
+  const radius = progressCircle.r.baseVal.value;
+  circumference = radius * 2 * Math.PI;
+  progressCircle.style.strokeDasharray = circumference;
+}
+
+if (progressCircleOver) {
+  const radiusOver = progressCircleOver.r.baseVal.value;
+  circumferenceOver = radiusOver * 2 * Math.PI;
+  progressCircleOver.style.strokeDasharray = circumferenceOver;
+  // Start hidden / empty
+  progressCircleOver.style.strokeDashoffset = circumferenceOver;
+  progressCircleOver.style.opacity = "0";
+}
+
+function setProgressForCircle(circleEl, circleCircumference, percent) {
+  if (!circleEl) return;
+  const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
+  circleEl.style.strokeDashoffset =
+    circleCircumference - (safePercent / 100) * circleCircumference;
+}
+
+// Zeigt >100% als zweite Runde (max. bis 200% als sichtbare Überzeichnung)
+function updateProgressRing(percentAbsolute) {
+  const p = Number(percentAbsolute) || 0;
+  const base = Math.max(0, Math.min(100, p));
+  const over = Math.max(0, Math.min(100, p - 100));
+
+  // Basis-Ring (0-100)
+  if (progressCircle) {
+    progressCircle.style.stroke = "rgb(12, 255, 12)";
+    setProgressForCircle(progressCircle, circumference, base);
+  }
+
+  // Over-Ring (100-200)
+  if (progressCircleOver) {
+    if (over <= 0) {
+      progressCircleOver.style.opacity = "0";
+      setProgressForCircle(progressCircleOver, circumferenceOver, 0);
+    } else {
+      progressCircleOver.style.opacity = "1";
+      progressCircleOver.style.stroke = "rgb(255, 45, 45)";
+      setProgressForCircle(progressCircleOver, circumferenceOver, over);
+    }
+  }
 }
 
 function initChangeProgress(originalPercentValue, circlePercentValue) {
   txtPercent.innerHTML = under10(originalPercentValue) + "%";
-  setProgress(circlePercentValue);
+  updateProgressRing(originalPercentValue);
 }
 
 function under10(val) {
@@ -2882,6 +2919,7 @@ function resetProgressCircle() {
 function countingAnimation() {
   if (countedPercentNumber < originalPercentValue) {
     txtPercent.innerHTML = under10(countedPercentNumber) + "%";
+    updateProgressRing(countedPercentNumber);
     countedPercentNumber++;
     setTimeout(countingAnimation, 15);
   }
