@@ -4106,6 +4106,13 @@ function render_history_statistics_modal() {
     .map((h) => parse_history_entry(h))
     .filter((x) => x && x.date);
 
+  // Sort by date ascending (dd.mm.yyyy)
+  parsed.sort((a, b) => {
+    const ta = parse_ddmmyyyy_to_ts(a.date);
+    const tb = parse_ddmmyyyy_to_ts(b.date);
+    return ta - tb;
+  });
+
   history_statistics_last_parsed = parsed;
 
   if (parsed.length === 0) {
@@ -4228,6 +4235,19 @@ function normalize_history_key(rawKey) {
 
   if (map[key]) return map[key];
   return key;
+}
+
+function parse_ddmmyyyy_to_ts(dateStr) {
+  const s = String(dateStr || "").trim();
+  const m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  if (!m) return Number.POSITIVE_INFINITY;
+  const d = parseInt(m[1], 10);
+  const mo = parseInt(m[2], 10);
+  const y = parseInt(m[3], 10);
+  if (!Number.isFinite(d) || !Number.isFinite(mo) || !Number.isFinite(y)) {
+    return Number.POSITIVE_INFINITY;
+  }
+  return new Date(y, mo - 1, d).getTime();
 }
 
 function extract_history_number(value) {
