@@ -4208,7 +4208,7 @@ function render_history_statistics_summary(rows) {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
-  for (const label of ["Wert", "Min", "Ø", "Max", "Trend"]) {
+  for (const label of ["Wert", "Min", "Ø", "Max", "Summe", "Trend"]) {
     const th = document.createElement("th");
     th.textContent = label;
     headRow.appendChild(th);
@@ -4258,6 +4258,12 @@ function render_history_statistics_summary(rows) {
     const tdMax = document.createElement("td");
     tdMax.textContent = format_stat_number(maxVal);
     tr.appendChild(tdMax);
+
+    // Summe hinzufügen
+    const sumVal = values.length ? values.reduce((a, b) => a + b, 0) : null;
+    const tdSum = document.createElement("td");
+    tdSum.textContent = sumVal === null ? "-" : format_stat_number(sumVal);
+    tr.appendChild(tdSum);
 
     const tdTrend = document.createElement("td");
     tdTrend.textContent = trendText;
