@@ -2069,12 +2069,21 @@ input:checked + .slider:before {
    Historie Statistik Modal
    ================================================================ */
 
+#modal_history_statistics {
+  overflow: hidden;
+}
+
 .history-statistics-wrapper {
   width: 98%;
   display: flex;
   flex-direction: column;
   gap: 25px;
   padding: 10px 0 160px 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .history-statistics-controls {
@@ -2114,7 +2123,7 @@ input:checked + .slider:before {
 
 .history-statistics-table-container {
   width: 100%;
-  max-height: 45vh;
+  height: clamp(220px, 35vh, 520px);
   overflow: auto;
   border: 3px solid var(--themeDotBorder);
   background: var(--mainColor);
@@ -2142,6 +2151,7 @@ input:checked + .slider:before {
 
 .history-statistics-summary {
   width: 100%;
+  height: clamp(220px, 35vh, 520px);
   border: 3px solid var(--themeDotBorder);
   background: var(--mainColor);
   color: var(--mainText);
