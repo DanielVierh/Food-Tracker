@@ -2065,6 +2065,81 @@ input:checked + .slider:before {
   }
 }
 
+/* ================================================================
+   Historie Statistik Modal
+   ================================================================ */
+
+.history-statistics-wrapper {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 10px 0 160px 0;
+}
+
+.history-statistics-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-statistics-controls label {
+  font-size: 1.8rem;
+  color: var(--secondaryText);
+  text-align: center;
+}
+
+#history_statistics_metric_select {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1.8rem;
+  border-radius: 18px;
+  border: 2px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+}
+
+.history-statistics-chart {
+  width: 100%;
+}
+
+#history_statistics_canvas {
+  width: 100%;
+  height: 320px;
+  border: 3px solid var(--themeDotBorder);
+  background-color: var(--secondaryColor);
+  border-radius: 25px;
+}
+
+.history-statistics-table-container {
+  width: 100%;
+  max-height: 45vh;
+  overflow: auto;
+  border: 3px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+  border-radius: 25px;
+}
+
+.history-statistics-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8rem;
+}
+
+.history-statistics-table-container th,
+.history-statistics-table-container td {
+  padding: 12px 16px;
+  border: 1px solid var(--borderColor);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.history-statistics-table-container th {
+  font-weight: bold;
+}
+
 #optAreaDB {
   margin-bottom: 30px;
 }

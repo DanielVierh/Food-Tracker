@@ -112,6 +112,18 @@ const btnStatFat = document.getElementById("btnStatFat");
 const btnStatBallast = document.getElementById("btnStatBallast");
 const btnStatProtein = document.getElementById("btnStatProtein");
 const btn_send_day = document.getElementById("btn_send_day");
+const btn_show_history_statistics_modal = document.getElementById(
+  "btn_show_history_statistics_modal",
+);
+const modal_history_statistics = document.getElementById(
+  "modal_history_statistics",
+);
+const btn_close_history_statistics_modal = document.getElementById(
+  "btn_close_history_statistics_modal",
+);
+const history_statistics_metric_select = document.getElementById(
+  "history_statistics_metric_select",
+);
 const btn_close_newProd_modal = document.getElementById(
   "btn_close_newProd_modal",
 );
@@ -326,6 +338,18 @@ btnStatProtein.addEventListener("click", () => {
 btn_send_day.addEventListener("click", () => {
   sendThisDay();
 });
+
+if (btn_show_history_statistics_modal) {
+  btn_show_history_statistics_modal.addEventListener("click", () => {
+    open_history_statistics_modal();
+  });
+}
+
+if (btn_close_history_statistics_modal) {
+  btn_close_history_statistics_modal.addEventListener("click", () => {
+    close_history_statistics_modal();
+  });
+}
 
 btn_close_newProd_modal.addEventListener("click", () => {
   close_new_modal();
@@ -2236,7 +2260,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
+          " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2316,7 +2340,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         document.getElementById("selectedFoodMakros").innerHTML = "";
         blendOut_Eingabebereich_FoodDB();
         blendOut_MengeAendern();
-      } catch (error) {}
+      } catch (error) { }
     }
   } else {
     showMessage(
@@ -2421,9 +2445,8 @@ function create_Table_TodayEaten() {
 
       let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle = `Makros: (${
-        selected_Food.intake_kcal
-      } Kcal = ${prozentFromDay.toFixed(0)}%)
+      let calcSingle = `Makros: (${selected_Food.intake_kcal
+        } Kcal = ${prozentFromDay.toFixed(0)}%)
       <br/>
       Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
       <br/>
@@ -2551,8 +2574,8 @@ function delete_from_today() {
   if (foodFromToday == true) {
     const decision = window.confirm(
       "Möchtest du < " +
-        selected_Food.intake_productName +
-        "> wirklich von der heutigen Liste löschen?",
+      selected_Food.intake_productName +
+      "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -3789,8 +3812,8 @@ function delete_Food_from_DB() {
   } else {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
-        selected_Food.productName +
-        "> wirklich für immer aus der Datenbank gelöscht werden?",
+      selected_Food.productName +
+      "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4009,6 +4032,442 @@ function export_FoodDB_All() {
 //====================================================================================
 //NOTE -   History
 //====================================================================================
+
+//====================================================================================
+//NOTE -   History Statistik Modal
+//====================================================================================
+
+let history_statistics_last_parsed = [];
+let history_statistics_resize_initialized = false;
+let history_statistics_metric_select_initialized = false;
+let history_statistics_selected_metric = "__DEFAULT__";
+
+function open_history_statistics_modal() {
+  if (!modal_history_statistics) return;
+  modal_history_statistics.classList.add("active");
+  body.classList.add("prevent-scroll");
+  render_history_statistics_modal();
+  init_history_statistics_resize();
+  init_history_statistics_metric_select();
+}
+
+function close_history_statistics_modal() {
+  if (!modal_history_statistics) return;
+  modal_history_statistics.classList.remove("active");
+  body.classList.remove("prevent-scroll");
+}
+
+function init_history_statistics_resize() {
+  if (history_statistics_resize_initialized) return;
+  history_statistics_resize_initialized = true;
+  window.addEventListener("resize", () => {
+    if (!modal_history_statistics) return;
+    if (!modal_history_statistics.classList.contains("active")) return;
+    draw_history_statistics_chart(
+      history_statistics_last_parsed,
+      history_statistics_selected_metric,
+    );
+  });
+}
+
+function init_history_statistics_metric_select() {
+  if (history_statistics_metric_select_initialized) return;
+  if (!history_statistics_metric_select) return;
+  history_statistics_metric_select_initialized = true;
+
+  // Set default
+  history_statistics_metric_select.value = history_statistics_selected_metric;
+
+  history_statistics_metric_select.addEventListener("change", () => {
+    history_statistics_selected_metric = history_statistics_metric_select.value;
+    draw_history_statistics_chart(
+      history_statistics_last_parsed,
+      history_statistics_selected_metric,
+    );
+  });
+}
+
+function render_history_statistics_modal() {
+  const tableContainer = document.getElementById(
+    "containerTabelle_HistoryStatistics",
+  );
+  if (!tableContainer) return;
+
+  tableContainer.innerHTML = "";
+
+  if (!my_History || my_History.length === 0) {
+    tableContainer.innerHTML =
+      "<p style='padding: 20px; text-align:center;'>Keine History Daten vorhanden.</p>";
+    draw_history_statistics_chart([], history_statistics_selected_metric);
+    return;
+  }
+
+  const parsed = my_History
+    .map((h) => parse_history_entry(h))
+    .filter((x) => x && x.date);
+
+  history_statistics_last_parsed = parsed;
+
+  if (parsed.length === 0) {
+    tableContainer.innerHTML =
+      "<p style='padding: 20px; text-align:center;'>Keine auswertbaren History Daten gefunden.</p>";
+    draw_history_statistics_chart([], history_statistics_selected_metric);
+    return;
+  }
+
+  const columns = [
+    { key: "date", label: "Datum" },
+    { key: "Kcal", label: "Kcal" },
+    { key: "Verbrannt", label: "Verbrannt" },
+    { key: "Übrig", label: "Übrig" },
+    { key: "Effektive Kcal", label: "Effektive Kcal" },
+    { key: "Schritte", label: "Schritte" },
+    { key: "Keto", label: "Keto" },
+    { key: "Fett", label: "Fett" },
+    { key: "Eiweiss", label: "Eiweiss" },
+    { key: "Kohlenhydrate", label: "Kohlenhydrate" },
+    { key: "Zucker", label: "Zucker" },
+    { key: "Salz", label: "Salz" },
+    { key: "Ballaststoffe", label: "Ballaststoffe" },
+    { key: "Gramm", label: "Gramm" },
+    { key: "Diff zum Ziel", label: "Diff zum Ziel" },
+    { key: "Wasser", label: "Wasser" },
+  ];
+
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  for (const col of columns) {
+    const th = document.createElement("th");
+    th.textContent = col.label;
+    headRow.appendChild(th);
+  }
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  for (const row of parsed) {
+    const tr = document.createElement("tr");
+    for (const col of columns) {
+      const td = document.createElement("td");
+      const val = row[col.key];
+      td.textContent = format_history_value(val);
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  tableContainer.appendChild(table);
+
+  if (history_statistics_metric_select) {
+    history_statistics_metric_select.value = history_statistics_selected_metric;
+  }
+  draw_history_statistics_chart(parsed, history_statistics_selected_metric);
+}
+
+function format_history_value(val) {
+  if (val === undefined || val === null) return "-";
+  const s = String(val).trim();
+  return s.length ? s : "-";
+}
+
+function parse_history_entry(historyItem) {
+  if (!historyItem) return null;
+  const date = (historyItem.history_date || "").trim();
+  const content = String(historyItem.history_Content || "");
+  if (!content) return { date };
+
+  let payload = content;
+  const matchPayload = content.match(/erfasst:\s*(.*)$/);
+  if (matchPayload && matchPayload[1]) payload = matchPayload[1];
+
+  const parts = payload
+    .split("|")
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  const result = { date };
+
+  for (let part of parts) {
+    part = part.replace(/^Makros-->\s*/i, "");
+
+    const idx = part.indexOf(":");
+    if (idx < 0) continue;
+
+    const rawKey = part.slice(0, idx).trim();
+    const rawVal = part.slice(idx + 1).trim();
+    if (!rawKey) continue;
+    if (/^Ziel_/i.test(rawKey)) continue;
+
+    const key = normalize_history_key(rawKey);
+    result[key] = rawVal;
+  }
+
+  return result;
+}
+
+function normalize_history_key(rawKey) {
+  const key = String(rawKey || "").trim();
+  const map = {
+    Kcal: "Kcal",
+    Verbrannt: "Verbrannt",
+    Übrig: "Übrig",
+    "Effektive Kcal": "Effektive Kcal",
+    Schritte: "Schritte",
+    Keto: "Keto",
+    Fett: "Fett",
+    Eiweiss: "Eiweiss",
+    Kohlenhydrate: "Kohlenhydrate",
+    Zucker: "Zucker",
+    Salz: "Salz",
+    Ballaststoffe: "Ballaststoffe",
+    Gramm: "Gramm",
+    "Diff zum Ziel": "Diff zum Ziel",
+    Wasser: "Wasser",
+  };
+
+  if (map[key]) return map[key];
+  return key;
+}
+
+function extract_history_number(value) {
+  if (value === undefined || value === null) return null;
+  const s = String(value).replace(",", ".");
+  const m = s.match(/-?\d+(?:\.\d+)?/);
+  if (!m) return null;
+  const n = parseFloat(m[0]);
+  return Number.isFinite(n) ? n : null;
+}
+
+function get_history_metric_label(metricKey) {
+  if (metricKey === "__DEFAULT__") return "Standard";
+  return String(metricKey || "");
+}
+
+function nice_y_max(maxVal) {
+  if (!Number.isFinite(maxVal) || maxVal <= 0) return 10;
+  if (maxVal <= 10) return 10;
+  if (maxVal <= 50) return 50;
+  if (maxVal <= 200) return Math.ceil(maxVal / 10) * 10;
+  if (maxVal <= 1000) return Math.ceil(maxVal / 50) * 50;
+  return Math.ceil(maxVal / 100) * 100;
+}
+
+function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
+  const canvas = document.getElementById("history_statistics_canvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const wrapper = canvas.parentElement;
+  const cssWidth = Math.max(300, (wrapper && wrapper.clientWidth) || 900);
+  const cssHeight = 320;
+  const dpr = window.devicePixelRatio || 1;
+
+  canvas.width = Math.floor(cssWidth * dpr);
+  canvas.height = Math.floor(cssHeight * dpr);
+  canvas.style.width = cssWidth + "px";
+  canvas.style.height = cssHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  // Theme colors
+  const rootStyles = getComputedStyle(document.documentElement);
+  const colText = rootStyles.getPropertyValue("--mainText").trim() || "#fff";
+  const colGrid =
+    rootStyles.getPropertyValue("--themeDotBorder").trim() || "#888";
+  const colA = rootStyles.getPropertyValue("--buttonColor").trim() || colText;
+  const colB = rootStyles.getPropertyValue("--waterColor").trim() || colText;
+  const colC =
+    rootStyles.getPropertyValue("--secondaryText").trim() || colText;
+
+  // Clear
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+  if (!rows || rows.length < 2) {
+    ctx.fillStyle = colText;
+    ctx.font = "20px Arial";
+    ctx.fillText(
+      "Zu wenig Daten für Diagramm (mind. 2 Tage).",
+      20,
+      40,
+    );
+    return;
+  }
+
+  const metric = metricKey || "__DEFAULT__";
+
+  // Build series
+  let series = [];
+  if (metric === "__DEFAULT__") {
+    series = [
+      {
+        key: "Kcal",
+        label: "Kcal",
+        color: colC,
+        data: rows.map((r) => extract_history_number(r["Kcal"])),
+      },
+      {
+        key: "Verbrannt",
+        label: "Verbrannt",
+        color: colB,
+        data: rows.map((r) => extract_history_number(r["Verbrannt"])),
+      },
+      {
+        key: "Effektive Kcal",
+        label: "Effektive Kcal",
+        color: colA,
+        data: rows.map((r) => extract_history_number(r["Effektive Kcal"])),
+      },
+    ];
+  } else {
+    const colorMap = {
+      Kcal: colC,
+      Verbrannt: colB,
+      "Effektive Kcal": colA,
+      Wasser: colB,
+      Schritte: colA,
+      Zucker: colC,
+      Kohlenhydrate: colA,
+      Fett: colA,
+      Eiweiss: colA,
+      Salz: colC,
+      Ballaststoffe: colA,
+      Gramm: colC,
+      Übrig: colC,
+      "Diff zum Ziel": colC,
+    };
+
+    series = [
+      {
+        key: metric,
+        label: get_history_metric_label(metric),
+        color: colorMap[metric] || colText,
+        data: rows.map((r) => extract_history_number(r[metric])),
+      },
+    ];
+  }
+
+  // If selected metric has no numeric data
+  const anyNumeric = series.some((s) => s.data.some((v) => v !== null));
+  if (!anyNumeric) {
+    ctx.fillStyle = colText;
+    ctx.font = "20px Arial";
+    ctx.fillText(
+      "Keine numerischen Daten für: " + get_history_metric_label(metric),
+      20,
+      40,
+    );
+    return;
+  }
+
+  const allNums = [];
+  for (const s of series) {
+    for (const v of s.data) {
+      if (v !== null) allNums.push(v);
+    }
+  }
+  const maxVal = allNums.length ? Math.max(...allNums) : 0;
+  const yMax = nice_y_max(maxVal);
+
+  const paddingLeft = 70;
+  const paddingRight = 30;
+  const paddingTop = 60;
+  const paddingBottom = 50;
+
+  const plotW = cssWidth - paddingLeft - paddingRight;
+  const plotH = cssHeight - paddingTop - paddingBottom;
+
+  // Grid + axes
+  ctx.strokeStyle = colGrid;
+  ctx.lineWidth = 1;
+  ctx.globalAlpha = 0.35;
+
+  const gridLines = 5;
+  for (let i = 0; i <= gridLines; i++) {
+    const y = paddingTop + (plotH * i) / gridLines;
+    ctx.beginPath();
+    ctx.moveTo(paddingLeft, y);
+    ctx.lineTo(paddingLeft + plotW, y);
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+
+  ctx.strokeStyle = colGrid;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(paddingLeft, paddingTop);
+  ctx.lineTo(paddingLeft, paddingTop + plotH);
+  ctx.lineTo(paddingLeft + plotW, paddingTop + plotH);
+  ctx.stroke();
+
+  // Y labels
+  ctx.fillStyle = colText;
+  ctx.font = "18px Arial";
+  for (let i = 0; i <= gridLines; i++) {
+    const v = yMax - (yMax * i) / gridLines;
+    const y = paddingTop + (plotH * i) / gridLines;
+    ctx.fillText(String(Math.round(v)), 15, y + 6);
+  }
+
+  const xStep = plotW / (rows.length - 1);
+  const xForIndex = (i) => paddingLeft + i * xStep;
+  const yForVal = (v) => {
+    const clamped = Math.max(0, Math.min(yMax, v));
+    return paddingTop + plotH - (clamped / yMax) * plotH;
+  };
+
+  // X labels (sparse)
+  const labelEvery = Math.max(1, Math.ceil(rows.length / 6));
+  ctx.fillStyle = colText;
+  ctx.font = "16px Arial";
+  for (let i = 0; i < rows.length; i += labelEvery) {
+    const x = xForIndex(i);
+    const dateLabel = String(rows[i].date || "");
+    ctx.save();
+    ctx.translate(x, paddingTop + plotH + 18);
+    ctx.rotate(-Math.PI / 6);
+    ctx.fillText(dateLabel, -20, 20);
+    ctx.restore();
+  }
+
+  // Draw series
+  for (const s of series) {
+    ctx.strokeStyle = s.color;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    let started = false;
+    for (let i = 0; i < s.data.length; i++) {
+      const v = s.data[i];
+      if (v === null) continue;
+      const x = xForIndex(i);
+      const y = yForVal(v);
+      if (!started) {
+        ctx.moveTo(x, y);
+        started = true;
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  // Legend
+  const legendX = paddingLeft;
+  let legendY = 30;
+  ctx.font = "18px Arial";
+  for (const s of series) {
+    ctx.strokeStyle = s.color;
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.moveTo(legendX, legendY);
+    ctx.lineTo(legendX + 40, legendY);
+    ctx.stroke();
+    ctx.fillStyle = colText;
+    ctx.fillText(s.label, legendX + 55, legendY + 6);
+    legendY += 22;
+  }
+}
 
 function create_MyHistory() {
   // Reset der Tabelle

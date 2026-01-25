@@ -67,6 +67,38 @@
     </div>
   </div>
 
+  <!-- *ANCHOR - Modal: Historie Statistik -->
+  <div class="new-food-modal" id="modal_history_statistics">
+    <div id="btn_close_history_statistics_modal" class="close-button">Fertig</div>
+    <h1>Historie Statistik</h1>
+    <div class="history-statistics-wrapper">
+      <div class="history-statistics-controls">
+        <label for="history_statistics_metric_select">Wert im Chart</label>
+        <select id="history_statistics_metric_select">
+          <option value="__DEFAULT__">Standard (Kcal / Verbrannt / Effektive Kcal)</option>
+          <option value="Kcal">Kcal</option>
+          <option value="Verbrannt">Verbrannt</option>
+          <option value="Übrig">Übrig</option>
+          <option value="Effektive Kcal">Effektive Kcal</option>
+          <option value="Schritte">Schritte</option>
+          <option value="Fett">Fett</option>
+          <option value="Eiweiss">Eiweiss</option>
+          <option value="Kohlenhydrate">Kohlenhydrate</option>
+          <option value="Zucker">Zucker</option>
+          <option value="Salz">Salz</option>
+          <option value="Ballaststoffe">Ballaststoffe</option>
+          <option value="Gramm">Gramm</option>
+          <option value="Diff zum Ziel">Diff zum Ziel</option>
+          <option value="Wasser">Wasser</option>
+        </select>
+      </div>
+      <div class="history-statistics-chart">
+        <canvas id="history_statistics_canvas"></canvas>
+      </div>
+      <div id="containerTabelle_HistoryStatistics" class="history-statistics-table-container"></div>
+    </div>
+  </div>
+
   <nav class="sticky zone blue">
     <ul class="main-nav">
       <button id="btn_openNewModal" class="navButton">NEU</button>
