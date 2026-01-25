@@ -539,7 +539,9 @@ footer {
   font-weight: bolder;
   margin: 15px;
   border: 3px solid black;
-  box-shadow: 5px 5px 15px rgba(186, 187, 187, 0.658), inset 6px 6px 10px white;
+  box-shadow:
+    5px 5px 15px rgba(186, 187, 187, 0.658),
+    inset 6px 6px 10px white;
   border-radius: 9px;
 }
 
@@ -1253,7 +1255,9 @@ table.names th {
 
 .round-button {
   background-color: white;
-  box-shadow: inset 0 0 35px black, 0 0 30px var(--previewShadow);
+  box-shadow:
+    inset 0 0 35px black,
+    0 0 30px var(--previewShadow);
   border: 2px solid white;
   width: max-content;
   width: 120px;
@@ -1277,7 +1281,8 @@ table.names th {
 
 .list-button {
   background-color: var(--mainColor);
-  box-shadow: inset 0 0 35px var(--themeDotBorder),
+  box-shadow:
+    inset 0 0 35px var(--themeDotBorder),
     0 0 30px var(--previewShadow);
   border: 2px solid white;
   width: fit-content;
@@ -1643,7 +1648,9 @@ input:checked + .slider:before {
   backdrop-filter: blur(13px);
   -webkit-backdrop-filter: blur(13px);
   border: 3px solid black;
-  box-shadow: 0 0 5px white, inset 0 0 30px gray;
+  box-shadow:
+    0 0 5px white,
+    inset 0 0 30px gray;
   position: fixed;
   top: 220px;
   left: 10px;
@@ -1878,9 +1885,11 @@ input:checked + .slider:before {
   border: 1px solid rgba(255, 255, 255, 0.34);
   color: white;
   background-color: rgba(24, 220, 242, 0.295);
-  -webkit-box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436),
+  -webkit-box-shadow:
+    inset 2px 4px 18px rgba(255, 255, 255, 0.436),
     0 0 10px rgba(255, 255, 255, 0.436);
-  box-shadow: inset 2px 4px 18px rgba(255, 255, 255, 0.436),
+  box-shadow:
+    inset 2px 4px 18px rgba(255, 255, 255, 0.436),
     0 0 10px rgba(255, 255, 255, 0.436);
 }
 
@@ -2177,6 +2186,64 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+.weight-tracks-table-container {
+  width: 100%;
+  height: clamp(220px, 35vh, 520px);
+  overflow: auto;
+  border: 3px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.weight-tracks-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8rem;
+}
+
+.weight-tracks-table-container th,
+.weight-tracks-table-container td {
+  padding: 12px 16px;
+  border: 1px solid var(--borderColor);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.weight-tracks-table-container th {
+  font-weight: bold;
+}
+
+.weight-tracks-summary {
+  width: 100%;
+  height: clamp(140px, 22vh, 320px);
+  border: 3px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+  border-radius: 25px;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.weight-tracks-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8rem;
+}
+
+.weight-tracks-summary th,
+.weight-tracks-summary td {
+  padding: 12px 16px;
+  border: 1px solid var(--borderColor);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.weight-tracks-summary th {
+  font-weight: bold;
+}
+
 #optAreaDB {
   margin-bottom: 30px;
 }
@@ -2300,17 +2367,23 @@ input:checked + .slider:before {
 
 @keyframes rotating-animation {
   0% {
-    box-shadow: inset 0 0 10px black, 0 0 300px blue;
+    box-shadow:
+      inset 0 0 10px black,
+      0 0 300px blue;
   }
 
   50% {
-    box-shadow: inset 0 0 200px black, 0 0 10px blue;
+    box-shadow:
+      inset 0 0 200px black,
+      0 0 10px blue;
     backdrop-filter: saturate(80%);
     background-color: rgba(0, 0, 0, 0.068);
   }
 
   100% {
-    box-shadow: inset 0 0 10px black, 0 0 300px blue;
+    box-shadow:
+      inset 0 0 10px black,
+      0 0 300px blue;
   }
 }
 

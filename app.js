@@ -643,17 +643,26 @@ function draw_weight_progress() {
   //         {"_weight":"101","_date":"12.01.2025"}],
   // }
 
+  if (!weights_obj || !Array.isArray(weights_obj.tracks)) return;
+  if (weights_obj.tracks.length === 0) {
+    if (weight_statistics) weight_statistics.innerHTML = "Werte: -";
+    render_weight_tracks_section();
+    return;
+  }
+
   // Canvas und Kontext initialisieren
   let canvas = document.getElementById("canvas");
+  if (!canvas) return;
   let context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
   // Ausgangsvariablen
   let y_Pos = 150; // Start-Y-Position
   let x_Pos = 0; // Start-X-Position
-  let last_weight = weights_obj.tracks[0]._weight; // Startgewicht
+  let last_weight = extract_history_number(weights_obj.tracks[0]._weight) ?? 0; // Startgewicht
   const factor = 20; // Faktor für Gewichtsunterschied
-  let min_weight = weights_obj.tracks[0]._weight;
-  let max_weight = weights_obj.tracks[0]._weight;
+  let min_weight = last_weight;
+  let max_weight = last_weight;
   let toggler = -1;
   let weight_sum = 0;
   let weight_counter = 0;
@@ -661,7 +670,10 @@ function draw_weight_progress() {
   // determine min and max weights
   for (let i = 0; i < weights_obj.tracks.length; i++) {
     weight_counter++;
-    const current_weight = parseInt(weights_obj.tracks[i]._weight);
+    const current_weight = extract_history_number(
+      weights_obj.tracks[i]._weight,
+    );
+    if (current_weight === null) continue;
     weight_sum += current_weight;
     if (current_weight < min_weight) {
       min_weight = current_weight;
@@ -670,11 +682,15 @@ function draw_weight_progress() {
       max_weight = current_weight;
     }
   }
-  const average_weight = weight_sum / weight_counter;
+  const average_weight = weight_counter ? weight_sum / weight_counter : 0;
   const weight_total_diff = max_weight - min_weight;
-  weight_statistics.innerHTML = `Werte: Min: ${min_weight} Kg | Durchn: ${parseInt(
-    average_weight,
-  )}Kg | Max: ${max_weight} Kg | Diff: ${parseInt(weight_total_diff)} Kg`;
+  if (weight_statistics) {
+    weight_statistics.innerHTML = `Werte: Min: ${format_stat_number(min_weight)} kg | Ø: ${format_stat_number(
+      average_weight,
+    )} kg | Max: ${format_stat_number(max_weight)} kg | Diff: ${format_stat_number(
+      weight_total_diff,
+    )} kg`;
+  }
 
   //TODO Automatische Höhe - wip
   // const whole_weight_diff = max_weight - min_weight;
@@ -693,7 +709,8 @@ function draw_weight_progress() {
   for (let i = 0; i < weights_obj.tracks.length; i++) {
     // Aktualisiere die Positionen
     x_Pos += 50; // Verschiebe X-Position
-    const new_weight = parseInt(weights_obj.tracks[i]._weight);
+    const new_weight = extract_history_number(weights_obj.tracks[i]._weight);
+    if (new_weight === null) continue;
     const new_date = weights_obj.tracks[i]._date;
     const weight_diff = new_weight - last_weight;
     y_Pos -= weight_diff * factor; // Berechne neue Y-Position
@@ -711,7 +728,11 @@ function draw_weight_progress() {
     context.fillStyle = "white";
 
     //* Draw weight
-    context.fillText(`${new_weight}kg`, x_Pos - 10, y_Pos - 5);
+    context.fillText(
+      `${format_stat_number(new_weight)}kg`,
+      x_Pos - 10,
+      y_Pos - 5,
+    );
 
     //* rotate and draw date
     context.save();
@@ -730,6 +751,131 @@ function draw_weight_progress() {
 
   // Zeichne die durchgehende Linie
   context.stroke();
+
+  render_weight_tracks_section();
+}
+
+function render_weight_tracks_section() {
+  const tableContainer = document.getElementById(
+    "weight_tracks_table_container",
+  );
+  const summaryContainer = document.getElementById("weight_tracks_summary");
+
+  if (!tableContainer && !summaryContainer) return;
+  if (tableContainer) tableContainer.innerHTML = "";
+  if (summaryContainer) summaryContainer.innerHTML = "";
+
+  if (
+    !weights_obj ||
+    !Array.isArray(weights_obj.tracks) ||
+    weights_obj.tracks.length === 0
+  ) {
+    if (tableContainer) {
+      tableContainer.innerHTML =
+        "<p style='padding: 20px; text-align:center;'>Keine Gewichts-Daten vorhanden.</p>";
+    }
+    if (summaryContainer) {
+      summaryContainer.innerHTML =
+        "<p style='padding: 20px; text-align:center;'>Keine Daten für Auswertung.</p>";
+    }
+    return;
+  }
+
+  const rows = weights_obj.tracks
+    .map((t) => ({
+      date: String(t?._date ?? "").trim(),
+      weight: extract_history_number(t?._weight),
+    }))
+    .filter((r) => r.date && r.weight !== null);
+
+  rows.sort(
+    (a, b) => parse_ddmmyyyy_to_ts(a.date) - parse_ddmmyyyy_to_ts(b.date),
+  );
+
+  if (tableContainer) {
+    const table = document.createElement("table");
+
+    const thead = document.createElement("thead");
+    const headRow = document.createElement("tr");
+    for (const label of ["Datum", "Gewicht (kg)"]) {
+      const th = document.createElement("th");
+      th.textContent = label;
+      headRow.appendChild(th);
+    }
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+    for (const r of rows) {
+      const tr = document.createElement("tr");
+
+      const tdDate = document.createElement("td");
+      tdDate.textContent = r.date;
+      tr.appendChild(tdDate);
+
+      const tdWeight = document.createElement("td");
+      tdWeight.textContent = format_stat_number(r.weight);
+      tr.appendChild(tdWeight);
+
+      tbody.appendChild(tr);
+    }
+
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+  }
+
+  if (summaryContainer) {
+    const values = rows.map((r) => r.weight).filter((v) => v !== null);
+    if (values.length === 0) {
+      summaryContainer.innerHTML =
+        "<p style='padding: 20px; text-align:center;'>Keine Daten für Auswertung.</p>";
+      return;
+    }
+
+    const minVal = Math.min(...values);
+    const maxVal = Math.max(...values);
+    const avgVal = values.reduce((a, b) => a + b, 0) / values.length;
+    const trendText = build_trend_text(values[0], values[values.length - 1]);
+
+    const table = document.createElement("table");
+
+    const thead = document.createElement("thead");
+    const headRow = document.createElement("tr");
+    for (const label of ["Wert", "Min", "Ø", "Max", "Trend"]) {
+      const th = document.createElement("th");
+      th.textContent = label;
+      headRow.appendChild(th);
+    }
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+    const tr = document.createElement("tr");
+
+    const tdName = document.createElement("td");
+    tdName.textContent = "Gewicht";
+    tr.appendChild(tdName);
+
+    const tdMin = document.createElement("td");
+    tdMin.textContent = format_stat_number(minVal);
+    tr.appendChild(tdMin);
+
+    const tdAvg = document.createElement("td");
+    tdAvg.textContent = format_stat_number(avgVal);
+    tr.appendChild(tdAvg);
+
+    const tdMax = document.createElement("td");
+    tdMax.textContent = format_stat_number(maxVal);
+    tr.appendChild(tdMax);
+
+    const tdTrend = document.createElement("td");
+    tdTrend.textContent = trendText;
+    tr.appendChild(tdTrend);
+
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
+    summaryContainer.appendChild(table);
+  }
 }
 
 // Speichere KcalZiel
@@ -4331,6 +4477,9 @@ function format_history_value(val) {
   if (val === undefined || val === null) return "-";
   const s = String(val).trim();
   if (!s.length) return "-";
+
+  // Datum (dd.mm.yyyy) nicht numerisch umformatieren
+  if (/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/.test(s)) return s;
 
   // Versuche Zahl zu extrahieren und deutsch formatiert zurückzugeben
   const n = extract_history_number(s);
