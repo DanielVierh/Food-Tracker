@@ -4301,7 +4301,10 @@ function format_stat_number(n) {
   if (!Number.isFinite(n)) return "-";
   const isInt = Math.abs(n - Math.round(n)) < 0.000001;
   if (isInt) return Math.round(n).toLocaleString("de-DE");
-  return n.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return n.toLocaleString("de-DE", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
 }
 
 function build_trend_text(firstVal, lastVal) {
@@ -4334,7 +4337,10 @@ function format_history_value(val) {
   if (n === null) return s;
   const isInt = Math.abs(n - Math.round(n)) < 0.000001;
   if (isInt) return Math.round(n).toLocaleString("de-DE");
-  return n.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return n.toLocaleString("de-DE", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
 }
 
 function parse_history_entry(historyItem) {
