@@ -2140,6 +2140,33 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+.history-statistics-summary {
+  width: 100%;
+  border: 3px solid var(--themeDotBorder);
+  background: var(--mainColor);
+  color: var(--mainText);
+  border-radius: 25px;
+  overflow: auto;
+}
+
+.history-statistics-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8rem;
+}
+
+.history-statistics-summary th,
+.history-statistics-summary td {
+  padding: 12px 16px;
+  border: 1px solid var(--borderColor);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.history-statistics-summary th {
+  font-weight: bold;
+}
+
 #optAreaDB {
   margin-bottom: 30px;
 }

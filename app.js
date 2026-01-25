@@ -4091,9 +4091,11 @@ function render_history_statistics_modal() {
   const tableContainer = document.getElementById(
     "containerTabelle_HistoryStatistics",
   );
+  const summaryContainer = document.getElementById("history_statistics_summary");
   if (!tableContainer) return;
 
   tableContainer.innerHTML = "";
+  if (summaryContainer) summaryContainer.innerHTML = "";
 
   if (!my_History || my_History.length === 0) {
     tableContainer.innerHTML =
@@ -4166,10 +4168,148 @@ function render_history_statistics_modal() {
   table.appendChild(tbody);
   tableContainer.appendChild(table);
 
+  render_history_statistics_summary(parsed);
+
   if (history_statistics_metric_select) {
     history_statistics_metric_select.value = history_statistics_selected_metric;
   }
   draw_history_statistics_chart(parsed, history_statistics_selected_metric);
+}
+
+function render_history_statistics_summary(rows) {
+  const summaryContainer = document.getElementById("history_statistics_summary");
+  if (!summaryContainer) return;
+
+  summaryContainer.innerHTML = "";
+
+  if (!rows || rows.length === 0) {
+    summaryContainer.innerHTML =
+      "<p style='padding: 20px; text-align:center;'>Keine Daten für Auswertung.</p>";
+    return;
+  }
+
+  const metricKeys = [
+    "Kcal",
+    "Verbrannt",
+    "Übrig",
+    "Effektive Kcal",
+    "Schritte",
+    "Fett",
+    "Eiweiss",
+    "Kohlenhydrate",
+    "Zucker",
+    "Salz",
+    "Ballaststoffe",
+    "Gramm",
+    "Diff zum Ziel",
+    "Wasser",
+  ];
+
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  for (const label of ["Wert", "Min", "Ø", "Max", "Trend"]) {
+    const th = document.createElement("th");
+    th.textContent = label;
+    headRow.appendChild(th);
+  }
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+
+  for (const key of metricKeys) {
+    const values = rows
+      .map((r) => extract_history_number(r[key]))
+      .filter((v) => v !== null);
+
+    const tr = document.createElement("tr");
+
+    const tdName = document.createElement("td");
+    tdName.textContent = key;
+    tr.appendChild(tdName);
+
+    if (values.length === 0) {
+      for (let i = 0; i < 4; i++) {
+        const td = document.createElement("td");
+        td.textContent = "-";
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+      continue;
+    }
+
+    const minVal = Math.min(...values);
+    const maxVal = Math.max(...values);
+    const avgVal = values.reduce((a, b) => a + b, 0) / values.length;
+
+    const firstVal = get_first_non_null(rows, key);
+    const lastVal = get_last_non_null(rows, key);
+    const trendText = build_trend_text(firstVal, lastVal);
+
+    const tdMin = document.createElement("td");
+    tdMin.textContent = format_stat_number(minVal);
+    tr.appendChild(tdMin);
+
+    const tdAvg = document.createElement("td");
+    tdAvg.textContent = format_stat_number(avgVal);
+    tr.appendChild(tdAvg);
+
+    const tdMax = document.createElement("td");
+    tdMax.textContent = format_stat_number(maxVal);
+    tr.appendChild(tdMax);
+
+    const tdTrend = document.createElement("td");
+    tdTrend.textContent = trendText;
+    tr.appendChild(tdTrend);
+
+    tbody.appendChild(tr);
+  }
+
+  table.appendChild(tbody);
+  summaryContainer.appendChild(table);
+}
+
+function get_first_non_null(rows, key) {
+  for (const r of rows) {
+    const v = extract_history_number(r[key]);
+    if (v !== null) return v;
+  }
+  return null;
+}
+
+function get_last_non_null(rows, key) {
+  for (let i = rows.length - 1; i >= 0; i--) {
+    const v = extract_history_number(rows[i][key]);
+    if (v !== null) return v;
+  }
+  return null;
+}
+
+function format_stat_number(n) {
+  if (!Number.isFinite(n)) return "-";
+  if (Math.abs(n - Math.round(n)) < 0.000001) return String(Math.round(n));
+  return n.toFixed(1);
+}
+
+function build_trend_text(firstVal, lastVal) {
+  if (firstVal === null || lastVal === null) return "-";
+  const delta = lastVal - firstVal;
+  const threshold = 0.01;
+  let arrow = "→";
+  if (delta > threshold) arrow = "↗";
+  if (delta < -threshold) arrow = "↘";
+
+  let pctText = "";
+  if (Math.abs(firstVal) > threshold) {
+    const pct = (delta / firstVal) * 100;
+    if (Number.isFinite(pct)) {
+      pctText = " (" + (pct >= 0 ? "+" : "") + pct.toFixed(1) + "%)";
+    }
+  }
+
+  const deltaText = (delta >= 0 ? "+" : "") + format_stat_number(delta);
+  return arrow + " " + deltaText + pctText;
 }
 
 function format_history_value(val) {
