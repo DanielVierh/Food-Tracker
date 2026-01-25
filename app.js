@@ -2260,7 +2260,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-          " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
+            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2340,7 +2340,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         document.getElementById("selectedFoodMakros").innerHTML = "";
         blendOut_Eingabebereich_FoodDB();
         blendOut_MengeAendern();
-      } catch (error) { }
+      } catch (error) {}
     }
   } else {
     showMessage(
@@ -2445,8 +2445,9 @@ function create_Table_TodayEaten() {
 
       let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle = `Makros: (${selected_Food.intake_kcal
-        } Kcal = ${prozentFromDay.toFixed(0)}%)
+      let calcSingle = `Makros: (${
+        selected_Food.intake_kcal
+      } Kcal = ${prozentFromDay.toFixed(0)}%)
       <br/>
       Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
       <br/>
@@ -2574,8 +2575,8 @@ function delete_from_today() {
   if (foodFromToday == true) {
     const decision = window.confirm(
       "Möchtest du < " +
-      selected_Food.intake_productName +
-      "> wirklich von der heutigen Liste löschen?",
+        selected_Food.intake_productName +
+        "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -3812,8 +3813,8 @@ function delete_Food_from_DB() {
   } else {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
-      selected_Food.productName +
-      "> wirklich für immer aus der Datenbank gelöscht werden?",
+        selected_Food.productName +
+        "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4091,7 +4092,9 @@ function render_history_statistics_modal() {
   const tableContainer = document.getElementById(
     "containerTabelle_HistoryStatistics",
   );
-  const summaryContainer = document.getElementById("history_statistics_summary");
+  const summaryContainer = document.getElementById(
+    "history_statistics_summary",
+  );
   if (!tableContainer) return;
 
   tableContainer.innerHTML = "";
@@ -4177,7 +4180,9 @@ function render_history_statistics_modal() {
 }
 
 function render_history_statistics_summary(rows) {
-  const summaryContainer = document.getElementById("history_statistics_summary");
+  const summaryContainer = document.getElementById(
+    "history_statistics_summary",
+  );
   if (!summaryContainer) return;
 
   summaryContainer.innerHTML = "";
@@ -4444,8 +4449,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
     rootStyles.getPropertyValue("--themeDotBorder").trim() || "#888";
   const colA = rootStyles.getPropertyValue("--buttonColor").trim() || colText;
   const colB = rootStyles.getPropertyValue("--waterColor").trim() || colText;
-  const colC =
-    rootStyles.getPropertyValue("--secondaryText").trim() || colText;
+  const colC = rootStyles.getPropertyValue("--secondaryText").trim() || colText;
 
   // Clear
   ctx.clearRect(0, 0, cssWidth, cssHeight);
@@ -4453,11 +4457,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   if (!rows || rows.length < 2) {
     ctx.fillStyle = colText;
     ctx.font = "20px Arial";
-    ctx.fillText(
-      "Zu wenig Daten für Diagramm (mind. 2 Tage).",
-      20,
-      40,
-    );
+    ctx.fillText("Zu wenig Daten für Diagramm (mind. 2 Tage).", 20, 40);
     return;
   }
 
