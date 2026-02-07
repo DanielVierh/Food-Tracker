@@ -2407,7 +2407,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
+          " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2487,7 +2487,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         document.getElementById("selectedFoodMakros").innerHTML = "";
         blendOut_Eingabebereich_FoodDB();
         blendOut_MengeAendern();
-      } catch (error) {}
+      } catch (error) { }
     }
   } else {
     showMessage(
@@ -2592,9 +2592,8 @@ function create_Table_TodayEaten() {
 
       let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle = `Makros: (${
-        selected_Food.intake_kcal
-      } Kcal = ${prozentFromDay.toFixed(0)}%)
+      let calcSingle = `Makros: (${selected_Food.intake_kcal
+        } Kcal = ${prozentFromDay.toFixed(0)}%)
       <br/>
       Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
       <br/>
@@ -2722,8 +2721,8 @@ function delete_from_today() {
   if (foodFromToday == true) {
     const decision = window.confirm(
       "Möchtest du < " +
-        selected_Food.intake_productName +
-        "> wirklich von der heutigen Liste löschen?",
+      selected_Food.intake_productName +
+      "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -3997,8 +3996,8 @@ function delete_Food_from_DB() {
   } else {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
-        selected_Food.productName +
-        "> wirklich für immer aus der Datenbank gelöscht werden?",
+      selected_Food.productName +
+      "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4265,11 +4264,79 @@ function init_history_statistics_metric_select() {
 
   history_statistics_metric_select.addEventListener("change", () => {
     history_statistics_selected_metric = history_statistics_metric_select.value;
+
+    // Re-render table (date + selected metric)
+    render_history_statistics_table(
+      history_statistics_last_parsed,
+      history_statistics_selected_metric,
+    );
+
     draw_history_statistics_chart(
       history_statistics_last_parsed,
       history_statistics_selected_metric,
     );
   });
+}
+
+function get_history_statistics_table_columns(metricKey) {
+  // Always show date
+  if (metricKey === "__DEFAULT__") {
+    // Default chart shows these 3 series; table should mirror that.
+    return [
+      { key: "date", label: "Datum" },
+      { key: "Kcal", label: "Kcal" },
+      { key: "Verbrannt", label: "Verbrannt" },
+      { key: "Effektive Kcal", label: "Effektive Kcal" },
+    ];
+  }
+
+  const label = get_history_metric_label(metricKey);
+  return [
+    { key: "date", label: "Datum" },
+    { key: metricKey, label },
+  ];
+}
+
+function render_history_statistics_table(rows, metricKey) {
+  const tableContainer = document.getElementById(
+    "containerTabelle_HistoryStatistics",
+  );
+  if (!tableContainer) return;
+
+  tableContainer.innerHTML = "";
+
+  if (!rows || !Array.isArray(rows) || rows.length === 0) {
+    tableContainer.innerHTML =
+      "<p style='padding: 20px; text-align:center;'>Keine auswertbaren History Daten gefunden.</p>";
+    return;
+  }
+
+  const columns = get_history_statistics_table_columns(metricKey);
+
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  for (const col of columns) {
+    const th = document.createElement("th");
+    th.textContent = col.label;
+    headRow.appendChild(th);
+  }
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+  for (const row of rows) {
+    const tr = document.createElement("tr");
+    for (const col of columns) {
+      const td = document.createElement("td");
+      const val = row[col.key];
+      td.textContent = format_history_value(val);
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  tableContainer.appendChild(table);
 }
 
 function render_history_statistics_modal() {
@@ -4311,49 +4378,7 @@ function render_history_statistics_modal() {
     return;
   }
 
-  const columns = [
-    { key: "date", label: "Datum" },
-    { key: "Kcal", label: "Kcal" },
-    { key: "Verbrannt", label: "Verbrannt" },
-    { key: "Übrig", label: "Übrig" },
-    { key: "Effektive Kcal", label: "Effektive Kcal" },
-    { key: "Schritte", label: "Schritte" },
-    { key: "Keto", label: "Keto" },
-    { key: "Fett", label: "Fett" },
-    { key: "Eiweiss", label: "Eiweiss" },
-    { key: "Kohlenhydrate", label: "Kohlenhydrate" },
-    { key: "Zucker", label: "Zucker" },
-    { key: "Salz", label: "Salz" },
-    { key: "Ballaststoffe", label: "Ballaststoffe" },
-    { key: "Gramm", label: "Gramm" },
-    { key: "Diff zum Ziel", label: "Diff zum Ziel" },
-    { key: "Wasser", label: "Wasser" },
-  ];
-
-  const table = document.createElement("table");
-  const thead = document.createElement("thead");
-  const headRow = document.createElement("tr");
-  for (const col of columns) {
-    const th = document.createElement("th");
-    th.textContent = col.label;
-    headRow.appendChild(th);
-  }
-  thead.appendChild(headRow);
-  table.appendChild(thead);
-
-  const tbody = document.createElement("tbody");
-  for (const row of parsed) {
-    const tr = document.createElement("tr");
-    for (const col of columns) {
-      const td = document.createElement("td");
-      const val = row[col.key];
-      td.textContent = format_history_value(val);
-      tr.appendChild(td);
-    }
-    tbody.appendChild(tr);
-  }
-  table.appendChild(tbody);
-  tableContainer.appendChild(table);
+  render_history_statistics_table(parsed, history_statistics_selected_metric);
 
   render_history_statistics_summary(parsed);
 
