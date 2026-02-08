@@ -1143,6 +1143,56 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
     "rgb(24, 24, 236)";
 }
 
+function get_statistics_chart_scale() {
+  const chartEl = document.querySelector(".container_Kcal_Diagram");
+  const cssH = chartEl ? chartEl.clientHeight : 0;
+  const chartHeight = Math.max(420, cssH || 0);
+
+  // 100% Ziel = mittlere Linie; 200% Ziel = Max-Höhe.
+  const goalLinePx = Math.round(chartHeight * 0.5);
+  const maxBarPx = chartHeight;
+  return { chartHeight, goalLinePx, maxBarPx };
+}
+
+function parse_css_rgb(colorStr) {
+  const s = String(colorStr || "").trim();
+  const m = s.match(
+    /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/i,
+  );
+  if (!m) return null;
+  return {
+    r: Math.min(255, parseInt(m[1], 10)),
+    g: Math.min(255, parseInt(m[2], 10)),
+    b: Math.min(255, parseInt(m[3], 10)),
+  };
+}
+
+function relative_luminance(rgb) {
+  if (!rgb) return 0;
+  // sRGB perceived luminance
+  return (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
+}
+
+function apply_bar_label_contrast(el) {
+  if (!el) return;
+
+  const bg = getComputedStyle(el).backgroundColor;
+  const rgb = parse_css_rgb(bg);
+  if (!rgb) return;
+
+  const lum = relative_luminance(rgb);
+  const useLightText = lum < 0.58;
+
+  el.style.color = useLightText ? "#ffffff" : "#0b1220";
+  el.style.webkitTextStroke = useLightText
+    ? "1px rgba(0,0,0,0.60)"
+    : "1px rgba(255,255,255,0.42)";
+
+  el.style.textShadow = useLightText
+    ? "0 1px 0 rgba(0,0,0,0.65), 0 2px 14px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.6)"
+    : "0 1px 0 rgba(255,255,255,0.30), 0 2px 10px rgba(0,0,0,0.18), 0 0 2px rgba(255,255,255,0.25)";
+}
+
 //NOTE -   Erstelle Statistik
 function show_Statisitcs(val) {
   let height_Col_1 = 0;
@@ -1159,6 +1209,8 @@ function show_Statisitcs(val) {
   let lastDayVal = 0;
   let currentVal = 0;
   let fatSum = 0;
+
+  const { goalLinePx, maxBarPx } = get_statistics_chart_scale();
 
   //Statistik Effektive Kcal
   if (val == "show_Effekctive_Kcal") {
@@ -1213,9 +1265,10 @@ function show_Statisitcs(val) {
       // Diagramm
       currProzent =
         (parseInt(my_Statistics[i].repository_EffectiveKcal) * 100) / kcal_Ziel;
-      let colHeightInPixel = (currProzent * 500) / 100;
-      if (colHeightInPixel > 1000) {
-        document.getElementById("COL_Dia_" + i).style.height = "1000px";
+      let colHeightInPixel = (currProzent * goalLinePx) / 100;
+      if (colHeightInPixel > maxBarPx) {
+        document.getElementById("COL_Dia_" + i).style.height =
+          maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_EffectiveKcal + " kcal 🚀";
       } else {
@@ -1236,6 +1289,8 @@ function show_Statisitcs(val) {
           "rgb(43, 161, 43)";
       }
 
+      apply_bar_label_contrast(document.getElementById("COL_Dia_" + i));
+
       if (kcal_in_Gramm >= 0) {
         document.getElementById("fettInGramm_Col_" + i).style.color =
           "rgb(27, 206, 27)";
@@ -1245,7 +1300,7 @@ function show_Statisitcs(val) {
     }
 
     // Ziel Latte
-    let targetHeight = 500; // Mitte
+    let targetHeight = goalLinePx; // Mitte
     document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
 
     // Fettsumme anzeigen
@@ -1304,9 +1359,10 @@ function show_Statisitcs(val) {
       // Diagramm
       currProzent =
         (parseInt(my_Statistics[i].repository_Steps) * 100) / min_Steps;
-      let colHeightInPixel = (currProzent * 500) / 100;
-      if (colHeightInPixel > 1000) {
-        document.getElementById("COL_Dia_" + i).style.height = "1000px";
+      let colHeightInPixel = (currProzent * goalLinePx) / 100;
+      if (colHeightInPixel > maxBarPx) {
+        document.getElementById("COL_Dia_" + i).style.height =
+          maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_Steps + " 🚀";
       } else {
@@ -1326,8 +1382,13 @@ function show_Statisitcs(val) {
         document.getElementById("COL_Dia_" + i).style.backgroundColor =
           "rgb(43, 161, 43)";
       }
+
+      apply_bar_label_contrast(document.getElementById("COL_Dia_" + i));
     }
     document.getElementById("outputFatSum").innerHTML = stepCounter;
+
+    // Ziel Latte
+    document.getElementById("eff_Goal").style.bottom = goalLinePx + "px";
 
     //NOTE - Statistik Zucker
     // >>> Zucker <<<
@@ -1415,9 +1476,10 @@ function show_Statisitcs(val) {
 
       // Diagramm
       currProzent = (parseFloat(my_Statistics[i].repository_Water) * 100) / 2;
-      let colHeightInPixel = (currProzent * 500) / 100;
-      if (colHeightInPixel > 1000) {
-        document.getElementById("COL_Dia_" + i).style.height = "1000px";
+      let colHeightInPixel = (currProzent * goalLinePx) / 100;
+      if (colHeightInPixel > maxBarPx) {
+        document.getElementById("COL_Dia_" + i).style.height =
+          maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_Water + "L 🚀";
       } else {
@@ -1434,9 +1496,14 @@ function show_Statisitcs(val) {
         document.getElementById("COL_Dia_" + i).style.backgroundColor =
           "#41e6fc";
       }
+
+      apply_bar_label_contrast(document.getElementById("COL_Dia_" + i));
     }
 
     document.getElementById("outputFatSum").innerHTML = waterCounter + " L";
+
+    // Ziel Latte (2L)
+    document.getElementById("eff_Goal").style.bottom = goalLinePx + "px";
 
     //NOTE - Statistik Verbrannte KCAL
   } else if (val == "show_BurndedKcal") {
@@ -1490,10 +1557,11 @@ function show_Statisitcs(val) {
       currProzent =
         (parseInt(my_Statistics[i].repository_BurnedKCal) * 100) /
         burnedKcalGoal;
-      let colHeightInPixel = (currProzent * 500) / 100;
+      let colHeightInPixel = (currProzent * goalLinePx) / 100;
       let colName = "COL_Dia_" + i;
-      if (colHeightInPixel > 1000) {
-        document.getElementById("COL_Dia_" + i).style.height = "1000px";
+      if (colHeightInPixel > maxBarPx) {
+        document.getElementById("COL_Dia_" + i).style.height =
+          maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_BurnedKCal + " kcal 🚀";
       } else {
@@ -1511,10 +1579,12 @@ function show_Statisitcs(val) {
         document.getElementById("COL_Dia_" + i).style.backgroundColor =
           "rgb(43, 161, 43)";
       }
+
+      apply_bar_label_contrast(document.getElementById("COL_Dia_" + i));
     }
 
     // Ziel Latte
-    let targetHeight = 500; // Mitte
+    let targetHeight = goalLinePx; // Mitte
     document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
   }
 }
@@ -1530,6 +1600,8 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
   let val_to_DayBefore = 0;
   let lastDayVal = 0;
   let currProzent = 0;
+
+  const { goalLinePx, maxBarPx } = get_statistics_chart_scale();
 
   document.getElementById("valDescrFett").innerHTML = "";
   document.getElementById("outputFatSum").innerHTML = "";
@@ -1572,9 +1644,9 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
 
     // Diagramm
     currProzent = (parseFloat(my_Statistics[i][repositoryPos]) * 100) / goal;
-    let colHeightInPixel = (currProzent * 500) / 100;
-    if (colHeightInPixel > 1000) {
-      document.getElementById("COL_Dia_" + i).style.height = "1000px";
+    let colHeightInPixel = (currProzent * goalLinePx) / 100;
+    if (colHeightInPixel > maxBarPx) {
+      document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
       document.getElementById("COL_Dia_" + i).innerText =
         my_Statistics[i][repositoryPos] + " 🚀";
     } else {
@@ -1607,7 +1679,12 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
           "rgb(43, 161, 43)";
       }
     }
+
+    apply_bar_label_contrast(document.getElementById("COL_Dia_" + i));
   }
+
+  // Ziel Latte
+  document.getElementById("eff_Goal").style.bottom = goalLinePx + "px";
 
   document.getElementById("outputFatSum").innerHTML =
     valueCounter.toFixed(1) +
@@ -4658,8 +4735,18 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   if (!ctx) return;
 
   const wrapper = canvas.parentElement;
-  const cssWidth = Math.max(300, (wrapper && wrapper.clientWidth) || 900);
-  const cssHeight = 320;
+  const canvasStyles = getComputedStyle(canvas);
+  const wrapperStyles = wrapper ? getComputedStyle(wrapper) : null;
+  const wrapperPadX = wrapperStyles
+    ? (parseFloat(wrapperStyles.paddingLeft) || 0) +
+      (parseFloat(wrapperStyles.paddingRight) || 0)
+    : 0;
+  const rawWidth = Math.max(300, (wrapper && wrapper.clientWidth) || 900);
+  const cssWidth = Math.max(300, rawWidth - wrapperPadX);
+  const cssHeight = Math.max(
+    260,
+    Math.floor(parseFloat(canvasStyles.height) || 320),
+  );
   const dpr = window.devicePixelRatio || 1;
 
   canvas.width = Math.floor(cssWidth * dpr);
@@ -4677,8 +4764,54 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   const colB = rootStyles.getPropertyValue("--waterColor").trim() || colText;
   const colC = rootStyles.getPropertyValue("--secondaryText").trim() || colText;
 
-  // Clear
+  const colBg =
+    rootStyles.getPropertyValue("--secondaryColor").trim() || "#111827";
+
+  function parse_color_rgb(s) {
+    const str = String(s || "").trim();
+    if (!str) return null;
+    const rgbm = str.match(
+      /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/i,
+    );
+    if (rgbm) {
+      return {
+        r: Math.min(255, parseInt(rgbm[1], 10)),
+        g: Math.min(255, parseInt(rgbm[2], 10)),
+        b: Math.min(255, parseInt(rgbm[3], 10)),
+      };
+    }
+    const hexm = str.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+    if (hexm) {
+      const hex = hexm[1];
+      if (hex.length === 3) {
+        const r = parseInt(hex[0] + hex[0], 16);
+        const g = parseInt(hex[1] + hex[1], 16);
+        const b = parseInt(hex[2] + hex[2], 16);
+        return { r, g, b };
+      }
+      const r = parseInt(hex.slice(0, 2), 16);
+      const g = parseInt(hex.slice(2, 4), 16);
+      const b = parseInt(hex.slice(4, 6), 16);
+      return { r, g, b };
+    }
+    return null;
+  }
+
+  function is_light_color(col) {
+    const rgb = parse_color_rgb(col);
+    if (!rgb) return false;
+    // Perceived luminance
+    const lum = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
+    return lum > 0.6;
+  }
+
+  const gridAlpha = 0.22;
+  const plotShade = is_light_color(colText) ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.06)";
+
+  // Clear + subtle plot background
   ctx.clearRect(0, 0, cssWidth, cssHeight);
+  ctx.fillStyle = plotShade;
+  ctx.fillRect(0, 0, cssWidth, cssHeight);
 
   if (!rows || rows.length < 2) {
     ctx.fillStyle = colText;
@@ -4763,9 +4896,9 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   const yMax = nice_y_max(maxVal);
 
   const paddingLeft = 70;
-  const paddingRight = 30;
-  const paddingTop = 60;
-  const paddingBottom = 50;
+  const paddingRight = 26;
+  const paddingTop = 64;
+  const paddingBottom = 54;
 
   const plotW = cssWidth - paddingLeft - paddingRight;
   const plotH = cssHeight - paddingTop - paddingBottom;
@@ -4773,7 +4906,8 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   // Grid + axes
   ctx.strokeStyle = colGrid;
   ctx.lineWidth = 1;
-  ctx.globalAlpha = 0.35;
+  ctx.globalAlpha = gridAlpha;
+  ctx.setLineDash([5, 6]);
 
   const gridLines = 5;
   for (let i = 0; i <= gridLines; i++) {
@@ -4783,6 +4917,16 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
     ctx.lineTo(paddingLeft + plotW, y);
     ctx.stroke();
   }
+  // Vertical grid lines
+  const xGridEvery = Math.max(1, Math.ceil(rows.length / 7));
+  for (let i = 0; i < rows.length; i += xGridEvery) {
+    const x = paddingLeft + (plotW * i) / Math.max(1, rows.length - 1);
+    ctx.beginPath();
+    ctx.moveTo(x, paddingTop);
+    ctx.lineTo(x, paddingTop + plotH);
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
   ctx.globalAlpha = 1;
 
   ctx.strokeStyle = colGrid;
@@ -4795,7 +4939,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
 
   // Y labels
   ctx.fillStyle = colText;
-  ctx.font = "18px Arial";
+  ctx.font = "600 18px system-ui, -apple-system, Segoe UI, Arial";
   for (let i = 0; i <= gridLines; i++) {
     const v = yMax - (yMax * i) / gridLines;
     const y = paddingTop + (plotH * i) / gridLines;
@@ -4812,7 +4956,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   // X labels (sparse)
   const labelEvery = Math.max(1, Math.ceil(rows.length / 6));
   ctx.fillStyle = colText;
-  ctx.font = "16px Arial";
+  ctx.font = "600 16px system-ui, -apple-system, Segoe UI, Arial";
   for (let i = 0; i < rows.length; i += labelEvery) {
     const x = xForIndex(i);
     const dateLabel = String(rows[i].date || "");
@@ -4827,6 +4971,8 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   for (const s of series) {
     ctx.strokeStyle = s.color;
     ctx.lineWidth = 3;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
     ctx.beginPath();
     let started = false;
     for (let i = 0; i < s.data.length; i++) {
@@ -4842,22 +4988,67 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
       }
     }
     ctx.stroke();
+
+    // Points
+    ctx.fillStyle = s.color;
+    ctx.strokeStyle = colBg;
+    ctx.lineWidth = 2;
+    for (let i = 0; i < s.data.length; i++) {
+      const v = s.data[i];
+      if (v === null) continue;
+      const x = xForIndex(i);
+      const y = yForVal(v);
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+    }
   }
 
   // Legend
   const legendX = paddingLeft;
   let legendY = 30;
-  ctx.font = "18px Arial";
+  ctx.font = "700 18px system-ui, -apple-system, Segoe UI, Arial";
   for (const s of series) {
+    const label = String(s.label || "");
+    const padX = 12;
+    const padY = 8;
+    const w = Math.ceil(ctx.measureText(label).width) + 44 + padX * 2;
+    const h = 28;
+
+    // pill bg
+    ctx.fillStyle = is_light_color(colText)
+      ? "rgba(0,0,0,0.22)"
+      : "rgba(255,255,255,0.10)";
+    ctx.strokeStyle = is_light_color(colText)
+      ? "rgba(255,255,255,0.18)"
+      : "rgba(0,0,0,0.25)";
+    ctx.lineWidth = 1;
+
+    const x = legendX;
+    const y = legendY - 16;
+    const r = 999;
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // color marker line
     ctx.strokeStyle = s.color;
     ctx.lineWidth = 6;
     ctx.beginPath();
-    ctx.moveTo(legendX, legendY);
-    ctx.lineTo(legendX + 40, legendY);
+    ctx.moveTo(x + padX, legendY);
+    ctx.lineTo(x + padX + 26, legendY);
     ctx.stroke();
+
     ctx.fillStyle = colText;
-    ctx.fillText(s.label, legendX + 55, legendY + 6);
-    legendY += 22;
+    ctx.fillText(label, x + padX + 36, legendY + 6);
+    legendY += 34;
   }
 }
 
