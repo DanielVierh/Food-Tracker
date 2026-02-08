@@ -1267,8 +1267,7 @@ function show_Statisitcs(val) {
         (parseInt(my_Statistics[i].repository_EffectiveKcal) * 100) / kcal_Ziel;
       let colHeightInPixel = (currProzent * goalLinePx) / 100;
       if (colHeightInPixel > maxBarPx) {
-        document.getElementById("COL_Dia_" + i).style.height =
-          maxBarPx + "px";
+        document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_EffectiveKcal + " kcal 🚀";
       } else {
@@ -1361,8 +1360,7 @@ function show_Statisitcs(val) {
         (parseInt(my_Statistics[i].repository_Steps) * 100) / min_Steps;
       let colHeightInPixel = (currProzent * goalLinePx) / 100;
       if (colHeightInPixel > maxBarPx) {
-        document.getElementById("COL_Dia_" + i).style.height =
-          maxBarPx + "px";
+        document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_Steps + " 🚀";
       } else {
@@ -1478,8 +1476,7 @@ function show_Statisitcs(val) {
       currProzent = (parseFloat(my_Statistics[i].repository_Water) * 100) / 2;
       let colHeightInPixel = (currProzent * goalLinePx) / 100;
       if (colHeightInPixel > maxBarPx) {
-        document.getElementById("COL_Dia_" + i).style.height =
-          maxBarPx + "px";
+        document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_Water + "L 🚀";
       } else {
@@ -1560,8 +1557,7 @@ function show_Statisitcs(val) {
       let colHeightInPixel = (currProzent * goalLinePx) / 100;
       let colName = "COL_Dia_" + i;
       if (colHeightInPixel > maxBarPx) {
-        document.getElementById("COL_Dia_" + i).style.height =
-          maxBarPx + "px";
+        document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
           my_Statistics[i].repository_BurnedKCal + " kcal 🚀";
       } else {
@@ -2484,7 +2480,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-          " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
+            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2564,7 +2560,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         document.getElementById("selectedFoodMakros").innerHTML = "";
         blendOut_Eingabebereich_FoodDB();
         blendOut_MengeAendern();
-      } catch (error) { }
+      } catch (error) {}
     }
   } else {
     showMessage(
@@ -2669,8 +2665,9 @@ function create_Table_TodayEaten() {
 
       let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle = `Makros: (${selected_Food.intake_kcal
-        } Kcal = ${prozentFromDay.toFixed(0)}%)
+      let calcSingle = `Makros: (${
+        selected_Food.intake_kcal
+      } Kcal = ${prozentFromDay.toFixed(0)}%)
       <br/>
       Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
       <br/>
@@ -2798,8 +2795,8 @@ function delete_from_today() {
   if (foodFromToday == true) {
     const decision = window.confirm(
       "Möchtest du < " +
-      selected_Food.intake_productName +
-      "> wirklich von der heutigen Liste löschen?",
+        selected_Food.intake_productName +
+        "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -4073,8 +4070,8 @@ function delete_Food_from_DB() {
   } else {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
-      selected_Food.productName +
-      "> wirklich für immer aus der Datenbank gelöscht werden?",
+        selected_Food.productName +
+        "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4806,7 +4803,9 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   }
 
   const gridAlpha = 0.22;
-  const plotShade = is_light_color(colText) ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.06)";
+  const plotShade = is_light_color(colText)
+    ? "rgba(0,0,0,0.08)"
+    : "rgba(255,255,255,0.06)";
 
   // Clear + subtle plot background
   ctx.clearRect(0, 0, cssWidth, cssHeight);
