@@ -1161,6 +1161,162 @@ function get_statistics_chart_scale() {
   return { chartHeight, goalLinePx, maxBarPx, usable };
 }
 
+let statistics_overlay_resize_initialized = false;
+
+function init_statistics_overlay_resize() {
+  if (statistics_overlay_resize_initialized) return;
+  statistics_overlay_resize_initialized = true;
+  window.addEventListener("resize", () => {
+    requestAnimationFrame(draw_statistics_7day_overlay);
+  });
+}
+
+function extract_number_any(value) {
+  if (value === undefined || value === null) return null;
+  const s = String(value).replace(/,/g, ".");
+  const m = s.match(/-?\d+(?:\.\d+)?/);
+  if (!m) return null;
+  const n = parseFloat(m[0]);
+  return Number.isFinite(n) ? n : null;
+}
+
+function draw_statistics_7day_overlay() {
+  const container = document.querySelector(".container_Kcal_Diagram");
+  const canvas = document.getElementById("statistics_overlay_canvas");
+  if (!container || !canvas) return;
+
+  const cssW = Math.max(10, container.clientWidth || 0);
+  const cssH = Math.max(10, container.clientHeight || 0);
+  const dpr = window.devicePixelRatio || 1;
+
+  canvas.width = Math.floor(cssW * dpr);
+  canvas.height = Math.floor(cssH * dpr);
+  canvas.style.width = cssW + "px";
+  canvas.style.height = cssH + "px";
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cssW, cssH);
+
+  const rootStyles = getComputedStyle(document.documentElement);
+  const colText = rootStyles.getPropertyValue("--mainText").trim() || "#fff";
+  const colTrend =
+    rootStyles.getPropertyValue("--waterColor").trim() || colText;
+
+  const containerRect = container.getBoundingClientRect();
+  const points = [];
+  const diffValues = [];
+
+  for (let i = 0; i < 7; i++) {
+    const col = document.getElementById("COL_Dia_" + i);
+    if (!col) continue;
+    const r = col.getBoundingClientRect();
+    const x = r.left + r.width / 2 - containerRect.left;
+    const y = r.top - containerRect.top;
+    if (Number.isFinite(x) && Number.isFinite(y)) points.push({ x, y });
+
+    const diffCell = document.getElementById("change_DayBefore_Col_" + i);
+    diffValues.push(extract_number_any(diffCell ? diffCell.textContent : null));
+  }
+
+  // Trend line (least-squares over bar-top points)
+  if (points.length >= 2) {
+    let sx = 0,
+      sy = 0,
+      sxx = 0,
+      sxy = 0;
+    for (const p of points) {
+      sx += p.x;
+      sy += p.y;
+      sxx += p.x * p.x;
+      sxy += p.x * p.y;
+    }
+    const n = points.length;
+    const denom = n * sxx - sx * sx;
+    if (Math.abs(denom) > 1e-9) {
+      const m = (n * sxy - sx * sy) / denom;
+      const b = (sy - m * sx) / n;
+      const x1 = points[0].x;
+      const x2 = points[points.length - 1].x;
+      const y1 = Math.max(0, Math.min(cssH, m * x1 + b));
+      const y2 = Math.max(0, Math.min(cssH, m * x2 + b));
+
+      ctx.save();
+      ctx.strokeStyle = colTrend;
+      ctx.lineWidth = 4;
+      ctx.globalAlpha = 0.95;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+
+      // subtle glow
+      ctx.globalAlpha = 0.2;
+      ctx.lineWidth = 10;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  // Delta line (diff to previous day) around a baseline
+  const diffs = diffValues
+    .map((v, idx) => (idx === 0 ? null : v))
+    .filter((v) => v !== null);
+  const maxAbs = diffs.length ? Math.max(...diffs.map((v) => Math.abs(v))) : 0;
+  if (maxAbs > 0 && points.length >= 2) {
+    const baselineY = Math.round(cssH * 0.72);
+    const amp = Math.max(24, Math.round(cssH * 0.16));
+
+    ctx.save();
+    ctx.strokeStyle = colText;
+    ctx.globalAlpha = 0.22;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 8]);
+    ctx.beginPath();
+    ctx.moveTo(0, baselineY);
+    ctx.lineTo(cssW, baselineY);
+    ctx.stroke();
+
+    ctx.setLineDash([10, 8]);
+    ctx.globalAlpha = 0.75;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    let started = false;
+    for (let i = 1; i < Math.min(points.length, diffValues.length); i++) {
+      const d = diffValues[i];
+      if (d === null || d === undefined) continue;
+      const x = points[i].x;
+      const y = baselineY - (d / maxAbs) * amp;
+      if (!started) {
+        ctx.moveTo(x, y);
+        started = true;
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // markers
+    for (let i = 1; i < Math.min(points.length, diffValues.length); i++) {
+      const d = diffValues[i];
+      if (d === null || d === undefined) continue;
+      const x = points[i].x;
+      const y = baselineY - (d / maxAbs) * amp;
+      ctx.fillStyle =
+        d >= 0 ? "rgba(39, 220, 39, 0.90)" : "rgba(255, 68, 68, 0.90)";
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+}
+
 function parse_css_rgb(colorStr) {
   const s = String(colorStr || "").trim();
   const m = s.match(
@@ -1615,6 +1771,9 @@ function show_Statisitcs(val) {
     let targetHeight = goalLinePx; // Mitte
     document.getElementById("eff_Goal").style.bottom = targetHeight + "px";
   }
+
+  init_statistics_overlay_resize();
+  requestAnimationFrame(draw_statistics_7day_overlay);
 }
 
 //######################################################################
@@ -1720,6 +1879,9 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
     "g (" +
     (valueCounter / statistik_Count).toFixed(1) +
     "g/Tag)";
+
+  init_statistics_overlay_resize();
+  requestAnimationFrame(draw_statistics_7day_overlay);
 }
 
 //============================================================================
