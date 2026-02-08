@@ -1146,12 +1146,19 @@ function all_Statistics_Button_UnselectColor(selectedButtonColorize) {
 function get_statistics_chart_scale() {
   const chartEl = document.querySelector(".container_Kcal_Diagram");
   const cssH = chartEl ? chartEl.clientHeight : 0;
-  const chartHeight = Math.max(420, cssH || 0);
+  // Ensure a sensible minimum so small screens still look OK
+  const chartHeight = Math.max(320, cssH || 420);
 
-  // 100% Ziel = mittlere Linie; 200% Ziel = Max-Höhe.
-  const goalLinePx = Math.round(chartHeight * 0.5);
-  const maxBarPx = chartHeight;
-  return { chartHeight, goalLinePx, maxBarPx };
+  // Use the inner usable area (reserve some top/bottom padding)
+  const usable = Math.max(200, chartHeight - 48);
+
+  // Goal line placed around middle (slightly below center for better visual balance)
+  const goalLinePx = Math.round(usable * 0.48);
+
+  // Limit maximum bar height to a fraction of usable area (avoid overly tall bars)
+  const maxBarPx = Math.round(usable * 0.9);
+
+  return { chartHeight, goalLinePx, maxBarPx, usable };
 }
 
 function parse_css_rgb(colorStr) {
