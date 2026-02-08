@@ -1193,6 +1193,29 @@ function apply_bar_label_contrast(el) {
     : "0 1px 0 rgba(255,255,255,0.30), 0 2px 10px rgba(0,0,0,0.18), 0 0 2px rgba(255,255,255,0.25)";
 }
 
+function format_number_de(value, decimals) {
+  if (value === null || value === undefined || value === "") return "-";
+  const n = Number(String(value).replace(/,/g, "."));
+  if (!Number.isFinite(n)) return String(value);
+  // if decimals explicitly provided, use it; otherwise preserve integer or one decimal
+  let opts = {};
+  if (typeof decimals === "number") {
+    opts = { minimumFractionDigits: decimals, maximumFractionDigits: decimals };
+  } else {
+    if (Math.abs(n - Math.round(n)) > 1e-9)
+      opts = { minimumFractionDigits: 1, maximumFractionDigits: 1 };
+    else opts = { maximumFractionDigits: 0 };
+  }
+  try {
+    return new Intl.NumberFormat("de-DE", opts).format(n);
+  } catch (e) {
+    // fallback
+    const parts = n.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return parts.join(",");
+  }
+}
+
 //NOTE -   Erstelle Statistik
 function show_Statisitcs(val) {
   let height_Col_1 = 0;
@@ -1269,12 +1292,13 @@ function show_Statisitcs(val) {
       if (colHeightInPixel > maxBarPx) {
         document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_EffectiveKcal + " kcal 🚀";
+          format_number_de(my_Statistics[i].repository_EffectiveKcal) +
+          " kcal 🚀";
       } else {
         document.getElementById("COL_Dia_" + i).style.height =
           colHeightInPixel + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_EffectiveKcal + " kcal";
+          format_number_de(my_Statistics[i].repository_EffectiveKcal) + " kcal";
       }
 
       // Balken färben
@@ -1362,12 +1386,13 @@ function show_Statisitcs(val) {
       if (colHeightInPixel > maxBarPx) {
         document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_Steps + " 🚀";
+          format_number_de(my_Statistics[i].repository_Steps) + " 🚀";
       } else {
         document.getElementById("COL_Dia_" + i).style.height =
           colHeightInPixel + "px";
-        document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_Steps;
+        document.getElementById("COL_Dia_" + i).innerText = format_number_de(
+          my_Statistics[i].repository_Steps,
+        );
       }
 
       // Balken färben
@@ -1478,12 +1503,12 @@ function show_Statisitcs(val) {
       if (colHeightInPixel > maxBarPx) {
         document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_Water + "L 🚀";
+          format_number_de(my_Statistics[i].repository_Water, 1) + " L 🚀";
       } else {
         document.getElementById("COL_Dia_" + i).style.height =
           colHeightInPixel + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_Water + " L";
+          format_number_de(my_Statistics[i].repository_Water, 1) + " L";
       }
 
       // Balken färben
@@ -1559,12 +1584,12 @@ function show_Statisitcs(val) {
       if (colHeightInPixel > maxBarPx) {
         document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_BurnedKCal + " kcal 🚀";
+          format_number_de(my_Statistics[i].repository_BurnedKCal) + " kcal 🚀";
       } else {
         document.getElementById("COL_Dia_" + i).style.height =
           colHeightInPixel + "px";
         document.getElementById("COL_Dia_" + i).innerText =
-          my_Statistics[i].repository_BurnedKCal + " kcal";
+          format_number_de(my_Statistics[i].repository_BurnedKCal) + " kcal";
       }
       //animate_StatisticCol(colHeightInPixel, colName);
 
@@ -1644,12 +1669,13 @@ function fillingTable(repositoryPos, goal, min_max_goal) {
     if (colHeightInPixel > maxBarPx) {
       document.getElementById("COL_Dia_" + i).style.height = maxBarPx + "px";
       document.getElementById("COL_Dia_" + i).innerText =
-        my_Statistics[i][repositoryPos] + " 🚀";
+        format_number_de(my_Statistics[i][repositoryPos]) + " 🚀";
     } else {
       document.getElementById("COL_Dia_" + i).style.height =
         colHeightInPixel + "px";
-      document.getElementById("COL_Dia_" + i).innerText =
-        my_Statistics[i][repositoryPos];
+      document.getElementById("COL_Dia_" + i).innerText = format_number_de(
+        my_Statistics[i][repositoryPos],
+      );
     }
 
     if (min_max_goal === "minGoal") {
@@ -4942,7 +4968,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   for (let i = 0; i <= gridLines; i++) {
     const v = yMax - (yMax * i) / gridLines;
     const y = paddingTop + (plotH * i) / gridLines;
-    ctx.fillText(String(Math.round(v)), 15, y + 6);
+    ctx.fillText(format_number_de(Math.round(v)), 15, y + 6);
   }
 
   const xStep = plotW / (rows.length - 1);
