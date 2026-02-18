@@ -142,6 +142,7 @@ const btn_define_additional_Target = document.getElementById(
 );
 const btn_expFoodDB = document.getElementById("btn_expFoodDB");
 const btn_export_FoodDB_All = document.getElementById("btn_export_FoodDB_All");
+const btn_export_History = document.getElementById("btn_export_History");
 const btn_deleteDayWithoutHistory = document.getElementById(
   "btn_deleteDayWithoutHistory",
 );
@@ -387,6 +388,12 @@ btn_expFoodDB.addEventListener("click", () => {
 btn_export_FoodDB_All.addEventListener("click", () => {
   export_FoodDB_All();
 });
+
+if (btn_export_History) {
+  btn_export_History.addEventListener("click", () => {
+    export_History();
+  });
+}
 
 btn_deleteDayWithoutHistory.addEventListener("click", () => {
   deleteDayWithoutHistory();
@@ -2675,7 +2682,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
+          " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2755,7 +2762,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         document.getElementById("selectedFoodMakros").innerHTML = "";
         blendOut_Eingabebereich_FoodDB();
         blendOut_MengeAendern();
-      } catch (error) {}
+      } catch (error) { }
     }
   } else {
     showMessage(
@@ -2860,9 +2867,8 @@ function create_Table_TodayEaten() {
 
       let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle = `Makros: (${
-        selected_Food.intake_kcal
-      } Kcal = ${prozentFromDay.toFixed(0)}%)
+      let calcSingle = `Makros: (${selected_Food.intake_kcal
+        } Kcal = ${prozentFromDay.toFixed(0)}%)
       <br/>
       Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
       <br/>
@@ -2990,8 +2996,8 @@ function delete_from_today() {
   if (foodFromToday == true) {
     const decision = window.confirm(
       "Möchtest du < " +
-        selected_Food.intake_productName +
-        "> wirklich von der heutigen Liste löschen?",
+      selected_Food.intake_productName +
+      "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -4265,8 +4271,8 @@ function delete_Food_from_DB() {
   } else {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
-        selected_Food.productName +
-        "> wirklich für immer aus der Datenbank gelöscht werden?",
+      selected_Food.productName +
+      "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4480,6 +4486,54 @@ function export_FoodDB_All() {
     emailSub +
     "&body=" +
     mailText;
+}
+
+function export_History() {
+  let history_data = [];
+  try {
+    const raw = localStorage.getItem("stored_History");
+    history_data = raw ? JSON.parse(raw) : [];
+  } catch (error) {
+    console.log(error);
+    history_data = [];
+  }
+
+  const jsonText = JSON.stringify(history_data, null, 2);
+  const safeDate = current_timeStamp().replaceAll(".", "-");
+  const filename = `FoodTracker_History_${safeDate}.json`;
+
+  try {
+    const txtArea = document.getElementById("txtArea");
+    if (txtArea) txtArea.value = jsonText;
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    const blob = new Blob([jsonText], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    showMessage("History exportiert (Download gestartet)", 4000, "Info");
+  } catch (error) {
+    console.log(error);
+    showMessage("Export der History fehlgeschlagen", 6000, "Alert");
+    return;
+  }
+
+  const emailSub = "Export History";
+  const emailBody =
+    "Die History wurde als JSON exportiert und heruntergeladen. Bitte die Datei aus dem Download-Ordner an diese E-Mail anhängen.";
+  try {
+    location.href = `mailto:?subject=${encodeURIComponent(emailSub)}&body=${encodeURIComponent(emailBody)}`;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 //====================================================================================
@@ -4931,7 +4985,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   const wrapperStyles = wrapper ? getComputedStyle(wrapper) : null;
   const wrapperPadX = wrapperStyles
     ? (parseFloat(wrapperStyles.paddingLeft) || 0) +
-      (parseFloat(wrapperStyles.paddingRight) || 0)
+    (parseFloat(wrapperStyles.paddingRight) || 0)
     : 0;
   const rawWidth = Math.max(300, (wrapper && wrapper.clientWidth) || 900);
   const cssWidth = Math.max(300, rawWidth - wrapperPadX);
