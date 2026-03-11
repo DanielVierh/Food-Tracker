@@ -2342,6 +2342,62 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
+.weight-track-edit-btn {
+  border: 1px solid var(--themeDotBorder);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--mainText);
+  background: var(--buttonColor);
+  cursor: pointer;
+}
+
+.weight-track-edit-btn:hover {
+  opacity: 0.85;
+}
+
+.overlay-weight-edit {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999999;
+}
+
+.modal-weight-edit {
+  width: min(92%, 760px);
+  margin: 12vh auto 0 auto;
+  background: var(--mainColor);
+  color: var(--mainText);
+  border: 3px solid var(--themeDotBorder);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-weight-edit h3 {
+  margin: 0;
+}
+
+.modal-weight-edit label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modal-weight-edit .inputMenge {
+  width: 100%;
+  max-width: 320px;
+  align-self: center;
+}
+
+.modal-weight-edit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
 .weight-tracks-summary {
   width: 100%;
   height: clamp(140px, 22vh, 320px);

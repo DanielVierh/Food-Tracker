@@ -14,6 +14,8 @@ let additional_Targets = [];
 let my_History = [];
 let planed_food = [];
 let bodyWeight = 78;
+let bodyFat = null;
+let bodyMuscle = null;
 let kcal_Ziel = 2000;
 let kcal_Requirement = 2000;
 
@@ -151,11 +153,26 @@ const btn_deleteStatistics = document.getElementById("btn_deleteStatistics");
 const modal_load_animation = document.getElementById("modal_load_animation");
 const height = document.getElementById("height");
 const age = document.getElementById("age");
+const body_fat = document.getElementById("body_fat");
+const body_muscle = document.getElementById("body_muscle");
 const target_Weight = document.getElementById("target_Weight");
 const target_Time = document.getElementById("target_Time");
 const opt_Male = document.getElementById("opt_Male");
 const opt_Female = document.getElementById("opt_Female");
 const weight_statistics = document.getElementById("weight_statistics");
+const overlay_weight_edit = document.getElementById("overlay_weight_edit");
+const btn_weight_edit_cancel = document.getElementById(
+  "btn_weight_edit_cancel",
+);
+const btn_weight_edit_save = document.getElementById("btn_weight_edit_save");
+const lbl_weight_edit_date = document.getElementById("lbl_weight_edit_date");
+const inp_weight_edit_weight = document.getElementById(
+  "inp_weight_edit_weight",
+);
+const inp_weight_edit_fat = document.getElementById("inp_weight_edit_fat");
+const inp_weight_edit_muscle = document.getElementById(
+  "inp_weight_edit_muscle",
+);
 const btn_add_to_list_and_planer = document.getElementById(
   "btn_add_to_list_and_planer",
 );
@@ -172,6 +189,7 @@ let weights_obj = {
   last_update: undefined,
   tracks: [],
 };
+let current_weight_edit_index = null;
 
 let form_data;
 
@@ -407,6 +425,26 @@ btn_deleteStatistics.addEventListener("click", () => {
   deleteStatistics();
 });
 
+if (btn_weight_edit_cancel) {
+  btn_weight_edit_cancel.addEventListener("click", () => {
+    close_weight_edit_modal();
+  });
+}
+
+if (btn_weight_edit_save) {
+  btn_weight_edit_save.addEventListener("click", () => {
+    save_weight_edit_modal();
+  });
+}
+
+if (overlay_weight_edit) {
+  overlay_weight_edit.addEventListener("click", (event) => {
+    if (event.target === overlay_weight_edit) {
+      close_weight_edit_modal();
+    }
+  });
+}
+
 //====================================================================================
 //NOTE -   Save,  Load or create DB
 //====================================================================================
@@ -490,6 +528,18 @@ function load_other_LocalStorage_Values() {
     document.getElementById("weight").value = bodyWeight;
   }
 
+  if (localStorage.getItem("stored_BodyFat") === null) {
+  } else {
+    bodyFat = JSON.parse(localStorage.getItem("stored_BodyFat"));
+    if (body_fat) body_fat.value = bodyFat;
+  }
+
+  if (localStorage.getItem("stored_BodyMuscle") === null) {
+  } else {
+    bodyMuscle = JSON.parse(localStorage.getItem("stored_BodyMuscle"));
+    if (body_muscle) body_muscle.value = bodyMuscle;
+  }
+
   // Verbrannte Kcal
   if (localStorage.getItem("stored_burned_Kcal") === null) {
   } else {
@@ -547,6 +597,7 @@ function load_other_LocalStorage_Values() {
   if (localStorage.getItem("stored_weights") === null) {
   } else {
     weights_obj = JSON.parse(localStorage.getItem("stored_weights"));
+    normalize_weights_obj();
     draw_weight_progress();
   }
 
@@ -598,167 +649,332 @@ function save_Today_Steps() {
 // Speichere Gewicht
 function save_BodyWeight() {
   localStorage.setItem("stored_BodyWeight", JSON.stringify(bodyWeight));
+  localStorage.setItem("stored_BodyFat", JSON.stringify(bodyFat));
+  localStorage.setItem("stored_BodyMuscle", JSON.stringify(bodyMuscle));
+
+  normalize_weights_obj();
 
   //*NOTE - save weights to show progress
   const confirm_save = window.confirm(
-    "Soll das Gewicht zum tracken gespeichert werden?",
+    "Soll das Gewicht inkl. Fett und Muskelmasse zum Tracken gespeichert werden?",
   );
-  if (confirm_save) {
-    const new_updateTime = current_timeStamp(new Date());
-    const new_weight = new Weight(bodyWeight, new_updateTime);
+  if (!confirm_save) return;
 
-    if (new_updateTime === weights_obj.last_update) {
-      showMessage(
-        "Das Gewicht wurde bereits für heute erfasst. Soll der Wert überschrieben werden?",
-        5000,
-        "Alert",
-      );
-      setTimeout(() => {
-        const confirm_overwriting = window.confirm(
-          "Soll das gespeicherte Gewicht von heute überschrieben werden?",
-        );
-        if (confirm_overwriting) {
-          //* - Overwrite
-          const last_index_of_weights = weights_obj.tracks.length - 1;
-          weights_obj.tracks.splice(last_index_of_weights, 1);
-          weights_obj.tracks.push(new_weight);
-          weights_obj.last_update = new_updateTime;
-          localStorage.setItem("stored_weights", JSON.stringify(weights_obj));
-          showMessage("Gewicht gespeichert", 3000, "Info");
-        }
-      }, 6000);
-    } else {
-      weights_obj.tracks.push(new_weight);
-      weights_obj.last_update = new_updateTime;
-      localStorage.setItem("stored_weights", JSON.stringify(weights_obj));
-      showMessage("Gewicht gespeichert", 3000, "Info");
-    }
+  const new_updateTime = current_timeStamp(new Date());
+  const new_track = new Weight(bodyWeight, bodyFat, bodyMuscle, new_updateTime);
+  const sameDayIndex = weights_obj.tracks.findIndex(
+    (track) => String(track?._date || "").trim() === new_updateTime,
+  );
+
+  if (sameDayIndex >= 0) {
+    const confirm_overwrite = window.confirm(
+      "Für heute existiert bereits ein Eintrag. Soll dieser überschrieben werden?",
+    );
+    if (!confirm_overwrite) return;
+    weights_obj.tracks[sameDayIndex] = new_track;
+  } else {
+    weights_obj.tracks.push(new_track);
   }
+
+  weights_obj.last_update = new_updateTime;
+  persist_weights();
+  refresh_weight_tracking_ui();
+  showMessage("Körperdaten gespeichert", 3000, "Info");
+}
+
+function normalize_weights_obj() {
+  if (!weights_obj || typeof weights_obj !== "object") {
+    weights_obj = { last_update: undefined, tracks: [] };
+    return;
+  }
+
+  if (!Array.isArray(weights_obj.tracks)) {
+    weights_obj.tracks = [];
+  }
+
+  weights_obj.tracks = weights_obj.tracks
+    .map((track) => {
+      const normalizedDate = String(track?._date || "").trim();
+      if (!normalizedDate) return null;
+
+      return {
+        _weight: track?._weight ?? null,
+        _fat: track?._fat ?? null,
+        _muscle: track?._muscle ?? null,
+        _date: normalizedDate,
+      };
+    })
+    .filter(Boolean);
+
+  const sorted = get_weight_rows_sorted();
+  const latest = sorted[sorted.length - 1];
+  weights_obj.last_update = latest ? latest.date : undefined;
+}
+
+function persist_weights() {
+  localStorage.setItem("stored_weights", JSON.stringify(weights_obj));
+}
+
+function refresh_weight_tracking_ui() {
+  draw_weight_progress();
+}
+
+function get_weight_rows_sorted() {
+  if (!weights_obj || !Array.isArray(weights_obj.tracks)) return [];
+
+  return weights_obj.tracks
+    .map((track, index) => ({
+      index,
+      date: String(track?._date || "").trim(),
+      weight: extract_history_number(track?._weight),
+      fat: extract_history_number(track?._fat),
+      muscle: extract_history_number(track?._muscle),
+    }))
+    .filter((row) => row.date)
+    .sort(
+      (a, b) => parse_ddmmyyyy_to_ts(a.date) - parse_ddmmyyyy_to_ts(b.date),
+    );
+}
+
+function update_weight_track_by_index(index, payload) {
+  if (!weights_obj || !Array.isArray(weights_obj.tracks)) return;
+  if (
+    !Number.isInteger(index) ||
+    index < 0 ||
+    index >= weights_obj.tracks.length
+  ) {
+    return;
+  }
+
+  const current = weights_obj.tracks[index] || {};
+  weights_obj.tracks[index] = {
+    ...current,
+    _weight: payload.weight,
+    _fat: payload.fat,
+    _muscle: payload.muscle,
+  };
+
+  persist_weights();
+  refresh_weight_tracking_ui();
+  showMessage("Eintrag aktualisiert", 3000, "Info");
+}
+
+function open_weight_edit_modal(index) {
+  if (!weights_obj || !Array.isArray(weights_obj.tracks)) return;
+  const track = weights_obj.tracks[index];
+  if (!track) return;
+  if (!overlay_weight_edit) return;
+
+  current_weight_edit_index = index;
+
+  if (lbl_weight_edit_date) {
+    lbl_weight_edit_date.textContent = `Datum: ${track._date}`;
+  }
+  if (inp_weight_edit_weight)
+    inp_weight_edit_weight.value = track?._weight ?? "";
+  if (inp_weight_edit_fat) inp_weight_edit_fat.value = track?._fat ?? "";
+  if (inp_weight_edit_muscle)
+    inp_weight_edit_muscle.value = track?._muscle ?? "";
+
+  overlay_weight_edit.style.display = "block";
+  body.classList.add("prevent-scroll");
+}
+
+function close_weight_edit_modal() {
+  current_weight_edit_index = null;
+  if (!overlay_weight_edit) return;
+  overlay_weight_edit.style.display = "none";
+  body.classList.remove("prevent-scroll");
+}
+
+function save_weight_edit_modal() {
+  if (!Number.isInteger(current_weight_edit_index)) return;
+
+  const parsedWeight = extract_history_number(
+    inp_weight_edit_weight ? inp_weight_edit_weight.value : "",
+  );
+  if (parsedWeight === null) {
+    showMessage("Ungültiges Gewicht", 4000, "Alert");
+    return;
+  }
+
+  const fatRaw = inp_weight_edit_fat ? inp_weight_edit_fat.value.trim() : "";
+  const parsedFat = fatRaw === "" ? null : extract_history_number(fatRaw);
+  if (fatRaw !== "" && parsedFat === null) {
+    showMessage("Ungültiger Fettwert", 4000, "Alert");
+    return;
+  }
+
+  const muscleRaw = inp_weight_edit_muscle
+    ? inp_weight_edit_muscle.value.trim()
+    : "";
+  const parsedMuscle =
+    muscleRaw === "" ? null : extract_history_number(muscleRaw);
+  if (muscleRaw !== "" && parsedMuscle === null) {
+    showMessage("Ungültiger Muskelwert", 4000, "Alert");
+    return;
+  }
+
+  update_weight_track_by_index(current_weight_edit_index, {
+    weight: parsedWeight,
+    fat: parsedFat,
+    muscle: parsedMuscle,
+  });
+  close_weight_edit_modal();
+}
+
+function edit_weight_track_by_index(index) {
+  open_weight_edit_modal(index);
+}
+
+function build_weight_metric_summary(name, values) {
+  if (!values.length) return `${name}: -`;
+  const minVal = Math.min(...values);
+  const maxVal = Math.max(...values);
+  const avgVal = values.reduce((acc, val) => acc + val, 0) / values.length;
+  return `${name}: Min ${format_stat_number(minVal)} | Ø ${format_stat_number(avgVal)} | Max ${format_stat_number(maxVal)}`;
 }
 
 //* NOTE - Draw tracked Weights
 function draw_weight_progress() {
-  //* Testdaten
+  normalize_weights_obj();
+  const rows = get_weight_rows_sorted();
 
-  // weights_obj = {
-  //     last_update: undefined,
-  //     tracks: [{"_weight":"101","_date":"07.12.2024"},
-  //         {"_weight":"101","_date":"14.12.2024"},
-  //         {"_weight":"101","_date":"21.12.2024"},
-  //         {"_weight":"101","_date":"28.12.2024"},
-  //         {"_weight":"101","_date":"05.01.2025"},
-  //         {"_weight":"101","_date":"12.01.2025"},
-  //         {"_weight":"101","_date":"12.01.2025"}],
-  // }
-
-  if (!weights_obj || !Array.isArray(weights_obj.tracks)) return;
-  if (weights_obj.tracks.length === 0) {
+  if (rows.length === 0) {
     if (weight_statistics) weight_statistics.innerHTML = "Werte: -";
     render_weight_tracks_section();
     return;
   }
 
-  // Canvas und Kontext initialisieren
+  const weightValues = rows.map((r) => r.weight).filter((v) => v !== null);
+  const fatValues = rows.map((r) => r.fat).filter((v) => v !== null);
+  const muscleValues = rows.map((r) => r.muscle).filter((v) => v !== null);
+
+  if (weight_statistics) {
+    const statisticParts = [
+      build_weight_metric_summary("Gewicht (kg)", weightValues),
+      build_weight_metric_summary("Fett (%)", fatValues),
+      build_weight_metric_summary("Muskel (%)", muscleValues),
+    ];
+    weight_statistics.innerHTML = `Werte: ${statisticParts.join(" | ")}`;
+  }
+
   let canvas = document.getElementById("canvas");
   if (!canvas) return;
   let context = canvas.getContext("2d");
+  if (!context) return;
+
+  const minWidth = 1000;
+  const dynamicWidth = Math.max(minWidth, rows.length * 120 + 180);
+  const chartHeight = 800;
+  canvas.width = dynamicWidth;
+  canvas.height = chartHeight;
+
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Ausgangsvariablen
-  let y_Pos = 150; // Start-Y-Position
-  let x_Pos = 0; // Start-X-Position
-  let last_weight = extract_history_number(weights_obj.tracks[0]._weight) ?? 0; // Startgewicht
-  const factor = 20; // Faktor für Gewichtsunterschied
-  let min_weight = last_weight;
-  let max_weight = last_weight;
-  let toggler = -1;
-  let weight_sum = 0;
-  let weight_counter = 0;
-
-  // determine min and max weights
-  for (let i = 0; i < weights_obj.tracks.length; i++) {
-    weight_counter++;
-    const current_weight = extract_history_number(
-      weights_obj.tracks[i]._weight,
-    );
-    if (current_weight === null) continue;
-    weight_sum += current_weight;
-    if (current_weight < min_weight) {
-      min_weight = current_weight;
-    }
-    if (current_weight > max_weight) {
-      max_weight = current_weight;
-    }
+  const allSeriesValues = [...weightValues, ...fatValues, ...muscleValues];
+  let yMin = Math.min(...allSeriesValues);
+  let yMax = Math.max(...allSeriesValues);
+  if (!Number.isFinite(yMin) || !Number.isFinite(yMax)) {
+    yMin = 0;
+    yMax = 100;
   }
-  const average_weight = weight_counter ? weight_sum / weight_counter : 0;
-  const weight_total_diff = max_weight - min_weight;
-  if (weight_statistics) {
-    weight_statistics.innerHTML = `Werte: Min: ${format_stat_number(min_weight)} kg | Ø: ${format_stat_number(
-      average_weight,
-    )} kg | Max: ${format_stat_number(max_weight)} kg | Diff: ${format_stat_number(
-      weight_total_diff,
-    )} kg`;
+  if (Math.abs(yMax - yMin) < 0.0001) {
+    yMin -= 1;
+    yMax += 1;
   }
 
-  //TODO Automatische Höhe - wip
-  // const whole_weight_diff = max_weight - min_weight;
-  // canvas.height = whole_weight_diff * 40;
-  // y_Pos = (canvas.height / 2) - 50;
+  const padTop = 70;
+  const padBottom = 140;
+  const padLeft = 70;
+  const padRight = 60;
+  const plotWidth = Math.max(80, canvas.width - padLeft - padRight);
+  const plotHeight = Math.max(80, canvas.height - padTop - padBottom);
+  const xStep = rows.length > 1 ? plotWidth / (rows.length - 1) : 0;
 
-  // Linienfarbe und -breite
-  context.strokeStyle = "red";
-  context.lineWidth = 3;
+  const yToCanvas = (value) => {
+    const norm = (value - yMin) / (yMax - yMin);
+    return padTop + plotHeight - norm * plotHeight;
+  };
 
-  // Beginne den Pfad für die durchgehende Linie
+  context.strokeStyle = "rgba(255,255,255,0.20)";
+  context.lineWidth = 1;
   context.beginPath();
-  context.moveTo(x_Pos, y_Pos); // Startpunkt setzen
+  context.moveTo(padLeft, padTop);
+  context.lineTo(padLeft, padTop + plotHeight);
+  context.lineTo(padLeft + plotWidth, padTop + plotHeight);
+  context.stroke();
 
-  // Schleife über die Punkte
-  for (let i = 0; i < weights_obj.tracks.length; i++) {
-    // Aktualisiere die Positionen
-    x_Pos += 50; // Verschiebe X-Position
-    const new_weight = extract_history_number(weights_obj.tracks[i]._weight);
-    if (new_weight === null) continue;
-    const new_date = weights_obj.tracks[i]._date;
-    const weight_diff = new_weight - last_weight;
-    y_Pos -= weight_diff * factor; // Berechne neue Y-Position
+  const drawSeries = (key, color) => {
+    context.strokeStyle = color;
+    context.fillStyle = color;
+    context.lineWidth = 3;
+    context.beginPath();
 
-    // Linie zum neuen Punkt zeichnen
-    context.lineTo(x_Pos, y_Pos);
+    let hasPath = false;
+    for (let i = 0; i < rows.length; i++) {
+      const val = rows[i][key];
+      if (val === null) {
+        hasPath = false;
+        continue;
+      }
 
-    // Rect
-    context.rect(x_Pos, y_Pos, 5, 5);
-
-    //* Set weight text
-    toggler++;
-
-    context.font = "14px sans-serif";
-    context.fillStyle = "white";
-
-    //* Draw weight
-    context.fillText(
-      `${format_stat_number(new_weight)}kg`,
-      x_Pos - 10,
-      y_Pos - 5,
-    );
-
-    //* rotate and draw date
-    context.save();
-    context.translate(x_Pos, y_Pos);
-    context.rotate(-Math.PI / 2); //* um -90° rotate
-    context.fillText(`${new_date}`, -150, 10); // x/y-Werte anpassen für die gewünschte Position
-    context.restore();
-
-    if (toggler === 1) {
-      toggler = -1;
+      const x = padLeft + i * xStep;
+      const y = yToCanvas(val);
+      if (!hasPath) {
+        context.moveTo(x, y);
+        hasPath = true;
+      } else {
+        context.lineTo(x, y);
+      }
     }
+    context.stroke();
 
-    // Aktualisiere das Gewicht
-    last_weight = new_weight;
+    for (let i = 0; i < rows.length; i++) {
+      const val = rows[i][key];
+      if (val === null) continue;
+
+      const x = padLeft + i * xStep;
+      const y = yToCanvas(val);
+      context.beginPath();
+      context.arc(x, y, 4, 0, 2 * Math.PI);
+      context.fill();
+    }
+  };
+
+  const legends = [
+    { key: "weight", color: "#ef4444", label: "Gewicht (kg)" },
+    { key: "fat", color: "#f59e0b", label: "Fett (%)" },
+    { key: "muscle", color: "#10b981", label: "Muskel (%)" },
+  ];
+  for (const item of legends) {
+    drawSeries(item.key, item.color);
   }
 
-  // Zeichne die durchgehende Linie
-  context.stroke();
+  context.font = "16px sans-serif";
+  context.fillStyle = "white";
+  for (let i = 0; i < rows.length; i++) {
+    const x = padLeft + i * xStep;
+    context.save();
+    context.translate(x, padTop + plotHeight + 25);
+    context.rotate(-Math.PI / 3);
+    context.fillText(rows[i].date, 0, 0);
+    context.restore();
+  }
+
+  context.font = "18px sans-serif";
+  for (let i = 0; i < legends.length; i++) {
+    const l = legends[i];
+    context.fillStyle = l.color;
+    context.fillRect(padLeft + i * 240, 20, 24, 12);
+    context.fillStyle = "white";
+    context.fillText(l.label, padLeft + 30 + i * 240, 30);
+  }
+
+  context.fillStyle = "white";
+  context.font = "14px sans-serif";
+  context.fillText(format_stat_number(yMax), 15, padTop + 5);
+  context.fillText(format_stat_number(yMin), 15, padTop + plotHeight);
 
   render_weight_tracks_section();
 }
@@ -790,11 +1006,17 @@ function render_weight_tracks_section() {
   }
 
   const rows = weights_obj.tracks
-    .map((t) => ({
+    .map((t, index) => ({
+      index,
       date: String(t?._date ?? "").trim(),
       weight: extract_history_number(t?._weight),
+      fat: extract_history_number(t?._fat),
+      muscle: extract_history_number(t?._muscle),
     }))
-    .filter((r) => r.date && r.weight !== null);
+    .filter(
+      (r) =>
+        r.date && (r.weight !== null || r.fat !== null || r.muscle !== null),
+    );
 
   rows.sort(
     (a, b) => parse_ddmmyyyy_to_ts(a.date) - parse_ddmmyyyy_to_ts(b.date),
@@ -805,7 +1027,13 @@ function render_weight_tracks_section() {
 
     const thead = document.createElement("thead");
     const headRow = document.createElement("tr");
-    for (const label of ["Datum", "Gewicht (kg)"]) {
+    for (const label of [
+      "Datum",
+      "Gewicht (kg)",
+      "Fett (%)",
+      "Muskel (%)",
+      "Aktion",
+    ]) {
       const th = document.createElement("th");
       th.textContent = label;
       headRow.appendChild(th);
@@ -822,8 +1050,29 @@ function render_weight_tracks_section() {
       tr.appendChild(tdDate);
 
       const tdWeight = document.createElement("td");
-      tdWeight.textContent = format_stat_number(r.weight);
+      tdWeight.textContent =
+        r.weight === null ? "-" : format_stat_number(r.weight);
       tr.appendChild(tdWeight);
+
+      const tdFat = document.createElement("td");
+      tdFat.textContent = r.fat === null ? "-" : format_stat_number(r.fat);
+      tr.appendChild(tdFat);
+
+      const tdMuscle = document.createElement("td");
+      tdMuscle.textContent =
+        r.muscle === null ? "-" : format_stat_number(r.muscle);
+      tr.appendChild(tdMuscle);
+
+      const tdAction = document.createElement("td");
+      const editButton = document.createElement("button");
+      editButton.type = "button";
+      editButton.className = "weight-track-edit-btn";
+      editButton.textContent = "Bearbeiten";
+      editButton.addEventListener("click", () => {
+        edit_weight_track_by_index(r.index);
+      });
+      tdAction.appendChild(editButton);
+      tr.appendChild(tdAction);
 
       tbody.appendChild(tr);
     }
@@ -833,17 +1082,17 @@ function render_weight_tracks_section() {
   }
 
   if (summaryContainer) {
-    const values = rows.map((r) => r.weight).filter((v) => v !== null);
-    if (values.length === 0) {
+    const metricConfigs = [
+      { label: "Gewicht", unit: "kg", values: rows.map((r) => r.weight) },
+      { label: "Fett", unit: "%", values: rows.map((r) => r.fat) },
+      { label: "Muskel", unit: "%", values: rows.map((r) => r.muscle) },
+    ];
+
+    if (!metricConfigs.some((m) => m.values.some((v) => v !== null))) {
       summaryContainer.innerHTML =
         "<p style='padding: 20px; text-align:center;'>Keine Daten für Auswertung.</p>";
       return;
     }
-
-    const minVal = Math.min(...values);
-    const maxVal = Math.max(...values);
-    const avgVal = values.reduce((a, b) => a + b, 0) / values.length;
-    const trendText = build_trend_text(values[0], values[values.length - 1]);
 
     const table = document.createElement("table");
 
@@ -858,29 +1107,44 @@ function render_weight_tracks_section() {
     table.appendChild(thead);
 
     const tbody = document.createElement("tbody");
-    const tr = document.createElement("tr");
+    for (const metric of metricConfigs) {
+      const metricValues = metric.values.filter((v) => v !== null);
+      if (!metricValues.length) continue;
 
-    const tdName = document.createElement("td");
-    tdName.textContent = "Gewicht";
-    tr.appendChild(tdName);
+      const minVal = Math.min(...metricValues);
+      const maxVal = Math.max(...metricValues);
+      const avgVal =
+        metricValues.reduce((acc, val) => acc + val, 0) / metricValues.length;
+      const trendText = build_trend_text(
+        metricValues[0],
+        metricValues[metricValues.length - 1],
+      );
 
-    const tdMin = document.createElement("td");
-    tdMin.textContent = format_stat_number(minVal);
-    tr.appendChild(tdMin);
+      const tr = document.createElement("tr");
 
-    const tdAvg = document.createElement("td");
-    tdAvg.textContent = format_stat_number(avgVal);
-    tr.appendChild(tdAvg);
+      const tdName = document.createElement("td");
+      tdName.textContent = `${metric.label} (${metric.unit})`;
+      tr.appendChild(tdName);
 
-    const tdMax = document.createElement("td");
-    tdMax.textContent = format_stat_number(maxVal);
-    tr.appendChild(tdMax);
+      const tdMin = document.createElement("td");
+      tdMin.textContent = format_stat_number(minVal);
+      tr.appendChild(tdMin);
 
-    const tdTrend = document.createElement("td");
-    tdTrend.textContent = trendText;
-    tr.appendChild(tdTrend);
+      const tdAvg = document.createElement("td");
+      tdAvg.textContent = format_stat_number(avgVal);
+      tr.appendChild(tdAvg);
 
-    tbody.appendChild(tr);
+      const tdMax = document.createElement("td");
+      tdMax.textContent = format_stat_number(maxVal);
+      tr.appendChild(tdMax);
+
+      const tdTrend = document.createElement("td");
+      tdTrend.textContent = trendText;
+      tr.appendChild(tdTrend);
+
+      tbody.appendChild(tr);
+    }
+
     table.appendChild(tbody);
     summaryContainer.appendChild(table);
   }
@@ -1078,8 +1342,10 @@ class StoredTarget {
 }
 
 class Weight {
-  constructor(_weight, _date) {
+  constructor(_weight, _fat, _muscle, _date) {
     this._weight = _weight;
+    this._fat = _fat;
+    this._muscle = _muscle;
     this._date = _date;
   }
 }
@@ -2682,7 +2948,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         // Fragen, ob addiert werden soll
         const addRequest = window.confirm(
           newProduct +
-          " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
+            " ist bereits in Deiner Liste vorhanden. Soll der Wert dazu addiert werden?",
         );
 
         // WENN ADDIERT WERDEN SOLL...
@@ -2762,7 +3028,7 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
         document.getElementById("selectedFoodMakros").innerHTML = "";
         blendOut_Eingabebereich_FoodDB();
         blendOut_MengeAendern();
-      } catch (error) { }
+      } catch (error) {}
     }
   } else {
     showMessage(
@@ -2867,8 +3133,9 @@ function create_Table_TodayEaten() {
 
       let prozentFromDay =
         (selected_Food.intake_kcal * 100) / (kcal_Ziel + parseInt(burned_Kcal));
-      let calcSingle = `Makros: (${selected_Food.intake_kcal
-        } Kcal = ${prozentFromDay.toFixed(0)}%)
+      let calcSingle = `Makros: (${
+        selected_Food.intake_kcal
+      } Kcal = ${prozentFromDay.toFixed(0)}%)
       <br/>
       Fett: ${selected_food__fat} g | ${selected_food__fat_percentage_of_eaten}%
       <br/>
@@ -2996,8 +3263,8 @@ function delete_from_today() {
   if (foodFromToday == true) {
     const decision = window.confirm(
       "Möchtest du < " +
-      selected_Food.intake_productName +
-      "> wirklich von der heutigen Liste löschen?",
+        selected_Food.intake_productName +
+        "> wirklich von der heutigen Liste löschen?",
     );
     if (decision) {
       today_eaten.splice(selectedFoodIndex, 1);
@@ -3386,6 +3653,12 @@ function calc_Kcal_Goal() {
       showMessage(`Bitte das Feld Gewicht ausfüllen`, 4000, "Alert");
     } else {
       bodyWeight = document.getElementById("weight").value;
+      bodyFat =
+        body_fat && body_fat.value.trim() !== "" ? body_fat.value : null;
+      bodyMuscle =
+        body_muscle && body_muscle.value.trim() !== ""
+          ? body_muscle.value
+          : null;
       save_BodyWeight();
 
       // Größe
@@ -4271,8 +4544,8 @@ function delete_Food_from_DB() {
   } else {
     var deleteDecision = window.confirm(
       "Soll das Lebensmittel: <" +
-      selected_Food.productName +
-      "> wirklich für immer aus der Datenbank gelöscht werden?",
+        selected_Food.productName +
+        "> wirklich für immer aus der Datenbank gelöscht werden?",
     );
     if (deleteDecision) {
       let spliceIndex = indexErmittler(selected_Food.productName);
@@ -4985,7 +5258,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
   const wrapperStyles = wrapper ? getComputedStyle(wrapper) : null;
   const wrapperPadX = wrapperStyles
     ? (parseFloat(wrapperStyles.paddingLeft) || 0) +
-    (parseFloat(wrapperStyles.paddingRight) || 0)
+      (parseFloat(wrapperStyles.paddingRight) || 0)
     : 0;
   const rawWidth = Math.max(300, (wrapper && wrapper.clientWidth) || 900);
   const cssWidth = Math.max(300, rawWidth - wrapperPadX);

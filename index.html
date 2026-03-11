@@ -537,6 +537,16 @@
         </div>
 
         <div class="half-row">
+          <label>Körperfett</label>
+          <input type="text" value="" id="body_fat" class="inputMenge" placeholder=" in %">
+        </div>
+
+        <div class="half-row">
+          <label>Muskelmasse</label>
+          <input type="text" value="" id="body_muscle" class="inputMenge" placeholder=" in %">
+        </div>
+
+        <div class="half-row">
           <label>Größe z.B. 180</label>
           <input type="text" pattern="\d*" value="" id="height" class="inputMenge" placeholder=" in cm">
         </div>
@@ -694,6 +704,27 @@
 
   <div id="weight_tracks_table_container" class="weight-tracks-table-container"></div>
   <div id="weight_tracks_summary" class="weight-tracks-summary"></div>
+
+  <div id="overlay_weight_edit" class="overlay-weight-edit">
+    <div class="modal-weight-edit">
+      <h3>Eintrag bearbeiten</h3>
+      <p id="lbl_weight_edit_date">Datum:</p>
+
+      <label for="inp_weight_edit_weight">Gewicht (kg)</label>
+      <input type="text" id="inp_weight_edit_weight" class="inputMenge" placeholder="z. B. 82,4">
+
+      <label for="inp_weight_edit_fat">Körperfett (%)</label>
+      <input type="text" id="inp_weight_edit_fat" class="inputMenge" placeholder="leer = entfernen">
+
+      <label for="inp_weight_edit_muscle">Muskelmasse (%)</label>
+      <input type="text" id="inp_weight_edit_muscle" class="inputMenge" placeholder="leer = entfernen">
+
+      <div class="modal-weight-edit-actions">
+        <button id="btn_weight_edit_cancel" class="expButton">Abbrechen</button>
+        <button id="btn_weight_edit_save" class="ButtonSpeichern">Speichern</button>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Intervall Settings -->
