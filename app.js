@@ -959,7 +959,7 @@ function draw_weight_progress() {
       if (val === null) continue;
 
       const x = padLeft + i * xStep;
-  const y = toCanvasY(val, axis);
+      const y = toCanvasY(val, axis);
       context.beginPath();
       context.arc(x, y, 4, 0, 2 * Math.PI);
       context.fill();
@@ -1012,11 +1012,7 @@ function draw_weight_progress() {
 
   context.fillStyle = "white";
   context.font = "14px sans-serif";
-  context.fillText(
-    `${format_stat_number(weightAxis.max)} kg`,
-    10,
-    padTop + 5,
-  );
+  context.fillText(`${format_stat_number(weightAxis.max)} kg`, 10, padTop + 5);
   context.fillText(
     `${format_stat_number(weightAxis.min)} kg`,
     10,
