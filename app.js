@@ -872,17 +872,39 @@ function draw_weight_progress() {
 
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  const allSeriesValues = [...weightValues, ...fatValues, ...muscleValues];
-  let yMin = Math.min(...allSeriesValues);
-  let yMax = Math.max(...allSeriesValues);
-  if (!Number.isFinite(yMin) || !Number.isFinite(yMax)) {
-    yMin = 0;
-    yMax = 100;
-  }
-  if (Math.abs(yMax - yMin) < 0.0001) {
-    yMin -= 1;
-    yMax += 1;
-  }
+  const buildAxisRange = (values, fallbackMin, fallbackMax) => {
+    if (!values || values.length === 0) {
+      return { min: fallbackMin, max: fallbackMax };
+    }
+
+    let minVal = Math.min(...values);
+    let maxVal = Math.max(...values);
+
+    if (!Number.isFinite(minVal) || !Number.isFinite(maxVal)) {
+      return { min: fallbackMin, max: fallbackMax };
+    }
+
+    const diff = maxVal - minVal;
+    if (Math.abs(diff) < 0.0001) {
+      minVal -= 1;
+      maxVal += 1;
+      return { min: minVal, max: maxVal };
+    }
+
+    const padding = diff * 0.12;
+    return {
+      min: minVal - padding,
+      max: maxVal + padding,
+    };
+  };
+
+  const weightAxis = buildAxisRange(weightValues, 0, 100);
+  const compositionValues = [...fatValues, ...muscleValues];
+  const compositionAxis = buildAxisRange(
+    compositionValues,
+    weightAxis.min,
+    weightAxis.max,
+  );
 
   const padTop = 70;
   const padBottom = 140;
@@ -892,8 +914,8 @@ function draw_weight_progress() {
   const plotHeight = Math.max(80, canvas.height - padTop - padBottom);
   const xStep = rows.length > 1 ? plotWidth / (rows.length - 1) : 0;
 
-  const yToCanvas = (value) => {
-    const norm = (value - yMin) / (yMax - yMin);
+  const toCanvasY = (value, axis) => {
+    const norm = (value - axis.min) / (axis.max - axis.min);
     return padTop + plotHeight - norm * plotHeight;
   };
 
@@ -902,10 +924,12 @@ function draw_weight_progress() {
   context.beginPath();
   context.moveTo(padLeft, padTop);
   context.lineTo(padLeft, padTop + plotHeight);
+  context.moveTo(padLeft + plotWidth, padTop);
+  context.lineTo(padLeft + plotWidth, padTop + plotHeight);
   context.lineTo(padLeft + plotWidth, padTop + plotHeight);
   context.stroke();
 
-  const drawSeries = (key, color) => {
+  const drawSeries = (key, color, axis) => {
     context.strokeStyle = color;
     context.fillStyle = color;
     context.lineWidth = 3;
@@ -920,7 +944,7 @@ function draw_weight_progress() {
       }
 
       const x = padLeft + i * xStep;
-      const y = yToCanvas(val);
+      const y = toCanvasY(val, axis);
       if (!hasPath) {
         context.moveTo(x, y);
         hasPath = true;
@@ -935,7 +959,7 @@ function draw_weight_progress() {
       if (val === null) continue;
 
       const x = padLeft + i * xStep;
-      const y = yToCanvas(val);
+  const y = toCanvasY(val, axis);
       context.beginPath();
       context.arc(x, y, 4, 0, 2 * Math.PI);
       context.fill();
@@ -943,12 +967,27 @@ function draw_weight_progress() {
   };
 
   const legends = [
-    { key: "weight", color: "#ef4444", label: "Gewicht (kg)" },
-    { key: "fat", color: "#f59e0b", label: "Fett (%)" },
-    { key: "muscle", color: "#10b981", label: "Muskel (%)" },
+    {
+      key: "weight",
+      color: "#ef4444",
+      label: "Gewicht (kg)",
+      axis: weightAxis,
+    },
+    {
+      key: "fat",
+      color: "#f59e0b",
+      label: "Fett (%)",
+      axis: compositionAxis,
+    },
+    {
+      key: "muscle",
+      color: "#10b981",
+      label: "Muskel (%)",
+      axis: compositionAxis,
+    },
   ];
   for (const item of legends) {
-    drawSeries(item.key, item.color);
+    drawSeries(item.key, item.color, item.axis);
   }
 
   context.font = "16px sans-serif";
@@ -973,8 +1012,32 @@ function draw_weight_progress() {
 
   context.fillStyle = "white";
   context.font = "14px sans-serif";
-  context.fillText(format_stat_number(yMax), 15, padTop + 5);
-  context.fillText(format_stat_number(yMin), 15, padTop + plotHeight);
+  context.fillText(
+    `${format_stat_number(weightAxis.max)} kg`,
+    10,
+    padTop + 5,
+  );
+  context.fillText(
+    `${format_stat_number(weightAxis.min)} kg`,
+    10,
+    padTop + plotHeight,
+  );
+
+  const rightTopLabel = `${format_stat_number(compositionAxis.max)} %`;
+  const rightBottomLabel = `${format_stat_number(compositionAxis.min)} %`;
+  const topLabelW = context.measureText(rightTopLabel).width;
+  const bottomLabelW = context.measureText(rightBottomLabel).width;
+
+  context.fillText(
+    rightTopLabel,
+    padLeft + plotWidth - topLabelW - 8,
+    padTop + 5,
+  );
+  context.fillText(
+    rightBottomLabel,
+    padLeft + plotWidth - bottomLabelW - 8,
+    padTop + plotHeight,
+  );
 
   render_weight_tracks_section();
 }
