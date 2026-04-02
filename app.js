@@ -4984,7 +4984,10 @@ function render_history_statistics_table(rows, metricKey) {
     const tr = document.createElement("tr");
     for (const col of columns) {
       const td = document.createElement("td");
-      const val = row[col.key];
+      const val =
+        col.key === "date"
+          ? row[col.key]
+          : extract_history_metric_value(row, col.key);
       td.textContent = format_history_value(val);
       tr.appendChild(td);
     }
@@ -5066,6 +5069,7 @@ function render_history_statistics_summary(rows) {
     "Fett",
     "Eiweiss",
     "Kohlenhydrate",
+    "Total Carbs",
     "Zucker",
     "Salz",
     "Ballaststoffe",
@@ -5089,7 +5093,7 @@ function render_history_statistics_summary(rows) {
 
   for (const key of metricKeys) {
     const values = rows
-      .map((r) => extract_history_number(r[key]))
+      .map((r) => extract_history_metric_value(r, key))
       .filter((v) => v !== null);
 
     const tr = document.createElement("tr");
@@ -5147,7 +5151,7 @@ function render_history_statistics_summary(rows) {
 
 function get_first_non_null(rows, key) {
   for (const r of rows) {
-    const v = extract_history_number(r[key]);
+    const v = extract_history_metric_value(r, key);
     if (v !== null) return v;
   }
   return null;
@@ -5155,7 +5159,7 @@ function get_first_non_null(rows, key) {
 
 function get_last_non_null(rows, key) {
   for (let i = rows.length - 1; i >= 0; i--) {
-    const v = extract_history_number(rows[i][key]);
+    const v = extract_history_metric_value(rows[i], key);
     if (v !== null) return v;
   }
   return null;
@@ -5289,6 +5293,19 @@ function extract_history_number(value) {
   if (!m) return null;
   const n = parseFloat(m[0]);
   return Number.isFinite(n) ? n : null;
+}
+
+function extract_history_metric_value(row, metricKey) {
+  if (!row) return null;
+
+  if (metricKey === "Total Carbs") {
+    const carbs = extract_history_number(row["Kohlenhydrate"]);
+    const fiber = extract_history_number(row["Ballaststoffe"]);
+    if (carbs === null && fiber === null) return null;
+    return (carbs || 0) + (fiber || 0);
+  }
+
+  return extract_history_number(row[metricKey]);
 }
 
 function get_history_metric_label(metricKey) {
@@ -5434,6 +5451,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
       Schritte: colA,
       Zucker: colC,
       Kohlenhydrate: colA,
+      "Total Carbs": colA,
       Fett: colA,
       Eiweiss: colA,
       Salz: colC,
@@ -5448,7 +5466,7 @@ function draw_history_statistics_chart(rows, metricKey = "__DEFAULT__") {
         key: metric,
         label: get_history_metric_label(metric),
         color: colorMap[metric] || colText,
-        data: rows.map((r) => extract_history_number(r[metric])),
+        data: rows.map((r) => extract_history_metric_value(r, metric)),
       },
     ];
   }
