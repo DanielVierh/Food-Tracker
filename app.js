@@ -471,7 +471,9 @@ if (inp_closing_date_el) {
 }
 
 // Datums-Modal: Schliessen-Button
-const btn_close_closing_date_modal = document.getElementById("btn_close_closing_date_modal");
+const btn_close_closing_date_modal = document.getElementById(
+  "btn_close_closing_date_modal",
+);
 if (btn_close_closing_date_modal) {
   btn_close_closing_date_modal.addEventListener("click", () => {
     close_closing_date_modal();
@@ -4354,7 +4356,11 @@ function save_closing_date_from_modal() {
   const val = inp.value.trim();
   // Format DD.MM.YYYY validieren
   if (!/^\d{2}\.\d{2}\.\d{4}$/.test(val)) {
-    showMessage("Bitte ein gültiges Datum im Format TT.MM.JJJJ eingeben", 3000, "Alert");
+    showMessage(
+      "Bitte ein gültiges Datum im Format TT.MM.JJJJ eingeben",
+      3000,
+      "Alert",
+    );
     return;
   }
   closing_date = val;
