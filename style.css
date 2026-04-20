@@ -488,6 +488,48 @@ footer {
   justify-content: center;
 }
 
+.closing-date-pill {
+  display: inline-block;
+  background-color: var(--secondaryColor, #1a2a4a);
+  color: var(--mainText, #fff);
+  border: 2px solid var(--themeDotBorder, #3a5a8a);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 20px auto 30px auto;
+  cursor: pointer;
+  letter-spacing: 1px;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  display: block;
+  width: fit-content;
+}
+
+.closing-date-pill:hover {
+  background-color: var(--themeDotBorder, #3a5a8a);
+}
+
+.modal_closing_date {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 20px;
+  z-index: 10;
+  background-color: rgba(2, 11, 43, 0.808);
+  width: 80%;
+  max-width: 80%;
+  height: 35%;
+  border-radius: 20px;
+}
+
+.modal_closing_date.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
 #output_Gramm {
   margin-left: 30px;
 }

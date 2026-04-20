@@ -60,6 +60,7 @@ let originalPercentValue = 0;
 let fetched_barcode = "";
 let fetched_product_image = "";
 let is_fetched_Data = false;
+let closing_date = "";
 
 const inputField_EatenFood_in_Gramm = document.getElementById("foodAmound");
 const progressCircle = document.querySelector(".progress");
@@ -445,6 +446,46 @@ if (overlay_weight_edit) {
   });
 }
 
+// Datumspille – Modal öffnen
+const pill_closing_date = document.getElementById("pill_closing_date");
+if (pill_closing_date) {
+  pill_closing_date.addEventListener("click", () => {
+    open_closing_date_modal();
+  });
+}
+
+// Datums-Modal: Speichern-Button
+const btn_save_closing_date = document.getElementById("btn_save_closing_date");
+if (btn_save_closing_date) {
+  btn_save_closing_date.addEventListener("click", () => {
+    save_closing_date_from_modal();
+  });
+}
+
+// Datums-Modal: Enter-Taste im Input
+const inp_closing_date_el = document.getElementById("inp_closing_date");
+if (inp_closing_date_el) {
+  inp_closing_date_el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") save_closing_date_from_modal();
+  });
+}
+
+// Datums-Modal: Schliessen-Button
+const btn_close_closing_date_modal = document.getElementById("btn_close_closing_date_modal");
+if (btn_close_closing_date_modal) {
+  btn_close_closing_date_modal.addEventListener("click", () => {
+    close_closing_date_modal();
+  });
+}
+
+// overlay: auch Datums-Modal schliessen
+const overlay_el = document.getElementById("overlay");
+if (overlay_el) {
+  overlay_el.addEventListener("click", () => {
+    close_closing_date_modal();
+  });
+}
+
 //====================================================================================
 //NOTE -   Save,  Load or create DB
 //====================================================================================
@@ -625,6 +666,10 @@ function load_other_LocalStorage_Values() {
     my_History.sort((a, b) => (a.history_date < b.history_date ? 1 : -1));
     create_MyHistory();
   }
+
+  // Abschlussdatum
+  closing_date = localStorage.getItem("stored_closing_date") || "";
+  update_closing_date_pill();
 }
 
 // Speichere Wasser
@@ -1356,6 +1401,7 @@ class TodayEatenFood {
     this.intake_protein = intake_protein;
     this.intake_salt = intake_salt;
     this.intake_fiber = intake_fiber;
+    this.intake_timestamp = new Date().toISOString();
   }
 }
 
@@ -3063,6 +3109,13 @@ function add_Food_to_TodayList(add_additionally_to_planer = false) {
           ),
         );
 
+        // Datum beim ersten Eintrag des Tages setzen
+        if (!closing_date) {
+          closing_date = get_today();
+          localStorage.setItem("stored_closing_date", closing_date);
+          update_closing_date_pill();
+        }
+
         // Anzeigen, dass Produkt eingetragen wurde
         const intakeFoodInfo = `${newProduct} wurde hinzugefügt mit: <br> 
                     Kcal: ${kcal_Intake} Kcal <br>
@@ -4077,7 +4130,7 @@ function close_Day() {
   if (req) {
     var currDate = window.prompt(
       "Bestätige oder ändere das Datum",
-      get_today(),
+      closing_date || get_today(),
     );
     if (currDate) {
       var realKcal = window.prompt(
@@ -4224,6 +4277,9 @@ function close_Day() {
       today_Water = 2;
       burned_Kcal = 0;
       lastWater = "";
+      closing_date = "";
+      localStorage.removeItem("stored_closing_date");
+      update_closing_date_pill();
       save_Burned_Kcal();
       save_Last_Water();
       document.getElementById("btnSteps").innerHTML = today_Steps + " &#128095";
@@ -4245,6 +4301,66 @@ function close_Day() {
       }, 2500);
     }
   }
+}
+
+//============================================================================
+//NOTE -  Abschlussdatum-Pille
+//============================================================================
+
+function get_weekday_short(dateStr) {
+  // dateStr = "DD.MM.YYYY"
+  const parts = dateStr.split(".");
+  if (parts.length !== 3) return "";
+  const date = new Date(
+    parseInt(parts[2]),
+    parseInt(parts[1]) - 1,
+    parseInt(parts[0]),
+  );
+  return date.toLocaleDateString("de-DE", { weekday: "long" }).slice(0, 2);
+}
+
+function update_closing_date_pill() {
+  const pill = document.getElementById("pill_closing_date");
+  if (!pill) return;
+  if (!closing_date) {
+    pill.style.display = "none";
+    return;
+  }
+  pill.style.display = "";
+  pill.textContent = get_weekday_short(closing_date) + " " + closing_date;
+}
+
+function open_closing_date_modal() {
+  const modal = document.getElementById("modal_closing_date");
+  const inp = document.getElementById("inp_closing_date");
+  const ovl = document.getElementById("overlay");
+  if (!modal || !inp) return;
+  inp.value = closing_date;
+  modal.classList.add("active");
+  if (ovl) ovl.classList.add("active");
+  inp.select();
+}
+
+function close_closing_date_modal() {
+  const modal = document.getElementById("modal_closing_date");
+  const ovl = document.getElementById("overlay");
+  if (modal) modal.classList.remove("active");
+  if (ovl) ovl.classList.remove("active");
+}
+
+function save_closing_date_from_modal() {
+  const inp = document.getElementById("inp_closing_date");
+  if (!inp) return;
+  const val = inp.value.trim();
+  // Format DD.MM.YYYY validieren
+  if (!/^\d{2}\.\d{2}\.\d{4}$/.test(val)) {
+    showMessage("Bitte ein gültiges Datum im Format TT.MM.JJJJ eingeben", 3000, "Alert");
+    return;
+  }
+  closing_date = val;
+  localStorage.setItem("stored_closing_date", closing_date);
+  update_closing_date_pill();
+  close_closing_date_modal();
 }
 
 //============================================================================
