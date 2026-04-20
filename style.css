@@ -476,6 +476,15 @@ footer {
   border-radius: 20px;
 }
 
+.closeday-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 40px;
+  min-width: max-content;
+}
+
 .button_TagAbschl {
   background-color: red;
   color: white;
@@ -484,12 +493,12 @@ footer {
   font-size: 24px;
   border-radius: 20px;
   font-weight: bold;
-  margin: 100px 20px 50px 210px;
+  margin-right: 130px;
   justify-content: center;
+  box-shadow: inset 0 0 15px black;
 }
 
 .closing-date-pill {
-  display: inline-block;
   background-color: var(--secondaryColor, #1a2a4a);
   color: var(--mainText, #fff);
   border: 2px solid var(--themeDotBorder, #3a5a8a);
@@ -497,12 +506,12 @@ footer {
   padding: 10px 28px;
   font-size: 26px;
   font-weight: bold;
-  margin: 20px auto 30px auto;
+  margin-top: 50px;
+  margin-right: 110px;
   cursor: pointer;
   letter-spacing: 1px;
   user-select: none;
   transition: background-color 0.2s ease;
-  display: block;
   width: fit-content;
 }
 
