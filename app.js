@@ -254,6 +254,21 @@ btn_close_foodModal.addEventListener("click", () => {
 });
 buttonScroll_Up.addEventListener("click", scroll_UP);
 
+// btnSteps erst beim Scrollen einblenden
+window.addEventListener(
+  "scroll",
+  () => {
+    const btnSteps = document.getElementById("btnSteps");
+    if (!btnSteps) return;
+    if (window.scrollY > 50) {
+      btnSteps.classList.add("visible");
+    } else {
+      btnSteps.classList.remove("visible");
+    }
+  },
+  { passive: true },
+);
+
 // Damit gesuchtes Produkt direkt überschreibbar ist
 document.getElementById("searchInput").addEventListener("click", selectWord);
 

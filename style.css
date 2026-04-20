@@ -327,8 +327,8 @@ footer {
   border: 10px solid var(--themeDotBorder);
   position: fixed;
   /* Stay fixed */
-  top: 15%;
-  left: 55%;
+  top: 253px;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 350px;
@@ -338,6 +338,14 @@ footer {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(13px);
   -webkit-backdrop-filter: blur(13px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bg-text3.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .new-product-modal {
@@ -537,6 +545,19 @@ footer {
 
 .modal_closing_date.active {
   transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-save-closing-date {
+  width: 300px;
+  height: 150px;
+  background-color: darkgreen;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 50px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
 }
 
 #output_Gramm {
@@ -1551,10 +1572,6 @@ table.names th {
 
   #btn_SaveSteps {
     width: 100%;
-  }
-
-  .bg-text3 {
-    top: 11%;
   }
 
   .container_Kcal_Diagram {
@@ -2673,4 +2690,8 @@ input:checked + .slider:before {
   margin-top: 30px;
   font-size: 1.5rem;
   color: gray;
+}
+
+.first-area {
+  margin-top: 193px;
 }
