@@ -1,6 +1,6 @@
 {
   "name": "food-tracker",
-  "version": "3.7.5",
+  "version": "3.7.6",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
