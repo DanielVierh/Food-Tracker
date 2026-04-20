@@ -211,6 +211,19 @@ function loadCont() {
   show_EffectKcal();
   calc_Values();
   planed_food = stored_planed_food;
+  load_version();
+}
+
+function load_version() {
+  fetch("package.json")
+    .then((res) => res.json())
+    .then((pkg) => {
+      const el = document.getElementById("footer_version");
+      if (el && pkg.version) {
+        el.textContent = "Version " + pkg.version;
+      }
+    })
+    .catch(() => {});
 }
 
 // Checke local Storage
