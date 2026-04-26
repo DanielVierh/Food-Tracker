@@ -4389,11 +4389,7 @@ function save_closing_date_from_modal() {
   if (!inp) return;
   const val = inp.value; // YYYY-MM-DD
   if (!val) {
-    showMessage(
-      "Bitte ein gültiges Datum auswählen",
-      3000,
-      "Alert",
-    );
+    showMessage("Bitte ein gültiges Datum auswählen", 3000, "Alert");
     return;
   }
   // Date-Input liefert YYYY-MM-DD → intern DD.MM.YYYY
