@@ -4365,10 +4365,16 @@ function open_closing_date_modal() {
   const inp = document.getElementById("inp_closing_date");
   const ovl = document.getElementById("overlay");
   if (!modal || !inp) return;
-  inp.value = closing_date;
+  // closing_date ist DD.MM.YYYY → Date-Input braucht YYYY-MM-DD
+  if (closing_date && /^\d{2}\.\d{2}\.\d{4}$/.test(closing_date)) {
+    const [d, m, y] = closing_date.split(".");
+    inp.value = `${y}-${m}-${d}`;
+  } else {
+    inp.value = "";
+  }
   modal.classList.add("active");
   if (ovl) ovl.classList.add("active");
-  inp.select();
+  inp.focus();
 }
 
 function close_closing_date_modal() {
@@ -4381,17 +4387,18 @@ function close_closing_date_modal() {
 function save_closing_date_from_modal() {
   const inp = document.getElementById("inp_closing_date");
   if (!inp) return;
-  const val = inp.value.trim();
-  // Format DD.MM.YYYY validieren
-  if (!/^\d{2}\.\d{2}\.\d{4}$/.test(val)) {
+  const val = inp.value; // YYYY-MM-DD
+  if (!val) {
     showMessage(
-      "Bitte ein gültiges Datum im Format TT.MM.JJJJ eingeben",
+      "Bitte ein gültiges Datum auswählen",
       3000,
       "Alert",
     );
     return;
   }
-  closing_date = val;
+  // Date-Input liefert YYYY-MM-DD → intern DD.MM.YYYY
+  const [y, m, d] = val.split("-");
+  closing_date = `${d}.${m}.${y}`;
   localStorage.setItem("stored_closing_date", closing_date);
   update_closing_date_pill();
   close_closing_date_modal();
